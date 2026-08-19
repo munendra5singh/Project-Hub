@@ -1,0 +1,141 @@
+/* ==========================================================================
+   ExcelSuperGuru - Global Design System & Variables
+   ========================================================================== */
+
+:root {
+    /* Font Stack */
+    --font-primary: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+
+    /* Light Theme Tokens */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f3f5;
+    
+    --text-primary: #1c1e21;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    
+    --excel-green: #107c41;
+    --excel-green-hover: #0a5c2f;
+    --excel-green-alpha: rgba(16, 124, 65, 0.1);
+    
+    --border-color: #dee2e6;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --max-width: 1280px;
+}
+
+body.dark-mode {
+    /* Dark Theme Tokens */
+    --bg-primary: #0f111a;
+    --bg-secondary: #161925;
+    --bg-tertiary: #1f2335;
+    
+    --text-primary: #f8f9fa;
+    --text-secondary: #c1c7e0;
+    --text-muted: #7a829e;
+    
+    --excel-green: #107c41;
+    --excel-green-hover: #169e53;
+    --excel-green-alpha: rgba(16, 124, 65, 0.25);
+    
+    --border-color: #2a2f45;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   CSS Reset
+   ========================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ==========================================================================
+   Typography Base
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
+h2 { font-size: 2rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--excel-green);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--excel-green-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Utility Grid Systems */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+.text-center { text-align: center; }
+.section-padding { padding: 5rem 0; }
+
+
+
+.neon-blue-text {
+    color: hsl(243, 91%, 50%); /* Pure High-Vibrancy Neon Blue */
+    font-weight: 700; /* Extra Bold taaki text alag se highlight ho */
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4); /* Subtle Neon Glow effect */
+}
+

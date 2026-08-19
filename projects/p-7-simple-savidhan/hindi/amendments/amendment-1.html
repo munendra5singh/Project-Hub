@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - संशोधन 1: संविधान (पहला संशोधन) अधिनियम, 1951</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner Customization */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .left-sidebar, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .left-sidebar::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .left-sidebar::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .amendments-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .amendments-nav-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .amendments-nav-item i {
+      font-size: 14px;
+      color: #637381;
+      margin-top: 2px;
+      width: 16px;
+      text-align: center;
+    }
+
+    .amendments-nav-item .amd-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2b3649;
+      line-height: 1.2;
+    }
+
+    .amendments-nav-item .amd-desc {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 2px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .amendments-nav-item:hover {
+      background-color: #f4f6f8;
+    }
+
+    .amendments-nav-item.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+    }
+
+    .amendments-nav-item.active i,
+    .amendments-nav-item.active .amd-name,
+    .amendments-nav-item.active .amd-desc {
+      color: #ffffff;
+    }
+
+    .btn-view-all-amd {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all-amd:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Left Sidebar Quick Facts Table */
+    .quick-facts-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .quick-facts-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .quick-facts-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .quick-facts-table td {
+      padding: 8px 0;
+      vertical-align: top;
+    }
+
+    .qf-label {
+      font-weight: 700;
+      color: #0b1a30;
+      width: 50%;
+    }
+
+    .qf-val {
+      color: #3d4a5d;
+      width: 50%;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .amendment-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .amendment-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .amendment-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .amendment-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-listen-amendment {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .amendment-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Yellow Alert Box */
+    .yellow-alert-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .yellow-alert-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #b37b12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b37b12;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .yellow-alert-text {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 15px;
+      color: #103254;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    .card-paragraph {
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.55;
+    }
+
+    /* Changes Table */
+    .changes-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      margin-top: 4px;
+    }
+
+    .changes-table th {
+      text-align: left;
+      font-weight: 700;
+      color: #0b1a30;
+      padding: 8px 10px;
+      background-color: #fafbfc;
+      border-bottom: 1px solid #e8ecef;
+      border-top: 1px solid #e8ecef;
+    }
+
+    .changes-table td {
+      padding: 10px;
+      border-bottom: 1px solid #f0f4f8;
+      vertical-align: top;
+      color: #3d4a5d;
+      line-height: 1.4;
+    }
+
+    .changes-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .col-art {
+      width: 18%;
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .col-change {
+      width: 22%;
+      font-weight: 600;
+      color: #0b1a30;
+    }
+
+    .col-details {
+      width: 60%;
+    }
+
+    /* Exam Note Box */
+    .exam-note-box {
+      background-color: #f3ecf8;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border: 1px solid #e5d7f2;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .exam-icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6a4498;
+      font-size: 13px;
+      flex-shrink: 0;
+      border: 1px solid #d8c2eb;
+    }
+
+    .exam-note-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #6a4498;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .gavel-illustration {
+      width: 70px;
+      height: 40px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a5cb8" opacity="0.8" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="45" width="80" height="8" rx="2"/><rect x="20" y="30" width="30" height="12" rx="2"/><rect x="60" y="10" width="10" height="30" rx="2" transform="rotate(30 65 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Bottom Navigation Controls Bar */
+    .bottom-nav-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      gap: 12px;
+    }
+
+    .btn-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #1e3a8a;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-nav-link .nav-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-nav-link .nav-lbl {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #1e3a8a;
+    }
+
+    .btn-nav-link .nav-sub {
+      font-size: 11px;
+      color: #3d4a5d;
+    }
+
+    .btn-center-all {
+      background-color: #ffffff;
+      color: #1e3a8a;
+      border: 1px solid #1e3a8a;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-center-all:hover {
+      background-color: #edf3f9;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 14px;
+    }
+
+    /* Overview Table */
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .overview-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .overview-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .overview-table td {
+      padding: 8px 0;
+      vertical-align: top;
+    }
+
+    .overview-label {
+      font-weight: 700;
+      color: #0b1a30;
+      width: 45%;
+    }
+
+    .overview-val {
+      color: #3d4a5d;
+      width: 55%;
+    }
+
+    /* Affected Articles List */
+    .bullet-list-sm {
+      list-style: disc;
+      padding-left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 11.5px;
+      color: #2b3649;
+    }
+
+    /* What Does It Do Special Box */
+    .widget-what-does-it-do {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+    }
+
+    .widget-what-does-it-do .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-what-does-it-do .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .what-does-it-do-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.5;
+    }
+
+    /* Related Amendments Links */
+    .related-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .related-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e3a8a;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+
+    .related-link-item:hover {
+      text-decoration: underline;
+    }
+
+    .related-link-item i {
+      font-size: 10.5px;
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    /* Download Box */
+    .download-sub {
+      font-size: 11px;
+      color: #3d4a5d;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .btn-download-pdf {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-download-pdf:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .amendment-main-heading {
+        font-size: 18px;
+      }
+      .changes-table, .changes-table tbody, .changes-table tr, .changes-table td, .changes-table th {
+        display: block;
+      }
+      .changes-table th {
+        display: none;
+      }
+      .changes-table td {
+        width: 100% !important;
+        padding: 6px 0;
+        border-bottom: none;
+      }
+      .changes-table tr {
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f4f8;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gavel-illustration {
+        display: none;
+      }
+      .bottom-nav-controls {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .btn-nav-link {
+        justify-content: center;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR AMENDMENT-1 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-subtitle {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .amendment-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .amendment-main-heading,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .qf-label,
+    [data-theme="dark"] .overview-label,
+    [data-theme="dark"] .changes-table th,
+    [data-theme="dark"] .col-art,
+    [data-theme="dark"] .col-change {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .amendments-nav-item .amd-name {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .amendments-nav-item i,
+    [data-theme="dark"] .amendments-nav-item .amd-desc,
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .amendments-nav-item:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .amendments-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .amendments-nav-item.active i,
+    [data-theme="dark"] .amendments-nav-item.active .amd-name,
+    [data-theme="dark"] .amendments-nav-item.active .amd-desc {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-view-all-amd,
+    [data-theme="dark"] .btn-listen-amendment,
+    [data-theme="dark"] .btn-center-all,
+    [data-theme="dark"] .btn-download-pdf {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-view-all-amd:hover,
+    [data-theme="dark"] .btn-listen-amendment:hover,
+    [data-theme="dark"] .btn-center-all:hover,
+    [data-theme="dark"] .btn-download-pdf:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .btn-nav-link,
+    [data-theme="dark"] .btn-nav-link .nav-lbl,
+    [data-theme="dark"] .related-link-item,
+    [data-theme="dark"] .card-section-title i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .card-paragraph,
+    [data-theme="dark"] .col-details,
+    [data-theme="dark"] .qf-val,
+    [data-theme="dark"] .overview-val,
+    [data-theme="dark"] .bullet-list-sm,
+    [data-theme="dark"] .what-does-it-do-desc,
+    [data-theme="dark"] .download-sub,
+    [data-theme="dark"] .btn-nav-link .nav-sub {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .yellow-alert-box {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .yellow-alert-text {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .changes-table th {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .changes-table td,
+    [data-theme="dark"] .quick-facts-table tr,
+    [data-theme="dark"] .overview-table tr {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: rgba(106, 68, 152, 0.2);
+      border-color: rgba(106, 68, 152, 0.4);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: rgba(106, 68, 152, 0.4);
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-title {
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .widget-what-does-it-do {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-what-does-it-do .widget-title-text,
+    [data-theme="dark"] .widget-what-does-it-do .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html">भाग</a></li>
+      <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html" class="active">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/amendments/amendment-1.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">संशोधन 1</h1><br>
+      <span class="hero-subtitle">संविधान (पहला संशोधन) अधिनियम, 1951</span>
+      <p class="hero-description">
+        1951 में लागू किया गया भारत के संविधान का<br>
+        पहला संशोधन।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container Layout -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/amendments.html">संशोधन</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>संशोधन 1</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Browse Amendments & Quick Facts -->
+      <aside class="left-sidebar">
+        
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-book-bookmark"></i>
+            <span>संशोधन देखें</span>
+          </div>
+
+          <ul class="amendments-nav-list">
+            <li class="amendments-nav-item active">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 1</div>
+                <div class="amd-desc">संविधान (पहला संशोधन) अधिनियम, 1951</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 2</div>
+                <div class="amd-desc">संविधान (दूसरा संशोधन) अधिनियम, 1952</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 3</div>
+                <div class="amd-desc">संविधान (तीसरा संशोधन) अधिनियम, 1954</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 4</div>
+                <div class="amd-desc">संविधान (चौथा संशोधन) अधिनियम, 1955</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 5</div>
+                <div class="amd-desc">संविधान (पांचवां संशोधन) अधिनियम, 1955</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 6</div>
+                <div class="amd-desc">संविधान (छठा संशोधन) अधिनियम, 1956</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 7</div>
+                <div class="amd-desc">संविधान (सातवां संशोधन) अधिनियम, 1956</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 8</div>
+                <div class="amd-desc">संविधान (आठवां संशोधन) अधिनियम, 1956</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 9</div>
+                <div class="amd-desc">संविधान (नौवां संशोधन) अधिनियम, 1956</div>
+              </div>
+            </li>
+            <li class="amendments-nav-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div>
+                <div class="amd-name">संशोधन 10</div>
+                <div class="amd-desc">संविधान (दसवां संशोधन) अधिनियम, 1961</div>
+              </div>
+            </li>
+          </ul>
+
+          <button class="btn-view-all-amd" type="button" onclick="window.location.href='../pages/amendments.html'">
+            सभी संशोधन देखें <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>मुख्य तथ्य</span>
+          </div>
+
+          <table class="quick-facts-table">
+            <tr>
+              <td class="qf-label">संशोधन संख्या</td>
+              <td class="qf-val">1</td>
+            </tr>
+            <tr>
+              <td class="qf-label">अधिनियम संख्या</td>
+              <td class="qf-val">1951 का 18</td>
+            </tr>
+            <tr>
+              <td class="qf-label">पारित तिथि</td>
+              <td class="qf-val">18 जून 1951</td>
+            </tr>
+            <tr>
+              <td class="qf-label">स्वीकृति तिथि</td>
+              <td class="qf-val">18 जून 1951</td>
+            </tr>
+            <tr>
+              <td class="qf-label">लागू तिथि</td>
+              <td class="qf-val">18 जून 1951</td>
+            </tr>
+            <tr>
+              <td class="qf-label">लोकसभा में पेश</td>
+              <td class="qf-val">8 मई 1951</td>
+            </tr>
+            <tr>
+              <td class="qf-label">राज्यसभा में पेश</td>
+              <td class="qf-val">11 मई 1951</td>
+            </tr>
+            <tr>
+              <td class="qf-label">उद्देश्य</td>
+              <td class="qf-val">अभिव्यक्ति की स्वतंत्रता की रक्षा करना और भूमि सुधार कानूनों को लागू करना</td>
+            </tr>
+          </table>
+        </div>
+
+      </aside>
+
+      <!-- Middle Main Content Panel - SCROLLABLE -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="amendment-header-card">
+          <div class="amendment-top-bar">
+            <div class="amendment-badge-title">
+              <i class="fa-regular fa-file-lines"></i> संशोधन 1
+            </div>
+            <div class="amendment-actions">
+              <button class="action-icon-btn" title="बुकमार्क करें"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" title="साझा करें"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-amendment" type="button">
+                <i class="fa-solid fa-volume-high"></i> संशोधन सुनें
+              </button>
+            </div>
+          </div>
+          <h1 class="amendment-main-heading">संविधान (पहला संशोधन) अधिनियम, 1951</h1>
+        </div>
+
+        <!-- Yellow Alert Box -->
+        <div class="yellow-alert-box">
+          <div class="yellow-alert-icon">
+            <i class="fa-solid fa-info"></i>
+          </div>
+          <div class="yellow-alert-text">
+            पहला संशोधन स्वतंत्र भारत का पहला संवैधानिक संशोधन था। इसे अभिव्यक्ति की स्वतंत्रता, भूमि सुधार, आरक्षण और अन्य सामाजिक-आर्थिक मुद्दों से जुड़ी चुनौतियों को दूर करने के लिए लागू किया गया था।
+          </div>
+        </div>
+
+        <!-- Key Highlights Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-landmark"></i> मुख्य विशेषताएं
+          </div>
+          <ul class="bullet-points-list">
+            <li>अनुच्छेद 19(2) के तहत वाक् और अभिव्यक्ति की स्वतंत्रता पर तर्कसंगत प्रतिबंध लगाए गए।</li>
+            <li>राज्य को भूमि सुधारों के लिए कानून बनाने का अधिकार दिया गया और अनुच्छेद 31A व 31B के तहत संपत्ति के अधिकारों पर सीमाएं लगाई गईं।</li>
+            <li>कुछ विशेष कानूनों को अदालती समीक्षा (न्यायिक पुनरावलोकन) से बचाने के लिए नौवीं अनुसूची जोड़ी गई।</li>
+            <li>अनुच्छेद 15(4) के तहत शैक्षणिक संस्थानों में सामाजिक और शैक्षणिक रूप से पिछड़े वर्गों के लिए आरक्षण का प्रावधान किया गया।</li>
+            <li>अनुच्छेद 31 में "संपदा" शब्द को बदलकर "संपदाओं" किया गया।</li>
+          </ul>
+        </div>
+
+        <!-- Changes Introduced Table Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-scale-balanced"></i> पहले संशोधन द्वारा किए गए बदलाव
+          </div>
+
+          <table class="changes-table">
+            <thead>
+              <tr>
+                <th class="col-art">अनुच्छेद</th>
+                <th class="col-change">किया गया बदलाव</th>
+                <th class="col-details">विवरण</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-art">अनुच्छेद 15(4)</td>
+                <td class="col-change">नया खंड जोड़ा गया</td>
+                <td class="col-details">राज्य शैक्षणिक संस्थानों में सामाजिक और शैक्षणिक रूप से पिछड़े वर्गों या अनुसूचित जातियों और अनुसूचित जनजातियों की उन्नति के लिए विशेष प्रावधान बना सकता है।</td>
+              </tr>
+              <tr>
+                <td class="col-art">अनुच्छेद 19(2)</td>
+                <td class="col-change">खंड में संशोधन</td>
+                <td class="col-details">लोक व्यवस्था (सार्वजनिक व्यवस्था), विदेशी राज्यों के साथ मैत्रीपूर्ण संबंधों, किसी अपराध के लिए उकसाने आदि के आधार पर भाषण की स्वतंत्रता पर रोक लगाई जा सकती है।</td>
+              </tr>
+              <tr>
+                <td class="col-art">अनुच्छेद 31A</td>
+                <td class="col-change">नया अनुच्छेद जोड़ा गया</td>
+                <td class="col-details">संपदाओं और उनके अधिकारों के अधिग्रहण या समाप्ति का प्रावधान करने वाले कानूनों को संरक्षण दिया गया।</td>
+              </tr>
+              <tr>
+                <td class="col-art">अनुच्छेद 31B</td>
+                <td class="col-change">नया अनुच्छेद जोड़ा गया</td>
+                <td class="col-details">नौवीं अनुसूची में शामिल कानूनों को किसी भी अदालत में चुनौती दिए जाने से संरक्षण मिला।</td>
+              </tr>
+              <tr>
+                <td class="col-art">नौवीं अनुसूची</td>
+                <td class="col-change">नई अनुसूची जोड़ी गई</td>
+                <td class="col-details">अनुच्छेद 31B के तहत न्यायिक समीक्षा से सुरक्षित कानूनों की एक सूची।</td>
+              </tr>
+              <tr>
+                <td class="col-art">अनुच्छेद 31</td>
+                <td class="col-change">शब्द में बदलाव</td>
+                <td class="col-details">"संपदा" शब्द के स्थान पर "संपदाओं" शब्द रखा गया।</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Background Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-clock"></i> पृष्ठभूमि (बैकग्राउंड)
+          </div>
+          <p class="card-paragraph">
+            रोमेश थापर बनाम मद्रास राज्य (1950) और बृजभूषण बनाम दिल्ली राज्य (1950) में सुप्रीम कोर्ट के फैसलों के बाद सरकार को लगा कि भाषण की स्वतंत्रता की व्याख्या बहुत व्यापक रूप से की जा रही है। साथ ही, भूमि सुधार कानूनों को अदालतों द्वारा रद्द किया जा रहा था। इसलिए, इन कठिनाइयों को दूर करने के लिए पहला संशोधन लाया गया।
+          </p>
+        </div>
+
+        <!-- Significance Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-star"></i> महत्व
+          </div>
+          <ul class="bullet-points-list">
+            <li>मौलिक अधिकारों और सामाजिक हितों के बीच संतुलन बनाया।</li>
+            <li>भूमि सुधारों को लागू करने की राज्य की शक्ति को मजबूत किया।</li>
+            <li>भविष्य के सामाजिक न्याय के उपायों की नींव रखी।</li>
+            <li>भारत के संवैधानिक इतिहास के सबसे महत्वपूर्ण संशोधनों में से एक।</li>
+          </ul>
+        </div>
+
+        <!-- Exam Note Banner -->
+        <div class="exam-note-box">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">परीक्षा के लिए टिप्पणी</div>
+              <div class="exam-note-desc">
+                पहला संशोधन अक्सर "सबसे महत्वपूर्ण संशोधन" कहा जाता है क्योंकि इसने मौलिक अधिकारों पर तर्कसंगत प्रतिबंध लगाए और भूमि सुधार कानूनों की रक्षा की, जो नए स्वतंत्र राष्ट्र के लिए बेहद जरूरी थे।
+              </div>
+            </div>
+          </div>
+          <div class="gavel-illustration"></div>
+        </div>
+
+        <!-- Bottom Navigation Controls -->
+        <div class="bottom-nav-controls">
+          <a href="#" class="btn-nav-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            <div class="nav-text-block">
+              <span class="nav-lbl">पिछला संशोधन</span>
+              <span class="nav-sub">प्रस्तावना (संशोधन) अधिनियम, 1949</span>
+            </div>
+          </a>
+
+          <button class="btn-center-all" type="button" onclick="window.location.href='../pages/amendments.html'">
+            <i class="fa-solid fa-border-all"></i> सभी संशोधन देखें
+          </button>
+
+          <a href="#" class="btn-nav-link">
+            <div class="nav-text-block" style="text-align: right;">
+              <span class="nav-lbl">अगला संशोधन</span>
+              <span class="nav-sub">संशोधन 2 – 1952</span>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Overview Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>अवलोकन (ओवरव्यू)</span>
+          </div>
+
+          <table class="overview-table">
+            <tr>
+              <td class="overview-label">संशोधन संख्या</td>
+              <td class="overview-val">1</td>
+            </tr>
+            <tr>
+              <td class="overview-label">अधिनियम संख्या</td>
+              <td class="overview-val">1951 का 18</td>
+            </tr>
+            <tr>
+              <td class="overview-label">पारित तिथि</td>
+              <td class="overview-val">18 जून 1951</td>
+            </tr>
+            <tr>
+              <td class="overview-label">स्वीकृति तिथि</td>
+              <td class="overview-val">18 जून 1951</td>
+            </tr>
+            <tr>
+              <td class="overview-label">लागू तिथि</td>
+              <td class="overview-val">18 जून 1951</td>
+            </tr>
+            <tr>
+              <td class="overview-label">उद्देश्य</td>
+              <td class="overview-val">अभिव्यक्ति की स्वतंत्रता की रक्षा करना और भूमि सुधार कानूनों को लागू करना</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Affected Articles Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>प्रभावित अनुच्छेद</span>
+          </div>
+
+          <ul class="bullet-list-sm">
+            <li>अनुच्छेद 15(4)</li>
+            <li>अनुच्छेद 19(2)</li>
+            <li>अनुच्छेद 31A</li>
+            <li>अनुच्छेद 31B</li>
+            <li>अनुच्छेद 31</li>
+            <li>नौवीं अनुसूची (जोड़ी गई)</li>
+          </ul>
+        </div>
+
+        <!-- What Does It Do Widget -->
+        <div class="sidebar-widget widget-what-does-it-do">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>यह क्या करता है?</span>
+          </div>
+
+          <p class="what-does-it-do-desc">
+            यह सुनिश्चित करता है कि राज्य भूमि सुधारों के लिए कानून बना सके, पिछड़े वर्गों के लिए विशेष प्रावधान कर सके और सार्वजनिक व्यवस्था, सुरक्षा व अन्य आधारों पर अभिव्यक्ति की स्वतंत्रता पर तर्कसंगत प्रतिबंध लगा सके।
+          </p>
+        </div>
+
+        <!-- Related Amendments Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-link"></i>
+            <span>संबंधित संशोधन</span>
+          </div>
+
+          <ul class="related-links-list">
+            <li class="related-link-item">
+              <span>संशोधन 4 (1955)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>संशोधन 17 (1964)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>संशोधन 24 (1971)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>संशोधन 42 (1976)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item" onclick="window.location.href='../pages/amendments.html'">
+              <span>सभी संशोधन देखें</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-download"></i>
+            <span>डाउनलोड</span>
+          </div>
+
+          <div class="download-sub">
+            संविधान (पहला संशोधन)<br>अधिनियम, 1951 पढ़ें<br>(PDF)
+          </div>
+
+          <button class="btn-download-pdf" type="button">
+            <i class="fa-regular fa-file-pdf"></i> PDF डाउनलोड करें
+          </button>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+</body>
+</html>

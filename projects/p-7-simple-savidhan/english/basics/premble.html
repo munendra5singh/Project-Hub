@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Preamble of the Constitution of India</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left Sidebar: On This Page Nav & Quick Fact */
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 16px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .page-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .page-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .page-nav-item::before {
+      content: "•";
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .page-nav-item.active {
+      background-color: #edf3f9;
+      color: #103254;
+      font-weight: 600;
+    }
+
+    .page-nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+      color: #0b1a30;
+    }
+
+    /* Quick Fact Card with Illustration */
+    .quick-fact-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-fact-card .sidebar-title i {
+      font-size: 18px;
+      color: #103254;
+    }
+
+    .quick-fact-text {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .india-gate-illustration {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23d8c3a5" opacity="0.35" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 90 h60 v-10 h-10 v-20 h-10 v-30 h10 v-5 h-40 v5 h10 v30 h-10 v20 h-10 z M40 90 v-20 a10 10 0 0 1 20 0 v20 z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 24px;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .panel-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .btn-listen {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-listen:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Preamble Ornamental Box */
+    .preamble-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 24px;
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+    }
+
+    .ornament-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .ornament-line {
+      height: 1px;
+      width: 80px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    }
+
+    .ornament-icon {
+      color: #d4af37;
+      font-size: 22px;
+    }
+
+    .preamble-text {
+      font-family: 'Cinzel', serif;
+      color: #0b1a30;
+      line-height: 2;
+      font-size: 13.5px;
+    }
+
+    .preamble-text .highlight-heading {
+      color: #d4af37;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .preamble-text .highlight-bold {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .preamble-text .highlight-footer {
+      color: #d4af37;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-top: 16px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* Note Container Box */
+    .note-box {
+      background-color: #f4f7fb;
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-left: 4px solid #103254;
+      margin-bottom: 24px;
+    }
+
+    .note-icon-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 1px solid #d0dbe7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .note-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .note-desc {
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    /* Dynamic Content Section Styles */
+    .content-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f4f8;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-heading i {
+      color: #d4af37;
+      font-size: 14px;
+    }
+
+    .section-text {
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .section-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .section-list li {
+      font-size: 12px;
+      color: #2b3649;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .section-list li i {
+      color: #103254;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 16px;
+    }
+
+    .widget-description {
+      font-size: 12px;
+      color: #526071;
+      line-height: 1.65;
+    }
+
+    /* Key Features List */
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .feature-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Download Box */
+    .download-sub {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 12px;
+    }
+
+    .btn-download-pdf {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-download-pdf:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Related Sections Links */
+    .related-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .related-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e3a8a;
+      cursor: pointer;
+    }
+
+    .related-link-item:hover {
+      text-decoration: underline;
+    }
+
+    .related-link-item i {
+      font-size: 11px;
+    }
+
+    /* Fully Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .preamble-box {
+        padding: 24px 15px;
+      }
+      .preamble-text {
+        font-size: 12px;
+      }
+      .note-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR PREAMBLE PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .quick-fact-card,
+    [data-theme="dark"] .main-content-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .panel-title,
+    [data-theme="dark"] .panel-title i,
+    [data-theme="dark"] .preamble-text,
+    [data-theme="dark"] .section-heading,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .download-sub {
+      color: var(--sv-text-heading) !important;
+    }
+
+    [data-theme="dark"] .page-nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .page-nav-item::before {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .page-nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .page-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .page-nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-listen,
+    [data-theme="dark"] .btn-download-pdf {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-listen:hover,
+    [data-theme="dark"] .btn-download-pdf:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .preamble-box {
+      background-color: rgba(209, 141, 39, 0.08);
+      border-color: rgba(209, 141, 39, 0.3);
+      box-shadow: inset 0 0 20px rgba(209, 141, 39, 0.08);
+    }
+
+    [data-theme="dark"] .preamble-text .highlight-heading,
+    [data-theme="dark"] .preamble-text .highlight-footer,
+    [data-theme="dark"] .ornament-icon {
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .ornament-line {
+      background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+    }
+
+    [data-theme="dark"] .note-box {
+      background-color: var(--sv-bg-card-hover);
+      border-left-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .note-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .note-title {
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .quick-fact-text,
+    [data-theme="dark"] .note-desc,
+    [data-theme="dark"] .section-text,
+    [data-theme="dark"] .section-list li,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .feature-item {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .section-heading i,
+    [data-theme="dark"] .section-list li i,
+    [data-theme="dark"] .feature-item i,
+    [data-theme="dark"] .related-link-item {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .panel-header,
+    [data-theme="dark"] .content-section {
+      border-color: var(--sv-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../pages/articles.html">ARTICLES</a></li>
+      <li><a href="../pages/parts.html">PARTS</a></li>
+      <li><a href="../pages/schedules.html">SCHEDULES</a></li>
+      <li><a href="../pages/amendments.html">AMENDMENTS</a></li>
+      <li><a href="../pages/judgments.html">JUDGMENTS</a></li>
+      <li><a href="../pages/glossary.html">GLOSSARY</a></li>
+      <li><a href="../pages/quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/basics/premble.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">PREAMBLE<br>OF THE CONSTITUTION OF INDIA</h1>
+      <p class="hero-description">
+        The Preamble is the introductory statement of the Constitution.<br>
+        It sets out the ideals and objectives of our nation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container Layout -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+      <a href="#">Constitution of India</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+      <span>Preamble</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: On This Page & Quick Fact -->
+      <aside class="left-sidebar">
+        
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>ON THIS PAGE</span>
+          </div>
+
+          <ul class="page-nav-list" id="pageNavList">
+            <li class="page-nav-item active" data-target="sec-text">Text of the Preamble</li>
+            <li class="page-nav-item" data-target="sec-meaning">Meaning and Significance</li>
+            <li class="page-nav-item" data-target="sec-features">Key Features</li>
+            <li class="page-nav-item" data-target="sec-ideals">Salient Ideals</li>
+            <li class="page-nav-item" data-target="sec-history">Historical Background</li>
+            <li class="page-nav-item" data-target="sec-amendments">Amendments</li>
+            <li class="page-nav-item" data-target="sec-judicial">Judicial Interpretation</li>
+          </ul>
+        </div>
+
+        <div class="quick-fact-card">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-quote-left"></i>
+            <span>QUICK FACT</span>
+          </div>
+          <p class="quick-fact-text" id="quickFactText">
+            The Preamble was adopted<br>
+            on 26 November 1949.
+          </p>
+          <div class="india-gate-illustration"></div>
+        </div>
+
+      </aside>
+
+      <!-- Middle Panel: Text of the Preamble -->
+      <main class="main-content-panel">
+        <div class="panel-header" id="sec-text">
+          <div class="panel-title">
+            <i class="fa-solid fa-landmark"></i>
+            <span>TEXT OF THE PREAMBLE</span>
+          </div>
+          <button class="btn-listen" id="btnListen" type="button">
+            <i class="fa-solid fa-volume-high" id="listenIcon"></i> <span id="listenText">Listen to Preamble</span>
+          </button>
+        </div>
+
+        <!-- Ornamental Box -->
+        <div class="preamble-box">
+          <div class="ornament-header">
+            <div class="ornament-line"></div>
+            <i class="fa-solid fa-scale-balanced ornament-icon"></i>
+            <div class="ornament-line"></div>
+          </div>
+
+          <div class="preamble-text" id="preambleTextContainer">
+            <span class="highlight-heading">WE, THE PEOPLE OF INDIA,</span>
+            having solemnly resolved to constitute India into a<br>
+            <span class="highlight-bold">SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC</span><br>
+            and to secure to all its citizens:<br>
+            <span class="highlight-bold">JUSTICE</span>, social, economic and political;<br>
+            <span class="highlight-bold">LIBERTY</span> of thought, expression, belief, faith and worship;<br>
+            <span class="highlight-bold">EQUALITY</span> of status and of opportunity;<br>
+            and to promote among them all<br>
+            <span class="highlight-bold">FRATERNITY</span> assuring the dignity of the individual<br>
+            and the unity and integrity of the Nation;<br>
+            <span class="highlight-footer">IN OUR CONSTITUENT ASSEMBLY</span>
+            this twenty-sixth day of November, 1949, do<br>
+            <span class="highlight-bold">HEREBY ADOPT, ENACT AND GIVE TO OURSELVES<br>THIS CONSTITUTION.</span>
+          </div>
+        </div>
+
+        <!-- Note Box -->
+        <div class="note-box">
+          <div class="note-icon-circle">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <div>
+            <div class="note-title">NOTE</div>
+            <div class="note-desc">
+              The Preamble is not a source of power but a key to interpret the provisions of the Constitution. It embodies the basic structure and guiding principles of our Constitution.
+            </div>
+          </div>
+        </div>
+
+        <!-- Meaning and Significance Section -->
+        <div class="content-section" id="sec-meaning">
+          <div class="section-heading">
+            <i class="fa-solid fa-circle-info"></i> Meaning and Significance
+          </div>
+          <p class="section-text">
+            The Preamble serves as the preface to the Constitution of India. It embodies the fundamental values and the constitutional philosophy upon which our republic is built. It points out the source from which the document derives its authority—the people of India.
+          </p>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="content-section" id="sec-features">
+          <div class="section-heading">
+            <i class="fa-solid fa-star"></i> Key Features
+          </div>
+          <ul class="section-list">
+            <li><i class="fa-solid fa-check"></i> <strong>Source of Authority:</strong> Declares that the Constitution derives its authority directly from the people of India.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Nature of Indian State:</strong> Establishes India as a Sovereign, Socialist, Secular, Democratic, and Republic state.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Core Objectives:</strong> Aims to secure Justice, Liberty, Equality, and Fraternity for all citizens.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Date of Adoption:</strong> Explicitly states November 26, 1949 as the date of adoption and enactment.</li>
+          </ul>
+        </div>
+
+        <!-- Salient Ideals Section -->
+        <div class="content-section" id="sec-ideals">
+          <div class="section-heading">
+            <i class="fa-solid fa-gem"></i> Salient Ideals
+          </div>
+          <p class="section-text">
+            The ideals enshrined in the Preamble guide the governance of the country and statutory interpretations by courts:
+          </p>
+          <ul class="section-list">
+            <li><i class="fa-solid fa-shield"></i> <strong>Sovereign:</strong> India is completely independent and free from external control.</li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> <strong>Socialist:</strong> Aims at democratic socialism to eliminate poverty and inequality.</li>
+            <li><i class="fa-solid fa-scale-balanced"></i> <strong>Secular:</strong> Equal respect and protection for all religions by the State.</li>
+            <li><i class="fa-solid fa-check-to-slot"></i> <strong>Democratic:</strong> Government formed through free and fair democratic elections.</li>
+            <li><i class="fa-solid fa-building-columns"></i> <strong>Republic:</strong> The head of state (President) is elected, not a hereditary monarch.</li>
+          </ul>
+        </div>
+
+        <!-- Historical Background Section -->
+        <div class="content-section" id="sec-history">
+          <div class="section-heading">
+            <i class="fa-solid fa-clock-rotate-left"></i> Historical Background
+          </div>
+          <p class="section-text">
+            The Preamble is based on the 'Objectives Resolution', drafted and moved by Pandit Jawaharlal Nehru on December 13, 1946, and unanimously adopted by the Constituent Assembly on January 22, 1947.
+          </p>
+        </div>
+
+        <!-- Amendments Section -->
+        <div class="content-section" id="sec-amendments">
+          <div class="section-heading">
+            <i class="fa-solid fa-pen-to-square"></i> Amendments
+          </div>
+          <p class="section-text">
+            The Preamble has been amended only once so far, by the <strong>42nd Constitutional Amendment Act of 1976</strong>. This amendment added three new words: <strong>'Socialist'</strong>, <strong>'Secular'</strong>, and <strong>'Integrity'</strong> to the Preamble.
+          </p>
+        </div>
+
+        <!-- Judicial Interpretation Section -->
+        <div class="content-section" id="sec-judicial">
+          <div class="section-heading">
+            <i class="fa-solid fa-gavel"></i> Judicial Interpretation
+          </div>
+          <p class="section-text">
+            In the landmark <em>Kesavananda Bharati case (1973)</em>, the Supreme Court held that the Preamble is an integral part of the Constitution and forms part of its 'Basic Structure'. While it can be amended under Article 368, its basic elements cannot be destroyed.
+          </p>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- About Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>ABOUT THE PREAMBLE</span>
+          </div>
+          <p class="widget-description">
+            The Preamble reflects the philosophy, ideals and aspirations of the makers of the Constitution. It is the key to open the mind of the Constitution.
+          </p>
+        </div>
+
+        <!-- Key Features Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>KEY FEATURES</span>
+          </div>
+
+          <ul class="features-list">
+            <li class="feature-item">
+              <i class="fa-regular fa-compass"></i>
+              <span>Sets the goals of the Constitution</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-regular fa-lightbulb"></i>
+              <span>Inspires the interpretation of its provisions</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Not enforceable by any court</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-regular fa-book-open"></i>
+              <span>A part of the Constitution</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-download"></i>
+            <span>DOWNLOAD</span>
+          </div>
+
+          <div class="download-sub">Preamble of the Constitution (PDF)</div>
+
+          <button class="btn-download-pdf" id="btnDownloadPdf" type="button">
+            <i class="fa-regular fa-file-pdf"></i> Download PDF
+          </button>
+        </div>
+
+        <!-- Related Sections Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-link"></i>
+            <span>RELATED SECTIONS</span>
+          </div>
+
+          <ul class="related-links-list">
+            <li class="related-link-item" onclick="window.location.href='../basics/fundamental-rights.html'">
+              <span>Fundamental Rights</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item" onclick="window.location.href='../basics/directive-principles.html'">
+              <span>Directive Principles</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item" onclick="window.location.href='../basics/fundamental-duties.html'">
+              <span>Fundamental Duties</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">Articles</a></li>
+            <li><a href="../pages/parts.html">Parts</a></li>
+            <li><a href="../pages/schedules.html">Schedules</a></li>
+            <li><a href="../pages/amendments.html">Amendments</a></li>
+            <li><a href="../pages/judgments.html">Judgments</a></li>
+            <li><a href="../pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="../pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sidebar Navigation Smooth Scroll & Active Toggle
+    const navItems = document.querySelectorAll('.page-nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+
+        const targetId = item.getAttribute('data-target');
+        if (targetId) {
+          const targetElem = document.getElementById(targetId);
+          if (targetElem) {
+            targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    // Text-to-Speech (Audio Player) Logic for Preamble
+    const btnListen = document.getElementById('btnListen');
+    const listenIcon = document.getElementById('listenIcon');
+    const listenText = document.getElementById('listenText');
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    if ('speechSynthesis' in window) {
+      btnListen.addEventListener('click', () => {
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
+          isSpeaking = false;
+          listenIcon.className = 'fa-solid fa-volume-high';
+          listenText.textContent = 'Listen to Preamble';
+        } else {
+          const preambleText = `WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens: JUSTICE, social, economic and political; LIBERTY of thought, expression, belief, faith and worship; EQUALITY of status and of opportunity; and to promote among them all FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation; IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.`;
+
+          speechUtterance = new SpeechSynthesisUtterance(preambleText);
+          speechUtterance.lang = 'en-IN';
+          speechUtterance.rate = 0.9;
+
+          speechUtterance.onend = () => {
+            isSpeaking = false;
+            listenIcon.className = 'fa-solid fa-volume-high';
+            listenText.textContent = 'Listen to Preamble';
+          };
+
+          speechUtterance.onerror = () => {
+            isSpeaking = false;
+            listenIcon.className = 'fa-solid fa-volume-high';
+            listenText.textContent = 'Listen to Preamble';
+          };
+
+          window.speechSynthesis.speak(speechUtterance);
+          isSpeaking = true;
+          listenIcon.className = 'fa-solid fa-circle-pause';
+          listenText.textContent = 'Pause Reading';
+        }
+      });
+    } else {
+      btnListen.addEventListener('click', () => {
+        alert('Text-to-speech is not supported in your browser.');
+      });
+    }
+
+    // PDF Download Simulation
+    const btnDownloadPdf = document.getElementById('btnDownloadPdf');
+    if (btnDownloadPdf) {
+      btnDownloadPdf.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    // Dynamic Quick Fact Rotator
+    const quickFacts = [
+      "The Preamble was adopted on 26 November 1949.",
+      "The words 'Socialist', 'Secular', and 'Integrity' were added in 1976.",
+      "The Preamble is based on Nehru's 'Objectives Resolution'.",
+      "It declares the source of authority as 'We, the People of India'."
+    ];
+    let factIndex = 0;
+    const quickFactText = document.getElementById('quickFactText');
+
+    setInterval(() => {
+      factIndex = (factIndex + 1) % quickFacts.length;
+      if (quickFactText) {
+        quickFactText.innerHTML = quickFacts[factIndex];
+      }
+    }, 6000);
+  </script>
+
+</body>
+</html>

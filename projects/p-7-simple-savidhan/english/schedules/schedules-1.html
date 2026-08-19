@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - First Schedule: States and Union Territories</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar: Browse Schedules */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .schedules-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .schedules-nav-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .schedules-nav-item i {
+      font-size: 14px;
+      color: #637381;
+      margin-top: 2px;
+      width: 16px;
+      text-align: center;
+    }
+
+    .schedules-nav-item .sch-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2b3649;
+      line-height: 1.2;
+    }
+
+    .schedules-nav-item .sch-desc {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 2px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .schedules-nav-item:hover {
+      background-color: #f4f6f8;
+    }
+
+    .schedules-nav-item.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+    }
+
+    .schedules-nav-item.active i,
+    .schedules-nav-item.active .sch-name,
+    .schedules-nav-item.active .sch-desc {
+      color: #ffffff;
+    }
+
+    .btn-view-all-sch {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all-sch:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .schedule-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .schedule-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .schedule-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .schedule-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-listen-schedule {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .schedule-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Yellow Info Box */
+    .yellow-alert-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .yellow-alert-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #b37b12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b37b12;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .yellow-alert-text {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    .yellow-alert-text strong {
+      color: #0b1a30;
+    }
+
+    .yellow-alert-text a {
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    /* Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 15px;
+      color: #103254;
+    }
+
+    .card-paragraph {
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.55;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    /* States & UTs List Container Box */
+    .list-category-card {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 12px;
+    }
+
+    .list-category-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #f0e6d2;
+      padding-bottom: 6px;
+    }
+
+    /* 3 Column Items Grid */
+    .three-column-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 14px;
+    }
+
+    .grid-list-item {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .grid-list-item .item-num {
+      color: #637381;
+      font-weight: 500;
+      display: inline-block;
+      width: 20px;
+    }
+
+    /* Checklist Points */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Exam Note Box */
+    .exam-note-box {
+      background-color: #edf3f9;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border: 1px solid #d0dbe7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .exam-icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 13px;
+      flex-shrink: 0;
+      border: 1px solid #b0c0d0;
+    }
+
+    .exam-note-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .building-illustration {
+      width: 100px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23103254" opacity="0.25" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg"><path d="M60 10 L30 30 L90 30 Z M35 30 L35 55 L85 55 L85 30 Z M42 38 L48 38 L48 55 L42 55 Z M57 38 L63 38 L63 55 L57 55 Z M72 38 L78 38 L78 55 L72 55 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right center;
+      flex-shrink: 0;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 14px;
+    }
+
+    /* Quick Overview Table */
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .overview-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .overview-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .overview-table td {
+      padding: 8px 0;
+      vertical-align: top;
+    }
+
+    .overview-label {
+      font-weight: 700;
+      color: #0b1a30;
+      width: 45%;
+    }
+
+    .overview-val {
+      color: #3d4a5d;
+      width: 55%;
+    }
+
+    /* Key Features Checklist */
+    .features-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .feature-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Did You Know Widget Special Box */
+    .widget-did-you-know {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 45px;
+    }
+
+    .widget-did-you-know .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-did-you-know .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .did-you-know-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .india-map-illustration {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      width: 80px;
+      height: 80px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%232a7d4f" opacity="0.25" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L60 25 L75 25 L65 40 L70 60 L50 90 L40 65 L20 50 L35 40 L30 25 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Related Articles Links */
+    .related-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .related-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e3a8a;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+
+    .related-link-item:hover {
+      text-decoration: underline;
+    }
+
+    .related-link-item i {
+      font-size: 10.5px;
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    /* Download Box */
+    .download-sub {
+      font-size: 11.5px;
+      color: #3d4a5d;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .btn-download-pdf {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-download-pdf:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .schedule-main-heading {
+        font-size: 18px;
+      }
+      .three-column-grid {
+        grid-template-columns: 1fr;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .building-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR SCHEDULES-1 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .schedule-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .schedule-main-heading,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .overview-label,
+    [data-theme="dark"] .grid-list-item,
+    [data-theme="dark"] .point-item,
+    [data-theme="dark"] .feature-item,
+    [data-theme="dark"] .exam-note-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .schedules-nav-item .sch-name {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .schedules-nav-item i,
+    [data-theme="dark"] .schedules-nav-item .sch-desc,
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .schedules-nav-item:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .schedules-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .schedules-nav-item.active i,
+    [data-theme="dark"] .schedules-nav-item.active .sch-name,
+    [data-theme="dark"] .schedules-nav-item.active .sch-desc {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-view-all-sch,
+    [data-theme="dark"] .btn-listen-schedule,
+    [data-theme="dark"] .btn-download-pdf {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-view-all-sch:hover,
+    [data-theme="dark"] .btn-listen-schedule:hover,
+    [data-theme="dark"] .btn-download-pdf:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .card-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .overview-val,
+    [data-theme="dark"] .did-you-know-desc,
+    [data-theme="dark"] .download-sub,
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .yellow-alert-box,
+    [data-theme="dark"] .list-category-card {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .yellow-alert-text,
+    [data-theme="dark"] .yellow-alert-text strong {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .yellow-alert-text a,
+    [data-theme="dark"] .related-link-item,
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .point-item i,
+    [data-theme="dark"] .feature-item i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .list-category-title {
+      color: #fbbf24;
+      border-bottom-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .overview-table tr {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .widget-did-you-know {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-did-you-know .widget-title-text,
+    [data-theme="dark"] .widget-did-you-know .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../pages/articles.html">ARTICLES</a></li>
+      <li><a href="../pages/parts.html">PARTS</a></li>
+      <li><a href="../pages/schedules.html" class="active">SCHEDULES</a></li>
+      <li><a href="../pages/amendments.html">AMENDMENTS</a></li>
+      <li><a href="../pages/judgments.html">JUDGMENTS</a></li>
+      <li><a href="../pages/glossary.html">GLOSSARY</a></li>
+      <li><a href="../pages/quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/schedules/schedules-1.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">FIRST SCHEDULE</h1>
+      <span class="hero-subtitle">(Article 1 & 4)</span>
+      <p class="hero-description">
+        The First Schedule of the Constitution of India<br>
+        specifies the States and Union Territories<br>
+        and their territories.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/schedules.html">Schedules</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>First Schedule</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Browse Schedules -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-regular fa-book-bookmark"></i>
+          <span>BROWSE SCHEDULES</span>
+        </div>
+
+        <ul class="schedules-nav-list">
+          <li class="schedules-nav-item active">
+            <i class="fa-solid fa-landmark"></i>
+            <div>
+              <div class="sch-name">First Schedule</div>
+              <div class="sch-desc">States and Union Territories</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-user-gear"></i>
+            <div>
+              <div class="sch-name">Second Schedule</div>
+              <div class="sch-desc">Salaries, Allowances, etc.</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-list-check"></i>
+            <div>
+              <div class="sch-name">Third Schedule</div>
+              <div class="sch-desc">Forms of Oaths</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-star"></i>
+            <div>
+              <div class="sch-name">Fourth Schedule</div>
+              <div class="sch-desc">Allocation of Seats in Rajya Sabha</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-building-columns"></i>
+            <div>
+              <div class="sch-name">Fifth Schedule</div>
+              <div class="sch-desc">Provisions as to Scheduled Areas and Scheduled Tribes</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-wheat-awn"></i>
+            <div>
+              <div class="sch-name">Sixth Schedule</div>
+              <div class="sch-desc">Administration of Tribal Areas in Assam, Meghalaya, Tripura, Mizoram</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <div class="sch-name">Seventh Schedule</div>
+              <div class="sch-desc">Distribution of Legislative Powers</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-language"></i>
+            <div>
+              <div class="sch-name">Eighth Schedule</div>
+              <div class="sch-desc">Languages</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-regular fa-file-lines"></i>
+            <div>
+              <div class="sch-name">Ninth Schedule</div>
+              <div class="sch-desc">Acts and Regulations</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-gavel"></i>
+            <div>
+              <div class="sch-name">Tenth Schedule</div>
+              <div class="sch-desc">Anti-Defection Law</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-house-chimney"></i>
+            <div>
+              <div class="sch-name">Eleventh Schedule</div>
+              <div class="sch-desc">Powers, Authority and Responsibilities of Panchayats</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-city"></i>
+            <div>
+              <div class="sch-name">Twelfth Schedule</div>
+              <div class="sch-desc">Powers, Authority and Responsibilities of Municipalities</div>
+            </div>
+          </li>
+        </ul>
+
+        <button class="btn-view-all-sch" type="button" onclick="window.location.href='../pages/schedules.html'">
+          VIEW ALL SCHEDULES <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </aside>
+
+      <!-- Middle Main Content Panel - SCROLLABLE -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="schedule-header-card">
+          <div class="schedule-top-bar">
+            <div class="schedule-badge-title">
+              <i class="fa-regular fa-file-lines"></i> FIRST SCHEDULE
+            </div>
+            <div class="schedule-actions">
+              <button class="action-icon-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" title="Share"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-schedule" type="button">
+                <i class="fa-solid fa-volume-high"></i> Listen to Schedule
+              </button>
+            </div>
+          </div>
+          <h1 class="schedule-main-heading">States and Union Territories</h1>
+        </div>
+
+        <!-- Yellow Alert Box -->
+        <div class="yellow-alert-box">
+          <div class="yellow-alert-icon">
+            <i class="fa-solid fa-info"></i>
+          </div>
+          <div class="yellow-alert-text">
+            The First Schedule specifies the name and territory of the States and Union Territories in accordance with <a href="#">Article 1</a> and <a href="#">Article 4</a> of the Constitution.
+          </div>
+        </div>
+
+        <!-- About First Schedule -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-landmark"></i> ABOUT THE FIRST SCHEDULE
+          </div>
+          <p class="card-paragraph">
+            The First Schedule lists all the States and Union Territories of India and describes the extent of their territories.<br><br>
+            Parliament can change the areas, boundaries or names of any State or Union Territory by law as provided in Article 3.
+          </p>
+        </div>
+
+        <!-- What Does the First Schedule Contain -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-folder-open"></i> WHAT DOES THE FIRST SCHEDULE CONTAIN?
+          </div>
+          <ul class="bullet-points-list">
+            <li>The name of each State and Union Territory.</li>
+            <li>The extent of the territory of each.</li>
+            <li>Boundaries as they existed when the Constitution came into force (26th January, 1950) and as changed from time to time.</li>
+          </ul>
+        </div>
+
+        <!-- Current List of States and UTs -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-map-location-dot"></i> CURRENT LIST OF STATES AND UNION TERRITORIES
+          </div>
+
+          <!-- Section A: States (28) -->
+          <div class="list-category-card">
+            <div class="list-category-title">A. STATES (28)</div>
+            <div class="three-column-grid">
+              <div class="grid-list-item"><span class="item-num">1.</span> Andhra Pradesh</div>
+              <div class="grid-list-item"><span class="item-num">11.</span> Karnataka</div>
+              <div class="grid-list-item"><span class="item-num">21.</span> Rajasthan</div>
+              
+              <div class="grid-list-item"><span class="item-num">2.</span> Arunachal Pradesh</div>
+              <div class="grid-list-item"><span class="item-num">12.</span> Kerala</div>
+              <div class="grid-list-item"><span class="item-num">22.</span> Sikkim</div>
+              
+              <div class="grid-list-item"><span class="item-num">3.</span> Assam</div>
+              <div class="grid-list-item"><span class="item-num">13.</span> Madhya Pradesh</div>
+              <div class="grid-list-item"><span class="item-num">23.</span> Tamil Nadu</div>
+              
+              <div class="grid-list-item"><span class="item-num">4.</span> Bihar</div>
+              <div class="grid-list-item"><span class="item-num">14.</span> Maharashtra</div>
+              <div class="grid-list-item"><span class="item-num">24.</span> Telangana</div>
+              
+              <div class="grid-list-item"><span class="item-num">5.</span> Chhattisgarh</div>
+              <div class="grid-list-item"><span class="item-num">15.</span> Manipur</div>
+              <div class="grid-list-item"><span class="item-num">25.</span> Tripura</div>
+              
+              <div class="grid-list-item"><span class="item-num">6.</span> Goa</div>
+              <div class="grid-list-item"><span class="item-num">16.</span> Meghalaya</div>
+              <div class="grid-list-item"><span class="item-num">26.</span> Uttar Pradesh</div>
+              
+              <div class="grid-list-item"><span class="item-num">7.</span> Gujarat</div>
+              <div class="grid-list-item"><span class="item-num">17.</span> Mizoram</div>
+              <div class="grid-list-item"><span class="item-num">27.</span> Uttarakhand</div>
+              
+              <div class="grid-list-item"><span class="item-num">8.</span> Haryana</div>
+              <div class="grid-list-item"><span class="item-num">18.</span> Nagaland</div>
+              <div class="grid-list-item"><span class="item-num">28.</span> West Bengal</div>
+              
+              <div class="grid-list-item"><span class="item-num">9.</span> Himachal Pradesh</div>
+              <div class="grid-list-item"><span class="item-num">19.</span> Odisha</div>
+              <div></div>
+              
+              <div class="grid-list-item"><span class="item-num">10.</span> Jharkhand</div>
+              <div class="grid-list-item"><span class="item-num">20.</span> Punjab</div>
+              <div></div>
+            </div>
+          </div>
+
+          <!-- Section B: Union Territories (8) -->
+          <div class="list-category-card">
+            <div class="list-category-title">B. UNION TERRITORIES (8)</div>
+            <div class="three-column-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="grid-list-item"><span class="item-num">1.</span> Andaman and Nicobar Islands</div>
+              <div class="grid-list-item"><span class="item-num">5.</span> Jammu and Kashmir</div>
+              
+              <div class="grid-list-item"><span class="item-num">2.</span> Chandigarh</div>
+              <div class="grid-list-item"><span class="item-num">6.</span> Ladakh</div>
+              
+              <div class="grid-list-item"><span class="item-num">3.</span> Dadra and Nagar Haveli and Daman and Diu</div>
+              <div class="grid-list-item"><span class="item-num">7.</span> Puducherry</div>
+              
+              <div class="grid-list-item"><span class="item-num">4.</span> Delhi</div>
+              <div class="grid-list-item"><span class="item-num">8.</span> Lakshadweep</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Important Points -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-circle-check"></i> IMPORTANT POINTS
+          </div>
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>The number of States and Union Territories may change with time by the Parliament.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>New States can be formed, boundaries can be altered or names can be changed under Article 3.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>The First Schedule is not rigid; it can be amended by law.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Exam Note Banner -->
+        <div class="exam-note-box">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">EXAM NOTE</div>
+              <div class="exam-note-desc">
+                The First Schedule forms the basis for the political map of India as recognized by the Constitution.
+              </div>
+            </div>
+          </div>
+          <div class="building-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Quick Overview Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>QUICK OVERVIEW</span>
+          </div>
+
+          <table class="overview-table">
+            <tr>
+              <td class="overview-label">Schedule Number</td>
+              <td class="overview-val">First Schedule</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Related Articles</td>
+              <td class="overview-val">1, 3, 4</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Subject</td>
+              <td class="overview-val">States and Union Territories</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Constitution Status</td>
+              <td class="overview-val">Original (1950)</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Key Features Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>KEY FEATURES</span>
+          </div>
+
+          <ul class="features-checklist">
+            <li class="feature-item">
+              <i class="fa-solid fa-building-columns"></i>
+              <span>Lists all States and Union Territories.</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Defines the extent of their territories.</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-gavel"></i>
+              <span>Changes can be made by Parliament.</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Basis of India's political map.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Did You Know Widget -->
+        <div class="sidebar-widget widget-did-you-know">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>DID YOU KNOW?</span>
+          </div>
+
+          <p class="did-you-know-desc">
+            When the Constitution came into force in 1950, India had 14 States and 6 Union Territories. The number has changed over time.
+          </p>
+
+          <div class="india-map-illustration"></div>
+        </div>
+
+        <!-- Related Articles Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-link"></i>
+            <span>RELATED ARTICLES</span>
+          </div>
+
+          <ul class="related-links-list">
+            <li class="related-link-item">
+              <span>Article 1 – Name and Territory of the Union</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>Article 2 – Admission or Establishment of New States</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>Article 3 – Formation of New States and Alteration of Areas, Boundaries or Names of Existing States</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>Article 4 – Laws made under Articles 2 and 3 not to be called in Question in any Court</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-download"></i>
+            <span>DOWNLOAD</span>
+          </div>
+
+          <div class="download-sub">First Schedule of the Constitution (PDF)</div>
+
+          <button class="btn-download-pdf" type="button">
+            <i class="fa-regular fa-file-pdf"></i> Download PDF
+          </button>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">Articles</a></li>
+            <li><a href="../pages/parts.html">Parts</a></li>
+            <li><a href="../pages/schedules.html">Schedules</a></li>
+            <li><a href="../pages/amendments.html">Amendments</a></li>
+            <li><a href="../pages/judgments.html">Judgments</a></li>
+            <li><a href="../pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="../pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+</body>
+</html>

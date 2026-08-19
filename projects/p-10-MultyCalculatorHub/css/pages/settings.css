@@ -1,0 +1,124 @@
+/* settings.css — extracted verbatim from settings.html's original inline <style>; logic/behavior unchanged, only relocated */
+/* ==========================================================================
+           1. DESIGN SYSTEM & VARIABLES (Synced with Suite Ecosystem)
+           ========================================================================== */
+        :root {
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --transition-speed: 0.4s;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --calc-bg: #ffffff;
+            --calc-border: rgba(15, 23, 42, 0.06);
+            --calc-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.04);
+            --text-main: #0f172a;
+            --text-secondary: #64748b;
+            
+            --input-bg: rgba(241, 245, 249, 0.8);
+            --accent-color: #ec4899; /* System Settings Pink Theme Accent */
+            --accent-hover: #db2777;
+            --panel-bg: #ffffff;
+            --scrollbar-thumb: rgba(15, 23, 42, 0.15);
+        }
+
+        body.dark-mode {
+            --bg-gradient: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            --calc-bg: rgba(15, 23, 42, 0.6);
+            --calc-border: rgba(255, 255, 255, 0.06);
+            --calc-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            
+            --input-bg: rgba(30, 41, 59, 0.5);
+            --accent-color: #f472b6;
+            --accent-hover: #ec4899;
+            --panel-bg: rgba(15, 23, 42, 0.95);
+            --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ==========================================================================
+           2. GLOBAL STYLES & RESET
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
+        body {
+            font-family: var(--font-main); background: var(--bg-gradient); min-height: 100vh;
+            display: flex; justify-content: center; align-items: center; padding: 40px 20px;
+            color: var(--text-main); transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+            overflow-x: hidden; position: relative;
+        }
+        body::before {
+            content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            filter: blur(150px); opacity: 0.1; z-index: -1; top: -10%; left: -10%; background: #ec4899;
+        }
+
+        /* ==========================================================================
+           3. PREMIUM CONFIGURATION CARD CONTAINER
+           ========================================================================== */
+        .calc-container {
+            position: relative; width: 100%; max-width: 580px; 
+            background: var(--calc-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--calc-border); border-radius: 28px; box-shadow: var(--calc-shadow);
+            display: flex; flex-direction: column; overflow: hidden; transition: var(--transition-smooth);
+            padding: 24px; gap: 16px;
+        }
+        .calc-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 14px; border-bottom: 1px solid var(--calc-border);
+        }
+        .calc-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.5px; }
+        
+        .icon-btn {
+            background: var(--input-bg); border: 1px solid var(--calc-border);
+            width: 38px; height: 38px; border-radius: 12px; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            color: var(--text-main); transition: var(--transition-smooth);
+        }
+        .icon-btn:hover { transform: scale(1.05); border-color: var(--accent-color); }
+        .icon-btn:active { transform: scale(0.95); }
+
+        .theme-btn .sun-icon, body.dark-mode .theme-btn .moon-icon { display: none; }
+        body.dark-mode .theme-btn .sun-icon { display: block; }
+
+        /* Preference Controls Rows System */
+        .control-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 0; border-bottom: 1px solid var(--calc-border); gap: 20px;
+        }
+        .control-label { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+        .control-label span { font-weight: 700; font-size: 0.98rem; color: var(--text-main); }
+        .control-label small { color: var(--text-secondary); font-size: 0.82rem; font-weight: 500; line-height: 1.4; }
+        
+        select, input[type="number"] {
+            padding: 10px 14px; border-radius: 10px; border: 1px solid var(--calc-border);
+            font-family: var(--font-main); font-weight: 600; font-size: 0.9rem;
+            background: var(--input-bg); color: var(--text-main); outline: none;
+            transition: var(--transition-smooth); min-width: 130px; text-align: center;
+        }
+        select:focus, input:focus { border-color: var(--accent-color); }
+
+        .reset-btn {
+            background: #ef4444; color: #ffffff; border: none; padding: 12px 20px;
+            border-radius: 12px; font-family: var(--font-main); font-size: 0.9rem;
+            font-weight: 700; cursor: pointer; display: flex; align-items: center;
+            gap: 8px; transition: var(--transition-smooth); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+        }
+        .reset-btn:hover { background: #dc2626; transform: translateY(-1px); }
+
+        /* FIXED: Premium Hidden Action Toast Box */
+        .toast {
+            position: fixed; bottom: 35px; left: 50%; transform: translate(-50%, 40px);
+            background: #0f172a; color: #ffffff; padding: 12px 24px; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; opacity: 0; pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease; z-index: 9999;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+        }
+        body.dark-mode .toast { background: #f8fafc; color: #0f172a; }
+        .toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+        @media (max-width: 520px) {
+            .control-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            select, input[type="number"] { width: 100%; text-align: left; }
+            .reset-btn { width: 100%; justify-content: center; }
+            .calc-container { border-radius: 0; border: none; height: 100vh; }
+            body { padding: 0; }
+        }

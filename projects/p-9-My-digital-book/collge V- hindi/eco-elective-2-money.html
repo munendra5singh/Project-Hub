@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग | बी.ए. 5वां सेमेस्टर पाठ्यपुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर अर्थशास्त्र ऐच्छिक 2: मुद्रा एवं बैंकिंग। फिशर का परिमाण सिद्धांत, साख सृजन, आरबीआई मौद्रिक नीति (Repo, CRR, SLR), मुद्रा की आपूर्ति M1-M4, NPAs तथा IBC 2016।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">अर्थशास्त्र ऐच्छिक 2</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> पाठ्य सामग्री</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> परीक्षा विशेष</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-elective-2', 'अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">अर्थशास्त्र</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">मुद्रा, बैंकिंग एवं मौद्रिक नीति</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: मुद्रा के कार्य एवं परिमाण सिद्धांत</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 मुद्रा के कार्य</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 फिशर का परिमाण सिद्धांत (MV=PT)</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 कैम्ब्रिज नकद शेष दृष्टिकोण</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: वाणिज्यिक बैंकिंग एवं साख सृजन</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 साख सृजन (Credit Creation) सूत्र</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 आरबीआई मौद्रिक नीति (Repo, CRR, SLR)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 3: मुद्रा की पूर्ति</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 मुद्रा पूर्ति के माप (M1, M2, M3, M4)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 4: बैंकिंग सुधार एवं NPA</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 गैर-निष्पादित परिसंपत्तियाँ (NPAs) एवं IBC 2016</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>परीक्षा विशेष अनुभाग</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-flashcards" class="toc-link">त्वरित पुनरीक्षण फ्लैशकार्ड</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">अभ्यास प्रश्न (MCQs)</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-coins"></i> अर्थशास्त्र ऐच्छिक प्रश्नपत्र II</div>
+                <h1>मुद्रा, बैंकिंग एवं मौद्रिक नीति</h1>
+                <p>
+                    यह संपूर्ण पाठ्यपुस्तक मुद्रा के सिद्धांतों, वाणिज्यिक बैंकों द्वारा साख सृजन, भारतीय रिजर्व बैंक (RBI) की मौद्रिक नीति के उपकरणों (रेपो दर, CRR, SLR), मुद्रा की पूर्ति के मापों (M1-M4), तथा बैंकिंग सुधारों और NPA संकट का विस्तृत विश्लेषण प्रदान करती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">फिशर का समीकरण</span>
+                        <span class="stat-label">MV = PT परिमाण सिद्धांत</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">साख गुणक</span>
+                        <span class="stat-label">1 / LRR साख सृजन सूत्र</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">RBI मौद्रिक नीति</span>
+                        <span class="stat-label">रेपो, रिवर्स रेपो, CRR, SLR</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: MONEY AND QUANTITY THEORIES                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>मुद्रा के कार्य एवं परिमाण सिद्धांत</h2>
+                </div>
+
+                <!-- 1.1 Functions of Money -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>मुद्रा के प्राथमिक एवं द्वितीयक कार्य</span>
+                    </div>
+
+                    <p>
+                        मुद्रा एक ऐसी वस्तु है जो सामान्य स्वीकृति प्राप्त करती है। किनले (Kinley) के अनुसार मुद्रा के कार्यों को 3 श्रेणियों में बांटा गया है:
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-coins"></i> मुद्रा के मुख्य कार्य:</h4>
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>प्राथमिक कार्य:</strong> 1. विनिमय का माध्यम (Medium of Exchange), 2. मूल्य का मापक (Measure of Value)।</li>
+                            <li><strong>द्वितीयक कार्य:</strong> 3. स्थगित भुगतानों का मान (Standard of Deferred Payments), 4. मूल्य का संचय (Store of Value)।</li>
+                            <li><strong>आकस्मिक कार्य:</strong> राष्ट्रीय आय के वितरण और साख के आधार के रूप में।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 1.2 Fisher Theory -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>इरविंग फिशर का मुद्रा परिमाण सिद्धांत (1911)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">फिशर का विनिमय समीकरण (Equation of Exchange):</div>
+                        $$MV = PT \quad \implies \quad P = \frac{MV}{T}$$
+                        <p class="text-xs text-subtle mt-2">
+                            जहाँ $M$ = मुद्रा की मात्रा, $V$ = मुद्रा का चलन वेग, $P$ = सामान्य मूल्य स्तर, $T$ = सौदों की कुल मात्रा।
+                        </p>
+                    </div>
+
+                    <p class="text-sm text-muted">
+                        फिशर के अनुसार यदि $V$ तथा $T$ स्थिर रहें, तो मुद्रा की मात्रा ($M$) में परिवर्तन के सीधे अनुपात में सामान्य मूल्य स्तर ($P$) बदलता है।
+                    </p>
+                </div>
+
+                <!-- 1.3 Cambridge Approach -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>कैम्ब्रिज नकद शेष दृष्टिकोण (Marshall, Pigou, Robertson)</span>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula-title">कैम्ब्रिज समीकरण:</div>
+                        $$M = k \cdot P \cdot Y$$
+                        <p class="text-xs text-subtle mt-2">
+                            जहाँ $k$ = वास्तविक आय का वह भाग जिसे लोग नकद रूप में रखना चाहते हैं, $Y$ = वास्तविक राष्ट्रीय आय, $P$ = मूल्य स्तर।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: COMMERCIAL BANKING & CREDIT CREATION                               -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>वाणिज्यिक बैंकिंग, साख सृजन एवं RBI मौद्रिक नीति</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>वाणिज्यिक बैंकों द्वारा साख सृजन (Credit Creation Formula)</span>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula-title">कुल साख सृजन सूत्र:</div>
+                        $$\text{कुल साख} = \text{प्राथमिक जमा} \times \frac{1}{\text{LRR}}$$
+                        <p class="text-xs text-subtle mt-2">
+                            यदि प्राथमिक जमा ₹1,000 है और विधिक आरक्षित अनुपात (LRR) 20% है, तो कुल साख = ₹1,000 × (1 / 0.20) = ₹5,000 होगी।
+                        </p>
+                    </div>
+                </div>
+
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.2</span>
+                        <span>भारतीय रिजर्व बैंक (RBI) की मौद्रिक नीति के उपकरण</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>उपकरण का नाम</th>
+                                    <th>प्रकार</th>
+                                    <th>कार्यप्रणाली एवं प्रभाव</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>रेपो दर (Repo Rate)</strong></td>
+                                    <td>मात्रात्मक</td>
+                                    <td>RBI द्वारा वाणिज्यिक बैंकों को अल्पकालिक ऋण देने की दर। रेपो दर बढ़ाने से लोन महंगे होते हैं और मुद्रास्फीति कम होती है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CRR (नकद आरक्षित अनुपात)</strong></td>
+                                    <td>मात्रात्मक</td>
+                                    <td>बैंकों की कुल जमा का वह प्रतिशत जो RBI के पास नकद रखना अनिवार्य है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SLR (वैधानिक तरलता अनुपात)</strong></td>
+                                    <td>मात्रात्मक</td>
+                                    <td>बैंकों को अपनी जमा का निश्चित भाग अपने पास सरकारी प्रतिभूतियों या स्वर्ण रूप में रखना होता है।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: MONEY SUPPLY MEASURES                                              -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 3</span>
+                    <h2>मुद्रा की पूर्ति के माप (M1, M2, M3, M4)</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>RBI द्वारा मुद्रा पूर्ति के 4 मापदंड</span>
+                    </div>
+                    <div class="definition-box">
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>M1 (संकीर्ण मुद्रा - Narrow Money):</strong> जनता के पास करेंसी + बैंकों में मांग जमा (Demand Deposits) + RBI के पास अन्य जमा।</li>
+                            <li><strong>M2:</strong> M1 + डाकघर बचत बैंकों में बचत जमा।</li>
+                            <li><strong>M3 (व्यापक मुद्रा - Broad Money):</strong> M1 + बैंकों के पास समय जमा (Term Deposits)।</li>
+                            <li><strong>M4:</strong> M3 + डाकघर की कुल जमा (NSC को छोड़कर)।</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: BANKING REFORMS & NPAs                                             -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 4</span>
+                    <h2>बैंकिंग सुधार, NPAs एवं दिवाला कोड (IBC 2016)</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>गैर-निष्पादित परिसंपत्तियाँ (NPAs) एवं नृसिंहम समिति सुधार</span>
+                    </div>
+                    <p>
+                        जब किसी ऋण का मूलधन या ब्याज 90 दिनों तक चुकता नहीं किया जाता है, तो उसे NPA (Non-Performing Asset) घोषित किया जाता है। इसके समाधान के लिए <strong>IBC Code 2016 (Insolvency and Bankruptcy Code)</strong> और UPI डिजिटल बैंकिंग सुधार लागू किए गए।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">परीक्षा विशेष</span>
+                    <h2>परीक्षा प्रश्न बैंक एवं पुनरीक्षण उपकरण</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> त्वरित पुनरीक्षण फ्लैशकार्ड</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">फिशर के समीकरण MV = PT में P किसे दर्शाता है?</div>
+                            <div class="back">सामान्य मूल्य स्तर (General Price Level)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">RBI द्वारा किस दर पर वाणिज्यिक बैंकों को अल्पकालिक ऋण दिया जाता है?</div>
+                            <div class="back">रेपो दर (Repo Rate)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">मुद्रा की पूर्ति के किस माप को 'संकीर्ण मुद्रा' (Narrow Money) कहा जाता है?</div>
+                            <div class="back">M1 (चलन में मुद्रा + बैंकों में मांग जमा)।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> अभ्यास प्रश्न (MCQs)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">प्र1. यदि विधिक आरक्षित अनुपात (LRR) 20% है, तो साख गुणक का मान कितना होगा?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">क) 2</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco2-1')">ख) 5</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">ग) 10</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">घ) 20</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco2-1">
+                                <strong>स्पष्टीकरण:</strong> साख गुणक = 1 / LRR = 1 / 0.20 = 5।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। अर्थशास्त्र ऐच्छिक 2।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2" selected>अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

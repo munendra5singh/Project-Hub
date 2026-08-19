@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money and Banking | B.A. 5th Semester Digital Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Economics Elective 2: Money and Banking. Detailed notes, Fisher Quantity Theory, Credit Multiplier, RBI monetary policy, and MCQs.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Economics Elective 2 — Money & Banking</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-elective-2', 'Economics Elective 2 — Money')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">Economics</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Money and Banking</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Content Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar Table of Contents -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Money & Quantity Theory</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Functions & Evolution of Money</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 Fisher's Quantity Theory (MV=PT)</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 Cambridge Cash Balance Approach</a></li>
+                    <li><a href="#u1-4" class="toc-link">1.4 Demand-Pull vs Cost-Push Inflation</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Banking & Credit Creation</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Commercial Bank Credit Creation</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 Credit Multiplier Formula</a></li>
+                    <li><a href="#u2-3" class="toc-link">2.3 RBI & Monetary Policy Tools</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Money Supply & Markets</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Measures of Money Supply (M1-M4)</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Money Market vs Capital Market</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Banking Reforms & FinTech</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Narasimham Reforms & Basel Norms</a></li>
+                    <li><a href="#u4-2" class="toc-link">4.2 NPAs, SARFAESI & IBC 2016</a></li>
+                    <li><a href="#u4-3" class="toc-link">4.3 UPI, Payments Banks & CBDC</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">Long Answer Questions</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">Short Answer Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-coins"></i> Economics Elective Paper II</div>
+                <h1>Money and Banking (मुद्रा एवं बैंकिंग)</h1>
+                <p class="hindi-text">
+                    यह पाठ्यपुस्तक मुद्रा के सिद्धांत, इरविंग फिशर का परिणाम सिद्धांत ($MV=PT$), कैम्ब्रिज समीकरण, वाणिज्यिक बैंकों की साख सृजन प्रक्रिया (Credit Creation Multiplier), भारतीय रिजर्व बैंक (RBI) की मौद्रिक नीति के उपकरण (Repo, CRR, SLR), मुद्रा आपूर्ति के माप ($M_1, M_2, M_3, M_4$), तथा बैंकिंग सुधार (NPA, IBC 2016, UPI) को समेटती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">Fisher & Cambridge</span>
+                        <span class="stat-label">Quantity Theory Equations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Credit Multiplier</span>
+                        <span class="stat-label">Solved Numericals Included</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">RBI Policy Tools</span>
+                        <span class="stat-label">Repo, CRR, SLR & OMO</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: MONEY AND QUANTITY THEORY OF MONEY                                 -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Money and Quantity Theory of Money</h2>
+                </div>
+
+                <!-- 1.1 Evolution & Functions -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Functions and Evolution of Money (मुद्रा के कार्य एवं विकास)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        वस्तु विनिमय प्रणाली (Barter System) की आवश्यकताओं के दोहरे संयोग (Double Coincidence of Wants) की समस्या को दूर करने के लिए मुद्रा का आविष्कार हुआ।
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> Prof. Walker's Definition</h4>
+                        <p><em>"Money is what money does."</em> (मुद्रा वह है जो मुद्रा का कार्य करे।)</p>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>श्रेणी (Category)</th>
+                                    <th>मुद्रा के मुख्य कार्य (Functions of Money)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>प्राथमिक कार्य (Primary Functions)</strong></td>
+                                    <td>
+                                        1. <strong>विनिमय का माध्यम (Medium of Exchange):</strong> क्रय-विक्रय को सुगम बनाना।<br>
+                                        2. <strong>मूल्य का मापक (Measure of Value):</strong> सभी वस्तुओं का मूल्य मुद्रा में व्यक्त करना।
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>द्वितीयक कार्य (Secondary Functions)</strong></td>
+                                    <td>
+                                        1. <strong>स्थगित भुगतानों का मान (Standard of Deferred Payments):</strong> भविष्य के ऋण चुकाने का आधार।<br>
+                                        2. <strong>मूल्य का संचय (Store of Value):</strong> धन को सुरक्षित संचित रखने का साधन।
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>आकस्मिक कार्य (Contingent Functions)</strong></td>
+                                    <td>राष्ट्रीय आय का वितरण, साख का आधार, अधिकतम तुष्टि गुण की प्राप्ति।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 Fisher's Quantity Theory -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>Irving Fisher's Quantity Theory of Money (फिशर का मुद्रा परिमाण सिद्धांत)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        अमेरिकी अर्थशास्त्री <strong>Irving Fisher</strong> ने 1911 में प्रकाशित अपनी पुस्तक <em>"The Purchasing Power of Money"</em> में नकद लेन-देन दृष्टिकोण (Cash Transaction Approach) प्रस्तुत किया।
+                    </p>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Fisher's Basic Equation of Exchange:</div>
+                        \[ MV = PT \quad \implies \quad P = \frac{MV}{T} \]
+                        <p class="text-xs mt-1">जहाँ: $M$ = वैधानिक मुद्रा की मात्रा, $V$ = मुद्रा का चलन वेग (Velocity of circulation), $P$ = सामान्य मूल्य स्तर (Price Level), $T$ = सौदों या व्यापार की कुल मात्रा (Transactions)।</p>
+                    </div>
+
+                    <div class="formula-box mt-3">
+                        <div class="formula-title">Extended Equation (साख मुद्रा सहित):</div>
+                        \[ MV + M'V' = PT \quad \implies \quad P = \frac{MV + M'V'}{T} \]
+                        <p class="text-xs mt-1">जहाँ: $M'$ = बैंक साख मुद्रा (Credit Money), $V'$ = साख मुद्रा का चलन वेग।</p>
+                    </div>
+
+                    <div class="definition-box mt-3">
+                        <h4><i class="fa-solid fa-key"></i> Key Proposition of Fisher's Theory</h4>
+                        <p class="hindi-text text-sm">
+                            अन्य बातें समान रहने पर ($V, V', T$ स्थिर रहने पर), यदि मुद्रा की मात्रा ($M$) <strong>दोगुनी (Doubled)</strong> कर दी जाए, तो सामान्य मूल्य स्तर ($P$) भी <strong>दोगुना (Doubled)</strong> हो जाएगा और मुद्रा का मूल्य (Purchasing Power $1/P$) <strong>आधा (Halved)</strong> हो जाएगा।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1.3 Cambridge Cash Balance Approach -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>Cambridge Cash Balance Approach (कैम्ब्रिज नकद शेष दृष्टिकोण)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        कैम्ब्रिज विश्वविद्यालय के अर्थशास्त्रियों (Alfred Marshall, A.C. Pigou, D.H. Robertson, J.M. Keynes) ने मुद्रा की माँग को केवल विनिमय के माध्यम के रूप में देखने के बजाय <strong>"संचय के साधन" (Store of Value)</strong> के रूप में देखा।
+                    </p>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Marshallian Cambridge Equation:</div>
+                        \[ M = kPY \quad \implies \quad P = \frac{M}{kY} \]
+                        <p class="text-xs mt-1">जहाँ: $Y$ = वास्तविक राष्ट्रीय आय (Real Income), $k$ = राष्ट्रीय आय का वह भाग जिसे लोग नकद रूप में अपने पास रखना चाहते हैं, $P$ = मूल्य स्तर, $M$ = मुद्रा की कुल पूर्ति।</p>
+                    </div>
+                </div>
+
+                <!-- 1.4 Inflation -->
+                <div class="topic-card" id="u1-4">
+                    <div class="topic-title">
+                        <span class="topic-number">1.4</span>
+                        <span>Demand-Pull vs Cost-Push Inflation (माँग-प्रेरित बनाम लागत-वृद्धि मुद्रास्फीति)</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>तुलना बिंदु</th>
+                                    <th>माँग-प्रेरित मुद्रास्फीति (Demand-Pull)</th>
+                                    <th>लागत-वृद्धि मुद्रास्फीति (Cost-Push)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>कारण (Cause)</strong></td>
+                                    <td>कुल माँग (Aggregate Demand) का कुल पूर्ति (Aggregate Supply) से अधिक होना ($AD > AS$)।</td>
+                                    <td>उत्पादन लागत (कच्चा माल, मजदूरी, ईंधन, कर) में वृद्धि होना।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>समीकरण / ग्राफ</strong></td>
+                                    <td>$AD$ वक्र का दाईं ओर खिसकना।</td>
+                                    <td>$AS$ वक्र का बाईं ओर खिसकना।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>नियंत्रण उपाय</strong></td>
+                                    <td>मौद्रिक संकुचन (दरें बढ़ाना) व कर वृद्धि द्वारा माँग घटाना।</td>
+                                    <td>कच्चे माल पर सब्सिडी व उत्पादन तकनीक में सुधार।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: BANKING AND CREDIT CREATION                                        -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit II</span>
+                    <h2>Banking and Credit Creation</h2>
+                </div>
+
+                <!-- 2.1 & 2.2 Credit Creation -->
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1 - 2.2</span>
+                        <span>Commercial Bank Credit Creation & Multiplier (साख सृजन एवं साख गुणक)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        वाणिज्यिक बैंक केवल जमा स्वीकार करने वाले संस्थान नहीं हैं, बल्कि वे <strong>साख का सृजन (Credit Creation)</strong> भी करते हैं। Prof. Hartley Withers के शब्दों में: <em>"Loans create deposits and deposits create loans."</em> (ऋण जमाओं को जन्म देते हैं और जमाएँ ऋणों को जन्म देती हैं।)
+                    </p>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Credit Multiplier Formula:</div>
+                        \[ \text{Credit Multiplier (K)} = \frac{1}{\text{CRR}} \]
+                        \[ \text{Total Credit Created} = \text{Primary Deposit} \times \frac{1}{\text{CRR}} \]
+                    </div>
+
+                    <!-- Solved Step-by-Step Numerical -->
+                    <div class="qa-card" style="background-color: var(--bg-card-alt);">
+                        <div class="qa-header">
+                            <span class="qa-badge">Solved Numerical Example</span>
+                            <span>यदि प्रारंभिक प्राथमिक जमा (Primary Deposit) ₹10,000 है और नकद आरक्षित अनुपात (CRR) 10% है, तो बैंकिंग प्रणाली द्वारा कुल कितना साख सृजन होगा?</span>
+                        </div>
+                        <div class="hindi-text text-sm" style="padding-left: 10px;">
+                            <p><strong>हल:</strong></p>
+                            <p>1. साख गुणक $K = \frac{1}{\text{CRR}} = \frac{1}{0.10} = 10$</p>
+                            <p>2. कुल साख सृजन = $\text{प्रारंभिक जमा} \times K = 10,000 \times 10 = ₹1,00,000$</p>
+                            <p>3. निर्मित व्युत्पन्न जमा (Derivative Deposit) = $1,00,000 - 10,000 = ₹90,000$</p>
+
+                            <!-- Process Round Table -->
+                            <div class="table-responsive mt-2">
+                                <table class="textbook-table" style="font-size:0.8rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>चरण (Rounds)</th>
+                                            <th>प्राथमिक जमा (Deposits)</th>
+                                            <th>ऋण स्वीकृत (Loans) [90%]</th>
+                                            <th>नकद कोष (CRR) [10%]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Round 1 (Bank A)</td>
+                                            <td>₹10,000</td>
+                                            <td>₹9,000</td>
+                                            <td>₹1,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Round 2 (Bank B)</td>
+                                            <td>₹9,000</td>
+                                            <td>₹8,100</td>
+                                            <td>₹900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Round 3 (Bank C)</td>
+                                            <td>₹8,100</td>
+                                            <td>₹7,290</td>
+                                            <td>₹810</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>कुल योग (Total)</strong></td>
+                                            <td><strong>₹1,00,000</strong></td>
+                                            <td><strong>₹90,000</strong></td>
+                                            <td><strong>₹10,000</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.3 RBI Monetary Policy -->
+                <div class="topic-card" id="u2-3">
+                    <div class="topic-title">
+                        <span class="topic-number">2.3</span>
+                        <span>Reserve Bank of India (RBI) & Monetary Policy Tools (मौद्रिक नीति के उपकरण)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        आरबीआई की स्थापना <strong>1 अप्रैल 1935</strong> को RBI Act 1934 के तहत हुई और 1 जनवरी 1949 को इसका राष्ट्रीयकरण हुआ।
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>उपकरण का नाम (Tool Name)</th>
+                                    <th>कार्यप्रणाली एवं प्रभाव (Mechanism & Impact)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>रेपो दर (Repo Rate)</strong></td>
+                                    <td>वह दर जिस पर RBI वाणिज्यिक बैंकों को अल्पकालिक ऋण देता है। रेपो दर बढ़ाने से लोन महँगे होते हैं और मुद्रास्फीति घटती है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>रिवर्स रेपो दर (Reverse Repo)</strong></td>
+                                    <td>वह दर जिस पर RBI बैंकों से अधिशेष धनराशि स्वीकार करता है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CRR (Cash Reserve Ratio)</strong></td>
+                                    <td>बैंकों को अपनी कुल जमा (NDTL) का एक निश्चित % RBI के पास नकद रूप में रखना अनिवार्य होता है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SLR (Statutory Liquidity Ratio)</strong></td>
+                                    <td>बैंकों को अपनी जमा का निश्चित % स्वयं के पास तरल परिसंपत्तियों (सोना, सरकारी प्रतिभूतियों) में रखना होता है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>OMO (Open Market Operations)</strong></td>
+                                    <td>खुले बाजार में RBI द्वारा सरकारी प्रतिभूतियों (G-Secs) का क्रय-विक्रय। (प्रतिभूतियाँ बेचने से बाजार से नकदी सोख ली जाती है)।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: MONEY SUPPLY AND FINANCIAL MARKETS                                 -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit III</span>
+                    <h2>Money Supply and Financial Markets</h2>
+                </div>
+
+                <!-- 3.1 Money Supply Measures -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>RBI Measures of Money Supply: M1, M2, M3, M4 (मुद्रा आपूर्ति के माप)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">RBI Money Supply Framework (1977 Standards):</div>
+                        <p><strong>M1 (Narrow Money - संकीर्ण मुद्रा):</strong> \[ M1 = C + DD + OD \] (जनता के पास मुद्रा $C$ + बैंकों में माँग जमा $DD$ + RBI के पास अन्य जमा $OD$)</p>
+                        <p class="mt-2"><strong>M2:</strong> \[ M2 = M1 + \text{डाकघर बचत बैंकों में बचत जमा} \]</p>
+                        <p class="mt-2"><strong>M3 (Broad Money - व्यापक मुद्रा):</strong> \[ M3 = M1 + \text{बैंकों के पास आवधिक/सावधि जमा (Time Deposits)} \]</p>
+                        <p class="mt-2"><strong>M4:</strong> \[ M4 = M3 + \text{डाकघर की कुल जमा (NSC छोड़कर)} \]</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-arrow-down-wide-short"></i> Order of Liquidity (तरलता का क्रम):</h5>
+                        <p class="hindi-text text-sm">
+                            $M_1 > M_2 > M_3 > M_4$ (M1 सर्वाधिक तरल है, जबकि M4 सबसे कम तरल है)।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3.2 Money Market vs Capital Market -->
+                <div class="topic-card" id="u3-2">
+                    <div class="topic-title">
+                        <span class="topic-number">3.2</span>
+                        <span>Money Market vs Capital Market (मुद्रा बाजार बनाम पूँजी बाजार)</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>तुलना आधार</th>
+                                    <th>मुद्रा बाजार (Money Market)</th>
+                                    <th>पूँजी बाजार (Capital Market)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>ऋण की समयावधि</strong></td>
+                                    <td>अल्पकालिक ऋण (1 वर्ष से कम अवधि हेतु)।</td>
+                                    <td>मध्यम एवं दीर्घकालिक ऋण (1 वर्ष से अधिक)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>प्रमुख साधन (Instruments)</strong></td>
+                                    <td>Call Money, Treasury Bills (T-Bills), Commercial Paper, CD.</td>
+                                    <td>इक्विटी शेयर, प्रेफरेंस शेयर, डिबेंचर, बॉन्ड।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>नियामक (Regulator)</strong></td>
+                                    <td>भारतीय रिजर्व बैंक (RBI)।</td>
+                                    <td>भारतीय प्रतिभूति और विनिमय बोर्ड (SEBI)।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: BANKING REFORMS, NPAS AND FINTECH                                  -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit IV</span>
+                    <h2>Banking Sector Reforms, NPAs and FinTech</h2>
+                </div>
+
+                <!-- 4.1 Reforms & Basel -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>Narasimham Committee Reforms & Basel Norms (बैंकिंग सुधार)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        एम. नरसिम्हम समिति I (1991) तथा II (1998) की सिफारिशों पर भारतीय बैंकिंग क्षेत्र में संरचनात्मक सुधार किए गए: CRR/SLR में कमी, ब्याज दरों का विनियमन, और बासेल मानकों का अंगीकरण।
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-shield-halved"></i> Capital Adequacy Ratio - CAR / CRAR</h4>
+                        \[ \text{CAR} = \frac{\text{Tier 1 Capital} + \text{Tier 2 Capital}}{\text{Risk-Weighted Assets (RWA)}} \times 100 \]
+                        <p class="text-xs text-subtle mt-1">बासेल III मानकों के अनुसार बैंकों को कम से कम 9% CAR बनाए रखना अनिवार्य है।</p>
+                    </div>
+                </div>
+
+                <!-- 4.2 NPAs & IBC 2016 -->
+                <div class="topic-card" id="u4-2">
+                    <div class="topic-title">
+                        <span class="topic-number">4.2</span>
+                        <span>Non-Performing Assets (NPA) & Insolvency Code - IBC 2016</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        यदि किसी ऋण पर मूलधन या ब्याज का भुगतान <strong>90 दिनों</strong> तक न मिले, तो उसे गैर-निष्पादित संपत्ति (NPA) घोषित कर दिया जाता है।
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-scale-balanced"></i> IBC 2016 (दिवाला एवं शोधन अक्षमता संहिता):</h5>
+                        <p class="hindi-text text-sm">
+                            2016 में लागू IBC ने कॉर्पोरेट दिवालियापन प्रक्रिया के समाधान की समयावधि (180+90 दिन) निर्धारित की तथा NCLT (National Company Law Tribunal) को निर्णायक प्राधिकरण बनाया।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4.3 FinTech & Digital Banking -->
+                <div class="topic-card" id="u4-3">
+                    <div class="topic-title">
+                        <span class="topic-number">4.3</span>
+                        <span>Digital Banking: UPI, Payments Banks & CBDC (डिजिटल बैंकिंग)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        NPCI द्वारा विकसित <strong>UPI (Unified Payments Interface)</strong> ने भारत में डिजिटल लेनदेन में क्रांति ला दी है। इसके अतिरिक्त RBI ने <strong>CBDC (Central Bank Digital Currency / e-Rupee)</strong> का पायलट प्रोजेक्ट प्रारंभ किया है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Long Answer Questions -->
+                <div class="topic-card" id="sec-qa-long">
+                    <div class="topic-title"><i class="fa-solid fa-file-pen text-amber-500"></i> Long Answer Questions (दीर्घ उत्तरीय प्रश्न)</div>
+                    <div class="qa-card">
+                        <div class="qa-header">
+                            <span class="qa-badge">Q1 (15 Marks)</span>
+                            <span>इरविंग फिशर के मुद्रा परिमाण सिद्धांत का आलोचनात्मक परीक्षण कीजिए। यह कैम्ब्रिज दृष्टिकोण से किस प्रकार भिन्न है?</span>
+                        </div>
+                        <div class="hindi-text text-sm">
+                            <p><strong>उत्तर रूपरेखा:</strong> 1. फिशर का समीकरण $MV=PT$, 2. मान्यताएँ ($V, T$ स्थिर), 3. सिद्धांत का निष्कर्ष ($M \uparrow \implies P \uparrow$), 4. आलोचनाएँ (कीन्स द्वारा), 5. कैम्ब्रिज समीकरण $M=kPY$ से तुलना।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">फिशर का मुख्य समीकरण क्या है?</div>
+                            <div class="back">MV = PT (या P = MV / T)</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">साख गुणक (Credit Multiplier) का सूत्र?</div>
+                            <div class="back">K = 1 / CRR</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Narrow Money (M1) की परिभाषा?</div>
+                            <div class="back">M1 = C + DD + OD</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">RBI का राष्ट्रीयकरण कब हुआ?</div>
+                            <div class="back">1 जनवरी 1949 को।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. यदि CRR = 20% है, तो प्रारंभिक जमा ₹5,000 से कुल कितना साख सृजन होगा?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">A) ₹10,000</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco2-1')">B) ₹25,000</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">C) ₹50,000</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">D) ₹1,00,000</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco2-1">
+                                <strong>व्याख्या:</strong> $K = 1 / 0.20 = 5$। अतः कुल साख = $5,000 \times 5 = ₹25,000$।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">Repo Rate</div>
+                            <div class="glossary-def">जिस दर पर RBI वाणिज्यिक बैंकों को अल्पकालिक ऋण देता है।</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">NPA</div>
+                            <div class="glossary-def">Non-Performing Asset — 90 दिनों तक भुगतान न मिलने वाला असूलनीय ऋण।</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. Eco Elective Paper 2.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

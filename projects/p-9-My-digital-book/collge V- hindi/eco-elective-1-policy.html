@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति | बी.ए. 5वां सेमेस्टर पाठ्यपुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर अर्थशास्त्र ऐच्छिक 1: भारत में आर्थिक विकास और नीति - I। मानव विकास सूचकांक (HDI), बहुआयामी गरीबी सूचकांक (MPI), नीति आयोग, सतत विकास लक्ष्य (SDGs), हैरोड-डोमर मॉडल एवं मनरेगा।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">अर्थशास्त्र ऐच्छिक 1</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> पाठ्य सामग्री</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> परीक्षा विशेष</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-elective-1', 'अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">अर्थशास्त्र</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">भारत में आर्थिक विकास एवं नीति - I</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: संवृद्धि एवं विकास</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 आर्थिक संवृद्धि बनाम विकास</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 PQLI, HDI एवं MPI सूचकांक</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 नीति आयोग बनाम योजना आयोग</a></li>
+                    <li><a href="#u1-4" class="toc-link">1.4 सतत विकास लक्ष्य (SDGs)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: पूंजी निर्माण एवं कारक</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 हैरोड-डोमर मॉडल एवं ICOR</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 पूंजी निर्माण की प्रक्रिया</a></li>
+                    <li><a href="#u2-3" class="toc-link">2.3 FDI बनाम FII निवेश</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 3: जनसंख्या एवं प्रवासन</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 जनसांख्यिकी लाभांश (Demographic Dividend)</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 हैरिस-टोडारो प्रवासन मॉडल</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 4: रोजगार एवं मनरेगा</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 संगठित बनाम असंगठित क्षेत्र</a></li>
+                    <li><a href="#u4-2" class="toc-link">4.2 मनरेगा (MGNREGA) योजना विश्लेषण</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>परीक्षा विशेष अनुभाग</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">दीर्घ उत्तरीय प्रश्न</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">लघु उत्तरीय प्रश्न</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">त्वरित पुनरीक्षण फ्लैशकार्ड</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">अभ्यास प्रश्न (MCQs)</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">महत्वपूर्ण शब्दावली</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-chart-line"></i> अर्थशास्त्र मुख्य / ऐच्छिक प्रश्नपत्र I</div>
+                <h1>भारत में आर्थिक विकास एवं नीति - I</h1>
+                <p>
+                    यह संपूर्ण पाठ्यपुस्तक भारतीय आर्थिक विकास के मुख्य सिद्धांतों तथा व्यावहारिक नीतियों को कवर करती है। इसमें आर्थिक संवृद्धि बनाम विकास, HDI, MPI, नीति आयोग, हैरोड-डोमर ICOR मॉडल, FDI बनाम FII, जनसांख्यिकी लाभांश एवं मनरेगा (MGNREGA) योजना का विस्तृत विश्लेषण शामिल है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">HDI & MPI</span>
+                        <span class="stat-label">UNDP गुणोत्तर माध्य सूत्र</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">हैरोड-डोमर ICOR</span>
+                        <span class="stat-label">हल किए गए आर्थिक उदाहरण</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">नीति आयोग</span>
+                        <span class="stat-label">सहकारी संघवाद मॉडल</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: ECONOMIC GROWTH, DEVELOPMENT AND SUSTAINABILITY                     -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>आर्थिक संवृद्धि, विकास एवं सततता</h2>
+                </div>
+
+                <!-- 1.1 Growth vs Development -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>आर्थिक संवृद्धि बनाम आर्थिक विकास (Growth vs Development)</span>
+                    </div>
+
+                    <p>
+                        आधुनिक आर्थिक विश्लेषण में <strong>आर्थिक संवृद्धि (Economic Growth)</strong> तथा <strong>आर्थिक विकास (Economic Development)</strong> के बीच एक स्पष्ट अंतर किया जाता है। संवृद्धि वास्तविक सकल घरेलू उत्पाद (GDP) या प्रति व्यक्ति आय में मात्रात्मक वृद्धि को दर्शाती है, जबकि विकास में संरचनात्मक परिवर्तन, गरीबी उन्मूलन, असमानता में कमी तथा जीवन स्तर में समग्र सुधार शामिल है।
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> माइकल पी. टोडारो (Todaro) के अनुसार परिभाषा:</h4>
+                        <p>
+                            "आर्थिक विकास को एक बहुआयामी प्रक्रिया के रूप में समझा जाना चाहिए जिसमें सामाजिक संरचनाओं, लोकप्रिय दृष्टिकोणों और राष्ट्रीय संस्थानों में बड़े बदलाव शामिल हैं, साथ ही आर्थिक संवृद्धि में तेजी, असमानता में कमी और गरीबी का उन्मूलन शामिल है।"
+                        </p>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>मापदंड</th>
+                                    <th>आर्थिक संवृद्धि (Economic Growth)</th>
+                                    <th>आर्थिक विकास (Economic Development)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>प्रकृति</strong></td>
+                                    <td>मात्रात्मक वृद्धि (GDP, प्रति व्यक्ति आय में वृद्धि)।</td>
+                                    <td>बहुआयामी: मात्रात्मक + गुणात्मक संरचनात्मक परिवर्तन।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>क्षेत्र</strong></td>
+                                    <td>संकीर्ण; केवल राष्ट्रीय उत्पादन की मात्रा पर ध्यान केंद्रित करता है।</td>
+                                    <td>व्यापक; स्वास्थ्य, शिक्षा, समानता एवं पर्यावरणीय गुणवत्ता शामिल है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>मापन</strong></td>
+                                    <td>वास्तविक GDP संवृद्धि दर, प्रति व्यक्ति GDP।</td>
+                                    <td>मानव विकास सूचकांक (HDI), बहुआयामी गरीबी सूचकांक (MPI), PQLI।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>प्रासंगिकता</strong></td>
+                                    <td>विकसित अर्थव्यवस्थाओं के लिए अधिक प्रासंगिक।</td>
+                                    <td>भारत जैसे विकासशील देशों के लिए अत्यंत आवश्यक।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 PQLI, HDI & MPI -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>जीवन की गुणवत्ता सूचकांक: PQLI, HDI एवं बहुआयामी गरीबी सूचकांक (MPI)</span>
+                    </div>
+
+                    <p>
+                        केवल प्रति व्यक्ति आय की सीमाओं को दूर करने के लिए अर्थशास्त्रियों ने समग्र मानव विकास सूचकांक विकसित किए:
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-calculator"></i> 1. भौतिक जीवन गुणवत्ता सूचकांक (PQLI - मोरिस डी. मोरिस 1979)</h5>
+                        <p class="text-sm">
+                            PQLI तीन बुनियादी संकेतकों का औसत है (1 से 100 पैमाने पर): शिशु मृत्यु दर (IMR), 1 वर्ष की आयु पर जीवन प्रत्याशा, तथा बुनियादी साक्षरता दर।
+                        </p>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-chart-pie"></i> 2. मानव विकास सूचकांक (HDI - UNDP सूत्र)</h4>
+                        <p class="text-sm">
+                            HDI <strong>गुणोत्तर माध्य (Geometric Mean)</strong> का उपयोग करके 3 आयामों को जोड़ता है:
+                        </p>
+                        <div class="formula-box mt-2">
+                            <div class="formula-title">HDI का गणितीय सूत्र:</div>
+                            $$\text{HDI} = \sqrt[3]{I_{\text{स्वास्थ्य}} \times I_{\text{शिक्षा}} \times I_{\text{आय}}}$$
+                        </div>
+                        <ul class="text-sm" style="padding-left: 20px; margin-top: 8px;">
+                            <li><strong>स्वास्थ्य आयाम:</strong> जन्म के समय जीवन प्रत्याशा ($I_{\text{स्वास्थ्य}}$)।</li>
+                            <li><strong>शिक्षा आयाम:</strong> स्कूली शिक्षा के औसत वर्ष + स्कूली शिक्षा के अपेक्षित वर्ष ($I_{\text{शिक्षा}}$)।</li>
+                            <li><strong>जीवन स्तर:</strong> प्रति व्यक्ति सकल राष्ट्रीय आय - GNI ($I_{\text{आय}}$)।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 1.3 NITI Aayog -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>योजना आयोग बनाम नीति आयोग (NITI Aayog)</span>
+                    </div>
+                    <p>
+                        1 जनवरी 2015 को योजना आयोग के स्थान पर 'नीति आयोग' (National Institution for Transforming India) का गठन किया गया। नीति आयोग <strong>सहकारी संघवाद (Cooperative Federalism)</strong> तथा <strong>Bottom-Up दृष्टिकोण</strong> पर आधारित थिंक-टैंक के रूप में कार्य करता है।
+                    </p>
+                </div>
+
+                <!-- 1.4 SDGs -->
+                <div class="topic-card" id="u1-4">
+                    <div class="topic-title">
+                        <span class="topic-number">1.4</span>
+                        <span>सतत विकास लक्ष्य (Sustainable Development Goals - SDGs)</span>
+                    </div>
+                    <p>
+                        संयुक्त राष्ट्र (UN) द्वारा 2015 में 17 सतत विकास लक्ष्य (SDGs) निर्धारित किए गए जिन्हें 2030 तक प्राप्त करना है। इसमें गरीबी उन्मूलन (SDG 1), भुखमरी समाप्ति (SDG 2), गुणवत्तापूर्ण शिक्षा (SDG 4) और जलवायु कार्रवाई (SDG 13) प्रमुख हैं।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: CAPITAL FORMATION & GROWTH MODELS                                  -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>पूंजी निर्माण एवं विकास मॉडल</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>हैरोड-डोमर संवृद्धि मॉडल एवं वृद्धिशील पूंजी-उत्पाद अनुपात (ICOR)</span>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula-title">आर्थिक संवृद्धि दर सूत्र:</div>
+                        $$g = \frac{s}{\text{ICOR}}$$
+                        <p class="text-xs text-subtle mt-2">
+                            जहाँ $g$ = आर्थिक संवृद्धि दर, $s$ = बचत दर, $\text{ICOR}$ = वृद्धिशील पूंजी-उत्पाद अनुपात।
+                        </p>
+                    </div>
+                </div>
+
+                <div class="topic-card" id="u2-3">
+                    <div class="topic-title">
+                        <span class="topic-number">2.3</span>
+                        <span>प्रत्यक्ष विदेशी निवेश (FDI) बनाम संस्थागत विदेशी निवेश (FII)</span>
+                    </div>
+                    <p>
+                        FDI दीर्घकालिक प्रत्यक्ष निवेश है जो परिसंपत्तियों और प्रबंधन में भागीदारी लाता है, जबकि FII शेयर बाजार में अल्पकालिक वित्तीय निवेश होता है जिसे 'हॉट मनी' (Hot Money) कहा जाता है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: DEMOGRAPHY & MIGRATION                                            -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 3</span>
+                    <h2>जनसंख्या, जनसांख्यिकी लाभांश एवं प्रवासन</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>भारत में जनसांख्यिकी लाभांश (Demographic Dividend)</span>
+                    </div>
+                    <p>
+                        जब देश की कुल आबादी में कार्यशील आयु वर्ग (15 से 64 वर्ष) का अनुपात आश्रित आबादी (बच्चों एवं बुजुर्गों) से अधिक हो जाता है, तो इसे जनसांख्यिकी लाभांश कहते हैं। भारत वर्तमान में इस स्थिति का लाभ उठा रहा है।
+                    </p>
+                </div>
+
+                <div class="topic-card" id="u3-2">
+                    <div class="topic-title">
+                        <span class="topic-number">3.2</span>
+                        <span>ग्रामीण-शहरी प्रवासन का हैरिस-टोडारो मॉडल (Harris-Todaro Model)</span>
+                    </div>
+                    <p>
+                        हैरिस-टोडारो मॉडल के अनुसार, ग्रामीण क्षेत्रों से शहरों की ओर प्रवासन केवल वर्तमान मजदूरी के अंतर पर नहीं, बल्कि शहरों में <strong>प्रत्याशित वास्तविक आय (Expected Real Income)</strong> और रोजगार मिलने की संभावना पर निर्भर करता है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: EMPLOYMENT & MGNREGA                                               -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 4</span>
+                    <h2>रोजगार एवं मनरेगा (MGNREGA) योजना</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>संगठित बनाम असंगठित क्षेत्र एवं मनरेगा योजना विश्लेषण</span>
+                    </div>
+                    <p>
+                        मनरेगा (महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी अधिनियम 2005) प्रत्येक ग्रामीण परिवार के वयस्क सदस्यों को प्रति वर्ष कम से कम 100 दिनों के अकुशल शारीरिक रोजगार की <strong>कानूनी गारंटी</strong> प्रदान करता है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">परीक्षा विशेष</span>
+                    <h2>परीक्षा प्रश्न बैंक एवं पुनरीक्षण उपकरण</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> त्वरित पुनरीक्षण फ्लैशकार्ड (Revision Flashcards)</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">HDI गणना में तीनों आयामों को जोड़ने के लिए किस औसत का उपयोग किया जाता है?</div>
+                            <div class="back">गुणोत्तर माध्य (Geometric Mean)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">नीति आयोग (NITI Aayog) की स्थापना किस वर्ष की गई थी?</div>
+                            <div class="back">1 जनवरी 2015 (योजना आयोग के स्थान पर)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">मनरेगा (MGNREGA) के तहत कितने दिनों के रोजगार की कानूनी गारंटी दी जाती है?</div>
+                            <div class="back">प्रति वर्ष 100 दिनों का अकुशल शारीरिक रोजगार।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> अभ्यास प्रश्न (MCQs)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">प्र1. UNDP मानव विकास सूचकांक (HDI) की गणना में निम्नलिखित में से कौन सा आयाम शामिल नहीं है?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">क) स्वास्थ्य</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">ख) शिक्षा</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco1-1')">ग) रक्षा व्यय</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">घ) प्रति व्यक्ति आय (GNI)</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco1-1">
+                                <strong>स्पष्टीकरण:</strong> HDI केवल तीन आयामों (स्वास्थ्य, शिक्षा और प्रति व्यक्ति आय) पर आधारित है। रक्षा व्यय इसमें शामिल नहीं है।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> महत्वपूर्ण शब्दावली (Glossary)</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">ICOR (पूंजी-उत्पाद अनुपात)</div>
+                            <div class="glossary-def">उत्पादन की एक अतिरिक्त इकाई प्राप्त करने के लिए आवश्यक अतिरिक्त पूंजी।</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">जनसांख्यिकी लाभांश</div>
+                            <div class="glossary-def">कार्यशील जनसंख्या (15-64 वर्ष) के बढ़ने से प्राप्त होने वाला आर्थिक लाभ।</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। अर्थशास्त्र ऐच्छिक 1।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1" selected>अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

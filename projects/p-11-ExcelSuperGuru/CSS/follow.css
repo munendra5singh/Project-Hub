@@ -1,0 +1,330 @@
+/* =========================
+   Followers Section Frame Layout
+========================= */
+.followers-section {
+    background-color: #000;
+    padding: 20px;
+    color: #fff;
+}
+
+/* --- Capsule Pill Design (Members Badge) --- */
+.members-badge {
+    background-color: #1a1a1a;
+    color: #8a8a8a;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 24px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #262626;
+}
+
+/* --- Vivid Neon Numeric Data Counter --- */
+.count-number {
+    color: #00ff66;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Container Style */
+.followers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 700px;
+    height: 350px;
+    margin: 30px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid #28a745; /* गहरा हरा बॉर्डर */
+    border-radius: 20px;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+/* Modern Card Design */
+.follower-card {
+    background: #e6e2e2;
+    border: 2px solid #28a745;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.follower-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(40, 167, 69, 0.2);
+}
+
+/* Inner Gender Box */
+.inner-box {
+    background: #e8f5e9;
+    border: 2px solid #141414;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 40px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.name-text {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #2c3e50;
+    text-transform: capitalize;
+}
+
+.inner-box:hover {
+    font-size: 60px;
+}
+
+/* Dark Mode Enhancements */
+body.dark-mode .follower-card { background: #1e1e26; border-color: #0b3ef7; }
+body.dark-mode .name-text { color: #ffffff; }
+body.dark-mode .inner-box { background: #1a2e1c; border-color: #f6f7f6; }
+
+/* Follow Button - Modern Gradient */
+.follow-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.follow-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+}
+
+.follower-card {
+    animation: highlight 2s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#toast {
+    transition: all 0.5s ease-in-out;
+    top: -100px; /* शुरुआत में स्क्रीन के बाहर छुपाएं */
+}
+
+#toast.show {
+    top: 20px; /* स्लाइड होकर नीचे आएगा */
+}
+
+.whatsapp-highlight {
+    animation: glow 1.5s infinite alternate;
+    background-color: #25D366 !important;
+    border: 2px solid white !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    display: inline-block;
+    text-decoration: none !important;
+    color: white !important;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px #25D366, 0 0 10px #25D366; }
+    to { box-shadow: 0 0 20px #25D366, 0 0 30px #25D366; }
+}
+
+/* मोबाइल डिवाइस के लिए (स्क्रीन 600px से छोटी) */
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 90% !important; /* स्क्रीन की चौड़ाई का 90% लेगा */
+        margin: 10% auto;      /* ऊपर से थोड़ी जगह छोड़ देगा */
+        padding: 15px !important;
+    }
+
+    #toast {
+        min-width: 90% !important; /* मोबाइल पर पूरा फैलेगा */
+        font-size: 14px;
+        padding: 10px !important;
+    }
+
+    .whatsapp-highlight {
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+    }
+}
+
+.work-card {
+    position: relative; /* यह सबसे महत्वपूर्ण है */
+    /* बाकी पुरानी स्टाइलिंग... */
+}
+
+/* Modern Popup Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+/* Modern Popup Content */
+.modal-content {
+    background: #ffffff;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideDown 0.4s ease;
+    box-sizing: border-box;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal h3 { margin-bottom: 20px; color: #333; font-family: sans-serif; }
+
+/* Stylish Inputs */
+.modal input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+.modal input:focus { border-color: #28a745; }
+
+/* --- Gender Toggle Switch --- */
+.gender-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin: 12px 0;
+    box-sizing: border-box;
+}
+
+.gender-label {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #444;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider Base - Default Male (Blue) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #00aeef; /* Male Blue */
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* When checked - Female (Pink) */
+.toggle-switch input:checked + .slider {
+    background-color: #ff69b4; /* Female Pink */
+}
+
+.toggle-switch input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* Gender Text Styles */
+.gender-text {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.4s ease;
+    min-width: 95px;
+    text-align: center;
+}
+
+.male-mode { background-color: #00aeef; }
+.female-mode { background-color: #ff69b4; }
+
+/* Green Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* 1. छिपे हुए इनपुट को कीबोर्ड फोकस के लिए सुधारे */
+.toggle-switch input:focus-visible + .slider {
+    outline: 3px solid #28a745; /* ग्रीन कलर की आउटलाइन दिखेगी जब Tab दबाकर यहाँ आएंगे */
+    outline-offset: 3px;
+}
+
+/* 2. पूरे जेंडर कंटेनर को भी कीबोर्ड फ्रेंडली बनाएं */
+.toggle-switch input:focus-visible ~ .gender-text {
+    box-shadow: 0 0 0 2px #333;
+}

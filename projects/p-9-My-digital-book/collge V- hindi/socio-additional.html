@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>समाजशास्त्र (अतिरिक्त) | बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर समाजशास्त्र अतिरिक्त प्रश्नपत्र: अगस्ट कॉम्ट, इमैनुएल दुर्खीम, कार्ल मार्क्स, मैक्स वेबर, एम.एन. श्रीनिवास एवं भारतीय जाति व्यवस्था।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="sociology">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">समाजशास्त्र अतिरिक्त प्रश्नपत्र</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> पाठ्य सामग्री</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> परीक्षा विशेष</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('socio-additional', 'समाजशास्त्र अतिरिक्त')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#sociology">समाजशास्त्र</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">समाजशास्त्रीय सिद्धांत एवं भारतीय समाज</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: शास्त्रीय विचारक</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 अगस्ट कॉम्ट: तीन स्तरों का नियम</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 इमैनुएल दुर्खीम: सामाजिक तथ्य एवं आत्महत्या</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 कार्ल मार्क्स: वर्ग संघर्ष</a></li>
+                    <li><a href="#u1-4" class="toc-link">1.4 मैक्स वेबर: नौकरशाही एवं सामाजिक क्रिया</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: भारतीय समाजशास्त्र</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 एम.एन. श्रीनिवास: संस्कृतिकरण एवं प्रभु जाति</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 जी.एस. घुर्ये: भारतीय जाति व्यवस्था</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>परीक्षा विशेष अनुभाग</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-flashcards" class="toc-link">त्वरित पुनरीक्षण फ्लैशकार्ड</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">अभ्यास प्रश्न (MCQs)</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-users"></i> समाजशास्त्र अतिरिक्त प्रश्नपत्र</div>
+                <h1>समाजशास्त्रीय सिद्धांत एवं भारतीय समाज</h1>
+                <p>
+                    यह संपूर्ण पाठ्यपुस्तक समाजशास्त्र के जनक अगस्ट कॉम्ट (प्रत्यक्षवाद), इमैनुएल दुर्खीम (सामाजिक तथ्य एवं आत्महत्या), कार्ल मार्क्स (ऐतिहासिक भौतिकवाद एवं वर्ग संघर्ष), मैक्स वेबर (नौकरशाही) तथा एम.एन. श्रीनिवास (संस्कृतिकरण एवं पश्चिमीकरण) के सिद्धांतों का विस्तृत विवरण प्रदान करती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">तीन स्तरों का नियम</span>
+                        <span class="stat-label">धार्मिक, तात्विक, प्रत्यक्षवादी</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">वर्ग संघर्ष</span>
+                        <span class="stat-label">बुर्जुआ (Bourgeoisie) बनाम सर्वहारा (Proletariat)</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">संस्कृतिकरण</span>
+                        <span class="stat-label">एम.एन. श्रीनिवास सामाजिक गतिशीलता</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: CLASSICAL SOCIOLOGICAL THINKERS                                   -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>शास्त्रीय समाजशास्त्रीय विचारक</h2>
+                </div>
+
+                <!-- 1.1 Comte -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>अगस्ट कॉम्ट (Auguste Comte): तीन स्तरों का नियम (Law of Three Stages)</span>
+                    </div>
+
+                    <p>
+                        समाजशास्त्र के जनक अगस्ट कॉम्ट के अनुसार, मानव चिंतन एवं ज्ञान का विकास तीन ऐतिहासिक अवस्थाओं से गुजरता है:
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-diagram-project"></i> ज्ञान विकास के 3 स्तर:</h5>
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>1. धार्मिक स्तर (Theological Stage):</strong> सभी घटनाओं को अलौकिक शक्तियों और ईश्वर की इच्छा का परिणाम माना जाता है।</li>
+                            <li><strong>2. तात्विक स्तर (Metaphysical Stage):</strong> अमूर्त शक्तियों और दार्शनिक सिद्धांतों द्वारा व्याख्या की जाती है।</li>
+                            <li><strong>3. प्रत्यक्षवादी / वैज्ञानिक स्तर (Positive/Scientific Stage):</strong> वैज्ञानिक अवलोकन, प्रयोग और तर्क पर आधारित नियम।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 1.2 Durkheim -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>इमैनुएल दुर्खीम (Émile Durkheim): सामाजिक तथ्य (Social Facts) एवं आत्महत्या का सिद्धांत</span>
+                    </div>
+                    <p>
+                        दुर्खीम के अनुसार, समाजशास्त्र का विषय क्षेत्र 'सामाजिक तथ्य' हैं जो व्यक्ति के बाहर स्थित (Exteriority) होते हैं और उस पर दबाव (Coercion) डालते हैं। दुर्खीम ने आत्महत्या के 4 प्रकार बताए: 1. अहम्वादी (Egoistic), 2. परार्थवादी (Altruistic), 3. अनियंत्रित/विसंगतिजन्य (Anomic), 4. भाग्यवादी (Fatalistic)।
+                    </p>
+                </div>
+
+                <!-- 1.3 Marx -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>कार्ल मार्क्स (Karl Marx): वर्ग संघर्ष सिद्धांत (Class Struggle)</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> कम्युनिस्ट घोषणापत्र (1848)</h4>
+                        <p class="text-sm">
+                            "अब तक के विद्यमान सभी समाजों का इतिहास वर्ग संघर्ष का इतिहास रहा है।" मार्क्स के अनुसार पूंजीवादी समाज में दो मुख्य वर्ग होते हैं: <strong>बुर्जुआ (Bourgeoisie - साधन स्वामी)</strong> तथा <strong>सर्वहारा (Proletariat - श्रमिक वर्ग)</strong>।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1.4 Weber -->
+                <div class="topic-card" id="u1-4">
+                    <div class="topic-title">
+                        <span class="topic-number">1.4</span>
+                        <span>मैक्स वेबर (Max Weber): सामाजिक क्रिया एवं नौकरशाही (Bureaucracy)</span>
+                    </div>
+                    <p>
+                        मैक्स वेबर ने समाजशास्त्र को 'सामाजिक क्रिया' (Social Action) की व्याख्यात्मक समझ का विज्ञान माना। उन्होंने नौकरशाही का <strong>आदर्श प्रारूप (Ideal Type)</strong> प्रस्तुत किया जिसकी विशेषताओं में नियमों की लिखित व्यवस्था, पदसोपान (Hierarchy) और अवैयक्तिकता शामिल है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: INDIAN SOCIOLOGY                                                  -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>भारतीय समाजशास्त्र एवं गतिशीलता</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>एम.एन. श्रीनिवास (M.N. Srinivas): संस्कृतिकरण एवं प्रभु जाति (Dominant Caste)</span>
+                    </div>
+                    <p>
+                        <strong>संस्कृतिकरण (Sanskritization):</strong> वह प्रक्रिया है जिसके द्वारा एक निम्न जाति किसी उच्च द्विज जाति की जीवनशैली, अनुष्ठानों एवं रीति-रिवाजों का अनुकरण करके अपनी सामाजिक स्थिति को ऊंचा उठाने का प्रयास करती है।
+                    </p>
+                </div>
+
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.2</span>
+                        <span>जी.एस. घुर्ये (G.S. Ghurye) एवं भारतीय जाति व्यवस्था की विशेषताएं</span>
+                    </div>
+                    <p>
+                        जी.एस. घुर्ये ने भारत में जाति व्यवस्था की 6 मुख्य विशेषताएं बताईं: 1. समाज का खंडात्मक विभाजन, 2. सोपानात्मक व्यवस्था (Hierarchy), 3. भोजन एवं सामाजिक सहभोज पर प्रतिबंध, 4. नागरिक एवं धार्मिक असमर्थताएं, 5. पेशों के चयन में अप्रतिबंधित चुनाव का अभाव, 6. अंतर्विवाह (Endogamy) का नियम।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">परीक्षा विशेष</span>
+                    <h2>परीक्षा प्रश्न बैंक एवं पुनरीक्षण उपकरण</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> त्वरित पुनरीक्षण फ्लैशकार्ड</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">'संस्कृतिकरण' (Sanskritization) की अवधारणा किसने दी थी?</div>
+                            <div class="back">प्रोफेसर एम.एन. श्रीनिवास (M.N. Srinivas)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">'सामाजिक तथ्य' (Social Facts) की अवधारणा किस विचारक से संबंधित है?</div>
+                            <div class="back">इमैनुएल दुर्खीम (Émile Durkheim)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">समाजशास्त्र (Sociology) शब्द की रचना किसने की थी?</div>
+                            <div class="back">अगस्ट कॉम्ट (वर्ष 1838 में)।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> अभ्यास प्रश्न (MCQs)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">प्र1. कार्ल मार्क्स के अनुसार पूंजीवादी समाज में उत्पादन के साधनों के स्वामियों को क्या कहा जाता है?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-socio-1')">क) बुर्जुआ (Bourgeoisie)</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-socio-1')">ख) सर्वहारा (Proletariat)</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-socio-1')">ग) दास (Slaves)</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-socio-1')">घ) सामंत (Lords)</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-socio-1">
+                                <strong>स्पष्टीकरण:</strong> मार्क्स ने उत्पादन के साधनों के पूंजीपति स्वामियों को बुर्जुआ वर्ग कहा है।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। समाजशास्त्र अतिरिक्त प्रश्नपत्र।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional" selected>समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

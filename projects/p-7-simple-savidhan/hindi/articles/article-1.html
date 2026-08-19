@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - अनुच्छेद 1: संघ का नाम और राज्यक्षेत्र</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 30px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-part-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .hero-description {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr 270px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Left Sidebar */
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item::before {
+      content: "•";
+      font-size: 12px;
+      color: #0b1a30;
+    }
+
+    .nav-item.active {
+      background-color: #edf3f9;
+      color: #103254;
+      font-weight: 600;
+    }
+
+    .nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+    }
+
+    .contents-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .content-article-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .content-article-item.active {
+      background-color: #edf3f9;
+    }
+
+    .content-article-item .art-num {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #103254;
+      display: block;
+    }
+
+    .content-article-item .art-title {
+      font-size: 11px;
+      color: #3d4a5d;
+      margin-top: 2px;
+      line-height: 1.3;
+      display: block;
+    }
+
+    .content-article-item i {
+      font-size: 10px;
+      color: #103254;
+    }
+
+    .btn-view-all-articles {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-view-all-articles:hover {
+      background-color: #f8f9fb;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .article-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .article-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icon-btn:hover {
+      color: #0b1a30;
+    }
+
+    .action-icon-btn.bookmarked {
+      color: #d4af37;
+    }
+
+    .btn-listen-article {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-listen-article:hover {
+      background-color: #f8f9fb;
+    }
+
+    .article-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Original Article Card Box */
+    .original-article-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .original-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .original-header-line i {
+      font-size: 16px;
+    }
+
+    .article-clause-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13.5px;
+      color: #0b1a30;
+      line-height: 1.5;
+    }
+
+    .article-clause-list strong {
+      font-weight: 700;
+    }
+
+    .sub-clause-list {
+      list-style: none;
+      padding-left: 24px;
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .blue-link {
+      color: #1e3a8a;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .blue-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Detailed Explanation Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .explanation-text-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.6;
+    }
+
+    .explanation-paragraph {
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.6;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Key Takeaway Exam Note Box */
+    .exam-note-box {
+      background-color: #f3ecf8;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid #e5d7f2;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .exam-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6a4498;
+      font-size: 14px;
+      flex-shrink: 0;
+      border: 1px solid #d8c2eb;
+    }
+
+    .exam-note-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6a4498;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .gavel-illustration {
+      width: 80px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a5cb8" opacity="0.8" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="45" width="80" height="8" rx="2"/><rect x="20" y="30" width="30" height="12" rx="2"/><rect x="60" y="10" width="10" height="30" rx="2" transform="rotate(30 65 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 15px;
+    }
+
+    /* Key Points Checklist */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Important Terms Box */
+    .important-terms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    .important-terms-list strong {
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    /* Examples Box */
+    .examples-list {
+      list-style: disc;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.45;
+    }
+
+    .examples-list strong {
+      color: #0b1a30;
+    }
+
+    /* Related Articles Links */
+    .related-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .related-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e3a8a;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .related-link-item:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    .related-link-item i {
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner {
+        padding: 24px 30px;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .article-main-heading {
+        font-size: 20px;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gavel-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR ARTICLES-1 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-part-label {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .article-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .article-main-heading,
+    [data-theme="dark"] .article-clause-list,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .important-terms-list strong,
+    [data-theme="dark"] .examples-list strong,
+    [data-theme="dark"] .content-article-item .art-num {
+      color: var(--sv-text-heading) !important;
+    }
+
+    [data-theme="dark"] .nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .nav-item.active,
+    [data-theme="dark"] .content-article-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .content-article-item.active .art-num,
+    [data-theme="dark"] .content-article-item.active .art-title,
+    [data-theme="dark"] .content-article-item.active i {
+      color: #0b1a30 !important;
+    }
+
+    [data-theme="dark"] .btn-view-all-articles,
+    [data-theme="dark"] .btn-listen-article {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-view-all-articles:hover,
+    [data-theme="dark"] .btn-listen-article:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .action-icon-btn:hover {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .original-article-box {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .original-header-line {
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .blue-link,
+    [data-theme="dark"] .related-link-item,
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .point-item i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .explanation-text-list,
+    [data-theme="dark"] .explanation-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .point-item,
+    [data-theme="dark"] .important-terms-list,
+    [data-theme="dark"] .examples-list,
+    [data-theme="dark"] .content-article-item .art-title {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: rgba(106, 68, 152, 0.2);
+      border-color: rgba(106, 68, 152, 0.4);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: rgba(106, 68, 152, 0.4);
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-title {
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html" class="active">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html">भाग</a></li>
+      <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/articles/article-1.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <div class="hero-part-label">अनुच्छेद 1</div>
+      <h1 class="hero-title">संघ का नाम और राज्यक्षेत्र</h1>
+      <p class="hero-description">
+        संविधान का भाग I भारत के राज्यक्षेत्र,<br>
+        राज्यों और केंद्र शासित प्रदेशों का निर्धारण करता है।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container Layout -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/parts.html">भाग</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="#">भाग I - संघ और उसका राज्यक्षेत्र</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>अनुच्छेद 1</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: On This Page & Part I Contents -->
+      <aside class="left-sidebar">
+        
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>इस पृष्ठ पर</span>
+          </div>
+
+          <ul class="nav-list" id="onThisPageNav">
+            <li class="nav-item active" data-target="section-article-text">अनुच्छेद 1 का मूल पाठ</li>
+            <li class="nav-item" data-target="section-simple-explanation">सरल व्याख्या</li>
+            <li class="nav-item" data-target="section-what-does-it-say">अनुच्छेद 1 क्या कहता है?</li>
+            <li class="nav-item" data-target="section-purpose">अनुच्छेद 1 का उद्देश्य</li>
+            <li class="nav-item" data-target="section-bharat-meaning">इंडिया, अर्थात भारत का अर्थ</li>
+            <li class="nav-item" data-target="section-union-meaning">राज्यों का संघ का अर्थ</li>
+            <li class="nav-item" data-target="section-territory-includes">भारत के राज्यक्षेत्र में शामिल हैं</li>
+            <li class="nav-item" data-target="section-first-schedule">पहली अनुसूची से संबंध</li>
+            <li class="nav-item" data-target="section-key-takeaway">परीक्षा के लिए टिप्पणी / मुख्य बिंदु</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-landmark"></i>
+            <span>भाग I के विषय</span>
+          </div>
+
+          <div class="contents-list">
+            <div class="content-article-item active" data-article="1">
+              <div>
+                <span class="art-num">अनुच्छेद 1</span>
+                <span class="art-title">संघ का नाम और राज्यक्षेत्र</span>
+              </div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="content-article-item" data-article="2">
+              <div>
+                <span class="art-num">अनुच्छेद 2</span>
+                <span class="art-title">नए राज्यों का प्रवेश या स्थापना</span>
+              </div>
+            </div>
+            <div class="content-article-item" data-article="3">
+              <div>
+                <span class="art-num">अनुच्छेद 3</span>
+                <span class="art-title">नए राज्यों का निर्माण और वर्तमान राज्यों के क्षेत्रों, सीमाओं या नामों में परिवर्तन</span>
+              </div>
+            </div>
+            <div class="content-article-item" data-article="4">
+              <div>
+                <span class="art-num">अनुच्छेद 4</span>
+                <span class="art-title">अनुच्छेद 2 और 3 के तहत बनाए गए कानूनों को किसी न्यायालय में प्रश्नगत न किया जाना</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-view-all-articles" id="viewAllArticlesBtn" type="button">
+            सभी अनुच्छेद देखें <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- Middle Main Content Panel -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="article-header-card" id="section-header">
+          <div class="article-top-bar">
+            <div class="article-badge-title">
+              <i class="fa-regular fa-file-lines"></i> अनुच्छेद 1
+            </div>
+            <div class="article-actions">
+              <button class="action-icon-btn" id="bookmarkBtn" title="बुकमार्क करें"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" id="shareBtn" title="साझा करें"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-article" id="listenBtn" type="button">
+                <i class="fa-solid fa-volume-high"></i> <span id="listenText">अनुच्छेद सुनें</span>
+              </button>
+            </div>
+          </div>
+          <h1 class="article-main-heading">संघ का नाम और राज्यक्षेत्र</h1>
+        </div>
+
+        <!-- Section 1: Original Article Text Box -->
+        <div class="original-article-box" id="section-article-text">
+          <div class="original-header-line">
+            <i class="fa-solid fa-quote-left"></i> 1. अनुच्छेद का मूल पाठ
+          </div>
+          <ol class="article-clause-list" style="list-style-type: decimal; padding-left: 18px;">
+            <li><strong>भारत, अर्थात इंडिया,</strong> राज्यों का एक संघ होगा।</li>
+            <li>राज्य और उनके राज्यक्षेत्र वे होंगे जो <a href="#" class="blue-link" data-sched="first">पहली अनुसूची</a> में विनिर्दिष्ट हैं।</li>
+            <li>भारत के राज्यक्षेत्र में शामिल होंगे—
+              <ul class="sub-clause-list" style="list-style-type: lower-alpha;">
+                <li>(क) राज्यों के राज्यक्षेत्र;</li>
+                <li>(ख) <a href="#" class="blue-link" data-sched="first">पहली अनुसूची</a> में विनिर्दिष्ट संघ राज्यक्षेत्र; और</li>
+                <li>(ग) ऐसे अन्य राज्यक्षेत्र जो अर्जित किए जाएं।</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Section 2: Simple Explanation -->
+        <div class="content-card-box" id="section-simple-explanation">
+          <div class="card-section-title">
+            <i class="fa-regular fa-file-code"></i> 2. सरल व्याख्या
+          </div>
+          <ol class="explanation-text-list" style="list-style-type: decimal; padding-left: 18px;">
+            <li>भारत (जिसे इंडिया के नाम से भी जाना जाता है) राज्यों का एक संघ है।</li>
+            <li>भारत के सभी राज्य और केंद्र शासित प्रदेश पहली अनुसूची में सूचीबद्ध हैं।</li>
+            <li>भारत का राज्यक्षेत्र इन सब से मिलकर बनता है:
+              <ul class="sub-clause-list" style="list-style-type: lower-alpha;">
+                <li>(क) राज्यों का क्षेत्र</li>
+                <li>(ख) पहली अनुसूची में शामिल केंद्र शासित प्रदेश</li>
+                <li>(ग) कोई भी अन्य क्षेत्र जो भविष्य में भारत द्वारा अर्जित किया जाए</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Section 3: What Does Article 1 Say? -->
+        <div class="content-card-box" id="section-what-does-it-say">
+          <div class="card-section-title">
+            <i class="fa-solid fa-lock"></i> 3. अनुच्छेद 1 क्या कहता है?
+          </div>
+          <p class="explanation-paragraph">
+            अनुच्छेद 1 भारत को "राज्यों का संघ" घोषित करता है और भारत के राज्यक्षेत्र का निर्माण करने वाले हिस्सों को परिभाषित करता है। यह अनुच्छेद भारत की राजनीतिक पहचान और भौगोलिक संरचना की नींव रखता है।
+          </p>
+        </div>
+
+        <!-- Section 4: Purpose of Article 1 -->
+        <div class="content-card-box" id="section-purpose">
+          <div class="card-section-title">
+            <i class="fa-solid fa-bullseye"></i> 4. अनुच्छेद 1 का उद्देश्य क्या है?
+          </div>
+          <p class="explanation-paragraph">
+            इस अनुच्छेद का उद्देश्य यह स्थापित करना है कि भारत एक अखंड संघ है और इसके राज्यक्षेत्र की सीमा को परिभाषित करना है। यह इसके बाद के प्रावधानों (अनुच्छेद 2, 3 और 4) के लिए आधार के रूप में कार्य करता है।
+          </p>
+        </div>
+
+        <!-- Section 5: India, that is Bharat Meaning -->
+        <div class="content-card-box" id="section-bharat-meaning">
+          <div class="card-section-title">
+            <i class="fa-solid fa-globe"></i> 5. "इंडिया, अर्थात भारत" का अर्थ
+          </div>
+          <p class="explanation-paragraph">
+            संविधान में देश का नाम "इंडिया, अर्थात भारत" निर्दिष्ट किया गया है। इसका अर्थ है कि भारत इसका आधिकारिक स्वदेशी नाम है जबकि इंडिया इसका अंतरराष्ट्रीय नाम है। दोनों ही नाम समान रूप से आधिकारिक मान्यता रखते हैं।
+          </p>
+        </div>
+
+        <!-- Section 6: Union of States Meaning -->
+        <div class="content-card-box" id="section-union-meaning">
+          <div class="card-section-title">
+            <i class="fa-solid fa-diagram-project"></i> 6. "राज्यों का संघ" का अर्थ
+          </div>
+          <p class="explanation-paragraph">
+            भारत को एक "महासंघ" (Federation) के बजाय "राज्यों का संघ" (Union of States) कहा गया है। यह दर्शाता है कि भारतीय संघ अविनाशी है। राज्यों का पुनर्गठन, सीमाओं में बदलाव या नए राज्यों का निर्माण संसद के अधिकार क्षेत्र में आता है। किसी भी राज्य को संघ से अलग होने का अधिकार नहीं है।
+          </p>
+        </div>
+
+        <!-- Section 7: Territory of India Includes -->
+        <div class="content-card-box" id="section-territory-includes">
+          <div class="card-section-title">
+            <i class="fa-solid fa-map-location-dot"></i> 7. भारत के राज्यक्षेत्र में क्या-क्या शामिल है?
+          </div>
+          <ul class="bullet-points-list">
+            <li><strong>राज्यों के राज्यक्षेत्र</strong> – सभी व्यक्तिगत राज्यों का भौगोलिक क्षेत्र।</li>
+            <li><strong>संघ राज्यक्षेत्र</strong> – पहली अनुसूची में सूचीबद्ध केंद्र शासित प्रदेश।</li>
+            <li><strong>अन्य अर्जित राज्यक्षेत्र</strong> – कोई भी ऐसा क्षेत्र जो भविष्य में भारत द्वारा अधिग्रहित या अर्जित किया जाए।</li>
+          </ul>
+        </div>
+
+        <!-- Section 8: First Schedule Relation -->
+        <div class="content-card-box" id="section-first-schedule">
+          <div class="card-section-title">
+            <i class="fa-regular fa-book"></i> 8. पहली अनुसूची से संबंध
+          </div>
+          <p class="explanation-paragraph">
+            अनुच्छेद 1(2) यह निर्दिष्ट करता है कि राज्यों और केंद्र शासित प्रदेशों की सूची <strong>पहली अनुसूची</strong> में शामिल है। इस अनुसूची को समय के साथ संसदीय कानून द्वारा (अनुच्छेद 2 और 3 के तहत) संशोधित किया जा सकता है।
+          </p>
+        </div>
+
+        <!-- Exam Note / Key Takeaway Banner -->
+        <div class="exam-note-box" id="section-key-takeaway">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">परीक्षा के लिए टिप्पणी / मुख्य बिंदु</div>
+              <div class="exam-note-desc">
+                अनुच्छेद 1 भारत की पहचान और क्षेत्रीय अधिकार क्षेत्र का आधारशिला है। याद रखने योग्य मुख्य बिंदु: भारत – इंडिया, राज्यों का संघ, पहली अनुसूची में परिभाषित राज्यक्षेत्र।
+              </div>
+            </div>
+          </div>
+          <div class="gavel-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Key Points Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>मुख्य बिंदु</span>
+          </div>
+
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>भारत, अर्थात इंडिया, राज्यों का एक संघ होगा।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>राज्य और केंद्र शासित प्रदेश पहली अनुसूची में सूचीबद्ध हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>भारत के राज्यक्षेत्र में राज्य, केंद्र शासित प्रदेश और अर्जित क्षेत्र शामिल हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>भारत एक अविनाशी संघ है।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>संसद को नए राज्य या केंद्र शासित प्रदेश बनाने और सीमाओं, क्षेत्रों या नामों को बदलने की शक्ति है।</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Terms Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-book-bookmark"></i>
+            <span>महत्वपूर्ण शब्द</span>
+          </div>
+
+          <div class="important-terms-list">
+            <p><strong>भारत / इंडिया:</strong> देश का आधिकारिक नाम भारत है, जबकि इंडिया इसका अंतरराष्ट्रीय स्तर पर मान्यता प्राप्त नाम है।</p>
+            <p><strong>संघ (Union):</strong> एक केंद्रीय शासन व्यवस्था के तहत राज्यों का एक अविनाशी राजनीतिक संगठन।</p>
+            <p><strong>राज्य (State):</strong> अपनी निर्वाचित सरकार वाली एक संवैधानिक प्रादेशिक इकाई।</p>
+            <p><strong>संघ राज्यक्षेत्र (Union Territory):</strong> राष्ट्रपति द्वारा नियुक्त प्रशासक के माध्यम से सीधे संचालित प्रशासनिक क्षेत्र।</p>
+            <p><strong>भारत का राज्यक्षेत्र (Territory of India):</strong> वह पूरा भौगोलिक क्षेत्र जिस पर भारत का संप्रभु अधिकार लागू होता है।</p>
+          </div>
+        </div>
+
+        <!-- Examples Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>उदाहरण</span>
+          </div>
+
+          <ul class="examples-list">
+            <li><strong>राज्य:</strong> उत्तर प्रदेश, महाराष्ट्र, कर्नाटक, तमिलनाडु आदि।</li>
+            <li><strong>संघ राज्यक्षेत्र:</strong> दिल्ली, पुडुचेरी, जम्मू और कश्मीर, लद्दाख आदि।</li>
+            <li><strong>अर्जित राज्यक्षेत्र:</strong> उदाहरण के लिए, गोवा को 1961 में भारत द्वारा अधिग्रहित किया गया था।</li>
+          </ul>
+        </div>
+
+        <!-- Constitution Facts Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span>संविधान के तथ्य</span>
+          </div>
+
+          <ul class="related-links-list">
+            <li class="related-link-item">
+              <span>भारत का संविधान 26 जनवरी 1950 को लागू हुआ था।</span>
+              <i class="fa-solid fa-circle-info"></i>
+            </li>
+
+            <li class="related-link-item">
+              <span>मूल रूप से संविधान में 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।</span>
+              <i class="fa-solid fa-circle-info"></i>
+            </li>
+
+            <li class="related-link-item">
+              <span>डॉ. बी. आर. अम्बेडकर को भारतीय संविधान के मुख्य शिल्पकार के रूप में जाना जाता है।</span>
+              <i class="fa-solid fa-circle-info"></i>
+            </li>
+
+            <li class="related-link-item">
+              <span>संविधान भारत का सर्वोच्च कानून है और प्रत्येक कानून को इसके अनुरूप होना चाहिए।</span>
+              <i class="fa-solid fa-circle-info"></i>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    // "On This Page" Navigation Interactivity
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Part I Contents Item Switching Interaction
+    const contentArticleItems = document.querySelectorAll('.content-article-item');
+    contentArticleItems.forEach(artItem => {
+      artItem.addEventListener('click', () => {
+        contentArticleItems.forEach(el => el.classList.remove('active'));
+        artItem.classList.add('active');
+        const artNum = artItem.getAttribute('data-article');
+        if(artNum) {
+          document.getElementById('section-article-text').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+
+    // View All Articles Button Action
+    document.getElementById('viewAllArticlesBtn').addEventListener('click', () => {
+      window.location.href = '../pages/articles.html';
+    });
+
+    // Bookmark Toggle Logic
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    let isBookmarked = false;
+    bookmarkBtn.addEventListener('click', () => {
+      isBookmarked = !isBookmarked;
+      const icon = bookmarkBtn.querySelector('i');
+      if (isBookmarked) {
+        icon.className = "fa-solid fa-bookmark";
+        bookmarkBtn.classList.add('bookmarked');
+      } else {
+        icon.className = "fa-regular fa-bookmark";
+        bookmarkBtn.classList.remove('bookmarked');
+      }
+    });
+
+    // Share Button Action
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'अनुच्छेद 1 - संघ का नाम और राज्यक्षेत्र',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        prompt("अनुच्छेद 1 को साझा करने के लिए इस लिंक को कॉपी करें:", window.location.href);
+      }
+    });
+
+    // Listen to Article Simulation (Text-to-speech toggle)
+    const listenBtn = document.getElementById('listenBtn');
+    const listenText = document.getElementById('listenText');
+    let isListening = false;
+    listenBtn.addEventListener('click', () => {
+      isListening = !isListening;
+      const icon = listenBtn.querySelector('i');
+      if (isListening) {
+        icon.className = "fa-solid fa-stop";
+        listenText.textContent = "ऑडियो रोकें";
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance("अनुच्छेद 1. भारत, अर्थात इंडिया, राज्यों का एक संघ होगा।");
+          utterance.lang = 'hi-IN';
+          window.speechSynthesis.speak(utterance);
+        }
+      } else {
+        icon.className = "fa-solid fa-volume-high";
+        listenText.textContent = "अनुच्छेद सुनें";
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    });
+
+    // Scroll spy for 'On This Page' items
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 150;
+      navItems.forEach(item => {
+        const targetId = item.getAttribute('data-target');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const top = targetEl.offsetTop;
+          const height = targetEl.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            navItems.forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+          }
+        }
+      });
+    });
+
+    // Part I Contents Item Navigation
+    const articleLinks = {
+      1: "../articles/article-1.html",
+      2: "../articles/article-2.html",
+      3: "../articles/article-3.html",
+      4: "../articles/article-4.html"
+    };
+
+    document.querySelectorAll(".content-article-item").forEach(item => {
+      item.addEventListener("click", function () {
+        document.querySelectorAll(".content-article-item")
+          .forEach(el => el.classList.remove("active"));
+
+        this.classList.add("active");
+
+        const article = this.dataset.article;
+
+        if (articleLinks[article]) {
+          window.location.href = articleLinks[article];
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

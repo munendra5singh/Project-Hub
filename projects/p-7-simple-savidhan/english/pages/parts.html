@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Parts of the Constitution</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Must be in HEAD to run theme init ASAP) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container & Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel Styling */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .search-box-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #919eab;
+      font-size: 12px;
+    }
+
+    .search-box-wrapper input {
+      width: 100%;
+      padding: 8px 10px 8px 30px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box-wrapper input:focus {
+      border-color: #0b1a30;
+    }
+
+    .part-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .part-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .part-nav-item i {
+      font-size: 13px;
+      width: 16px;
+      text-align: center;
+      color: #637381;
+    }
+
+    .part-nav-item:hover {
+      background-color: #f4f6f8;
+      color: #0b1a30;
+    }
+
+    .part-nav-item.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+    }
+
+    .part-nav-item.active i {
+      color: #ffffff;
+    }
+
+    .btn-reset-filters {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset-filters:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Parts List */
+    .parts-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .parts-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .parts-title-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #637381;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Part Card Item */
+    .part-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .part-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .part-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .part-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Category Specific Colors */
+    .icon-blue { background-color: #103254; }
+    .icon-green { background-color: #2a7d4f; }
+    .icon-orange { background-color: #e06d20; }
+    .icon-purple { background-color: #6a4498; }
+    .icon-teal { background-color: #12828e; }
+    .icon-amber { background-color: #d18d27; }
+
+    .part-info {
+      flex: 1;
+    }
+
+    .part-name-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+    }
+
+    .part-desc-text {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    /* Article Range Badge Box */
+    .article-range-box {
+      background-color: #edf3f9;
+      border-radius: 6px;
+      padding: 6px 12px;
+      text-align: center;
+      min-width: 85px;
+    }
+
+    .range-label {
+      font-size: 10px;
+      color: #103254;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .range-numbers {
+      font-size: 11.5px;
+      color: #103254;
+      font-weight: 700;
+    }
+
+    /* Specific badge color variations */
+    .badge-green { background-color: #eaf5ea; }
+    .badge-green .range-label, .badge-green .range-numbers { color: #2a7d4f; }
+
+    .badge-orange { background-color: #fdf0e6; }
+    .badge-orange .range-label, .badge-orange .range-numbers { color: #e06d20; }
+
+    .badge-purple { background-color: #f3ecf8; }
+    .badge-purple .range-label, .badge-purple .range-numbers { color: #6a4498; }
+
+    .badge-teal { background-color: #e6f4f6; }
+    .badge-teal .range-label, .badge-teal .range-numbers { color: #12828e; }
+
+    .badge-amber { background-color: #fcf4e8; }
+    .badge-amber .range-label, .badge-amber .range-numbers { color: #d18d27; }
+
+    .part-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding-left: 6px;
+    }
+
+    /* View All Parts Button */
+    .view-all-wrapper {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 10px;
+    }
+
+    .btn-view-all {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Right Sidebar Widgets */
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #0b1a30;
+      font-size: 14px;
+    }
+
+    .widget-description {
+      font-size: 11.5px;
+      color: #526071;
+      line-height: 1.5;
+    }
+
+    /* Quick Facts List */
+    .facts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .fact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-icon {
+      font-size: 16px;
+      color: #103254;
+      width: 20px;
+      text-align: center;
+    }
+
+    .fact-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    .fact-label {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 1px;
+    }
+
+    /* Fully Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .part-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .article-range-box {
+        align-self: flex-start;
+      }
+      .part-arrow {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES (Applied via [data-theme="dark"])
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .parts-section {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .parts-title-text,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input,
+    [data-theme="dark"] .sort-select {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input::placeholder {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .search-box-wrapper i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .sort-select {
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a99ad" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    }
+
+    [data-theme="dark"] .part-nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .part-nav-item i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .part-nav-item:hover {
+      background-color: var(--sv-bg-card-hover);
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .part-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .part-nav-item.active i {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .parts-header,
+    [data-theme="dark"] .part-card,
+    [data-theme="dark"] .fact-item {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .part-card:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .part-name-title,
+    [data-theme="dark"] .fact-number {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .part-desc-text,
+    [data-theme="dark"] .sort-wrapper,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .fact-label {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .part-arrow {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .fact-icon {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .article-range-box {
+      background-color: rgba(16, 50, 84, 0.35);
+    }
+
+    [data-theme="dark"] .article-range-box .range-label,
+    [data-theme="dark"] .article-range-box .range-numbers {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .badge-green { background-color: rgba(42, 125, 79, 0.25); }
+    [data-theme="dark"] .badge-green .range-label,
+    [data-theme="dark"] .badge-green .range-numbers { color: #4ade80; }
+
+    [data-theme="dark"] .badge-orange { background-color: rgba(224, 109, 32, 0.25); }
+    [data-theme="dark"] .badge-orange .range-label,
+    [data-theme="dark"] .badge-orange .range-numbers { color: #fb923c; }
+
+    [data-theme="dark"] .badge-purple { background-color: rgba(106, 68, 152, 0.25); }
+    [data-theme="dark"] .badge-purple .range-label,
+    [data-theme="dark"] .badge-purple .range-numbers { color: #c084fc; }
+
+    [data-theme="dark"] .badge-teal { background-color: rgba(18, 130, 142, 0.25); }
+    [data-theme="dark"] .badge-teal .range-label,
+    [data-theme="dark"] .badge-teal .range-numbers { color: #2dd4bf; }
+
+    [data-theme="dark"] .badge-amber { background-color: rgba(209, 141, 39, 0.25); }
+    [data-theme="dark"] .badge-amber .range-label,
+    [data-theme="dark"] .badge-amber .range-numbers { color: #fbbf24; }
+
+    [data-theme="dark"] .btn-reset-filters,
+    [data-theme="dark"] .btn-view-all {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-reset-filters:hover,
+    [data-theme="dark"] .btn-view-all:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="articles.html">ARTICLES</a></li>
+      <li><a href="parts.html" class="active">PARTS</a></li>
+      <li><a href="schedules.html">SCHEDULES</a></li>
+      <li><a href="amendments.html">AMENDMENTS</a></li>
+      <li><a href="judgments.html">JUDGMENTS</a></li>
+      <li><a href="glossary.html">GLOSSARY</a></li>
+      <li><a href="quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/pages/parts.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">PARTS OF THE CONSTITUTION</h1>
+      <p class="hero-description">
+        Browse through the different Parts of the Constitution of India.<br>
+        Each Part deals with a specific aspect of the governance and structure of our nation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>Parts</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Browse Parts -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-solid fa-grip"></i>
+          <span>BROWSE PARTS</span>
+        </div>
+
+        <div class="search-box-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Search Parts...">
+        </div>
+
+        <ul class="part-nav-list" id="partNavList">
+          <li class="part-nav-item active" data-filter="all">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>All Parts</span>
+          </li>
+          <li class="part-nav-item" data-filter="Union and its Territory">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>Union and its Territory</span>
+          </li>
+          <li class="part-nav-item" data-filter="Citizenship">
+            <i class="fa-solid fa-id-card"></i>
+            <span>Citizenship</span>
+          </li>
+          <li class="part-nav-item" data-filter="Fundamental Rights">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Fundamental Rights</span>
+          </li>
+          <li class="part-nav-item" data-filter="Directive Principles">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>Directive Principles of State Policy</span>
+          </li>
+          <li class="part-nav-item" data-filter="The Union">
+            <i class="fa-solid fa-landmark"></i>
+            <span>Union</span>
+          </li>
+          <li class="part-nav-item" data-filter="The States">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>States</span>
+          </li>
+          <li class="part-nav-item" data-filter="The Union Territories">
+            <i class="fa-solid fa-map"></i>
+            <span>Union Territories</span>
+          </li>
+          <li class="part-nav-item" data-filter="The Panchayats">
+            <i class="fa-solid fa-users-rectangle"></i>
+            <span>Panchayats</span>
+          </li>
+        </ul>
+
+        <button class="btn-reset-filters" id="resetBtn" type="button">RESET FILTERS</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE All Parts List -->
+      <main class="parts-section">
+        <div class="parts-header">
+          <div class="parts-title-text" id="partsCountTitle">ALL PARTS (25)</div>
+          <div class="sort-wrapper">
+            <span>Sort by</span>
+            <select class="sort-select" id="sortSelect">
+              <option value="asc">Part Number (Ascending)</option>
+              <option value="desc">Part Number (Descending)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Container for dynamically rendered Parts -->
+        <div id="partsContainer">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- View All Parts Button -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all" id="viewAllBtn" type="button">
+            VIEW ALL PARTS <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Information & Quick Facts -->
+      <aside class="right-sidebar">
+        
+        <!-- About Parts Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>ABOUT PARTS</span>
+          </div>
+          <p class="widget-description">
+            The Constitution of India originally had 22 Parts. Through amendments, new Parts have been added, making a total of 25 active Parts. Each Part contains Articles related to a specific subject or function of governance.
+          </p>
+        </div>
+
+        <!-- Quick Facts Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>QUICK FACTS</span>
+          </div>
+
+          <div class="facts-list">
+            <div class="fact-item">
+              <i class="fa-regular fa-book-open fact-icon"></i>
+              <div>
+                <div class="fact-number">25</div>
+                <div class="fact-label">Active Parts</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-file-lines fact-icon"></i>
+              <div>
+                <div class="fact-number">395</div>
+                <div class="fact-label">Total Articles</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-calendar-days fact-icon"></i>
+              <div>
+                <div class="fact-number">12</div>
+                <div class="fact-label">Schedules</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-pen-to-square fact-icon"></i>
+              <div>
+                <div class="fact-number">105</div>
+                <div class="fact-label">Amendments (So Far)</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Complete Dataset of All Parts of the Constitution of India
+const allPartsData = [
+  { id: 1, name: "Part I – The Union and its Territory", desc: "Deals with the territory of India, admission or establishment of new States, and alteration of areas, boundaries or names of existing States.", articles: "1 – 4", icon: "fa-map", colorClass: "icon-blue", badgeClass: "", link: "../parts/part-1.html" },
+  { id: 2, name: "Part II – Citizenship", desc: "Provides for citizenship at the commencement of the Constitution, and for the acquisition and termination of citizenship.", articles: "5 – 11", icon: "fa-users", colorClass: "icon-green", badgeClass: "badge-green", link: "../parts/part-2.html" },
+  { id: 3, name: "Part III – Fundamental Rights", desc: "Enshrines the fundamental rights of citizens to ensure justice, liberty, equality and fraternity.", articles: "12 – 35", icon: "fa-shield-halved", colorClass: "icon-orange", badgeClass: "badge-orange", link: "../parts/part-3.html" },
+  { id: 4, name: "Part IV – Directive Principles of State Policy", desc: "Lays down the principles to be followed by the State in governance to promote the welfare of the people.", articles: "36 – 51", icon: "fa-landmark", colorClass: "icon-purple", badgeClass: "badge-purple", link: "../parts/part-4.html" },
+  { id: 4.5, name: "Part IVA – Fundamental Duties", desc: "Defines the moral and patriotic duties of every citizen of India to promote nationalism and patriotism.", articles: "51A", icon: "fa-shield-heart", colorClass: "icon-amber", badgeClass: "badge-amber", link: "../parts/part-4a.html" },
+  { id: 5, name: "Part V – The Union", desc: "Deals with the executive, legislature and judiciary of the Union Government.", articles: "52 – 151", icon: "fa-building-columns", colorClass: "icon-teal", badgeClass: "badge-teal", link: "../parts/part-5.html" },
+  { id: 6, name: "Part VI – The States", desc: "Deals with the executive, legislature and judiciary of the State Governments.", articles: "152 – 237", icon: "fa-landmark-flag", colorClass: "icon-amber", badgeClass: "badge-amber", link: "../parts/part-6.html" },
+  { id: 7, name: "Part VII – The States in Part B of the First Schedule", desc: "(Repealed by the 7th Constitutional Amendment Act, 1956).", articles: "238 (Repealed)", icon: "fa-ban", colorClass: "icon-blue", badgeClass: "", link: "../parts/part-7.html" },
+  { id: 8, name: "Part VIII – The Union Territories", desc: "Provisions regarding administration and governance of Union Territories.", articles: "239 – 242", icon: "fa-city", colorClass: "icon-green", badgeClass: "badge-green", link: "../parts/part-8.html" },
+  { id: 9, name: "Part IX – The Panchayats", desc: "Constitutional status and provisions for Panchayati Raj Institutions in rural local governance.", articles: "243 – 243O", icon: "fa-users-rectangle", colorClass: "icon-orange", badgeClass: "badge-orange", link: "../parts/part-9.html" },
+  { id: 9.3, name: "Part IXA – The Municipalities", desc: "Constitutional status and provisions for Urban Local Bodies and Municipalities.", articles: "243P – 243ZG", icon: "fa-building", colorClass: "icon-purple", badgeClass: "badge-purple", link: "../parts/part-9a.html" },
+  { id: 9.6, name: "Part IXB – The Co-operative Societies", desc: "Provisions relating to voluntary formation, democratic control and management of co-operative societies.", articles: "243ZH – 243ZT", icon: "fa-handshake", colorClass: "icon-teal", badgeClass: "badge-teal", link: "../parts/part-9b.html" },
+  { id: 10, name: "Part X – The Scheduled and Tribal Areas", desc: "Special provisions for administration of Scheduled Areas and Tribal Areas.", articles: "244 – 244A", icon: "fa-campground", colorClass: "icon-amber", badgeClass: "badge-amber", link: "../parts/part-10.html" },
+  { id: 11, name: "Part XI – Relations Between the Union and the States", desc: "Distribution of legislative and administrative powers between the Union and States.", articles: "245 – 263", icon: "fa-link", colorClass: "icon-blue", badgeClass: "", link: "../parts/part-11.html" },
+  { id: 12, name: "Part XII – Finance, Property, Contracts and Suits", desc: "Provisions regarding taxation, revenues, borrowing, contracts, suits and Right to Property (Article 300A).", articles: "264 – 300A", icon: "fa-coins", colorClass: "icon-green", badgeClass: "badge-green", link: "../parts/part-12.html" },
+  { id: 13, name: "Part XIII – Trade, Commerce and Intercourse Within India", desc: "Guarantees freedom of trade, commerce and intercourse within the territory of India.", articles: "301 – 307", icon: "fa-truck-fast", colorClass: "icon-orange", badgeClass: "badge-orange", link: "../parts/part-13.html" },
+  { id: 14, name: "Part XIV – Services Under the Union and the States", desc: "Provisions relating to civil services, recruitment, and Public Service Commissions (UPSC & SPSCs).", articles: "308 – 323", icon: "fa-user-tie", colorClass: "icon-purple", badgeClass: "badge-purple", link: "../parts/part-14.html" },
+  { id: 14.5, name: "Part XIVA – Tribunals", desc: "Provisions for Administrative Tribunals and tribunals for other matters.", articles: "323A – 323B", icon: "fa-gavel", colorClass: "icon-teal", badgeClass: "badge-teal", link: "../parts/part-14a.html" },
+  { id: 15, name: "Part XV – Elections", desc: "Superintendence, direction and control of elections vested in the Election Commission of India.", articles: "324 – 329A", icon: "fa-check-to-slot", colorClass: "icon-amber", badgeClass: "badge-amber", link: "../parts/part-15.html" },
+  { id: 16, name: "Part XVI – Special Provisions Relating to Certain Classes", desc: "Special representation and reservations for SCs, STs, OBCs and Anglo-Indians.", articles: "330 – 342A", icon: "fa-users-line", colorClass: "icon-blue", badgeClass: "", link: "../parts/part-16.html" },
+  { id: 17, name: "Part XVII – Official Language", desc: "Official language of the Union, regional languages, and language of Supreme Court and High Courts.", articles: "343 – 351", icon: "fa-language", colorClass: "icon-green", badgeClass: "badge-green", link: "../parts/part-17.html" },
+  { id: 18, name: "Part XVIII – Emergency Provisions", desc: "National Emergency, President's Rule (State Emergency), and Financial Emergency provisions.", articles: "352 – 360", icon: "fa-triangle-exclamation", colorClass: "icon-orange", badgeClass: "badge-orange", link: "../parts/part-18.html" },
+  { id: 19, name: "Part XIX – Miscellaneous", desc: "Protection of President and Governors, immunity, and definitions.", articles: "361 – 367", icon: "fa-circle-info", colorClass: "icon-purple", badgeClass: "badge-purple", link: "../parts/part-19.html" },
+  { id: 20, name: "Part XX – Amendment of the Constitution", desc: "Powers of Parliament to amend the Constitution and procedure therefor under Article 368.", articles: "368", icon: "fa-pen-to-square", colorClass: "icon-teal", badgeClass: "badge-teal", link: "../parts/part-20.html" },
+  { id: 21, name: "Part XXI – Temporary, Transitional and Special Provisions", desc: "Special provisions for various States (e.g. Maharashtra, Gujarat, Nagaland, Assam, Manipur, etc.).", articles: "369 – 392", icon: "fa-clock", colorClass: "icon-amber", badgeClass: "badge-amber", link: "../parts/part-21.html" },
+  { id: 22, name: "Part XXII – Short Title, Commencement, Authoritative Text in Hindi and Repeals", desc: "Short title, date of commencement, Hindi text, and repeal of previous Independence Acts.", articles: "393 – 395", icon: "fa-bookmark", colorClass: "icon-blue", badgeClass: "", link: "../parts/part-22.html" }
+];
+
+    // State Variables
+    let currentFilter = 'all';
+    let currentSearch = '';
+    let currentSort = 'asc';
+    let isExpanded = false;
+    const INITIAL_VISIBLE_COUNT = 6;
+
+    // DOM Elements
+    const partsContainer = document.getElementById('partsContainer');
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const resetBtn = document.getElementById('resetBtn');
+    const viewAllBtn = document.getElementById('viewAllBtn');
+    const navItems = document.querySelectorAll('#partNavList .part-nav-item');
+    const partsCountTitle = document.getElementById('partsCountTitle');
+
+    // Filter, Sort, and Render Logic
+    function renderParts() {
+      partsContainer.innerHTML = '';
+
+      let filtered = allPartsData.filter(part => {
+        const matchesSearch = !currentSearch || 
+          part.name.toLowerCase().includes(currentSearch) || 
+          part.desc.toLowerCase().includes(currentSearch) || 
+          part.articles.toLowerCase().includes(currentSearch);
+
+        let matchesNav = true;
+        if (currentFilter !== 'all') {
+          matchesNav = part.name.toLowerCase().includes(currentFilter.toLowerCase());
+        }
+
+        return matchesSearch && matchesNav;
+      });
+
+      // Sort Logic
+      filtered.sort((a, b) => {
+        return currentSort === 'asc' ? a.id - b.id : b.id - a.id;
+      });
+
+      partsCountTitle.textContent = `ALL PARTS (${filtered.length})`;
+
+      if (filtered.length === 0) {
+        partsContainer.innerHTML = `
+          <div style="padding: 40px 10px; text-align: center; color: var(--sv-text-muted, #637381); font-size: 13px;">
+            <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; margin-bottom: 12px; display: block; color: var(--sv-text-muted, #919eab);"></i>
+            No Parts found matching your search or selection.
+          </div>
+        `;
+        viewAllBtn.style.display = 'none';
+        return;
+      }
+
+      // Pagination / Expansion Slicing
+      const displayItems = isExpanded ? filtered : filtered.slice(0, INITIAL_VISIBLE_COUNT);
+
+      displayItems.forEach(part => {
+        const card = document.createElement('div');
+        card.className = 'part-card';
+        card.innerHTML = `
+          <div class="part-icon ${part.colorClass}">
+            <i class="fa-solid ${part.icon}"></i>
+          </div>
+          <div class="part-info">
+            <div class="part-name-title">${part.name}</div>
+            <div class="part-desc-text">${part.desc}</div>
+          </div>
+          <div class="article-range-box ${part.badgeClass}">
+            <span class="range-label">Articles</span>
+            <span class="range-numbers">${part.articles}</span>
+          </div>
+          <div class="part-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          if (part.link) {
+            window.location.href = part.link;
+          }
+        });
+
+        partsContainer.appendChild(card);
+      });
+
+      // View All Button Visibility & Label
+      if (filtered.length <= INITIAL_VISIBLE_COUNT) {
+        viewAllBtn.style.display = 'none';
+      } else {
+        viewAllBtn.style.display = 'inline-flex';
+        viewAllBtn.innerHTML = isExpanded 
+          ? `SHOW LESS <i class="fa-solid fa-chevron-up"></i>` 
+          : `VIEW ALL PARTS <i class="fa-solid fa-chevron-down"></i>`;
+      }
+    }
+
+    // Event Listeners
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        currentFilter = item.getAttribute('data-filter');
+        isExpanded = false;
+        renderParts();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.trim().toLowerCase();
+      isExpanded = false;
+      renderParts();
+    });
+
+    sortSelect.addEventListener('change', (e) => {
+      currentSort = e.target.value;
+      renderParts();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      currentSearch = '';
+      currentFilter = 'all';
+      currentSort = 'asc';
+      sortSelect.value = 'asc';
+      isExpanded = false;
+
+      navItems.forEach(i => i.classList.remove('active'));
+      navItems[0].classList.add('active');
+
+      renderParts();
+    });
+
+    viewAllBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      renderParts();
+    });
+
+    // Initial Render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderParts();
+    });
+  </script>
+
+  <!-- Footer -->
+   <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="parts.html">Parts</a></li>
+            <li><a href="schedules.html">Schedules</a></li>
+            <li><a href="amendments.html">Amendments</a></li>
+            <li><a href="judgments.html">Judgments</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

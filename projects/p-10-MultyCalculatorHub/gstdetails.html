@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automobile & Luxury GST Classification 2.0</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Course Hub | GST Details">
+    <meta property="og:description" content="Upgrade your skills with 100% free and verified online course links.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/munendra5singh/FreeCourseHub/main/preview.png">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/gstdetails.css">
+</head>
+<body>
+  <div id="site-header-root"></div>
+
+
+  <div class="container">
+    
+    <header class="header-card">
+      <h1>📊 वाहन एवं सामान्य जीएसटी वर्गीकरण (GST 2.0)</h1>
+      <p>भारत सरकार के नियमों के अनुसार वर्तमान जीएसटी स्लैब की पूरी सूची। इसमें गाड़ियों के साथ-साथ अन्य सामग्रियों का भी स्पष्ट विवरण है।</p>
+    </header>
+
+    <input type="text" id="searchBar" class="search-box" placeholder="सर्च करें (जैसे: Bike, EV, Tractor, Cigarettes, Cold Drinks)..." onkeyup="filterSlabs()">
+
+    <div class="slab-card" data-search="gold silver diamonds precious stones सोने चांदी कीमती रत्न">
+      <div class="slab-badge badge-3">3%<span>Precious Slabs</span></div>
+      <div class="slab-details">
+        <h2>वाहनों पर लागू नहीं (केवल कीमती धातुएं)</h2>
+        <ul>
+          <li>यह स्लैब केवल <strong>सोने (Gold), चांदी (Silver), और कीमती रत्नों</strong> के लिए आरक्षित है।</li>
+          <li>गाड़ियों, टू-व्हीलर्स या किसी भी प्रकार के ऑटो पार्ट्स पर यह लागू नहीं होता है।</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slab-card" data-search="electric vehicle ev scooter car eco friendly electric bikes turing दिव्यांग e-scooters">
+      <div class="slab-badge badge-5">5%<span>Essential / Green</span></div>
+      <div class="slab-details">
+        <h2>इलेक्ट्रिक वाहन और दिव्यांग अनुकूल गाड़ियां</h2>
+        <ul>
+          <li><strong>इलेक्ट्रिक वाहन (EVs):</strong> पर्यावरण संरक्षण को बढ़ावा देने के लिए सभी प्रकार की इलेक्ट्रिक कारें, ई-स्कूटर्स और ई-साइकिल इसी न्यूनतम स्लैब में आती हैं।</li>
+          <li><strong>दिव्यांग अनुकूल वाहन:</strong> दिव्यांग जनों (Disabled persons) के लिए विशेष रूप से डिजाइन की गई गाड़ियां और उनके सहायक उपकरणों पर भी केवल 5% जीएसटी लगता है।</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slab-card" data-search="tractor agriculture खेती ट्रैक्टर कृषि क्षेत्र">
+      <div class="slab-badge badge-12">12%<span>Standard I</span></div>
+      <div class="slab-details">
+        <h2>कृषि वाहन (Tractors)</h2>
+        <ul>
+          <li><strong>ट्रैक्टर (खेती के लिए):</strong> भारतीय कृषि क्षेत्र और किसानों को राहत देने के लिए विशेष रूप से खेती में इस्तेमाल होने वाले ट्रैक्टरों को इस 12% वाले स्लैब में रखा गया है।</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slab-card" data-search="small cars bikes scooters pulsar splender activa commercial trucks auto ricshaw parts servicing service">
+      <div class="slab-badge badge-18">18%<span>Standard II (New)</span></div>
+      <div class="slab-details">
+        <h2>आम गाड़ियां, आम बाइक्स और ऑटो पार्ट्स (GST 2.0 सुधार)</h2>
+        <ul>
+          <li><strong>छोटी कारें:</strong> पेट्रोल (इंजन &le; 1200cc) and डीज़ल (इंजन &le; 1500cc) गाड़ियाँ जिनकी लंबाई 4 मीटर से कम है (जैसे- Alto, WagonR, i20, Swift, Punch)।</li>
+          <li><strong>आम बाइक्स और स्कूटर्स:</strong> देश की लगभग 98% बाइक्स जो <strong>350cc इंजन क्षमता के अंदर</strong> आती हैं (जैसे- Splendor, Activa, Pulsar, Apache)।</li>
+          <li><strong>कमर्शियल गाड़ियाँ व स्पेयर पार्ट्स:</strong> बस, ट्रक, एम्बुलेंस, ऑटो-रिक्शा और गाड़ियों के स्पेयर पार्ट्स व शोरूम सर्विसिंग शुल्क भी इसी 18% के दायरे में आते हैं।</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slab-card" data-search="cigarettes cold drinks aerated pan masala luxury non vehicle सिगरेट तंबाकू कोल्ड ड्रिंक्स">
+      <div class="slab-badge badge-28">28%<span>Luxury / Sin Base</span></div>
+      <div class="slab-details">
+        <h2>लग्ज़री वस्तुएं (गैर-ऑटोमोबाइल) व अन्य डी-मेरिट आइटम्स</h2>
+        <ul>
+          <li><strong>🚨 वाहनों के लिए बदलाव:</strong> पहले इस स्लैब में सभी पेट्रोल/डीजल गाड़ियां आती थीं, जिन्हें अब यहाँ से हटा दिया गया है।</li>
+          <li><strong>वर्तमान उपयोग:</strong> यह स्लैब अब मुख्य रूप से **सिगरेट, तंबाकू उत्पाद, कोल्ड ड्रिंक्स (Aerated Drinks), और पान मसाला** जैसी गैर-ऑटोमोबाइल विलासिता (Luxury) और डी-मेरिट वस्तुओं के लिए उपयोग किया जाता है।</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slab-card" data-search="luxury cars suv superbikes fortuner thar creta harrier high end luxury 40% cess">
+      <div class="slab-badge badge-40">40%<span>Super Luxury Slabs</span></div>
+      <div class="slab-details">
+        <h2>लग्ज़री कारें, SUVs और सुपरबाइक्स</h2>
+        <ul>
+          <li>बड़ी गाड़ियों (SUVs जैसे Fortuner, Thar, Harrier, लग्ज़री कारों और 350cc से ऊपर की सुपरबाइक्स) के लिए एक विशेष <strong>40% का लग्ज़री/सिन स्लैब</strong> बनाया गया है।</li>
+          <li>इस नए स्लैब के आने से पुराना पेचीदा 'सेस' (Compensation Cess) सिस्टम पूरी तरह ख़त्म कर दिया गया है।</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pro-tips">
+      <h3>💡 महत्वपूर्ण नोट (On-Road Price गणना के लिए)</h3>
+      <p>यह ध्यान रखें कि शो-रूम की कीमतों (Ex-Showroom Price) में यह जीएसटी पहले से शामिल होता है। इसके ऊपर आरटीओ (RTO Road Tax), ग्रीन टैक्स (यदि लागू हो) और इंश्योरेंस (Insurance) शुल्क अलग से जोड़े जाते हैं, जो हर राज्य के नियमों के अनुसार बदलते रहते हैं।</p>
+    </div>
+
+    <footer class="footer-actions">
+      <button onclick="history.back()" class="back-btn">
+        ⬅️ Go Back
+      </button>
+    </footer>
+
+  </div>
+
+  <script src="js/pages/gstdetails-engine.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
+ 
+  <div id="site-footer-root"></div>
+
+</body>
+</html>

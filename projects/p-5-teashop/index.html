@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHAI & LEAF — Freshly Brewed Tea & Chai</title>
+  <meta name="description" content="Sip, relax, and repeat at CHAI & LEAF. Premium hand-crafted Masala Chai, Kashmiri Kahwa, green teas, and artisanal café bites freshly brewed every day.">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CHAI & LEAF — A Perfect Cup of Happiness">
+  <meta property="og:description" content="Freshly brewed artisanal teas, milk chai, herbal infusions, and authentic café vibes.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "CHAI & LEAF",
+    "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1200&q=80",
+    "telephone": "+91 98765 43210",
+    "email": "hello@chaiandleaf.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "42 Heritage Lane, Connaught Place",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "postalCode": "110001",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "07:30",
+        "closes": "23:00"
+      }
+    ],
+    "priceRange": "₹₹"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader-screen" aria-hidden="true">
+    <div class="loader-content">
+      <div class="cup-loader">
+        <div class="steam"></div>
+        <div class="cup">
+          <div class="handle"></div>
+        </div>
+      </div>
+      <p class="loader-brand">CHAI & LEAF</p>
+      <span class="loader-sub">Brewing your experience...</span>
+    </div>
+  </div>
+
+  <!-- Header / Sticky Nav -->
+  <header class="site-header" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="CHAI & LEAF Home">
+        <span class="logo-leaf">🍃</span>
+        <div class="logo-text">
+          <span class="brand-name">CHAI & LEAF</span>
+          <span class="brand-tagline">हर कप में सुकून</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#special-teas" class="nav-link">Special Teas</a></li>
+          <li><a href="#offers" class="nav-link">Offers</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#menu" class="nav-link">Full Menu</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+          <a href="#menu" class="btn btn-primary btn-sm">Order Online</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-trigger" id="cartBtn" aria-label="View Cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="#menu" class="btn btn-primary desktop-cta">Order Now</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            <span class="badge-dot"></span> Freshly Brewed Every Day
+          </div>
+          <h1 class="hero-title reveal">Sip. Relax. <span class="text-highlight">Repeat.</span></h1>
+          <p class="hero-desc reveal">
+            Experience authentic kulhad chais, aromatic whole-leaf herbal infusions, and freshly prepared bites crafted to soothe your soul and elevate your day.
+          </p>
+          <div class="hero-cta-group reveal">
+            <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+            <a href="#offers" class="btn btn-outline">Today's Deals</a>
+          </div>
+          <div class="hero-stats reveal">
+            <div class="stat-item">
+              <span class="stat-num" data-count="35">35+</span>
+              <span class="stat-lbl">Artisanal Blends</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num" data-count="50000">50K+</span>
+              <span class="stat-lbl">Happy Chai Lovers</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">4.9 ★</span>
+              <span class="stat-lbl">Customer Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-image-wrapper">
+            <div class="floating-blob"></div>
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" 
+                 alt="Steaming cup of Indian Masala Chai garnished with spices" 
+                 class="hero-img" loading="eager">
+            <div class="floating-badge badge-top">
+              <span>🌿 100% Organic Leaves</span>
+            </div>
+            <div class="floating-badge badge-bottom">
+              <span>☕ Pure Assam CTC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features-section section-padding">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">The Chai & Leaf Promise</span>
+          <h2 class="section-title">Why Our Brew Hits Different</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card reveal">
+            <div class="feature-icon-box">🍃</div>
+            <h3>Fresh Ingredients</h3>
+            <p>Single-estate organic tea leaves, hand-crushed ginger, whole green cardamom, and zero artificial syrups.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-box">☕</div>
+            <h3>Freshly Brewed</h3>
+            <p>Never re-heated or pre-boiled. Every single kettle is brewed from scratch only after you place your order.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-box">❤️</div>
+            <h3>Made With Love</h3>
+            <p>Passed down family recipes calibrated for the perfect balance of warmth, creaminess, and digestive comfort.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-box">🚀</div>
+            <h3>Quick & Piping Hot</h3>
+            <p>Served at optimum brewing temperature within 5 minutes in hygienic traditional clay kulhads or eco-cups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Teas Section -->
+    <section class="special-teas-section section-padding bg-cream" id="special-teas">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Crafted to Perfection</span>
+          <h2 class="section-title">Our Signature Specials</h2>
+          <p class="section-desc">Handcrafted crowd-favorites brewed with hand-selected spices and premium whole leaves.</p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Item 1 -->
+          <article class="tea-card reveal">
+            <div class="tea-card-media">
+              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="Royal Masala Chai in a ceramic cup" loading="lazy">
+              <span class="tea-badge">Bestseller</span>
+            </div>
+            <div class="tea-card-body">
+              <div class="tea-meta">
+                <span class="tea-rating">★ 4.9 (1.2k)</span>
+                <span class="tea-type">Milk Tea</span>
+              </div>
+              <h3 class="tea-title">Royal Masala Chai</h3>
+              <p class="tea-desc">Slow-simmered Assam black tea infused with ginger, cardamom, clove, and cinnamon.</p>
+              <div class="tea-card-foot">
+                <span class="tea-price">₹120</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="spec-1" data-name="Royal Masala Chai" data-price="120">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="tea-card reveal">
+            <div class="tea-card-media">
+              <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?auto=format&fit=crop&w=600&q=80" alt="Piping hot Ginger Adrak Chai" loading="lazy">
+              <span class="tea-badge">Winter Special</span>
+            </div>
+            <div class="tea-card-body">
+              <div class="tea-meta">
+                <span class="tea-rating">★ 4.8 (980)</span>
+                <span class="tea-type">Milk Tea</span>
+              </div>
+              <h3 class="tea-title">Khadak Adrak Chai</h3>
+              <p class="tea-desc">Freshly crushed spicy ginger root brewed with rich full-cream milk and caramelized cane sugar.</p>
+              <div class="tea-card-foot">
+                <span class="tea-price">₹110</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="spec-2" data-name="Khadak Adrak Chai" data-price="110">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="tea-card reveal">
+            <div class="tea-card-media">
+              <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=600&q=80" alt="Fragrant Cardamom Elaichi Chai" loading="lazy">
+            </div>
+            <div class="tea-card-body">
+              <div class="tea-meta">
+                <span class="tea-rating">★ 4.9 (840)</span>
+                <span class="tea-type">Milk Tea</span>
+              </div>
+              <h3 class="tea-title">Shahi Elaichi Chai</h3>
+              <p class="tea-desc">Freshly ground green cardamom pods releasing delicate floral aroma in every sip.</p>
+              <div class="tea-card-foot">
+                <span class="tea-price">₹130</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="spec-3" data-name="Shahi Elaichi Chai" data-price="130">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="tea-card reveal">
+            <div class="tea-card-media">
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Traditional Kashmiri Kahwa with saffron and almonds" loading="lazy">
+              <span class="tea-badge">Royal Treat</span>
+            </div>
+            <div class="tea-card-body">
+              <div class="tea-meta">
+                <span class="tea-rating">★ 5.0 (650)</span>
+                <span class="tea-type">Herbal</span>
+              </div>
+              <h3 class="tea-title">Kashmiri Saffron Kahwa</h3>
+              <p class="tea-desc">Green tea leaves brewed with Kashmiri saffron, crushed almonds, cinnamon, and wild honey.</p>
+              <div class="tea-card-foot">
+                <span class="tea-price">₹190</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="spec-4" data-name="Kashmiri Saffron Kahwa" data-price="190">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 5 -->
+          <article class="tea-card reveal">
+            <div class="tea-card-media">
+              <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=600&q=80" alt="Fresh green tea in a glass cup" loading="lazy">
+            </div>
+            <div class="tea-card-body">
+              <div class="tea-meta">
+                <span class="tea-rating">★ 4.7 (420)</span>
+                <span class="tea-type">Green Tea</span>
+              </div>
+              <h3 class="tea-title">Himalayan Organic Green</h3>
+              <p class="tea-desc">Whole leaf unoxidized green tea loaded with natural antioxidants and a mild earthy finish.</p>
+              <div class="tea-card-foot">
+                <span class="tea-price">₹140</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="spec-5" data-name="Himalayan Organic Green" data-price="140">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 6 -->
+          <article class="tea-card reveal">
+            <div class="tea-card-media">
+              <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" alt="Lemon Honey Ginger Tea with lemon slices" loading="lazy">
+              <span class="tea-badge">Immunity</span>
+            </div>
+            <div class="tea-card-body">
+              <div class="tea-meta">
+                <span class="tea-rating">★ 4.8 (510)</span>
+                <span class="tea-type">Detox</span>
+              </div>
+              <h3 class="tea-title">Lemon Honey Ginger Elixir</h3>
+              <p class="tea-desc">Zesty sun-ripened lemons paired with raw forest honey and cold-pressed ginger juice.</p>
+              <div class="tea-card-foot">
+                <span class="tea-price">₹150</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="spec-6" data-name="Lemon Honey Ginger Elixir" data-price="150">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section class="offer-section section-padding" id="offers">
+      <div class="container offer-container reveal">
+        <div class="offer-card">
+          <div class="offer-content">
+            <span class="offer-pill">Today's Chai Deal ☕</span>
+            <h2 class="offer-title">Buy 2 Kulhad Chais & Get 1 Fresh Bun Maska Free!</h2>
+            <p class="offer-desc">Treat your evening chai circle. Order any two specialty chais before the timer runs out and enjoy our signature butter-toasted Bun Maska on us.</p>
+            
+            <div class="countdown-wrapper">
+              <div class="timer-unit">
+                <span class="timer-num" id="hours">04</span>
+                <span class="timer-lbl">Hours</span>
+              </div>
+              <div class="timer-unit">
+                <span class="timer-num" id="minutes">45</span>
+                <span class="timer-lbl">Minutes</span>
+              </div>
+              <div class="timer-unit">
+                <span class="timer-num" id="seconds">18</span>
+                <span class="timer-lbl">Seconds</span>
+              </div>
+            </div>
+
+            <div class="offer-btn-wrap">
+              <a href="#menu" class="btn btn-primary btn-lg">Grab The Deal Now</a>
+            </div>
+          </div>
+          <div class="offer-img-box">
+            <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=700&q=80" alt="Chai and Bun Maska combo" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <div class="about-image-stack">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Cozy seating interior of Chai and Leaf Cafe" class="about-img-main" loading="lazy">
+            <div class="about-experience-card">
+              <span class="exp-num">12+</span>
+              <span class="exp-text">Years of perfected secret tea recipes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal">
+          <span class="section-eyebrow">Our Story</span>
+          <h2 class="section-title">More Than Just Tea — A Space to Reconnect</h2>
+          <p class="about-text">
+            Founded with a deep reverence for the timeless Indian tapri culture combined with the tranquil elegance of a modern tea lounge, <strong>CHAI & LEAF</strong> is an urban sanctuary.
+          </p>
+          <p class="about-text">
+            We partner directly with family-owned tea estates in Assam, Darjeeling, and the Nilgiris to bring you unadulterated single-origin leaves. Whether you’re meeting friends, reading a book, or pausing midway through a hectic workday, every pour is crafted to deliver comfort and serenity.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="h-icon">🌿</span>
+              <span>100% Biodegradable Clay Kulhads</span>
+            </div>
+            <div class="highlight-item">
+              <span class="h-icon">🥛</span>
+              <span>Organic Farm Fresh & Oat Milk Options</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-outline">Visit Our Café</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section class="menu-section section-padding bg-cream" id="menu">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Explore Flavors</span>
+          <h2 class="section-title">Our Complete Menu</h2>
+          <p class="section-desc">Filter by category to explore our tea room collections and artisanal treats.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="menu-filter-bar reveal">
+          <button class="filter-btn active" data-filter="all">All Items</button>
+          <button class="filter-btn" data-filter="milk-tea">Milk Chai</button>
+          <button class="filter-btn" data-filter="green-tea">Green Tea</button>
+          <button class="filter-btn" data-filter="herbal">Herbal & Infusion</button>
+          <button class="filter-btn" data-filter="special">Special Blends</button>
+          <button class="filter-btn" data-filter="snacks">Bakery & Snacks</button>
+        </div>
+
+        <!-- Filterable Grid -->
+        <div class="menu-grid" id="menuItemsGrid">
+          <!-- Item: Milk Tea -->
+          <div class="menu-card reveal" data-category="milk-tea">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80" alt="Kulhad Masala Chai" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Kulhad Cutting Chai</h4>
+                <span class="m-price">₹80</span>
+              </div>
+              <p>Traditional Mumbai-style strong spiced tea served in earthy unglazed terracotta.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m1" data-name="Kulhad Cutting Chai" data-price="80">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Milk Tea -->
+          <div class="menu-card reveal" data-category="milk-tea">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80" alt="Rose Chai" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Gulab Elaichi Chai</h4>
+                <span class="m-price">₹130</span>
+              </div>
+              <p>Brewed with organic sun-dried damask rose petals and crushed green cardamom.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m2" data-name="Gulab Elaichi Chai" data-price="130">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Green Tea -->
+          <div class="menu-card reveal" data-category="green-tea">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=500&q=80" alt="Jasmine Blossom Green Tea" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Jasmine Blossom Green</h4>
+                <span class="m-price">₹160</span>
+              </div>
+              <p>Delicate whole leaf green tea naturally scented under midnight jasmine blooms.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m3" data-name="Jasmine Blossom Green" data-price="160">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Green Tea -->
+          <div class="menu-card reveal" data-category="green-tea">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=500&q=80" alt="Matcha Latte" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Kyoto Matcha Latte</h4>
+                <span class="m-price">₹210</span>
+              </div>
+              <p>Ceremonial grade stone-ground Japanese matcha whisked with steamed almond milk.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m4" data-name="Kyoto Matcha Latte" data-price="210">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Herbal -->
+          <div class="menu-card reveal" data-category="herbal">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=500&q=80" alt="Chamomile Lavender Tea" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Chamomile & Lavender</h4>
+                <span class="m-price">₹170</span>
+              </div>
+              <p>Caffeine-free soothing evening blend with whole chamomile flower buds and lavender.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m5" data-name="Chamomile & Lavender" data-price="170">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Herbal -->
+          <div class="menu-card reveal" data-category="herbal">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80" alt="Blue Pea Tea" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Blue Butterfly Pea Tea</h4>
+                <span class="m-price">₹180</span>
+              </div>
+              <p>Magical indigo herbal infusion with lemongrass that turns purple with a drop of lemon.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m6" data-name="Blue Butterfly Pea Tea" data-price="180">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Special -->
+          <div class="menu-card reveal" data-category="special">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?auto=format&fit=crop&w=500&q=80" alt="Tandoori Smoked Chai" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Smoky Tandoori Chai</h4>
+                <span class="m-price">₹140</span>
+              </div>
+              <p>Simmered spiced chai poured into a red-hot clay cup fresh out of the clay oven.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m7" data-name="Smoky Tandoori Chai" data-price="140">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Special -->
+          <div class="menu-card reveal" data-category="special">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80" alt="Iced Hibiscus Berry Tea" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Iced Hibiscus Berry Cooler</h4>
+                <span class="m-price">₹160</span>
+              </div>
+              <p>Cold-steeped ruby red hibiscus flowers, fresh mint sprigs, and wild mountain berries.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m8" data-name="Iced Hibiscus Berry Cooler" data-price="160">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Snacks -->
+          <div class="menu-card reveal" data-category="snacks">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Toasted Bun Maska" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Classic Bun Maska</h4>
+                <span class="m-price">₹90</span>
+              </div>
+              <p>Puffy soft bakery bun smothered in fresh dollops of salted white butter and fruit jam.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m9" data-name="Classic Bun Maska" data-price="90">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Item: Snacks -->
+          <div class="menu-card reveal" data-category="snacks">
+            <div class="menu-card-img">
+              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500&q=80" alt="Crispy Paneer Samosas" loading="lazy">
+            </div>
+            <div class="menu-card-details">
+              <div class="m-head">
+                <h4>Crispy Cocktail Samosas</h4>
+                <span class="m-price">₹110</span>
+              </div>
+              <p>Flaky golden pastry triangles filled with spiced potatoes, green peas, and fresh mint chutney.</p>
+              <button class="btn btn-sm btn-outline add-to-cart-btn" data-id="m10" data-name="Crispy Cocktail Samosas" data-price="110">+ Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section section-padding" id="gallery">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Moments at Chai & Leaf</span>
+          <h2 class="section-title">Café Gallery</h2>
+          <p class="section-desc">A glimpse into our serene atmosphere, handcrafted brews, and cozy gatherings.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=85" data-caption="Traditional hand-poured spiced chai in our rustic clay cups.">
+            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="Hand poured chai" loading="lazy">
+            <div class="gallery-overlay"><span>🔍 View Moment</span></div>
+          </div>
+          <div class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85" data-caption="Our warm ambient seating designed for reading and heartfelt conversations.">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Cozy Cafe interior" loading="lazy">
+            <div class="gallery-overlay"><span>🔍 View Moment</span></div>
+          </div>
+          <div class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1200&q=85" data-caption="Fresh whole-leaf teas sourced directly from Himalayan organic gardens.">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Tea preparation with spices" loading="lazy">
+            <div class="gallery-overlay"><span>🔍 View Moment</span></div>
+          </div>
+          <div class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=85" data-caption="Golden baked morning buns and authentic café delicacies.">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Fresh artisan baked snacks" loading="lazy">
+            <div class="gallery-overlay"><span>🔍 View Moment</span></div>
+          </div>
+          <div class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=1200&q=85" data-caption="Iced tea concoctions crafted with natural botanicals.">
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" alt="Refreshing iced teas" loading="lazy">
+            <div class="gallery-overlay"><span>🔍 View Moment</span></div>
+          </div>
+          <div class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=1200&q=85" data-caption="The gentle art of slow brewing in artisanal glass pots.">
+            <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=600&q=80" alt="Artisanal tea brewing" loading="lazy">
+            <div class="gallery-overlay"><span>🔍 View Moment</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close modal">&times;</button>
+      <div class="lightbox-content">
+        <img src="" alt="Enlarged gallery view" id="lightboxImg">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <!-- Customer Reviews / Testimonial Slider -->
+    <section class="reviews-section section-padding bg-cream" id="reviews">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Customer Voices</span>
+          <h2 class="section-title">Loved by Thousands of Chai Lovers</h2>
+        </div>
+
+        <div class="slider-wrapper reveal">
+          <div class="slider-container" id="testimonialSlider">
+            <!-- Review 1 -->
+            <div class="slide active">
+              <div class="review-card">
+                <div class="quote-mark">“</div>
+                <p class="review-text">The Adrak Chai here reminds me of the winter mornings at home. The ambience is soothing, the staff is courteous, and the Bun Maska is always pillowy soft!</p>
+                <div class="reviewer-info">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Ananya Sharma" class="reviewer-avatar">
+                  <div>
+                    <h4 class="reviewer-name">Ananya Sharma</h4>
+                    <div class="stars">★★★★★</div>
+                    <span class="reviewer-tag">Regular Patron</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="slide">
+              <div class="review-card">
+                <div class="quote-mark">“</div>
+                <p class="review-text">Hands down the best Kashmiri Saffron Kahwa I've had outside Srinagar. Generous slivers of real almonds and authentic saffron. A must-visit place for tea lovers.</p>
+                <div class="reviewer-info">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Rohan Verma" class="reviewer-avatar">
+                  <div>
+                    <h4 class="reviewer-name">Rohan Verma</h4>
+                    <div class="stars">★★★★★</div>
+                    <span class="reviewer-tag">Food & Travel Blogger</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="slide">
+              <div class="review-card">
+                <div class="quote-mark">“</div>
+                <p class="review-text">Finding high quality non-dairy milk options for authentic masala chai is so rare. CHAI & LEAF nails the spices every single time. It is my go-to co-working spot.</p>
+                <div class="reviewer-info">
+                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Pooja Rao" class="reviewer-avatar">
+                  <div>
+                    <h4 class="reviewer-name">Pooja Rao</h4>
+                    <div class="stars">★★★★★</div>
+                    <span class="reviewer-tag">Design Director</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls">
+            <button class="slider-btn prev-btn" id="prevSlide" aria-label="Previous review">❮</button>
+            <div class="slider-dots" id="sliderDots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+            </div>
+            <button class="slider-btn next-btn" id="nextSlide" aria-label="Next review">❯</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="contact-section section-padding" id="contact">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Connect With Us</span>
+          <h2 class="section-title">Visit Our Tea Sanctuary</h2>
+          <p class="section-desc">Drop by for a warm cup, or reach out to reserve a private tasting table.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Details -->
+          <div class="contact-info-col reveal">
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+              <div>
+                <h4>Our Location</h4>
+                <p>42 Heritage Lane, Connaught Place, New Delhi, 110001</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">🕒</div>
+              <div>
+                <h4>Opening Hours</h4>
+                <p>Mon – Sun: 7:30 AM – 11:00 PM</p>
+                <span class="sub-text">Fresh brews served non-stop</span>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">📞</div>
+              <div>
+                <h4>Get in Touch</h4>
+                <p>+91 98765 43210</p>
+                <p>hello@chaiandleaf.com</p>
+              </div>
+            </div>
+
+            <div class="map-placeholder">
+              <div class="map-content">
+                <span class="map-pin">📍</span>
+                <p><strong>CHAI & LEAF Flagship Café</strong></p>
+                <span>Connaught Place, Inner Circle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-col reveal">
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="fullName">Your Full Name *</label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Vikram Malhotra" required>
+                <span class="error-msg" id="nameError">Please enter your name (at least 3 characters).</span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="emailAddr">Email Address *</label>
+                  <input type="email" id="emailAddr" name="emailAddr" placeholder="vikram@example.com" required>
+                  <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+                </div>
+                <div class="form-group">
+                  <label for="phoneNum">Phone Number *</label>
+                  <input type="tel" id="phoneNum" name="phoneNum" placeholder="+91 98765 00000" required>
+                  <span class="error-msg" id="phoneError">Please enter a valid 10-digit phone number.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="messageText">Your Message or Table Query *</label>
+                <textarea id="messageText" name="messageText" rows="4" placeholder="Let us know how we can make your tea experience special..." required></textarea>
+                <span class="error-msg" id="msgError">Please enter a brief message (minimum 10 characters).</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">
+                Send Message 🍵
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="#home" class="brand-logo footer-logo">
+          <span class="logo-leaf">🍃</span>
+          <span class="brand-name">CHAI & LEAF</span>
+        </a>
+        <p class="footer-about">
+          Honoring the ancient rituals of Indian tea blending with modern, organic care. Your everyday refuge for serenity and authentic flavor.
+        </p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#special-teas">Special Teas</a></li>
+          <li><a href="#offers">Deals & Offers</a></li>
+          <li><a href="#gallery">Café Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Our Menu</h4>
+        <ul class="footer-links">
+          <li><a href="#menu">Royal Masala Chai</a></li>
+          <li><a href="#menu">Kashmiri Kahwa</a></li>
+          <li><a href="#menu">Matcha & Green Teas</a></li>
+          <li><a href="#menu">Herbal Infusions</a></li>
+          <li><a href="#menu">Bakery & Bun Maska</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Visit Us</h4>
+        <p class="footer-address">
+          42 Heritage Lane, Connaught Place<br>
+          New Delhi, 110001<br>
+          Open 7 Days: 7:30 AM – 11:00 PM
+        </p>
+        <span class="footer-contact">hello@chaiandleaf.com</span>
+        <span class="footer-contact">+91 98765 43210</span>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 CHAI & LEAF. All Rights Reserved. Crafted with love & tea leaves.</p>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Elements -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Order on WhatsApp">
+    <span>💬</span>
+  </a>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+  </button>
+
+  <!-- Slide-out Cart Drawer -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <h3>Your Tea Tray 🍵</h3>
+      <button class="drawer-close" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cartItemsList">
+      <p class="empty-cart-msg">Your tray is empty. Add some warm tea!</p>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </aside>
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

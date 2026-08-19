@@ -1,0 +1,62 @@
+/* ==========================================================================
+   variables.css — site-wide design tokens
+   Scope: the new common header/footer + shared utility classes only.
+   Each calculator page keeps its own page-specific tokens in
+   css/pages/<page>.css so existing calculator visuals never shift.
+   ========================================================================== */
+:root {
+  /* Brand */
+  --brand-accent: #4f46e5;
+  --brand-accent-2: #7c3aed;
+  --brand-accent-3: #c084fc;
+  --brand-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #c084fc 100%);
+
+  /* Surface tokens (site chrome) */
+  --site-bg: #f8fafc;
+  --site-surface: #ffffff;
+  --site-surface-alt: rgba(241, 245, 249, 0.7);
+  --site-border: rgba(15, 23, 42, 0.08);
+  --site-text: #0f172a;
+  --site-text-muted: #64748b;
+  --focus-ring: #7c3aed;
+
+  /* Elevation */
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 30px -8px rgba(15, 23, 42, 0.12);
+  --shadow-lg: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+
+  /* Radii & spacing scale */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Type */
+  --font-display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', 'Segoe UI', monospace;
+
+  --transition-speed: 0.3s;
+  --transition-curve: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --header-height: 64px;
+  --site-max-width: 1200px;
+}
+
+body.dark-mode,
+body[data-theme="dark"] {
+  --site-bg: #020617;
+  --site-surface: rgba(15, 23, 42, 0.7);
+  --site-surface-alt: rgba(30, 41, 59, 0.55);
+  --site-border: rgba(255, 255, 255, 0.08);
+  --site-text: #f8fafc;
+  --site-text-muted: #94a3b8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 30px -8px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}

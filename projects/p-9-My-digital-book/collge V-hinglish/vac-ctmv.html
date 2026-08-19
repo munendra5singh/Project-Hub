@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture, Traditions & Moral Values | B.A. 5th Semester VAC Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Value Added Course (VAC): Culture, Traditions and Moral Values (CTMV). Culture vs Civilization, Constitutional Values, Vasudhaiva Kutumbakam, Digital Ethics.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="vac">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Value Added Course — VAC CTMV</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('vac-ctmv', 'VAC — CTMV')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#vac">VAC</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Culture, Traditions and Moral Values (CTMV)</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Indian Culture</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Culture vs Civilization</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 Features of Indian Heritage</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Moral Values</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Satya, Ahimsa & Karuna</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 Vasudhaiva Kutumbakam</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Constitutional Ethics</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Preamble & Art 51A Duties</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Environmental Protection Ethos</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Digital Ethics</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Cyber Morality & Netiquette</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">Long Answer Questions</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">Short Answer Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-star"></i> Value Added Course</div>
+                <h1>Culture, Traditions and Moral Values (CTMV)</h1>
+                <p>
+                    Yeh textbook VAC Course ke liye ek complete manual hai. Iss me Culture vs Civilization (MacIver definition), Indian Heritage (Unity in Diversity), Universal Ethical Values (Satya, Ahimsa, Karuna, Dharma), Vasudhaiva Kutumbakam, Nishkama Karma, Constitutional Values (Preamble & Article 51A), aur Digital Ethics pure Hinglish me samjhaye gaye hain.
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">Culture vs Civ</span>
+                        <span class="stat-label">Definitions & MacIver Table</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Vasudhaiva Kutumbakam</span>
+                        <span class="stat-label">Classical Upanishadic Ethos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Article 51A(g)</span>
+                        <span class="stat-label">Fundamental Environmental Duty</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: INDIAN CULTURAL HERITAGE                                           -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Indian Cultural Heritage</h2>
+                </div>
+
+                <!-- 1.1 Culture vs Civilization -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Culture vs. Civilization</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> E.B. Tylor's Definition of Culture</h4>
+                        <p>
+                            "Culture is that complex whole which includes knowledge, belief, art, morals, law, custom, and any other capabilities and habits acquired by man as a member of society."
+                        </p>
+                    </div>
+
+                    <div class="table-responsive mt-3">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Culture</th>
+                                    <th>Civilization</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>MacIver Definition</strong></td>
+                                    <td>"What we are" (Internal mental, moral, and artistic values).</td>
+                                    <td>"What we use" (External physical apparatus, technology, and tools).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Measurement</strong></td>
+                                    <td>Intangible; difficult to quantify numerically.</td>
+                                    <td>Tangible; easily measured via technological output.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Progress</strong></td>
+                                    <td>Does not advance linearly.</td>
+                                    <td>Advances unidirectionally with technological innovation.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: TRADITIONS AND UNIVERSAL MORAL VALUES                             -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit II</span>
+                    <h2>Traditions and Universal Moral Values</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>Universal Ethical Values: Satya, Ahimsa, Karuna & Dharma</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-scroll"></i> Vasudhaiva Kutumbakam & Nishkama Karma</h4>
+                        <p class="text-sm">
+                            <strong>1. Vasudhaiva Kutumbakam (Maha Upanishad):</strong> "The World is One Family" — promoting universal fraternity beyond narrow parochial boundaries.<br><br>
+                            <strong>2. Nishkama Karma (Bhagavad Gita II.47):</strong> Performing duty selflessly without attachment to fruits or outcomes.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: CONSTITUTIONAL ETHICS                                              -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit III</span>
+                    <h2>Constitutional Ethics and Environmental Duties</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>Preamble Values & Article 51A(g) Fundamental Duty</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-shield-cat"></i> Article 51A(g) Mandate</h4>
+                        <p class="text-sm">
+                            "It shall be the duty of every citizen of India to protect and improve the natural environment including forests, lakes, rivers and wildlife, and to have compassion for living creatures."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">What does Vasudhaiva Kutumbakam mean?</div>
+                            <div class="back">The World is One Family (Maha Upanishad).</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Which Constitutional Article covers environmental duties?</div>
+                            <div class="back">Article 51A(g).</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">What text describes Nishkama Karma?</div>
+                            <div class="back">Srimad Bhagavad Gita (Chapter 2, Verse 47).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. According to MacIver, Culture represents which of the following?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-vac-1')">A) What we use</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-vac-1')">B) What we are</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-vac-1')">C) Our physical tools</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-vac-1')">D) Machines and roads</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-vac-1">
+                                <strong>Explanation:</strong> MacIver defined Culture as "What we are" and Civilization as "What we use".
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">Netiquette</div>
+                            <div class="glossary-def">Network etiquette governing polite and ethical conduct in online digital spaces.</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">Sacred Groves</div>
+                            <div class="glossary-def">Protected forest patches preserved through community religious traditions and ecological reverence.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. VAC CTMV Paper.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

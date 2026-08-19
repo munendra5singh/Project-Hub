@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Secure Vault</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Supabase JS Client SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <!-- Toast Notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Screen 1: Auth & Landing Screen -->
+  <main id="auth-screen" class="auth-wrapper">
+    <div class="auth-card">
+      <div class="brand-header">
+        <div class="shield-icon">🔐</div>
+        <h1>My Secure Vault</h1>
+        <p id="auth-subtitle">Securely manage your passwords across your devices.</p>
+      </div>
+
+      <!-- Landing Page Options -->
+      <div id="landing-view" class="auth-landing">
+        <p class="privacy-note">🛡️ Your vault is encrypted before it is synchronized. Zero-knowledge security.</p>
+        <div class="landing-actions">
+          <button type="button" id="btn-show-login" class="btn btn-secondary btn-full btn-hero">I Already Have an Account</button>
+          <button type="button" id="btn-show-register" class="btn btn-primary btn-full btn-hero">Create New Account</button>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="register-form" class="auth-form hidden">
+        <div class="form-group">
+          <label for="setup-fullname">Full Name</label>
+          <input type="text" id="setup-fullname" required placeholder="Munendra Singh" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="setup-username">Username or Email</label>
+          <input type="text" id="setup-username" required placeholder="munendra123" autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="setup-password">Master Password</label>
+          <input type="password" id="setup-password" required autocomplete="new-password">
+          <div class="strength-meter">
+            <div id="strength-bar" class="strength-bar"></div>
+          </div>
+          <span id="strength-text" class="strength-text">Strength: Very Weak</span>
+        </div>
+
+        <div class="form-group">
+          <label for="setup-confirm">Confirm Master Password</label>
+          <input type="password" id="setup-confirm" required autocomplete="new-password">
+        </div>
+
+        <div class="warning-box">
+          ⚠️ <strong>Important:</strong> Your master password cannot be recovered if forgotten. If lost, your vault data is unrecoverable.
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="setup-confirm-check" required>
+          <label for="setup-confirm-check">I understand that losing my master password will cause permanent data loss.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Create Secure Vault & Account</button>
+        
+        <div class="auth-switch">
+          Already have an account? <button type="button" id="btn-switch-to-login" class="btn-link">Log In</button>
+        </div>
+      </form>
+
+      <!-- Login Form -->
+      <form id="login-form" class="auth-form hidden">
+        <div class="form-group">
+          <label for="unlock-username">Username or Email</label>
+          <input type="text" id="unlock-username" autofocus required placeholder="munendra123" autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="unlock-password">Master Password</label>
+          <input type="password" id="unlock-password" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Login / Unlock Vault</button>
+
+        <div class="auth-switch">
+          Don't have an account? <button type="button" id="btn-switch-to-register" class="btn-link">Create New Account</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+
+  <!-- Screen 2: Dashboard -->
+  <div id="dashboard-screen" class="dashboard-wrapper hidden">
+    <!-- Navigation / Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <span class="vault-logo">🔐 Vault</span>
+        <span id="user-welcome-badge" class="user-welcome">Welcome, User</span>
+        <span id="lock-timer-badge" class="badge badge-info">Auto-Lock: 10m</span>
+      </div>
+      <div class="header-right">
+        <button id="btn-add-account" class="btn btn-primary">+ Add Account</button>
+        <button id="btn-settings-toggle" class="btn btn-secondary">⚙️ Settings</button>
+        <button id="btn-manual-lock" class="btn btn-danger">🔒 Lock Vault</button>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="dashboard-body">
+      <!-- Sidebar / Filters -->
+      <aside class="sidebar">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search accounts (Press '/' to focus)...">
+        </div>
+        <div class="category-nav">
+          <h3>Categories</h3>
+          <ul id="category-list">
+            <li class="active" data-category="All">All Items</li>
+            <li data-category="Email">Email</li>
+            <li data-category="Social Media">Social Media</li>
+            <li data-category="Work">Work</li>
+            <li data-category="Banking">Banking</li>
+            <li data-category="Shopping">Shopping</li>
+            <li data-category="Education">Education</li>
+            <li data-category="Government">Government</li>
+            <li data-category="Other">Other</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Content Area -->
+      <main class="content-area">
+        <div class="content-header">
+          <h2 id="current-category-title">All Items</h2>
+          <span id="account-count" class="badge">0 Accounts</span>
+        </div>
+
+        <div id="accounts-grid" class="accounts-grid">
+          <!-- Account Cards Render Dynamically Here -->
+        </div>
+
+        <div id="empty-state" class="empty-state hidden">
+          <div class="empty-icon">📭</div>
+          <h3>No credentials found</h3>
+          <p>Click "+ Add Account" or adjust your filter/search criteria.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal 1: Add/Edit Account -->
+  <div id="account-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Add New Account</h3>
+        <button class="btn-close" id="btn-close-modal">&times;</button>
+      </div>
+      <form id="account-form">
+        <input type="hidden" id="acc-id">
+        <div class="form-grid">
+          <div class="form-group span-2">
+            <label for="acc-website">Website / Application Name *</label>
+            <input type="text" id="acc-website" required placeholder="e.g. Gmail or Github">
+          </div>
+          <div class="form-group span-2">
+            <label for="acc-url">Website URL</label>
+            <input type="url" id="acc-url" placeholder="https://example.com">
+          </div>
+          <div class="form-group">
+            <label for="acc-name">My Name / Profile Name</label>
+            <input type="text" id="acc-name" placeholder="Munendra Singh">
+          </div>
+          <div class="form-group">
+            <label for="acc-category">Category</label>
+            <select id="acc-category">
+              <option value="Email">Email</option>
+              <option value="Social Media">Social Media</option>
+              <option value="Work">Work</option>
+              <option value="Banking">Banking</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Education">Education</option>
+              <option value="Government">Government</option>
+              <option value="Other" selected>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="acc-username">Username</label>
+            <input type="text" id="acc-username" placeholder="munendra123">
+          </div>
+          <div class="form-group">
+            <label for="acc-email">Email ID</label>
+            <input type="email" id="acc-email" placeholder="example@gmail.com">
+          </div>
+          <div class="form-group span-2">
+            <label for="acc-password">Password *</label>
+            <div class="input-with-action">
+              <input type="password" id="acc-password" required>
+              <button type="button" id="btn-toggle-acc-pass" class="btn btn-icon" title="Toggle Visibility">👁</button>
+              <button type="button" id="btn-open-generator" class="btn btn-secondary" title="Generate Password">🎲 Generate</button>
+            </div>
+          </div>
+          <div class="form-group span-2">
+            <label for="acc-notes">Notes</label>
+            <textarea id="acc-notes" rows="3" placeholder="Security questions, recovery codes, personal notes..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-acc" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Securely</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Password Generator -->
+  <div id="generator-modal" class="modal-backdrop hidden">
+    <div class="modal-card modal-sm">
+      <div class="modal-header">
+        <h3>Password Generator</h3>
+        <button class="btn-close" id="btn-close-generator">&times;</button>
+      </div>
+      <div class="generator-body">
+        <div class="generated-output-box">
+          <input type="text" id="gen-output" readonly class="font-mono">
+          <button id="btn-copy-gen" class="btn btn-secondary">📋 Copy</button>
+        </div>
+        <div class="form-group">
+          <label>Password Length: <span id="gen-length-val">16</span></label>
+          <input type="range" id="gen-length" min="8" max="64" value="16">
+        </div>
+        <div class="options-grid">
+          <label class="checkbox-label"><input type="checkbox" id="gen-uppercase" checked> Uppercase (A-Z)</label>
+          <label class="checkbox-label"><input type="checkbox" id="gen-lowercase" checked> Lowercase (a-z)</label>
+          <label class="checkbox-label"><input type="checkbox" id="gen-numbers" checked> Numbers (0-9)</label>
+          <label class="checkbox-label"><input type="checkbox" id="gen-symbols" checked> Symbols (!@#$)</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-regenerate" class="btn btn-secondary">🔄 Refresh</button>
+        <button id="btn-use-password" class="btn btn-primary">Use Password</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Settings -->
+  <div id="settings-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Vault Settings</h3>
+        <button class="btn-close" id="btn-close-settings">&times;</button>
+      </div>
+      <div class="settings-body">
+        <section class="settings-section">
+          <h4>Security</h4>
+          <div class="setting-item">
+            <div>
+              <strong>Auto-Lock Timer</strong>
+              <p class="text-muted">Automatically lock the vault after inactivity.</p>
+            </div>
+            <select id="setting-autolock">
+              <option value="5">5 Minutes</option>
+              <option value="10" selected>10 Minutes</option>
+              <option value="15">15 Minutes</option>
+              <option value="30">30 Minutes</option>
+              <option value="0">Never (Unsafe)</option>
+            </select>
+          </div>
+          <div class="setting-item">
+            <div>
+              <strong>Clipboard Auto-Clear</strong>
+              <p class="text-muted">Clear password from clipboard after copying.</p>
+            </div>
+            <select id="setting-clipboard">
+              <option value="10">10 Seconds</option>
+              <option value="20" selected>20 Seconds</option>
+              <option value="30">30 Seconds</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <h4>Backup & Restore</h4>
+          <div class="setting-item">
+            <div>
+              <strong>Export Encrypted Backup</strong>
+              <p class="text-muted">Download an AES-256 encrypted file containing your credentials.</p>
+            </div>
+            <button id="btn-export-vault" class="btn btn-secondary">⬇️ Export Backup</button>
+          </div>
+          <div class="setting-item">
+            <div>
+              <strong>Import Backup</strong>
+              <p class="text-muted">Restore vault from a previously exported encrypted backup file.</p>
+            </div>
+            <input type="file" id="import-file-input" accept=".enc,.json" class="hidden">
+            <button id="btn-import-vault" class="btn btn-secondary">⬆️ Import Backup</button>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <h4>Appearance & Data</h4>
+          <div class="setting-item">
+            <div>
+              <strong>Theme Mode</strong>
+              <p class="text-muted">Select visual theme preference.</p>
+            </div>
+            <select id="setting-theme">
+              <option value="dark">Dark Mode</option>
+              <option value="light">Light Mode</option>
+            </select>
+          </div>
+          <div class="setting-item danger-zone">
+            <div>
+              <strong>Purge All Vault Data</strong>
+              <p class="text-muted">Permanently erase all stored credentials and reset master key.</p>
+            </div>
+            <button id="btn-purge-data" class="btn btn-danger">Purge Vault Data</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/supabase.js"></script>
+  <script type="module" src="./js/auth.js"></script>
+  <script type="module" src="./js/crypto.js"></script>
+  <script type="module" src="./js/db.js"></script>
+  <script type="module" src="./js/ui.js"></script>
+  <script type="module" src="./js/vault.js"></script>
+  <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>

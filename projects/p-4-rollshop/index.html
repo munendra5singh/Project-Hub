@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ROLL HOUSE — Best Kathi Rolls &amp; Indian Street Food</title>
+  <meta name="description" content="Fresh, hot and flavour-packed Kathi Rolls made to order. Explore chicken, paneer, veg rolls, combos and special offers at Roll House.">
+  <meta name="theme-color" content="#C81D11">
+
+  <!-- Open Graph Protocol -->
+  <meta property="og:title" content="ROLL HOUSE — Big Flavour. Perfectly Wrapped.">
+  <meta property="og:description" content="Authentic Indian Kathi Rolls with crispy parathas, smoky tandoori fillings, and signature chutneys. Order online today!">
+  <meta property="og:type" content="restaurant.restaurant">
+  <meta property="og:url" content="https://rollhouse.example.com">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts: Bebas Neue for energetic titles, Outfit for clean UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data: LocalBusiness / Restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FastFoodRestaurant",
+    "name": "ROLL HOUSE",
+    "image": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1200&q=80",
+    "servesCuisine": ["Indian", "Street Food", "Kathi Rolls"],
+    "priceRange": "₹₹",
+    "telephone": "+919876543210",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shop 14, Food Court Block, Connaught Place",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "postalCode": "110001",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "11:00",
+        "closes": "23:00"
+      }
+    ],
+    "hasMenu": "https://rollhouse.example.com/#menu"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader-screen" aria-label="Loading Roll House">
+    <div class="loader-box">
+      <div class="loader-roll-icon">🌯</div>
+      <div class="loader-brand">ROLL HOUSE</div>
+      <p class="loader-sub">Preparing Your Roll with Love... 🔥</p>
+      <div class="loader-progress"><div class="loader-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Site Navigation -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Roll House Home">
+        <span class="logo-badge">🌯</span>
+        <div class="logo-text">
+          <span class="logo-title">ROLL HOUSE</span>
+          <span class="logo-tagline">हर रोल में भरपूर स्वाद!</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#signatures" class="nav-link">Signatures</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#offers" class="nav-link">Offers</a></li>
+          <li><a href="#combos" class="nav-link">Combos</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-cart-btn" id="navCartBtn" aria-label="View Cart">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count-badge" id="cartCountNav">0</span>
+        </button>
+        <a href="#menu" class="btn btn-primary nav-cta-btn">Order Now</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <span class="logo-badge">🌯</span>
+        <div class="logo-text">
+          <span class="logo-title">ROLL HOUSE</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-link">🏠 Home</a></li>
+      <li><a href="#signatures" class="mobile-link">🔥 Signature Rolls</a></li>
+      <li><a href="#menu" class="mobile-link">📜 Full Menu</a></li>
+      <li><a href="#offers" class="mobile-link">🎁 Today's Offer</a></li>
+      <li><a href="#combos" class="mobile-link">🥤 Combos</a></li>
+      <li><a href="#about" class="mobile-link">✨ Our Story</a></li>
+      <li><a href="#gallery" class="mobile-link">📸 Gallery</a></li>
+      <li><a href="#reviews" class="mobile-link">⭐ Reviews</a></li>
+      <li><a href="#contact" class="mobile-link">📍 Contact &amp; Location</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="#menu" class="btn btn-primary btn-full-width" id="mobileOrderBtn">Explore &amp; Order</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="floating-spice spice-chili">🌶️</div>
+        <div class="floating-spice spice-onion">🧅</div>
+        <div class="floating-spice spice-leaf">🌿</div>
+        <div class="floating-spice spice-fire">🔥</div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge animate-fade-down">
+            <span class="badge-fire">🔥</span>
+            <span>Fresh • Hot • Made To Order</span>
+          </div>
+          <h1 class="hero-title animate-fade-up">
+            BIG FLAVOUR. <br><span class="highlight-text">PERFECTLY WRAPPED.</span>
+          </h1>
+          <p class="hero-description animate-fade-up delay-1">
+            Freshly grilled fillings, soft flaky laccha parathas, signature spicy mint chutney, and bold Indian flavours — all rolled into one irresistible bite.
+          </p>
+          <div class="hero-actions animate-fade-up delay-2">
+            <a href="#menu" class="btn btn-primary btn-lg ripple-btn">Explore Menu 🌯</a>
+            <a href="#offers" class="btn btn-secondary btn-lg ripple-btn">Today's Deals 🔥</a>
+          </div>
+          <div class="hero-tags animate-fade-up delay-3">
+            <div class="hero-tag-item"><span class="check-icon">✓</span> 100% Halal Chicken</div>
+            <div class="hero-tag-item"><span class="check-icon">✓</span> Pure Malai Paneer</div>
+            <div class="hero-tag-item"><span class="check-icon">✓</span> Hand-Rolled Parathas</div>
+          </div>
+        </div>
+
+        <div class="hero-visual animate-scale-in">
+          <div class="hero-image-wrapper">
+            <div class="hero-circle-backdrop"></div>
+            <div class="steam-container" aria-hidden="true">
+              <span class="steam-particle st-1"></span>
+              <span class="steam-particle st-2"></span>
+              <span class="steam-particle st-3"></span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=900&q=80" 
+                 alt="Delicious freshly grilled Indian Chicken Tikka Kathi Roll wrapped in crisp paratha" 
+                 class="hero-main-img" 
+                 loading="eager">
+            <div class="hero-floating-card top-card">
+              <span class="card-icon">⚡</span>
+              <div>
+                <strong>Hot in 7 Mins</strong>
+                <small>Fresh Off The Tawa</small>
+              </div>
+            </div>
+            <div class="hero-floating-card bottom-card">
+              <span class="card-icon">⭐</span>
+              <div>
+                <strong>4.8 / 5.0</strong>
+                <small>15,000+ Happy Foodies</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-padding features-section bg-dark" id="why-us">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">THE ROLL HOUSE STANDARD</span>
+          <h2 class="main-heading text-white">Why Every Bite Hits Different</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card reveal-el">
+            <div class="feature-icon-wrapper">🌯</div>
+            <h3>Freshly Wrapped</h3>
+            <p>Every single roll is prepared on order. No pre-rolled soggy wraps, no compromises on crispiness.</p>
+          </div>
+
+          <div class="feature-card reveal-el">
+            <div class="feature-icon-wrapper">🔥</div>
+            <h3>Hot &amp; Grilled</h3>
+            <p>Tandoor-marinated chicken, chargrilled paneer, and flaky laccha parathas fried in pure amul butter.</p>
+          </div>
+
+          <div class="feature-card reveal-el">
+            <div class="feature-icon-wrapper">🌶️</div>
+            <h3>Bold Flavours</h3>
+            <p>Secret 18-spice masala blend, tangy roasted cumin sprinkle, and our signature smoked chili mayo.</p>
+          </div>
+
+          <div class="feature-card reveal-el">
+            <div class="feature-icon-wrapper">⚡</div>
+            <h3>Fast Service</h3>
+            <p>Street food soul with restaurant precision. Hot, packaged and ready within 7 to 10 minutes flat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signature Rolls Section -->
+    <section class="section-padding signatures-section" id="signatures">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">CROWD FAVORITES</span>
+          <h2 class="main-heading">Our Signature Rolls</h2>
+          <p class="section-lead">One bite and you’ll know why everyone’s rolling with us.</p>
+        </div>
+
+        <div class="signature-grid">
+          <!-- Item 1 -->
+          <div class="food-card reveal-el" data-diet="non-veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Spicy Chicken Tikka Roll" loading="lazy">
+              <span class="diet-badge non-veg" title="Non-Vegetarian"><span></span></span>
+              <span class="popular-ribbon">Bestseller 🔥</span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.9 (1.8k+)</span>
+                <span class="spice-meter" title="Spicy">🌶️🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Spicy Chicken Tikka Roll</h3>
+              <p class="food-desc">Juicy tandoor-charred chicken tikka, crunchy spiced onions, fresh mint chutney &amp; smoky sauce.</p>
+              <div class="food-footer">
+                <span class="food-price">₹149</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="sig-1" data-name="Spicy Chicken Tikka Roll" data-price="149" data-img="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="food-card reveal-el" data-diet="veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80" alt="Royal Paneer Tikka Roll" loading="lazy">
+              <span class="diet-badge veg" title="Vegetarian"><span></span></span>
+              <span class="popular-ribbon">Chef's Pick 👑</span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.8 (1.2k+)</span>
+                <span class="spice-meter" title="Medium Spicy">🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Royal Paneer Tikka Roll</h3>
+              <p class="food-desc">Succulent malai paneer cubes tossed in tandoori marinade, bell peppers, melted cheese &amp; green dip.</p>
+              <div class="food-footer">
+                <span class="food-price">₹139</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="sig-2" data-name="Royal Paneer Tikka Roll" data-price="139" data-img="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80" data-diet="veg">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="food-card reveal-el" data-diet="non-veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Mutton / Chicken Seekh Roll" loading="lazy">
+              <span class="diet-badge non-veg" title="Non-Vegetarian"><span></span></span>
+              <span class="popular-ribbon">Meat Lover</span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.9 (950+)</span>
+                <span class="spice-meter" title="Spicy">🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Juicy Chicken Seekh Roll</h3>
+              <p class="food-desc">Melt-in-mouth seasoned minced chicken kebabs wrapped in a double-egg fried flaky laccha paratha.</p>
+              <div class="food-footer">
+                <span class="food-price">₹169</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="sig-3" data-name="Juicy Chicken Seekh Roll" data-price="169" data-img="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="food-card reveal-el" data-diet="non-veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=600&q=80" alt="Butter Chicken Roll" loading="lazy">
+              <span class="diet-badge non-veg" title="Non-Vegetarian"><span></span></span>
+              <span class="popular-ribbon">Indulgent</span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.8 (1.5k+)</span>
+                <span class="spice-meter" title="Mild/Creamy">🌶️</span>
+              </div>
+              <h3 class="food-title">Delhi Butter Chicken Roll</h3>
+              <p class="food-desc">Slow-cooked creamy makhani gravy, pulled smoked chicken, kasuri methi &amp; a drizzle of fresh cream.</p>
+              <div class="food-footer">
+                <span class="food-price">₹179</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="sig-4" data-name="Delhi Butter Chicken Roll" data-price="179" data-img="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section class="section-padding offer-section bg-gradient-red" id="offers">
+      <div class="container">
+        <div class="offer-banner reveal-el">
+          <div class="offer-content">
+            <div class="deal-pill">🔥 LIMITED TIME DEAL</div>
+            <h2 class="offer-title">TODAY'S SPECIAL CRAVINGS COMBO</h2>
+            <p class="offer-subtitle">2 Signature Kathi Rolls + 2 Chilled Masala Cokes + Peri Peri Fries</p>
+            
+            <div class="price-box">
+              <span class="old-price">₹499</span>
+              <span class="deal-price">₹299</span>
+              <span class="discount-badge">Save 40%</span>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-wrapper" id="dealCountdown">
+              <div class="timer-box">
+                <span class="timer-num" id="dealHours">03</span>
+                <span class="timer-lbl">Hours</span>
+              </div>
+              <div class="timer-colon">:</div>
+              <div class="timer-box">
+                <span class="timer-num" id="dealMins">45</span>
+                <span class="timer-lbl">Mins</span>
+              </div>
+              <div class="timer-colon">:</div>
+              <div class="timer-box">
+                <span class="timer-num" id="dealSecs">20</span>
+                <span class="timer-lbl">Secs</span>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary btn-lg ripple-btn add-to-cart-btn" data-id="offer-cravings-combo" data-name="Today's Cravings Combo (2 Rolls + Fries + 2 Drinks)" data-price="299" data-img="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">
+              Grab This Deal Now (₹299) ⚡
+            </button>
+          </div>
+
+          <div class="offer-visual">
+            <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=700&q=80" alt="Special Roll Deal Combo with Fries and Drinks" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section class="section-padding menu-section" id="menu">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">FRESH ON THE TAWA</span>
+          <h2 class="main-heading">Pick Your Perfect Roll</h2>
+          <p class="section-lead">Filter your favourite street goodness &amp; add straight to your tray.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="menu-filter-container reveal-el">
+          <div class="menu-filters" role="tablist" aria-label="Menu categories">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true"><span>🌯</span> All Rolls</button>
+            <button class="filter-btn" data-filter="chicken" role="tab" aria-selected="false"><span>🍗</span> Chicken</button>
+            <button class="filter-btn" data-filter="paneer" role="tab" aria-selected="false"><span>🧀</span> Paneer</button>
+            <button class="filter-btn" data-filter="veg" role="tab" aria-selected="false"><span>🌱</span> Pure Veg</button>
+            <button class="filter-btn" data-filter="egg" role="tab" aria-selected="false"><span>🍳</span> Egg Specials</button>
+            <button class="filter-btn" data-filter="combos" role="tab" aria-selected="false"><span>🥤</span> Combos</button>
+          </div>
+        </div>
+
+        <!-- Filterable Grid -->
+        <div class="menu-grid" id="menuItemsGrid">
+          <!-- Dynamically populated / Statically rendered items with instant JS filtering -->
+          
+          <!-- Item 1: Chicken -->
+          <div class="food-card menu-item reveal-el" data-category="chicken" data-diet="non-veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Classic Chicken Kathi Roll" loading="lazy">
+              <span class="diet-badge non-veg"><span></span></span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.8 (720)</span>
+                <span class="spice-meter">🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Classic Chicken Kathi Roll</h3>
+              <p class="food-desc">Kolkata street-style shredded spiced chicken, crisp sliced onions, lemon juice and chatpata masala.</p>
+              <div class="food-footer">
+                <span class="food-price">₹129</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="chk-1" data-name="Classic Chicken Kathi Roll" data-price="129" data-img="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">Add +</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Chicken -->
+          <div class="food-card menu-item reveal-el" data-category="chicken" data-diet="non-veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" alt="Schezwan Chicken Roll" loading="lazy">
+              <span class="diet-badge non-veg"><span></span></span>
+              <span class="popular-ribbon">Desi Chinese</span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.9 (610)</span>
+                <span class="spice-meter">🌶️🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Schezwan Chicken Cheese Roll</h3>
+              <p class="food-desc">Fiery Indo-Chinese schezwan tossed chicken, spring onions, mozzarella pull and crushed peppers.</p>
+              <div class="food-footer">
+                <span class="food-price">₹169</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="chk-2" data-name="Schezwan Chicken Cheese Roll" data-price="169" data-img="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">Add +</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Paneer -->
+          <div class="food-card menu-item reveal-el" data-category="paneer" data-diet="veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80" alt="Achari Paneer Tikka Roll" loading="lazy">
+              <span class="diet-badge veg"><span></span></span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.7 (540)</span>
+                <span class="spice-meter">🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Achari Paneer Tikka Roll</h3>
+              <p class="food-desc">Tangy pickled spices rubbed over cottage cheese, tandoori grilled with mustard oil kick.</p>
+              <div class="food-footer">
+                <span class="food-price">₹149</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="pan-1" data-name="Achari Paneer Tikka Roll" data-price="149" data-img="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80" data-diet="veg">Add +</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Paneer -->
+          <div class="food-card menu-item reveal-el" data-category="paneer" data-diet="veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Makhani Paneer Roll" loading="lazy">
+              <span class="diet-badge veg"><span></span></span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.8 (890)</span>
+                <span class="spice-meter">🌶️</span>
+              </div>
+              <h3 class="food-title">Creamy Makhani Paneer Roll</h3>
+              <p class="food-desc">Velvety cashew and tomato sauce, fresh paneer cubes, roasted butter garlic and coriander.</p>
+              <div class="food-footer">
+                <span class="food-price">₹159</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="pan-2" data-name="Creamy Makhani Paneer Roll" data-price="159" data-img="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" data-diet="veg">Add +</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Veg -->
+          <div class="food-card menu-item reveal-el" data-category="veg" data-diet="veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Chatpata Aloo Masala Roll" loading="lazy">
+              <span class="diet-badge veg"><span></span></span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.6 (430)</span>
+                <span class="spice-meter">🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Chatpata Aloo Masala Roll</h3>
+              <p class="food-desc">Crispy fried spiced potato patties, coriander mint chutney, sweet imli drizzle &amp; sev crunch.</p>
+              <div class="food-footer">
+                <span class="food-price">₹99</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="veg-1" data-name="Chatpata Aloo Masala Roll" data-price="99" data-img="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" data-diet="veg">Add +</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Veg -->
+          <div class="food-card menu-item reveal-el" data-category="veg" data-diet="veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="Crunchy Veggie Cheese Burst Roll" loading="lazy">
+              <span class="diet-badge veg"><span></span></span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.7 (380)</span>
+                <span class="spice-meter">🌶️</span>
+              </div>
+              <h3 class="food-title">Veggie Cheese Burst Roll</h3>
+              <p class="food-desc">Crispy corn, bell peppers, mushrooms, jalapenos smothered in warm liquid cheddar cheese.</p>
+              <div class="food-footer">
+                <span class="food-price">₹139</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="veg-2" data-name="Veggie Cheese Burst Roll" data-price="139" data-img="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" data-diet="veg">Add +</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7: Egg -->
+          <div class="food-card menu-item reveal-el" data-category="egg" data-diet="egg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80" alt="Double Egg Mughlai Roll" loading="lazy">
+              <span class="diet-badge egg" title="Contains Egg"><span></span></span>
+              <span class="popular-ribbon">Street Classic</span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 4.9 (1.1k+)</span>
+                <span class="spice-meter">🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Double Egg Mughlai Roll</h3>
+              <p class="food-desc">Two fluffy spiced omelettes cooked right onto the flaky paratha with sliced red onions and chaat masala.</p>
+              <div class="food-footer">
+                <span class="food-price">₹109</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="egg-1" data-name="Double Egg Mughlai Roll" data-price="109" data-img="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80" data-diet="egg">Add +</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8: Combos -->
+          <div class="food-card menu-item reveal-el" data-category="combos" data-diet="non-veg">
+            <div class="food-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80" alt="Ultimate Street Feast Combo" loading="lazy">
+              <span class="diet-badge non-veg"><span></span></span>
+              <span class="popular-ribbon">Mega Value</span>
+            </div>
+            <div class="food-card-content">
+              <div class="food-meta">
+                <span class="rating">★ 5.0 (980)</span>
+                <span class="spice-meter">🌶️🌶️</span>
+              </div>
+              <h3 class="food-title">Roll House Ultimate Combo</h3>
+              <p class="food-desc">1 Chicken Tikka Roll, 1 Double Egg Roll, Crinkle Salted Fries &amp; 1 Thums Up 250ml.</p>
+              <div class="food-footer">
+                <span class="food-price">₹289</span>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" data-id="combo-menu-1" data-name="Roll House Ultimate Combo" data-price="289" data-img="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">Add +</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Combos Meal Section -->
+    <section class="section-padding combos-section bg-cream" id="combos">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">MORE VALUE, MORE TASTE</span>
+          <h2 class="main-heading">Roll + Fries + Drink = Perfection</h2>
+          <p class="section-lead">Carefully curated combinations designed for solo cravings or group feasts.</p>
+        </div>
+
+        <div class="combos-grid">
+          <!-- Solo Combo -->
+          <div class="combo-card reveal-el">
+            <div class="combo-badge">Quick Bite</div>
+            <div class="combo-img">
+              <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80" alt="Solo Combo Meal" loading="lazy">
+            </div>
+            <div class="combo-body">
+              <h3 class="combo-title">Solo Kick Combo</h3>
+              <ul class="combo-list">
+                <li><span>🌯</span> Any 1 Classic Roll</li>
+                <li><span>🍟</span> Regular Peri Peri Fries</li>
+                <li><span>🥤</span> 1 Soft Drink / Masala Lemonade</li>
+              </ul>
+              <div class="combo-foot">
+                <div class="combo-price">
+                  <small>Only</small>
+                  <strong>₹199</strong>
+                </div>
+                <button class="btn btn-primary add-to-cart-btn" data-id="combo-solo" data-name="Solo Kick Combo" data-price="199" data-img="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">Order Solo</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Double Combo -->
+          <div class="combo-card featured-combo reveal-el">
+            <div class="combo-badge hot">Most Popular 🔥</div>
+            <div class="combo-img">
+              <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Double Dhamaka Combo" loading="lazy">
+            </div>
+            <div class="combo-body">
+              <h3 class="combo-title">Duo Dhamaka Combo</h3>
+              <ul class="combo-list">
+                <li><span>🌯</span> Any 2 Signature Rolls</li>
+                <li><span>🍟</span> 1 Large Cheesy Loaded Fries</li>
+                <li><span>🥤</span> 2 Soft Drinks (Chilled)</li>
+              </ul>
+              <div class="combo-foot">
+                <div class="combo-price">
+                  <small>Only</small>
+                  <strong>₹379</strong>
+                </div>
+                <button class="btn btn-primary add-to-cart-btn" data-id="combo-duo" data-name="Duo Dhamaka Combo" data-price="379" data-img="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">Order Duo</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Family Combo -->
+          <div class="combo-card reveal-el">
+            <div class="combo-badge">Party Size</div>
+            <div class="combo-img">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Family Feast Combo" loading="lazy">
+            </div>
+            <div class="combo-body">
+              <h3 class="combo-title">Family &amp; Squad Feast</h3>
+              <ul class="combo-list">
+                <li><span>🌯</span> Any 4 Kathi Rolls of Choice</li>
+                <li><span>🍟</span> 2 Large Loaded Fries</li>
+                <li><span>🥤</span> 4 Chilled Soft Drinks</li>
+              </ul>
+              <div class="combo-foot">
+                <div class="combo-price">
+                  <small>Only</small>
+                  <strong>₹699</strong>
+                </div>
+                <button class="btn btn-primary add-to-cart-btn" data-id="combo-family" data-name="Family & Squad Feast" data-price="699" data-img="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" data-diet="non-veg">Order Squad</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section-padding process-section bg-dark text-white" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">SIMPLE &amp; SPEEDY</span>
+          <h2 class="main-heading text-white">How Roll House Rolls</h2>
+        </div>
+
+        <div class="process-steps">
+          <div class="step-card reveal-el">
+            <div class="step-num">01</div>
+            <div class="step-icon">📱</div>
+            <h3>Pick Your Roll</h3>
+            <p>Select your favorite fillings, paratha base, spice level, and gourmet dips from our live menu.</p>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+
+          <div class="step-card reveal-el">
+            <div class="step-num">02</div>
+            <div class="step-icon">🍳</div>
+            <h3>We Grill It Fresh</h3>
+            <p>Our tawa masters chargrill the fillings and crisp the multi-layered laccha paratha in real time.</p>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+
+          <div class="step-card reveal-el">
+            <div class="step-num">03</div>
+            <div class="step-icon">🤤</div>
+            <h3>Bite. Enjoy. Repeat.</h3>
+            <p>Unwrap the foil, experience the crunch &amp; explosive flavours. We guarantee you'll be back tomorrow!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal-el">
+          <div class="about-img-stack">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Roll House Kitchen and Ambience" class="about-main-img" loading="lazy">
+            <div class="about-badge-exp">
+              <span class="exp-num">100%</span>
+              <span class="exp-txt">Fresh Street Culture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal-el">
+          <span class="sub-heading">OUR PHILOSOPHY</span>
+          <h2 class="main-heading">Street Food. Done Better.</h2>
+          <p class="about-p">
+            Roll House began with a single mission: to rescue the legendary Kolkata Kathi Roll from greasy roadside stalls and craft it with premium ingredients, hygienic kitchens, and uncompromising passion.
+          </p>
+          <p class="about-p">
+            We slow-marinate our meats in hand-ground masalas, use 100% whole malai paneer, and roll our layered laccha parathas fresh for every ticket. No shortcuts. Just pure, unadulterated street joy.
+          </p>
+
+          <!-- Animated Counters -->
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-num" data-target="50000">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Rolls Served</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" data-target="25">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Secret Recipes</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" data-target="48">0</span><span class="stat-plus">★</span>
+              <span class="stat-label">Rating (4.8/5)</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" data-target="7">0</span><span class="stat-plus">min</span>
+              <span class="stat-label">Average Prep Time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section-padding gallery-section bg-cream" id="gallery">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">FEAST YOUR EYES</span>
+          <h2 class="main-heading">The Roll House Gallery</h2>
+          <p class="section-lead">Click on any snapshot to explore our culinary craftsmanship.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1200&q=85" data-caption="Signature Chicken Tikka Roll stuffed with juicy marinated chicken">
+            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Signature Chicken Tikka Roll" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1200&q=85" data-caption="Char-grilled Malai Paneer cubes loaded with bell peppers and chutney">
+            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80" alt="Malai Paneer Kathi Roll" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=85" data-caption="Our live open kitchen where tawa magic happens every minute">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Roll House Kitchen" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=85" data-caption="Crispy hot fried parathas seasoned with mint and secret chatpata spice">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Fresh Parathas & Kebabs" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1200&q=85" data-caption="Crispy crinkle-cut fries with house peri peri sprinkle and dips">
+            <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=600&q=80" alt="Combos and Sides" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1200&q=85" data-caption="The famous double egg crust paratha sizzling on the cast-iron tawa">
+            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80" alt="Double Egg Tawa Roll" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+      <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous image">❮</button>
+      <button class="lightbox-nav next" id="lightboxNext" aria-label="Next image">❯</button>
+      <div class="lightbox-content">
+        <img src="" alt="" id="lightboxImg">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <section class="section-padding reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">VERIFIED FOODIES</span>
+          <h2 class="main-heading">Loved By Roll Lovers ❤️</h2>
+          <p class="section-lead">Here is what the city is saying about our rolls.</p>
+        </div>
+
+        <div class="reviews-slider-wrapper reveal-el">
+          <div class="reviews-slider-track" id="reviewsTrack">
+            <!-- Review 1 -->
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">“Best chicken tikka roll I've had outside Kolkata! The paratha is super flaky without being dripping in excess oil, and the mint chutney hits the perfect punch.”</p>
+              <div class="review-author">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80" alt="Rahul Sharma" class="author-img">
+                <div>
+                  <h4 class="author-name">Rahul Sharma</h4>
+                  <span class="author-tag">Verified Foodie • Connaught Place</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">“The Paneer Tikka roll is next level. Big juicy malai paneer chunks that melt in your mouth. Also their Duo Combo is the best value in town for lunch.”</p>
+              <div class="review-author">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Priya Patel" class="author-img">
+                <div>
+                  <h4 class="author-name">Priya Patel</h4>
+                  <span class="author-tag">Regular Customer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">“I order the Double Egg Seekh Roll almost every Friday evening. Super fast delivery, piping hot packaging and consistently incredible flavours!”</p>
+              <div class="review-author">
+                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=120&q=80" alt="Aman Verma" class="author-img">
+                <div>
+                  <h4 class="author-name">Aman Verma</h4>
+                  <span class="author-tag">Software Engineer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">“Finally a place that takes hygiene seriously while keeping authentic spicy roadside taste alive. Their Butter Chicken Roll is purely heavenly!”</p>
+              <div class="review-author">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Sneha Gupta" class="author-img">
+                <div>
+                  <h4 class="author-name">Sneha Gupta</h4>
+                  <span class="author-tag">Food Blogger</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="slider-controls">
+            <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous review">❮</button>
+            <div class="slider-dots" id="sliderDots"></div>
+            <button class="slider-arrow next" id="sliderNext" aria-label="Next review">❯</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="section-padding contact-section bg-dark text-white" id="contact">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">SAY HELLO OR DROP BY</span>
+          <h2 class="main-heading text-white">Visit Roll House</h2>
+          <p class="section-lead">Drop in for the hot aroma off the tawa or order directly to your door.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Side -->
+          <div class="contact-info reveal-el">
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+              <div>
+                <h3>Our Location</h3>
+                <p>Shop 14, Food Court Block, Connaught Place, New Delhi 110001</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">⏰</div>
+              <div>
+                <h3>Opening Hours</h3>
+                <p>Monday – Sunday: 11:00 AM – 11:30 PM</p>
+                <small class="text-accent">Kitchen closes at 11:00 PM</small>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">📞</div>
+              <div>
+                <h3>Phone &amp; WhatsApp</h3>
+                <p><a href="tel:+919876543210" class="link-hover">+91 98765 43210</a></p>
+                <p><a href="mailto:orders@rollhouse.com" class="link-hover">orders@rollhouse.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-action-btns">
+              <a href="tel:+919876543210" class="btn btn-secondary btn-sm">📞 Call Now</a>
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">🗺️ Get Directions</a>
+            </div>
+          </div>
+
+          <!-- Form Side -->
+          <div class="contact-form-card reveal-el">
+            <h3>Send Us a Message / Catering Query</h3>
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName">Your Name *</label>
+                <input type="text" id="contactName" name="name" placeholder="Rahul Sharma" required>
+                <span class="form-error" id="nameError">Please enter your name.</span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactPhone">Phone Number *</label>
+                  <input type="tel" id="contactPhone" name="phone" placeholder="9876543210" required>
+                  <span class="form-error" id="phoneError">Valid 10-digit number required.</span>
+                </div>
+                <div class="form-group">
+                  <label for="contactEmail">Email Address</label>
+                  <input type="email" id="contactEmail" name="email" placeholder="rahul@example.com">
+                  <span class="form-error" id="emailError">Please enter a valid email.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage">Message / Roll Customization / Event Query *</label>
+                <textarea id="contactMessage" name="message" rows="4" placeholder="Tell us how we can help you..." required></textarea>
+                <span class="form-error" id="messageError">Please type your message.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full-width ripple-btn" id="submitFormBtn">
+                Send Message 🚀
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Col 1 -->
+      <div class="footer-col footer-brand-col">
+        <div class="brand-logo">
+          <span class="logo-badge">🌯</span>
+          <div class="logo-text">
+            <span class="logo-title text-white">ROLL HOUSE</span>
+          </div>
+        </div>
+        <p class="footer-tagline">“Wrapped With Love. Loaded With Flavour.”</p>
+        <p class="footer-desc">Crafting India's crispest, most delicious tandoor-grilled Kathi Rolls with love, hygiene, and authentic secret street masalas.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" class="social-icon">📸</a>
+          <a href="#" aria-label="Facebook" class="social-icon">📘</a>
+          <a href="#" aria-label="YouTube" class="social-icon">▶️</a>
+          <a href="#" aria-label="WhatsApp" class="social-icon">💬</a>
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#signatures">Signature Rolls</a></li>
+          <li><a href="#menu">Live Menu</a></li>
+          <li><a href="#offers">Special Offers</a></li>
+          <li><a href="#combos">Value Combos</a></li>
+          <li><a href="#about">Our Story</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Popular Rolls</h4>
+        <ul class="footer-links">
+          <li><a href="#menu">Spicy Chicken Tikka Roll</a></li>
+          <li><a href="#menu">Royal Paneer Tikka Roll</a></li>
+          <li><a href="#menu">Double Egg Mughlai Roll</a></li>
+          <li><a href="#menu">Delhi Butter Chicken Roll</a></li>
+          <li><a href="#menu">Chicken Seekh Kebab Roll</a></li>
+          <li><a href="#menu">Schezwan Cheese Roll</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4 -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Store Hours</h4>
+        <div class="hours-list">
+          <p><strong>Mon – Fri:</strong> 11:00 AM – 11:30 PM</p>
+          <p><strong>Sat – Sun:</strong> 11:00 AM – Midnight</p>
+          <p class="f-delivery-note">🚚 Delivery via Swiggy &amp; Zomato or Direct Takeaway</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 ROLL HOUSE. All Rights Reserved. Made with ❤️ for Indian Street Food.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <span>•</span>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating UI Buttons -->
+  <aside class="floating-ui-container" aria-label="Quick Actions">
+    <button class="floating-btn back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top">↑</button>
+    <a href="https://wa.me/919876543210?text=Hi%20Roll%20House,%20I%20want%20to%20order%20some%20delicious%20rolls!" class="floating-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Order via WhatsApp">💬</a>
+    <button class="floating-btn floating-cart-btn" id="floatingCartBtn" aria-label="Open Shopping Tray">
+      <span class="f-cart-icon">🛒</span>
+      <span class="f-cart-count" id="floatingCartCount">0</span>
+    </button>
+  </aside>
+
+  <!-- Sliding Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Your Order Tray">
+    <div class="cart-drawer-header">
+      <div class="cart-header-title">
+        <h3>Your Order Tray 🌯</h3>
+        <span class="cart-items-count-text" id="cartItemsCountText">(0 Items)</span>
+      </div>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cartItemsContainer">
+      <!-- Empty Cart View -->
+      <div class="empty-cart-state" id="emptyCartState">
+        <div class="empty-cart-icon">🌯</div>
+        <h4>Your tray is empty!</h4>
+        <p>You haven't added any sizzling rolls yet. Explore our delicious menu!</p>
+        <a href="#menu" class="btn btn-primary btn-sm" id="emptyCartExploreBtn">Browse Menu</a>
+      </div>
+      
+      <!-- Cart Items List will be injected here -->
+      <div class="cart-items-list" id="cartItemsList"></div>
+    </div>
+
+    <div class="cart-drawer-footer" id="cartFooter">
+      <div class="cart-bill-breakdown">
+        <div class="bill-row">
+          <span>Item Total</span>
+          <span id="billSubtotal">₹0</span>
+        </div>
+        <div class="bill-row">
+          <span>Taxes &amp; Packaging</span>
+          <span id="billTaxes">₹0</span>
+        </div>
+        <div class="bill-row">
+          <span>Delivery Partner Fee</span>
+          <span id="billDelivery">₹30</span>
+        </div>
+        <div class="bill-row bill-total">
+          <strong>Grand Total</strong>
+          <strong id="billGrandTotal" class="text-accent">₹0</strong>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full-width ripple-btn" id="checkoutBtn">
+        Proceed To Order (₹<span id="checkoutBtnTotal">0</span>) 🚀
+      </button>
+      <small class="cart-guarantee">🔒 100% Contactless &amp; Fresh Delivery Guaranteed</small>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+    <span class="toast-icon" id="toastIcon">🌯</span>
+    <span class="toast-message" id="toastMsg">Item added to cart!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

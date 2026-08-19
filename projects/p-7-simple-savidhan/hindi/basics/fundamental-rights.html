@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - भारत के संविधान के मौलिक अधिकार</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 30px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-part-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .hero-description {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr 270px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Left Sidebar */
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item::before {
+      content: "•";
+      font-size: 12px;
+      color: #0b1a30;
+    }
+
+    .nav-item.active {
+      background-color: #edf3f9;
+      color: #103254;
+      font-weight: 600;
+    }
+
+    .nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .article-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .article-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icon-btn:hover {
+      color: #0b1a30;
+    }
+
+    .action-icon-btn.bookmarked {
+      color: #d4af37;
+    }
+
+    .btn-listen-article {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-listen-article:hover {
+      background-color: #f8f9fb;
+    }
+
+    .article-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Original Article Card Box */
+    .original-article-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .original-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .original-header-line i {
+      font-size: 16px;
+    }
+
+    .article-clause-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+      color: #0b1a30;
+      line-height: 1.6;
+    }
+
+    .article-clause-list li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .article-clause-list li strong {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #103254;
+      font-weight: 700;
+    }
+
+    /* Detailed Explanation Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .english-paragraph {
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.6;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Key Takeaway Exam Note Box */
+    .exam-note-box {
+      background-color: #f3ecf8;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid #e5d7f2;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .exam-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6a4498;
+      font-size: 14px;
+      flex-shrink: 0;
+      border: 1px solid #d8c2eb;
+    }
+
+    .exam-note-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6a4498;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .gavel-illustration {
+      width: 80px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a5cb8" opacity="0.8" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="45" width="80" height="8" rx="2"/><rect x="20" y="30" width="30" height="12" rx="2"/><rect x="60" y="10" width="10" height="30" rx="2" transform="rotate(30 65 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 15px;
+    }
+
+    /* Key Points Checklist */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Important Terms Box */
+    .important-terms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    .important-terms-list strong {
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner {
+        padding: 24px 30px;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .article-main-heading {
+        font-size: 20px;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gavel-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR FUNDAMENTAL RIGHTS PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-part-label {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .article-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .article-main-heading,
+    [data-theme="dark"] .article-clause-list,
+    [data-theme="dark"] .article-clause-list li strong,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .important-terms-list strong {
+      color: var(--sv-text-heading) !important;
+    }
+
+    [data-theme="dark"] .nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-listen-article {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-listen-article:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .action-icon-btn:hover {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .original-article-box {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .original-header-line {
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .point-item i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .english-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .point-item,
+    [data-theme="dark"] .important-terms-list {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: rgba(106, 68, 152, 0.2);
+      border-color: rgba(106, 68, 152, 0.4);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: rgba(106, 68, 152, 0.4);
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-title {
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html" class="active">भाग</a></li>
+      <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/basics/fundamental-rights.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <div class="hero-part-label">भाग III (अनुच्छेद 12 से 35)</div>
+      <h1 class="hero-title">मौलिक अधिकार</h1>
+      <p class="hero-description">
+        संविधान का भाग III पूरे भारत में व्यक्तिगत स्वतंत्रता, समानता,<br>
+        और मानवीय गरिमा की रक्षा के लिए बुनियादी नागरिक स्वतंत्रताओं की गारंटी देता है।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/parts.html">भाग</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="#">भाग III - मौलिक अधिकार</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>अनुच्छेद 12–35</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: On This Page -->
+      <aside class="left-sidebar">
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>इस पृष्ठ पर</span>
+          </div>
+
+          <ul class="nav-list" id="onThisPageNav">
+            <li class="nav-item active" data-target="section-overview">अवलोकन व राज्य की परिभाषा</li>
+            <li class="nav-item" data-target="section-equality">1. समानता का अधिकार</li>
+            <li class="nav-item" data-target="section-freedom">2. स्वतंत्रता का अधिकार</li>
+            <li class="nav-item" data-target="section-exploitation">3. शोषण के विरुद्ध अधिकार</li>
+            <li class="nav-item" data-target="section-religion">4. धार्मिक स्वतंत्रता का अधिकार</li>
+            <li class="nav-item" data-target="section-cultural">5. संस्कृति व शिक्षा का अधिकार</li>
+            <li class="nav-item" data-target="section-remedies">6. संवैधानिक उपचारों का अधिकार</li>
+            <li class="nav-item" data-target="section-key-takeaway">परीक्षा के लिए टिप्पणी / मुख्य बिंदु</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Middle Main Content Panel -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="article-header-card" id="section-header">
+          <div class="article-top-bar">
+            <div class="article-badge-title">
+              <i class="fa-regular fa-file-lines"></i> भाग III (अनुच्छेद 12–35)
+            </div>
+            <div class="article-actions">
+              <button class="action-icon-btn" id="bookmarkBtn" title="बुकमार्क करें"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" id="shareBtn" title="साझा करें"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-article" id="listenBtn" type="button">
+                <i class="fa-solid fa-volume-high"></i> <span id="listenText">विवरण सुनें</span>
+              </button>
+            </div>
+          </div>
+          <h1 class="article-main-heading">संविधान द्वारा गारंटीकृत मौलिक अधिकार</h1>
+        </div>
+
+        <!-- Overview & Definition of State -->
+        <div class="original-article-box" id="section-overview">
+          <div class="original-header-line">
+            <i class="fa-solid fa-quote-left"></i> सामान्य प्रावधान (अनुच्छेद 12 व 13)
+          </div>
+          <ul class="article-clause-list">
+            <li><strong>अनुच्छेद 12:</strong> 'राज्य' की परिभाषा देता है जिसमें भारत की सरकार और संसद, राज्यों की सरकारें और विधानमंडल, स्थानीय प्राधिकारी और अन्य वैधानिक निकाय शामिल हैं।</li>
+            <li><strong>अनुच्छेद 13:</strong> मौलिक अधिकारों के असंगत या उनका अल्पीकरण करने वाली सभी विधियों को शून्य घोषित करता है। यह न्यायिक पुनरावलोकन (Judicial Review) का आधार प्रदान करता है।</li>
+          </ul>
+        </div>
+
+        <!-- 1. Right to Equality -->
+        <div class="content-card-box" id="section-equality">
+          <div class="card-section-title">
+            <i class="fa-solid fa-scale-balanced"></i> 1. समानता का अधिकार (अनुच्छेद 14–18)
+          </div>
+          <p class="english-paragraph">
+            कानून के समक्ष समान व्यवहार सुनिश्चित करता है और सामाजिक, शैक्षणिक तथा रोजगार क्षेत्रों में भेदभाव का प्रतिषेध करता है।
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>अनुच्छेद 14:</strong> सभी व्यक्तियों के लिए विधि के समक्ष समानता और विधियों का समान संरक्षण।</li>
+            <li><strong>अनुच्छेद 15:</strong> धर्म, मूलवंश, जाति, लिंग या जन्मस्थान के आधार पर विभेद का प्रतिषेध।</li>
+            <li><strong>अनुच्छेद 16:</strong> लोक नियोजन के विषयों में अवसर की समानता।</li>
+            <li><strong>अनुच्छेद 17:</strong> अस्पृश्यता का अंत और किसी भी रूप में इसके आचरण पर रोक।</li>
+            <li><strong>अनुच्छेद 18:</strong> सैन्य और शैक्षणिक सम्मान को छोड़कर अन्य उपाधियों का अंत।</li>
+          </ul>
+        </div>
+
+        <!-- 2. Right to Freedom -->
+        <div class="content-card-box" id="section-freedom">
+          <div class="card-section-title">
+            <i class="fa-solid fa-hand-fist"></i> 2. स्वतंत्रता का अधिकार (अनुच्छेद 19–22)
+          </div>
+          <p class="english-paragraph">
+            व्यक्तिगत स्वतंत्रता और व्यक्तिगत विकास के लिए आवश्यक प्रमुख लोकतांत्रिक स्वतंत्रताओं की गारंटी देता है।
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>अनुच्छेद 19:</strong> 6 बुनियादी स्वतंत्रताओं की गारंटी देता है:
+              <ul style="list-style-type: circle; margin-left: 20px; margin-top: 4px;">
+                <li>वाक् और अभिव्यक्ति की स्वतंत्रता</li>
+                <li>शांतिपूर्वक और निरायुध सम्मेलन की स्वतंत्रता</li>
+                <li>संगम, संघ या सहकारी समितियां बनाने की स्वतंत्रता</li>
+                <li>भारत के राज्यक्षेत्र में सर्वत्र अबाध संचरण की स्वतंत्रता</li>
+                <li>भारत के किसी भाग में निवास करने और बस जाने की स्वतंत्रता</li>
+                <li>कोई वृत्ति, उपजीविका, व्यापार या कारोबार करने की स्वतंत्रता</li>
+              </ul>
+            </li>
+            <li><strong>अनुच्छेद 20:</strong> अपराधों के लिए दोषसिद्धि के संबंध में संरक्षण (कार्यभारोत्तर विधियों, दोहरे दंड और आत्म-अभिशंसन से संरक्षण)।</li>
+            <li><strong>अनुच्छेद 21:</strong> प्राण और दैहिक स्वतंत्रता का संरक्षण।</li>
+            <li><strong>अनुच्छेद 21A:</strong> 6 से 14 वर्ष की आयु के बच्चों के लिए प्रारंभिक शिक्षा का अधिकार।</li>
+            <li><strong>अनुच्छेद 22:</strong> कुछ दशाओं में मनमानी गिरफ्तारी और निरोध से संरक्षण।</li>
+          </ul>
+        </div>
+
+        <!-- 3. Right against Exploitation -->
+        <div class="content-card-box" id="section-exploitation">
+          <div class="card-section-title">
+            <i class="fa-solid fa-ban"></i> 3. शोषण के विरुद्ध अधिकार (अनुच्छेद 23–24)
+          </div>
+          <p class="english-paragraph">
+            कमजोर नागरिकों को मानव दुर्व्यापार, जबरन श्रम और बाल शोषण से बचाता है।
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>अनुच्छेद 23:</strong> मानव दुर्व्यापार, बेगार (बलात्श्रम) और इसी प्रकार के अन्य जबरन श्रम का प्रतिषेध।</li>
+            <li><strong>अनुच्छेद 24:</strong> कारखानों, खानों या जोखिम वाले कार्यस्थलों में 14 वर्ष से कम आयु के बच्चों के नियोजन का प्रतिषेध।</li>
+          </ul>
+        </div>
+
+        <!-- 4. Right to Freedom of Religion -->
+        <div class="content-card-box" id="section-religion">
+          <div class="card-section-title">
+            <i class="fa-solid fa-place-of-worship"></i> 4. धर्म की स्वतंत्रता का अधिकार (अनुच्छेद 25–28)
+          </div>
+          <p class="english-paragraph">
+            सभी व्यक्तियों और समूहों के लिए धार्मिक स्वतंत्रता की रक्षा करके धर्मनिरपेक्ष मूल्यों को सुनिश्चित करता है।
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>अनुच्छेद 25:</strong> अंतःकरण की और धर्म को अबाध रूप से मानने, आचरण और प्रचार करने की स्वतंत्रता।</li>
+            <li><strong>अनुच्छेद 26:</strong> धार्मिक कार्यों और संस्थाओं के प्रबंध की स्वतंत्रता।</li>
+            <li><strong>अनुच्छेद 27:</strong> किसी विशिष्ट धर्म की अभिवृद्धि के लिए करों के संदाय के बारे में स्वतंत्रता।</li>
+            <li><strong>अनुच्छेद 28:</strong> पूर्णतः राज्य-निधि से पोषित शिक्षा संस्थाओं में धार्मिक शिक्षा या उपासना में उपस्थित होने के बारे में स्वतंत्रता।</li>
+          </ul>
+        </div>
+
+        <!-- 5. Cultural and Educational Rights -->
+        <div class="content-card-box" id="section-cultural">
+          <div class="card-section-title">
+            <i class="fa-solid fa-graduation-cap"></i> 5. संस्कृति और शिक्षा संबंधी अधिकार (अनुच्छेद 29–30)
+          </div>
+          <p class="english-paragraph">
+            अल्पसंख्यकों की विशिष्ट पहचान, भाषा, लिपि और संस्थाओं का संरक्षण करता है।
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>अनुच्छेद 29:</strong> अल्पसंख्यकों की भाषा, लिपि और संस्कृति का संरक्षण।</li>
+            <li><strong>अनुच्छेद 30:</strong> धर्म या भाषा पर आधारित अल्पसंख्यकों को शिक्षा संस्थाओं की स्थापना और प्रशासन का अधिकार।</li>
+          </ul>
+        </div>
+
+        <!-- 6. Right to Constitutional Remedies -->
+        <div class="content-card-box" id="section-remedies">
+          <div class="card-section-title">
+            <i class="fa-solid fa-gavel"></i> 6. संवैधानिक उपचारों का अधिकार (अनुच्छेद 32)
+          </div>
+          <p class="english-paragraph">
+            संविधान की "आत्मा और हृदय" माना जाने वाला अनुच्छेद 32 नागरिकों को 5 रिटों के माध्यम से मौलिक अधिकारों को लागू कराने के लिए सीधे उच्चतम न्यायालय जाने का अधिकार देता है:
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>बंदी प्रत्यक्षीकरण (Habeas Corpus):</strong> गैर-कानूनी हिरासत से सुरक्षा प्रदान करता है ("शरीर को प्रस्तुत किया जाए")।</li>
+            <li><strong>परमादेश (Mandamus):</strong> किसी लोक प्राधिकारी को उसके कानूनी कर्तव्य का पालन करने का आदेश देता है ("हम आदेश देते हैं")।</li>
+            <li><strong>प्रतिषेध (Prohibition):</strong> निचली अदालतों को अपने अधिकार क्षेत्र से बाहर जाने से रोकता है।</li>
+            <li><strong>उत्प्रेषण (Certiorari):</strong> निचली न्यायिक संस्थाओं द्वारा पारित अवैध आदेशों को रद्द करता है ("पूर्णतः सूचित होना")।</li>
+            <li><strong>अधिकार-पृच्छा (Quo-Warranto):</strong> यह जांच करता है कि कोई व्यक्ति किस अधिकार से किसी सार्वजनिक पद को धारण किए हुए है।</li>
+          </ul>
+        </div>
+
+        <!-- Exam Note / Key Takeaway Banner -->
+        <div class="exam-note-box" id="section-key-takeaway">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">परीक्षा के लिए टिप्पणी / मुख्य बिंदु</div>
+              <div class="exam-note-desc">
+                याद रखें: भाग III | अनुच्छेद 12–35 | 6 श्रेणियां | अदालत में न्यायसंगत (Justiciable) | अमेरिका के बिल ऑफ राइट्स से प्रेरित | राष्ट्रीय आपातकाल के दौरान भी अनुच्छेद 20 और 21 को निलंबित नहीं किया जा सकता।
+              </div>
+            </div>
+          </div>
+          <div class="gavel-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Key Points Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>मुख्य बिंदु</span>
+          </div>
+
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>सभी नागरिकों को गारंटीकृत; कुछ अधिकार विदेशियों पर भी लागू होते हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>न्यायसंगत हैं और अदालतों द्वारा सीधे लागू कराए जा सकते हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>संपत्ति का अधिकार (अनुच्छेद 31) 44वें संशोधन (1978) द्वारा हटा दिया गया था।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>राष्ट्रीय सुरक्षा और लोक व्यवस्था के हित में तर्कसंगत प्रतिबंधों के अधीन।</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Terms Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-book-bookmark"></i>
+            <span>महत्वपूर्ण शब्द</span>
+          </div>
+
+          <div class="important-terms-list">
+            <p><strong>भाग III:</strong> भारत के संविधान का मैग्ना कार्टा (Magna Carta)।</p>
+            <p><strong>अनुच्छेद 32:</strong> संवैधानिक उपचार जो सीधे सुप्रीम कोर्ट तक पहुंच प्रदान करता है।</p>
+            <p><strong>न्यायिक पुनरावलोकन (Judicial Review):</strong> अनुच्छेद 13 के तहत असंवैधानिक कानूनों को रद्द करने की अदालत की शक्ति।</p>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation Smooth Scroll
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Bookmark Toggle
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    let isBookmarked = false;
+    bookmarkBtn.addEventListener('click', () => {
+      isBookmarked = !isBookmarked;
+      const icon = bookmarkBtn.querySelector('i');
+      if (isBookmarked) {
+        icon.className = "fa-solid fa-bookmark";
+        bookmarkBtn.classList.add('bookmarked');
+      } else {
+        icon.className = "fa-regular fa-bookmark";
+        bookmarkBtn.classList.remove('bookmarked');
+      }
+    });
+
+    // Share Action
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'भाग III - भारत के मौलिक अधिकार',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        prompt("मौलिक अधिकार साझा करने के लिए इस लिंक को कॉपी करें:", window.location.href);
+      }
+    });
+
+    // Listen to Rights Text-to-Speech
+    const listenBtn = document.getElementById('listenBtn');
+    const listenText = document.getElementById('listenText');
+    let isListening = false;
+    listenBtn.addEventListener('click', () => {
+      isListening = !isListening;
+      const icon = listenBtn.querySelector('i');
+      if (isListening) {
+        icon.className = "fa-solid fa-stop";
+        listenText.textContent = "ऑडियो रोकें";
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance("भारत के संविधान का भाग 3. मौलिक अधिकार. अनुच्छेद 12 से 35 जो बुनियादी नागरिक स्वतंत्रताओं, समानता और संवैधानिक उपचारों की गारंटी देते हैं.");
+          utterance.lang = 'hi-IN';
+          window.speechSynthesis.speak(utterance);
+        }
+      } else {
+        icon.className = "fa-solid fa-volume-high";
+        listenText.textContent = "विवरण सुनें";
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    });
+
+    // Scroll spy for 'On This Page'
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 150;
+      navItems.forEach(item => {
+        const targetId = item.getAttribute('data-target');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const top = targetEl.offsetTop;
+          const height = targetEl.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            navItems.forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

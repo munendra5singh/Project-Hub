@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - क्विज़ पेज</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel: Filters */
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .nav-category-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .nav-category-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-category-item i {
+      font-size: 13px;
+      width: 16px;
+      text-align: center;
+      color: #637381;
+    }
+
+    .nav-category-item:hover {
+      background-color: #f4f6f8;
+      color: #0b1a30;
+    }
+
+    .nav-category-item.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+    }
+
+    .nav-category-item.active i {
+      color: #ffffff;
+    }
+
+    .filter-divider {
+      height: 1px;
+      background-color: #e8ecef;
+      margin: 14px 0;
+    }
+
+    .filter-group {
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #2b3649;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: #0b1a30;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .btn-apply-filters {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 6px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-apply-filters:hover {
+      background-color: #162a47;
+    }
+
+    .btn-reset-filters {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset-filters:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Quizzes List */
+    .quiz-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .quiz-title-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Quiz Card Item */
+    .quiz-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .quiz-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .quiz-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .quiz-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .quiz-info {
+      flex: 1;
+    }
+
+    .quiz-name-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+    }
+
+    .quiz-desc-text {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    /* Question & Difficulty Info Wrapper */
+    .quiz-meta-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+    }
+
+    .q-count {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1;
+    }
+
+    .q-label {
+      font-size: 10px;
+      color: #637381;
+      margin-top: 2px;
+      margin-bottom: 4px;
+    }
+
+    .difficulty-badge {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: capitalize;
+    }
+
+    .diff-easy { background-color: #eaf5ea; color: #2a7d4f; }
+    .diff-medium { background-color: #fcf4e8; color: #d18d27; }
+    .diff-hard { background-color: #fde8e8; color: #d93838; }
+
+    .btn-start-quiz {
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-start-quiz:hover {
+      background-color: #162a47;
+    }
+
+    .quiz-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding-left: 4px;
+    }
+
+    /* View All Quizzes Button */
+    .view-all-wrapper {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 10px;
+    }
+
+    .btn-view-all {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #d18d27;
+      font-size: 14px;
+    }
+
+    .widget-description {
+      font-size: 11.5px;
+      color: #526071;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    /* Daily Challenge Sub-box */
+    .daily-box {
+      background-color: #f8f9fb;
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .daily-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .daily-sub {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 1px;
+    }
+
+    .daily-icon {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .btn-daily-quiz {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-daily-quiz:hover {
+      background-color: #162a47;
+    }
+
+    /* Leaderboard Widget */
+    .leaderboard-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .view-all-link {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+
+    .leaderboard-tabs {
+      display: flex;
+      border-bottom: 2px solid #f0f4f8;
+      margin-bottom: 12px;
+    }
+
+    .lb-tab {
+      flex: 1;
+      text-align: center;
+      padding-bottom: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #637381;
+      cursor: pointer;
+    }
+
+    .lb-tab.active {
+      color: #0b1a30;
+      border-bottom: 2px solid #0b1a30;
+      margin-bottom: -2px;
+    }
+
+    .leaderboard-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .lb-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+    }
+
+    .lb-rank {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .rank-1 { background-color: #fef3c7; color: #d97706; }
+    .rank-2 { background-color: #e5e7eb; color: #4b5563; }
+    .rank-3 { background-color: #ffedd5; color: #b45309; }
+    .rank-other { background-color: transparent; color: #2b3649; }
+
+    .lb-name {
+      flex: 1;
+      font-weight: 600;
+      color: #2b3649;
+    }
+
+    .lb-score {
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    /* Your Stats Widget Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .stat-box {
+      background-color: #f8f9fb;
+      border-radius: 6px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-icon {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .stat-val {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 9.5px;
+      color: #637381;
+      margin-top: 2px;
+    }
+
+    /* Fully Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .quiz-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .quiz-meta-wrapper {
+        align-items: flex-start;
+        padding: 0;
+      }
+      .quiz-arrow {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR QUIZ PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .quiz-section {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .quiz-title-text,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .filter-label,
+    [data-theme="dark"] .checkbox-item,
+    [data-theme="dark"] .daily-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .nav-category-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .nav-category-item i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .nav-category-item:hover {
+      background-color: var(--sv-bg-card-hover);
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .nav-category-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .nav-category-item.active i {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .filter-divider {
+      background-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sort-select {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a99ad" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    }
+
+    [data-theme="dark"] .btn-apply-filters,
+    [data-theme="dark"] .btn-start-quiz,
+    [data-theme="dark"] .btn-daily-quiz {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-apply-filters:hover,
+    [data-theme="dark"] .btn-start-quiz:hover,
+    [data-theme="dark"] .btn-daily-quiz:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .btn-reset-filters,
+    [data-theme="dark"] .btn-view-all {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-reset-filters:hover,
+    [data-theme="dark"] .btn-view-all:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .quiz-header,
+    [data-theme="dark"] .quiz-card,
+    [data-theme="dark"] .leaderboard-tabs {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .quiz-card:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .quiz-name-title,
+    [data-theme="dark"] .q-count,
+    [data-theme="dark"] .stat-val,
+    [data-theme="dark"] .lb-score,
+    [data-theme="dark"] .lb-name {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .quiz-desc-text,
+    [data-theme="dark"] .q-label,
+    [data-theme="dark"] .sort-wrapper,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .daily-sub,
+    [data-theme="dark"] .stat-lbl,
+    [data-theme="dark"] .lb-tab {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .lb-tab.active {
+      color: var(--sv-text-heading);
+      border-bottom-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .quiz-arrow {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .daily-icon,
+    [data-theme="dark"] .stat-icon,
+    [data-theme="dark"] .view-all-link {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .daily-box,
+    [data-theme="dark"] .stat-box {
+      background-color: var(--sv-bg-input);
+    }
+
+    [data-theme="dark"] .rank-other {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .diff-easy { background-color: rgba(42, 125, 79, 0.25); color: #4ade80; }
+    [data-theme="dark"] .diff-medium { background-color: rgba(209, 141, 39, 0.25); color: #fbbf24; }
+    [data-theme="dark"] .diff-hard { background-color: rgba(217, 56, 56, 0.25); color: #f87171; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="articles.html">अनुच्छेद</a></li>
+      <li><a href="parts.html">भाग</a></li>
+      <li><a href="schedules.html">अनुसूचियां</a></li>
+      <li><a href="amendments.html">संशोधन</a></li>
+      <li><a href="judgments.html">फैसले</a></li>
+      <li><a href="glossary.html">शब्दावली</a></li>
+      <li><a href="quiz.html" class="active">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/pages/quiz.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner" style="background-image: url('../supremcort.png');">
+    <div class="hero-content">
+      <h1 class="hero-title">अपनी जानकारी परखें</h1>
+      <p class="hero-description">
+        भारत के संविधान पर क्विज़ में भाग लें और<br>
+        अपनी समझ को और मजबूत बनाएं।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>क्विज़</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Browse Quiz Filters -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-solid fa-grip"></i>
+          <span>क्विज़ श्रेणी</span>
+        </div>
+
+        <ul class="nav-category-list" id="categoryNav">
+          <li class="nav-category-item active" data-category="All">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>सभी क्विज़</span>
+          </li>
+          <li class="nav-category-item" data-category="Articles">
+            <i class="fa-solid fa-book-open"></i>
+            <span>अनुच्छेद</span>
+          </li>
+          <li class="nav-category-item" data-category="Parts">
+            <i class="fa-solid fa-grip"></i>
+            <span>भाग</span>
+          </li>
+          <li class="nav-category-item" data-category="Fundamental Rights">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>मौलिक अधिकार</span>
+          </li>
+          <li class="nav-category-item" data-category="Directive Principles">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>नीति निर्देशक तत्व</span>
+          </li>
+          <li class="nav-category-item" data-category="Amendments">
+            <i class="fa-regular fa-file-lines"></i>
+            <span>संशोधन</span>
+          </li>
+          <li class="nav-category-item" data-category="Judgments">
+            <i class="fa-solid fa-gavel"></i>
+            <span>फैसले</span>
+          </li>
+          <li class="nav-category-item" data-category="Schedules">
+            <i class="fa-regular fa-calendar-days"></i>
+            <span>अनुसूचियां</span>
+          </li>
+          <li class="nav-category-item" data-category="General Knowledge">
+            <i class="fa-solid fa-landmark"></i>
+            <span>सामान्य ज्ञान</span>
+          </li>
+        </ul>
+
+        <div class="filter-divider"></div>
+
+        <div class="filter-group">
+          <label class="filter-label">कठिनाई का स्तर</label>
+          <div class="checkbox-list" id="difficultyFilters">
+            <label class="checkbox-item">
+              <input type="checkbox" value="Easy"> आसान
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="Medium"> मध्यम
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="Hard"> कठिन
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-apply-filters" id="btnApplyFilters" type="button">फ़िल्टर लागू करें</button>
+        <button class="btn-reset-filters" id="btnResetFilters" type="button">रिसेट करें</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Quizzes List -->
+      <main class="quiz-section">
+        <div class="quiz-header">
+          <div class="quiz-title-text" id="quizHeaderTitle">सभी क्विज़ (48)</div>
+          <div class="sort-wrapper">
+            <span>क्रमबद्ध करें</span>
+            <select class="sort-select" id="sortSelect">
+              <option value="latest">नवीनतम</option>
+              <option value="popularity">लोकप्रियता</option>
+              <option value="difficulty">कठिनाई</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Quizzes Container -->
+        <div id="quizzesContainer">
+          <div class="quiz-card" data-category="Fundamental Rights" data-difficulty="Easy" data-popularity="98" data-date="2026-02-01">
+            <div class="quiz-icon icon-blue">
+              <i class="fa-regular fa-file-lines"></i>
+            </div>
+            <div class="quiz-info">
+              <div class="quiz-name-title">मौलिक अधिकारों पर क्विज़</div>
+              <div class="quiz-desc-text">संविधान के भाग III - मौलिक अधिकारों पर अपनी जानकारी परखें।</div>
+            </div>
+            <div class="quiz-meta-wrapper">
+              <span class="q-count">50</span>
+              <span class="q-label">प्रश्न</span>
+              <span class="difficulty-badge diff-easy">आसान</span>
+            </div>
+            <button class="btn-start-quiz" type="button" onclick="window.location.href='../quiz/quiz-1.html'">क्विज़ शुरू करें</button>
+            <div class="quiz-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-category="Articles" data-difficulty="Medium" data-popularity="85" data-date="2026-02-05">
+            <div class="quiz-icon icon-green">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="quiz-info">
+              <div class="quiz-name-title">अनुच्छेद 1 से 50 क्विज़</div>
+              <div class="quiz-desc-text">अनुच्छेद 1 से 50 तक के महत्वपूर्ण अनुच्छेदों पर आधारित क्विज़।</div>
+            </div>
+            <div class="quiz-meta-wrapper">
+              <span class="q-count">20</span>
+              <span class="q-label">प्रश्न</span>
+              <span class="difficulty-badge diff-medium">मध्यम</span>
+            </div>
+            <button class="btn-start-quiz" type="button">क्विज़ शुरू करें</button>
+            <div class="quiz-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-category="Directive Principles" data-difficulty="Easy" data-popularity="76" data-date="2026-01-20">
+            <div class="quiz-icon icon-orange">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            <div class="quiz-info">
+              <div class="quiz-name-title">नीति निर्देशक तत्व क्विज़</div>
+              <div class="quiz-desc-text">भाग IV - राज्य के नीति निर्देशक तत्वों की अपनी समझ जांचें।</div>
+            </div>
+            <div class="quiz-meta-wrapper">
+              <span class="q-count">15</span>
+              <span class="q-label">प्रश्न</span>
+              <span class="difficulty-badge diff-easy">आसान</span>
+            </div>
+            <button class="btn-start-quiz" type="button">क्विज़ शुरू करें</button>
+            <div class="quiz-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-category="Amendments" data-difficulty="Medium" data-popularity="92" data-date="2026-02-03">
+            <div class="quiz-icon icon-purple">
+              <i class="fa-solid fa-gavel"></i>
+            </div>
+            <div class="quiz-info">
+              <div class="quiz-name-title">संविधान के संशोधन क्विज़</div>
+              <div class="quiz-desc-text">महत्वपूर्ण संवैधानिक संशोधनों और उनके प्रभावों पर क्विज़।</div>
+            </div>
+            <div class="quiz-meta-wrapper">
+              <span class="q-count">20</span>
+              <span class="q-label">प्रश्न</span>
+              <span class="difficulty-badge diff-medium">मध्यम</span>
+            </div>
+            <button class="btn-start-quiz" type="button">क्विज़ शुरू करें</button>
+            <div class="quiz-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-category="Judgments" data-difficulty="Hard" data-popularity="88" data-date="2026-01-15">
+            <div class="quiz-icon icon-teal">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <div class="quiz-info">
+              <div class="quiz-name-title">महत्वपूर्ण फैसले क्विज़</div>
+              <div class="quiz-desc-text">सुप्रीम कोर्ट के ऐतिहासिक फैसलों पर अपनी जानकारी परखें।</div>
+            </div>
+            <div class="quiz-meta-wrapper">
+              <span class="q-count">15</span>
+              <span class="q-label">प्रश्न</span>
+              <span class="difficulty-badge diff-hard">कठिन</span>
+            </div>
+            <button class="btn-start-quiz" type="button">क्विज़ शुरू करें</button>
+            <div class="quiz-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-category="General Knowledge" data-difficulty="Easy" data-popularity="95" data-date="2026-02-04">
+            <div class="quiz-icon icon-amber">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="quiz-info">
+              <div class="quiz-name-title">संविधान सामान्य ज्ञान</div>
+              <div class="quiz-desc-text">भारत के संविधान के बारे में महत्वपूर्ण तथ्यों का मिश्रण।</div>
+            </div>
+            <div class="quiz-meta-wrapper">
+              <span class="q-count">25</span>
+              <span class="q-label">प्रश्न</span>
+              <span class="difficulty-badge diff-easy">आसान</span>
+            </div>
+            <button class="btn-start-quiz" type="button">क्विज़ शुरू करें</button>
+            <div class="quiz-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- View All Button -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all" id="btnViewAll" type="button">
+            सभी क्विज़ देखें <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Quiz Challenge, Leaderboard & Your Stats -->
+      <aside class="right-sidebar">
+        
+        <!-- Quiz Challenge Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-trophy"></i>
+            <span>क्विज़ चुनौती</span>
+          </div>
+          <p class="widget-description">
+            हर दिन खुद को चुनौती दें और अपना स्कोर बेहतर बनाएं!
+          </p>
+
+          <div class="daily-box">
+            <div>
+              <div class="daily-title">दैनिक क्विज़</div>
+              <div class="daily-sub">10 प्रश्न</div>
+            </div>
+            <i class="fa-regular fa-calendar-check daily-icon"></i>
+          </div>
+
+          <button class="btn-daily-quiz" id="btnDailyQuiz" type="button">दैनिक क्विज़ शुरू करें</button>
+        </div>
+
+        <!-- Leaderboard Widget -->
+        <div class="sidebar-widget">
+          <div class="leaderboard-header-row">
+            <div class="widget-title-text" style="margin-bottom: 0;">
+              <i class="fa-solid fa-award"></i>
+              <span>लीडरबोर्ड</span>
+            </div>
+            <a href="#" class="view-all-link" id="lbViewAll">सभी देखें</a>
+          </div>
+
+          <div class="leaderboard-tabs" id="lbTabs">
+            <div class="lb-tab active" data-tab="week">इस सप्ताह</div>
+            <div class="lb-tab" data-tab="alltime">सर्वकालिक</div>
+          </div>
+
+          <ul class="leaderboard-list" id="lbList">
+            <li class="lb-item">
+              <span class="lb-rank rank-1"><i class="fa-solid fa-crown"></i></span>
+              <span class="lb-name">आरव शर्मा</span>
+              <span class="lb-score">1250</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank rank-2"><i class="fa-solid fa-medal"></i></span>
+              <span class="lb-name">प्रिया वर्मा</span>
+              <span class="lb-score">980</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank rank-3"><i class="fa-solid fa-award"></i></span>
+              <span class="lb-name">रोहन सिंह</span>
+              <span class="lb-score">875</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank rank-other">4</span>
+              <span class="lb-name">नेहा गुप्ता</span>
+              <span class="lb-score">760</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank rank-other">5</span>
+              <span class="lb-name">विवेक पटेल</span>
+              <span class="lb-score">650</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Your Stats Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-clock"></i>
+            <span>आपका प्रदर्शन</span>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <i class="fa-regular fa-square-check stat-icon"></i>
+              <div>
+                <div class="stat-val" id="statQuizzesTaken">12</div>
+                <div class="stat-lbl">दिए गए क्विज़</div>
+              </div>
+            </div>
+
+            <div class="stat-box">
+              <i class="fa-regular fa-clipboard stat-icon"></i>
+              <div>
+                <div class="stat-val" id="statQuestionsAttempted">156</div>
+                <div class="stat-lbl">प्रयास किए प्रश्न</div>
+              </div>
+            </div>
+
+            <div class="stat-box">
+              <i class="fa-regular fa-circle-check stat-icon"></i>
+              <div>
+                <div class="stat-val" id="statAvgScore">78%</div>
+                <div class="stat-lbl">औसत स्कोर</div>
+              </div>
+            </div>
+
+            <div class="stat-box">
+              <i class="fa-solid fa-chart-line stat-icon"></i>
+              <div>
+                <div class="stat-val" id="statBestScore">950</div>
+                <div class="stat-lbl">सर्वश्रेष्ठ स्कोर</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+   <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">अनुच्छेद</a></li>
+            <li><a href="parts.html">भाग</a></li>
+            <li><a href="schedules.html">अनुसूचियां</a></li>
+            <li><a href="amendments.html">संशोधन</a></li>
+            <li><a href="judgments.html">फैसले</a></li>
+            <li><a href="glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    // Leaderboard Data Sets
+    const leaderboardData = {
+      week: [
+        { rank: 1, name: "आरव शर्मा", score: 1250, badge: 'rank-1', icon: 'fa-solid fa-crown' },
+        { rank: 2, name: "प्रिया वर्मा", score: 980, badge: 'rank-2', icon: 'fa-solid fa-medal' },
+        { rank: 3, name: "रोहन सिंह", score: 875, badge: 'rank-3', icon: 'fa-solid fa-award' },
+        { rank: 4, name: "नेहा गुप्ता", score: 760, badge: 'rank-other', text: '4' },
+        { rank: 5, name: "विवेक पटेल", score: 650, badge: 'rank-other', text: '5' }
+      ],
+      alltime: [
+        { rank: 1, name: "विक्रमादित्य एस.", score: 5420, badge: 'rank-1', icon: 'fa-solid fa-crown' },
+        { rank: 2, name: "अनन्या रॉय", score: 4890, badge: 'rank-2', icon: 'fa-solid fa-medal' },
+        { rank: 3, name: "आरव शर्मा", score: 4150, badge: 'rank-3', icon: 'fa-solid fa-award' },
+        { rank: 4, name: "करण जोहर", score: 3980, badge: 'rank-other', text: '4' },
+        { rank: 5, name: "प्रिया वर्मा", score: 3620, badge: 'rank-other', text: '5' }
+      ]
+    };
+
+    // Additional Quizzes for "View All" Expansion
+    const extraQuizzes = [
+      {
+        title: "संविधान के भाग - ओवरव्यू",
+        desc: "भारतीय संविधान के सभी 25 भागों में महारत हासिल करें।",
+        category: "Parts",
+        difficulty: "Medium",
+        questions: 20,
+        iconClass: "icon-green",
+        icon: "fa-solid fa-grip",
+        popularity: 82,
+        date: "2026-01-18"
+      },
+      {
+        title: "संविधान की अनुसूचियां",
+        desc: "संविधान की 12 अनुसूचियों पर आधारित टेस्ट।",
+        category: "Schedules",
+        difficulty: "Easy",
+        questions: 12,
+        iconClass: "icon-orange",
+        icon: "fa-regular fa-calendar-days",
+        popularity: 90,
+        date: "2026-01-25"
+      },
+      {
+        title: "प्रस्तावना और संप्रभु मूल्य",
+        desc: "भारत के लोकतंत्र की आत्मा और प्रस्तावना पर प्रश्न।",
+        category: "General Knowledge",
+        difficulty: "Easy",
+        questions: 10,
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-scale-balanced",
+        popularity: 94,
+        date: "2026-02-02"
+      }
+    ];
+
+    let currentCategory = "All";
+    let extraQuizzesLoaded = false;
+
+    // DOM Elements
+    const categoryItems = document.querySelectorAll('#categoryNav .nav-category-item');
+    const difficultyCheckboxes = document.querySelectorAll('#difficultyFilters input[type="checkbox"]');
+    const btnApplyFilters = document.getElementById('btnApplyFilters');
+    const btnResetFilters = document.getElementById('btnResetFilters');
+    const sortSelect = document.getElementById('sortSelect');
+    const quizzesContainer = document.getElementById('quizzesContainer');
+    const quizHeaderTitle = document.getElementById('quizHeaderTitle');
+    const btnViewAll = document.getElementById('btnViewAll');
+
+    // Sidebar Leaderboard Elements
+    const lbTabs = document.querySelectorAll('#lbTabs .lb-tab');
+    const lbList = document.getElementById('lbList');
+
+    // Category Navigation Handler
+    categoryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        categoryItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        currentCategory = item.getAttribute('data-category');
+        filterAndSortQuizzes();
+      });
+    });
+
+    // Append Extra Quizzes into DOM if View All clicked
+    function loadExtraQuizzes() {
+      if (extraQuizzesLoaded) return;
+      extraQuizzes.forEach(q => {
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.setAttribute('data-category', q.category);
+        card.setAttribute('data-difficulty', q.difficulty);
+        card.setAttribute('data-popularity', q.popularity);
+        card.setAttribute('data-date', q.date);
+
+        const diffClass = q.difficulty === 'Easy' ? 'diff-easy' : (q.difficulty === 'Medium' ? 'diff-medium' : 'diff-hard');
+        const diffText = q.difficulty === 'Easy' ? 'आसान' : (q.difficulty === 'Medium' ? 'मध्यम' : 'कठिन');
+
+        card.innerHTML = `
+          <div class="quiz-icon ${q.iconClass}">
+            <i class="${q.icon}"></i>
+          </div>
+          <div class="quiz-info">
+            <div class="quiz-name-title">${q.title}</div>
+            <div class="quiz-desc-text">${q.desc}</div>
+          </div>
+          <div class="quiz-meta-wrapper">
+            <span class="q-count">${q.questions}</span>
+            <span class="q-label">प्रश्न</span>
+            <span class="difficulty-badge ${diffClass}">${diffText}</span>
+          </div>
+          <button class="btn-start-quiz" type="button">क्विज़ शुरू करें</button>
+          <div class="quiz-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+        quizzesContainer.appendChild(card);
+      });
+      extraQuizzesLoaded = true;
+      bindStartQuizButtons();
+    }
+
+    // Filter and Sort Functionality
+    function filterAndSortQuizzes() {
+      const selectedDifficulties = Array.from(difficultyCheckboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value.trim());
+
+      const cards = Array.from(quizzesContainer.querySelectorAll('.quiz-card'));
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardDifficulty = card.getAttribute('data-difficulty');
+
+        const categoryMatch = (currentCategory === "All") || (cardCategory === currentCategory);
+        const difficultyMatch = (selectedDifficulties.length === 0) || selectedDifficulties.includes(cardDifficulty);
+
+        if (categoryMatch && difficultyMatch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      quizHeaderTitle.textContent = `सभी क्विज़ (${visibleCount})`;
+
+      const sortValue = sortSelect.value;
+      cards.sort((a, b) => {
+        if (sortValue === 'popularity') {
+          return parseInt(b.getAttribute('data-popularity')) - parseInt(a.getAttribute('data-popularity'));
+        } else if (sortValue === 'difficulty') {
+          const weight = { 'Easy': 1, 'Medium': 2, 'Hard': 3 };
+          return weight[a.getAttribute('data-difficulty')] - weight[b.getAttribute('data-difficulty')];
+        } else {
+          return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+        }
+      });
+
+      cards.forEach(card => quizzesContainer.appendChild(card));
+    }
+
+    btnApplyFilters.addEventListener('click', filterAndSortQuizzes);
+
+    btnResetFilters.addEventListener('click', () => {
+      categoryItems.forEach(i => i.classList.remove('active'));
+      categoryItems[0].classList.add('active');
+      currentCategory = "All";
+
+      difficultyCheckboxes.forEach(cb => cb.checked = false);
+
+      sortSelect.value = "latest";
+
+      filterAndSortQuizzes();
+    });
+
+    sortSelect.addEventListener('change', filterAndSortQuizzes);
+
+    btnViewAll.addEventListener('click', () => {
+      loadExtraQuizzes();
+      filterAndSortQuizzes();
+      btnViewAll.style.display = 'none';
+    });
+
+    lbTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        lbTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const type = tab.getAttribute('data-tab');
+        renderLeaderboard(type);
+      });
+    });
+
+    function renderLeaderboard(type) {
+      const data = leaderboardData[type] || [];
+      lbList.innerHTML = '';
+
+      data.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'lb-item';
+
+        let rankHtml = '';
+        if (item.icon) {
+          rankHtml = `<span class="lb-rank ${item.badge}"><i class="${item.icon}"></i></span>`;
+        } else {
+          rankHtml = `<span class="lb-rank ${item.badge}">${item.text}</span>`;
+        }
+
+        li.innerHTML = `
+          ${rankHtml}
+          <span class="lb-name">${item.name}</span>
+          <span class="lb-score">${item.score}</span>
+        `;
+        lbList.appendChild(li);
+      });
+    }
+
+    function bindStartQuizButtons() {
+      const quizCards = document.querySelectorAll('.quiz-card');
+      quizCards.forEach(card => {
+        const title = card.querySelector('.quiz-name-title').textContent;
+        const btn = card.querySelector('.btn-start-quiz');
+        
+        card.onclick = (e) => {
+          if (title.includes("मौलिक अधिकारों") || title.includes("Fundamental Rights")) {
+            window.location.href = '../quiz/quiz-1.html';
+          } else {
+            startQuizAction(title);
+          }
+        };
+      });
+    }
+
+    function startQuizAction(title) {
+      alert(`शुरू हो रहा है: ${title}\nतैयार हो जाएं! आपका सेशन शुरू हो रहा है...`);
+
+      const takenElem = document.getElementById('statQuizzesTaken');
+      const attemptedElem = document.getElementById('statQuestionsAttempted');
+
+      if (takenElem && attemptedElem) {
+        let taken = parseInt(takenElem.textContent) || 0;
+        let attempted = parseInt(attemptedElem.textContent) || 0;
+
+        takenElem.textContent = taken + 1;
+        attemptedElem.textContent = attempted + 15;
+      }
+    }
+
+    const btnDailyQuiz = document.getElementById('btnDailyQuiz');
+    if (btnDailyQuiz) {
+      btnDailyQuiz.addEventListener('click', () => {
+        startQuizAction('दैनिक संविधान चुनौती');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      bindStartQuizButtons();
+      renderLeaderboard('week');
+    });
+  </script>
+
+</body>
+</html>

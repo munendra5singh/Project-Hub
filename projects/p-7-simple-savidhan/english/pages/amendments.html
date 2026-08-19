@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Amendments to the Constitution of India</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container, .sv-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb, .sv-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #637381;
+      margin-bottom: 16px;
+    }
+
+    .breadcrumb a, .sv-breadcrumb a {
+      color: #103254;
+      text-decoration: none;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel: Filters */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .filter-group {
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2b3649;
+      margin-bottom: 6px;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+    }
+
+    .search-box-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #919eab;
+      font-size: 12px;
+    }
+
+    .search-box-wrapper input {
+      width: 100%;
+      padding: 8px 10px 8px 30px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box-wrapper input:focus {
+      border-color: #0b1a30;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      background: #ffffff;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: #0b1a30;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .btn-apply-filters {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 6px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-apply-filters:hover {
+      background-color: #162a47;
+    }
+
+    .btn-reset-filters {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset-filters:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Amendments List */
+    .amendments-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .amendments-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .amendments-title-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #637381;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Amendment Card Item */
+    .amendment-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .amendment-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .amendment-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .amendment-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Category Specific Colors */
+    .icon-blue { background-color: #103254; }
+    .icon-green { background-color: #2a7d4f; }
+    .icon-orange { background-color: #e06d20; }
+    .icon-purple { background-color: #6a4498; }
+    .icon-teal { background-color: #12828e; }
+    .icon-amber { background-color: #d18d27; }
+
+    .amendment-info {
+      flex: 1;
+    }
+
+    .amendment-name-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+    }
+
+    .amendment-desc-text {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    /* Date Badge Box */
+    .date-badge-box {
+      background-color: #edf3f9;
+      border-radius: 6px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #103254;
+      white-space: nowrap;
+    }
+
+    .date-badge-box i {
+      font-size: 12px;
+    }
+
+    /* Specific badge color variations */
+    .badge-green { background-color: #eaf5ea; color: #2a7d4f; }
+    .badge-orange { background-color: #fdf0e6; color: #e06d20; }
+    .badge-purple { background-color: #f3ecf8; color: #6a4498; }
+    .badge-teal { background-color: #e6f4f6; color: #12828e; }
+    .badge-amber { background-color: #fcf4e8; color: #d18d27; }
+
+    .amendment-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding-left: 6px;
+    }
+
+    /* View All Amendments Button */
+    .view-all-wrapper {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 10px;
+    }
+
+    .btn-view-all {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #0b1a30;
+      font-size: 14px;
+    }
+
+    .widget-description {
+      font-size: 11.5px;
+      color: #526071;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1e3a8a;
+      transition: gap 0.2s;
+    }
+
+    .sidebar-link:hover {
+      gap: 8px;
+    }
+
+    /* Amendments at a Glance List */
+    .facts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .fact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-icon {
+      font-size: 16px;
+      color: #103254;
+      width: 20px;
+      text-align: center;
+    }
+
+    .fact-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    .fact-label {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 1px;
+    }
+
+    /* Latest Amendment Widget Special Box */
+    .widget-latest {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+    }
+
+    .widget-latest .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-latest .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .latest-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+    }
+
+    .latest-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    /* Fully Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .amendment-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .date-badge-box {
+        align-self: flex-start;
+      }
+      .amendment-arrow {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR AMENDMENTS PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .amendments-section {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .amendments-title-text,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .filter-label,
+    [data-theme="dark"] .checkbox-item {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input,
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input::placeholder {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .search-box-wrapper i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a99ad" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    }
+
+    [data-theme="dark"] .btn-apply-filters {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-apply-filters:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .btn-reset-filters,
+    [data-theme="dark"] .btn-view-all {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-reset-filters:hover,
+    [data-theme="dark"] .btn-view-all:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .amendments-header,
+    [data-theme="dark"] .amendment-card,
+    [data-theme="dark"] .fact-item {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .amendment-card:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .amendment-name-title,
+    [data-theme="dark"] .fact-number,
+    [data-theme="dark"] .latest-heading {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .amendment-desc-text,
+    [data-theme="dark"] .sort-wrapper,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .fact-label,
+    [data-theme="dark"] .latest-desc {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .amendment-arrow {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .fact-icon,
+    [data-theme="dark"] .sidebar-link {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .date-badge-box {
+      background-color: rgba(16, 50, 84, 0.35);
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .badge-green { background-color: rgba(42, 125, 79, 0.25); color: #4ade80; }
+    [data-theme="dark"] .badge-orange { background-color: rgba(224, 109, 32, 0.25); color: #fb923c; }
+    [data-theme="dark"] .badge-purple { background-color: rgba(106, 68, 152, 0.25); color: #c084fc; }
+    [data-theme="dark"] .badge-teal { background-color: rgba(18, 130, 142, 0.25); color: #2dd4bf; }
+    [data-theme="dark"] .badge-amber { background-color: rgba(209, 141, 39, 0.25); color: #fbbf24; }
+
+    [data-theme="dark"] .widget-latest {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-latest .widget-title-text,
+    [data-theme="dark"] .widget-latest .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="articles.html">ARTICLES</a></li>
+      <li><a href="parts.html">PARTS</a></li>
+      <li><a href="schedules.html">SCHEDULES</a></li>
+      <li><a href="amendments.html" class="active">AMENDMENTS</a></li>
+      <li><a href="judgments.html">JUDGMENTS</a></li>
+      <li><a href="glossary.html">GLOSSARY</a></li>
+      <li><a href="quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/pages/amendments.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">AMENDMENTS TO THE CONSTITUTION OF INDIA</h1>
+      <p class="hero-description">
+        Stay updated with all the Constitutional Amendments.<br>
+        Explore the changes that have shaped our Constitution and strengthened our democracy.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>Amendments</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Filter Amendments -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-solid fa-filter"></i>
+          <span>FILTER AMENDMENTS</span>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Search Amendments</label>
+          <div class="search-box-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search by amendment number or keyword...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Filter by Year</label>
+          <select class="filter-select">
+            <option>All Years</option>
+            <option>1950 - 1970</option>
+            <option>1971 - 1990</option>
+            <option>1991 - 2010</option>
+            <option>2011 - Present</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Filter by Subject</label>
+          <select class="filter-select">
+            <option>All Subjects</option>
+            <option>Fundamental Rights</option>
+            <option>State Reorganization</option>
+            <option>Panchayati Raj</option>
+            <option>Elections & Judiciary</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Filter by Type</label>
+          <div class="checkbox-list">
+            <label class="checkbox-item">
+              <input type="checkbox" value="Substantive Changes"> Substantive Changes
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="Procedural Changes"> Procedural Changes
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="Administrative Changes"> Administrative Changes
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-apply-filters" type="button">APPLY FILTERS</button>
+        <button class="btn-reset-filters" type="button">RESET</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Amendments List -->
+      <main class="amendments-section">
+        <div class="amendments-header">
+          <div class="amendments-title-text">ALL AMENDMENTS (105)</div>
+          <div class="sort-wrapper">
+            <span>Sort by</span>
+            <select class="sort-select">
+              <option value="asc">Amendment Number (Ascending)</option>
+              <option value="desc">Amendment Number (Descending)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Container for dynamically rendered or filtered amendment cards -->
+        <div id="amendments-cards-container">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- View All Button -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all" type="button">
+            VIEW ALL AMENDMENTS <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Information & Quick Facts -->
+      <aside class="right-sidebar">
+        
+        <!-- About Amendments Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>ABOUT AMENDMENTS</span>
+          </div>
+          <p class="widget-description">
+            Amendments allow the Constitution to adapt to changing times and address emerging needs. They are passed by Parliament following the procedure laid down in Article 368.
+          </p>
+          <a href="#" class="sidebar-link">
+            Learn more about Article 368 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Amendments at a Glance Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>AMENDMENTS AT A GLANCE</span>
+          </div>
+
+          <div class="facts-list">
+            <div class="fact-item">
+              <i class="fa-regular fa-file-lines fact-icon"></i>
+              <div>
+                <div class="fact-number">105</div>
+                <div class="fact-label">Total Amendments</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-calendar-days fact-icon"></i>
+              <div>
+                <div class="fact-number">1951 – 2021</div>
+                <div class="fact-label">Amendment Years</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-solid fa-gavel fact-icon"></i>
+              <div>
+                <div class="fact-number">42nd</div>
+                <div class="fact-label">Most Extensive Amendment</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-book-open fact-icon"></i>
+              <div>
+                <div class="fact-number">368</div>
+                <div class="fact-label">Article Governing Amendments</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Latest Amendment Widget -->
+        <div class="sidebar-widget widget-latest">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>LATEST AMENDMENT</span>
+          </div>
+
+          <div class="latest-heading">105th Amendment Act, 2021</div>
+          <p class="latest-desc">
+            Restored state governments' power to prepare and maintain their own Socially and Educationally Backward Classes (SEBCs) list.
+          </p>
+
+          <a href="#" class="sidebar-link">
+            View Details <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Dataset of Amendments matching existing structure & UI themes
+    const amendmentsData = [
+      {
+        number: 1,
+        title: "1st Amendment Act, 1951",
+        desc: "Added restrictions on freedom of speech, inserted Ninth Schedule and made other related changes.",
+        date: "18 June 1951",
+        year: 1951,
+        subject: "Fundamental Rights",
+        type: "Substantive Changes",
+        iconClass: "icon-blue",
+        badgeClass: "",
+        link: "../amendments/amendment-1.html"
+      },
+      {
+        number: 7,
+        title: "7th Amendment Act, 1956",
+        desc: "Reorganization of States and creation of new States and Union Territories.",
+        date: "31 Aug 1956",
+        year: 1956,
+        subject: "State Reorganization",
+        type: "Administrative Changes",
+        iconClass: "icon-green",
+        badgeClass: "badge-green",
+        link: "../amendments/amendment-7.html"
+      },
+      {
+        number: 24,
+        title: "24th Amendment Act, 1971",
+        desc: "Affirmed Parliament's power to amend any part of the Constitution, including Fundamental Rights.",
+        date: "05 Nov 1971",
+        year: 1971,
+        subject: "Elections & Judiciary",
+        type: "Procedural Changes",
+        iconClass: "icon-purple",
+        badgeClass: "badge-purple",
+        link: "../amendments/amendment-24.html"
+      },
+      {
+        number: 42,
+        title: "42nd Amendment Act, 1976",
+        desc: "Significant changes including addition of Directive Principles, Fundamental Duties and strengthening of Parliament.",
+        date: "3 Jan 1977",
+        year: 1976,
+        subject: "Fundamental Rights",
+        type: "Substantive Changes",
+        iconClass: "icon-orange",
+        badgeClass: "badge-orange",
+        link: "../amendments/amendment-42.html"
+      },
+      {
+        number: 44,
+        title: "44th Amendment Act, 1978",
+        desc: "Restoration of fundamental rights and rebalancing of powers between Parliament and States.",
+        date: "20 Jun 1978",
+        year: 1978,
+        subject: "Fundamental Rights",
+        type: "Substantive Changes",
+        iconClass: "icon-purple",
+        badgeClass: "badge-purple",
+        link: "../amendments/amendment-44.html"
+      },
+      {
+        number: 52,
+        title: "52nd Amendment Act, 1985",
+        desc: "Introduced Anti-Defection Law adding the Tenth Schedule to prevent political defection.",
+        date: "15 Feb 1985",
+        year: 1985,
+        subject: "Elections & Judiciary",
+        type: "Administrative Changes",
+        iconClass: "icon-blue",
+        badgeClass: "",
+        link: "../amendments/amendment-52.html"
+      },
+      {
+        number: 61,
+        title: "61st Amendment Act, 1988",
+        desc: "Reduced voting age from 21 to 18 years for Lok Sabha and Assembly elections.",
+        date: "28 Mar 1989",
+        year: 1988,
+        subject: "Elections & Judiciary",
+        type: "Substantive Changes",
+        iconClass: "icon-amber",
+        badgeClass: "badge-amber",
+        link: "../amendments/amendment-61.html"
+      },
+      {
+        number: 73,
+        title: "73rd Amendment Act, 1992",
+        desc: "Strengthening of Panchayati Raj Institutions and local self-government.",
+        date: "24 Apr 1993",
+        year: 1992,
+        subject: "Panchayati Raj",
+        type: "Administrative Changes",
+        iconClass: "icon-teal",
+        badgeClass: "badge-teal",
+        link: "../amendments/amendment-73.html"
+      },
+      {
+        number: 74,
+        title: "74th Amendment Act, 1992",
+        desc: "Constitutional status and protection to Urban Local Bodies (Municipalities).",
+        date: "01 Jun 1993",
+        year: 1992,
+        subject: "Panchayati Raj",
+        type: "Administrative Changes",
+        iconClass: "icon-teal",
+        badgeClass: "badge-teal",
+        link: "../amendments/amendment-74.html"
+      },
+      {
+        number: 86,
+        title: "86th Amendment Act, 2002",
+        desc: "Insertion of Article 21A providing Right to Education as a Fundamental Right.",
+        date: "12 Dec 2002",
+        year: 2002,
+        subject: "Fundamental Rights",
+        type: "Substantive Changes",
+        iconClass: "icon-amber",
+        badgeClass: "badge-amber",
+        link: "../amendments/amendment-86.html"
+      },
+      {
+        number: 99,
+        title: "99th Amendment Act, 2014",
+        desc: "Established the National Judicial Appointments Commission (NJAC) for judicial appointments.",
+        date: "31 Dec 2014",
+        year: 2014,
+        subject: "Elections & Judiciary",
+        type: "Procedural Changes",
+        iconClass: "icon-purple",
+        badgeClass: "badge-purple",
+        link: "../amendments/amendment-99.html"
+      },
+      {
+        number: 101,
+        title: "101st Amendment Act, 2016",
+        desc: "Introduced the Goods and Services Tax (GST) across India.",
+        date: "08 Sep 2016",
+        year: 2016,
+        subject: "State Reorganization",
+        type: "Administrative Changes",
+        iconClass: "icon-green",
+        badgeClass: "badge-green",
+        link: "../amendments/amendment-101.html"
+      },
+      {
+        number: 103,
+        title: "103rd Amendment Act, 2019",
+        desc: "Provided 10% reservation for Economically Weaker Sections (EWS) of citizens.",
+        date: "12 Jan 2019",
+        year: 2019,
+        subject: "Fundamental Rights",
+        type: "Substantive Changes",
+        iconClass: "icon-orange",
+        badgeClass: "badge-orange",
+        link: "../amendments/amendment-103.html"
+      },
+      {
+        number: 105,
+        title: "105th Amendment Act, 2021",
+        desc: "Restored state governments' power to prepare and maintain their own SEBCs list.",
+        date: "18 Aug 2021",
+        year: 2021,
+        subject: "State Reorganization",
+        type: "Administrative Changes",
+        iconClass: "icon-blue",
+        badgeClass: "",
+        link: "../amendments/amendment-105.html"
+      }
+    ];
+
+    // DOM References for logic binding
+    const searchInput = document.querySelector('.search-box-wrapper input');
+    const filterSelects = document.querySelectorAll('.filter-select');
+    const yearSelect = filterSelects[0];
+    const subjectSelect = filterSelects[1];
+    const typeCheckboxes = document.querySelectorAll('.checkbox-list input[type="checkbox"]');
+    const applyBtn = document.querySelector('.btn-apply-filters');
+    const resetBtn = document.querySelector('.btn-reset-filters');
+    const sortSelect = document.querySelector('.sort-select');
+    const cardsContainer = document.getElementById('amendments-cards-container');
+    const viewAllBtn = document.querySelector('.btn-view-all');
+    const headerTitle = document.querySelector('.amendments-title-text');
+
+    let isExpanded = false;
+    let initialDisplayLimit = 6;
+
+    // Render Function
+    function renderAmendments(data) {
+      cardsContainer.innerHTML = '';
+
+      if (data.length === 0) {
+        cardsContainer.innerHTML = `
+          <div style="padding: 40px 20px; text-align: center; color: var(--sv-text-muted, #637381); font-size: 13px;">
+            <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; margin-bottom: 12px; color: var(--sv-text-muted, #919eab);"></i>
+            <p>No amendments match your current filters.</p>
+          </div>
+        `;
+        if (headerTitle) headerTitle.textContent = `ALL AMENDMENTS (0)`;
+        return;
+      }
+
+      if (headerTitle) headerTitle.textContent = `ALL AMENDMENTS (${data.length})`;
+
+      const limit = isExpanded ? data.length : Math.min(data.length, initialDisplayLimit);
+      const itemsToRender = data.slice(0, limit);
+
+      itemsToRender.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'amendment-card';
+        card.style.cursor = 'pointer';
+        card.setAttribute('data-number', item.number);
+        card.setAttribute('data-year', item.year);
+        card.setAttribute('data-subject', item.subject);
+        card.setAttribute('data-type', item.type);
+
+        card.addEventListener('click', () => {
+          if (item.link) {
+            window.location.href = item.link;
+          }
+        });
+
+        card.innerHTML = `
+          <div class="amendment-icon ${item.iconClass}">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+          <div class="amendment-info">
+            <div class="amendment-name-title">${item.title}</div>
+            <div class="amendment-desc-text">${item.desc}</div>
+          </div>
+          <div class="date-badge-box ${item.badgeClass}">
+            <i class="fa-regular fa-calendar"></i>
+            <span>${item.date}</span>
+          </div>
+          <div class="amendment-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+
+        cardsContainer.appendChild(card);
+      });
+
+      if (viewAllBtn) {
+        if (data.length <= initialDisplayLimit) {
+          viewAllBtn.style.display = 'none';
+        } else {
+          viewAllBtn.style.display = 'inline-flex';
+          viewAllBtn.innerHTML = isExpanded 
+            ? `SHOW LESS <i class="fa-solid fa-chevron-up"></i>` 
+            : `VIEW ALL AMENDMENTS <i class="fa-solid fa-chevron-down"></i>`;
+        }
+      }
+    }
+
+    // Filter and Sort Logic
+    function getFilteredData() {
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      const selectedYear = yearSelect ? yearSelect.value : 'All Years';
+      const selectedSubject = subjectSelect ? subjectSelect.value : 'All Subjects';
+      const selectedTypes = Array.from(typeCheckboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+      const sortOrder = sortSelect ? sortSelect.value : 'asc';
+
+      let filtered = amendmentsData.filter(item => {
+        const matchesQuery = !query || 
+          item.title.toLowerCase().includes(query) || 
+          item.desc.toLowerCase().includes(query) || 
+          item.number.toString() === query;
+
+        let matchesYear = true;
+        if (selectedYear === '1950 - 1970') {
+          matchesYear = item.year >= 1950 && item.year <= 1970;
+        } else if (selectedYear === '1971 - 1990') {
+          matchesYear = item.year >= 1971 && item.year <= 1990;
+        } else if (selectedYear === '1991 - 2010') {
+          matchesYear = item.year >= 1991 && item.year <= 2010;
+        } else if (selectedYear === '2011 - Present') {
+          matchesYear = item.year >= 2011;
+        }
+
+        let matchesSubject = true;
+        if (selectedSubject !== 'All Subjects') {
+          matchesSubject = item.subject === selectedSubject;
+        }
+
+        let matchesType = true;
+        if (selectedTypes.length > 0) {
+          matchesType = selectedTypes.includes(item.type);
+        }
+
+        return matchesQuery && matchesYear && matchesSubject && matchesType;
+      });
+
+      filtered.sort((a, b) => {
+        return sortOrder === 'desc' ? b.number - a.number : a.number - b.number;
+      });
+
+      return filtered;
+    }
+
+    function applyFilterAndRender() {
+      const data = getFilteredData();
+      renderAmendments(data);
+    }
+
+    function resetFilters() {
+      if (searchInput) searchInput.value = '';
+      if (yearSelect) yearSelect.selectedIndex = 0;
+      if (subjectSelect) subjectSelect.selectedIndex = 0;
+      typeCheckboxes.forEach(cb => cb.checked = false);
+      if (sortSelect) sortSelect.value = 'asc';
+      isExpanded = false;
+      applyFilterAndRender();
+    }
+
+    if (applyBtn) {
+      applyBtn.addEventListener('click', () => {
+        isExpanded = false;
+        applyFilterAndRender();
+      });
+    }
+
+    if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        applyFilterAndRender();
+      });
+    }
+
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => {
+        applyFilterAndRender();
+      });
+    }
+
+    if (viewAllBtn) {
+      viewAllBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        applyFilterAndRender();
+      });
+    }
+
+    applyFilterAndRender();
+  </script>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="parts.html">Parts</a></li>
+            <li><a href="schedules.html">Schedules</a></li>
+            <li><a href="amendments.html">Amendments</a></li>
+            <li><a href="judgments.html">Judgments</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

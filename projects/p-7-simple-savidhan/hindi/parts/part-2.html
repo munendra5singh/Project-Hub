@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - भाग II: नागरिकता</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Page-specific Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 30px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .hero-description {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel: Browse Parts */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .parts-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .parts-nav-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .parts-nav-item i {
+      font-size: 14px;
+      color: #637381;
+      margin-top: 2px;
+      width: 16px;
+      text-align: center;
+    }
+
+    .parts-nav-item .part-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2b3649;
+      line-height: 1.2;
+    }
+
+    .parts-nav-item .part-desc {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    .parts-nav-item:hover {
+      background-color: #f4f6f8;
+    }
+
+    .parts-nav-item.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+    }
+
+    .parts-nav-item.active i,
+    .parts-nav-item.active .part-name,
+    .parts-nav-item.active .part-desc {
+      color: #ffffff;
+    }
+
+    .btn-view-all-parts {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all-parts:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .panel-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .btn-overview {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-overview:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Blue Alert Box */
+    .info-alert-box {
+      background-color: #edf3f9;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .info-alert-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #103254;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .info-alert-text {
+      font-size: 12px;
+      color: #103254;
+      line-height: 1.5;
+    }
+
+    .info-alert-text strong {
+      font-weight: 700;
+    }
+
+    /* Articles Table Layout */
+    .articles-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .articles-table th {
+      text-align: left;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2b3649;
+      padding: 10px 12px;
+      border-bottom: 1.5px solid #d4af37;
+    }
+
+    .articles-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #f0f4f8;
+      vertical-align: top;
+      font-size: 12px;
+    }
+
+    .articles-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .articles-table tr:hover {
+      background-color: #fafbfc;
+    }
+
+    .col-article {
+      width: 15%;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    .col-title {
+      width: 30%;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.35;
+    }
+
+    .col-desc {
+      width: 47%;
+      color: #3d4a5d;
+      line-height: 1.45;
+    }
+
+    .col-action {
+      width: 8%;
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .action-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #637381;
+    }
+
+    .action-icons i {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icons i:hover {
+      color: #0b1a30;
+    }
+
+    /* Next Part Navigation Button Wrapper */
+    .next-part-wrapper {
+      text-align: center;
+      padding-top: 8px;
+    }
+
+    .btn-next-part {
+      background-color: #ffffff;
+      color: #1e3a8a;
+      border: 1px solid #1e3a8a;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-next-part:hover {
+      background-color: #edf3f9;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 14px;
+    }
+
+    .widget-description {
+      font-size: 11.5px;
+      color: #526071;
+      line-height: 1.5;
+    }
+
+    /* Quick Links List */
+    .quick-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quick-link-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e3a8a;
+      cursor: pointer;
+    }
+
+    .quick-link-item:hover {
+      text-decoration: underline;
+    }
+
+    .quick-link-item i {
+      font-size: 10.5px;
+    }
+
+    /* Did You Know Widget Special Box */
+    .widget-did-you-know {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 35px;
+    }
+
+    .widget-did-you-know .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-did-you-know .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .did-you-know-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .book-illustration {
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      width: 110px;
+      height: 50px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23e8d2a6" opacity="0.6" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg"><path d="M10 40 Q 30 30, 50 40 Q 70 30, 90 40 L 90 45 Q 70 35, 50 45 Q 30 35, 10 45 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .articles-table, .articles-table tbody, .articles-table tr, .articles-table td, .articles-table th {
+        display: block;
+      }
+      .articles-table th {
+        display: none;
+      }
+      .articles-table td {
+        width: 100% !important;
+        padding: 6px 0;
+        border-bottom: none;
+      }
+      .articles-table tr {
+        padding: 12px;
+        border-bottom: 1px solid #f0f4f8;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR PART-2 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-subtitle {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .main-content-panel {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .panel-title,
+    [data-theme="dark"] .panel-title i,
+    [data-theme="dark"] .col-title,
+    [data-theme="dark"] .articles-table th {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .parts-nav-item .part-name {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .parts-nav-item i,
+    [data-theme="dark"] .parts-nav-item .part-desc,
+    [data-theme="dark"] .action-icons {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .parts-nav-item:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .parts-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .parts-nav-item.active i,
+    [data-theme="dark"] .parts-nav-item.active .part-name,
+    [data-theme="dark"] .parts-nav-item.active .part-desc {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-view-all-parts,
+    [data-theme="dark"] .btn-overview,
+    [data-theme="dark"] .btn-next-part {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-view-all-parts:hover,
+    [data-theme="dark"] .btn-overview:hover,
+    [data-theme="dark"] .btn-next-part:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .col-article,
+    [data-theme="dark"] .quick-link-item {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .col-desc,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .did-you-know-desc {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .panel-header,
+    [data-theme="dark"] .articles-table td {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .articles-table tr:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .info-alert-box {
+      background-color: rgba(16, 50, 84, 0.35);
+    }
+
+    [data-theme="dark"] .info-alert-icon {
+      border-color: var(--sv-text-link);
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .info-alert-text {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .widget-did-you-know {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-did-you-know .widget-title-text,
+    [data-theme="dark"] .widget-did-you-know .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html" class="active">भाग</a></li>
+      <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/parts/part-2.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">भाग II</h1><br>
+      <span class="hero-subtitle">नागरिकता</span>
+      <p class="hero-description">
+        संविधान का भाग II संविधान के प्रारंभ पर नागरिकता,<br>
+        प्रवासियों के अधिकारों और नागरिकता को कानून द्वारा विनियमित करने की संसद की शक्ति से संबंधित है।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container Layout -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/parts.html">भाग</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>भाग II - नागरिकता</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Browse Parts -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-regular fa-book-bookmark"></i>
+          <span>अन्य भाग देखें</span>
+        </div>
+
+        <ul class="parts-nav-list">
+
+          <li class="parts-nav-item" data-link="../parts/part-1.html">
+            <i class="fa-solid fa-landmark"></i>
+            <div>
+              <div class="part-name">भाग I</div>
+              <div class="part-desc">संघ और उसका राज्यक्षेत्र</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item active" data-link="../parts/part-2.html">
+            <i class="fa-solid fa-globe"></i>
+            <div>
+              <div class="part-name">भाग II</div>
+              <div class="part-desc">नागरिकता</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item" data-link="../parts/part-3.html">
+            <i class="fa-solid fa-users"></i>
+            <div>
+              <div class="part-name">भाग III</div>
+              <div class="part-desc">मौलिक अधिकार</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item" data-link="../parts/part-4.html">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <div class="part-name">भाग IV</div>
+              <div class="part-desc">राज्य के नीति निदेशक तत्व</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item" data-link="../parts/part-4A.html">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <div class="part-name">भाग IV A</div>
+              <div class="part-desc">मौलिक कर्तव्य</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item" data-link="../parts/part-5.html">
+            <i class="fa-solid fa-user-gear"></i>
+            <div>
+              <div class="part-name">भाग V</div>
+              <div class="part-desc">संघ</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item" data-link="../parts/part-6.html">
+            <i class="fa-solid fa-building-columns"></i>
+            <div>
+              <div class="part-name">भाग VI</div>
+              <div class="part-desc">राज्य</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item" data-link="../parts/part-7.html">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <div class="part-name">भाग VII</div>
+              <div class="part-desc">संघ राज्यक्षेत्र</div>
+            </div>
+          </li>
+          
+          <li class="parts-nav-item" data-link="../parts/part-8.html">
+            <i class="fa-solid fa-handshake"></i>
+            <div>
+              <div class="part-name">भाग VIII</div>
+              <div class="part-desc">संघ और राज्य</div>
+            </div>
+          </li>
+
+          <li class="parts-nav-item" data-link="../parts/part-9.html">
+            <i class="fa-solid fa-wheat-awn"></i>
+            <div>
+              <div class="part-name">भाग IX</div>
+              <div class="part-desc">पंचायतें</div>
+            </div>
+          </li>
+        </ul>
+
+        <button class="btn-view-all-parts" type="button" onclick="window.location.href='../pages/parts.html'">
+          सभी भाग देखें <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Articles Table -->
+      <main class="main-content-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <i class="fa-solid fa-globe"></i>
+            <span>भाग II – नागरिकता</span>
+          </div>
+          <button class="btn-overview" type="button">
+            <i class="fa-regular fa-circle-info"></i> भाग का विवरण देखें
+          </button>
+        </div>
+
+        <!-- Info Alert Box -->
+        <div class="info-alert-box">
+          <div class="info-alert-icon">
+            <i class="fa-solid fa-info"></i>
+          </div>
+          <div class="info-alert-text">
+            <strong>इस भाग में 7 अनुच्छेद (अनुच्छेद 5 से 11) शामिल हैं।</strong><br>
+            यह संविधान लागू होने के समय नागरिकता संबंधी प्रावधानों और संसद की शक्तियों को निर्धारित करता है।
+          </div>
+        </div>
+
+        <!-- Table of Articles -->
+        <table class="articles-table">
+          <thead>
+            <tr>
+              <th>अनुच्छेद</th>
+              <th>शीर्षक</th>
+              <th>विवरण</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Article 5 -->
+            <tr onclick="window.location.href='../articles/article-5.html'" style="cursor: pointer;">
+              <td class="col-article">अनुच्छेद 5</td>
+              <td class="col-title">संविधान के प्रारंभ पर नागरिकता</td>
+              <td class="col-desc">संविधान के प्रारंभ के समय भारत के राज्यक्षेत्र में अधिवास (domicile) रखने वाले व्यक्तियों को नागरिकता प्रदान करता है।</td>
+              <td class="col-action">
+                <div class="action-icons">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Article 6 -->
+            <tr onclick="window.location.href='../articles/article-6.html'" style="cursor: pointer;">
+              <td class="col-article">अनुच्छेद 6</td>
+              <td class="col-title">पाकिस्तान से भारत को प्रव्रजन करने वाले कुछ व्यक्तियों के नागरिकता के अधिकार</td>
+              <td class="col-desc">विभाजन के समय पाकिस्तान से भारत आए व्यक्तियों की नागरिकता से संबंधित संवैधानिक प्रावधानों को रेखांकित करता है।</td>
+              <td class="col-action">
+                <div class="action-icons">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Article 7 -->
+            <tr onclick="window.location.href='../articles/article-7.html'" style="cursor: pointer;">
+              <td class="col-article">अनुच्छेद 7</td>
+              <td class="col-title">पाकिस्तान को प्रव्रजन करने वाले कुछ व्यक्तियों के नागरिकता के अधिकार</td>
+              <td class="col-desc">1 मार्च 1947 के बाद भारत से पाकिस्तान जाने वाले, लेकिन बाद में पुनः लौट आने वाले व्यक्तियों के नागरिकता अधिकारों से संबंधित है।</td>
+              <td class="col-action">
+                <div class="action-icons">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Article 8 -->
+            <tr onclick="window.location.href='../articles/article-8.html'" style="cursor: pointer;">
+              <td class="col-article">अनुच्छेद 8</td>
+              <td class="col-title">भारत के बाहर रहने वाले भारतीय मूल के कुछ व्यक्तियों के नागरिकता के अधिकार</td>
+              <td class="col-desc">अविभाजित भारत से बाहर विदेशी देशों में रहने वाले भारतीय मूल के व्यक्तियों के लिए नागरिकता के अधिकार प्रदान करता है।</td>
+              <td class="col-action">
+                <div class="action-icons">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Article 9 -->
+            <tr onclick="window.location.href='../articles/article-9.html'" style="cursor: pointer;">
+              <td class="col-article">अनुच्छेद 9</td>
+              <td class="col-title">विदेशी राज्य की नागरिकता स्वेच्छा से अर्जित करने वाले व्यक्तियों का नागरिक न होना</td>
+              <td class="col-desc">यह निर्धारित करता है कि स्वेच्छा से किसी विदेशी देश की नागरिकता प्राप्त करने वाला व्यक्ति भारत का नागरिक नहीं रहेगा।</td>
+              <td class="col-action">
+                <div class="action-icons">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Article 10 -->
+            <tr onclick="window.location.href='../articles/article-10.html'" style="cursor: pointer;">
+              <td class="col-article">अनुच्छेद 10</td>
+              <td class="col-title">नागरिकता के अधिकारों का बना रहना</td>
+              <td class="col-desc">यह गारंटी देता है कि भारत का नागरिक माना जाने वाला प्रत्येक व्यक्ति संसद द्वारा बनाए गए किसी भी कानून के अधीन रहते हुए नागरिक बना रहेगा।</td>
+              <td class="col-action">
+                <div class="action-icons">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Article 11 -->
+            <tr onclick="window.location.href='../articles/article-11.html'" style="cursor: pointer;">
+              <td class="col-article">अनुच्छेद 11</td>
+              <td class="col-title">संसद द्वारा नागरिकता के अधिकार का विधि द्वारा विनियमन किया जाना</td>
+              <td class="col-desc">संसद को नागरिकता के अर्जन, समाप्ति और नागरिकता से संबंधित अन्य सभी विषयों पर कानून बनाने का अधिकार देता है।</td>
+              <td class="col-action">
+                <div class="action-icons">
+                  <i class="fa-regular fa-file-lines"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Navigation Link Box -->
+        <div class="next-part-wrapper">
+          <button
+            class="btn-next-part"
+            type="button"
+            data-link="../parts/part-3.html">
+
+            अगला भाग: भाग III – मौलिक अधिकार
+            <i class="fa-solid fa-chevron-right"></i>
+
+          </button>
+        </div>
+      </main>
+
+      <!-- Right Sidebar: STICKY Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- About Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>इस भाग के बारे में</span>
+          </div>
+          <p class="widget-description">
+            भाग II भारतीय नागरिकता की नींव रखता है। यह मुख्य रूप से यह बताता है कि संविधान लागू होने के समय कौन नागरिक बना और संसद को नागरिकता पर कानून बनाने की सर्वोच्च शक्ति देता है।
+          </p>
+        </div>
+
+        <!-- Quick Links Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span>भाग II - सामान्य ज्ञान</span>
+          </div>
+
+          <ul class="quick-links-list">
+            <li class="quick-link-item">
+              <span>भाग II में अनुच्छेद 5 से 11 शामिल हैं और यह भारतीय नागरिकता से संबंधित है।</span>
+            </li>
+
+            <li class="quick-link-item">
+              <span>भारत पूरे देश के लिए एकल नागरिकता (Single Citizenship) प्रदान करता है (अमेरिका जैसी दोहरी नागरिकता नहीं)।</span>
+            </li>
+
+            <li class="quick-link-item">
+              <span>अनुच्छेद 9 भारतीय नागरिकों के लिए दोहरी नागरिकता पर स्पष्ट रूप से रोक लगाता है।</span>
+            </li>
+
+            <li class="quick-link-item">
+              <span>अनुच्छेद 11 ने संसद को नागरिकता अधिनियम, 1955 बनाने की शक्ति दी।</span>
+            </li>
+
+            <li class="quick-link-item">
+              <span>नागरिकता जन्म, वंश, पंजीकरण, देशीयकरण और क्षेत्र के समावेश द्वारा प्राप्त की जा सकती है।</span>
+            </li>
+
+            <li class="quick-link-item">
+              <span>नागरिकता का त्याग, समाप्ति या वंचित किए जाने द्वारा अंत हो सकता है।</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Did You Know Widget -->
+        <div class="sidebar-widget widget-did-you-know">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>क्या आप जानते हैं?</span>
+          </div>
+
+          <p class="did-you-know-desc">
+            1950 के बाद नागरिकता के अर्जन और समाप्ति को विनियमित करने के लिए अनुच्छेद 11 के तहत मिली शक्तियों का उपयोग करके संसद द्वारा नागरिकता अधिनियम 1955 पारित किया गया था।
+          </p>
+
+          <div class="book-illustration"></div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".parts-nav-item").forEach(item => {
+      item.addEventListener("click", function () {
+
+        document.querySelectorAll(".parts-nav-item")
+            .forEach(el => el.classList.remove("active"));
+
+        this.classList.add("active");
+
+        const link = this.dataset.link;
+
+        if (link) {
+            window.location.href = link;
+        }
+      });
+    });
+
+    document.querySelectorAll(".btn-next-part").forEach(button => {
+      button.addEventListener("click", function () {
+
+        const link = this.dataset.link;
+
+        if (link) {
+            window.location.href = link;
+        }
+
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Grid Simulator - ExcelSuperGuru</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/components.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <style>
+        /* Simulator Workbench Layout Layer overrides */
+        .simulator-grid-container {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+        .formula-bar-panel {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+            gap: 0.5rem;
+        }
+        .formula-bar-label {
+            font-family: var(--font-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            width: 40px;
+            text-transform: uppercase;
+        }
+        .active-cell-indicator {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-family: monospace;
+            font-weight: bold;
+            min-width: 50px;
+            text-align: center;
+        }
+        .formula-bar-input {
+            flex-grow: 1;
+            padding: 0.4rem 0.75rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: var(--radius-sm);
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+        .formula-bar-input:focus {
+            outline: none;
+            border-color: var(--excel-green);
+        }
+        .spreadsheet-table-wrapper {
+            overflow: auto;
+            max-height: 500px;
+        }
+        .spreadsheet-grid {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+            background-color: var(--bg-secondary);
+        }
+        .spreadsheet-grid th, .spreadsheet-grid td {
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        .spreadsheet-grid th {
+            background-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-align: center;
+            padding: 0.35rem;
+            user-select: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .spreadsheet-grid th:first-child {
+            left: 0;
+            z-index: 20;
+            width: 50px;
+        }
+        .row-header-cell {
+            background-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-align: center;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            user-select: none;
+        }
+        .grid-data-cell {
+            padding: 0;
+            height: 32px;
+            position: relative;
+        }
+        .grid-data-cell input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 0 0.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            font-size: 0.9rem;
+        }
+        .grid-data-cell input:focus {
+            outline: 2px solid var(--excel-green);
+            background-color: var(--bg-secondary);
+            z-index: 2;
+        }
+        .grid-data-cell.selected-cell {
+            box-shadow: inset 0 0 0 2px var(--excel-green);
+        }
+        .simulator-legend {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="../index.html" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="#107C41"/>
+                    <path d="M14 2V8H20L14 2Z" fill="#1f9a55"/>
+                    <path d="M8 12L11 15L8 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M12 18H16" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </svg>
+                Excel<span>SuperGuru</span>
+            </a>
+            
+ <nav aria-label="Main Navigation">
+    <ul class="nav-menu">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../pages/formulas.html" class="nav-link">Formulas</a></li>
+        <li><a href="https://1drv.ms/x/c/6cdb61f930bce09a/IQA9TY7Yo-FOQ7umiZWgQlpnAdLa52zJ5KeV2HjREoWcjGk?e=1GyxGB" target="_blank"rel=" noopener noreferrer">Live Excel</a></li>
+        <li><a href="../pages/shortcuts.html">Shortcuts</a></li>
+        <li><a href="../pages/quiz.html">Trivia Quiz</a></li>
+        <li><a href="../pages/interview.html">Interview Q&A</a></li>
+    </ul>
+</nav>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Global Theme Mode">
+                    <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="../pages/practice.html" class="btn btn-primary">Launch Sandbox</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        <header style="margin-bottom: 2rem;">
+            <h1>Reactive Spreadsheet Grid Simulator</h1>
+            <p>Input raw data properties or construct functional runtime expressions using standard syntax patterns like <code>=SUM(A1:A3)</code>.</p>
+        </header>
+
+        <div class="simulator-grid-container">
+            <div class="formula-bar-panel">
+                <div id="activeCellLabel" class="active-cell-indicator">A1</div>
+                <div class="formula-bar-label">fx</div>
+                <input type="text" id="formulaBar" class="formula-bar-input" placeholder="Enter standard data values or formula declarations starting with '='">
+            </div>
+
+            <div class="spreadsheet-table-wrapper">
+                <table id="simulatorGridTable" class="spreadsheet-grid">
+                    </table>
+            </div>
+        </div>
+
+        <div class="simulator-legend">
+            <h4 style="margin-bottom: 0.5rem; color: var(--excel-green);">Supported Parsing Instructions</h4>
+            <ul style="padding-left: 1.25rem; color: var(--text-secondary);">
+                <li><strong>Numerical Entry:</strong> Input plain floating integers directly into targeting grid intersections.</li>
+                <li><strong>Expressions Matrix:</strong> <code>=SUM(A1:B2)</code> - Calculates total aggregation boundaries across coordinates.</li>
+                <li><strong>Mean Metrics:</strong> <code>=AVERAGE(A1:A4)</code> - Evaluates global mean operations on parsed tokens.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer 
+ class="site-footer">
+        <div class="container footer-top">
+            <div class="footer-brand-summary">
+                <a href="../index.html" class="nav-brand">Excel<span>SuperGuru</span></a>
+                <p>An advanced, decoupled dashboard learning environment optimized for high-performance analysts and developers.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 600;">
+                    A Premium Initiative by <span class="neon-blue-text">FreeCourseHub</span>
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Ecosystem</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/formulas.html">Formulas Dictionary</a></li>
+                     <li><a href="https://1drv.ms/x/c/6cdb61f930bce09a/IQA9TY7Yo-FOQ7umiZWgQlpnAdLa52zJ5KeV2HjREoWcjGk?e=1GyxGB" target="_blank"rel=" noopener noreferrer">Live Excel</a></li>
+                    <li><a href="../pages/cheatsheet.html">Syntax Cheatsheet</a></li>
+                    <li><a href="../pages/roadmap.html">Interactive Tracks</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Assessment</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/quiz.html">Interactive Trivia</a></li>
+                    <li><a href="../pages/interview.html">Interview Technical Q&A</a></li>
+                    <li><a href="../pages/tips.html">Pro Performance Tips</a></li>
+                    <li><a href="../pages/errors.html">Error Resolution Hub</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Legal & Scope</h4>
+                <ul class="footer-links">
+                    <li><a href="../about.html">About Project</a></li>
+                    <li><a href="../contact.html">Contact Channel</a></li>
+                    <li><a href="../privacy.html">Privacy Matrix</a></li>
+                    <li><a href="../terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+      <div class="container footer-bottom">
+           <div class="container footer-bottom">
+   <p>
+    &copy; 2026 ExcelSuperGuru | Powered by
+    <a href="https://freecoursehub.xyz/index.html"
+       class="neon-blue-text"
+       target="_blank"
+       rel="noopener noreferrer">
+        FreeCourseHub
+    </a>
+</p>
+    <p>All rights reserved.</p>
+    <p>Optimized for Modern Web Workflows.</p>
+</div>
+      </div>
+    </footer>
+
+    <script src="../JS/app.js"></script>
+    <script type="module" src="../JS/simulator.js"></script>
+</body>
+</html>

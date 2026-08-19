@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Glossary</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .filter-group {
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2b3649;
+      margin-bottom: 6px;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+    }
+
+    .search-box-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #919eab;
+      font-size: 12px;
+    }
+
+    .search-box-wrapper input {
+      width: 100%;
+      padding: 8px 10px 8px 30px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box-wrapper input:focus {
+      border-color: #0b1a30;
+    }
+
+    /* Alphabet Grid Filter */
+    .alphabet-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .alphabet-btn {
+      background: #ffffff;
+      border: 1px solid #dfe3e8;
+      border-radius: 4px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .alphabet-btn:hover {
+      background-color: #f4f6f8;
+      border-color: #0b1a30;
+    }
+
+    .alphabet-btn.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+      border-color: #0b1a30;
+    }
+
+    .alphabet-btn.all-btn {
+      grid-column: span 2;
+      background-color: #ffffff;
+      color: #1e3a8a;
+      border-color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    .alphabet-btn.all-btn.active {
+      background-color: #1e3a8a;
+      color: #ffffff;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      background: #ffffff;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    .btn-apply-filters {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 6px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-apply-filters:hover {
+      background-color: #162a47;
+    }
+
+    .btn-reset-filters {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset-filters:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Terms List */
+    .terms-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .terms-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .terms-title-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Term Card Item */
+    .term-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .term-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .term-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .term-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Category Specific Icon Colors */
+    .icon-blue { background-color: #103254; }
+    .icon-green { background-color: #2a7d4f; }
+    .icon-orange { background-color: #e06d20; }
+    .icon-purple { background-color: #6a4498; }
+    .icon-teal { background-color: #12828e; }
+    .icon-amber { background-color: #d18d27; }
+
+    .term-info {
+      flex: 1;
+    }
+
+    .term-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .term-name-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .tag-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .tag-blue { background-color: #e8f1fb; color: #103254; }
+    .tag-green { background-color: #eaf5ea; color: #2a7d4f; }
+    .tag-orange { background-color: #fdf0e6; color: #e06d20; }
+    .tag-purple { background-color: #f3ecf8; color: #6a4498; }
+    .tag-teal { background-color: #e6f4f6; color: #12828e; }
+    .tag-amber { background-color: #fcf4e8; color: #d18d27; }
+
+    .term-desc-text {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    .term-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding-left: 6px;
+    }
+
+    /* View All Terms Button */
+    .view-all-wrapper {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 10px;
+    }
+
+    .btn-view-all {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #0b1a30;
+      font-size: 14px;
+    }
+
+    .widget-description {
+      font-size: 11.5px;
+      color: #526071;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1e3a8a;
+      transition: gap 0.2s;
+    }
+
+    .sidebar-link:hover {
+      gap: 8px;
+    }
+
+    /* Browse By Category List */
+    .categories-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: #2b3649;
+      cursor: pointer;
+    }
+
+    .category-item:hover .cat-name {
+      color: #1e3a8a;
+    }
+
+    .cat-name {
+      font-weight: 500;
+    }
+
+    .cat-count {
+      font-weight: 700;
+      color: #637381;
+      font-size: 10.5px;
+    }
+
+    /* Quick Facts List */
+    .facts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .fact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-icon {
+      font-size: 16px;
+      color: #103254;
+      width: 20px;
+      text-align: center;
+    }
+
+    .fact-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    .fact-label {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 1px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .term-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .term-arrow {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR GLOSSARY PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .terms-section {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .terms-title-text,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .filter-label,
+    [data-theme="dark"] .category-item {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input,
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input::placeholder {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .search-box-wrapper i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a99ad" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    }
+
+    [data-theme="dark"] .alphabet-btn {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .alphabet-btn:hover {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .alphabet-btn.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      border-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .alphabet-btn.all-btn {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-link);
+      border-color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .alphabet-btn.all-btn.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      border-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .btn-apply-filters {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-apply-filters:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .btn-reset-filters,
+    [data-theme="dark"] .btn-view-all {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-reset-filters:hover,
+    [data-theme="dark"] .btn-view-all:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .terms-header,
+    [data-theme="dark"] .term-card,
+    [data-theme="dark"] .fact-item {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .term-card:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .term-name-title,
+    [data-theme="dark"] .fact-number {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .term-desc-text,
+    [data-theme="dark"] .sort-wrapper,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .fact-label,
+    [data-theme="dark"] .cat-count {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .term-arrow {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .fact-icon,
+    [data-theme="dark"] .sidebar-link {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .category-item:hover .cat-name {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .tag-blue { background-color: rgba(16, 50, 84, 0.35); color: var(--sv-text-link); }
+    [data-theme="dark"] .tag-green { background-color: rgba(42, 125, 79, 0.25); color: #4ade80; }
+    [data-theme="dark"] .tag-orange { background-color: rgba(224, 109, 32, 0.25); color: #fb923c; }
+    [data-theme="dark"] .tag-purple { background-color: rgba(106, 68, 152, 0.25); color: #c084fc; }
+    [data-theme="dark"] .tag-teal { background-color: rgba(18, 130, 142, 0.25); color: #2dd4bf; }
+    [data-theme="dark"] .tag-amber { background-color: rgba(209, 141, 39, 0.25); color: #fbbf24; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="articles.html">ARTICLES</a></li>
+      <li><a href="parts.html">PARTS</a></li>
+      <li><a href="schedules.html">SCHEDULES</a></li>
+      <li><a href="amendments.html">AMENDMENTS</a></li>
+      <li><a href="judgments.html">JUDGMENTS</a></li>
+      <li><a href="glossary.html" class="active">GLOSSARY</a></li>
+      <li><a href="quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/pages/glossary.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">GLOSSARY</h1>
+      <p class="hero-description">
+        Understand important legal terms and concepts<br>
+        used in the Constitution of India.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>Glossary</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Browse Glossary -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-regular fa-book-bookmark"></i>
+          <span>BROWSE GLOSSARY</span>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Search Term</label>
+          <div class="search-box-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchTermInput" placeholder="Search by term or keyword...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Browse by Alphabet</label>
+          <div class="alphabet-grid" id="alphabetGrid">
+            <button class="alphabet-btn" type="button" data-letter="A">A</button>
+            <button class="alphabet-btn" type="button" data-letter="B">B</button>
+            <button class="alphabet-btn" type="button" data-letter="C">C</button>
+            <button class="alphabet-btn" type="button" data-letter="D">D</button>
+            <button class="alphabet-btn" type="button" data-letter="E">E</button>
+            <button class="alphabet-btn" type="button" data-letter="F">F</button>
+            <button class="alphabet-btn" type="button" data-letter="G">G</button>
+            <button class="alphabet-btn" type="button" data-letter="H">H</button>
+            <button class="alphabet-btn" type="button" data-letter="I">I</button>
+            <button class="alphabet-btn" type="button" data-letter="J">J</button>
+            <button class="alphabet-btn" type="button" data-letter="K">K</button>
+            <button class="alphabet-btn" type="button" data-letter="L">L</button>
+            <button class="alphabet-btn" type="button" data-letter="M">M</button>
+            <button class="alphabet-btn" type="button" data-letter="N">N</button>
+            <button class="alphabet-btn" type="button" data-letter="O">O</button>
+            <button class="alphabet-btn" type="button" data-letter="P">P</button>
+            <button class="alphabet-btn" type="button" data-letter="Q">Q</button>
+            <button class="alphabet-btn" type="button" data-letter="R">R</button>
+            <button class="alphabet-btn" type="button" data-letter="S">S</button>
+            <button class="alphabet-btn" type="button" data-letter="T">T</button>
+            <button class="alphabet-btn" type="button" data-letter="U">U</button>
+            <button class="alphabet-btn" type="button" data-letter="V">V</button>
+            <button class="alphabet-btn" type="button" data-letter="W">W</button>
+            <button class="alphabet-btn" type="button" data-letter="X">X</button>
+            <button class="alphabet-btn" type="button" data-letter="Y">Y</button>
+            <button class="alphabet-btn" type="button" data-letter="Z">Z</button>
+            <button class="alphabet-btn all-btn active" type="button" data-letter="ALL">ALL</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Filter by Category</label>
+          <select class="filter-select" id="categoryFilter">
+            <option value="All Categories">All Categories</option>
+            <option value="Constitutional Term">Constitutional Term</option>
+            <option value="Legal Doctrine">Legal Doctrine</option>
+            <option value="Fundamental Concept">Fundamental Concept</option>
+            <option value="Legislative Term">Legislative Term</option>
+            <option value="Institution / Body">Institution / Body</option>
+          </select>
+        </div>
+
+        <button class="btn-apply-filters" id="btnApplyFilters" type="button">APPLY FILTERS</button>
+        <button class="btn-reset-filters" id="btnResetFilters" type="button">RESET</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Terms List -->
+      <main class="terms-section">
+        <div class="terms-header">
+          <div class="terms-title-text" id="termsHeaderCount">ALL TERMS (256)</div>
+          <div class="sort-wrapper">
+            <span>Sort by</span>
+            <select class="sort-select" id="sortSelect">
+              <option value="az">Term (A - Z)</option>
+              <option value="za">Term (Z - A)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Container for dynamically populated term cards -->
+        <div id="termsContainer">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- View All Button -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all" id="btnViewAll" type="button">
+            VIEW ALL TERMS <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Information & Quick Facts -->
+      <aside class="right-sidebar">
+        
+        <!-- About Glossary Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>ABOUT GLOSSARY</span>
+          </div>
+          <p class="widget-description">
+            This glossary provides simple explanations of important legal terms and concepts used in the Constitution of India.
+          </p>
+          <a href="#" class="sidebar-link">
+            How it helps you <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Browse By Category Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-folder"></i>
+            <span>BROWSE BY CATEGORY</span>
+          </div>
+
+          <ul class="categories-list" id="sidebarCategoryList">
+            <li class="category-item" data-category="Constitutional Term">
+              <span class="cat-name">Constitutional Term</span>
+              <span class="cat-count">78</span>
+            </li>
+            <li class="category-item" data-category="Legal Doctrine">
+              <span class="cat-name">Legal Doctrine</span>
+              <span class="cat-count">42</span>
+            </li>
+            <li class="category-item" data-category="Fundamental Concept">
+              <span class="cat-name">Fundamental Concept</span>
+              <span class="cat-count">36</span>
+            </li>
+            <li class="category-item" data-category="Legislative Term">
+              <span class="cat-name">Legislative Term</span>
+              <span class="cat-count">28</span>
+            </li>
+            <li class="category-item" data-category="Institution / Body">
+              <span class="cat-name">Institution / Body</span>
+              <span class="cat-count">32</span>
+            </li>
+            <li class="category-item" data-category="Others">
+              <span class="cat-name">Others</span>
+              <span class="cat-count">40</span>
+            </li>
+          </ul>
+
+          <a href="#" class="sidebar-link" id="viewAllCatLink">
+            View All Categories <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Quick Facts Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-lightbulb"></i>
+            <span>QUICK FACTS</span>
+          </div>
+
+          <div class="facts-list">
+            <div class="fact-item">
+              <i class="fa-regular fa-book-open fact-icon"></i>
+              <div>
+                <div class="fact-number" id="factTotalTerms">256</div>
+                <div class="fact-label">Total Terms</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-solid fa-arrow-down-a-z fact-icon"></i>
+              <div>
+                <div class="fact-number">26</div>
+                <div class="fact-label">Alphabetical Sections</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-folder fact-icon"></i>
+              <div>
+                <div class="fact-number">6</div>
+                <div class="fact-label">Categories</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="parts.html">Parts</a></li>
+            <li><a href="schedules.html">Schedules</a></li>
+            <li><a href="amendments.html">Amendments</a></li>
+            <li><a href="judgments.html">Judgments</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Comprehensive Glossary Dataset
+    const glossaryDataset = [
+      {
+        name: "Abolition",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "The act of formally putting an end to a system, practice or right. Example: Abolition of untouchability under Article 17."
+      },
+      {
+        name: "Adjournment",
+        category: "Legislative Term",
+        iconClass: "icon-orange",
+        icon: "fa-solid fa-scale-balanced",
+        tagClass: "tag-orange",
+        desc: "Suspension of a sitting or proceeding of a House of Parliament or Court to another specified time or date."
+      },
+      {
+        name: "Amendment",
+        category: "Constitutional Term",
+        iconClass: "icon-green",
+        icon: "fa-solid fa-users-gear",
+        tagClass: "tag-green",
+        desc: "A formal change or addition made to the Constitution by the Parliament in the manner provided under Article 368."
+      },
+      {
+        name: "Appellate Jurisdiction",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "The power of a higher court to review, revise, and alter decisions made by subordinate or lower courts."
+      },
+      {
+        name: "Basic Structure Doctrine",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A judicial principle establishing that certain fundamental features of the Indian Constitution cannot be altered or destroyed by parliamentary amendments."
+      },
+      {
+        name: "Bicameralism",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "A system of government in which the legislature comprises two distinct houses or chambers, such as Lok Sabha and Rajya Sabha."
+      },
+      {
+        name: "Bill",
+        category: "Legislative Term",
+        iconClass: "icon-orange",
+        icon: "fa-solid fa-scale-balanced",
+        tagClass: "tag-orange",
+        desc: "A draft proposal for a law presented in Parliament for consideration and enactment."
+      },
+      {
+        name: "Cabinet",
+        category: "Institution / Body",
+        iconClass: "icon-teal",
+        icon: "fa-regular fa-file-lines",
+        tagClass: "tag-teal",
+        desc: "The core decision-making body of senior ministers headed by the Prime Minister or Chief Minister responsible for policy formulation."
+      },
+      {
+        name: "Certiorari",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A writ issued by a higher court asking a lower court or tribunal to transfer a pending case or quash an order made without jurisdiction."
+      },
+      {
+        name: "Citizenship",
+        category: "Fundamental Concept",
+        iconClass: "icon-purple",
+        icon: "fa-solid fa-user-shield",
+        tagClass: "tag-purple",
+        desc: "The status of being a citizen of India with rights and duties as provided in Part II of the Constitution."
+      },
+      {
+        name: "Concurrent List",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "A list of 52 items given in the Seventh Schedule on which both Union and State Parliaments/Legislatures can enact laws."
+      },
+      {
+        name: "Constitutional Bench",
+        category: "Institution / Body",
+        iconClass: "icon-teal",
+        icon: "fa-regular fa-file-lines",
+        tagClass: "tag-teal",
+        desc: "A bench of the Supreme Court of India consisting of five or more judges constituted to decide substantial questions of constitutional law."
+      },
+      {
+        name: "Contempt of Court",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "Any act or publication that scandalizes, lowers authority, or interferes with the due course of judicial proceedings."
+      },
+      {
+        name: "Directive Principles",
+        category: "Fundamental Concept",
+        iconClass: "icon-teal",
+        icon: "fa-regular fa-file-lines",
+        tagClass: "tag-teal",
+        desc: "Principles of State Policy laid down in Part IV to guide the State in governing the country and forming social policy."
+      },
+      {
+        name: "Dissolution",
+        category: "Legislative Term",
+        iconClass: "icon-orange",
+        icon: "fa-solid fa-scale-balanced",
+        tagClass: "tag-orange",
+        desc: "The formal termination of the life of the Lok Sabha or a State Legislative Assembly leading to fresh general elections."
+      },
+      {
+        name: "Double Jeopardy",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A constitutional protection under Article 20(2) ensuring that no person shall be prosecuted and punished for the same offence more than once."
+      },
+      {
+        name: "Executive",
+        category: "Institution / Body",
+        iconClass: "icon-teal",
+        icon: "fa-regular fa-file-lines",
+        tagClass: "tag-teal",
+        desc: "The branch of government responsible for implementing laws, enforcing order, and administering public policy."
+      },
+      {
+        name: "Federalism",
+        category: "Fundamental Concept",
+        iconClass: "icon-purple",
+        icon: "fa-solid fa-user-shield",
+        tagClass: "tag-purple",
+        desc: "A system of government dividing powers between a central national authority and various constituent state units."
+      },
+      {
+        name: "Fundamental Duties",
+        category: "Fundamental Concept",
+        iconClass: "icon-purple",
+        icon: "fa-solid fa-user-shield",
+        tagClass: "tag-purple",
+        desc: "A set of 11 moral obligations defined under Article 51A requiring every citizen to uphold unity, integrity, and national values."
+      },
+      {
+        name: "Fundamental Rights",
+        category: "Fundamental Concept",
+        iconClass: "icon-purple",
+        icon: "fa-solid fa-user-shield",
+        tagClass: "tag-purple",
+        desc: "Basic civil freedoms guaranteed under Part III (Articles 12-35) enforceable against state infringement."
+      },
+      {
+        name: "Habeas Corpus",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A constitutional writ literally meaning 'to have the body', securing personal liberty by commanding an arresting authority to produce a detainee before court."
+      },
+      {
+        name: "Impeachment",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "A quasi-judicial process in Parliament under Article 61 to remove constitutional dignitaries such as the President for violation of the Constitution."
+      },
+      {
+        name: "Judicial Activism",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "Active role played by the judiciary in protecting rights and encouraging social justice, often through Public Interest Litigations."
+      },
+      {
+        name: "Judicial Review",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "The power of higher courts to examine and invalidate legislative enactments and executive actions if they violate constitutional mandates."
+      },
+      {
+        name: "Legislature",
+        category: "Institution / Body",
+        iconClass: "icon-teal",
+        icon: "fa-regular fa-file-lines",
+        tagClass: "tag-teal",
+        desc: "The law-making organ of government, comprising the Parliament at the Union level and Legislative Assemblies at the State level."
+      },
+      {
+        name: "Mandamus",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A judicial writ ordering a public authority, officer, or lower court to perform a mandatory statutory or public duty."
+      },
+      {
+        name: "Money Bill",
+        category: "Legislative Term",
+        iconClass: "icon-orange",
+        icon: "fa-solid fa-scale-balanced",
+        tagClass: "tag-orange",
+        desc: "A bill dealing exclusively with taxation, government expenditure, or public financial obligations defined under Article 110."
+      },
+      {
+        name: "Ordinance",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "A temporary law promulgated by the President (Article 123) or Governor (Article 213) when Parliament/State Assembly is not in session."
+      },
+      {
+        name: "Preamble",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "An introductory statement setting out the guiding philosophy, ideals, goals, and values of the Constitution."
+      },
+      {
+        name: "Prorogation",
+        category: "Legislative Term",
+        iconClass: "icon-orange",
+        icon: "fa-solid fa-scale-balanced",
+        tagClass: "tag-orange",
+        desc: "The official ending of a session of Parliament or State Assembly by an order issued by the President or Governor."
+      },
+      {
+        name: "Public Interest Litigation (PIL)",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "Legal action initiated in a court of law for the enforcement of public interest or general welfare of underprivileged groups."
+      },
+      {
+        name: "Quo-Warranto",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A writ issued to prevent illegal usurpation of a public office by inquiring 'by what authority' an individual holds office."
+      },
+      {
+        name: "Quorum",
+        category: "Legislative Term",
+        iconClass: "icon-orange",
+        icon: "fa-solid fa-scale-balanced",
+        tagClass: "tag-orange",
+        desc: "The minimum number of members required to be present (typically 10% in Parliament) to legally conduct official business."
+      },
+      {
+        name: "Sovereignty",
+        category: "Fundamental Concept",
+        iconClass: "icon-purple",
+        icon: "fa-solid fa-user-shield",
+        tagClass: "tag-purple",
+        desc: "Supreme independent authority over a geographic area or population, free from external control or interference."
+      },
+      {
+        name: "Special Leave Petition (SLP)",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A discretionary constitutional remedy under Article 136 allowing the Supreme Court to grant leave to appeal against any judgment."
+      },
+      {
+        name: "State List",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "A list of items in the Seventh Schedule over which State Legislatures have exclusive law-making authority."
+      },
+      {
+        name: "Union List",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "A list of subjects of national importance in the Seventh Schedule over which Parliament has exclusive legislative powers."
+      },
+      {
+        name: "Veto Power",
+        category: "Constitutional Term",
+        iconClass: "icon-blue",
+        icon: "fa-solid fa-landmark",
+        tagClass: "tag-blue",
+        desc: "The constitutional power of the Executive (President/Governor) to withhold or delay assent to legislative bills passed by Parliament."
+      },
+      {
+        name: "Writ",
+        category: "Legal Doctrine",
+        iconClass: "icon-amber",
+        icon: "fa-solid fa-gavel",
+        tagClass: "tag-amber",
+        desc: "A formal written order issued by the Supreme Court (Article 32) or High Courts (Article 226) for enforcing constitutional rights."
+      },
+      {
+        name: "Zero Hour",
+        category: "Legislative Term",
+        iconClass: "icon-orange",
+        icon: "fa-solid fa-scale-balanced",
+        tagClass: "tag-orange",
+        desc: "An informal parliamentary device starting immediately after Question Hour where MPs raise matters of urgent public importance without prior notice."
+      }
+    ];
+
+    // Functional Logic State Variables
+    let selectedLetter = "ALL";
+    let isShowingAll = false;
+    const INITIAL_DISPLAY_LIMIT = 6;
+
+    // DOM Elements
+    const searchTermInput = document.getElementById('searchTermInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const alphabetBtns = document.querySelectorAll('.alphabet-btn');
+    const btnApplyFilters = document.getElementById('btnApplyFilters');
+    const btnResetFilters = document.getElementById('btnResetFilters');
+    const sortSelect = document.getElementById('sortSelect');
+    const termsContainer = document.getElementById('termsContainer');
+    const termsHeaderCount = document.getElementById('termsHeaderCount');
+    const btnViewAll = document.getElementById('btnViewAll');
+    const sidebarCategoryList = document.getElementById('sidebarCategoryList');
+    const factTotalTerms = document.getElementById('factTotalTerms');
+
+    // Update Quick Facts and Category Counts dynamically
+    function updateSidebarStats() {
+      if (factTotalTerms) {
+        factTotalTerms.textContent = glossaryDataset.length;
+      }
+
+      const counts = {};
+      glossaryDataset.forEach(item => {
+        counts[item.category] = (counts[item.category] || 0) + 1;
+      });
+
+      const categoryItems = sidebarCategoryList.querySelectorAll('.category-item');
+      categoryItems.forEach(item => {
+        const catName = item.getAttribute('data-category') || item.querySelector('.cat-name').textContent.trim();
+        const countSpan = item.querySelector('.cat-count');
+        if (countSpan) {
+          if (catName === 'Others') {
+            let knownSum = 0;
+            categoryItems.forEach(ci => {
+              const cn = ci.getAttribute('data-category');
+              if (cn && cn !== 'Others') knownSum += (counts[cn] || 0);
+            });
+            countSpan.textContent = Math.max(0, glossaryDataset.length - knownSum);
+          } else {
+            countSpan.textContent = counts[catName] || 0;
+          }
+        }
+      });
+    }
+
+    // Get Filtered and Sorted Terms
+    function getFilteredTerms() {
+      const query = searchTermInput.value.trim().toLowerCase();
+      const cat = categoryFilter.value;
+      const sortOrder = sortSelect.value;
+
+      let filtered = glossaryDataset.filter(item => {
+        const matchesSearch = !query || 
+          item.name.toLowerCase().includes(query) || 
+          item.desc.toLowerCase().includes(query);
+
+        let matchesAlphabet = true;
+        if (selectedLetter !== "ALL") {
+          matchesAlphabet = item.name.toUpperCase().startsWith(selectedLetter);
+        }
+
+        let matchesCategory = true;
+        if (cat !== "All Categories") {
+          matchesCategory = (item.category === cat);
+        }
+
+        return matchesSearch && matchesAlphabet && matchesCategory;
+      });
+
+      filtered.sort((a, b) => {
+        if (sortOrder === "az") {
+          return a.name.localeCompare(b.name);
+        } else {
+          return b.name.localeCompare(a.name);
+        }
+      });
+
+      return filtered;
+    }
+
+    // Render Term Cards
+    function renderTerms() {
+      const filtered = getFilteredTerms();
+
+      termsHeaderCount.textContent = `ALL TERMS (${filtered.length})`;
+
+      termsContainer.innerHTML = '';
+
+      if (filtered.length === 0) {
+        termsContainer.innerHTML = `
+          <div style="text-align: center; padding: 40px 10px; color: var(--sv-text-muted, #637381); font-size: 13px;">
+            <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; margin-bottom: 12px; display: block; color: var(--sv-text-muted, #919eab);"></i>
+            No terms found matching your search criteria. Try adjusting your filters.
+          </div>
+        `;
+        btnViewAll.style.display = 'none';
+        return;
+      }
+
+      const limit = isShowingAll ? filtered.length : Math.min(filtered.length, INITIAL_DISPLAY_LIMIT);
+      const itemsToRender = filtered.slice(0, limit);
+
+      itemsToRender.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'term-card';
+        card.innerHTML = `
+          <div class="term-icon ${item.iconClass}">
+            <i class="${item.icon}"></i>
+          </div>
+          <div class="term-info">
+            <div class="term-header-line">
+              <span class="term-name-title">${item.name}</span>
+              <span class="tag-badge ${item.tagClass}">${item.category}</span>
+            </div>
+            <div class="term-desc-text">${item.desc}</div>
+          </div>
+          <div class="term-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          alert(`Term: ${item.name}\nCategory: ${item.category}\n\nDefinition:\n${item.desc}`);
+        });
+
+        termsContainer.appendChild(card);
+      });
+
+      if (filtered.length <= INITIAL_DISPLAY_LIMIT) {
+        btnViewAll.style.display = 'none';
+      } else {
+        btnViewAll.style.display = 'inline-flex';
+        btnViewAll.innerHTML = isShowingAll 
+          ? `SHOW LESS <i class="fa-solid fa-chevron-up"></i>` 
+          : `VIEW ALL TERMS <i class="fa-solid fa-chevron-down"></i>`;
+      }
+    }
+
+    // Alphabet Filter Event Setup
+    alphabetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        alphabetBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedLetter = btn.getAttribute('data-letter') || "ALL";
+        isShowingAll = false;
+        renderTerms();
+      });
+    });
+
+    searchTermInput.addEventListener('input', () => {
+      isShowingAll = false;
+      renderTerms();
+    });
+
+    sortSelect.addEventListener('change', () => {
+      renderTerms();
+    });
+
+    categoryFilter.addEventListener('change', () => {
+      isShowingAll = false;
+      renderTerms();
+    });
+
+    btnApplyFilters.addEventListener('click', () => {
+      isShowingAll = false;
+      renderTerms();
+    });
+
+    btnResetFilters.addEventListener('click', () => {
+      searchTermInput.value = '';
+      categoryFilter.value = 'All Categories';
+      sortSelect.value = 'az';
+      selectedLetter = 'ALL';
+
+      alphabetBtns.forEach(b => b.classList.remove('active'));
+      const allBtn = document.querySelector('.alphabet-btn.all-btn');
+      if (allBtn) allBtn.classList.add('active');
+
+      isShowingAll = false;
+      renderTerms();
+    });
+
+    btnViewAll.addEventListener('click', () => {
+      isShowingAll = !isShowingAll;
+      renderTerms();
+    });
+
+    const categoryItems = sidebarCategoryList.querySelectorAll('.category-item');
+    categoryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const catName = item.getAttribute('data-category');
+        if (catName && catName !== 'Others') {
+          categoryFilter.value = catName;
+        } else {
+          categoryFilter.value = 'All Categories';
+        }
+        isShowingAll = false;
+        renderTerms();
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateSidebarStats();
+      renderTerms();
+    });
+  </script>
+
+</body>
+</html>

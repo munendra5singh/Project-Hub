@@ -1,0 +1,27 @@
+/* ==========================================================================
+   responsive.css — shared responsive utilities
+   Breakpoints covered: 320 360 390 412 480 576 768 992 1024 1200 1366 1440 1600 1920 4K
+   ========================================================================== */
+.u-container {
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding-left: clamp(14px, 4vw, 32px);
+  padding-right: clamp(14px, 4vw, 32px);
+}
+
+.u-hide-mobile   { display: initial; }
+.u-hide-desktop  { display: none; }
+
+@media (max-width: 768px) {
+  .u-hide-mobile   { display: none !important; }
+  .u-hide-desktop  { display: initial !important; }
+}
+
+/* Prevent any accidental horizontal scroll from wide fixed-width children */
+html, body { max-width: 100%; }
+.calc-container, .container { max-width: min(100%, var(--container-cap, 1100px)); }
+
+@media (min-width: 1920px) {
+  .u-container { max-width: 1440px; }
+}

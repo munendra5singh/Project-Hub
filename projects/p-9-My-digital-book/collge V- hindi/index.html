@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल | संपूर्ण अध्ययन सामग्री एवं क्विज़</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर अर्थशास्त्र, भूगोल, समाजशास्त्र और VAC के लिए संपूर्ण डिजिटल पाठ्यपुस्तक, आधिकारिक सिलेबस, विस्तृत हिंदी नोट्स, मॉडल प्रश्न और 100-प्रश्न क्विज़।">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">संपूर्ण डिजिटल पाठ्यपुस्तक</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#economics" class="nav-link"><i class="fa-solid fa-chart-line"></i> अर्थशास्त्र</a></li>
+            <li><a href="#geography" class="nav-link"><i class="fa-solid fa-earth-americas"></i> भूगोल</a></li>
+            <li><a href="#sociology" class="nav-link"><i class="fa-solid fa-users"></i> समाजशास्त्र</a></li>
+            <li><a href="#vac" class="nav-link"><i class="fa-solid fa-building-columns"></i> VAC</a></li>
+            <li><a href="#quiz-section" class="nav-link"><i class="fa-solid fa-brain text-amber-400"></i> ज्ञान परीक्षा</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <!-- Search Button -->
+            <button class="nav-btn" onclick="openSearchModal()" title="पोर्टल में खोजें (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>खोजें</span>
+            </button>
+
+            <!-- Font Size Adjuster -->
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="अक्षर का आकार छोटा करें">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="सामान्य आकार">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="अक्षर का आकार बड़ा करें">A+</button>
+            </div>
+
+            <!-- Dark / Light Theme Toggle -->
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="डार्क/लाइट मोड बदलें">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-wrapper" style="flex-direction: column;" id="home">
+
+        <!-- Resume Reading Widget (Auto-populated if previous session exists) -->
+        <div id="resume-reading-container"></div>
+
+        <!-- Hero Section -->
+        <div class="page-hero">
+            <div class="page-hero-badge"><i class="fa-solid fa-book-open"></i> शैक्षणिक सत्र 2026 पोर्टल</div>
+            <h1>बी.ए. 5वां सेमेस्टर संपूर्ण डिजिटल पाठ्यपुस्तक</h1>
+            <p class="text-base">
+                बी.ए. 5वें सेमेस्टर के लिए आपके संपूर्ण डिजिटल अध्ययन पोर्टल पर आपका स्वागत है। यहाँ आपको अर्थशास्त्र, भूगोल, समाजशास्त्र और मूल्य वर्धित पाठ्यक्रम (VAC) की विस्तृत अध्ययन सामग्री, आसान हिंदी नोट्स, तुलनात्मक तालिकाएँ, गणितीय सूत्र, हल किए गए उदाहरण, व्यावहारिक अभ्यास, परीक्षा प्रश्न बैंक, आधिकारिक सिलेबस और 100-प्रश्न इंटरैक्टिव क्विज़ मिलेंगे।
+            </p>
+            <div class="flex flex-wrap gap-3 mt-4" style="display:flex; gap:12px; flex-wrap:wrap;">
+                <a href="#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none; padding:10px 20px; font-size:0.9rem; font-weight:700;">
+                    <i class="fa-solid fa-brain"></i> 100-MCQ ज्ञान परीक्षा दें
+                </a>
+                <button class="nav-btn" onclick="openSyllabusModal('eco-elective-1', 'अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति')" style="background:var(--accent-color); border:none; padding:10px 18px; font-size:0.9rem;">
+                    <i class="fa-solid fa-file-invoice"></i> आधिकारिक सिलेबस देखें
+                </button>
+                <button class="nav-btn" onclick="openSearchModal()" style="background:var(--bg-card); color:var(--text-main); border:1px solid var(--border-strong); padding:10px 18px; font-size:0.9rem;">
+                    <i class="fa-solid fa-magnifying-glass"></i> विषय खोजें
+                </button>
+            </div>
+
+            <div class="page-hero-stats mt-6">
+                <div class="stat-item">
+                    <span class="stat-value">4 मुख्य विषय</span>
+                    <span class="stat-label">अर्थशास्त्र, भूगोल, समाजशास्त्र, VAC</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">800 कुल MCQs</span>
+                    <span class="stat-label">100 MCQs प्रति विषय</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">4 कठिनाई स्तर</span>
+                    <span class="stat-label">25 आसान, सामान्य, मध्यम, कठिन</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">त्वरित उत्तर व्याख्या</span>
+                    <span class="stat-label">सही उत्तर का कारण स्पष्टीकरण</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subject Columns Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+
+            <!-- 1. Economics Column -->
+            <div class="topic-card" id="economics" style="border-top: 4px solid var(--eco-accent);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 42px; height: 42px; border-radius: 10px; background-color: var(--eco-light); color: var(--eco-accent); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.1rem; margin: 0;">अर्थशास्त्र (Economics)</h3>
+                            <span style="font-size: 0.78rem; color: var(--text-subtle);">ऐच्छिक एवं कौशल पाठ्यक्रम</span>
+                        </div>
+                    </div>
+                    <button onclick="openSyllabusModal('eco-elective-1', 'अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति')" style="font-size: 0.8rem; color: var(--eco-accent);" title="सिलेबस देखें">
+                        <i class="fa-solid fa-file-invoice"></i> सिलेबस
+                    </button>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="./eco-elective-1-policy.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--eco-accent);"><i class="fa-solid fa-building mr-1"></i> अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('eco-elective-1', 'अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">भारत में आर्थिक विकास और नीति - I</span>
+                    </a>
+                    <a href="./eco-elective-2-money.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--eco-accent);"><i class="fa-solid fa-coins mr-1"></i> अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('eco-elective-2', 'अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">मुद्रा, बैंकिंग एवं मौद्रिक नीति</span>
+                    </a>
+                    <a href="./eco-elective-3-enviro.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--eco-accent);"><i class="fa-solid fa-leaf mr-1"></i> अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('eco-elective-3', 'अर्थशास्त्र ऐच्छिक 3 — पर्यावरण');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">पर्यावरणीय अर्थशास्त्र एवं सतत विकास</span>
+                    </a>
+                    <a href="./eco-skill-course.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--eco-accent);"><i class="fa-solid fa-briefcase mr-1"></i> अर्थशास्त्र कौशल पाठ्यक्रम</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('eco-skill', 'अर्थशास्त्र कौशल पाठ्यक्रम');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">डेटा विश्लेषण एवं सांख्यिकी पद्धतियाँ</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Geography Column -->
+            <div class="topic-card" id="geography" style="border-top: 4px solid var(--geo-accent);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 42px; height: 42px; border-radius: 10px; background-color: var(--geo-light); color: var(--geo-accent); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.1rem; margin: 0;">भूगोल (Geography)</h3>
+                            <span style="font-size: 0.78rem; color: var(--text-subtle);">सिद्धांत एवं प्रायोगिक</span>
+                        </div>
+                    </div>
+                    <button onclick="openSyllabusModal('geo-theory', 'भूगोल सिद्धांत')" style="font-size: 0.8rem; color: var(--geo-accent);" title="सिलेबस देखें">
+                        <i class="fa-solid fa-file-invoice"></i> सिलेबस
+                    </button>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="./geo-theory.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--geo-accent);"><i class="fa-solid fa-book-open mr-1"></i> भूगोल सिद्धांत (थ्योरी)</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('geo-theory', 'भूगोल सिद्धांत');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">भू-आकृति विज्ञान एवं आर्थिक भूगोल</span>
+                    </a>
+                    <a href="./geo-practical.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--geo-accent);"><i class="fa-solid fa-map-location-dot mr-1"></i> भूगोल प्रायोगिक (प्रैक्टिकल-V)</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('geo-practical', 'भूगोल प्रायोगिक');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">क्षेत्र सर्वेक्षण, सर्वे एवं QGIS मैपिंग</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Sociology Column -->
+            <div class="topic-card" id="sociology" style="border-top: 4px solid var(--socio-accent);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 42px; height: 42px; border-radius: 10px; background-color: var(--socio-light); color: var(--socio-accent); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.1rem; margin: 0;">समाजशास्त्र (Sociology)</h3>
+                            <span style="font-size: 0.78rem; color: var(--text-subtle);">अतिरिक्त विषय (Additional)</span>
+                        </div>
+                    </div>
+                    <button onclick="openSyllabusModal('socio-additional', 'समाजशास्त्र अतिरिक्त')" style="font-size: 0.8rem; color: var(--socio-accent);" title="सिलेबस देखें">
+                        <i class="fa-solid fa-file-invoice"></i> सिलेबस
+                    </button>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="./socio-additional.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--socio-accent);"><i class="fa-solid fa-hand-holding-hand mr-1"></i> समाजशास्त्र अतिरिक्त</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('socio-additional', 'समाजशास्त्र अतिरिक्त');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">समाजशास्त्रीय सिद्धांत एवं भारतीय समाज</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. VAC Column -->
+            <div class="topic-card" id="vac" style="border-top: 4px solid var(--vac-accent);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 42px; height: 42px; border-radius: 10px; background-color: var(--vac-light); color: var(--vac-accent); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.1rem; margin: 0;">मूल्य वर्धित पाठ्यक्रम (VAC)</h3>
+                            <span style="font-size: 0.78rem; color: var(--text-subtle);">Value Added Course</span>
+                        </div>
+                    </div>
+                    <button onclick="openSyllabusModal('vac-ctmv', 'VAC — CTMV')" style="font-size: 0.8rem; color: var(--vac-accent);" title="सिलेबस देखें">
+                        <i class="fa-solid fa-file-invoice"></i> सिलेबस
+                    </button>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="./vac-ctmv.html" class="search-result-item" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span class="title" style="color: var(--vac-accent);"><i class="fa-solid fa-star mr-1"></i> VAC — CTMV</span>
+                            <button type="button" onclick="event.preventDefault(); openSyllabusModal('vac-ctmv', 'VAC — CTMV');" style="font-size:0.75rem; color:var(--text-subtle);" title="सिलेबस चित्र देखें"><i class="fa-solid fa-file-image"></i></button>
+                        </div>
+                        <span class="meta">संस्कृति, परंपराएं एवं नैतिक मूल्य</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ========================================================================== -->
+        <!-- QUIZ / KNOWLEDGE CHECK SECTION                                             -->
+        <!-- ========================================================================== -->
+        <section class="unit-section" id="quiz-section">
+            <div class="unit-header">
+                <span class="unit-tag">आत्म-मूल्यांकन प्रणाली</span>
+                <h2>🧠 क्विज़ / ज्ञान परीक्षण प्रणाली</h2>
+            </div>
+
+            <div class="definition-box" style="margin-bottom: 1.5rem;">
+                <h4><i class="fa-solid fa-trophy text-amber-500"></i> सभी 8 विषयों में अपनी परीक्षा तैयारी का मूल्यांकन करें!</h4>
+                <p>
+                    प्रत्येक विषय में <strong>100 चुने हुए MCQs</strong> के साथ अपनी समझ का परीक्षण करें (25 आसान, 25 सामान्य, 25 मध्यम और 25 कठिन प्रश्नों में विभाजित)। इसमें लाइव प्रगति ट्रैकिंग, तुरंत "क्यों?" उत्तर स्पष्टीकरण, 25/50/75 प्रश्नों पर मील का पत्थर (Milestone) स्क्रीन और विस्तृत स्कोरकार्ड शामिल है।
+                </p>
+            </div>
+
+            <!-- Quiz Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+
+                <!-- Eco 1 Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--eco-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</h3>
+                    <p class="text-xs text-muted mb-3">भारत में आर्थिक विकास और नीति - I</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('eco-elective-1')" style="background:var(--eco-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+                <!-- Eco 2 Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--eco-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</h3>
+                    <p class="text-xs text-muted mb-3">मुद्रा, बैंकिंग एवं मौद्रिक नीति</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('eco-elective-2')" style="background:var(--eco-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+                <!-- Eco 3 Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--eco-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</h3>
+                    <p class="text-xs text-muted mb-3">पर्यावरणीय अर्थशास्त्र एवं सतत विकास</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('eco-elective-3')" style="background:var(--eco-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+                <!-- Eco Skill Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--eco-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">अर्थशास्त्र कौशल पाठ्यक्रम</h3>
+                    <p class="text-xs text-muted mb-3">डेटा विश्लेषण एवं सांख्यिकी पद्धतियाँ</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('eco-skill')" style="background:var(--eco-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+                <!-- Geo Theory Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--geo-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">भूगोल सिद्धांत (थ्योरी)</h3>
+                    <p class="text-xs text-muted mb-3">भू-आकृति विज्ञान एवं आर्थिक भूगोल</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('geo-theory')" style="background:var(--geo-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+                <!-- Geo Practical Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--geo-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">भूगोल प्रायोगिक (प्रैक्टिकल)</h3>
+                    <p class="text-xs text-muted mb-3">क्षेत्र सर्वेक्षण एवं QGIS मैपिंग</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('geo-practical')" style="background:var(--geo-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+                <!-- Socio Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--socio-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">समाजशास्त्र (अतिरिक्त)</h3>
+                    <p class="text-xs text-muted mb-3">समाजशास्त्रीय सिद्धांत एवं भारतीय समाज</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('socio-additional')" style="background:var(--socio-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+                <!-- VAC Quiz Card -->
+                <div class="topic-card" style="border-left: 5px solid var(--vac-accent);">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="badge-easy quiz-badge">100 MCQs</span>
+                        <span class="text-xs font-semibold text-subtle">4 कठिनाई स्तर</span>
+                    </div>
+                    <h3 class="text-base font-bold mb-1">VAC — CTMV</h3>
+                    <p class="text-xs text-muted mb-3">संस्कृति, परंपराएं एवं नैतिक मूल्य</p>
+                    <button class="nav-btn w-full" onclick="startSubjectQuiz('vac-ctmv')" style="background:var(--vac-accent); border:none; justify-content:center; padding:10px;">
+                        <i class="fa-solid fa-play"></i> 100-MCQ क्विज़ शुरू करें
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। उत्कृष्ट अकादमिक अध्ययन के लिए निर्मित।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- PRE-QUIZ START MODAL -->
+    <div id="quiz-pre-modal-overlay" class="syllabus-modal-overlay">
+        <div class="quiz-pre-modal-card">
+            <i id="quiz-pre-icon" class="fa-solid fa-brain text-amber-500 text-4xl mb-3"></i>
+            <h2 id="quiz-pre-title" class="text-xl font-bold">विषय क्विज़</h2>
+            <p id="quiz-pre-subtitle" class="text-sm text-subtle mb-4">विषय नाम</p>
+
+            <div class="quiz-breakdown-grid">
+                <div class="quiz-breakdown-card">
+                    <span class="count text-emerald-600">25</span>
+                    <span class="label">आसान</span>
+                </div>
+                <div class="quiz-breakdown-card">
+                    <span class="count text-amber-600">25</span>
+                    <span class="label">सामान्य</span>
+                </div>
+                <div class="quiz-breakdown-card">
+                    <span class="count text-orange-600">25</span>
+                    <span class="label">मध्यम</span>
+                </div>
+                <div class="quiz-breakdown-card">
+                    <span class="count text-red-600">25</span>
+                    <span class="label">कठिन</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-muted mb-6">कुल प्रश्न: <strong>100 MCQs</strong> • तुरंत उत्तर व्याख्या • मील का पत्थर (Milestone) स्क्रीन</p>
+
+            <div class="flex gap-3 justify-center">
+                <button class="nav-btn" onclick="closeQuizPreModal()" style="background:var(--bg-card-alt); color:var(--text-main); border:1px solid var(--border-color);">रद्द करें</button>
+                <button class="nav-btn" onclick="launchLiveQuiz()" style="background:linear-gradient(135deg, #10b981, #059669); border:none; padding:10px 24px; font-weight:700;">
+                    क्विज़ शुरू करें <i class="fa-solid fa-rocket ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FULL-SCREEN LIVE QUIZ OVERLAY -->
+    <div id="quiz-view-overlay" class="quiz-view-overlay">
+
+        <!-- Header Bar -->
+        <div class="quiz-header-bar">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-brain text-amber-400 text-xl"></i>
+                <span id="quiz-live-num" class="font-bold text-base">प्रश्न 1 का 100</span>
+            </div>
+            <button class="nav-btn" onclick="if(confirm('क्या आप क्विज़ छोड़कर मुख्य पोर्टल पर जाना चाहते हैं?')) closeQuizOverlay();" style="background:rgba(239,68,68,0.2); border:1px solid rgba(239,68,68,0.4); color:#fca5a5;">
+                <i class="fa-solid fa-xmark"></i> क्विज़ छोड़ें
+            </button>
+        </div>
+
+        <!-- Live Progress Container -->
+        <div class="quiz-live-progress-container">
+            <div class="quiz-progress-top-info">
+                <span id="quiz-live-completed" class="text-emerald-500">0 / 100 पूर्ण</span>
+                <span id="quiz-live-remaining" class="text-subtle">100 शेष</span>
+            </div>
+            <div class="quiz-progress-bar-bg">
+                <div id="quiz-live-bar" class="quiz-progress-bar-fill"></div>
+            </div>
+            <div class="quiz-diff-pills">
+                <span id="quiz-prog-easy" class="quiz-pill text-emerald-600">आसान: 0 / 25</span>
+                <span id="quiz-prog-norm" class="quiz-pill text-amber-600">सामान्य: 0 / 25</span>
+                <span id="quiz-prog-med" class="quiz-pill text-orange-600">मध्यम: 0 / 25</span>
+                <span id="quiz-prog-hard" class="quiz-pill text-red-600">कठिन: 0 / 25</span>
+            </div>
+        </div>
+
+        <!-- Main Screen Area -->
+        <div class="quiz-main-container">
+
+            <!-- 1. Question Screen -->
+            <div id="question-screen">
+                <div class="quiz-question-card">
+                    <span id="quiz-diff-badge" class="quiz-badge badge-easy">आसान स्तर</span>
+                    <h3 id="quiz-question-text" class="text-lg font-bold">प्रश्न का विवरण...</h3>
+
+                    <div id="quiz-options-container" class="quiz-options-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <div id="quiz-feedback-box" class="quiz-feedback-box" style="display:none;">
+                        <!-- Immediate feedback and explanation -->
+                    </div>
+
+                    <div class="flex items-center justify-between mt-4">
+                        <button id="quiz-submit-btn" class="nav-btn" onclick="submitQuizAnswer()" style="background:var(--accent-color); border:none; padding:10px 24px; font-weight:700;">
+                            उत्तर सबमिट करें <i class="fa-solid fa-check ml-2"></i>
+                        </button>
+                        <button id="quiz-next-btn" class="nav-btn" onclick="handleNextQuestion()" style="background:linear-gradient(135deg, #10b981, #059669); border:none; padding:10px 24px; font-weight:700; display:none;">
+                            अगला प्रश्न <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Milestone Screen (At Q25, Q50, Q75) -->
+            <div id="milestone-screen" style="display:none;">
+                <div class="milestone-card">
+                    <i class="fa-solid fa-trophy milestone-icon"></i>
+                    <h2 id="milestone-heading" class="text-2xl font-bold mb-2">🎉 शानदार प्रगति!</h2>
+                    <p id="milestone-subtitle" class="text-base text-muted mb-2">25 प्रश्न पूर्ण हुए</p>
+                    <div id="milestone-count-text" class="badge-easy quiz-badge text-sm mb-4">25 / 100 प्रश्न हल किए गए</div>
+                    <p id="milestone-next-msg" class="text-sm font-semibold text-accent mb-6">अगले स्तर में आपका स्वागत है!</p>
+                    <button class="nav-btn" onclick="continueFromMilestone()" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none; padding:12px 30px; font-weight:700; font-size:1rem;">
+                        अगले स्तर पर बढ़ें <i class="fa-solid fa-circle-play ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. Final Result Dashboard Screen -->
+            <div id="result-screen" style="display:none;">
+                <div class="result-dashboard-card">
+                    <div class="text-center mb-6">
+                        <i class="fa-solid fa-award text-amber-500 text-5xl mb-2"></i>
+                        <h2 class="text-2xl font-bold">🏆 क्विज़ परिणाम डैशबोर्ड</h2>
+                        <p class="text-sm text-subtle">सम्पूर्ण प्रदर्शन विवरण एवं उत्तर समीक्षा</p>
+                    </div>
+
+                    <!-- Overall Score Cards -->
+                    <div class="result-main-grid">
+                        <div class="result-stat-box">
+                            <div class="val text-accent" id="res-score">0 / 100</div>
+                            <div class="lbl">कुल अंक</div>
+                        </div>
+                        <div class="result-stat-box">
+                            <div class="val text-emerald-500" id="res-accuracy">0%</div>
+                            <div class="lbl">सटीकता दर</div>
+                        </div>
+                        <div class="result-stat-box">
+                            <div class="val text-emerald-600" id="res-correct">0</div>
+                            <div class="lbl">सही उत्तर</div>
+                        </div>
+                        <div class="result-stat-box">
+                            <div class="val text-red-500" id="res-wrong">0</div>
+                            <div class="lbl">गलत उत्तर</div>
+                        </div>
+                        <div class="result-stat-box">
+                            <div class="val text-subtle" id="res-skipped">0</div>
+                            <div class="lbl">छोड़े गए प्रश्न</div>
+                        </div>
+                    </div>
+
+                    <!-- Difficulty Performance Table -->
+                    <h3 class="text-base font-bold mt-6 mb-3"><i class="fa-solid fa-layer-group text-accent"></i> कठिनाई के अनुसार प्रदर्शन</h3>
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>कठिनाई स्तर</th>
+                                    <th>कुल MCQs</th>
+                                    <th>सही</th>
+                                    <th>गलत</th>
+                                    <th>छोड़े गए</th>
+                                </tr>
+                            </thead>
+                            <tbody id="res-diff-table-body">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Complete 100 Question Review List -->
+                <div class="topic-card">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <h3 class="text-lg font-bold"><i class="fa-solid fa-list-check text-emerald-500"></i> सम्पूर्ण 100 प्रश्नों की उत्तर समीक्षा</h3>
+                        <div class="flex gap-2">
+                            <button class="review-filter-btn active" onclick="filterReviewList('all', this)">सभी (100)</button>
+                            <button class="review-filter-btn" onclick="filterReviewList('correct', this)">सही</button>
+                            <button class="review-filter-btn" onclick="filterReviewList('wrong', this)">गलत</button>
+                            <button class="review-filter-btn" onclick="filterReviewList('skipped', this)">छोड़े गए</button>
+                        </div>
+                    </div>
+
+                    <div id="res-review-container">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-4 mt-6">
+                    <button class="nav-btn" onclick="closeQuizOverlay()" style="background:var(--bg-card-alt); color:var(--text-main); border:1px solid var(--border-strong); padding:10px 20px;">
+                        <i class="fa-solid fa-house"></i> मुख्य पृष्ठ
+                    </button>
+                    <button class="nav-btn" onclick="startSubjectQuiz(quizState.subjectKey)" style="background:var(--accent-color); border:none; padding:10px 24px; font-weight:700;">
+                        <i class="fa-solid fa-rotate-right"></i> पुनः क्विज़ दें
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JavaScript Files -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/quiz-data.js"></script>
+    <script src="./assets/js/quiz-engine.js"></script>
+</body>
+</html>

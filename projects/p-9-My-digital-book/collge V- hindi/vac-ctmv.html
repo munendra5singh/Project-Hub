@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मूल्य वर्धित पाठ्यक्रम — CTMV | बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर मूल्य वर्धित पाठ्यक्रम (VAC): संस्कृति, परंपराएं एवं नैतिक मूल्य (CTMV)। संस्कृति बनाम सभ्यता, संवैधानिक मूल्य, वसुधैव कुटुंबकम, निष्काम कर्म एवं डिजिटल नैतिकता।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="vac">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">मूल्य वर्धित पाठ्यक्रम — VAC CTMV</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> पाठ्य सामग्री</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> परीक्षा विशेष</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('vac-ctmv', 'VAC — CTMV')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#vac">VAC</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">संस्कृति, परंपराएं एवं नैतिक मूल्य (CTMV)</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: भारतीय संस्कृति</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 संस्कृति बनाम सभ्यता</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 भारतीय विरासत की मुख्य विशेषताएं</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: नैतिक मूल्य</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 सर्वभौमिक नैतिक मूल्य (सत्य, अहिंसा, करुणा)</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 वसुधैव कुटुंबकम एवं निष्काम कर्म</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 3: संवैधानिक मूल्य</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 संविधान की प्रस्तावना एवं मौलिक कर्तव्य</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 4: डिजिटल नैतिकता</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 डिजिटल नैतिकता एवं साइबर व्यवहार</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>परीक्षा विशेष अनुभाग</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-flashcards" class="toc-link">त्वरित पुनरीक्षण फ्लैशकार्ड</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">अभ्यास प्रश्न (MCQs)</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-building-columns"></i> मूल्य वर्धित पाठ्यक्रम (VAC)</div>
+                <h1>संस्कृति, परंपराएं एवं नैतिक मूल्य (CTMV)</h1>
+                <p>
+                    यह पाठ्यपुस्तक भारतीय संस्कृति एवं सभ्यता के अंतर, सर्वभौमिक नैतिक मूल्यों (सत्य, अहिंसा, करुणा), 'वसुधैव कुटुंबकम', श्रीमद्भगवद्गीता के निष्काम कर्म सिद्धांत, भारतीय संविधान की प्रस्तावना में निहित मूल्यों (अनुच्छेद 51A मौलिक कर्तव्य) तथा आधुनिक युग में डिजिटल नैतिकता (Cyber Ethics) का विस्तृत अध्ययन प्रस्तुत करती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">संस्कृति एवं सभ्यता</span>
+                        <span class="stat-label">आंतरिक मूल्य बनाम बाह्य भौतिक साधन</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">वसुधैव कुटुंबकम</span>
+                        <span class="stat-label">संपूर्ण विश्व एक परिवार का सिद्धांत</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">डिजिटल नैतिकता</span>
+                        <span class="stat-label">साइबर व्यवहार एवं निजता सुरक्षा</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: INDIAN CULTURE AND HERITAGE                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>भारतीय संस्कृति एवं सभ्यता</h2>
+                </div>
+
+                <!-- 1.1 Culture vs Civilization -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>संस्कृति बनाम सभ्यता (Culture vs. Civilization)</span>
+                    </div>
+
+                    <p>
+                        मैकाइवर एवं पेज के अनुसार, <strong>"संस्कृति वह है जो हम हैं, जबकि सभ्यता वह है जिसका हम उपयोग करते हैं।"</strong>
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>मापदंड</th>
+                                    <th>संस्कृति (Culture)</th>
+                                    <th>सभ्यता (Civilization)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>प्रकृति</strong></td>
+                                    <td>आंतरिक, मानसिक एवं आध्यात्मिक मूल्य।</td>
+                                    <td>बाह्य, भौतिक एवं तकनीकी साधन।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>प्रगति</strong></td>
+                                    <td>संस्कृति का हस्तांतरण प्रयास साध्य है।</td>
+                                    <td>सभ्यता की तकनीकें तेजी से प्रसारित होती हैं।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 Heritage Features -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>भारतीय सांस्कृतिक विरासत की विशेषताएं</span>
+                    </div>
+                    <p>
+                        भारतीय संस्कृति की मुख्य विशेषताएं हैं: प्राचीनता एवं निरंतरता, विविधता में एकता, सहिष्णुता, सर्वांगीणता, तथा आध्यात्मिक एवं भौतिक जीवन का संतुलन।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: MORAL VALUES & ETHICAL PHILOSOPHY                                  -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>नैतिक मूल्य एवं दर्शन</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>सर्वभौमिक नैतिक मूल्य: सत्य, अहिंसा एवं करुणा</span>
+                    </div>
+                    <p>
+                        महात्मा गांधी के अनुसार सत्य ही ईश्वर है। अहिंसा केवल शारीरिक हिंसा न करना नहीं है, बल्कि मन, वचन और कर्म से किसी को कष्ट न पहुँचाना है।
+                    </p>
+                </div>
+
+                <!-- 2.2 Vasudhaiva Kutumbakam -->
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.2</span>
+                        <span>वसुधैव कुटुंबकम एवं निष्काम कर्म</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> महाउपनिषद से मूल श्लोक:</h4>
+                        <p class="text-sm">
+                            <em>"अयं निजः परो वेति गणना लघुचेतसाम्। उदारचरितानां तु वसुधैव कुटुम्बकम्॥"</em><br>
+                            अर्थात्: 'यह मेरा है और वह पराया है'— ऐसी सोच संकीर्ण मन वालों की होती है। उदार हृदय वाले व्यक्तियों के लिए तो संपूर्ण पृथ्वी ही एक परिवार है।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: CONSTITUTIONAL VALUES                                              -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 3</span>
+                    <h2>संवैधानिक मूल्य एवं मौलिक कर्तव्य</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>संविधान की प्रस्तावना एवं अनुच्छेद 51A के मौलिक कर्तव्य</span>
+                    </div>
+                    <p>
+                        भारतीय संविधान की प्रस्तावना <strong>न्याय, स्वतंत्रता, समता और बंधुता</strong> के आदर्शों को स्थापित करती है। अनुच्छेद 51A के तहत नागरिकों के लिए 11 मौलिक कर्तव्य निर्धारित किए गए हैं जिनमें वैज्ञानिक दृष्टिकोण विकसित करना एवं पर्यावरण की रक्षा करना प्रमुख हैं।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: DIGITAL ETHICS                                                     -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 4</span>
+                    <h2>डिजिटल नैतिकता (Digital Ethics) एवं साइबर व्यवहार</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>साइबर नैतिकता, निजता सुरक्षा एवं फेक न्यूज से बचाव</span>
+                    </div>
+                    <p>
+                        डिजिटल युग में सोशल मीडिया पर जिम्मेदार व्यवहार, दूसरों की निजता (Privacy) का सम्मान करना, कॉपीराइट का पालन करना तथा फेक न्यूज को फैलने से रोकना प्रत्येक नागरिक का डिजिटल कर्तव्य है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">परीक्षा विशेष</span>
+                    <h2>परीक्षा प्रश्न बैंक एवं पुनरीक्षण उपकरण</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> त्वरित पुनरीक्षण फ्लैशकार्ड</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">भारतीय संविधान के किस अनुच्छेद में मौलिक कर्तव्यों (Fundamental Duties) का उल्लेख है?</div>
+                            <div class="back">अनुच्छेद 51A (Article 51A - भाग IV-A)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">श्रीमद्भगवद्गीता के अनुसार 'निष्काम कर्म' का क्या अर्थ है?</div>
+                            <div class="back">फल की आसक्ति के बिना कर्तव्य का पालन करना।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">'वसुधैव कुटुंबकम' का विचार किस ग्रंथ से लिया गया है?</div>
+                            <div class="back">महाउपनिषद (Maha Upanishad)।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> अभ्यास प्रश्न (MCQs)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">प्र1. "संस्कृति वह है जो हम हैं, और सभ्यता वह है जिसका हम उपयोग करते हैं"— यह कथन किस समाजशास्त्री का है?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-vac-1')">क) मैकाइवर एवं पेज</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-vac-1')">ख) कार्ल मार्क्स</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-vac-1')">ग) महात्मा गांधी</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-vac-1')">घ) स्वामी विवेकानंद</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-vac-1">
+                                <strong>स्पष्टीकरण:</strong> मैकाइवर एवं पेज ने संस्कृति और सभ्यता के बीच यह प्रसिद्ध भेद प्रतिपादित किया था।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। मूल्य वर्धित पाठ्यक्रम (VAC CTMV)।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv" selected>VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

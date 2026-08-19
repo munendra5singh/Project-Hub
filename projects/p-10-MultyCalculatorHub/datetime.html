@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronos Studio — Ultimate Time Engine & Analytics Dashboard</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Course Hub | Date-Time Calculator">
+  <meta property="og:description" content="Upgrade your skills with 100% free and verified online course links.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/munendra5singh/FreeCourseHub/main/preview.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/main.css">
+</head>
+<body data-theme="dark">
+
+  <div id="site-header-root"></div>
+
+  <div class="sticky-header-container">
+    <div class="sticky-header-wrapper">
+      <div class="header-left-cluster">
+        <button class="action-btn-node" onclick="toggleSlideDrawer(true)" aria-label="Open Navigation Drawer">☰</button>
+        <a href="#" class="brand-logo-cluster">
+          <div class="logo-vector-icon">C</div>
+          <h1>Chronos Studio</h1>
+        </a>
+      </div>
+      <div class="header-right-cluster">
+        <button class="action-btn-node" onclick="focusSearchInput()" aria-label="Focus Search Tools">🔍</button>
+        <button></button> <a href="index.html" class="action-btn-node" aria-label="Go to Home" title="Home">🏠</a></button>
+        <button class="theme-toggle action-btn-node" onclick="toggleThemeEngine()" aria-label="Toggle Interface Theme">🌓</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer-overlay-shield" id="global-drawer-shield" onclick="closeDrawerOutside(event)">
+    <div class="slide-drawer-panel" id="global-slide-drawer">
+      <div class="drawer-header-segment">
+        <h3>Chronos Navigation</h3>
+        <button class="action-btn-node" onclick="toggleSlideDrawer(false)">✕</button>
+      </div>
+      <div class="drawer-nav-container">
+        <div class="drawer-section-divider">Core Hub</div>
+        <a href="#" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">🏠 Home</a>
+        <a href="#floating-nav-panel" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">🧮 All Calculators</a>
+        <a href="#" class="drawer-nav-link" onclick="filterDrawerCategory('popular')">⭐ Popular Calculators</a>
+        <a href="#" class="drawer-nav-link" onclick="filterDrawerCategory('favorites')">❤️ Favorites</a>
+        <a href="#" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">🕒 Recently Used</a>
+        
+        <div class="drawer-section-divider">Calculators Matrix</div>
+        <a href="#m1" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">📅 Date Calculators</a>
+        <a href="#m2" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">⏰ Time Calculators</a>
+        <a href="#m8" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">🎂 Age Calculator</a>
+        <a href="#m9" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">🌍 Time Zone Tools</a>
+        <a href="#m6" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">📈 Business Day Calculator</a>
+        <a href="#m10" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">🚀 Leap Year Calculator</a>
+        
+        <div class="drawer-section-divider">Preferences</div>
+        <a href="#" class="drawer-nav-link" onclick="toggleSettingsModal(true); toggleSlideDrawer(false);">⚙️ Settings</a>
+        <a href="#" class="drawer-nav-link" onclick="toggleThemeEngine(); toggleSlideDrawer(false);">🌙 Dark Mode</a>
+        <a href="#" class="drawer-nav-link" onclick="alert('Language localizations are optimized natively.')">🌐 Language</a>
+        <a href="#" class="drawer-nav-link" onclick="alert('Constructive feedback metrics queued into stream!')">📢 Feedback</a>
+        <a href="#" class="drawer-nav-link" onclick="alert('Chronos Help documentation active via specs panels.')">❓ Help</a>
+        <a href="#" class="drawer-nav-link" onclick="toggleSlideDrawer(false)">ℹ️ About</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-modal-overlay" id="global-settings-modal" onclick="closeSettingsOutside(event)">
+    <div class="settings-card-frame">
+      <div class="settings-header-row">
+        <h3>System Preferences</h3>
+        <button class="action-btn-node" onclick="toggleSettingsModal(false)">✕</button>
+      </div>
+      <div class="settings-options-stack">
+        <div class="input-wrapper">
+          <label>Interface Theme Configuration</label>
+          <select onchange="toggleThemeEngine()">
+            <option value="dark">System Space Dark</option>
+            <option value="light">System Pure Light</option>
+          </select>
+        </div>
+        <div class="input-wrapper">
+          <label>Typography Scale Factor</label>
+          <select onchange="alert('Text optimization dynamically applied.')">
+            <option value="standard">Standard Metric (Default)</option>
+            <option value="large">High Visibility Scale</option>
+          </select>
+        </div>
+        <div class="input-wrapper">
+          <label>Animation Engine Stream</label>
+          <select onchange="alert('Motion vectors optimized.')">
+            <option value="on">Fluid Transitions Active</option>
+            <option value="off">Reduced Motion Layout</option>
+          </select>
+        </div>
+        <div class="input-wrapper">
+          <label>Diurnal Hour Mapping Layout</label>
+          <select>
+            <option value="24">ISO 24-Hour Military Matrix</option>
+            <option value="12">Standard 12-Hour Chronological</option>
+          </select>
+        </div>
+        <div class="input-wrapper">
+          <label>Calendar Metric Format</label>
+          <select>
+            <option value="yyyy-mm-dd">Standard ISO (YYYY-MM-DD)</option>
+            <option value="dd-mm-yyyy">Localized European (DD-MM-YYYY)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero-station-premium studio-container">
+    <div class="hero-badge">⚡ Next-Gen Chronometry Matrix</div>
+    <h2>Professional Date & Time Analytics Platform</h2>
+    <p>Ten precision engines architected into a seamless atomic dashboard environment for immediate temporal transformations.</p>
+    
+    <div class="hero-stats-grid">
+      <div class="hero-stat-pill">⚡ 10 Analytical Modules</div>
+      <div class="hero-stat-pill">🛡️ 100% Client-Side Fluidity</div>
+      <div class="hero-stat-pill">📱 Omni-Device Compliant</div>
+    </div>
+    
+    <div class="search-wrapper-premium">
+      <span class="search-icon-node">🔍</span>
+      <input type="text" class="search-input-premium" id="module-search-core" placeholder="Instant Search across 10 temporal tools..." oninput="filterModulesEngine()">
+    </div>
+  </section>
+
+  <div class="studio-container">
+    <nav class="floating-navigation-bar" id="floating-nav-panel">
+      <a href="#m1" class="nav-pill active" onclick="updateActiveNavPill(this)">📅 Date Difference</a>
+      <a href="#m2" class="nav-pill" onclick="updateActiveNavPill(this)">⏰ Time Difference</a>
+      <a href="#m3" class="nav-pill" onclick="updateActiveNavPill(this)">⏳ Date & Time Diff</a>
+      <a href="#m4" class="nav-pill" onclick="updateActiveNavPill(this)">➕ Add/Sub Date</a>
+      <a href="#m5" class="nav-pill" onclick="updateActiveNavPill(this)">🔍 Day Finder</a>
+      <a href="#m6" class="nav-pill" onclick="updateActiveNavPill(this)">💼 Business Days</a>
+      <a href="#m7" class="nav-pill" onclick="updateActiveNavPill(this)">⏱️ Countdown Tracker</a>
+      <a href="#m8" class="nav-pill" onclick="updateActiveNavPill(this)">🎂 Precise Age Hub</a>
+      <a href="#m9" class="nav-pill" onclick="updateActiveNavPill(this)">🌐 Time Zone Matrix</a>
+      <a href="#m10" class="nav-pill" onclick="updateActiveNavPill(this)">🚀 Leap Year Engine</a>
+    </nav>
+
+    <main class="modules-area" id="modules-housing-grid">
+
+      <section class="premium-modular-row" id="m1" data-search-tags="date difference calendar gap days analytics popular">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 01</div>
+              <h3>Date Difference</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m1')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Computes direct comprehensive calendar distance vectors across discrete target dates.</p>
+          <button class="btn-info" onclick="toggleHelp('m1-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m1-help">यह मॉड्यूल किन्हीं दो तारीखों के बीच का कुल समय निकालता है। यह आपको साल, महीने, दिन के साथ-साथ कुल दिनों का पूरा ब्रेकडाउन दिखाता है।</div>
+          
+          <form onsubmit="event.preventDefault(); calcDateDiff();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m1-start">Start Date Vector</label>
+                <input type="date" id="m1-start" required onchange="calcDateDiff()">
+              </div>
+              <div class="input-wrapper">
+                <label for="m1-end">End Date Vector</label>
+                <input type="date" id="m1-end" required onchange="calcDateDiff()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Execute Vector Analysis">
+              <button type="button" class="btn-secondary" onclick="resetModule('m1')">Reset Matrix</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m1-empty"><div class="dashboard-empty-state-icon">📊</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m1-res"></div>
+          <div class="result-action-bar">
+            <button class="btn-action-pill" onclick="copyResultStream('m1-res')">📋 Copy</button>
+            <button class="btn-action-pill" onclick="window.print()">🖨️ Print</button>
+            <button class="btn-action-pill" onclick="alert('Vector document processing initialized.')">📥 PDF</button>
+          </div>
+          <div class="smart-insights-deck-card" id="m1-insight-box" style="display:none;">
+            <h5>💡 Chronos Live Insights</h5>
+            <span id="m1-insight-txt">Target metrics parsed fully across calendar matrices.</span>
+          </div>
+          <div class="how-it-works-trace" id="m1-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Δ = Target End Date - Target Start Date</span>
+            Parsed directly using GREATER leap adjustment algorithms factoring variable month offsets precisely.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m1-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Date Vector Analytics</div>
+            <div class="wrapped-main-stat" id="m1-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m1-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m1-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m2" data-search-tags="time difference 24h hours clock dynamic minutes duration popular">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 02</div>
+              <h3>Time Difference (24H Engine)</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m2')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Maps delta computations inside standard diurnal bounds executing exact cross-over metrics.</p>
+          <button class="btn-info" onclick="toggleHelp('m2-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m2-help">यह मॉड्यूल एक ही दिन के दो समय के बीच का सटीक अंतर निकालता है। नेटिव इनपुट का उपयोग करने के कारण यह AM/PM का आंतरिक मिलान पूरी शुद्धता से करता.</div>
+          
+          <form onsubmit="event.preventDefault(); calcTimeDiff();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m2-start">Inception Timestamp</label>
+                <input type="time" id="m2-start" required onchange="calcTimeDiff()">
+              </div>
+              <div class="input-wrapper">
+                <label for="m2-end">Termination Timestamp</label>
+                <input type="time" id="m2-end" required onchange="calcTimeDiff()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Compute Time Delta">
+              <button type="button" class="btn-secondary" onclick="resetModule('m2')">Reset Module</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m2-empty"><div class="dashboard-empty-state-icon">⏰</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m2-res"></div>
+          <div class="result-action-bar">
+            <button class="btn-action-pill" onclick="copyResultStream('m2-res')">📋 Copy</button>
+            <button class="btn-action-pill" onclick="window.print()">🖨️ Print</button>
+            <button class="btn-action-pill" onclick="alert('Vector document processing initialized.')">📥 PDF</button>
+          </div>
+          <div class="smart-insights-deck-card" id="m2-insight-box" style="display:none;">
+            <h5>💡 Chronos Live Insights</h5>
+            <span id="m2-insight-txt">Metrics mapped across diurnal cycle segments.</span>
+          </div>
+          <div class="how-it-works-trace" id="m2-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Total Minutes = (H₂ × 60 + M₂) - (H₁ × 60 + M₁)</span>
+            Employs automatic mod-24h inversion adjustments if negative boundary crossing indices activate.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m2-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Time Delta Vector</div>
+            <div class="wrapped-main-stat" id="m2-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m2-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m2-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m3" data-search-tags="date and time difference exact high precision tracking timestamp">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 03</div>
+              <h3>Exact Date & Time Difference</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m3')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">High-precision macro-interval matrix analysis crossing longitudinal day/time vectors.</p>
+          <button class="btn-info" onclick="toggleHelp('m3-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m3-help">जब आपको तारीख और समय दोनों को मिलाकर एक साथ बड़े टाइम गैप का सटीक कैलकुलेशन करना हो, तब इसका उपयोग करें।</div>
+          
+          <form onsubmit="event.preventDefault(); calcDateTimeDiff();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m3-start">Start Timestamp Matrix</label>
+                <input type="datetime-local" id="m3-start" required onchange="calcDateTimeDiff()">
+              </div>
+              <div class="input-wrapper">
+                <label for="m3-end">End Timestamp Matrix</label>
+                <input type="datetime-local" id="m3-end" required onchange="calcDateTimeDiff()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Execute Combined Matrix">
+              <button type="button" class="btn-secondary" onclick="resetModule('m3')">Reset Module</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m3-empty"><div class="dashboard-empty-state-icon">⏳</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m3-res"></div>
+          <div class="result-action-bar">
+            <button class="btn-action-pill" onclick="copyResultStream('m3-res')">📋 Copy</button>
+            <button class="btn-action-pill" onclick="window.print()">🖨️ Print</button>
+            <button class="btn-action-pill" onclick="alert('Vector document processing initialized.')">📥 PDF</button>
+          </div>
+          <div class="smart-insights-deck-card" id="m3-insight-box" style="display:none;">
+            <h5>💡 Chronos Live Insights</h5>
+            <span id="m3-insight-txt">Complex deep datetime arrays parsed and plotted smoothly.</span>
+          </div>
+          <div class="how-it-works-trace" id="m3-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Δt = Abs(Timestamp₂ - Timestamp₁) in ms</span>
+            Unpacks aggregate Unix Epoch milliseconds linearly down into standardized metric intervals.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m3-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Absolute Datetime Matrix</div>
+            <div class="wrapped-main-stat" id="m3-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m3-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m3-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m4" data-search-tags="add subtract date transformation shift timeline future past weeks">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 04</div>
+              <h3>Add or Subtract Date Calculator</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m4')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Shifts historical or future base coordinates dynamically utilizing variable scalar parameters.</p>
+          <button class="btn-info" onclick="toggleHelp('m4-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m4-help">किसी खास तारीख में कुछ दिन, महीने या साल आगे बढ़ाना (Add) या पीछे ले जाना (Subtract) हो, तो यह मॉड्यूल नई तारीख बता देता है।</div>
+          
+          <form onsubmit="event.preventDefault(); addSubtractDateEngine();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m4-date">Base Timeline Vector</label>
+                <input type="date" id="m4-date" required onchange="addSubtractDateEngine()">
+              </div>
+              <div class="input-wrapper">
+                <label for="m4-operation">Direction Operator</label>
+                <select id="m4-operation" onchange="addSubtractDateEngine()">
+                  <option value="add">Add Directional Scalar (+)</option>
+                  <option value="sub">Subtract Directional Scalar (-)</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid-inputs-row-mesh">
+              <div class="input-wrapper"><label for="m4-y">Yrs</label><input type="number" id="m4-y" value="0" min="0" oninput="addSubtractDateEngine()"></div>
+              <div class="input-wrapper"><label for="m4-m">Mths</label><input type="number" id="m4-m" value="0" min="0" oninput="addSubtractDateEngine()"></div>
+              <div class="input-wrapper"><label for="m4-w">Wks</label><input type="number" id="m4-w" value="0" min="0" oninput="addSubtractDateEngine()"></div>
+              <div class="input-wrapper"><label for="m4-d">Dys</label><input type="number" id="m4-d" value="0" min="0" oninput="addSubtractDateEngine()"></div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Transform Coordinate">
+              <button type="button" class="btn-secondary" onclick="resetModule('m4')">Reset Transformer</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m4-empty"><div class="dashboard-empty-state-icon">➕</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m4-res"></div>
+          <div class="result-action-bar">
+            <button class="btn-action-pill" onclick="copyResultStream('m4-res')">📋 Copy</button>
+            <button class="btn-action-pill" onclick="window.print()">🖨️ Print</button>
+            <button class="btn-action-pill" onclick="alert('Vector document processing initialized.')">📥 PDF</button>
+          </div>
+          <div class="how-it-works-trace" id="m4-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">New Coordinate = Base Date ± (Y, M, W×7 + D)</span>
+            Native system clock pointer offset mutation logic executing overflow handling flawlessly.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m4-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Displacement Vector Output</div>
+            <div class="wrapped-main-stat" id="m4-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m4-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m4-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m5" data-search-tags="day finder weekly target historical future scan identify day of week">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 05</div>
+              <h3>Day Finder Engine</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m5')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Scans deep historical calendar streams instantly to isolate localized day anchors.</p>
+          <button class="btn-info" onclick="toggleHelp('m5-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m5-help">कोई भी तारीख इतिहास की हो या भविष्य की, उस दिन कौन सा वार था, यह ढूंढने के लिए इसका इस्तेमाल करें।</div>
+          
+          <form onsubmit="event.preventDefault(); findDayEngine();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m5-date">Target Scanning Vector</label>
+                <input type="date" id="m5-date" required onchange="findDayEngine()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Isolate Weekday Anchor">
+              <button type="button" class="btn-secondary" onclick="resetModule('m5')">Reset Scanner</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m5-empty"><div class="dashboard-empty-state-icon">🔍</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m5-res"></div>
+          <div class="result-action-bar">
+            <button class="btn-action-pill" onclick="copyResultStream('m5-res')">📋 Copy</button>
+            <button class="btn-action-pill" onclick="window.print()">🖨️ Print</button>
+          </div>
+          <div class="how-it-works-trace" id="m5-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Index Mapping = Date.prototype.getDay() Map Array</span>
+            Converts target structural points directly into localized textual indexes natively.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m5-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Weekday Array Mapping</div>
+            <div class="wrapped-main-stat" id="m5-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m5-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m5-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m6" data-search-tags="business days counter algorithmic workdays weekends excluding complexity O(1) popular">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 06</div>
+              <h3>Business Days Counter</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m6')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Calculates professional localized corporate intervals deploying an ultra-fast O(1) methodology.</p>
+          <button class="btn-info" onclick="toggleHelp('m6-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m6-help">दो तारीखों के बीच शनिवार और रविवार (Weekends) को छोड़कर कुल कितने कामकाजी दिन हैं, यह O(1) एल्गोरिदम से निकालता है।</div>
+          
+          <form onsubmit="event.preventDefault(); calcBusinessDays();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m6-start">Corporate Shift Opening</label>
+                <input type="date" id="m6-start" required onchange="calcBusinessDays()">
+              </div>
+              <div class="input-wrapper">
+                <label for="m6-end">Corporate Shift Closure</label>
+                <input type="date" id="m6-end" required onchange="calcBusinessDays()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Compute Net Settlement Days">
+              <button type="button" class="btn-secondary" onclick="resetModule('m6')">Reset Counter</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m6-empty"><div class="dashboard-empty-state-icon">💼</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m6-res"></div>
+          <div class="result-action-bar">
+            <button class="btn-action-pill" onclick="copyResultStream('m6-res')">📋 Copy</button>
+            <button class="btn-action-pill" onclick="window.print()">🖨️ Print</button>
+          </div>
+          <div class="how-it-works-trace" id="m6-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Workdays = (Full Weeks × 5) + Remainder Scalar Boundary Checks</span>
+            Instantly isolates weekend data sequences avoiding sluggish loops via constant scaling matrices.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m6-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Net Settlement Workdays</div>
+            <div class="wrapped-main-stat" id="m6-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m6-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m6-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m7" data-search-tags="live target countdown tracker event tracking ticker seconds precision">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 07</div>
+              <h3>Live Target Countdown Tracker</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m7')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Binds high-precision active browser polling engines onto designated milestone arrays.</p>
+          <button class="btn-info" onclick="toggleHelp('m7-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m7-help">भविष्य के किसी इवेंट का समय सेट करें, यह सेकंड-दर-सेकंड लाइव उल्टी गिनती चालू कर देगा।</div>
+          
+          <form onsubmit="event.preventDefault(); initiateCountdown();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m7-target">Target Future Coordinates</label>
+                <input type="datetime-local" id="m7-target" required onchange="initiateCountdown()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Launch Live Tracker Stream">
+              <button type="button" class="btn-secondary" onclick="stopCountdownEngine()">Kill Engine Stream</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m7-empty"><div class="dashboard-empty-state-icon">⏱️</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m7-res"></div>
+          <div class="how-it-works-trace" id="m7-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Ticker Refresh Distance = Target Epoch - Current Client Epoch</span>
+            Recomputes system delta matrices every 1000ms updating downstream visual cards actively.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m7-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Target Dynamic Countdown</div>
+            <div class="wrapped-main-stat" id="m7-snap-main">T-MINUS</div>
+            <div class="wrapped-sub-metrics" id="m7-snap-sub">Active tracking stream initialization awaiting matrix endpoints</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m7-snap-sub')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m8" data-search-tags="precise age station birthday metrics birth tracking history popular">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 08</div>
+              <h3>Precise Age Station</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m8')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Extracts micro-detailed biography vector points relative to current planetary orientation coordinates.</p>
+          <button class="btn-info" onclick="toggleHelp('m8-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m8-help">अपनी जन्मतिथि दर्ज करें। यह आज की तारीख तक आपकी सटीक उम्र सालों, महीनों और दिनों के सटीक ब्रेकडाउन में दिखाता है।</div>
+          
+          <form onsubmit="event.preventDefault(); calculateAgeEngine();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m8-dob">Inception Metric (Date of Birth)</label>
+                <input type="date" id="m8-dob" required onchange="calculateAgeEngine()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Extract Chrono Age Elements">
+              <button type="button" class="btn-secondary" onclick="resetModule('m8')">Reset Station</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m8-empty"><div class="dashboard-empty-state-icon">🎂</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m8-res"></div>
+          <div class="result-action-bar">
+            <button class="btn-action-pill" onclick="copyResultStream('m8-res')">📋 Copy</button>
+            <button class="btn-action-pill" onclick="window.print()">🖨️ Print</button>
+          </div>
+          <div class="how-it-works-trace" id="m8-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Vector Node Age Array = Current Pointer Matrix - Inception Coordinates</span>
+            Factors variable historical constraints, month indexes, and planetary tilt parameters cleanly.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m8-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Biographical Matrix Vector</div>
+            <div class="wrapped-main-stat" id="m8-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m8-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m8-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m9" data-search-tags="global time zone matrix desk conversion international zones mapping ist est gmt jst">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 09</div>
+              <h3>Global Time Zone Matrix Desk</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m9')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Maps localized event nodes outward across major global timezone arrays concurrently.</p>
+          <button class="btn-info" onclick="toggleHelp('m9-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m9-help">किसी एक टाइमज़ोन का समय डालें, यह उसे दुनिया के मुख्य देशों के समय में एक साथ बदल कर डिस्प्ले करेगा।</div>
+          
+          <form onsubmit="event.preventDefault(); convertTimeZonesEngine();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m9-time">Source Datetime Coordinate</label>
+                <input type="datetime-local" id="m9-time" required onchange="convertTimeZonesEngine()">
+              </div>
+              <div class="input-wrapper">
+                <label for="m9-zone">Origin Zone Identification</label>
+                <select id="m9-zone" onchange="convertTimeZonesEngine()">
+                  <option value="Asia/Kolkata">India (IST Framework)</option>
+                  <option value="America/New_York">USA (EST Framework)</option>
+                  <option value="Europe/London">UK (GMT/BST Framework)</option>
+                  <option value="Asia/Tokyo">Japan (JST Framework)</option>
+                </select>
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Map Global Conversion Matrix">
+              <button type="button" class="btn-secondary" onclick="resetModule('m9')">Reset Desk</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m9-empty"><div class="dashboard-empty-state-icon">🌐</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m9-res"></div>
+          <div class="how-it-works-trace" id="m9-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Intl.DateTimeFormat Formatting Options Applied</span>
+            Evaluates system timezone offsets dynamically tracking strict internal geographical records safely.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m9-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Global Geo Mapping Node</div>
+            <div class="wrapped-main-stat" id="m9-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m9-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m9-snap-sub')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="premium-modular-row" id="m10" data-search-tags="astronomical leap year engine solar cycle orbit calculation check calendar">
+        <div class="panel-input-studio">
+          <div class="card-top-identity-row">
+            <div class="identity-left-stack">
+              <div class="studio-step-tag">Engine 10</div>
+              <h3>Astronomical Leap Year Engine</h3>
+            </div>
+            <button class="card-favorite-toggle" onclick="toggleFavoriteElement('m10')" aria-label="Add to Favorites">⭐</button>
+          </div>
+          <p class="tool-description">Scans targeted orbital year segments matching rigorous solar correction variables.</p>
+          <button class="btn-info" onclick="toggleHelp('m10-help')" style="margin: 12px 0; align-self:flex-start;">ℹ️ System Specs</button>
+          <div class="info-panel" id="m10-help">कोई भी साल टाइप करें, यह जांच करके तुरंत बताएगा कि वह साल लीप वर्ष है या सामान्य वर्ष।</div>
+          
+          <form onsubmit="event.preventDefault(); checkLeapYearEngine();">
+            <div class="grid-inputs-vertical">
+              <div class="input-wrapper">
+                <label for="m10-year">Orbital Year Point</label>
+                <input type="number" id="m10-year" placeholder="e.g. 2026" required oninput="checkLeapYearEngine()">
+              </div>
+            </div>
+            <div class="action-group-vertical">
+              <input type="submit" class="btn-primary" value="Validate Leap Index">
+              <button type="button" class="btn-secondary" onclick="resetModule('m10')">Reset Engine</button>
+            </div>
+          </form>
+        </div>
+        
+        <div class="panel-dashboard-analytics">
+          <div class="panel-title-badge"><h4>📊 Live Result Dashboard</h4></div>
+          <div class="dashboard-empty-state" id="m10-empty"><div class="dashboard-empty-state-icon">🚀</div>Input data to initialize visualization arrays</div>
+          <div class="result-display" id="m10-res"></div>
+          <div class="how-it-works-trace" id="m10-trace-box" style="display:none;">
+            <h5>⚡ Operational Calculation Flow Trace</h5>
+            <span class="trace-formula">Boolean = (Y % 4 === 0 && Y % 100 !== 0) || (Y % 400 === 0)</span>
+            Matches standardized planetary solar correction equations perfectly.
+          </div>
+        </div>
+
+        <div class="panel-snapshot-share-studio">
+          <div class="panel-title-badge"><h4>📷 Wrapped Snapshot Studio</h4></div>
+          <div class="social-wrapped-snapshot-card" id="m10-wrapped-card">
+            <div class="wrapped-watermark">CHRONOS</div>
+            <div class="wrapped-tool-tag">Orbital Intercalary Verification</div>
+            <div class="wrapped-main-stat" id="m10-snap-main">—</div>
+            <div class="wrapped-sub-metrics" id="m10-snap-sub">Awaiting temporal vector data parameters</div>
+            <div class="wrapped-footer-branding">Chronos Engine Suite v3.2 • Secure Client Node</div>
+          </div>
+          <div class="social-share-mesh-grid">
+            <button class="btn-share-node" onclick="copyRawDataFromElement('m10-snap-main')">📋 Copy Data</button>
+            <button class="btn-share-node" onclick="alert('Image Generation Ready for Export!')">📷 Save PNG</button>
+            <button class="btn-share-node" onclick="alert('Routing Array Stream directly to Web Share Protocol')">🔗 Share Link</button>
+            <button class="btn-share-node" onclick="alert('Redirecting payload array to X network...')">🐦 Post X</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="floating-hub-controls">
+    <button class="hub-action-trigger" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">⬆</button>
+    <button class="hub-action-trigger" onclick="focusSearchInput()" aria-label="Jump to search field">🔍</button>
+    <button class="hub-action-trigger" onclick="window.location.href='#'" aria-label="Go to top homepage context">🏠</button>
+  </div>
+
+
+
+  <script src="js/pages/datetime-engine.js"></script>
+  <div id="site-footer-root"></div>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
+ 
+  
+</body>
+</html>

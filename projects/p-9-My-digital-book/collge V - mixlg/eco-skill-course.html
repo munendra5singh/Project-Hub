@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis & Statistical Methods | B.A. 5th Semester Skill Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Economics Skill Course: Data Analysis & Statistical Methods. Solved numericals, Mean, Median, Mode, SD, Fisher Index.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Economics Skill Course — Statistics</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-skill', 'Economics Skill Course')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">Economics</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Data Analysis & Statistical Methods</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Data & Sampling</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Primary vs Secondary Data</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 Sampling Techniques</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Data Presentation</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Tabulation Rules</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 Histogram, Ogive & Charts</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Averages & Dispersion</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Mean, Median & Mode</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Standard Deviation & CV</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Index Numbers & Report</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Laspeyres, Paasche & Fisher</a></li>
+                    <li><a href="#u4-2" class="toc-link">4.2 Report Writing Structure</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-numericals" class="toc-link">Solved Practice Numericals</a></li>
+                    <li><a href="#sec-qa-long" class="toc-link">Long & Short Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-briefcase"></i> Economics Skill Course</div>
+                <h1>Data Analysis & Statistical Methods (आँकड़ा विश्लेषण एवं सांख्यिकी)</h1>
+                <p class="hindi-text">
+                    यह पाठ्यपुस्तक आँकड़ा संग्रहण (Primary & Secondary Data), यादृच्छिक प्रतिचयन (Sampling), सारणीयन (Tabulation), मध्यमान, मध्यका व बहुलक (Mean, Median, Mode), मानक विचलन (Standard Deviation), फिशर का आदर्श सूचकांक (Fisher's Ideal Index) तथा आर्थिक रिपोर्ट लेखन को हल सहित आंकिक उदाहरणों (Solved Numericals) द्वारा प्रस्तुत करती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">Solved Numericals</span>
+                        <span class="stat-label">Mean, SD & Fisher Index</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Fisher Ideal Index</span>
+                        <span class="stat-label">Time & Factor Reversal Tests</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Report Writing</span>
+                        <span class="stat-label">APA/MLA Citation Standards</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: DATA COLLECTION AND SAMPLING TECHNIQUES                            -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Data Collection and Sampling Techniques</h2>
+                </div>
+
+                <!-- 1.1 Data Classification -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Primary vs Secondary Data (प्राथमिक बनाम द्वितीयक आँकड़े)</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>तुलना बिंदु</th>
+                                    <th>प्राथमिक आँकड़े (Primary Data)</th>
+                                    <th>द्वितीयक आँकड़े (Secondary Data)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>मौलिकता (Originality)</strong></td>
+                                    <td>मौलिक; अनुसंधानकर्ता द्वारा स्वयं प्रथम बार एकत्रित।</td>
+                                    <td>गैर-मौलिक; पूर्व में किसी अन्य संस्था द्वारा एकत्रित।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>स्रोत (Sources)</strong></td>
+                                    <td>प्रत्यक्ष साक्षात्कार, प्रश्नावली, अवलोकन, अनुसूची।</td>
+                                    <td>RBI बुलेटिन, जनगणना रिपोर्ट, NITI Aayog रिपोर्ट, शोध पत्रिकाएँ।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>लागत व समय</strong></td>
+                                    <td>समय, धन तथा श्रम की अधिक आवश्यकता।</td>
+                                    <td>अपेक्षाकृत सस्ते व कम समय में उपलब्ध।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 Sampling Techniques -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>Sampling Techniques: Probability vs Non-Probability (प्रतिचयन तकनीकें)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        समग्र (Population) के प्रत्येक घटक का अध्ययन करने के स्थान पर एक प्रतिनिधि अंश (Sample) का चयन करना प्रतिचयन कहलाता है।
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-network-wired"></i> Sampling Classification:</h5>
+                        <ul class="hindi-text text-sm" style="padding-left: 20px;">
+                            <li><strong>संभाव्यता प्रतिचयन (Probability Sampling):</strong> सरल यादृच्छिक (Simple Random), स्तरित (Stratified), क्रमबद्ध (Systematic), गुच्छ (Cluster)। प्रत्येक इकाई का चुने जाने का समान अवसर होता है।</li>
+                            <li><strong>गैर-संभाव्यता प्रतिचयन (Non-Probability Sampling):</strong> सविचार (Purposive), कोटा (Quota), सुविधापूर्ण (Convenience), स्नोबॉल (Snowball)।</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: DATA PRESENTATION AND TABULATION                                   -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit II</span>
+                    <h2>Data Presentation and Tabulation</h2>
+                </div>
+
+                <!-- 2.1 Tabulation Rules -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>Parts of a Statistical Table (सांख्यिकीय सारणी के अंग)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        एक आदर्श सारणी में 8 प्रमुख अंग होते हैं: 1. सारणी संख्या, 2. शीर्षक (Title), 3. मुख्य टिप्पणी (Head Note), 4. उप-शीर्षक / स्टब (Stubs - पंक्तियों के नाम), 5. कैप्शन (Captions - स्तंभों के नाम), 6. कलेवर (Body - मूल आँकड़े), 7. पाद टिप्पणी (Footnote), 8. स्रोत (Source Note)।
+                    </p>
+                </div>
+
+                <!-- 2.2 Ogive Curves -->
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.2</span>
+                        <span>Histogram and Ogive Curves (आयतचित्र एवं तोरण वक्र)</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-chart-area"></i> Ogive Curves & Median Finding</h4>
+                        <p class="hindi-text text-sm">
+                            'कम से कम' (Less than Ogive) तथा 'अधिक से अधिक' (More than Ogive) संचयी बारंबारता वक्रों का <strong>प्रतिच्छेदन बिंदु (Point of Intersection)</strong> x-अक्ष पर <strong>मध्यका (Median)</strong> को दर्शाता है।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: MEASURES OF CENTRAL TENDENCY AND DISPERSION                        -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit III</span>
+                    <h2>Measures of Central Tendency and Dispersion</h2>
+                </div>
+
+                <!-- 3.1 Mean, Median, Mode Formulas & Numericals -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>Central Tendency Formulas (केंद्रीय प्रवृत्ति के माप)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Continuous Series Formulas:</div>
+                        <p><strong>1. Arithmetic Mean ($\bar{X}$):</strong> \[ \bar{X} = \frac{\sum f X}{N} \quad \text{or} \quad \bar{X} = A + \frac{\sum f d'}{N} \times i \] </p>
+                        <p class="mt-2"><strong>2. Median ($M$):</strong> \[ M = L + \left( \frac{\frac{N}{2} - c.f.}{f} \right) \times i \]</p>
+                        <p class="mt-2"><strong>3. Mode ($Z$):</strong> \[ Z = L_1 + \left( \frac{f_1 - f_0}{2f_1 - f_0 - f_2} \right) \times i \]</p>
+                        <p class="mt-2"><strong>4. Empirical Relationship:</strong> \[ \text{Mode} = 3 \times \text{Median} - 2 \times \text{Mean} \]</p>
+                    </div>
+                </div>
+
+                <!-- 3.2 Standard Deviation & CV -->
+                <div class="topic-card" id="u3-2">
+                    <div class="topic-title">
+                        <span class="topic-number">3.2</span>
+                        <span>Standard Deviation & Coefficient of Variation - CV (मानक विचलन)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Standard Deviation ($\sigma$) & CV Formula:</div>
+                        \[ \sigma = \sqrt{\frac{\sum f (X - \bar{X})^2}{N}} = \sqrt{\frac{\sum f d^2}{N} - \left( \frac{\sum f d}{N} \right)^2} \]
+                        \[ \text{Coefficient of Variation (CV)} = \frac{\sigma}{\bar{X}} \times 100 \]
+                        <p class="text-xs text-subtle mt-1">CV जितना <strong>कम (Lower CV)</strong> होगा, आँकड़ों की समरूपता/स्थिरता उतनी ही <strong>अधिक (Higher Consistency)</strong> होगी।</p>
+                    </div>
+
+                    <!-- Solved Numerical -->
+                    <div class="qa-card" style="background-color: var(--bg-card-alt);">
+                        <div class="qa-header">
+                            <span class="qa-badge">Solved Numerical Example</span>
+                            <span>यदि दो फैक्ट्रियों के आँकड़े नीचे दिए गए हैं, तो कौन सी फैक्ट्री में मजदूरी दर में अधिक समरूपता (Consistency) है?</span>
+                        </div>
+                        <div class="hindi-text text-sm" style="padding-left: 10px;">
+                            <p><strong>Factory A:</strong> $\bar{X}_A = 500$, $\sigma_A = 25$ &nbsp;|&nbsp; <strong>Factory B:</strong> $\bar{X}_B = 600$, $\sigma_B = 36$</p>
+                            <p><strong>हल:</strong></p>
+                            <p>1. $\text{CV}_A = \frac{\sigma_A}{\bar{X}_A} \times 100 = \frac{25}{500} \times 100 = 5\%$</p>
+                            <p>2. $\text{CV}_B = \frac{\sigma_B}{\bar{X}_B} \times 100 = \frac{36}{600} \times 100 = 6\%$</p>
+                            <p class="text-xs text-subtle">चूँकि $\text{CV}_A (5\%) < \text{CV}_B (6\%)$, अतः Factory A की मजदूरी में अधिक स्थिरता/समरूपता (More Consistency) है।</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: INDEX NUMBERS AND REPORT WRITING                                   -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit IV</span>
+                    <h2>Index Numbers and Report Writing</h2>
+                </div>
+
+                <!-- 4.1 Index Number Formulas -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>Index Numbers: Laspeyres, Paasche & Fisher's Ideal Index (सूचकांक)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Index Number Formulas:</div>
+                        <p><strong>1. Laspeyres Price Index ($P_{01}^L$ - आधार वर्ष भार):</strong> \[ P_{01}^L = \frac{\sum p_1 q_0}{\sum p_0 q_0} \times 100 \]</p>
+                        <p class="mt-2"><strong>2. Paasche Price Index ($P_{01}^P$ - चालू वर्ष भार):</strong> \[ P_{01}^P = \frac{\sum p_1 q_1}{\sum p_0 q_1} \times 100 \]</p>
+                        <p class="mt-2"><strong>3. Fisher's Ideal Index ($P_{01}^F$):</strong> \[ P_{01}^F = \sqrt{P_{01}^L \times P_{01}^P} = \sqrt{\frac{\sum p_1 q_0}{\sum p_0 q_0} \times \frac{\sum p_1 q_1}{\sum p_0 q_1}} \times 100 \]</p>
+                    </div>
+
+                    <div class="definition-box mt-3">
+                        <h4><i class="fa-solid fa-award"></i> Why Fisher's Index is Called "Ideal"? (आदर्श सूचकांक)</h4>
+                        <ol class="hindi-text text-sm" style="padding-left: 20px;">
+                            <li>यह गुणोत्तर माध्य (Geometric Mean) पर आधारित है।</li>
+                            <li>यह आधार वर्ष ($q_0$) तथा चालू वर्ष ($q_1$) दोनों की मात्राओं को भार देता है।</li>
+                            <li>यह <strong>समय उत्क्रम्यता परीक्षण (Time Reversal Test: $P_{01} \times P_{10} = 1$)</strong> तथा <strong>तत्व उत्क्रम्यता परीक्षण (Factor Reversal Test: $P_{01} \times Q_{01} = \frac{\sum p_1 q_1}{\sum p_0 q_0}$)</strong> दोनों को संतुष्ट करता है।</li>
+                        </ol>
+                    </div>
+
+                    <!-- Solved Numerical on Fisher Index -->
+                    <div class="qa-card" style="background-color: var(--bg-card-alt);">
+                        <div class="qa-header">
+                            <span class="qa-badge">Solved Numerical</span>
+                            <span>यदि $\sum p_1 q_0 = 400$, $\sum p_0 q_0 = 250$, $\sum p_1 q_1 = 600$, $\sum p_0 q_1 = 375$ है, तो फिशर का सूचकांक ज्ञात कीजिए।</span>
+                        </div>
+                        <div class="hindi-text text-sm" style="padding-left: 10px;">
+                            <p><strong>हल:</strong></p>
+                            <p>1. Laspeyres $P_{01}^L = \frac{400}{250} \times 100 = 160$</p>
+                            <p>2. Paasche $P_{01}^P = \frac{600}{375} \times 100 = 160$</p>
+                            <p>3. Fisher $P_{01}^F = \sqrt{160 \times 160} = 160$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.2 Report Writing -->
+                <div class="topic-card" id="u4-2">
+                    <div class="topic-title">
+                        <span class="topic-number">4.2</span>
+                        <span>Economic Report Writing Structure (रिपोर्ट लेखन संरचना)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        एक प्रामाणिक आर्थिक शोध रिपोर्ट के 7 मुख्य भाग होते हैं: 1. शीर्षक पृष्ठ, 2. कार्यकारी सारांश (Executive Summary), 3. प्रस्तावना एवं उद्देश्य, 4. साहित्य समीक्षा (Literature Review), 5. कार्यप्रणाली (Methodology & Data), 6. निष्कर्ष व तालिकाएँ, 7. नीतिगत सिफारिशें एवं संदर्भ (References - APA/MLA format)।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">फिशर के सूचकांक का सूत्र क्या है?</div>
+                            <div class="back">\( \sqrt{L \times P} \)</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Mode, Median और Mean का संबंध?</div>
+                            <div class="back">Mode = 3 Median - 2 Mean</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Time Reversal Test का सूत्र?</div>
+                            <div class="back">\( P_{01} \times P_{10} = 1 \)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. यदि Median = 20 और Mean = 22 है, तो बहुलक (Mode) का मान क्या होगा?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">A) 18</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-skill-1')">B) 16</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">C) 24</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">D) 20</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-skill-1">
+                                <strong>व्याख्या:</strong> $\text{Mode} = 3(20) - 2(22) = 60 - 44 = 16$।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">CV</div>
+                            <div class="glossary-def">Coefficient of Variation = $(\sigma / \bar{X}) \times 100$ — सापेक्ष विचलन का माप।</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">Ogive</div>
+                            <div class="glossary-def">तोरण वक्र — संचयी बारंबारता वक्र जिसका प्रतिच्छेदन मध्यका देता है।</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. Economics Skill Course.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

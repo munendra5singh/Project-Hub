@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MILK &amp; MEADOW — Fresh Milk &amp; Pure Dairy Products</title>
+  <meta name="description" content="Shop 100% farm-fresh cow milk, paneer, artisanal curd, white butter, organic A2 ghee, and creamy lassi delivered fresh to your doorstep every morning.">
+  <meta name="theme-color" content="#1B4332">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MILK & MEADOW — Pure Freshness. Every Single Day.">
+  <meta property="og:description" content="Farm fresh milk, paneer, curd, butter, and traditional ghee delivered every morning with uncompromising purity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://milkandmeadow.example.com">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Yatra+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org LocalBusiness & Product Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "DairyStore",
+        "@id": "https://milkandmeadow.example.com/#store",
+        "name": "Milk & Meadow",
+        "url": "https://milkandmeadow.example.com",
+        "logo": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=300&q=80",
+        "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&q=80",
+        "description": "Pure farm fresh milk, paneer, curd, butter, and traditional ghee delivered daily.",
+        "telephone": "+919876543210",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Farm Estate Road, Near Green Meadows",
+          "addressLocality": "New Delhi",
+          "addressRegion": "Delhi",
+          "postalCode": "110001",
+          "addressCountry": "IN"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "06:00",
+          "closes": "22:00"
+        },
+        "priceRange": "₹₹"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader-screen" aria-label="Loading Milk and Meadow">
+    <div class="loader-box">
+      <div class="loader-milk-glass">
+        <div class="milk-fill"></div>
+        <div class="milk-drop-anim">💧</div>
+      </div>
+      <div class="loader-brand">MILK &amp; MEADOW</div>
+      <p class="loader-sub">Bringing Freshness To Your Door... 🌿</p>
+      <div class="loader-progress"><div class="loader-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Milk & Meadow Home">
+        <span class="logo-icon">🥛</span>
+        <div class="logo-text">
+          <span class="logo-title">MILK &amp; MEADOW</span>
+          <span class="logo-tagline">शुद्धता का स्वाद, हर दिन।</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#categories" class="nav-link">Categories</a></li>
+          <li><a href="#products" class="nav-link">Products</a></li>
+          <li><a href="#offers" class="nav-link">Offers</a></li>
+          <li><a href="#subscriptions" class="nav-link">Subscriptions</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#process" class="nav-link">Quality</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-cart-btn" id="navCartBtn" aria-label="Open shopping cart tray">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count-badge" id="cartCountNav">0</span>
+        </button>
+        <a href="#products" class="btn btn-primary nav-cta-btn">Shop Fresh</a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <span class="logo-icon">🥛</span>
+        <div class="logo-text">
+          <span class="logo-title">MILK &amp; MEADOW</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-link">🏡 Home</a></li>
+      <li><a href="#categories" class="mobile-link">🧺 Product Categories</a></li>
+      <li><a href="#products" class="mobile-link">🥛 Fresh Products Menu</a></li>
+      <li><a href="#offers" class="mobile-link">🎁 Deals of the Day</a></li>
+      <li><a href="#subscriptions" class="mobile-link">📅 Daily Milk Subscription</a></li>
+      <li><a href="#why-us" class="mobile-link">🌿 Why Choose Us</a></li>
+      <li><a href="#about" class="mobile-link">✨ Our Farm Story</a></li>
+      <li><a href="#process" class="mobile-link">🧪 5-Step Quality Check</a></li>
+      <li><a href="#nutrition" class="mobile-link">💪 Health &amp; Nutrition</a></li>
+      <li><a href="#gallery" class="mobile-link">📸 Farm Gallery</a></li>
+      <li><a href="#reviews" class="mobile-link">❤️ Customer Reviews</a></li>
+      <li><a href="#contact" class="mobile-link">📍 Store &amp; Contact</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="#products" class="btn btn-primary btn-full-width" id="mobileOrderBtn">Explore All Products 🥛</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-decorations" aria-hidden="true">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="floating-item float-leaf-1">🍃</div>
+        <div class="floating-item float-drop-1">💧</div>
+        <div class="floating-item float-leaf-2">🌿</div>
+        <div class="floating-item float-bubble-1">🫧</div>
+        <div class="floating-item float-milk-cup">🥛</div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge animate-fade-down">
+            <span class="badge-icon">🌿</span>
+            <span>Farm Fresh • 100% Quality • Daily Morning Delivery</span>
+          </div>
+          <h1 class="hero-title animate-fade-up">
+            Fresh From The Farm <br><span class="hero-highlight">To Your Family.</span>
+          </h1>
+          <p class="hero-description animate-fade-up delay-1">
+            Pure single-origin cow &amp; buffalo milk, artisan paneer, thick creamy curd, golden desi ghee, and churned white butter — delivered chilled to your doorstep before 7:00 AM.
+          </p>
+          <div class="hero-actions animate-fade-up delay-2">
+            <a href="#products" class="btn btn-primary btn-lg ripple-btn">Shop Fresh Products 🥛</a>
+            <a href="#subscriptions" class="btn btn-secondary btn-lg ripple-btn">Start Milk Subscription 📅</a>
+          </div>
+          <div class="hero-features-strip animate-fade-up delay-3">
+            <div class="strip-item"><span class="strip-check">✓</span> Zero Preservatives</div>
+            <div class="strip-item"><span class="strip-check">✓</span> Untouched by Hand</div>
+            <div class="strip-item"><span class="strip-check">✓</span> 4-Hour Cold Chain</div>
+          </div>
+        </div>
+
+        <div class="hero-visual animate-scale-in">
+          <div class="hero-visual-card">
+            <div class="hero-circle-aura"></div>
+            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=900&q=80" 
+                 alt="Fresh whole farm milk in a glass bottle with creamy dairy products on rustic table" 
+                 class="hero-main-img" 
+                 loading="eager">
+            
+            <div class="floating-hero-pill top-pill">
+              <span class="pill-icon">🥛</span>
+              <div>
+                <strong>A2 Gir Cow Milk</strong>
+                <small>Freshly Chilled 4°C</small>
+              </div>
+            </div>
+
+            <div class="floating-hero-pill bottom-pill">
+              <span class="pill-icon">⭐</span>
+              <div>
+                <strong>4.9 / 5.0 Rating</strong>
+                <small>Trusted by 50,000+ Families</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fresh Every Morning Banner / Freshness Timeline -->
+    <section class="section-padding freshness-timeline-section bg-light-green" id="timeline">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">OUR FRESHNESS ASSURANCE</span>
+          <h2 class="main-heading">Fresh Every Single Morning</h2>
+          <p class="section-lead">Our dairy products are prepared, tested, packed, and delivered with freshness as our absolute priority.</p>
+        </div>
+
+        <div class="timeline-wrapper reveal-el">
+          <div class="timeline-track">
+            <div class="timeline-step">
+              <div class="step-circle"><span>🏡</span><small>01</small></div>
+              <h4>Organic Farms</h4>
+              <p>Milked gently at 4:30 AM from grass-fed cows</p>
+            </div>
+            <div class="timeline-connector"></div>
+
+            <div class="timeline-step">
+              <div class="step-circle"><span>🧪</span><small>02</small></div>
+              <h4>Quality Check</h4>
+              <p>32 stringent automated purity &amp; fat checks</p>
+            </div>
+            <div class="timeline-connector"></div>
+
+            <div class="timeline-step">
+              <div class="step-circle"><span>❄️</span><small>03</small></div>
+              <h4>4°C Chilling</h4>
+              <p>Hygienically pasteurized without boiling away nutrients</p>
+            </div>
+            <div class="timeline-connector"></div>
+
+            <div class="timeline-step">
+              <div class="step-circle"><span>📦</span><small>04</small></div>
+              <h4>Glass Packaging</h4>
+              <p>Sealed in sterilized glass bottles &amp; bio packs</p>
+            </div>
+            <div class="timeline-connector"></div>
+
+            <div class="timeline-step">
+              <div class="step-circle"><span>🚚</span><small>05</small></div>
+              <h4>Your Doorstep</h4>
+              <p>Delivered fresh before 7:00 AM silent drop</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section class="section-padding categories-section" id="categories">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">EXPLORE THE HARVEST</span>
+          <h2 class="main-heading">Freshness For Every Need</h2>
+          <p class="section-lead">Handcrafted pure dairy staples prepared daily with traditional care and modern hygiene.</p>
+        </div>
+
+        <div class="categories-grid">
+          <!-- Category 1 -->
+          <div class="category-card reveal-el" data-category="milk">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=500&q=80" alt="Fresh Cow and Buffalo Milk" loading="lazy">
+              <span class="cat-icon-badge">🥛</span>
+            </div>
+            <div class="category-content">
+              <h3>Fresh Daily Milk</h3>
+              <p>Raw unprocessed, pasteurized Cow, Buffalo &amp; A2 milk varieties.</p>
+              <a href="#products" class="cat-btn" data-filter="milk">Explore Milk →</a>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="category-card reveal-el" data-category="paneer">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=500&q=80" alt="Fresh Malai Paneer" loading="lazy">
+              <span class="cat-icon-badge">🧀</span>
+            </div>
+            <div class="category-content">
+              <h3>Soft Malai Paneer</h3>
+              <p>Melt-in-mouth cottage cheese crafted from 100% full-cream cow milk.</p>
+              <a href="#products" class="cat-btn" data-filter="paneer">Explore Paneer →</a>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="category-card reveal-el" data-category="curd">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=500&q=80" alt="Creamy Homemade Dahi / Curd" loading="lazy">
+              <span class="cat-icon-badge">🥣</span>
+            </div>
+            <div class="category-content">
+              <h3>Artisanal Dahi &amp; Curd</h3>
+              <p>Natural probiotic, set in traditional clay matkas for velvety richness.</p>
+              <a href="#products" class="cat-btn" data-filter="curd">Explore Curd →</a>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="category-card reveal-el" data-category="butter">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=500&q=80" alt="Traditional Makkhan / White Butter" loading="lazy">
+              <span class="cat-icon-badge">🧈</span>
+            </div>
+            <div class="category-content">
+              <h3>Fresh Churned Butter</h3>
+              <p>Unsalted traditional Desi Makhan churned using the Bilona method.</p>
+              <a href="#products" class="cat-btn" data-filter="butter">Explore Butter →</a>
+            </div>
+          </div>
+
+          <!-- Category 5 -->
+          <div class="category-card reveal-el" data-category="ghee">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=500&q=80" alt="A2 Cultured Desi Ghee" loading="lazy">
+              <span class="cat-icon-badge">🫙</span>
+            </div>
+            <div class="category-content">
+              <h3>A2 Bilona Desi Ghee</h3>
+              <p>Golden, granular, aromatic ghee slow-simmered in small earthen batches.</p>
+              <a href="#products" class="cat-btn" data-filter="ghee">Explore Ghee →</a>
+            </div>
+          </div>
+
+          <!-- Category 6 -->
+          <div class="category-card reveal-el" data-category="lassi">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=500&q=80" alt="Sweet Lassi and Spiced Chaas" loading="lazy">
+              <span class="cat-icon-badge">🍶</span>
+            </div>
+            <div class="category-content">
+              <h3>Lassi &amp; Fresh Chaas</h3>
+              <p>Creamy Punjabi sweet lassi &amp; refreshing roasted cumin spiced buttermilk.</p>
+              <a href="#products" class="cat-btn" data-filter="lassi">Explore Drinks →</a>
+            </div>
+          </div>
+
+          <!-- Category 7 -->
+          <div class="category-card reveal-el" data-category="ice-cream">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=500&q=80" alt="Artisanal Milk Ice Cream and Kulfi" loading="lazy">
+              <span class="cat-icon-badge">🍨</span>
+            </div>
+            <div class="category-content">
+              <h3>Artisanal Ice Creams</h3>
+              <p>Pure cream frozen pots infused with saffron, pistachio &amp; Alphonso mango.</p>
+              <a href="#products" class="cat-btn" data-filter="ice-cream">Explore Treats →</a>
+            </div>
+          </div>
+
+          <!-- Category 8 -->
+          <div class="category-card reveal-el" data-category="milk">
+            <div class="category-img-wrap">
+              <img src="https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=500&q=80" alt="Kesar Badam Flavoured Milk" loading="lazy">
+              <span class="cat-icon-badge">🥛</span>
+            </div>
+            <div class="category-content">
+              <h3>Flavoured Milk</h3>
+              <p>Nourishing saffron almond, dark cocoa, and rose badam cold milk elixirs.</p>
+              <a href="#products" class="cat-btn" data-filter="milk">Explore Flavours →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Selling & Interactive Filtered Menu -->
+    <section class="section-padding products-section bg-cream" id="products">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">FARM-TO-TABLE SHOP</span>
+          <h2 class="main-heading">Our Best Selling Fresh Staples</h2>
+          <p class="section-lead">Fresh, creamy and made for your family’s everyday health and happiness.</p>
+        </div>
+
+        <!-- Filter Buttons Bar -->
+        <div class="filter-scroll-wrapper reveal-el">
+          <div class="product-filters" role="tablist" aria-label="Dairy product categories">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true"><span>🌿</span> All Items</button>
+            <button class="filter-btn" data-filter="milk" role="tab" aria-selected="false"><span>🥛</span> Fresh Milk</button>
+            <button class="filter-btn" data-filter="paneer" role="tab" aria-selected="false"><span>🧀</span> Paneer</button>
+            <button class="filter-btn" data-filter="curd" role="tab" aria-selected="false"><span>🥣</span> Dahi &amp; Curd</button>
+            <button class="filter-btn" data-filter="butter" role="tab" aria-selected="false"><span>🧈</span> Butter</button>
+            <button class="filter-btn" data-filter="ghee" role="tab" aria-selected="false"><span>🫙</span> Desi Ghee</button>
+            <button class="filter-btn" data-filter="lassi" role="tab" aria-selected="false"><span>🍶</span> Lassi &amp; Chaas</button>
+            <button class="filter-btn" data-filter="ice-cream" role="tab" aria-selected="false"><span>🍨</span> Kulfi &amp; Sweets</button>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="products-grid" id="productGrid">
+          
+          <!-- Product 1 -->
+          <article class="product-card reveal-el" data-category="milk">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80" alt="Farm Fresh A2 Cow Milk bottle" loading="lazy">
+              <span class="prod-badge badge-bestseller">Bestseller ⭐</span>
+              <span class="prod-badge-weight">1 Litre Bottle</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(4.9 • 2.4k reviews)</span></div>
+              <h3 class="prod-title">Farm Fresh A2 Cow Milk</h3>
+              <p class="prod-desc">Single-origin whole milk with natural cream layer. Zero adulteration, tested for 32 parameters.</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹75</span>
+                  <span class="old-price">₹85</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p1" 
+                  data-name="Farm Fresh A2 Cow Milk (1L)" 
+                  data-price="75" 
+                  data-img="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card reveal-el" data-category="milk">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=600&q=80" alt="Full Cream Buffalo Milk Glass Bottle" loading="lazy">
+              <span class="prod-badge badge-fresh">Fresh Today 🌿</span>
+              <span class="prod-badge-weight">1 Litre Bottle</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(4.8 • 1.6k reviews)</span></div>
+              <h3 class="prod-title">Pure Full Cream Buffalo Milk</h3>
+              <p class="prod-desc">Rich 7.5%+ fat content, perfect for making thick homemade curd, rabri, kheer, and tea.</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹82</span>
+                  <span class="old-price">₹90</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p2" 
+                  data-name="Full Cream Buffalo Milk (1L)" 
+                  data-price="82" 
+                  data-img="https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card reveal-el" data-category="paneer">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80" alt="Soft Fresh Malai Paneer Cubes" loading="lazy">
+              <span class="prod-badge badge-bestseller">Popular 🧀</span>
+              <span class="prod-badge-weight">400 Grams</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(4.9 • 3.1k reviews)</span></div>
+              <h3 class="prod-title">Handmade Malai Paneer</h3>
+              <p class="prod-desc">Super-soft, never rubbery. Churned from fresh morning milk with no starch or vinegar harshness.</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹170</span>
+                  <span class="old-price">₹190</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p3" 
+                  data-name="Handmade Malai Paneer (400g)" 
+                  data-price="170" 
+                  data-img="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card reveal-el" data-category="curd">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=600&q=80" alt="Traditional Clay Pot Set Dahi Curd" loading="lazy">
+              <span class="prod-badge badge-fresh">Clay Pot Set 🥣</span>
+              <span class="prod-badge-weight">500 Grams Matka</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(4.9 • 1.9k reviews)</span></div>
+              <h3 class="prod-title">Traditional Matka Dahi</h3>
+              <p class="prod-desc">Thick, non-sour, naturally set curd with millions of gut-friendly live probiotics.</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹65</span>
+                  <span class="old-price">₹75</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p4" 
+                  data-name="Traditional Matka Dahi (500g)" 
+                  data-price="65" 
+                  data-img="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="product-card reveal-el" data-category="ghee">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=600&q=80" alt="Pure A2 Bilona Cow Desi Ghee" loading="lazy">
+              <span class="prod-badge badge-bestseller">A2 Vedic 🫙</span>
+              <span class="prod-badge-weight">500 ml Glass Jar</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(5.0 • 4.2k reviews)</span></div>
+              <h3 class="prod-title">Cultured A2 Gir Cow Ghee</h3>
+              <p class="prod-desc">Prepared via ancient curd-churned Bilona method. Nutty aroma, golden granules, rich in Omega 3.</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹680</span>
+                  <span class="old-price">₹750</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p5" 
+                  data-name="Cultured A2 Gir Cow Ghee (500ml)" 
+                  data-price="680" 
+                  data-img="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 6 -->
+          <article class="product-card reveal-el" data-category="butter">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=600&q=80" alt="Fresh White Butter Desi Makkhan" loading="lazy">
+              <span class="prod-badge badge-fresh">Farm Churned 🧈</span>
+              <span class="prod-badge-weight">250 Grams</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(4.8 • 890 reviews)</span></div>
+              <h3 class="prod-title">Fresh White Makhan</h3>
+              <p class="prod-desc">Unsalted, silky smooth white butter made straight from cultured curd cream. Heavenly on hot parathas!</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹140</span>
+                  <span class="old-price">₹160</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p6" 
+                  data-name="Fresh White Makhan (250g)" 
+                  data-price="140" 
+                  data-img="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 7 -->
+          <article class="product-card reveal-el" data-category="lassi">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80" alt="Kulhad Punjabi Sweet Lassi with Malai" loading="lazy">
+              <span class="prod-badge badge-fresh">Refreshing 🍶</span>
+              <span class="prod-badge-weight">350 ml Bottle</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(4.9 • 1.1k reviews)</span></div>
+              <h3 class="prod-title">Kesar Pista Sweet Lassi</h3>
+              <p class="prod-desc">Hand-whisked thick dahi infused with Kashmiri saffron strands, cardamom, and roasted pistachios.</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹60</span>
+                  <span class="old-price">₹70</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p7" 
+                  data-name="Kesar Pista Sweet Lassi (350ml)" 
+                  data-price="60" 
+                  data-img="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 8 -->
+          <article class="product-card reveal-el" data-category="ice-cream">
+            <div class="prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=600&q=80" alt="Traditional Rabri Malai Matka Kulfi" loading="lazy">
+              <span class="prod-badge badge-bestseller">Dessert 🍨</span>
+              <span class="prod-badge-weight">2 Matka Pots (100ml ea)</span>
+            </div>
+            <div class="prod-body">
+              <div class="prod-rating">★★★★★ <span>(4.9 • 1.4k reviews)</span></div>
+              <h3 class="prod-title">Shahi Rabri Matka Kulfi</h3>
+              <p class="prod-desc">Slow-reduced whole milk simmered for 6 hours with dry fruits and caramelized cane sugar.</p>
+              <div class="prod-footer">
+                <div class="price-box">
+                  <span class="curr-price">₹120</span>
+                  <span class="old-price">₹140</span>
+                </div>
+                <button class="btn btn-sm btn-primary add-to-cart-btn" 
+                  data-id="p8" 
+                  data-name="Shahi Rabri Matka Kulfi (Pack of 2)" 
+                  data-price="120" 
+                  data-img="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=600&q=80">
+                  Add +
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offer Section with Live JS Countdown -->
+    <section class="section-padding offer-section" id="offers">
+      <div class="container">
+        <div class="offer-banner reveal-el">
+          <div class="offer-content">
+            <div class="offer-tag">🔥 FRESH COMBO DEAL OF THE DAY</div>
+            <h2 class="offer-title">Morning Breakfast Basket: 2L Milk + Matka Curd (20% OFF)</h2>
+            <p class="offer-subtitle">Fuel your family with morning purity. Get 2 Litres of Farm Fresh Cow Milk along with a 500g clay-pot set Dahi at an exclusive combo price.</p>
+            
+            <div class="offer-price-row">
+              <span class="offer-old-price">₹215</span>
+              <span class="offer-deal-price">₹172</span>
+              <span class="offer-discount-chip">SAVE 20% TODAY</span>
+            </div>
+
+            <!-- Live Animated Countdown -->
+            <div class="countdown-container" id="offerCountdown" aria-label="Offer expiration countdown">
+              <div class="countdown-box">
+                <span class="countdown-num" id="cdHours">04</span>
+                <span class="countdown-lbl">Hours</span>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-box">
+                <span class="countdown-num" id="cdMins">32</span>
+                <span class="countdown-lbl">Mins</span>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-box">
+                <span class="countdown-num" id="cdSecs">48</span>
+                <span class="countdown-lbl">Secs</span>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary btn-lg ripple-btn add-to-cart-btn" 
+              data-id="offer-combo-1" 
+              data-name="Breakfast Basket (2L Cow Milk + 500g Matka Dahi)" 
+              data-price="172" 
+              data-img="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80">
+              Grab This Fresh Offer (₹172) ⚡
+            </button>
+          </div>
+
+          <div class="offer-visual">
+            <img src="https://images.unsplash.com/photo-1528750997573-59b89d56f4f7?auto=format&fit=crop&w=800&q=80" alt="Fresh morning milk and homemade yogurt combo" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Milk Subscription Section -->
+    <section class="section-padding subscription-section bg-cream" id="subscriptions">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">SEAMLESS MORNINGS</span>
+          <h2 class="main-heading">Never Run Out Of Fresh Milk</h2>
+          <p class="section-lead">Set your delivery schedule once, and receive fresh unadulterated milk before your alarm rings.</p>
+        </div>
+
+        <div class="subscription-grid">
+          <!-- Daily Plan -->
+          <div class="sub-card reveal-el">
+            <div class="sub-badge">Flexible</div>
+            <h3 class="sub-title">Daily Mornings</h3>
+            <p class="sub-desc">Ideal for daily tea, coffee, baby feeding &amp; breakfast for small to medium families.</p>
+            <div class="sub-price">
+              <strong>₹70</strong><span>/ litre</span>
+            </div>
+            <ul class="sub-features">
+              <li><span>✓</span> Delivered daily by 6:30 AM</li>
+              <li><span>✓</span> Pause or resume anytime in 1 click</li>
+              <li><span>✓</span> Choice of Cow or Buffalo milk</li>
+              <li><span>✓</span> Free returnable glass bottles</li>
+            </ul>
+            <button class="btn btn-outline btn-full-width sub-trigger-btn" data-plan="Daily Plan">Subscribe Daily</button>
+          </div>
+
+          <!-- Monthly Plan (Highlighted) -->
+          <div class="sub-card sub-featured reveal-el">
+            <div class="sub-badge badge-pop">Most Popular ❤️</div>
+            <h3 class="sub-title">Monthly Family Pass</h3>
+            <p class="sub-desc">Best value! 30 days of seamless morning delivery with bonus weekly paneer packs.</p>
+            <div class="sub-price">
+              <strong>₹1,999</strong><span>/ month (30L)</span>
+            </div>
+            <ul class="sub-features">
+              <li><span>✓</span> Priority sunrise doorstep delivery</li>
+              <li><span>✓</span> <strong>Free 200g Fresh Paneer</strong> every Sunday</li>
+              <li><span>✓</span> Zero delivery or packaging charges</li>
+              <li><span>✓</span> Dedicated family account manager</li>
+            </ul>
+            <button class="btn btn-primary btn-full-width sub-trigger-btn" data-plan="Monthly Family Pass">Start 30-Day Plan</button>
+          </div>
+
+          <!-- Custom / Weekly Plan -->
+          <div class="sub-card reveal-el">
+            <div class="sub-badge">Custom Plan</div>
+            <h3 class="sub-title">Alternate / Weekly</h3>
+            <p class="sub-desc">Choose alternate days (MWF / TTS) or weekend special deliveries for working couples.</p>
+            <div class="sub-price">
+              <strong>₹520</strong><span>/ week (7L)</span>
+            </div>
+            <ul class="sub-features">
+              <li><span>✓</span> Customizable delivery day picker</li>
+              <li><span>✓</span> Add butter &amp; ghee to any delivery</li>
+              <li><span>✓</span> Easy contactless doorstep drop</li>
+              <li><span>✓</span> Monthly consolidated billing</li>
+            </ul>
+            <button class="btn btn-outline btn-full-width sub-trigger-btn" data-plan="Weekly Plan">Customize Plan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-padding why-us-section bg-dark text-white" id="why-us">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">OUR PROMISE OF PURITY</span>
+          <h2 class="main-heading text-white">Why 50,000+ Families Trust Us</h2>
+          <p class="section-lead text-white-muted">We maintain an unbroken cold chain from our grass-fed farms to your kitchen counter.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card reveal-el">
+            <div class="why-icon">🌿</div>
+            <h3>Farm Fresh Sourcing</h3>
+            <p>Sourced strictly from our own ethically managed farms and certified cruelty-free dairy partner cattle.</p>
+          </div>
+
+          <div class="why-card reveal-el">
+            <div class="why-icon">🥛</div>
+            <h3>100% Pure &amp; Unaltered</h3>
+            <p>No added milk powder, no artificial thickeners, zero urea or synthetic hormones. Just pure natural milk.</p>
+          </div>
+
+          <div class="why-card reveal-el">
+            <div class="why-icon">🧪</div>
+            <h3>32 Automated Tests</h3>
+            <p>Every single batch undergoes rigorous automated testing for adulterants, antibiotics, and density.</p>
+          </div>
+
+          <div class="why-card reveal-el">
+            <div class="why-icon">🚚</div>
+            <h3>Pre-7:00 AM Delivery</h3>
+            <p>Our dedicated silent delivery team drops your order into your doorstep thermal bag before dawn.</p>
+          </div>
+
+          <div class="why-card reveal-el">
+            <div class="why-icon">❤️</div>
+            <h3>Glass Bottle Packaging</h3>
+            <p>Packed in sterilized eco-friendly glass bottles that keep the milk chilled, pure and microplastic-free.</p>
+          </div>
+
+          <div class="why-card reveal-el">
+            <div class="why-icon">🔒</div>
+            <h3>Hygienically Processed</h3>
+            <p>Untouched by human hands from computerized milking parlours to automated temperature-controlled sealing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section with Animated Statistics Counters -->
+    <section class="section-padding about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal-el">
+          <div class="about-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=800&q=80" 
+                 alt="Cows grazing on lush green organic dairy farm meadows" 
+                 class="about-img" 
+                 loading="lazy">
+            <div class="about-exp-badge">
+              <span class="exp-number">15+</span>
+              <span class="exp-text">Years of Vedic Dairy Heritage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal-el">
+          <span class="sub-heading">OUR STORY &amp; ETHOS</span>
+          <h2 class="main-heading">From Our Green Meadows To Your Breakfast Table</h2>
+          <p class="about-paragraph">
+            Milk &amp; Meadow started in 2011 with a simple realization: families in our cities were drinking over-processed, reconstituted milk that lost its natural soul and enzymes weeks before reaching stores.
+          </p>
+          <p class="about-paragraph">
+            We revived the ancient Indian tradition of caring for healthy, happy cows grazing freely on organic green fodder. By combining time-tested Bilona churning with modern cold-chain logistics, we ensure the milk your children drink is as pure as nature intended.
+          </p>
+
+          <!-- Animated Stat Counters -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Years of Experience</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="50000">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Happy Families</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Fresh Dairy Products</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="99">0</span><span class="stat-suffix">%</span>
+              <span class="stat-label">Purity Satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Step Quality Process Section -->
+    <section class="section-padding process-section bg-light-green" id="process">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">UNCOMPROMISING STANDARDS</span>
+          <h2 class="main-heading">Pure At Every Single Step</h2>
+          <p class="section-lead">A seamless, scientifically monitored journey ensuring zero contamination from farm to fridge.</p>
+        </div>
+
+        <div class="process-steps-container">
+          <div class="process-step-item reveal-el">
+            <div class="p-step-num">01</div>
+            <div class="p-step-icon">🐄</div>
+            <h4>Ethical Farms</h4>
+            <p>Free-roaming cows fed pesticide-free organic green grass, herbs, and clean mountain water.</p>
+          </div>
+
+          <div class="process-step-item reveal-el">
+            <div class="p-step-num">02</div>
+            <div class="p-step-icon">🔬</div>
+            <h4>Quality Testing</h4>
+            <p>Real-time lab testing for fat, SNF, adulterants, and bacterial count within 15 minutes of milking.</p>
+          </div>
+
+          <div class="process-step-item reveal-el">
+            <div class="p-step-num">03</div>
+            <div class="p-step-icon">❄️</div>
+            <h4>Chilling at 4°C</h4>
+            <p>Rapid bulk milk chilling at 4°C stops any bacterial multiplication without degrading vitamins.</p>
+          </div>
+
+          <div class="process-step-item reveal-el">
+            <div class="p-step-num">04</div>
+            <div class="p-step-icon">🍶</div>
+            <h4>Hygienic Packing</h4>
+            <p>Sealed in sterilized glass containers in an automated cleanroom without human touch.</p>
+          </div>
+
+          <div class="process-step-item reveal-el">
+            <div class="p-step-num">05</div>
+            <div class="p-step-icon">🚚</div>
+            <h4>Dawn Delivery</h4>
+            <p>Insulated GPS-tracked vans deliver to your home before the morning sun comes up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health & Nutrition Section -->
+    <section class="section-padding nutrition-section" id="nutrition">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">NOURISH YOUR BODY</span>
+          <h2 class="main-heading">Goodness In Every Single Drop</h2>
+          <p class="section-lead">Real farm dairy provides essential bio-available nutrients that processed alternatives cannot replicate.</p>
+        </div>
+
+        <div class="nutrition-grid">
+          <div class="nutrition-card reveal-el">
+            <div class="nutri-progress" style="--p: 85;">
+              <span>8.5g</span>
+            </div>
+            <h3>Complete Protein</h3>
+            <p>Contains all 9 essential amino acids for active muscle recovery and growing children.</p>
+          </div>
+
+          <div class="nutrition-card reveal-el">
+            <div class="nutri-progress" style="--p: 90;">
+              <span>300mg</span>
+            </div>
+            <h3>Bioactive Calcium</h3>
+            <p>High bio-availability calcium easily absorbed to maintain bone density and strong teeth.</p>
+          </div>
+
+          <div class="nutrition-card reveal-el">
+            <div class="nutri-progress" style="--p: 75;">
+              <span>B12 &amp; D</span>
+            </div>
+            <h3>Vital Vitamins</h3>
+            <p>Naturally rich in Vitamin B12 for nerve health and Vitamin D for natural immunity.</p>
+          </div>
+
+          <div class="nutrition-card reveal-el">
+            <div class="nutri-progress" style="--p: 95;">
+              <span>100%</span>
+            </div>
+            <h3>A2 Beta-Casein</h3>
+            <p>Gentle on sensitive tummies, reduces bloating, and aids natural digestion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Farm Gallery with Lightbox -->
+    <section class="section-padding gallery-section bg-cream" id="gallery">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">GLIMPSE OUR WORLD</span>
+          <h2 class="main-heading">Life At Milk &amp; Meadow</h2>
+          <p class="section-lead">Click any photograph to explore our organic pastures, traditional bilona churning, and happy herd.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1200&q=85" data-caption="Our happy Gir cows grazing freely on open organic pastures.">
+            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=600&q=80" alt="Dairy cows on open pasture" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-zoom-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&q=85" data-caption="Freshly chilled farm milk bottled in sterilized eco-friendly glass bottles.">
+            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80" alt="Fresh glass milk bottle" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-zoom-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=1200&q=85" data-caption="Freshly prepared soft malai paneer blocks cut to order every morning.">
+            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80" alt="Handmade soft paneer" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-zoom-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=1200&q=85" data-caption="Traditional slow wood-fire simmered cultured A2 Desi Ghee.">
+            <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=600&q=80" alt="Traditional Bilona Ghee Jar" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-zoom-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=1200&q=85" data-caption="Thick organic dahi cultured naturally in porous clay pots.">
+            <img src="https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=600&q=80" alt="Matka set curd dahi" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-zoom-icon">🔍</span></div>
+          </div>
+
+          <div class="gallery-item reveal-el" data-src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=1200&q=85" data-caption="Traditional white makhan churned from probiotic curd cream.">
+            <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=600&q=80" alt="Fresh churned white butter" loading="lazy">
+            <div class="gallery-overlay"><span class="gallery-zoom-icon">🔍</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fullscreen Lightbox Modal -->
+    <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <button class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Close image popup">&times;</button>
+      <button class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">❮</button>
+      <button class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next image">❯</button>
+      <div class="lightbox-content">
+        <img src="" alt="" id="lightboxImg">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <!-- Customer Reviews / Testimonials Carousel -->
+    <section class="section-padding reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">REAL EXPERIENCES</span>
+          <h2 class="main-heading">Loved By 50,000+ Families ❤️</h2>
+          <p class="section-lead">Read how switching to fresh unadulterated milk changed the morning routine of real households.</p>
+        </div>
+
+        <div class="reviews-carousel-wrapper reveal-el">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Review 1 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">“The difference in taste was obvious from day one. You can see the natural golden cream layer on boiling. My kids drink their milk without any chocolate syrup now!”</p>
+                <div class="reviewer-meta">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Priya Sharma" class="reviewer-avatar">
+                  <div>
+                    <h4 class="reviewer-name">Priya Sharma</h4>
+                    <span class="reviewer-loc">Vasant Kunj, New Delhi • Monthly Subscriber</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">“Their Malai Paneer melts like butter in palak paneer. It’s so fresh and delicate. Also love the fact that milk comes in returnable glass bottles instead of plastic pouches.”</p>
+                <div class="reviewer-meta">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Rajesh Oberoi" class="reviewer-avatar">
+                  <div>
+                    <h4 class="reviewer-name">Rajesh Oberoi</h4>
+                    <span class="reviewer-loc">DLF Phase 5, Gurugram • Customer for 3 Years</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">“The A2 Gir Cow Ghee has that authentic grainy texture and rich aroma my grandmother used to make at home. Truly unadulterated and pure quality.”</p>
+                <div class="reviewer-meta">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="Dr. Ananya Sen" class="reviewer-avatar">
+                  <div>
+                    <h4 class="reviewer-name">Dr. Ananya Sen</h4>
+                    <span class="reviewer-loc">Noida Sector 62 • Nutritionist</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">“Never had a single missed delivery in 18 months. Dropped quietly into our insulated bag before 6:15 AM every morning. Outstanding customer support!”</p>
+                <div class="reviewer-meta">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Vikram Malhotra" class="reviewer-avatar">
+                  <div>
+                    <h4 class="reviewer-name">Vikram Malhotra</h4>
+                    <span class="reviewer-loc">Indirapuram, Ghaziabad • Daily Plan Subscriber</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Navigation -->
+          <div class="carousel-controls">
+            <button class="carousel-arrow prev" id="sliderPrev" aria-label="Previous testimonial">❮</button>
+            <div class="carousel-dots" id="sliderDots"></div>
+            <button class="carousel-arrow next" id="sliderNext" aria-label="Next testimonial">❯</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="section-padding contact-section bg-dark text-white" id="contact">
+      <div class="container">
+        <div class="section-header text-center reveal-el">
+          <span class="sub-heading">REACH OUT TO US</span>
+          <h2 class="main-heading text-white">Visit Our Experience Store</h2>
+          <p class="section-lead text-white-muted">Drop in to taste fresh milk, collect warm bilona ghee, or manage your subscription in person.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Details -->
+          <div class="contact-info-col reveal-el">
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+              <div>
+                <h3>Experience Dairy Store</h3>
+                <p>Farm Estate Road, Near Green Meadows, Sector 18, New Delhi 110001</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">⏰</div>
+              <div>
+                <h3>Store &amp; Farm Timings</h3>
+                <p>Open Daily: <strong>6:00 AM – 10:00 PM</strong></p>
+                <small class="text-accent">Morning Milking Viewing: 5:00 AM – 7:00 AM</small>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">📞</div>
+              <div>
+                <h3>Direct Phone &amp; Support</h3>
+                <p><a href="tel:+919876543210" class="contact-link">+91 98765 43210</a></p>
+                <p><a href="mailto:care@milkandmeadow.com" class="contact-link">care@milkandmeadow.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-quick-actions">
+              <a href="tel:+919876543210" class="btn btn-secondary btn-sm">📞 Call Customer Care</a>
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">🗺️ Get Directions</a>
+            </div>
+          </div>
+
+          <!-- Contact / Query Form -->
+          <div class="contact-form-col reveal-el">
+            <div class="form-container-card">
+              <h3>Send An Enquiry or Request Farm Tour</h3>
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <label for="cName">Full Name *</label>
+                  <input type="text" id="cName" name="name" placeholder="Priya Sharma" required>
+                  <span class="field-error" id="nameError">Please enter your full name.</span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cPhone">Phone Number *</label>
+                    <input type="tel" id="cPhone" name="phone" placeholder="9876543210" required>
+                    <span class="field-error" id="phoneError">Valid 10-digit Indian phone number required.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="cEmail">Email Address *</label>
+                    <input type="email" id="cEmail" name="email" placeholder="priya@example.com" required>
+                    <span class="field-error" id="emailError">Please enter a valid email address.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="cSubject">Subject</label>
+                  <select id="cSubject" name="subject">
+                    <option value="subscription">New Daily Milk Subscription</option>
+                    <option value="bulk">Bulk / Society Supply Enquiry</option>
+                    <option value="tour">Farm Visit &amp; Milking Tour</option>
+                    <option value="feedback">Product Quality &amp; Feedback</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="cMessage">Your Message *</label>
+                  <textarea id="cMessage" name="message" rows="4" placeholder="Tell us your area pincode or questions..." required></textarea>
+                  <span class="field-error" id="messageError">Please type a brief message (min 10 characters).</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full-width ripple-btn" id="submitFormBtn">
+                  Send Enquiry 🥛
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Col 1 -->
+      <div class="footer-col brand-col">
+        <div class="brand-logo footer-logo">
+          <span class="logo-icon">🥛</span>
+          <div class="logo-text">
+            <span class="logo-title text-white">MILK &amp; MEADOW</span>
+          </div>
+        </div>
+        <p class="footer-tagline">“Pure Freshness. Every Single Day.”</p>
+        <p class="footer-desc">
+          Rooted in ancient Vedic dairy principles, bringing single-origin fresh milk, handcrafted paneer, natural dahi, and Bilona ghee straight from green meadows to Indian families.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram" class="social-btn">📸</a>
+          <a href="#" aria-label="Facebook" class="social-btn">📘</a>
+          <a href="#" aria-label="YouTube" class="social-btn">▶️</a>
+          <a href="#" aria-label="WhatsApp" class="social-btn">💬</a>
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#categories">Product Categories</a></li>
+          <li><a href="#products">Fresh Products</a></li>
+          <li><a href="#offers">Deals of the Day</a></li>
+          <li><a href="#subscriptions">Milk Subscriptions</a></li>
+          <li><a href="#about">Our Farm Story</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Dairy Products</h4>
+        <ul class="footer-links">
+          <li><a href="#products">A2 Gir Cow Milk</a></li>
+          <li><a href="#products">Full Cream Buffalo Milk</a></li>
+          <li><a href="#products">Handmade Malai Paneer</a></li>
+          <li><a href="#products">Traditional Matka Dahi</a></li>
+          <li><a href="#products">Cultured Bilona Desi Ghee</a></li>
+          <li><a href="#products">Fresh White Makhan</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4 -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Customer Support</h4>
+        <div class="footer-contact-info">
+          <p>📞 +91 98765 43210 (6 AM – 9 PM)</p>
+          <p>✉️ care@milkandmeadow.com</p>
+          <p>📍 Sector 18, New Delhi 110001</p>
+          <div class="purity-certified-tag">🌿 100% FSSAI &amp; Organic Certified</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 MILK &amp; MEADOW. All Rights Reserved. Crafted with love &amp; pure milk.</p>
+      <div class="footer-legal-links">
+        <a href="#">Privacy Policy</a>
+        <span>•</span>
+        <a href="#">Terms of Delivery</a>
+        <span>•</span>
+        <a href="#">FSSAI Lic. #10022011000432</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating UI Elements -->
+  <aside class="floating-ui" aria-label="Quick Action Buttons">
+    <button class="floating-btn back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top">↑</button>
+    <a href="https://wa.me/919876543210?text=Hello%20Milk%20and%20Meadow,%20I%20want%20to%20order%20fresh%20milk!" 
+       class="floating-btn whatsapp-btn" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Chat and Order on WhatsApp">💬</a>
+    <button class="floating-btn floating-cart-btn" id="floatingCartBtn" aria-label="View shopping cart tray">
+      <span class="f-cart-icon">🛒</span>
+      <span class="f-cart-badge" id="floatingCartCount">0</span>
+    </button>
+  </aside>
+
+  <!-- Sliding Cart Drawer -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-header-title">
+        <h3>Your Fresh Basket 🧺</h3>
+        <span class="cart-item-count-label" id="cartItemCountLabel">(0 Items)</span>
+      </div>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cartDrawerBody">
+      <!-- Empty Cart View -->
+      <div class="empty-cart-state" id="emptyCartState">
+        <div class="empty-cart-icon">🥛</div>
+        <h4>Your fresh basket is empty!</h4>
+        <p>Add some farm-fresh cow milk, soft paneer, or golden desi ghee to get started.</p>
+        <a href="#products" class="btn btn-primary btn-sm" id="emptyCartShopBtn">Explore Products</a>
+      </div>
+
+      <!-- Items List -->
+      <div class="cart-items-list" id="cartItemsList"></div>
+    </div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-bill-summary">
+        <div class="bill-line">
+          <span>Items Total</span>
+          <span id="billSubtotal">₹0</span>
+        </div>
+        <div class="bill-line">
+          <span>Morning Express Delivery</span>
+          <span id="billDelivery" class="text-green">FREE</span>
+        </div>
+        <div class="bill-line total-line">
+          <strong>Grand Total</strong>
+          <strong id="billGrandTotal" class="text-primary">₹0</strong>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full-width ripple-btn" id="checkoutBtn">
+        Proceed To Order (₹<span id="checkoutBtnTotal">0</span>) 🚀
+      </button>
+      <small class="cart-assurance">🔒 100% Freshness Guarantee • Chilled Morning Delivery</small>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Popup -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+    <span class="toast-icon" id="toastIcon">🥛</span>
+    <span class="toast-message" id="toastMessage">Item added to your basket!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

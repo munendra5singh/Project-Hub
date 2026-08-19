@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.A. 5th Semester - Language Selection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Dynamic Theme Switching */
+        :root[data-theme="dark"] {
+            --bg-main: #0b0f19;
+            --bg-nav: #111827;
+            --bg-card: #111827;
+            --bg-hero: linear-gradient(180deg, #161e31 0%, #111827 100%);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --btn-bg: #1f2937;
+            --btn-border: #374151;
+            --card-hover: #161e31;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        :root[data-theme="light"] {
+            --bg-main: #f8fafc;
+            --bg-nav: #ffffff;
+            --bg-card: #ffffff;
+            --bg-hero: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            --border-color: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --btn-bg: #f1f5f9;
+            --btn-border: #cbd5e1;
+            --card-hover: #f8fafc;
+            --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--bg-nav);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            background: #2563eb;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .brand-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Theme Switcher Button */
+        .theme-btn {
+            background: var(--btn-bg);
+            border: 1px solid var(--btn-border);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-btn:hover {
+            border-color: #38bdf8;
+        }
+
+        /* Container & Cards */
+        .main-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .hero-card {
+            background: var(--bg-hero);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #0284c7;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        [data-theme="dark"] .hero-badge {
+            color: #38bdf8;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .hero-desc {
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto 30px auto;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            border-radius: 14px 14px 0 0;
+        }
+
+        .card-eng::before { background: #3b82f6; }
+        .card-hin::before { background: #10b981; }
+        .card-hig::before { background: #a855f7; }
+        .card-mix::before { background: #f59e0b; }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .card-eng .card-icon { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+        .card-hin .card-icon { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+        .card-hig .card-icon { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+        .card-mix .card-icon { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .card-sub {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            padding-top: 14px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .card-eng .card-footer { color: #3b82f6; }
+        .card-hin .card-footer { color: #10b981; }
+        .card-hig .card-footer { color: #a855f7; }
+        .card-mix .card-footer { color: #f59e0b; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">
+            <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div>
+                <div class="brand-title">B.A. 5th Semester</div>
+                <div class="brand-subtitle">Complete Digital Textbook</div>
+            </div>
+        </div>
+        <button class="theme-btn" id="themeToggleBtn" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+            <span id="themeText">डार्क मोड</span>
+        </button>
+    </nav>
+
+    <div class="main-container">
+        <div class="hero-card">
+            <div class="hero-badge">
+                <i class="fa-solid fa-book-bookmark"></i> Academic Year 2026 Portal
+            </div>
+            <h1 class="hero-title">Select Your Preferred Language</h1>
+            <p class="hero-desc">
+                Welcome to your comprehensive digital textbook platform for B.A. 5th Semester. Please select your preferred language option to access study materials.
+            </p>
+        </div>
+
+        <div class="grid">
+            <a href="./collge V - englisg/index.html" class="card card-eng">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-font"></i></div>
+                        <div>
+                            <div class="card-title">English</div>
+                            <div class="card-sub">Standard English</div>
+                        </div>
+                    </div>
+                    <div class="card-desc">Complete syllabus, textbook content, and MCQs in standard English.</div>
+                </div>
+                <div class="card-footer">
+                    <span>Open Portal</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="./collge V- hindi/index.html" class="card card-hin">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-om"></i></div>
+                        <div>
+                            <div class="card-title">हिन्दी (Hindi)</div>
+                            <div class="card-sub">शुद्ध हिन्दी माध्यम</div>
+                        </div>
+                    </div>
+                    <div class="card-desc">सम्पूर्ण पाठ्यपुस्तक, नोट्स एवं प्रश्न बैंक हिंदी भाषा में उपलब्ध।</div>
+                </div>
+                <div class="card-footer">
+                    <span>पोर्टल खोलें</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="./collge V-hinglish/index.html" class="card card-hig">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+                        <div>
+                            <div class="card-title">Hinglish</div>
+                            <div class="card-sub">Easy Conversational</div>
+                        </div>
+                    </div>
+                    <div class="card-desc">Easy to understand study notes written in casual Hindi-English mixed text.</div>
+                </div>
+                <div class="card-footer">
+                    <span>Open Portal</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <a href="./collge V - mixlg/index.html" class="card card-mix">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div>
+                            <div class="card-title">Mix Language</div>
+                            <div class="card-sub">Bilingual / Multi</div>
+                        </div>
+                    </div>
+                    <div class="card-desc">Bilingual content format with side-by-side English and Hindi definitions.</div>
+                </div>
+                <div class="card-footer">
+                    <span>Open Portal</span> <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Universal Theme Sync Script -->
+    <script>
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('portalTheme', theme);
+
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+
+            if (theme === 'dark') {
+                icon.className = 'fa-solid fa-sun';
+                text.textContent = 'लाइट मोड';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+                text.textContent = 'डार्क मोड';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        }
+
+        // On Load Sync
+        const savedTheme = localStorage.getItem('portalTheme') || 'dark';
+        applyTheme(savedTheme);
+    </script>
+</body>
+</html>

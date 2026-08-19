@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अर्थशास्त्र कौशल पाठ्यक्रम | बी.ए. 5वां सेमेस्टर पाठ्यपुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर अर्थशास्त्र कौशल संवर्धन पाठ्यक्रम: डेटा विश्लेषण एवं सांख्यिकी पद्धतियाँ। प्राथमिक/द्वितीयक आंकड़े, प्रतिदर्शन तकनीकें, ओजाइव वक्र, मध्यमान, मध्यका, बहुलक, मानक विचलन एवं फिशर सूचकांक।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">अर्थशास्त्र कौशल पाठ्यक्रम</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> पाठ्य सामग्री</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> परीक्षा विशेष</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-skill', 'अर्थशास्त्र कौशल पाठ्यक्रम')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">अर्थशास्त्र</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">डेटा विश्लेषण एवं सांख्यिकी पद्धतियाँ</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: आंकड़े एवं प्रतिदर्शन</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 प्राथमिक बनाम द्वितीयक आंकड़े</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 प्रतिदर्शन तकनीकें (Sampling)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: आंकड़ों का प्रस्तुतीकरण</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 रेखाचित्र एवं ओजाइव वक्र (Ogive)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 3: केंद्रीय प्रवृत्ति एवं अपकिरण</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 माध्य, मध्यका एवं बहुलक</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 मानक विचलन एवं अपकिरण के माप</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 4: सूचकांक</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 लास्पेयर, पाशे एवं फिशर का आदर्श सूचकांक</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>परीक्षा विशेष अनुभाग</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-flashcards" class="toc-link">त्वरित पुनरीक्षण फ्लैशकार्ड</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">अभ्यास प्रश्न (MCQs)</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-briefcase"></i> अर्थशास्त्र कौशल संवर्धन पाठ्यक्रम</div>
+                <h1>डेटा विश्लेषण एवं सांख्यिकी पद्धतियाँ</h1>
+                <p>
+                    यह व्यावहारिक पाठ्यपुस्तक प्राथमिक एवं द्वितीयक आंकड़ों के संग्रह, प्रतिदर्शन विधियों, आवृत्ति तालिकाओं, ओजाइव वक्रों, केंद्रीय प्रवृत्ति (समांतर माध्य, मध्यका, बहुलक), अपकिरण के मापों (मानक विचलन) और फिशर के आदर्श सूचकांक के गणितीय हल प्रस्तुत करती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">केंद्रीय प्रवृत्ति</span>
+                        <span class="stat-label">माध्य, मध्यका, बहुलक सूत्र</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">फिशर सूचकांक</span>
+                        <span class="stat-label">लास्पेयर x पाशे का गुणोत्तर माध्य</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">मानक विचलन</span>
+                        <span class="stat-label">वर्ग माध्य मूल विचलन ($\sigma$)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: DATA COLLECTION AND SAMPLING TECHNIQUES                            -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>आंकड़ों का संग्रह एवं प्रतिदर्शन तकनीकें</h2>
+                </div>
+
+                <!-- 1.1 Data Types -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>प्राथमिक बनाम द्वितीयक आंकड़े (Primary vs. Secondary Data)</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>मापदंड</th>
+                                    <th>प्राथमिक आंकड़े (Primary Data)</th>
+                                    <th>द्वितीयक आंकड़े (Secondary Data)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>मूल स्रोत</strong></td>
+                                    <td>प्रथम बार मौलिक रूप से एकत्र किए गए आंकड़े।</td>
+                                    <td>पूर्व प्रकाशित या अप्रकाशित एजेंसियों के आंकड़े।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>संग्रह विधियां</strong></td>
+                                    <td>प्रत्यक्ष साक्षात्कार, प्रश्नावली, अवलोकन।</td>
+                                    <td>NSSO रिपोर्ट, जनगणना आंकड़े, RBI बुलेटिन।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 Sampling Methods -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>प्रतिदर्शन की विधियाँ (Sampling Techniques)</span>
+                    </div>
+                    <p>
+                        समग्र (Population) में से नमूना चुनने की दो प्रमुख विधियाँ हैं: <strong>1. यादृच्छिक प्रतिदर्शन (Random Sampling - जैसे सरल देव प्रतिदर्शन, स्तरित प्रतिदर्शन)</strong> तथा <strong>2. गैर-यादृच्छिक प्रतिदर्शन (Non-Random Sampling - जैसे उद्देश्यपूर्ण प्रतिदर्शन, कोआटा प्रतिदर्शन)</strong>।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: PRESENTATION OF DATA                                               -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>आंकड़ों का प्रस्तुतीकरण एवं ओजाइव वक्र</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>ओजाइव वक्र (Ogive Curves) तथा आयतचित्र (Histogram)</span>
+                    </div>
+                    <p>
+                        संचयी आवृत्ति (Cumulative Frequency) को प्रदर्शित करने वाले वक्र को ओजाइव वक्र कहते हैं। 'से कम' (Less-than) तथा 'से अधिक' (More-than) ओजाइव वक्र जहाँ एक-दूसरे को काटते हैं, वह बिंदु <strong>मध्यका (Median)</strong> को दर्शाता है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: MEASURES OF CENTRAL TENDENCY & DISPERSION                           -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 3</span>
+                    <h2>केंद्रीय प्रवृत्ति एवं अपकिरण के माप</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>समांतर माध्य, मध्यका एवं बहुलक के गणितीय सूत्र</span>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula-title">सतत श्रेणी हेतु मध्यका ($M$) सूत्र:</div>
+                        $$M = L_1 + \frac{\frac{N}{2} - c.f.}{f} \times i$$
+                    </div>
+                </div>
+
+                <div class="topic-card" id="u3-2">
+                    <div class="topic-title">
+                        <span class="topic-number">3.2</span>
+                        <span>मानक विचलन ($\sigma$) एवं विचरण गुणांक ($CV$)</span>
+                    </div>
+                    <div class="formula-box">
+                        <div class="formula-title">विचरण गुणांक (Coefficient of Variation) सूत्र:</div>
+                        $$\text{CV} = \frac{\sigma}{\bar{X}} \times 100$$
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: INDEX NUMBERS                                                     -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 4</span>
+                    <h2>सूचकांक: लास्पेयर, पाशे एवं फिशर का आदर्श सूचकांक</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>फिशर का आदर्श सूचकांक (Fisher's Ideal Index Number)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">फिशर का सूचकांक सूत्र:</div>
+                        $$P_{01} = \sqrt{L \times P} = \sqrt{\frac{\sum p_1 q_0}{\sum p_0 q_0} \times \frac{\sum p_1 q_1}{\sum p_0 q_1}} \times 100$$
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">परीक्षा विशेष</span>
+                    <h2>परीक्षा प्रश्न बैंक एवं पुनरीक्षण उपकरण</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> त्वरित पुनरीक्षण फ्लैशकार्ड</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">फिशर के सूचकांक को 'आदर्श' क्यों माना जाता है?</div>
+                            <div class="back">क्योंकि यह समय उत्क्रम्यता (Time Reversal) और तत्व उत्क्रम्यता (Factor Reversal) परीक्षणों को संतुष्ट करता है।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">संचयी आवृत्ति (Cumulative Frequency) वक्र को क्या कहा जाता है?</div>
+                            <div class="back">ओजाइव वक्र (Ogive Curve)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">माध्य, मध्यका और बहुलक में क्या संबंध है?</div>
+                            <div class="back">बहुलक (Mode) = 3 x मध्यका (Median) - 2 x माध्य (Mean)।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> अभ्यास प्रश्न (MCQs)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">प्र1. लास्पेयर सूचकांक में किस भार (Weight) का उपयोग किया जाता है?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-skill-1')">क) आधार वर्ष की मात्रा ($q_0$)</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">ख) वर्तमान वर्ष की मात्रा ($q_1$)</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">ग) दोनों वर्षों का औसत</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">घ) केवल वर्तमान वर्ष का मूल्य</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-skill-1">
+                                <strong>स्पष्टीकरण:</strong> लास्पेयर सूचकांक में आधार वर्ष की मात्रा ($q_0$) को भार के रूप में लिया जाता है।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। अर्थशास्त्र कौशल पाठ्यक्रम।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill" selected>अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

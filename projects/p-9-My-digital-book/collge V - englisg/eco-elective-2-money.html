@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economics Elective 2 — Money & Banking | B.A. 5th Semester Digital Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Economics Elective 2: Money and Banking. Fisher Quantity Theory, Cambridge Equations, Credit Creation Multiplier, RBI Monetary Policy, M1-M4, NPAs, and IBC 2016.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Economics Elective 2</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-elective-2', 'Economics Elective 2 — Money')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">Economics</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Money and Banking</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Functions & Quantity Theories</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Functions of Money</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 Fisher's Quantity Theory (MV=PT)</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 Cambridge Cash Balance (M=kPY)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Credit Creation & RBI</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Commercial Credit Multiplier</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 RBI Monetary Policy Tools</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Money Supply & Financial Markets</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Money Supply Measures (M1 - M4)</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Money Market vs Capital Market</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Banking Reforms & FinTech</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Narasimham Reforms & Basel III</a></li>
+                    <li><a href="#u4-2" class="toc-link">4.2 NPAs, IBC 2016 & Digital Banking</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">Long Answer Questions</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">Short Answer Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-coins"></i> Economics Major / Elective Paper II</div>
+                <h1>Money and Banking</h1>
+                <p>
+                    This textbook covers monetary economics, Fisher's MV=PT quantity theory, Cambridge M=kPY cash balance approach, commercial bank credit creation multipliers, RBI quantitative/qualitative monetary policy instruments, M1-M4 aggregates, banking sector reforms, NPAs, and IBC 2016.
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">Fisher & Cambridge</span>
+                        <span class="stat-label">Quantity Theories & Derivations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Credit Multiplier</span>
+                        <span class="stat-label">K = 1/CRR Step-by-Step Table</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">RBI Policy Tools</span>
+                        <span class="stat-label">Repo, CRR, SLR, OMO & MSF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: MONEY AND QUANTITY THEORIES                                         -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Money and Quantity Theories</h2>
+                </div>
+
+                <!-- 1.1 Functions of Money -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Functions of Money</span>
+                    </div>
+
+                    <p>
+                        Money eliminates the double coincidence of wants inherent in barter trade. Its functions are categorized into Primary, Secondary, and Contingent functions:
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-coins"></i> Classification of Money Functions:</h5>
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>Primary Functions:</strong> Medium of Exchange (facilitates market transactions) and Unit of Account (common denominator for pricing).</li>
+                            <li><strong>Secondary Functions:</strong> Standard of Deferred Payments (facilitates credit contracts) and Store of Value (liquid wealth accumulation).</li>
+                            <li><strong>Contingent Functions:</strong> Distribution of national income, equalization of marginal utilities, and basis of credit system.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 1.2 Fisher's Theory -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>Irving Fisher's Quantity Theory of Money (MV = PT)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Fisher's Equation of Exchange:</div>
+                        $$MV = PT \quad \text{or with credit money} \quad MV + M'V' = PT$$
+                        <p class="text-sm mt-2">
+                            Where: $M = \text{Primary Currency}$, $V = \text{Velocity of Currency}$, $M' = \text{Bank Credit Money}$, $V' = \text{Velocity of Credit}$, $P = \text{Price Level}$, $T = \text{Volume of Transactions}$.
+                        </p>
+                    </div>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-calculator"></i> Solved Numerical Example:</h5>
+                        <p class="text-sm">
+                            <strong>Problem:</strong> Given currency supply $M = \$1,000$, velocity $V = 5$, credit money $M' = \$500$, velocity $V' = 4$, and transaction volume $T = 1,400$ units. Calculate price level ($P$).
+                        </p>
+                        <p class="text-sm mt-2">
+                            <strong>Solution:</strong><br>
+                            $MV + M'V' = PT \implies (1000 \times 5) + (500 \times 4) = P \times 1400$<br>
+                            $5000 + 2000 = 1400P \implies 7000 = 1400P \implies P = 7000 / 1400 = 5$.<br>
+                            <strong>Answer:</strong> The General Price Level ($P$) is <strong>5</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1.3 Cambridge Equation -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>Cambridge Cash Balance Approach ($M = kPY$)</span>
+                    </div>
+
+                    <p>
+                        Cambridge economists (Alfred Marshall, A.C. Pigou, D.H. Robertson, J.M. Keynes) focused on the demand for money to hold as liquid cash balances:
+                    </p>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Marshall's Cambridge Equation:</div>
+                        $$M = kPY$$
+                        <p class="text-sm mt-2">
+                            Where: $M = \text{Money Supply}$, $k = \text{Fraction of real national income held in liquid cash}$, $P = \text{Price Level}$, $Y = \text{Real National Income}$.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: CREDIT CREATION AND CENTRAL BANKING                                 -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit II</span>
+                    <h2>Credit Creation and Central Banking</h2>
+                </div>
+
+                <!-- 2.1 Credit Multiplier -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>Commercial Bank Credit Creation Process</span>
+                    </div>
+
+                    <p>
+                        Commercial banks expand credit through derivative deposits. Given an initial primary deposit ($D$) and Cash Reserve Ratio ($\text{CRR}$), total credit created ($K$) is:
+                    </p>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Credit Multiplier Formula:</div>
+                        $$\text{Total Credit Created} = \text{Primary Deposit} \times \left(\frac{1}{\text{CRR}}\right)$$
+                    </div>
+
+                    <!-- Step-by-Step Expansion Table -->
+                    <h4 class="text-sm font-bold mt-4 mb-2">Step-by-Step Credit Expansion Round Table (Initial Deposit = $1,000, CRR = 10%):</h4>
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Banking Round</th>
+                                    <th>Primary Deposit ($)</th>
+                                    <th>Required Reserve (10%) ($)</th>
+                                    <th>Derivative Loan ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Bank A (Round 1)</strong></td>
+                                    <td>1,000.00</td>
+                                    <td>100.00</td>
+                                    <td>900.00</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bank B (Round 2)</strong></td>
+                                    <td>900.00</td>
+                                    <td>90.00</td>
+                                    <td>810.00</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bank C (Round 3)</strong></td>
+                                    <td>810.00</td>
+                                    <td>81.00</td>
+                                    <td>729.00</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total System Output</strong></td>
+                                    <td><strong>$10,000.00</strong></td>
+                                    <td><strong>$1,000.00</strong></td>
+                                    <td><strong>$9,000.00</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2.2 RBI Policy -->
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.2</span>
+                        <span>Reserve Bank of India (RBI) Monetary Policy Tools</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Tool Category</th>
+                                    <th>Policy Instrument</th>
+                                    <th>Operational Mechanism</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Quantitative (General)</strong></td>
+                                    <td>Repo Rate</td>
+                                    <td>Short-term rate at which RBI lends money to commercial banks against government securities.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quantitative (General)</strong></td>
+                                    <td>Cash Reserve Ratio (CRR)</td>
+                                    <td>Percentage of Net Demand and Time Liabilities (NDTL) banks must park as cash with RBI.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quantitative (General)</strong></td>
+                                    <td>Statutory Liquidity Ratio (SLR)</td>
+                                    <td>Percentage of NDTL banks must maintain in liquid assets (gold, government bonds).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quantitative (General)</strong></td>
+                                    <td>Open Market Operations (OMO)</td>
+                                    <td>Sale/Purchase of government securities in open market to regulate systemic liquidity.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Qualitative (Selective)</strong></td>
+                                    <td>Margin Requirements & Credit Rationing</td>
+                                    <td>Directing credit flow to specific priority sectors and setting loan-to-value caps.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">What is Fisher's equation of exchange?</div>
+                            <div class="back">MV = PT.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">What is the credit multiplier formula?</div>
+                            <div class="back">K = 1 / CRR.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Which money supply measure is 'Narrow Money'?</div>
+                            <div class="back">M1.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. If CRR = 5%, what is the maximum credit multiplier?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">A) 10</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco2-1')">B) 20</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">C) 15</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco2-1')">D) 25</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco2-1">
+                                <strong>Explanation:</strong> K = 1 / 0.05 = 20.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">Repo Rate</div>
+                            <div class="glossary-def">Short-term lending rate at which central bank provides liquidity to commercial banks.</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">NPA</div>
+                            <div class="glossary-def">Non-Performing Asset — a loan account where interest or principal remains overdue for >90 days.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. Economics Elective Paper II.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

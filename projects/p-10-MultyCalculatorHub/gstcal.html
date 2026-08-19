@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Premium Fintech GST Calculator with Live Data Visualizations, Compensation Cess, Interactive Tax Invoice Summary, Analytics, and Image Export Capabilities."/>
+  <title>💼 Premium GST FinTech Terminal</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Course Hub | GST Calculator">
+  <meta property="og:description" content="Upgrade your skills with 100% free and verified online course links.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/munendra5singh/FreeCourseHub/main/preview.png">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/gstcal.css">
+</head>
+<body>
+  <div id="site-header-root"></div>
+
+
+  <div class="history-sidebar" id="historySidebar">
+    <div class="history-header">
+      <h2>📜 Terminal Log History</h2>
+      <button class="icon-btn" onclick="toggleHistoryPanel()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="history-logs" id="historyLogsBox">
+      <div style="text-align: center; color: var(--text-muted); margin-top: 20px; font-size: 13px;">No saved logs found. Press Calculate or Enter!</div>
+    </div>
+    <button class="action-btn" style="background: #ef4444; font-size:12px; padding:10px;" onclick="clearAllHistory()">🗑️ Wipe History Logs</button>
+  </div>
+
+  <div class="wrapper">
+    <header class="calc-header">
+      <div class="header-left">
+        <a href="index.html" class="icon-btn" title="Main Desk Hub"><i class="fa-solid fa-house"></i></a>
+        <h1>💼 Premium GST Terminal</h1>
+      </div>
+      <div class="header-controls">
+        <a href="gstdetails.html" class="icon-btn" title="Ledger Book"><i class="fa-solid fa-folder-open"></i></a>
+        <button class="icon-btn" id="history-toggle" onclick="toggleHistoryPanel()" title="Calculation Log Streams"><i class="fa-solid fa-clock-rotate-left"></i></button>
+        
+        <button class="icon-btn" id="theme-universal-toggle" onclick="toggleSmartTheme()" title="Switch Theme Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="terminal-grid">
+      
+      <main class="section-card">
+        <div class="section-title">📥 1. Data Configurator</div>
+        
+        <div class="form-group">
+          <label>Calculation Mode</label>
+          <div class="segmented-control">
+            <input type="radio" id="addGst" name="gstMode" value="add" checked />
+            <label for="addGst">Exclusive (+GST)</label>
+            
+            <input type="radio" id="removeGst" name="gstMode" value="remove" />
+            <label for="removeGst">Inclusive (-GST)</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="baseAmount">Amount (राशि)</label>
+          <div class="input-container">
+            <span class="prefix">₹</span>
+            <input type="number" id="baseAmount" value="50000" step="0.01" min="0.01" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gstRate">GST Percentage Slab</label>
+          <select id="gstRate">
+            <option value="3">3% (Precious Goods)</option>
+            <option value="5">5% (Essentials)</option>
+            <option value="12">12% (Standard I)</option>
+            <option value="18" selected>18% (Standard II)</option>
+            <option value="28">28% (Luxury Assets)</option>
+            <option value="40">40% (Super Luxury Asset)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cessRate">Compensation Cess (%)</label>
+          <select id="cessRate">
+            <option value="0" selected>0% (No Cess)</option>
+            <option value="1">1% (Minor Cess)</option>
+            <option value="12">12% (Automotive Surcharge)</option>
+            <option value="15">15% (Luxury Demerit)</option>
+            <option value="22">22% (Maximum Sin Tax)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-container">
+            <input type="checkbox" id="interstateSupply" />
+            <span>Interstate Supply Location (Apply IGST)</span>
+          </label>
+        </div>
+
+        <button class="action-btn" style="background: var(--accent-color);" onclick="processAndCommitCalculations()">⚡ Calculate & Save Logs</button>
+        <button class="action-btn" style="background:#64748b;" onclick="resetFields()">Clear Inputs</button>
+      </main>
+
+      <section class="section-card">
+        <div class="section-title">📊 2. Dynamic Insights & Audit</div>
+        
+        <div class="stat-box">
+          <p>Base Taxable Amount (शुद्ध राशि)</p>
+          <h3 id="resNet">₹0.00</h3>
+        </div>
+
+        <div class="stat-box">
+          <p>Total Tax Component (GST Aggregate)</p>
+          <h3 id="resTax" style="color: var(--primary);">₹0.00</h3>
+        </div>
+
+        <div class="stat-box">
+          <p>Compensation Cess Asset Value</p>
+          <h3 id="resCess" style="color: var(--secondary);">₹0.00</h3>
+        </div>
+
+        <div class="stat-box gross">
+          <p>Final Payable Value (Gross Total)</p>
+          <h3 id="resGross" style="color: var(--success);">₹0.00</h3>
+        </div>
+
+        <div class="words-box">
+          <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 2px;">Value In Words</span>
+          <div id="resWords">Zero Rupees Only</div>
+        </div>
+
+        <div class="chart-container">
+          <svg width="110" height="110" class="donut-chart-svg">
+            <circle cx="55" cy="55" r="44" fill="transparent" stroke="var(--input-border)" stroke-width="8"/>
+            <circle id="donutProgress" cx="55" cy="55" r="44" fill="transparent" stroke="var(--primary)" stroke-width="8" 
+                    stroke-dasharray="276.46" stroke-dashoffset="276.46" class="donut-segment" stroke-linecap="round"/>
+          </svg>
+          <div class="chart-overlay-text">
+            <span class="pct" id="chartPct">18%</span>
+            <span class="lbl">Tax Ratio</span>
+          </div>
+        </div>
+
+        <div class="math-explanation" id="mathDetails">
+          Entering structural metric data to initialize dynamic calculation paths...
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-title">
+          <span>🧾 3. Digital Tax Invoice</span>
+          <button class="rand-btn" onclick="randomizeInvoiceProfile()">🎲 Shuffle</button>
+        </div>
+        
+        <div class="invoice-box" id="captureInvoice">
+          <div class="invoice-watermark">ORIGINAL</div>
+          
+          <div class="invoice-header-banner">
+            <h2>GST TAX INVOICE</h2>
+          </div>
+          
+          <div class="invoice-party-row">
+            <div class="party-block">
+              <h4>Supplier Profile</h4>
+              <p style="font-weight: 700; color: var(--primary); margin-bottom: 2px;">Corporate FinTech Terminal Ltd.</p>
+              <p style="font-size: 10px; color: #64748b;">GSTIN: 07AAAAA1111A1Z1<br>Connaught Place, New Delhi, 110001</p>
+              
+              <h4 style="margin-top: 10px;">Billed To (Customer)</h4>
+              <p style="font-weight: 600;" id="invClientName">Enterprise Client Profile</p>
+              <p style="font-size: 10px; color: #64748b;" id="invClientGstin">GSTIN: 07BBBBB2222B2Z2</p>
+            </div>
+            
+            <div class="invoice-meta-block">
+              <span class="invoice-status-badge">Paid Verified</span>
+              <div style="font-size: 11px; font-weight: 700; margin-top: 6px;">Inv No: <span id="invId" style="color: var(--primary);">INV-2026-829</span></div>
+              <div id="invDate" style="font-size: 10px; color: #64748b;">Date: 25-Jun-2026</div>
+              <div style="margin-top: 2px;"><span class="invoice-badge-slab" id="invSlab">18% GST</span></div>
+            </div>
+          </div>
+
+          <div class="invoice-table-wrapper">
+            <table class="invoice-table">
+              <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Taxable</th>
+                  <th>CGST</th>
+                  <th>SGST</th>
+                  <th>IGST</th>
+                  <th>Cess</th>
+                  <th>Total tax</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:600; font-size:10px;">Provisioned Service Liability</td>
+                  <td id="tdNet">₹0.00</td>
+                  <td id="tdCgst">₹0.00</td>
+                  <td id="tdSgst">₹0.00</td>
+                  <td id="tdIgst">₹0.00</td>
+                  <td id="tdCess">₹0.00</td>
+                  <td id="tdTaxTotal" style="font-weight:600; color:var(--primary);">₹0.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="amount-highlight-card">
+            <div>
+              <div class="lbl">Final Payable Amount</div>
+              <div style="font-size: 9px; opacity: 0.85; margin-top: 1px;">Total Tax & Cess Inclusive Balance</div>
+            </div>
+            <div class="val" id="tdFinalPayable">₹0.00</div>
+          </div>
+
+          <div class="invoice-words-strip" id="tdWordsText">
+            Zero Rupees Only
+          </div>
+        </div>
+
+        <button class="action-btn secondary" onclick="exportInvoiceAsImage()">📸 Save Bill as Image</button>
+        <button class="action-btn" style="background:#0ea5e9;" onclick="window.print()">🖨️ Print Document</button>
+
+        <div class="share-section">
+          <div class="share-title">Export & Transmit Report Log</div>
+          <div class="share-buttons">
+            <button class="share-btn" onclick="copyResultsToClipboard()">📋 Copy Logs</button>
+            <button class="share-btn" onclick="sharePlatform('wa')">WhatsApp</button>
+            <button class="share-btn" onclick="sharePlatform('tw')">Twitter / X</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      Created by Munendra | Powered by <a href="https://munendra5singh.github.io/FreeCourseHub/" target="_blank">FreeCourseHub</a>
+    </footer>
+  </div>
+
+  <script src="js/pages/gstcal-engine.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
+ 
+  <div id="site-footer-root"></div>
+
+</body>
+</html>

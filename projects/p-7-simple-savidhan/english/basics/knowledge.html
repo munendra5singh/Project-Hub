@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Knowledge Base</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner - Search Bar Included Inside */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 280px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    /* Search Container inside Hero Section */
+    .hero-search-container {
+      display: flex;
+      max-width: 100%;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      border: 1px solid #d4af37;
+    }
+
+    .hero-search-container i {
+      padding: 12px 15px;
+      color: #0b1a30;
+      font-size: 15px;
+    }
+
+    .hero-search-container input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .hero-search-container button {
+      background-color: #0b1a30;
+      color: #fff;
+      border: none;
+      padding: 0 22px;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .hero-search-container button:hover {
+      background-color: #162a47;
+    }
+
+    /* Container & Breadcrumb */
+    .container {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: #666;
+      margin: 15px 0 20px 0;
+      font-weight: 500;
+    }
+
+    .breadcrumb a {
+      color: #123e6d;
+    }
+
+    /* Search Results Panel */
+    .search-results-panel {
+      background: #fff;
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      display: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-results-panel.active {
+      display: block;
+    }
+
+    .search-results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .search-results-header h3 {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .close-search {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .search-result-item {
+      padding: 10px;
+      border-bottom: 1px solid #f5f5f5;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .search-result-item:hover {
+      background: #f8f9fa;
+    }
+
+    .search-result-item h4 {
+      font-size: 13px;
+      color: #123e6d;
+      margin-bottom: 3px;
+    }
+
+    .search-result-item p {
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* 3-Column Page Layout Grid */
+    .three-column-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr 300px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Fixed/Sticky Sidebars Styling */
+    .left-sidebar, .right-sidebar {
+      position: sticky;
+      top: 20px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .left-sidebar::-webkit-scrollbar, .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .left-sidebar::-webkit-scrollbar-thumb, .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #0b1a30;
+      letter-spacing: 0.8px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Explore By Category (Left Sidebar Version) */
+    .sidebar-categories-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .category-card-small {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .category-card-small:hover {
+      transform: translateX(3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #d4af37;
+    }
+
+    .cat-icon-small {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .category-info-small h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 2px;
+    }
+
+    .category-info-small p {
+      font-size: 10px;
+      color: #666;
+      line-height: 1.2;
+    }
+
+    /* Center Scrollable Area Content Styling */
+    .center-content {
+      min-width: 0;
+    }
+
+    /* Quick Facts Grid */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .fact-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 12px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .fact-card i {
+      font-size: 18px;
+      color: #d4af37;
+    }
+
+    .fact-info h3 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .fact-info p {
+      font-size: 8.5px;
+      color: #666;
+    }
+
+    /* Educational Section Cards Styling */
+    .content-box {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .content-box h3.box-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .content-box h3.box-title i {
+      color: #d4af37;
+    }
+
+    .content-box p {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .sub-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #123e6d;
+      margin: 12px 0 8px 0;
+    }
+
+    .info-list {
+      list-style: none;
+      margin-bottom: 15px;
+    }
+
+    .info-list li {
+      font-size: 11.5px;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 7px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .info-list li::before {
+      content: "▪";
+      color: #d4af37;
+      position: absolute;
+      left: 0;
+      font-size: 13px;
+      top: -1px;
+    }
+
+    /* Popular Topics Grid inside Center */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .topic-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .topic-card img {
+      width: 100%;
+      height: 95px;
+      object-fit: cover;
+    }
+
+    .topic-card-body {
+      padding: 10px;
+    }
+
+    .topic-card h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .topic-card p {
+      font-size: 9.5px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .read-time {
+      font-size: 9px;
+      color: #888;
+    }
+
+    /* Accordion Components */
+    .accordion {
+      margin-top: 10px;
+    }
+
+    .accordion-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .accordion-header {
+      padding: 10px 14px;
+      background: #f8fafc;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #0b1a30;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f1f5f9;
+    }
+
+    .accordion-header i {
+      color: #d4af37;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-header i {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      padding: 0 14px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: #fff;
+    }
+
+    .accordion-item.active .accordion-content {
+      padding: 12px 14px;
+      max-height: 1500px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .accordion-content p {
+      font-size: 11.5px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    /* Tables */
+    .custom-table-wrapper {
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .custom-table th {
+      background-color: #0b1a30;
+      color: #ffffff;
+      text-align: left;
+      padding: 8px 10px;
+      font-weight: 600;
+    }
+
+    .custom-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .custom-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    /* Badges */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .badge-card {
+      background: #f1f5f9;
+      border-left: 3px solid #d4af37;
+      padding: 8px 10px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .badge-card strong {
+      display: block;
+      font-size: 11px;
+      color: #0b1a30;
+      margin-bottom: 2px;
+    }
+
+    .badge-card span {
+      font-size: 9.5px;
+      color: #666;
+    }
+
+    /* Right Sidebar Widgets */
+    .sidebar-widget {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .widget-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .timeline-date {
+      background: #0b1a30;
+      color: #d4af37;
+      font-weight: 700;
+      font-size: 8.5px;
+      text-align: center;
+      padding: 5px 6px;
+      border-radius: 4px;
+      min-width: 42px;
+      height: fit-content;
+      line-height: 1.2;
+    }
+
+    .timeline-text {
+      font-size: 10.5px;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .did-you-know-box {
+      background: #0b1a30;
+      color: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .did-you-know-box p {
+      font-size: 10.5px;
+      color: #e0e0e0;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .read-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .read-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .read-item-info h5 {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #0b1a30;
+    }
+
+    .read-item-info p {
+      font-size: 9.5px;
+      color: #888;
+    }
+
+    /* FAQ & Newsletter */
+    .faq-card, .newsletter-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .faq-card h3, .newsletter-card h3 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-item-interactive {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .faq-question {
+      padding: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10.5px;
+      color: #444;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      font-size: 10.5px;
+      color: #666;
+      line-height: 1.4;
+      padding: 0 0 8px 0;
+      display: none;
+    }
+
+    .faq-item-interactive.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item-interactive.active .faq-question {
+      color: #123e6d;
+      font-weight: 700;
+    }
+
+    .newsletter-card p {
+      font-size: 10.5px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-card input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      outline: none;
+    }
+
+    .newsletter-card button {
+      width: 100%;
+      background: #0b1a30;
+      color: #fff;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    /* Bottom Banner */
+    .bottom-banner {
+      background: #0b1a30;
+      color: #fff;
+      border-radius: 8px;
+      padding: 20px 25px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .bottom-banner i {
+      font-size: 32px;
+      color: #d4af37;
+    }
+
+    .bottom-banner-text h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+
+    .bottom-banner-text p {
+      font-size: 10.5px;
+      color: #e0e0e0;
+    }
+
+    /* Toast */
+    .toast-msg {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0b1a30;
+      color: #d4af37;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 2000;
+    }
+
+    /* Media Queries for Responsive Handling */
+    @media (max-width: 1100px) {
+      .three-column-grid {
+        grid-template-columns: 240px 1fr 260px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-banner { padding: 30px 30px; }
+      .three-column-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-banner { padding: 25px 20px; }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR KNOWLEDGE PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .hero-search-container {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .hero-search-container i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .hero-search-container input {
+      background: var(--sv-bg-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .hero-search-container button {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .hero-search-container button:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .search-results-panel,
+    [data-theme="dark"] .category-card-small,
+    [data-theme="dark"] .fact-card,
+    [data-theme="dark"] .content-box,
+    [data-theme="dark"] .topic-card,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .faq-card,
+    [data-theme="dark"] .newsletter-card {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .section-title,
+    [data-theme="dark"] .category-info-small h4,
+    [data-theme="dark"] .fact-info h3,
+    [data-theme="dark"] .box-title,
+    [data-theme="dark"] .topic-card h4,
+    [data-theme="dark"] .widget-title,
+    [data-theme="dark"] .read-item-info h5,
+    [data-theme="dark"] .faq-card h3,
+    [data-theme="dark"] .newsletter-card h3,
+    [data-theme="dark"] .search-results-header h3,
+    [data-theme="dark"] .search-result-item h4 {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .category-info-small p,
+    [data-theme="dark"] .fact-info p,
+    [data-theme="dark"] .content-box p,
+    [data-theme="dark"] .info-list li,
+    [data-theme="dark"] .topic-card p,
+    [data-theme="dark"] .read-time,
+    [data-theme="dark"] .timeline-text,
+    [data-theme="dark"] .read-item-info p,
+    [data-theme="dark"] .faq-question,
+    [data-theme="dark"] .faq-answer,
+    [data-theme="dark"] .newsletter-card p,
+    [data-theme="dark"] .search-result-item p,
+    [data-theme="dark"] .breadcrumb {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .breadcrumb a,
+    [data-theme="dark"] .sub-heading,
+    [data-theme="dark"] .faq-item-interactive.active .faq-question {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .accordion-item,
+    [data-theme="dark"] .accordion-content {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .accordion-header {
+      background: var(--sv-bg-card-hover);
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .accordion-header:hover {
+      background: var(--sv-bg-input);
+    }
+
+    [data-theme="dark"] .accordion-content p {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .custom-table th {
+      background-color: var(--sv-bg-card-hover);
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .custom-table td {
+      border-color: var(--sv-border);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .custom-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    [data-theme="dark"] .badge-card {
+      background: var(--sv-bg-input);
+    }
+
+    [data-theme="dark"] .badge-card strong {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .badge-card span {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .timeline-item,
+    [data-theme="dark"] .faq-item-interactive,
+    [data-theme="dark"] .search-results-header,
+    [data-theme="dark"] .search-result-item {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .search-result-item:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .timeline-date {
+      background: var(--sv-bg-input);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .did-you-know-box,
+    [data-theme="dark"] .bottom-banner {
+      background: var(--sv-bg-card);
+      border: 1px solid var(--sv-border);
+    }
+
+    [data-theme="dark"] .newsletter-card input {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .newsletter-card button {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="articles.html">ARTICLES</a></li>
+      <li><a href="parts.html">PARTS</a></li>
+      <li><a href="schedules.html">SCHEDULES</a></li>
+      <li><a href="amendments.html">AMENDMENTS</a></li>
+      <li><a href="judgments.html">JUDGMENTS</a></li>
+      <li><a href="glossary.html">GLOSSARY</a></li>
+      <li><a href="quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/basics/knowledge.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner with Integrated Search Bar -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">KNOWLEDGE BASE</h1>
+      <p class="hero-description">
+        Explore the Constitution of India in a simple and structured way. Learn, understand, and empower yourself.
+      </p>
+      
+      <!-- Search Bar Moved into Hero Section -->
+      <div class="hero-search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search topics, articles (e.g. Article 21), amendments, cases...">
+        <button type="button" id="searchBtn">SEARCH</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> &gt; <span>Knowledge</span>
+    </div>
+
+    <!-- Search Results Panel -->
+    <div class="search-results-panel" id="searchResultsPanel">
+      <div class="search-results-header">
+        <h3><i class="fa-solid fa-magnifying-glass" style="color:#d4af37;"></i> Search Results</h3>
+        <button class="close-search" id="closeSearchBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="searchResultsList"></div>
+    </div>
+
+    <!-- 3-Column Main Layout Grid -->
+    <div class="three-column-grid">
+      
+      <!-- 1. LEFT SIDEBAR (Expanded Categories List) -->
+      <div class="left-sidebar">
+        <div class="section-title"><i class="fa-solid fa-layer-group" style="color:#d4af37;"></i> Categories</div>
+        
+        <div class="sidebar-categories-list">
+          <div class="category-card-small" onclick="scrollToSection('sec-basics')">
+            <div class="cat-icon-small" style="background-color: #0b1a30;"><i class="fa-solid fa-landmark-flag"></i></div>
+            <div class="category-info-small">
+              <h4>Basics & History</h4>
+              <p>At a Glance & History</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-assembly')">
+            <div class="cat-icon-small" style="background-color: #123e6d;"><i class="fa-solid fa-users-gear"></i></div>
+            <div class="category-info-small">
+              <h4>Assembly & Drafting</h4>
+              <p>Formation & Committees</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-timeline')">
+            <div class="cat-icon-small" style="background-color: #2e7d32;"><i class="fa-solid fa-timeline"></i></div>
+            <div class="category-info-small">
+              <h4>Timeline & Sources</h4>
+              <p>1946–1950 & Borrowings</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-preamble')">
+            <div class="cat-icon-small" style="background-color: #6a1b9a;"><i class="fa-solid fa-scroll"></i></div>
+            <div class="category-info-small">
+              <h4>Preamble & Features</h4>
+              <p>Salient Features & Objectives</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-rights')">
+            <div class="cat-icon-small" style="background-color: #e65100;"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="category-info-small">
+              <h4>Fundamental Rights</h4>
+              <p>Articles 12–35 & Writs</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-dpsp-duties')">
+            <div class="cat-icon-small" style="background-color: #00838f;"><i class="fa-solid fa-compass"></i></div>
+            <div class="category-info-small">
+              <h4>DPSP & Duties</h4>
+              <p>Part IV & Art 51A</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-citizenship')">
+            <div class="cat-icon-small" style="background-color: #d81b60;"><i class="fa-solid fa-id-card"></i></div>
+            <div class="category-info-small">
+              <h4>Citizenship</h4>
+              <p>Articles 5–11</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-executive')">
+            <div class="cat-icon-small" style="background-color: #c0ca33;"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="category-info-small">
+              <h4>Union Executive</h4>
+              <p>President, PM & Cabinet</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-parliament')">
+            <div class="cat-icon-small" style="background-color: #0b1a30;"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="category-info-small">
+              <h4>Parliament</h4>
+              <p>Lok & Rajya Sabha, Bills</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-state-govt')">
+            <div class="cat-icon-small" style="background-color: #2e7d32;"><i class="fa-solid fa-city"></i></div>
+            <div class="category-info-small">
+              <h4>State Government</h4>
+              <p>Governor, CM & Assembly</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-judiciary')">
+            <div class="cat-icon-small" style="background-color: #00838f;"><i class="fa-solid fa-gavel"></i></div>
+            <div class="category-info-small">
+              <h4>Judiciary</h4>
+              <p>Supreme Court & High Courts</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-relations-lists')">
+            <div class="cat-icon-small" style="background-color: #6a1b9a;"><i class="fa-solid fa-diagram-project"></i></div>
+            <div class="category-info-small">
+              <h4>Centre-State Relations</h4>
+              <p>7th Schedule & Lists</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-local-govt')">
+            <div class="cat-icon-small" style="background-color: #e65100;"><i class="fa-solid fa-people-roof"></i></div>
+            <div class="category-info-small">
+              <h4>Local Government</h4>
+              <p>Panchayats & Municipalities</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-bodies')">
+            <div class="cat-icon-small" style="background-color: #d81b60;"><i class="fa-solid fa-building-user"></i></div>
+            <div class="category-info-small">
+              <h4>Constitutional Bodies</h4>
+              <p>ECI, CAG, UPSC, Finance Comm</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-emergency')">
+            <div class="cat-icon-small" style="background-color: #123e6d;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="category-info-small">
+              <h4>Emergency Provisions</h4>
+              <p>Articles 352, 356, 360</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-amendments')">
+            <div class="cat-icon-small" style="background-color: #2e7d32;"><i class="fa-solid fa-pen-to-square"></i></div>
+            <div class="category-info-small">
+              <h4>Amendments</h4>
+              <p>Article 368 & Key Amendments</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-parts-schedules')">
+            <div class="cat-icon-small" style="background-color: #0b1a30;"><i class="fa-solid fa-book-open"></i></div>
+            <div class="category-info-small">
+              <h4>Parts & Schedules</h4>
+              <p>All Parts & 12 Schedules</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-judgments')">
+            <div class="cat-icon-small" style="background-color: #00838f;"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
+            <div class="category-info-small">
+              <h4>Landmark Cases</h4>
+              <p>Basic Structure & Privacy</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-elections')">
+            <div class="cat-icon-small" style="background-color: #e65100;"><i class="fa-solid fa-check-to-slot"></i></div>
+            <div class="category-info-small">
+              <h4>Elections & Voting</h4>
+              <p>President, Lok Sabha & Suffrage</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-general-gk')">
+            <div class="cat-icon-small" style="background-color: #6a1b9a;"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="category-info-small">
+              <h4>General GK & Concepts</h4>
+              <p>Easy Explanations & Misconceptions</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-glossary-terms')">
+            <div class="cat-icon-small" style="background-color: #d81b60;"><i class="fa-solid fa-spell-check"></i></div>
+            <div class="category-info-small">
+              <h4>Terms & Comparisons</h4>
+              <p>Glossary & Comparison Tables</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CENTER CONTENT AREA -->
+      <div class="center-content">
+        
+        <!-- Quick Facts -->
+        <div class="section-title"><i class="fa-solid fa-bolt" style="color:#d4af37;"></i> Quick Facts</div>
+        <div class="facts-grid">
+          <div class="fact-card" title="395 original articles in 22 parts">
+            <i class="fa-solid fa-book"></i>
+            <div class="fact-info">
+              <h3>395</h3>
+              <p>Articles</p>
+            </div>
+          </div>
+          <div class="fact-card" title="12 schedules specifying detailed lists">
+            <i class="fa-solid fa-list-check"></i>
+            <div class="fact-info">
+              <h3>12</h3>
+              <p>Schedules</p>
+            </div>
+          </div>
+          <div class="fact-card" title="25 parts currently grouped">
+            <i class="fa-solid fa-diagram-project"></i>
+            <div class="fact-info">
+              <h3>25</h3>
+              <p>Parts</p>
+            </div>
+          </div>
+          <div class="fact-card" title="22 official languages under 8th Schedule">
+            <i class="fa-solid fa-comments"></i>
+            <div class="fact-info">
+              <h3>22</h3>
+              <p>Languages</p>
+            </div>
+          </div>
+          <div class="fact-card" title="Time taken by Constituent Assembly">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div class="fact-info">
+              <h3>2Y 11M 18D</h3>
+              <p>To Frame</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Topics Grid -->
+        <div class="section-title"><i class="fa-solid fa-star" style="color:#d4af37;"></i> Popular Topics</div>
+        <div class="topics-grid">
+          <div class="topic-card" onclick="scrollToSection('sec-rights')">
+            <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>Fundamental Rights</h4>
+              <p>Explore six guaranteed rights.</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+            </div>
+          </div>
+
+          <div class="topic-card" onclick="scrollToSection('sec-parliament')">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>Parliament Functioning</h4>
+              <p>Structure & law-making process.</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 6 min read</span>
+            </div>
+          </div>
+
+          <div class="topic-card" onclick="scrollToSection('sec-judiciary')">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>Role of Supreme Court</h4>
+              <p>Powers, writs & landmark cases.</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 7 min read</span>
+            </div>
+          </div>
+
+          <div class="topic-card" onclick="scrollToSection('sec-dpsp-duties')">
+            <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>Fundamental Duties</h4>
+              <p>11 Duties of Indian citizens.</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 4 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. CONSTITUTION AT A GLANCE & HISTORICAL BACKGROUND -->
+        <div class="content-box" id="sec-basics">
+          <h3 class="box-title"><i class="fa-solid fa-landmark-flag"></i> 1. Constitution at a Glance & History</h3>
+          <p><strong>What is the Constitution?</strong> The Constitution of India is the supreme law of the land. It establishes the political code, structure, procedures, powers, and duties of government institutions and guarantees fundamental rights to citizens.</p>
+          
+          <div class="sub-heading">Key Basic Facts</div>
+          <ul class="info-list">
+            <li><strong>Supreme Law:</strong> Every legislation passed by Parliament or State Legislatures must conform to the Constitution.</li>
+            <li><strong>Adopted Date:</strong> November 26, 1949 (Celebrated as Constitution Day / Samvidhan Divas).</li>
+            <li><strong>Enforcement Date:</strong> January 26, 1950 (Celebrated as Republic Day).</li>
+            <li><strong>Handwritten Masterpiece:</strong> Calligraphed by Prem Behari Narain Raizada in English and Hindi.</li>
+          </ul>
+
+          <div class="sub-heading">Historical Background (1773 – 1947)</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Act / Reform</th>
+                  <th>Key Constitutional Significance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Regulating Act 1773</td><td>First step by British Govt to control East India Company; created Governor-General of Bengal.</td></tr>
+                <tr><td>Pitt's India Act 1784</td><td>Distinguished political and commercial functions; established Board of Control.</td></tr>
+                <tr><td>Charter Act 1833</td><td>Made Governor-General of Bengal the Governor-General of India (Lord William Bentinck).</td></tr>
+                <tr><td>Govt of India Act 1858</td><td>Transferred power from East India Company to the British Crown (Viceroy created).</td></tr>
+                <tr><td>Indian Councils Act 1861/1892</td><td>Introduced portfolio system and expanded representative legislative council powers.</td></tr>
+                <tr><td>Morley-Minto Reforms (1909)</td><td>Introduced communal representation (separate electorates) for Muslims.</td></tr>
+                <tr><td>Montagu-Chelmsford (1919)</td><td>Introduced Dyarchy in provinces and bicameralism at the Centre.</td></tr>
+                <tr><td>Govt of India Act 1935</td><td>Provided for All-India Federation, Provincial Autonomy, and 3 Legislative Lists.</td></tr>
+                <tr><td>Indian Independence Act 1947</td><td>Ended British rule, declared India independent, and created two dominions (India & Pakistan).</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 2. CONSTITUENT ASSEMBLY & DRAFTING COMMITTEE -->
+        <div class="content-box" id="sec-assembly">
+          <h3 class="box-title"><i class="fa-solid fa-users-gear"></i> 2. Constituent Assembly & Drafting Committee</h3>
+          <p>The Constituent Assembly was a sovereign body formed under the Cabinet Mission Plan of 1946 to frame the Constitution of India.</p>
+
+          <div class="badge-grid">
+            <div class="badge-card"><strong>First Meeting</strong><span>Dec 9, 1946</span></div>
+            <div class="badge-card"><strong>Interim President</strong><span>Dr. Sachchidananda Sinha</span></div>
+            <div class="badge-card"><strong>Permanent President</strong><span>Dr. Rajendra Prasad</span></div>
+            <div class="badge-card"><strong>Constitutional Adviser</strong><span>Sir B. N. Rau</span></div>
+            <div class="badge-card"><strong>Drafting Chairman</strong><span>Dr. B. R. Ambedkar</span></div>
+          </div>
+
+          <div class="sub-heading">The Drafting Committee & Dr. B. R. Ambedkar</div>
+          <p>Set up on August 29, 1947, the Drafting Committee was tasked with preparing the draft Constitution. Dr. B. R. Ambedkar, known as the "Father of the Indian Constitution," guided the discussions and defended provisions in assembly debates.</p>
+          <ul class="info-list">
+            <li><strong>Members:</strong> Dr. B. R. Ambedkar (Chairman), N. Gopalaswamy Ayyangar, Alladi Krishnaswamy Ayyar, Dr. K. M. Munshi, Syed Mohammad Saadullah, N. Madhava Rau, T. T. Krishnamachari.</li>
+            <li><strong>Objectives Resolution:</strong> Moved by Jawaharlal Nehru on Dec 13, 1946; laid down the fundamentals and philosophy of the constitutional structure.</li>
+          </ul>
+        </div>
+
+        <!-- 3. TIMELINE & SOURCES OF THE CONSTITUTION -->
+        <div class="content-box" id="sec-timeline">
+          <h3 class="box-title"><i class="fa-solid fa-timeline"></i> 3. Constitution Timeline & Borrowed Sources</h3>
+          
+          <div class="sub-heading">Major Sources Borrowed</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Country / Source</th>
+                  <th>Features Borrowed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Govt of India Act 1935</td><td>Federal Scheme, Office of Governor, Judiciary, Public Service Commissions, Emergency.</td></tr>
+                <tr><td>United Kingdom (UK)</td><td>Parliamentary govt, Rule of Law, Cabinet system, Single Citizenship, Bicameralism, Writs.</td></tr>
+                <tr><td>United States (USA)</td><td>Fundamental Rights, Judicial Review, Independence of Judiciary, Impeachment of President.</td></tr>
+                <tr><td>Ireland</td><td>Directive Principles of State Policy (DPSP), Nomination of members to Rajya Sabha.</td></tr>
+                <tr><td>Canada</td><td>Federation with a strong Centre, Residuary powers with Centre, Advisory jurisdiction of SC.</td></tr>
+                <tr><td>Australia</td><td>Concurrent List, Freedom of trade and commerce, Joint sitting of two Houses of Parliament.</td></tr>
+                <tr><td>Germany (Weimar)</td><td>Suspension of Fundamental Rights during Emergency.</td></tr>
+                <tr><td>USSR / Russia</td><td>Fundamental Duties, Ideals of Justice (Social, Economic, Political) in Preamble.</td></tr>
+                <tr><td>France</td><td>Ideals of Liberty, Equality, and Fraternity; Republic concept in Preamble.</td></tr>
+                <tr><td>South Africa</td><td>Procedure for Amendment of Constitution, Election of members of Rajya Sabha.</td></tr>
+                <tr><td>Japan</td><td>Procedure established by Law (Article 21).</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 4. SALIENT FEATURES & THE PREAMBLE -->
+        <div class="content-box" id="sec-preamble">
+          <h3 class="box-title"><i class="fa-solid fa-scroll"></i> 4. Salient Features & The Preamble</h3>
+          <p><strong>Salient Features:</strong> Longest written constitution, mixture of rigidity and flexibility, federal system with unitary bias, parliamentary form of government, integrated and independent judiciary, universal adult franchise, and secular state.</p>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Key Words in the Preamble Explained</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="info-list">
+                  <li><strong>Sovereign:</strong> Independent authority without external interference.</li>
+                  <li><strong>Socialist:</strong> Added by 42nd Amendment (1976); aims to eliminate inequalities in income and status.</li>
+                  <li><strong>Secular:</strong> Added by 42nd Amendment (1976); equal respect and support for all religions.</li>
+                  <li><strong>Democratic:</strong> Government derived from the sovereign will of the people.</li>
+                  <li><strong>Republic:</strong> Elected Head of State (President) rather than a hereditary monarch.</li>
+                  <li><strong>Justice:</strong> Social, Economic, and Political justice guaranteed.</li>
+                  <li><strong>Liberty:</strong> Liberty of thought, expression, belief, faith, and worship.</li>
+                  <li><strong>Equality:</strong> Equality of status and opportunity.</li>
+                  <li><strong>Fraternity:</strong> Assuring the dignity of the individual and the unity & integrity of the Nation.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. FUNDAMENTAL RIGHTS & SUB-SECTIONS -->
+        <div class="content-box" id="sec-rights">
+          <h3 class="box-title"><i class="fa-solid fa-shield-halved"></i> 5. Fundamental Rights (Articles 12–35)</h3>
+          <p>Guaranteed in Part III, Fundamental Rights are justiciable civil liberties protected directly by the judiciary. They act as a check on executive and legislative power.</p>
+
+          <div class="badge-grid">
+            <div class="badge-card"><strong>Right to Equality</strong><span>Art. 14 – 18</span></div>
+            <div class="badge-card"><strong>Right to Freedom</strong><span>Art. 19 – 22</span></div>
+            <div class="badge-card"><strong>Against Exploitation</strong><span>Art. 23 – 24</span></div>
+            <div class="badge-card"><strong>Freedom of Religion</strong><span>Art. 25 – 28</span></div>
+            <div class="badge-card"><strong>Cultural & Educational</strong><span>Art. 29 – 30</span></div>
+            <div class="badge-card"><strong>Constitutional Remedies</strong><span>Art. 32</span></div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Breakdown of Fundamental Right Categories</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p><strong>1. Right to Equality (Articles 14–18):</strong> Article 14 (Equality before Law), Article 15 (Prohibition of Discrimination), Article 16 (Equality of Opportunity in Public Employment), Article 17 (Abolition of Untouchability), Article 18 (Abolition of Titles).</p>
+                <p><strong>2. Right to Freedom (Articles 19–22):</strong> Article 19 (6 Freedoms: Speech, Assembly, Association, Movement, Residence, Profession), Article 20 (Protection in respect of conviction), Article 21 (Protection of Life & Personal Liberty), Article 21A (Right to Education), Article 22 (Protection against arrest and detention).</p>
+                <p><strong>3. Right Against Exploitation (Articles 23–24):</strong> Article 23 (Prohibition of human trafficking & forced labor), Article 24 (Prohibition of child labor in hazardous employment).</p>
+                <p><strong>4. Freedom of Religion (Articles 25–28):</strong> Article 25 (Conscience & free profession), Article 26 (Manage religious affairs), Article 27 (Tax exemption for promoting religion), Article 28 (Freedom from religious instruction in state institutions).</p>
+                <p><strong>5. Cultural & Educational Rights (Articles 29–30):</strong> Article 29 (Protection of interests of minorities), Article 30 (Right of minorities to establish educational institutions).</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>The 5 Constitutional Writs (Article 32 & 226)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="info-list">
+                  <li><strong>Habeas Corpus ("To have the body of"):</strong> Protects against illegal detention; orders the detaining authority to produce the person.</li>
+                  <li><strong>Mandamus ("We Command"):</strong> Directs a public official or body to perform a mandatory statutory duty.</li>
+                  <li><strong>Prohibition:</strong> Issued by higher court to stop a lower court or tribunal from exceeding its jurisdiction.</li>
+                  <li><strong>Certiorari ("To be certified"):</strong> Quashes an illegal order already passed by a lower court or quasi-judicial body.</li>
+                  <li><strong>Quo-Warranto ("By what authority?"):</strong> Inquires into the legality of a person holding a public office.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. DPSP & FUNDAMENTAL DUTIES -->
+        <div class="content-box" id="sec-dpsp-duties">
+          <h3 class="box-title"><i class="fa-solid fa-compass"></i> 6. DPSP & Fundamental Duties</h3>
+          <p><strong>Directive Principles of State Policy (Part IV, Art. 36–51):</strong> Borrowed from Ireland; social and economic guidelines for establishing a welfare state. Non-justiciable in court.</p>
+          <ul class="info-list">
+            <li><strong>Socialistic Principles:</strong> Article 38 (Promote welfare), Article 39 (Equal pay for equal work), Article 41 (Right to work), Article 43 (Living wage).</li>
+            <li><strong>Gandhian Principles:</strong> Article 40 (Organize Village Panchayats), Article 47 (Prohibit intoxicating drinks), Article 48 (Prohibit cow slaughter).</li>
+            <li><strong>Liberal-Intellectual Principles:</strong> Article 44 (Uniform Civil Code - UCC), Article 45 (Early childhood care), Article 50 (Separation of Judiciary from Executive), Article 51 (International peace).</li>
+          </ul>
+
+          <div class="sub-heading">Fundamental Duties (Part IV-A, Article 51A)</div>
+          <p>Added by the <strong>42nd Amendment (1976)</strong> on the recommendation of the Swaran Singh Committee. Originally 10 duties; the 11th duty was added by the <strong>86th Amendment (2002)</strong>.</p>
+          <p><em>Key Duties:</em> Abide by Constitution & respect Flag/Anthem, cherish ideals of freedom struggle, protect sovereignty & integrity of India, defend nation, promote harmony, preserve rich heritage, protect environment, develop scientific temper, safeguard public property, strive for excellence, and provide education to children aged 6–14.</p>
+        </div>
+
+        <!-- 7. CITIZENSHIP -->
+        <div class="content-box" id="sec-citizenship">
+          <h3 class="box-title"><i class="fa-solid fa-id-card"></i> 7. Citizenship (Articles 5–11)</h3>
+          <p>Part II of the Constitution deals with citizenship at the commencement of the Constitution on January 26, 1950. Single Citizenship is provided across India.</p>
+          <ul class="info-list">
+            <li><strong>Article 5:</strong> Citizenship by domicile in India.</li>
+            <li><strong>Article 6 & 7:</strong> Citizenship rights of migrants from and to Pakistan.</li>
+            <li><strong>Article 8:</strong> Citizenship of persons of Indian origin residing outside India.</li>
+            <li><strong>Article 9:</strong> Person voluntarily acquiring foreign citizenship loses Indian citizenship.</li>
+            <li><strong>Article 11:</strong> Parliament has sole power to regulate citizenship by law (Citizenship Act, 1955).</li>
+          </ul>
+        </div>
+
+        <!-- 8. UNION EXECUTIVE -->
+        <div class="content-box" id="sec-executive">
+          <h3 class="box-title"><i class="fa-solid fa-user-tie"></i> 8. Union Executive</h3>
+          <p>Part V (Articles 52–78) covers the Union Executive consisting of the President, Vice-President, Prime Minister, Council of Ministers, and Attorney General.</p>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>President of India (Articles 52–62)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>Constitutional Head of State and supreme commander of defense forces.</p>
+                <ul class="info-list">
+                  <li><strong>Election (Art. 54 & 55):</strong> Elected by an Electoral College consisting of elected members of Lok Sabha, Rajya Sabha, and State Legislative Assemblies (including Delhi and Puducherry) using proportional representation by single transferable vote.</li>
+                  <li><strong>Powers:</strong> Executive, Legislative (Ordinances - Art. 123), Judicial (Pardoning power - Art. 72), Emergency powers (Art. 352, 356, 360).</li>
+                  <li><strong>Impeachment (Art. 61):</strong> Can be impeached for "violation of the Constitution."</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Prime Minister & Council of Ministers (Articles 74–75)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Prime Minister:</strong> Real executive authority (de facto head of government). Appointed by President.</p>
+                <p><strong>Council of Ministers:</strong> Article 75 states that the Council of Ministers is collectively responsible to the Lok Sabha. Total ministers cannot exceed 15% of Lok Sabha strength (91st Amendment).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. PARLIAMENT & LAW-MAKING -->
+        <div class="content-box" id="sec-parliament">
+          <h3 class="box-title"><i class="fa-solid fa-building-columns"></i> 9. Parliament of India & Law-Making</h3>
+          <p>The Union Parliament consists of the President and two Houses: Lok Sabha (House of the People) and Rajya Sabha (Council of States).</p>
+
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Lok Sabha (Lower House)</th>
+                  <th>Rajya Sabha (Upper House)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Nature</td><td>Temporary (Dissolved every 5 years)</td><td>Permanent (1/3rd members retire every 2 years)</td></tr>
+                <tr><td>Max Strength</td><td>550 members</td><td>250 members (12 nominated by President)</td></tr>
+                <tr><td>Presiding Officer</td><td>Speaker (Elected by members)</td><td>Vice-President (Ex-officio Chairman)</td></tr>
+                <tr><td>Financial Power</td><td>Exclusive power over Money Bills</td><td>Can only delay Money Bill for 14 days</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sub-heading">Types of Bills & Law-Making Process</div>
+          <ul class="info-list">
+            <li><strong>Ordinary Bill:</strong> Can be introduced in either House; resolved by Joint Sitting (Art. 108) if deadlock occurs.</li>
+            <li><strong>Money Bill (Art. 110):</strong> Introduced only in Lok Sabha on President's recommendation; certified by Speaker.</li>
+            <li><strong>Financial Bill:</strong> Contains financial provisions alongside general legislation.</li>
+            <li><strong>Constitutional Amendment Bill (Art. 368):</strong> Requires special majority; no provision for joint sitting.</li>
+          </ul>
+        </div>
+
+        <!-- 10. STATE GOVERNMENT -->
+        <div class="content-box" id="sec-state-govt">
+          <h3 class="box-title"><i class="fa-solid fa-city"></i> 10. State Government</h3>
+          <p>Part VI (Articles 152–237) prescribes the state administrative structure.</p>
+          <ul class="info-list">
+            <li><strong>Governor (Art. 153–161):</strong> Executive head of the State appointed by President. Holds office during President's pleasure. Has pardoning power (Art. 161) and ordinance-making power (Art. 213).</li>
+            <li><strong>Chief Minister & Cabinet:</strong> Real executive head at state level; responsible to State Legislative Assembly.</li>
+            <li><strong>State Legislature:</strong> Bicameral in 6 states (Andhra Pradesh, Telangana, Uttar Pradesh, Bihar, Maharashtra, Karnataka) with Legislative Assembly (Vidhan Sabha) and Legislative Council (Vidhan Parishad).</li>
+          </ul>
+        </div>
+
+        <!-- 11. JUDICIARY -->
+        <div class="content-box" id="sec-judiciary">
+          <h3 class="box-title"><i class="fa-solid fa-gavel"></i> 11. The Judiciary</h3>
+          <p>India features an integrated, single judicial hierarchy: Supreme Court &rarr; High Courts &rarr; Subordinate Courts.</p>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Supreme Court of India (Articles 124–147)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>Highest judicial court and final court of appeal. Guardian of the Constitution.</p>
+                <ul class="info-list">
+                  <li><strong>Original Jurisdiction (Art. 131):</strong> Inter-governmental disputes (Centre vs States, State vs State).</li>
+                  <li><strong>Writ Jurisdiction (Art. 32):</strong> Direct enforcement of Fundamental Rights.</li>
+                  <li><strong>Appellate Jurisdiction (Art. 132–134):</strong> Appeals in civil, criminal, and constitutional matters.</li>
+                  <li><strong>Advisory Jurisdiction (Art. 143):</strong> President can seek SC's opinion on questions of law/fact.</li>
+                  <li><strong>Court of Record (Art. 129):</strong> Has power to punish for contempt of itself.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>High Courts & Subordinate Courts (Articles 214–237)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>High Courts are apex courts at state level. Article 226 gives High Courts wider writ jurisdiction than Article 32 (can issue writs for Fundamental Rights and ordinary legal rights).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. CENTRE-STATE RELATIONS & 7TH SCHEDULE -->
+        <div class="content-box" id="sec-relations-lists">
+          <h3 class="box-title"><i class="fa-solid fa-diagram-project"></i> 12. Centre-State Relations & 7th Schedule</h3>
+          <p>Part XI and XII divide legislative, administrative, and financial powers between Union and States.</p>
+          
+          <div class="sub-heading">The 3 Legislative Lists (Seventh Schedule)</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>List Name</th>
+                  <th>Subjects Count</th>
+                  <th>Key Examples</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Union List</td><td>100 subjects</td><td>Defense, Foreign Affairs, Banking, Railways, Atomic Energy, Currency.</td></tr>
+                <tr><td>State List</td><td>61 subjects</td><td>Public Order, Police, Public Health, Agriculture, Local Govt, Prisons.</td></tr>
+                <tr><td>Concurrent List</td><td>52 subjects</td><td>Education, Forests, Criminal Law, Marriage, Trade Unions, Electricity.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><em>Residuary Powers (Art. 248):</em> Power to legislate on subjects not mentioned in any list rests exclusively with the Union Parliament.</p>
+        </div>
+
+        <!-- 13. LOCAL GOVERNMENT -->
+        <div class="content-box" id="sec-local-govt">
+          <h3 class="box-title"><i class="fa-solid fa-people-roof"></i> 13. Local Self-Government (Panchayats & Municipalities)</h3>
+          <p>Constitutionalized by landmark amendments in 1992 to decentralize democracy to grassroot level.</p>
+          <ul class="info-list">
+            <li><strong>73rd Amendment Act (1992):</strong> Added Part IX and 11th Schedule (29 functional items) for Panchayati Raj. 3-tier system: Gram Panchayat (village), Panchayat Samiti (block), Zilla Parishad (district).</li>
+            <li><strong>74th Amendment Act (1992):</strong> Added Part IX-A and 12th Schedule (18 functional items) for Urban Local Bodies (Nagar Panchayats, Municipal Councils, Municipal Corporations).</li>
+          </ul>
+        </div>
+
+        <!-- 14. CONSTITUTIONAL BODIES -->
+        <div class="content-box" id="sec-bodies">
+          <h3 class="box-title"><i class="fa-solid fa-building-user"></i> 14. Constitutional vs Statutory Bodies</h3>
+          <p>Constitutional bodies derive powers directly from constitutional articles, while statutory bodies are created by ordinary Acts of Parliament.</p>
+
+          <div class="badge-grid">
+            <div class="badge-card"><strong>Election Commission</strong><span>Art. 324</span></div>
+            <div class="badge-card"><strong>CAG of India</strong><span>Art. 148</span></div>
+            <div class="badge-card"><strong>Finance Commission</strong><span>Art. 280</span></div>
+            <div class="badge-card"><strong>UPSC & SPSC</strong><span>Art. 315</span></div>
+            <div class="badge-card"><strong>Attorney General</strong><span>Art. 76</span></div>
+            <div class="badge-card"><strong>Advocate General</strong><span>Art. 165</span></div>
+          </div>
+        </div>
+
+        <!-- 15. EMERGENCY PROVISIONS -->
+        <div class="content-box" id="sec-emergency">
+          <h3 class="box-title"><i class="fa-solid fa-triangle-exclamation"></i> 15. Emergency Provisions (Articles 352–360)</h3>
+          <p>Part XVIII enables the Centre to meet extraordinary situations and safeguard sovereignty.</p>
+
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Article</th>
+                  <th>Grounds</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>National Emergency</td><td>Art. 352</td><td>War, External Aggression, or Armed Rebellion (changed from internal disturbance by 44th Amendment).</td></tr>
+                <tr><td>President's Rule</td><td>Art. 356</td><td>Failure of constitutional machinery in a State.</td></tr>
+                <tr><td>Financial Emergency</td><td>Art. 360</td><td>Threat to financial stability or credit of India (Never invoked so far).</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 16. AMENDMENTS & MAJOR AMENDMENTS -->
+        <div class="content-box" id="sec-amendments">
+          <h3 class="box-title"><i class="fa-solid fa-pen-to-square"></i> 16. Constitutional Amendments (Article 368)</h3>
+          <p>Article 368 in Part XX specifies procedure to amend the Constitution by Simple Majority, Special Majority, or Special Majority with Ratification by half of State Legislatures.</p>
+
+          <div class="sub-heading">Landmark Amendments Reference</div>
+          <ul class="info-list">
+            <li><strong>1st Amendment (1951):</strong> Added 9th Schedule to protect land reform laws from judicial review.</li>
+            <li><strong>42nd Amendment (1976) - "Mini-Constitution":</strong> Added Socialist, Secular, Integrity to Preamble; added Fundamental Duties (Part IV-A); altered federal balance.</li>
+            <li><strong>44th Amendment (1978):</strong> Undid 42nd Amendment excesses; replaced 'internal disturbance' with 'armed rebellion'; made Right to Property a legal right (Art. 300A).</li>
+            <li><strong>52nd Amendment (1985):</strong> Added 10th Schedule (Anti-Defection Law).</li>
+            <li><strong>61st Amendment (1989):</strong> Reduced voting age from 21 to 18 years (Art. 326).</li>
+            <li><strong>73rd & 74th Amendments (1992):</strong> Constitutionalized Panchayats and Municipalities.</li>
+            <li><strong>86th Amendment (2002):</strong> Right to Education made Fundamental Right (Art. 21A).</li>
+            <li><strong>101st Amendment (2016):</strong> Introduced Goods and Services Tax (GST).</li>
+            <li><strong>103rd Amendment (2019):</strong> 10% EWS Reservation in jobs and education.</li>
+            <li><strong>106th Amendment (2023):</strong> Nari Shakti Vandan Adhiniyam - 33% reservation for women in Lok Sabha and State Assemblies.</li>
+          </ul>
+        </div>
+
+        <!-- 17. PARTS & SCHEDULES OF THE CONSTITUTION -->
+        <div class="content-box" id="sec-parts-schedules">
+          <h3 class="box-title"><i class="fa-solid fa-book-open"></i> 17. Parts & 12 Schedules Reference</h3>
+          
+          <div class="sub-heading">All 12 Schedules at a Glance</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Schedule</th>
+                  <th>Subject Matter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1st Schedule</td><td>Names of States and Union Territories with territorial extent.</td></tr>
+                <tr><td>2nd Schedule</td><td>Emoluments, allowances, and privileges of President, Governors, Judges, etc.</td></tr>
+                <tr><td>3rd Schedule</td><td>Forms of Oaths and Affirmations for constitutional posts.</td></tr>
+                <tr><td>4th Schedule</td><td>Allocation of seats in Rajya Sabha to States and UTs.</td></tr>
+                <tr><td>5th Schedule</td><td>Administration and control of Scheduled Areas and Scheduled Tribes.</td></tr>
+                <tr><td>6th Schedule</td><td>Administration of tribal areas in Assam, Meghalaya, Tripura, and Mizoram (AMTM).</td></tr>
+                <tr><td>7th Schedule</td><td>Division of powers into Union, State, and Concurrent Lists.</td></tr>
+                <tr><td>8th Schedule</td><td>22 officially recognized languages.</td></tr>
+                <tr><td>9th Schedule</td><td>Acts & regulations immune from judicial review (Land reforms).</td></tr>
+                <tr><td>10th Schedule</td><td>Disqualification on grounds of defection (Anti-Defection Law).</td></tr>
+                <tr><td>11th Schedule</td><td>29 matters under Panchayati Raj jurisdiction.</td></tr>
+                <tr><td>12th Schedule</td><td>18 matters under Municipalities jurisdiction.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 18. LANDMARK SC JUDGMENTS -->
+        <div class="content-box" id="sec-judgments">
+          <h3 class="box-title"><i class="fa-solid fa-scale-unbalanced-flip"></i> 18. Landmark Supreme Court Judgments</h3>
+          <ul class="info-list">
+            <li><strong>Kesavananda Bharati v. State of Kerala (1973):</strong> Historic 13-judge bench ruled that Parliament can amend any part of the Constitution under Art. 368 but cannot alter its <em>"Basic Structure"</em>.</li>
+            <li><strong>Maneka Gandhi v. Union of India (1978):</strong> Expanded Article 21; procedure established by law must be 'just, fair, and reasonable'.</li>
+            <li><strong>Minerva Mills v. Union of India (1980):</strong> Reaffirmed that judicial review and harmony between Fundamental Rights and DPSPs are basic features.</li>
+            <li><strong>S. R. Bommai v. Union of India (1994):</strong> Restricted arbitrary misuse of Article 356 (President's Rule); held secularism as a basic feature.</li>
+            <li><strong>Justice K. S. Puttaswamy v. Union of India (2017):</strong> Unanimously declared Right to Privacy as an intrinsic part of Right to Life under Article 21.</li>
+          </ul>
+        </div>
+
+        <!-- 19. ELECTIONS & VOTING -->
+        <div class="content-box" id="sec-elections">
+          <h3 class="box-title"><i class="fa-solid fa-check-to-slot"></i> 19. Elections & Electoral Process</h3>
+          <p><strong>Universal Adult Suffrage (Article 326):</strong> Every citizen of India who is not less than 18 years of age has the right to vote without discrimination.</p>
+          <p><strong>Anti-Defection Law (Tenth Schedule):</strong> Disqualifies legislators who voluntarily give up party membership or vote against party whip during parliamentary divisions.</p>
+        </div>
+
+        <!-- 20. GENERAL CONSTITUTION KNOWLEDGE -->
+        <div class="content-box" id="sec-general-gk">
+          <h3 class="box-title"><i class="fa-solid fa-lightbulb"></i> 20. General Constitution Knowledge</h3>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Who drafted the Constitution?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>The Constituent Assembly of India framed it, while the 7-member Drafting Committee chaired by Dr. B. R. Ambedkar drafted the legal text.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Why is January 26 chosen as Republic Day?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>To commemorate the <em>Poorna Swaraj</em> (Complete Independence) declaration passed by the Indian National Congress at its Lahore Session on Jan 26, 1930.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>What happens if a law violates the Constitution?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>Under Article 13, the judiciary (Supreme Court / High Court) can declare any law inconsistent with or in derogation of Fundamental Rights as void and unconstitutional.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 21. GLOSSARY & COMPARISON TABLES -->
+        <div class="content-box" id="sec-glossary-terms">
+          <h3 class="box-title"><i class="fa-solid fa-spell-check"></i> 21. Terms & Comparison Tables</h3>
+          
+          <div class="sub-heading">Common Constitutional Confusions Cleared</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Concept A</th>
+                  <th>Concept B</th>
+                  <th>Key Distinction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Fundamental Rights</td><td>DPSP</td><td>Rights are justiciable and enforceable; DPSPs are non-justiciable policy goals.</td></tr>
+                <tr><td>Bill</td><td>Act</td><td>A Bill is a proposed draft legislation; an Act is a Bill passed by Parliament and assented by President.</td></tr>
+                <tr><td>Article 32</td><td>Article 226</td><td>Art 32 (SC) is for Fundamental Rights only; Art 226 (HC) is for Fundamental & Legal Rights.</td></tr>
+                <tr><td>Constitutional Body</td><td>Statutory Body</td><td>Constitutional body is mentioned in Constitution text; statutory body is created by an Act of Parliament.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FAQ Box -->
+        <div class="faq-card">
+          <h3><i class="fa-regular fa-comments" style="color:#d4af37;"></i> FREQUENTLY ASKED QUESTIONS</h3>
+          
+          <div class="faq-item-interactive">
+            <div class="faq-question">What is the Preamble of the Constitution? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">The Preamble is the introductory statement outlining guiding objectives (Justice, Liberty, Equality, Fraternity).</div>
+          </div>
+
+          <div class="faq-item-interactive">
+            <div class="faq-question">How many Fundamental Rights are there? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">There are 6 Fundamental Rights in Part III (Articles 12-35).</div>
+          </div>
+
+          <div class="faq-item-interactive">
+            <div class="faq-question">How can the Constitution be amended? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Under Article 368 by simple majority, special majority, or ratification by half of states.</div>
+          </div>
+
+          <div class="faq-item-interactive">
+            <div class="faq-question">What is the Basic Structure Doctrine? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">Established in Kesavananda Bharati case (1973), it rules that Parliament cannot alter basic principles like secularism, federalism, and judicial review.</div>
+          </div>
+
+          <a href="javascript:void(0)" onclick="toggleAllFaqs()" style="font-size: 11px; color:var(--sv-text-link, #1e3a8a); font-weight: 600; display: inline-block; margin-top: 10px;">View All FAQs &rarr;</a>
+        </div>
+
+      </div>
+
+      <!-- 3. RIGHT SIDEBAR -->
+      <div class="right-sidebar">
+        
+        <!-- Important Dates Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title"><i class="fa-regular fa-calendar" style="color:#d4af37;"></i> Important Dates</div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">09<br>DEC<br>1946</div>
+            <div class="timeline-text">1st Assembly Meeting</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">26<br>NOV<br>1949</div>
+            <div class="timeline-text">Constitution Adopted</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">24<br>JAN<br>1950</div>
+            <div class="timeline-text">Members Signed Text</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">26<br>JAN<br>1950</div>
+            <div class="timeline-text">Came into Force</div>
+          </div>
+
+          <a href="javascript:void(0)" onclick="scrollToSection('sec-basics')" style="font-size: 10.5px; color: var(--sv-text-link, #1e3a8a); font-weight: 600; text-align: center; display: block; margin-top: 8px;">View All Dates &rarr;</a>
+        </div>
+
+        <!-- Did You Know Box -->
+        <div class="did-you-know-box">
+          <div style="font-size: 10.5px; font-weight: 700; color: #d4af37; display: flex; align-items: center; gap: 6px;">
+            <i class="fa-regular fa-lightbulb"></i> DID YOU KNOW?
+          </div>
+          <p id="factBoxText">The Constitution of India is the longest written Constitution of any sovereign nation in the world.</p>
+          <button onclick="rotateFact()" style="background:none; border:none; color:#d4af37; font-size:9.5px; margin-top:6px; cursor:pointer; font-weight:600;"><i class="fa-solid fa-rotate"></i> Next Fact</button>
+        </div>
+
+        <!-- Recommended Reads Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title"><i class="fa-regular fa-bookmark" style="color:#d4af37;"></i> Recommended Reads</div>
+          
+          <div class="read-item" onclick="scrollToSection('sec-preamble')">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=100&q=80" alt="Book">
+            <div class="read-item-info">
+              <h5>Preamble Overview</h5>
+              <p>2 min read</p>
+            </div>
+          </div>
+
+          <div class="read-item" onclick="scrollToSection('sec-judgments')">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=100&q=80" alt="Book">
+            <div class="read-item-info">
+              <h5>Basic Structure Doctrine</h5>
+              <p>6 min read</p>
+            </div>
+          </div>
+
+          <div class="read-item" onclick="scrollToSection('sec-rights')">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=100&q=80" alt="Book">
+            <div class="read-item-info">
+              <h5>5 Writs Explained</h5>
+              <p>4 min read</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Newsletter Card -->
+        <div class="newsletter-card">
+          <h3><i class="fa-regular fa-envelope" style="color:#d4af37;"></i> DAILY KNOWLEDGE</h3>
+          <p>Get constitutional updates delivered daily.</p>
+          <input type="email" id="newsletterEmail" placeholder="Enter your email">
+          <button type="button" onclick="subscribeNewsletter()">SUBSCRIBE</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Banner -->
+    <div class="bottom-banner">
+      <i class="fa-solid fa-gavel"></i>
+      <div class="bottom-banner-text">
+        <h3>Knowledge is Power. Understand your Constitution. Protect your Rights.</h3>
+        <p>Keep learning, keep growing!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+ <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">Articles</a></li>
+            <li><a href="../pages/parts.html">Parts</a></li>
+            <li><a href="../pages/schedules.html">Schedules</a></li>
+            <li><a href="../pages/amendments.html">Amendments</a></li>
+            <li><a href="../pages/judgments.html">Judgments</a></li>
+            <li><a href="../pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="../pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">Subscribed successfully!</div>
+
+  <script>
+    // Accordions Toggle
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const parent = q.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+
+    function toggleAllFaqs() {
+      document.querySelectorAll('.faq-item-interactive').forEach(item => {
+        item.classList.add('active');
+      });
+      showToast("Expanded all Frequently Asked Questions!");
+    }
+
+    // Scroll Helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if(el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Search Database containing expanded sections
+    const searchDatabase = [
+      { title: "Article 21: Protection of Life & Liberty", section: "sec-rights", desc: "Fundamental right guaranteeing life, personal liberty & privacy." },
+      { title: "Article 14: Right to Equality", section: "sec-rights", desc: "Equality before law & equal protection of laws." },
+      { title: "Article 32: Constitutional Remedies & Writs", section: "sec-rights", desc: "Heart and soul of Constitution for enforcement of rights." },
+      { title: "Fundamental Rights (Part III)", section: "sec-rights", desc: "Articles 12 to 35 detailing guaranteed freedoms." },
+      { title: "Directive Principles (DPSP - Part IV)", section: "sec-dpsp-duties", desc: "Articles 36-51 setting welfare state policy guidelines." },
+      { title: "Fundamental Duties (Article 51A)", section: "sec-dpsp-duties", desc: "11 fundamental duties added by 42nd and 86th amendments." },
+      { title: "Citizenship (Part II, Articles 5-11)", section: "sec-citizenship", desc: "Provisions regarding Indian citizenship." },
+      { title: "President of India & Powers", section: "sec-executive", desc: "Electoral college, powers, and impeachment under Art 61." },
+      { title: "Prime Minister & Council of Ministers", section: "sec-executive", desc: "De facto head of government and cabinet responsibility." },
+      { title: "Parliament: Lok Sabha & Rajya Sabha", section: "sec-parliament", desc: "Composition, sessions, and legislative procedures." },
+      { title: "Money Bill & Law-Making Process", section: "sec-parliament", desc: "Article 110 money bills and ordinary legislative procedures." },
+      { title: "State Government & Governor", section: "sec-state-govt", desc: "Executive power in states, Chief Minister, and Vidhan Sabha." },
+      { title: "Supreme Court & Judiciary", section: "sec-judiciary", desc: "Jurisdiction under Art 124-147, judicial review, and advisory powers." },
+      { title: "Seventh Schedule: 3 Legislative Lists", section: "sec-relations-lists", desc: "Union List, State List, and Concurrent List." },
+      { title: "Panchayati Raj & 73rd Amendment", section: "sec-local-govt", desc: "Local self-government, 11th schedule, and 3-tier system." },
+      { title: "Constitutional Bodies (ECI, CAG, UPSC)", section: "sec-bodies", desc: "Election Commission (324), CAG (148), Finance Comm (280)." },
+      { title: "Emergency Provisions (352, 356, 360)", section: "sec-emergency", desc: "National Emergency, President's Rule, and Financial Emergency." },
+      { title: "Article 368: Amendment Procedure", section: "sec-amendments", desc: "Procedure for amending the Indian Constitution." },
+      { title: "42nd & 44th Amendments", section: "sec-amendments", desc: "Mini-constitution and restoration of civil liberties." },
+      { title: "12 Schedules of Constitution", section: "sec-parts-schedules", desc: "Comprehensive overview of 1st to 12th schedules." },
+      { title: "Kesavananda Bharati Case (1973)", section: "sec-judgments", desc: "Landmark judgment establishing Basic Structure Doctrine." },
+      { title: "Puttaswamy Privacy Judgment (2017)", section: "sec-judgments", desc: "Right to Privacy declared fundamental right under Art 21." },
+      { title: "Universal Adult Suffrage (Article 326)", section: "sec-elections", desc: "Voting right for every citizen aged 18 and above." },
+      { title: "Anti-Defection Law (10th Schedule)", section: "sec-elections", desc: "Disqualification of legislators on grounds of defection." },
+      { title: "Common Constitutional Confusions", section: "sec-glossary-terms", desc: "Differences between Bill vs Act, FR vs DPSP, Art 32 vs 226." }
+    ];
+
+    // Search Logic Implementation
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchResultsPanel = document.getElementById('searchResultsPanel');
+    const searchResultsList = document.getElementById('searchResultsList');
+    const closeSearchBtn = document.getElementById('closeSearchBtn');
+
+    function performSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) return;
+
+      const filtered = searchDatabase.filter(item => 
+        item.title.toLowerCase().includes(query) || 
+        item.desc.toLowerCase().includes(query)
+      );
+
+      searchResultsList.innerHTML = '';
+      if (filtered.length > 0) {
+        filtered.forEach(res => {
+          const div = document.createElement('div');
+          div.className = 'search-result-item';
+          div.innerHTML = `<h4>${res.title}</h4><p>${res.desc}</p>`;
+          div.onclick = () => {
+            searchResultsPanel.classList.remove('active');
+            scrollToSection(res.section);
+          };
+          searchResultsList.appendChild(div);
+        });
+      } else {
+        searchResultsList.innerHTML = `<p style="font-size:11.5px; color:var(--sv-text-muted, #888); padding:8px;">No matches found. Search for 'Article 21', 'Writs', 'President', 'Panchayat', or 'Basic Structure'.</p>`;
+      }
+      searchResultsPanel.classList.add('active');
+    }
+
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') performSearch();
+    });
+
+    closeSearchBtn.addEventListener('click', () => {
+      searchResultsPanel.classList.remove('active');
+    });
+
+    // Rotating Facts Box
+    const facts = [
+      "The Constitution of India was calligraphed by Prem Behari Narain Raizada.",
+      "The original hand-written Constitution was decorated by artists from Shantiniketan.",
+      "Original copies are preserved in helium-filled cases in Parliament Library.",
+      "Dr. Ambedkar called Article 32 the 'Heart and Soul' of the Constitution.",
+      "The Constitution of India is the longest written Constitution in the world."
+    ];
+    let factIdx = 0;
+    function rotateFact() {
+      factIdx = (factIdx + 1) % facts.length;
+      document.getElementById('factBoxText').innerText = facts[factIdx];
+    }
+
+    // Toast Message
+    function showToast(msg) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+    function subscribeNewsletter() {
+      const email = document.getElementById('newsletterEmail').value;
+      if (email && email.includes('@')) {
+        showToast("Subscribed to Daily Knowledge!");
+        document.getElementById('newsletterEmail').value = '';
+      } else {
+        showToast("Please enter a valid email.");
+      }
+    }
+  </script>
+
+</body>
+</html>

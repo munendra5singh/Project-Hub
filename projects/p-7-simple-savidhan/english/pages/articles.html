@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Articles</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container & Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Breadcrumbs styles removed (now in common.css) */
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .filter-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Scrollbar Styling for Sidebars */
+    .filter-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .filter-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar: Filter Panel Box */
+    .filter-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .filter-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .filter-header i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .filter-group {
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2b3649;
+      margin-bottom: 6px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+    }
+
+    .search-input-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #919eab;
+      font-size: 12px;
+    }
+
+    .search-input-wrapper input {
+      width: 100%;
+      padding: 8px 10px 8px 30px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color: #0b1a30;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      background: #ffffff;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    .filter-select:focus {
+      border-color: #0b1a30;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+    }
+
+    .text-input::placeholder {
+      color: #919eab;
+    }
+
+    .btn-apply {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 4px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-apply:hover {
+      background-color: #162a47;
+    }
+
+    .btn-reset {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Articles List - SCROLLABLE */
+    .articles-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .articles-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .articles-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #637381;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Article Card */
+    .article-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .article-card:last-child {
+      border-bottom: none;
+    }
+
+    .article-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .article-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .icon-blue { background-color: #103254; }
+    .icon-green { background-color: #2a7d4f; }
+    .icon-orange { background-color: #e06d20; }
+    .icon-purple { background-color: #6a4498; }
+    .icon-teal { background-color: #12828e; }
+    .icon-amber { background-color: #b37b12; }
+
+    .article-details {
+      flex: 1;
+    }
+
+    .article-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .article-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .part-badge {
+      background-color: #e3ebf6;
+      color: #1e3a8a;
+      font-size: 9.5px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .article-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1a2b42;
+      margin-bottom: 4px;
+    }
+
+    .article-desc {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    .article-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding: 0 4px;
+    }
+
+    /* Right Sidebar Widgets */
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title i {
+      color: #e06d20;
+      font-size: 13px;
+    }
+
+    /* Popular Articles List */
+    .popular-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .popular-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .num-badge {
+      background-color: #f4f6f8;
+      color: #1a2b42;
+      font-size: 10.5px;
+      font-weight: 700;
+      min-width: 30px;
+      height: 22px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .popular-text {
+      font-size: 11.5px;
+      color: #2b3649;
+      font-weight: 500;
+    }
+
+    .popular-item:hover .popular-text {
+      color: #1e3a8a;
+    }
+
+    .view-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin-top: 12px;
+      transition: gap 0.2s;
+    }
+
+    .view-more-link:hover {
+      gap: 8px;
+    }
+
+    /* Browse By Part List */
+    .parts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .part-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      cursor: pointer;
+    }
+
+    .part-item-left {
+      display: flex;
+      gap: 8px;
+    }
+
+    .part-name {
+      font-weight: 700;
+      color: #0b1a30;
+      min-width: 44px;
+    }
+
+    .part-label {
+      color: #2b3649;
+      font-weight: 500;
+    }
+
+    .part-count {
+      color: #637381;
+      font-size: 10.5px;
+    }
+
+    .part-item:hover .part-label {
+      color: #1e3a8a;
+    }
+
+    /* Bottom Banner */
+    .bottom-banner {
+      background-color: #0b1a30;
+      border-radius: 8px;
+      margin-top: 24px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .banner-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .banner-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .banner-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .banner-sub {
+      font-size: 11.5px;
+      color: #b0c0d0;
+    }
+
+    .btn-browse {
+      background-color: #f3b353;
+      color: #0b1a30;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-browse:hover {
+      background-color: #e5a440;
+    }
+
+    .btn-listen {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .filter-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .bottom-banner {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+      .banner-left {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="articles.html" class="active">ARTICLES</a></li>
+      <li><a href="parts.html">PARTS</a></li>
+      <li><a href="schedules.html">SCHEDULES</a></li>
+      <li><a href="amendments.html">AMENDMENTS</a></li>
+      <li><a href="judgments.html">JUDGMENTS</a></li>
+      <li><a href="glossary.html">GLOSSARY</a></li>
+      <li><a href="quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/pages/articles.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">ARTICLES</h1>
+      <div class="hero-subtitle">Explore all Articles of the Constitution of India.</div>
+      <p class="hero-description">
+        Browse and understand the provisions that define your rights, duties and the structure of our nation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>Articles</span>
+    </div>
+
+    <!-- Content 3-Column Grid -->
+    <div class="content-grid">
+
+      <!-- Left Panel: STICKY Filter Articles -->
+      <aside class="filter-panel">
+        <div class="filter-header">
+          <i class="fa-solid fa-sliders"></i>
+          <span>FILTER ARTICLES</span>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Search Articles</label>
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="filterSearchInput" placeholder="Search by Article number or keyword...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Filter by Part</label>
+          <select class="filter-select" id="filterPartSelect">
+            <option value="All Parts">All Parts</option>
+            <option value="Part I">Part I</option>
+            <option value="Part II">Part II</option>
+            <option value="Part III">Part III</option>
+            <option value="Part IV">Part IV</option>
+            <option value="Part IVA">Part IVA</option>
+            <option value="Part V">Part V</option>
+            <option value="Part VI">Part VI</option>
+            <option value="Part VIII">Part VIII</option>
+            <option value="Part IX">Part IX</option>
+            <option value="Part IXA">Part IXA</option>
+            <option value="Part IXB">Part IXB</option>
+            <option value="Part X">Part X</option>
+            <option value="Part XI">Part XI</option>
+            <option value="Part XII">Part XII</option>
+            <option value="Part XIII">Part XIII</option>
+            <option value="Part XIV">Part XIV</option>
+            <option value="Part XIVA">Part XIVA</option>
+            <option value="Part XV">Part XV</option>
+            <option value="Part XVI">Part XVI</option>
+            <option value="Part XVII">Part XVII</option>
+            <option value="Part XVIII">Part XVIII</option>
+            <option value="Part XIX">Part XIX</option>
+            <option value="Part XX">Part XX</option>
+            <option value="Part XXI">Part XXI</option>
+            <option value="Part XXII">Part XXII</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Filter by Subject</label>
+          <select class="filter-select" id="filterSubjectSelect">
+            <option value="All Subjects">All Subjects</option>
+            <option value="Fundamental Rights">Fundamental Rights</option>
+            <option value="Citizenship">Citizenship</option>
+            <option value="The Union">The Union</option>
+            <option value="Directive Principles of State Policy">Directive Principles of State Policy</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Filter by Keyword</label>
+          <input type="text" class="text-input" id="filterKeywordInput" placeholder="E.g. Fundamental Rights">
+        </div>
+
+        <button class="btn-apply" id="btnApplyFilters" type="button">APPLY FILTERS</button>
+        <button class="btn-reset" id="btnResetFilters" type="button">RESET</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Articles List -->
+      <main class="articles-section">
+        <div class="articles-header">
+          <div class="articles-title" id="articlesCountText">ALL ARTICLES (395)</div>
+          <div class="sort-wrapper">
+            <span>Sort by</span>
+            <select class="sort-select" id="sortSelect">
+              <option value="asc">Article Number (Ascending)</option>
+              <option value="desc">Article Number (Descending)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Articles List Container -->
+        <div id="articles-list-container">
+          <!-- Article cards will be rendered dynamically by JavaScript -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination-wrapper" style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f0f4f8; margin-top: 16px;">
+          <button id="prev-page-btn" class="btn-listen" style="cursor: pointer;" disabled>
+            <i class="fa-solid fa-chevron-left"></i> Previous
+          </button>
+          <span id="page-info-text" style="font-size: 11.5px; font-weight: 600; color: #637381;">Page 1 of 40</span>
+          <button id="next-page-btn" class="btn-listen" style="cursor: pointer;">
+            Next <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </main>
+
+      <!-- Right Panel: STICKY Popular Articles & Browse by Part -->
+      <aside class="right-sidebar">
+        
+        <!-- Popular Articles Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+            <span>POPULAR ARTICLES</span>
+          </div>
+
+          <ul class="popular-list">
+            <li class="popular-item" data-num="14">
+              <span class="num-badge">14</span>
+              <span class="popular-text">Equality before law</span>
+            </li>
+            <li class="popular-item" data-num="19">
+              <span class="num-badge">19</span>
+              <span class="popular-text">Freedom of speech and expression</span>
+            </li>
+            <li class="popular-item" data-num="21">
+              <span class="num-badge">21</span>
+              <span class="popular-text">Protection of life and personal liberty</span>
+            </li>
+            <li class="popular-item" data-num="32">
+              <span class="num-badge">32</span>
+              <span class="popular-text">Remedies for enforcement of rights</span>
+            </li>
+            <li class="popular-item" data-num="368">
+              <span class="num-badge">368</span>
+              <span class="popular-text">Amendment of the Constitution</span>
+            </li>
+          </ul>
+
+          <a href="#" class="view-more-link" id="viewAllPopular">
+            View All Popular Articles <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Browse By Part Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <i class="fa-solid fa-book-open" style="color: #1e3a8a;"></i>
+            <span>BROWSE BY PART</span>
+          </div>
+
+          <ul class="parts-list">
+            <li class="part-item" data-part="Part I" data-link="../parts/part-1.html">
+              <div class="part-item-left">
+                <span class="part-name">Part I</span>
+                <span class="part-label">The Union and its Territory</span>
+              </div>
+              <span class="part-count">(4)</span>
+            </li>
+
+            <li class="part-item" data-part="Part I" data-link="../parts/part-2.html">
+              <div class="part-item-left">
+                <span class="part-name">Part II</span>
+                <span class="part-label">Citizenship</span>
+              </div>
+              <span class="part-count">(11)</span>
+            </li>
+
+            <li class="part-item" data-part="Part I" data-link="../parts/part-3.html">
+              <div class="part-item-left">
+                <span class="part-name">Part III</span>
+                <span class="part-label">Fundamental Rights</span>
+              </div>
+              <span class="part-count">(36)</span>
+            </li>
+            
+            <li class="part-item" data-part="Part I" data-link="../parts/part-4.html">
+              <div class="part-item-left">
+                <span class="part-name">Part IV</span>
+                <span class="part-label">Directive Principles of State Policy</span>
+              </div>
+              <span class="part-count">(24)</span>
+            </li>
+
+             <li class="part-item" data-part="Part I" data-link="../parts/part-4A.html">
+              <div class="part-item-left">
+                <span class="part-name">Part IVA</span>
+                <span class="part-label">Fundamental Duties</span>
+              </div>
+              <span class="part-count">(1)</span>
+            </li>
+
+            <li class="part-item" data-part="Part I" data-link="../parts/part-5.html">
+              <div class="part-item-left">
+                <span class="part-name">Part V</span>
+                <span class="part-label">The Union</span>
+              </div>
+              <span class="part-count">(100)</span>
+            </li>
+          </ul>
+
+          <a href="parts.html" class="view-more-link" id="viewAllParts">
+            View All Parts <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- Bottom Banner -->
+    <div class="bottom-banner">
+      <div class="banner-left">
+        <div class="banner-icon-circle">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <div>
+          <div class="banner-title">Can't find what you're looking for?</div>
+          <div class="banner-sub">Try using different keywords or browse by Parts to explore Articles.</div>
+        </div>
+      </div>
+      <button class="btn-browse" id="btnBottomBrowse" type="button">BROWSE BY PARTS</button>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+   <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="parts.html">Parts</a></li>
+            <li><a href="schedules.html">Schedules</a></li>
+            <li><a href="amendments.html">Amendments</a></li>
+            <li><a href="judgments.html">Judgments</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Complete Dataset of All Articles of the Constitution of India
+
+const articlesData = [
+    // PART I: THE UNION AND ITS TERRITORY (1 - 4)
+    { num: 1, part: "Part I", title: "Name and territory of the Union.", desc: "India, that is Bharat, shall be a Union of States.", icon: "fa-user", color: "icon-blue", link: "../articles/article-1.html" },
+    { num: 2, part: "Part I", title: "Admission or establishment of new States.", desc: "Parliament may by law admit into the Union, or establish, new States on such terms and conditions as it thinks fit.", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-2.html" },
+    { num: 3, part: "Part I", title: "Formation of new States and alteration of areas, boundaries or names of existing States.", desc: "Parliament may by law form a new State by separating territory from any State or by uniting two or more States.", icon: "fa-location-dot", color: "icon-orange", link: "../articles/article-3.html" },
+    { num: 4, part: "Part I", title: "Laws made under Articles 2 and 3 to amend First and Fourth Schedules.", desc: "Laws made under Articles 2 and 3 contain provisions for amending the First and Fourth Schedules.", icon: "fa-landmark", color: "icon-purple", link: "../articles/article-4.html" },
+
+    // PART II: CITIZENSHIP (5 - 11)
+    { num: 5, part: "Part II", title: "Citizenship at the commencement of the Constitution.", desc: "Every person who has his domicile in the territory of India at the commencement of this Constitution.", icon: "fa-users", color: "icon-teal", link: "../articles/article-5.html" },
+    { num: 6, part: "Part II", title: "Rights of citizenship of certain persons who migrated from Pakistan.", desc: "Rights of citizenship of persons who migrated to India from Pakistan before or after specified dates.", icon: "fa-address-card", color: "icon-amber", link: "../articles/article-6.html" },
+    { num: 7, part: "Part II", title: "Rights of citizenship of certain migrants to Pakistan.", desc: "Citizenship rights regarding persons who migrated to Pakistan after March 1, 1947.", icon: "fa-passport", color: "icon-blue", link: "../articles/article-7.html" },
+    { num: 8, part: "Part II", title: "Rights of citizenship of persons of Indian origin residing outside India.", desc: "Citizenship rights of persons residing outside India who are of Indian origin.", icon: "fa-globe", color: "icon-green", link: "../articles/article-8.html" },
+    { num: 9, part: "Part II", title: "Persons voluntarily acquiring citizenship of a foreign State not to be citizens.", desc: "No person shall be a citizen of India if voluntarily acquiring citizenship of a foreign country.", icon: "fa-user-slash", color: "icon-orange", link: "../articles/article-9.html" },
+    { num: 10, part: "Part II", title: "Continuance of the rights of citizenship.", desc: "Every person who is or is deemed to be a citizen of India shall continue to be such citizen.", icon: "fa-user-check", color: "icon-purple", link: "../articles/article-10.html" },
+    { num: 11, part: "Part II", title: "Parliament to regulate the right of citizenship by law.", desc: "Parliament has the authority to make provisions regarding acquisition and termination of citizenship.", icon: "fa-gavel", color: "icon-teal", link: "../articles/article-11.html" },
+
+    // PART III: FUNDAMENTAL RIGHTS (12 - 35)
+    { num: 12, part: "Part III", title: "Definition of State.", desc: "In this Part, unless the context otherwise requires, 'the State' includes the Government and Parliament of India.", icon: "fa-building-columns", color: "icon-amber", link: "../articles/article-12.html" },
+    { num: 13, part: "Part III", title: "Laws inconsistent with or in derogation of Fundamental Rights.", desc: "All laws inconsistent with fundamental rights shall be void to the extent of such inconsistency.", icon: "fa-shield-halved", color: "icon-blue", link: "../articles/article-13.html" },
+    { num: 14, part: "Part III", title: "Equality before law.", desc: "The State shall not deny to any person equality before the law or equal protection of laws.", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-14.html" },
+    { num: 15, part: "Part III", title: "Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth.", desc: "The State shall not discriminate against any citizen on grounds only of religion, race, caste, sex, place of birth.", icon: "fa-ban-smoking", color: "icon-orange", link: "../articles/article-15.html" },
+    { num: 16, part: "Part III", title: "Equality of opportunity in matters of public employment.", desc: "Equality of opportunity for all citizens in matters relating to employment under the State.", icon: "fa-briefcase", color: "icon-purple", link: "../articles/article-16.html" },
+    { num: 17, part: "Part III", title: "Abolition of Untouchability.", desc: "Untouchability is abolished and its practice in any form is forbidden.", icon: "fa-hand-fist", color: "icon-teal", link: "../articles/article-17.html" },
+    { num: 18, part: "Part III", title: "Abolition of titles.", desc: "No title, not being a military or academic distinction, shall be conferred by the State.", icon: "fa-award", color: "icon-amber", link: "../articles/article-18.html" },
+    { num: 19, part: "Part III", title: "Protection of certain rights regarding freedom of speech, etc.", desc: "Guarantees freedom of speech, assembly, association, movement, residence, and profession.", icon: "fa-comment-dots", color: "icon-blue", link: "../articles/article-19.html" },
+    { num: 20, part: "Part III", title: "Protection in respect of conviction for offences.", desc: "Protection against ex-post-facto laws, double jeopardy, and self-incrimination.", icon: "fa-handcuffs", color: "icon-green", link: "../articles/article-20.html" },
+    { num: 21, part: "Part III", title: "Protection of life and personal liberty.", desc: "No person shall be deprived of his life or personal liberty except according to procedure established by law.", icon: "fa-heart-pulse", color: "icon-orange", link: "../articles/article-21.html" },
+    { num: "21A", part: "Part III", title: "Right to education.", desc: "The State shall provide free and compulsory education to all children of the age of six to fourteen years.", icon: "fa-graduation-cap", color: "icon-purple", link: "../articles/article-21a.html" },
+    { num: 22, part: "Part III", title: "Protection against arrest and detention in certain cases.", desc: "Rights of arrested persons including right to be informed of grounds and consult a legal practitioner.", icon: "fa-person-military-rifle", color: "icon-teal", link: "../articles/article-22.html" },
+    { num: 23, part: "Part III", title: "Prohibition of traffic in human beings and forced labour.", desc: "Traffic in human beings and begar and other similar forms of forced labour are prohibited.", icon: "fa-link-slash", color: "icon-amber", link: "../articles/article-23.html" },
+    { num: 24, part: "Part III", title: "Prohibition of employment of children in factories, etc.", desc: "No child below the age of fourteen years shall be employed to work in any factory or mine.", icon: "fa-child-reaching", color: "icon-blue", link: "../articles/article-24.html" },
+    { num: 25, part: "Part III", title: "Freedom of conscience and free profession, practice and propagation of religion.", desc: "All persons are equally entitled to freedom of conscience and the right freely to profess, practise and propagate religion.", icon: "fa-hands-praying", color: "icon-green", link: "../articles/article-25.html" },
+    { num: 26, part: "Part III", title: "Freedom to manage religious affairs.", desc: "Every religious denomination has the right to establish and maintain institutions for religious and charitable purposes.", icon: "fa-synagogue", color: "icon-orange", link: "../articles/article-26.html" },
+    { num: 27, part: "Part III", title: "Freedom as to payment of taxes for promotion of any particular religion.", desc: "No person shall be compelled to pay any taxes for the promotion or maintenance of any religion.", icon: "fa-receipt", color: "icon-purple", link: "../articles/article-27.html" },
+    { num: 28, part: "Part III", title: "Freedom as to attendance at religious instruction in certain educational institutions.", desc: "No religious instruction shall be provided in any educational institution wholly maintained out of State funds.", icon: "fa-school-flag", color: "icon-teal", link: "../articles/article-28.html" },
+    { num: 29, part: "Part III", title: "Protection of interests of minorities.", desc: "Any section of citizens having a distinct language, script or culture has the right to conserve the same.", icon: "fa-people-roof", color: "icon-amber", link: "../articles/article-29.html" },
+    { num: 30, part: "Part III", title: "Right of minorities to establish and administer educational institutions.", desc: "All minorities shall have the right to establish and administer educational institutions of their choice.", icon: "fa-book-open-reader", color: "icon-blue", link: "../articles/article-30.html" },
+    { num: 31, part: "Part III", title: "Compulsory acquisition of property.", desc: "(Omitted by the 44th Amendment Act, 1978).", icon: "fa-house-circle-xmark", color: "icon-green", link: "../articles/article-31.html" },
+    { num: "31A", part: "Part III", title: "Saving of laws providing for acquisition of estates, etc.", desc: "Savings of laws providing for acquisition of estates and agrarian reforms.", icon: "fa-file-shield", color: "icon-orange", link: "../articles/article-31a.html" },
+    { num: "31B", part: "Part III", title: "Validation of certain Acts and Regulations.", desc: "Acts and Regulations specified in the Ninth Schedule protected from judicial review.", icon: "fa-box-archive", color: "icon-purple", link: "../articles/article-31b.html" },
+    { num: "31C", part: "Part III", title: "Saving of laws giving effect to certain directive principles.", desc: "Laws giving effect to Directive Principles under Article 39(b) and (c) protected.", icon: "fa-file-contract", color: "icon-teal", link: "../articles/article-31c.html" },
+    { num: 32, part: "Part III", title: "Remedies for enforcement of rights conferred by this Part.", desc: "Right to move the Supreme Court by appropriate proceedings for enforcement of Fundamental Rights.", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-32.html" },
+    { num: 33, part: "Part III", title: "Power of Parliament to modify the rights conferred by this Part in their application to Forces, etc.", desc: "Parliament may restrict fundamental rights of Armed Forces, Police, and Intelligence agencies.", icon: "fa-shield-cat", color: "icon-blue", link: "../articles/article-33.html" },
+    { num: 34, part: "Part III", title: "Restriction on rights conferred by this Part while martial law is in force in any area.", desc: "Restrictions on fundamental rights while martial law is enforced in any region.", icon: "fa-triangle-exclamation", color: "icon-green", link: "../articles/article-34.html" },
+    { num: 35, part: "Part III", title: "Legislation to give effect to the provisions of this Part.", desc: "Parliament shall have power to make laws to give effect to provisions under Fundamental Rights.", icon: "fa-file-pen", color: "icon-orange", link: "../articles/article-35.html" },
+
+    // PART IV: DIRECTIVE PRINCIPLES OF STATE POLICY (36 - 51)
+    { num: 36, part: "Part IV", title: "Definition of State in Part IV.", desc: "In this Part, unless the context otherwise requires, 'the State' has the same meaning as in Part III.", icon: "fa-city", color: "icon-purple", link: "../articles/article-36.html" },
+    { num: 37, part: "Part IV", title: "Application of the principles contained in this Part.", desc: "Directive Principles shall not be enforceable by any court, but are fundamental in governance.", icon: "fa-compass-drafting", color: "icon-teal", link: "../articles/article-37.html" },
+    { num: 38, part: "Part IV", title: "State to secure a social order for the promotion of welfare of the people.", desc: "State shall strive to promote social welfare by securing social, economic, and political justice.", icon: "fa-hand-holding-heart", color: "icon-amber", link: "../articles/article-38.html" },
+    { num: 39, part: "Part IV", title: "Certain principles of policy to be followed by the State.", desc: "Securing adequate means of livelihood, equal distribution of material resources, and equal pay for equal work.", icon: "fa-hands-holding-child", color: "icon-blue", link: "../articles/article-39.html" },
+    { num: "39A", part: "Part IV", title: "Equal justice and free legal aid.", desc: "State shall provide free legal aid to ensure that opportunities for securing justice are not denied.", icon: "fa-scale-unbalanced-flip", color: "icon-green", link: "../articles/article-39a.html" },
+    { num: 40, part: "Part IV", title: "Organisation of village panchayats.", desc: "State shall take steps to organise village panchayats and endow them with powers of self-government.", icon: "fa-tree-city", color: "icon-orange", link: "../articles/article-40.html" },
+    { num: 41, part: "Part IV", title: "Right to work, to education and to public assistance in certain cases.", desc: "Right to work, education, and public assistance in cases of unemployment, old age, sickness and disablement.", icon: "fa-person-cane", color: "icon-purple", link: "../articles/article-41.html" },
+    { num: 42, part: "Part IV", title: "Provision for just and humane conditions of work and maternity relief.", desc: "State shall make provision for securing just conditions of work and for maternity relief.", icon: "fa-person-breastfeeding", color: "icon-teal", link: "../articles/article-42.html" },
+    { num: 43, part: "Part IV", title: "Living wage, etc., for workers.", desc: "State shall endeavour to secure living wage, decent standard of life and social-cultural opportunities for workers.", icon: "fa-coins", color: "icon-amber", link: "../articles/article-43.html" },
+    { num: "43A", part: "Part IV", title: "Participation of workers in management of industries.", desc: "State shall take steps to secure participation of workers in management of undertakings.", icon: "fa-industry", color: "icon-blue", link: "../articles/article-43a.html" },
+    { num: "43B", part: "Part IV", title: "Promotion of co-operative societies.", desc: "State shall endeavour to promote voluntary formation and autonomous functioning of co-operative societies.", icon: "fa-handshake-angle", color: "icon-green", link: "../articles/article-43b.html" },
+    { num: 44, part: "Part IV", title: "Uniform civil code for the citizens.", desc: "State shall endeavour to secure for citizens a Uniform Civil Code throughout the territory of India.", icon: "fa-scale-balanced", color: "icon-orange", link: "../articles/article-44.html" },
+    { num: 45, part: "Part IV", title: "Provision for early childhood care and education to children below six years.", desc: "State shall endeavour to provide early childhood care and education for all children until age of six.", icon: "fa-baby", color: "icon-purple", link: "../articles/article-45.html" },
+    { num: 46, part: "Part IV", title: "Promotion of educational and economic interests of SCs, STs and other weaker sections.", desc: "State shall promote with special care educational and economic interests of weaker sections.", icon: "fa-people-line", color: "icon-teal", link: "../articles/article-46.html" },
+    { num: 47, part: "Part IV", title: "Duty of the State to raise the level of nutrition and standard of living.", desc: "State shall regard raising of nutrition level and public health improvement as primary duties.", icon: "fa-bowl-rice", color: "icon-amber", link: "../articles/article-47.html" },
+    { num: 48, part: "Part IV", title: "Organisation of agriculture and animal husbandry.", desc: "State shall organize agriculture and animal husbandry on modern scientific lines.", icon: "fa-wheat-awn", color: "icon-blue", link: "../articles/article-48.html" },
+    { num: "48A", part: "Part IV", title: "Protection and improvement of environment and safeguarding of forests and wild life.", desc: "State shall endeavour to protect environment and safeguard forests and wildlife.", icon: "fa-plant-wilt", color: "icon-green", link: "../articles/article-48a.html" },
+    { num: 49, part: "Part IV", title: "Protection of monuments and places and objects of national importance.", desc: "Obligation of the State to protect monuments and historical places from spoliation or destruction.", icon: "fa-monument", color: "icon-orange", link: "../articles/article-49.html" },
+    { num: 50, part: "Part IV", title: "Separation of judiciary from executive.", desc: "State shall take steps to separate the judiciary from executive in public services of the State.", icon: "fa-sitemap", color: "icon-purple", link: "../articles/article-50.html" },
+    { num: 51, part: "Part IV", title: "Promotion of international peace and security.", desc: "State shall strive to promote international peace, maintain just relations between nations.", icon: "fa-dove", color: "icon-teal", link: "../articles/article-51.html" },
+
+    // PART IVA: FUNDAMENTAL DUTIES (51A)
+    { num: "51A", part: "Part IVA", title: "Fundamental duties.", desc: "It shall be the duty of every citizen of India to abide by the Constitution, respect National Flag and Anthem.", icon: "fa-shield-heart", color: "icon-amber", link: "../articles/article-51a.html" },
+
+    // PART V: THE UNION (52 - 151)
+    { num: 52, part: "Part V", title: "The President of India.", desc: "There shall be a President of India.", icon: "fa-user-tie", color: "icon-blue", link: "../articles/article-52.html" },
+    { num: 53, part: "Part V", title: "Executive power of the Union.", desc: "The executive power of the Union shall be vested in the President and exercised directly or through officers.", icon: "fa-crown", color: "icon-green", link: "../articles/article-53.html" },
+    { num: 54, part: "Part V", title: "Election of President.", desc: "The President shall be elected by members of an electoral college consisting of elected MPs and MLAs.", icon: "fa-check-to-slot", color: "icon-orange", link: "../articles/article-54.html" },
+    { num: 55, part: "Part V", title: "Manner of election of President.", desc: "System of proportional representation by means of single transferable vote in President election.", icon: "fa-vote-yea", color: "icon-purple", link: "../articles/article-55.html" },
+    { num: 56, part: "Part V", title: "Term of office of President.", desc: "President shall hold office for a term of five years from the date on which he enters upon office.", icon: "fa-calendar-check", color: "icon-teal", link: "../articles/article-56.html" },
+    { num: 57, part: "Part V", title: "Eligibility for re-election.", desc: "A person who holds or has held office as President shall be eligible for re-election.", icon: "fa-rotate-right", color: "icon-amber", link: "../articles/article-57.html" },
+    { num: 58, part: "Part V", title: "Qualifications for election as President.", desc: "Citizen of India, 35 years of age, and qualified for election as member of Lok Sabha.", icon: "fa-id-card", color: "icon-blue", link: "../articles/article-58.html" },
+    { num: 59, part: "Part V", title: "Conditions of President's office.", desc: "President shall not be a member of either House of Parliament or State Legislature.", icon: "fa-building-user", color: "icon-green", link: "../articles/article-59.html" },
+    { num: 60, part: "Part V", title: "Oath or affirmation by the President.", desc: "Oath or affirmation administered to the President by Chief Justice of India.", icon: "fa-file-signature", color: "icon-orange", link: "../articles/article-60.html" },
+    { num: 61, part: "Part V", title: "Procedure for impeachment of the President.", desc: "Procedure for impeachment of President for violation of the Constitution.", icon: "fa-gavel", color: "icon-purple", link: "../articles/article-61.html" },
+    { num: 62, part: "Part V", title: "Time of holding election to fill vacancy in the office of President.", desc: "Time limit for holding elections upon expiration of term or vacancy in office of President.", icon: "fa-clock", color: "icon-teal", link: "../articles/article-62.html" },
+    { num: 63, part: "Part V", title: "The Vice-President of India.", desc: "There shall be a Vice-President of India.", icon: "fa-user-check", color: "icon-amber", link: "../articles/article-63.html" },
+    { num: 64, part: "Part V", title: "Vice-President to be ex officio Chairman of Council of States.", desc: "The Vice-President shall be ex officio Chairman of Rajya Sabha.", icon: "fa-chair", color: "icon-blue", link: "../articles/article-64.html" },
+    { num: 65, part: "Part V", title: "Vice-President to act as President or discharge functions during vacancies.", desc: "Vice-President acts as President during casual vacancies or absence.", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-65.html" },
+    { num: 66, part: "Part V", title: "Election of Vice-President.", desc: "Election of Vice-President by members of both Houses of Parliament assembled at a joint meeting.", icon: "fa-check-double", color: "icon-orange", link: "../articles/article-66.html" },
+    { num: 67, part: "Part V", title: "Term of office of Vice-President.", desc: "Vice-President holds office for a term of five years.", icon: "fa-calendar-days", color: "icon-purple", link: "../articles/article-67.html" },
+    { num: 68, part: "Part V", title: "Time of holding election to fill vacancy in Vice-President office.", desc: "Elections to fill vacancy caused by expiration of term or resignation.", icon: "fa-hourglass-half", color: "icon-teal", link: "../articles/article-68.html" },
+    { num: 69, part: "Part V", title: "Oath or affirmation by the Vice-President.", desc: "Oath or affirmation taken before President or person appointed by him.", icon: "fa-signature", color: "icon-amber", link: "../articles/article-69.html" },
+    { num: 70, part: "Part V", title: "Discharge of President's functions in other contingencies.", desc: "Parliament may make provisions for discharge of President functions in unprovided contingencies.", icon: "fa-file-shield", color: "icon-blue", link: "../articles/article-70.html" },
+    { num: 71, part: "Part V", title: "Matters relating to or connected with election of President or Vice-President.", desc: "Supreme Court inquires and decides disputes relating to election of President or Vice-President.", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-71.html" },
+    { num: 72, part: "Part V", title: "Power of President to grant pardons, etc., and to suspend, remit or commute sentences.", desc: "Power of President to grant pardons, reprieves, respites or remissions of punishment.", icon: "fa-hand-holding-hand", color: "icon-orange", link: "../articles/article-72.html" },
+    { num: 73, part: "Part V", title: "Extent of executive power of the Union.", desc: "Executive power extends to matters with respect to which Parliament has power to make laws.", icon: "fa-layer-group", color: "icon-purple", link: "../articles/article-73.html" },
+    { num: 74, part: "Part V", title: "Council of Ministers to aid and advise President.", desc: "There shall be a Council of Ministers with Prime Minister at head to aid and advise President.", icon: "fa-people-group", color: "icon-teal", link: "../articles/article-74.html" },
+    { num: 75, part: "Part V", title: "Other provisions as to Ministers.", desc: "Prime Minister appointed by President; Ministers appointed on advice of Prime Minister.", icon: "fa-user-pen", color: "icon-amber", link: "../articles/article-75.html" },
+    { num: 76, part: "Part V", title: "Attorney-General for India.", desc: "President appoints a person qualified to be Supreme Court judge as Attorney-General.", icon: "fa-user-shield", color: "icon-blue", link: "../articles/article-76.html" },
+    { num: 77, part: "Part V", title: "Conduct of business of the Government of India.", desc: "All executive action of Government of India shall be expressed to be taken in name of President.", icon: "fa-folder-tree", color: "icon-green", link: "../articles/article-77.html" },
+    { num: 78, part: "Part V", title: "Duties of Prime Minister as respects furnishing of information to President.", desc: "Duty of PM to communicate all decisions of Council of Ministers relating to administration to President.", icon: "fa-envelope-open-text", color: "icon-orange", link: "../articles/article-78.html" },
+    { num: 79, part: "Part V", title: "Constitution of Parliament.", desc: "There shall be a Parliament for Union consisting of President and two Houses.", icon: "fa-landmark-flag", color: "icon-purple", link: "../articles/article-79.html" },
+    { num: 80, part: "Part V", title: "Composition of the Council of States (Rajya Sabha).", desc: "Rajya Sabha consists of 12 nominated members and not more than 238 representatives of States/UTs.", icon: "fa-users-between-lines", color: "icon-teal", link: "../articles/article-80.html" },
+    { num: 81, part: "Part V", title: "Composition of the House of the People (Lok Sabha).", desc: "Lok Sabha consists of not more than 530 members from States and 20 from Union Territories.", icon: "fa-users-line", color: "icon-amber", link: "../articles/article-81.html" },
+    { num: 82, part: "Part V", title: "Readjustment after each census.", desc: "Allocation of seats and division of States into territorial constituencies readjusted after census.", icon: "fa-chart-pie", color: "icon-blue", link: "../articles/article-82.html" },
+    { num: 83, part: "Part V", title: "Duration of Houses of Parliament.", desc: "Rajya Sabha is permanent body; Lok Sabha duration is 5 years unless dissolved earlier.", icon: "fa-timeline", color: "icon-green", link: "../articles/article-83.html" },
+    { num: 84, part: "Part V", title: "Qualification for membership of Parliament.", desc: "Citizen of India, prescribed age (30 for Rajya Sabha, 25 for Lok Sabha), and statutory criteria.", icon: "fa-user-graduate", color: "icon-orange", link: "../articles/article-84.html" },
+    { num: 85, part: "Part V", title: "Sessions of Parliament, prorogation and dissolution.", desc: "President summons each House; gap between two sessions shall not exceed six months.", icon: "fa-door-open", color: "icon-purple", link: "../articles/article-85.html" },
+    { num: 86, part: "Part V", title: "Right of President to address and send messages to Houses.", desc: "President may address either House or both Houses assembled together.", icon: "fa-bullhorn", color: "icon-teal", link: "../articles/article-86.html" },
+    { num: 87, part: "Part V", title: "Special address by the President.", desc: "Special address by President at commencement of first session after general election and first session each year.", icon: "fa-scroll", color: "icon-amber", link: "../articles/article-87.html" },
+    { num: 88, part: "Part V", title: "Rights of Ministers and Attorney-General as respects Houses.", desc: "Right to speak and take part in proceedings of either House without voting right.", icon: "fa-comments", color: "icon-blue", link: "../articles/article-88.html" },
+    { num: 89, part: "Part V", title: "The Chairman and Deputy Chairman of Council of States.", desc: "Vice-President is ex officio Chairman; Deputy Chairman chosen from among members.", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-89.html" },
+    { num: 90, part: "Part V", title: "Vacation and resignation of, and removal from, the office of Deputy Chairman.", desc: "Provisions relating to vacation, resignation, and removal of Deputy Chairman of Rajya Sabha.", icon: "fa-user-minus", color: "icon-orange", link: "../articles/article-90.html" },
+    { num: 91, part: "Part V", title: "Power of Deputy Chairman or other person to perform duties of Chairman.", desc: "Deputy Chairman performs Chairman duties when office is vacant or during absence.", icon: "fa-user-clock", color: "icon-purple", link: "../articles/article-91.html" },
+    { num: 92, part: "Part V", title: "Chairman or Deputy Chairman not to preside while resolution for removal is under consideration.", desc: "Restriction on presiding over sittings when removal resolution is being considered.", icon: "fa-ban", color: "icon-teal", link: "../articles/article-92.html" },
+    { num: 93, part: "Part V", title: "The Speaker and Deputy Speaker of House of the People.", desc: "Lok Sabha chooses two members to be Speaker and Deputy Speaker.", icon: "fa-user-tie", color: "icon-amber", link: "../articles/article-93.html" },
+    { num: 94, part: "Part V", title: "Vacation, resignation and removal of Speaker and Deputy Speaker.", desc: "Vacation of office, resignation letter, and removal by resolution of Lok Sabha.", icon: "fa-arrow-right-from-bracket", color: "icon-blue", link: "../articles/article-94.html" },
+    { num: 95, part: "Part V", title: "Power of Deputy Speaker or other person to perform duties of Speaker.", desc: "Deputy Speaker performs duties during vacancy or absence of Speaker.", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-95.html" },
+    { num: 96, part: "Part V", title: "Speaker/Deputy Speaker not to preside while removal resolution under consideration.", desc: "Restriction on presiding when resolution for removal from office is under debate.", icon: "fa-shield-xmark", color: "icon-orange", link: "../articles/article-96.html" },
+    { num: 97, part: "Part V", title: "Salaries and allowances of Chairman/Deputy Chairman and Speaker/Deputy Speaker.", desc: "Salaries and allowances paid to presiding officers of both Houses.", icon: "fa-money-bill-wave", color: "icon-purple", link: "../articles/article-97.html" },
+    { num: 98, part: "Part V", title: "Secretariat of Parliament.", desc: "Each House of Parliament shall have a separate secretarial staff.", icon: "fa-building-flag", color: "icon-teal", link: "../articles/article-98.html" },
+    { num: 99, part: "Part V", title: "Oath or affirmation by members.", desc: "Every member of Parliament shall make and subscribe an oath before President.", icon: "fa-pen-clip", color: "icon-amber", link: "../articles/article-99.html" },
+    { num: 100, part: "Part V", title: "Voting in Houses, power of Houses to act notwithstanding vacancies and quorum.", desc: "Decisions by majority vote; Speaker casting vote in tie; Quorum is 1/10th of members.", icon: "fa-check", color: "icon-blue", link: "../articles/article-100.html" },
+    { num: 101, part: "Part V", title: "Vacation of seats.", desc: "Disqualification, double membership, or remaining absent for 60 days without permission leads to vacation.", icon: "fa-chair", color: "icon-green", link: "../articles/article-101.html" },
+    { num: 102, part: "Part V", title: "Disqualifications for membership.", desc: "Holding office of profit, unsound mind, undischarged insolvent, non-citizen, or statutory disqualification.", icon: "fa-user-xmark", color: "icon-orange", link: "../articles/article-102.html" },
+    { num: 103, part: "Part V", title: "Decision on questions as to disqualifications of members.", desc: "President decides disqualification questions after obtaining opinion of Election Commission.", icon: "fa-scale-balanced", color: "icon-purple", link: "../articles/article-103.html" },
+    { num: 104, part: "Part V", title: "Penalty for sitting and voting before making oath or when not qualified.", desc: "Penalty of 500 rupees per day for sitting/voting without qualification.", icon: "fa-file-invoice-dollar", color: "icon-teal", link: "../articles/article-104.html" },
+    { num: 105, part: "Part V", title: "Powers, privileges, etc., of Houses of Parliament and of members and committees.", desc: "Freedom of speech in Parliament and immunity from court proceedings for speech/vote.", icon: "fa-shield-halved", color: "icon-amber", link: "../articles/article-105.html" },
+    { num: 106, part: "Part V", title: "Salaries and allowances of members.", desc: "Members of either House entitled to receive salaries determined by Parliament.", icon: "fa-wallet", color: "icon-blue", link: "../articles/article-106.html" },
+    { num: 107, part: "Part V", title: "Provisions as to introduction and passing of Bills.", desc: "Bills (other than Money Bills) may originate in either House; must be agreed by both.", icon: "fa-file-import", color: "icon-green", link: "../articles/article-107.html" },
+    { num: 108, part: "Part V", title: "Joint sitting of both Houses in certain cases.", desc: "President may summon joint sitting of Lok Sabha and Rajya Sabha to resolve deadlocks.", icon: "fa-people-roof", color: "icon-orange", link: "../articles/article-108.html" },
+    { num: 109, part: "Part V", title: "Special procedure in respect of Money Bills.", desc: "Money Bills shall not be introduced in Rajya Sabha; Rajya Sabha has 14 days to recommend.", icon: "fa-file-invoice", color: "icon-purple", link: "../articles/article-109.html" },
+    { num: 110, part: "Part V", title: "Definition of 'Money Bills'.", desc: "Bill containing provisions regarding taxation, borrowing, Consolidated Fund custody.", icon: "fa-sack-dollar", color: "icon-teal", link: "../articles/article-110.html" },
+    { num: 111, part: "Part V", title: "Assent to Bills.", desc: "President declares assent, withholds assent, or returns non-Money Bill for reconsideration.", icon: "fa-stamp", color: "icon-amber", link: "../articles/article-111.html" },
+    { num: 112, part: "Part V", title: "Annual financial statement (Budget).", desc: "President causes to be laid before Parliament estimated receipts and expenditure (Budget).", icon: "fa-chart-line", color: "icon-blue", link: "../articles/article-112.html" },
+    { num: 113, part: "Part V", title: "Procedure in Parliament with respect to estimates.", desc: "Estimates relating to expenditure charged upon Consolidated Fund not submitted to vote.", icon: "fa-calculator", color: "icon-green", link: "../articles/article-113.html" },
+    { num: 114, part: "Part V", title: "Appropriation Bills.", desc: "Bill introduced to provide for appropriation out of Consolidated Fund of India.", icon: "fa-money-bill-transfer", color: "icon-orange", link: "../articles/article-114.html" },
+    { num: 115, part: "Part V", title: "Supplementary, additional or excess grants.", desc: "Procedure for sanctioning supplementary, additional or excess expenditure.", icon: "fa-file-circle-plus", color: "icon-purple", link: "../articles/article-115.html" },
+    { num: 116, part: "Part V", title: "Votes on account, votes of credit and exceptional grants.", desc: "Power of Lok Sabha to make advance grants before completion of Budget voting.", icon: "fa-receipt", color: "icon-teal", link: "../articles/article-116.html" },
+    { num: 117, part: "Part V", title: "Special provisions as to financial Bills.", desc: "Special requirements for introduction and consideration of Financial Bills.", icon: "fa-file-signature", color: "icon-amber", link: "../articles/article-117.html" },
+    { num: 118, part: "Part V", title: "Rules of procedure.", desc: "Each House of Parliament may make rules for regulating its procedure and conduct of business.", icon: "fa-book-bookmark", color: "icon-blue", link: "../articles/article-118.html" },
+    { num: 119, part: "Part V", title: "Regulation by law of procedure in Parliament in relation to financial business.", desc: "Parliamentary law regulating financial procedure overrides internal house rules.", icon: "fa-gavel", color: "icon-green", link: "../articles/article-119.html" },
+    { num: 120, part: "Part V", title: "Language to be used in Parliament.", desc: "Business in Parliament shall be transacted in Hindi or English (or mother tongue with permission).", icon: "fa-language", color: "icon-orange", link: "../articles/article-120.html" },
+    { num: 121, part: "Part V", title: "Restriction on discussion in Parliament.", desc: "No discussion in Parliament regarding conduct of any Supreme Court or High Court judge.", icon: "fa-comment-slash", color: "icon-purple", link: "../articles/article-121.html" },
+    { num: 122, part: "Part V", title: "Courts not to inquire into proceedings of Parliament.", desc: "Validity of proceedings in Parliament cannot be questioned in court on procedural grounds.", icon: "fa-gavel", color: "icon-teal", link: "../articles/article-122.html" },
+    { num: 123, part: "Part V", title: "Power of President to promulgate Ordinances during recess of Parliament.", desc: "President may issue Ordinance when both Houses are not in session during emergency needs.", icon: "fa-scroll", color: "icon-amber", link: "../articles/article-123.html" },
+    { num: 124, part: "Part V", title: "Establishment and constitution of Supreme Court.", desc: "There shall be a Supreme Court of India consisting of Chief Justice and other judges.", icon: "fa-building-columns", color: "icon-blue", link: "../articles/article-124.html" },
+    { num: "124A", part: "Part V", title: "National Judicial Appointments Commission.", desc: "(Struck down by Supreme Court in NJAC Judgment, 2015).", icon: "fa-section", color: "icon-green", link: "../articles/article-124a.html" },
+    { num: "124B", part: "Part V", title: "Functions of Commission.", desc: "(Struck down by Supreme Court).", icon: "fa-section", color: "icon-orange", link: "../articles/article-124b.html" },
+    { num: "124C", part: "Part V", title: "Power of Parliament to make law.", desc: "(Struck down by Supreme Court).", icon: "fa-section", color: "icon-purple", link: "../articles/article-124c.html" },
+    { num: 125, part: "Part V", title: "Salaries, etc., of Judges.", desc: "Salaries and allowances paid to Supreme Court Judges specified by law.", icon: "fa-money-bill", color: "icon-teal", link: "../articles/article-125.html" },
+    { num: 126, part: "Part V", title: "Appointment of acting Chief Justice.", desc: "President appoints acting Chief Justice during vacancy or absence of CJI.", icon: "fa-user-plus", color: "icon-amber", link: "../articles/article-126.html" },
+    { num: 127, part: "Part V", title: "Appointment of ad hoc Judges.", desc: "CJI may appoint High Court judge as ad hoc SC judge if quorum is lacking.", icon: "fa-user-doctor", color: "icon-blue", link: "../articles/article-127.html" },
+    { num: 128, part: "Part V", title: "Attendance of retired Judges at sittings of the Supreme Court.", desc: "CJI with President consent may request retired SC or HC judge to sit and act as judge.", icon: "fa-user-clock", color: "icon-green", link: "../articles/article-128.html" },
+    { num: 129, part: "Part V", title: "Supreme Court to be a court of record.", desc: "Supreme Court is Court of Record with power to punish for contempt of itself.", icon: "fa-box-archive", color: "icon-orange", link: "../articles/article-129.html" },
+    { num: 130, part: "Part V", title: "Seat of Supreme Court.", desc: "Supreme Court shall sit in Delhi or such other place as CJI appoints with President approval.", icon: "fa-location-dot", color: "icon-purple", link: "../articles/article-130.html" },
+    { num: 131, part: "Part V", title: "Original jurisdiction of the Supreme Court.", desc: "Exclusive original jurisdiction in disputes between Centre and States or inter-State.", icon: "fa-scale-balanced", color: "icon-teal", link: "../articles/article-131.html" },
+    { num: "131A", part: "Part V", title: "Executive jurisdiction of Supreme Court regarding constitutional validity of Central laws.", desc: "(Repealed by 43rd Amendment Act, 1977).", icon: "fa-ban", color: "icon-amber", link: "../articles/article-131a.html" },
+    { num: 132, part: "Part V", title: "Appellate jurisdiction of Supreme Court in appeals from High Courts in certain cases.", desc: "Appeals to SC from HC in cases involving substantial question of constitutional law.", icon: "fa-diagram-successor", color: "icon-blue", link: "../articles/article-132.html" },
+    { num: 133, part: "Part V", title: "Appellate jurisdiction of Supreme Court in appeals from High Courts in civil matters.", desc: "Appeals in civil matters from High Court decisions.", icon: "fa-folder-open", color: "icon-green", link: "../articles/article-133.html" },
+    { num: 134, part: "Part V", title: "Appellate jurisdiction of Supreme Court in regard to criminal matters.", desc: "Appeals in criminal matters where HC reversed acquittal to death sentence.", icon: "fa-handcuffs", color: "icon-orange", link: "../articles/article-134.html" },
+    { num: "134A", part: "Part V", title: "Certificate for appeal to the Supreme Court.", desc: "High Court certificate granting leave to appeal to Supreme Court.", icon: "fa-certificate", color: "icon-purple", link: "../articles/article-134a.html" },
+    { num: 135, part: "Part V", title: "Jurisdiction and powers of the Federal Court under existing law to be exercisable by Supreme Court.", desc: "Powers of Federal Court transferred to Supreme Court.", icon: "fa-repeat", color: "icon-teal", link: "../articles/article-135.html" },
+    { num: 136, part: "Part V", title: "Special leave to appeal by the Supreme Court.", desc: "Supreme Court may grant Special Leave Petition (SLP) against any tribunal or court order.", icon: "fa-star", color: "icon-amber", link: "../articles/article-136.html" },
+    { num: 137, part: "Part V", title: "Review of judgments or orders by the Supreme Court.", desc: "Supreme Court has power to review any judgment pronounced or order made by it.", icon: "fa-arrows-rotate", color: "icon-blue", link: "../articles/article-137.html" },
+    { num: 138, part: "Part V", title: "Enlargement of the jurisdiction of the Supreme Court.", desc: "Parliament may by law enlarge jurisdiction of Supreme Court regarding Union List.", icon: "fa-expand", color: "icon-green", link: "../articles/article-138.html" },
+    { num: 139, part: "Part V", title: "Conferment on the Supreme Court of powers to issue certain writs.", desc: "Parliament may confer power to issue writs for purposes other than Fundamental Rights.", icon: "fa-file-shield", color: "icon-orange", link: "../articles/article-139.html" },
+    { num: "139A", part: "Part V", title: "Transfer of certain cases.", desc: "Supreme Court may transfer cases involving same questions of law from HCs to itself.", icon: "fa-arrow-right-arrow-left", color: "icon-purple", link: "../articles/article-139a.html" },
+    { num: 140, part: "Part V", title: "Ancillary powers of Supreme Court.", desc: "Parliament may confer supplemental powers upon Supreme Court.", icon: "fa-gears", color: "icon-teal", link: "../articles/article-140.html" },
+    { num: 141, part: "Part V", title: "Law declared by Supreme Court to be binding on all courts.", desc: "Law declared by SC shall be binding on all courts within territory of India.", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-141.html" },
+    { num: 142, part: "Part V", title: "Enforcement of decrees and orders of Supreme Court and orders as to discovery, etc.", desc: "SC decrees enforceable throughout India; power to pass orders to do 'complete justice'.", icon: "fa-shield-halved", color: "icon-blue", link: "../articles/article-142.html" },
+    { num: 143, part: "Part V", title: "Power of President to consult Supreme Court.", desc: "Advisory jurisdiction: President may refer questions of law/fact to Supreme Court.", icon: "fa-handshake", color: "icon-green", link: "../articles/article-143.html" },
+    { num: 144, part: "Part V", title: "Civil and judicial authorities to act in aid of the Supreme Court.", desc: "All authorities, civil and judicial, in India shall act in aid of Supreme Court.", icon: "fa-building-shield", color: "icon-orange", link: "../articles/article-144.html" },
+    { num: "144A", part: "Part V", title: "Special provisions as to disposal of questions relating to constitutional validity of laws.", desc: "(Repealed by 43rd Amendment Act, 1977).", icon: "fa-ban", color: "icon-purple", link: "../articles/article-144a.html" },
+    { num: 145, part: "Part V", title: "Rules of Court, etc.", desc: "Supreme Court makes rules for regulating general practice and procedure of Court.", icon: "fa-book", color: "icon-teal", link: "../articles/article-145.html" },
+    { num: 146, part: "Part V", title: "Officers and servants and the expenses of the Supreme Court.", desc: "Appointments of officers/servants of SC made by CJI; administrative expenses charged on Consolidated Fund.", icon: "fa-users-gear", color: "icon-amber", link: "../articles/article-146.html" },
+    { num: 147, part: "Part V", title: "Interpretation.", desc: "References to interpretation of Constitution includes Federal Court/Government of India Act 1935.", icon: "fa-magnifying-glass", color: "icon-blue", link: "../articles/article-147.html" },
+    { num: 148, part: "Part V", title: "Comptroller and Auditor-General of India (CAG).", desc: "There shall be a CAG appointed by President; Guardian of public purse.", icon: "fa-calculator", color: "icon-green", link: "../articles/article-148.html" },
+    { num: 149, part: "Part V", title: "Duties and powers of the Comptroller and Auditor-General.", desc: "CAG performs duties in relation to accounts of Union and States.", icon: "fa-list-check", color: "icon-orange", link: "../articles/article-149.html" },
+    { num: 150, part: "Part V", title: "Form of accounts of the Union and of the States.", desc: "Accounts of Union and States kept in form prescribed by President on CAG advice.", icon: "fa-file-invoice", color: "icon-purple", link: "../articles/article-150.html" },
+    { num: 151, part: "Part V", title: "Audit reports.", desc: "CAG audit reports submitted to President/Governor to be laid before Parliament/Legislature.", icon: "fa-chart-column", color: "icon-teal", link: "../articles/article-151.html" },
+
+    // PART VI: THE STATES (152 - 237)
+    { num: 152, part: "Part VI", title: "Definition of State in Part VI.", desc: "In this Part, unless context otherwise requires, 'State' excludes Jammu and Kashmir (historically).", icon: "fa-map-location-dot", color: "icon-amber", link: "../articles/article-152.html" },
+    { num: 153, part: "Part VI", title: "Governors of States.", desc: "There shall be a Governor for each State (same person can be Governor for two+ States).", icon: "fa-user-large", color: "icon-blue", link: "../articles/article-153.html" },
+    { num: 154, part: "Part VI", title: "Executive power of State.", desc: "Executive power of State vested in Governor exercised directly or through officers.", icon: "fa-building-flag", color: "icon-green", link: "../articles/article-154.html" },
+    { num: 155, part: "Part VI", title: "Appointment of Governor.", desc: "Governor of a State appointed by President by warrant under his hand and seal.", icon: "fa-user-check", color: "icon-orange", link: "../articles/article-155.html" },
+    { num: 156, part: "Part VI", title: "Term of office of Governor.", desc: "Governor holds office during pleasure of President; normal term is 5 years.", icon: "fa-calendar", color: "icon-purple", link: "../articles/article-156.html" },
+    { num: 157, part: "Part VI", title: "Qualifications for appointment as Governor.", desc: "Citizen of India and completed age of 35 years.", icon: "fa-id-card", color: "icon-teal", link: "../articles/article-157.html" },
+    { num: 158, part: "Part VI", title: "Conditions of Governor's office.", desc: "Governor shall not be member of Parliament/Legislature or hold office of profit.", icon: "fa-building-lock", color: "icon-amber", link: "../articles/article-158.html" },
+    { num: 159, part: "Part VI", title: "Oath or affirmation by the Governor.", desc: "Oath administered to Governor by Chief Justice of High Court.", icon: "fa-signature", color: "icon-blue", link: "../articles/article-159.html" },
+    { num: 160, part: "Part VI", title: "Discharge of functions of Governor in certain contingencies.", desc: "President makes provision for discharge of Governor functions in unprovided cases.", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-160.html" },
+    { num: 161, part: "Part VI", title: "Power of Governor to grant pardons, etc., and to suspend, remit or commute sentences.", desc: "Governor power to grant pardons regarding matters to which State executive power extends.", icon: "fa-hand-holding-heart", color: "icon-orange", link: "../articles/article-161.html" },
+    { num: 162, part: "Part VI", title: "Extent of executive power of State.", desc: "Executive power of State extends to matters with respect to which State Legislature has power.", icon: "fa-layer-group", color: "icon-purple", link: "../articles/article-162.html" },
+    { num: 163, part: "Part VI", title: "Council of Ministers to aid and advise Governor.", desc: "Council of Ministers with Chief Minister at head aids and advises Governor (except discretionary functions).", icon: "fa-people-group", color: "icon-teal", link: "../articles/article-163.html" },
+    { num: 164, part: "Part VI", title: "Other provisions as to Ministers.", desc: "Chief Minister appointed by Governor; Ministers appointed on advice of CM.", icon: "fa-user-pen", color: "icon-amber", link: "../articles/article-164.html" },
+    { num: 165, part: "Part VI", title: "Advocate-General for the State.", desc: "Governor appoints person qualified to be High Court judge as Advocate-General.", icon: "fa-user-shield", color: "icon-blue", link: "../articles/article-165.html" },
+    { num: 166, part: "Part VI", title: "Conduct of business of the Government of a State.", desc: "Executive action of State expressed to be taken in name of Governor.", icon: "fa-folder-tree", color: "icon-green", link: "../articles/article-166.html" },
+    { num: 167, part: "Part VI", title: "Duties of Chief Minister as respects furnishing of information to Governor.", desc: "Duty of CM to communicate legislative and administrative decisions to Governor.", icon: "fa-envelope-open-text", color: "icon-orange", link: "../articles/article-167.html" },
+    { num: 168, part: "Part VI", title: "Constitution of Legislatures in States.", desc: "Every State legislature consists of Governor and one or two Houses.", icon: "fa-landmark", color: "icon-purple", link: "../articles/article-168.html" },
+    { num: 169, part: "Part VI", title: "Abolition or creation of Legislative Councils in States.", desc: "Parliament may by law create or abolish Legislative Council if State Assembly passes resolution.", icon: "fa-building-circle-check", color: "icon-teal", link: "../articles/article-169.html" },
+    { num: 170, part: "Part VI", title: "Composition of Legislative Assemblies (Vidhan Sabha).", desc: "Assembly consists of 60 to 500 members chosen by direct election from territorial constituencies.", icon: "fa-users", color: "icon-amber", link: "../articles/article-170.html" },
+    { num: 171, part: "Part VI", title: "Composition of Legislative Councils (Vidhan Parishad).", desc: "Council total strength shall not exceed 1/3rd of Assembly, nor be less than 40.", icon: "fa-users-between-lines", color: "icon-blue", link: "../articles/article-171.html" },
+    { num: 172, part: "Part VI", title: "Duration of State Legislatures.", desc: "Assembly duration is 5 years; Council is permanent body with 1/3rd retiring every 2 years.", icon: "fa-timeline", color: "icon-green", link: "../articles/article-172.html" },
+    { num: 173, part: "Part VI", title: "Qualification for membership of State Legislature.", desc: "Citizen of India, prescribed age (25 for Assembly, 30 for Council).", icon: "fa-user-graduate", color: "icon-orange", link: "../articles/article-173.html" },
+    { num: 174, part: "Part VI", title: "Sessions of State Legislature, prorogation and dissolution.", desc: "Governor summons, prorogues State Legislature and dissolves Legislative Assembly.", icon: "fa-door-open", color: "icon-purple", link: "../articles/article-174.html" },
+    { num: 175, part: "Part VI", title: "Right of Governor to address and send messages to House/Houses.", desc: "Governor may address Assembly or Council and send legislative messages.", icon: "fa-bullhorn", color: "icon-teal", link: "../articles/article-175.html" },
+    { num: 176, part: "Part VI", title: "Special address by the Governor.", desc: "Governor special address at commencement of first session after general election and first session each year.", icon: "fa-scroll", color: "icon-amber", link: "../articles/article-176.html" },
+    { num: 177, part: "Part VI", title: "Rights of Ministers and Advocate-General as respects Houses.", desc: "Right to speak and participate in proceedings of State Houses without voting right.", icon: "fa-comments", color: "icon-blue", link: "../articles/article-177.html" },
+    { num: 178, part: "Part VI", title: "Speaker and Deputy Speaker of Legislative Assembly.", desc: "Assembly chooses two members as Speaker and Deputy Speaker.", icon: "fa-user-tie", color: "icon-green", link: "../articles/article-178.html" },
+    { num: 179, part: "Part VI", title: "Vacation, resignation and removal of Speaker/Deputy Speaker.", desc: "Provisions for vacation of seat, resignation letter and removal by Assembly.", icon: "fa-arrow-right-from-bracket", color: "icon-orange", link: "../articles/article-179.html" },
+    { num: 180, part: "Part VI", title: "Power of Deputy Speaker or other person to perform duties of Speaker.", desc: "Deputy Speaker acts as Speaker during vacancy or absence.", icon: "fa-user-gear", color: "icon-purple", link: "../articles/article-180.html" },
+    { num: 181, part: "Part VI", title: "Speaker/Deputy Speaker not to preside while removal resolution under consideration.", desc: "Restriction on presiding when removal resolution is being debated.", icon: "fa-shield-xmark", color: "icon-teal", link: "../articles/article-181.html" },
+    { num: 182, part: "Part VI", title: "Chairman and Deputy Chairman of Legislative Council.", desc: "Legislative Council chooses two members as Chairman and Deputy Chairman.", icon: "fa-user-gear", color: "icon-amber", link: "../articles/article-182.html" },
+    { num: 183, part: "Part VI", title: "Vacation, resignation and removal of Chairman and Deputy Chairman.", desc: "Vacation, resignation, or removal of officers of Legislative Council.", icon: "fa-user-minus", color: "icon-blue", link: "../articles/article-183.html" },
+    { num: 184, part: "Part VI", title: "Power of Deputy Chairman or other person to perform duties of Chairman.", desc: "Deputy Chairman performs duties during vacancy/absence of Chairman.", icon: "fa-user-clock", color: "icon-green", link: "../articles/article-184.html" },
+    { num: 185, part: "Part VI", title: "Chairman/Deputy Chairman not to preside while removal resolution under consideration.", desc: "Restriction on presiding during removal proceedings in Legislative Council.", icon: "fa-ban", color: "icon-orange", link: "../articles/article-185.html" },
+    { num: 186, part: "Part VI", title: "Salaries and allowances of Speaker/Deputy Speaker and Chairman/Deputy Chairman.", desc: "Salaries paid to presiding officers of State Legislature.", icon: "fa-money-bill-wave", color: "icon-purple", link: "../articles/article-186.html" },
+    { num: 187, part: "Part VI", title: "Secretariat of State Legislature.", desc: "Separate secretarial staff for House or Houses of State Legislature.", icon: "fa-building-flag", color: "icon-teal", link: "../articles/article-187.html" },
+    { num: 188, part: "Part VI", title: "Oath or affirmation by members.", desc: "State Legislature members take oath before Governor or designated officer.", icon: "fa-pen-clip", color: "icon-amber", link: "../articles/article-188.html" },
+    { num: 189, part: "Part VI", title: "Voting in Houses, power of Houses to act notwithstanding vacancies and quorum.", desc: "Decisions by majority; casting vote; Quorum is 10 members or 1/10th of total strength.", icon: "fa-check", color: "icon-blue", link: "../articles/article-189.html" },
+    { num: 190, part: "Part VI", title: "Vacation of seats.", desc: "Vacation of seats due to double membership, disqualification or 60 days absence.", icon: "fa-chair", color: "icon-green", link: "../articles/article-190.html" },
+    { num: 191, part: "Part VI", title: "Disqualifications for membership.", desc: "Holding office of profit, unsound mind, undischarged insolvent, foreign citizenship.", icon: "fa-user-xmark", color: "icon-orange", link: "../articles/article-191.html" },
+    { num: 192, part: "Part VI", title: "Decision on questions as to disqualifications of members.", desc: "Governor decides disqualification after obtaining Election Commission opinion.", icon: "fa-scale-balanced", color: "icon-purple", link: "../articles/article-192.html" },
+    { num: 193, part: "Part VI", title: "Penalty for sitting and voting before making oath or when not qualified.", desc: "Penalty of 500 rupees per day for unauthorized sitting or voting.", icon: "fa-file-invoice-dollar", color: "icon-teal", link: "../articles/article-193.html" },
+    { num: 194, part: "Part VI", title: "Powers, privileges, etc., of Houses of Legislatures and of members/committees.", desc: "Freedom of speech and immunity from court action regarding speeches/votes.", icon: "fa-shield-halved", color: "icon-amber", link: "../articles/article-194.html" },
+    { num: 195, part: "Part VI", title: "Salaries and allowances of members.", desc: "Members entitled to salaries/allowances determined by State Legislature.", icon: "fa-wallet", color: "icon-blue", link: "../articles/article-195.html" },
+    { num: 196, part: "Part VI", title: "Provisions as to introduction and passing of Bills.", desc: "Bills may originate in either House (except Money Bills); requires agreement.", icon: "fa-file-import", color: "icon-green", link: "../articles/article-196.html" },
+    { num: 197, part: "Part VI", title: "Restriction on powers of Legislative Council as to Bills other than Money Bills.", desc: "Legislative Council can delay non-Money Bills for maximum 4 months.", icon: "fa-hourglass-start", color: "icon-orange", link: "../articles/article-197.html" },
+    { num: 198, part: "Part VI", title: "Special procedure in respect of Money Bills.", desc: "Money Bills introduced only in Assembly; Council has 14 days to recommend.", icon: "fa-file-invoice", color: "icon-purple", link: "../articles/article-198.html" },
+    { num: 199, part: "Part VI", title: "Definition of 'Money Bills' in State Legislature.", desc: "Bill dealing exclusively with state taxation, borrowing, Consolidated Fund.", icon: "fa-sack-dollar", color: "icon-teal", link: "../articles/article-199.html" },
+    { num: 200, part: "Part VI", title: "Assent to Bills.", desc: "Governor assents, withholds assent, reserves Bill for President, or returns it.", icon: "fa-stamp", color: "icon-amber", link: "../articles/article-200.html" },
+    { num: 201, part: "Part VI", title: "Bills reserved for consideration of President.", desc: "President declares assent or withholds assent on State Bills reserved by Governor.", icon: "fa-file-signature", color: "icon-blue", link: "../articles/article-201.html" },
+    { num: 202, part: "Part VI", title: "Annual financial statement (State Budget).", desc: "Governor causes to be laid before Legislature estimated receipts and expenditure.", icon: "fa-chart-line", color: "icon-green", link: "../articles/article-202.html" },
+    { num: 203, part: "Part VI", title: "Procedure in Legislature with respect to estimates.", desc: "Charged expenditure not submitted to vote; Assembly votes on demand for grants.", icon: "fa-calculator", color: "icon-orange", link: "../articles/article-203.html" },
+    { num: 204, part: "Part VI", title: "Appropriation Bills.", desc: "Appropriation Bill required to withdraw funds from State Consolidated Fund.", icon: "fa-money-bill-transfer", color: "icon-purple", link: "../articles/article-204.html" },
+    { num: 205, part: "Part VI", title: "Supplementary, additional or excess grants.", desc: "Procedure for sanctioning supplementary or excess grants in State.", icon: "fa-file-circle-plus", color: "icon-teal", link: "../articles/article-205.html" },
+    { num: 206, part: "Part VI", title: "Votes on account, votes of credit and exceptional grants.", desc: "Power of Assembly to make advance grants before budget passing.", icon: "fa-receipt", color: "icon-amber", link: "../articles/article-206.html" },
+    { num: 207, part: "Part VI", title: "Special provisions as to financial Bills.", desc: "Financial Bills introduced only on recommendation of Governor.", icon: "fa-file-pen", color: "icon-blue", link: "../articles/article-207.html" },
+    { num: 208, part: "Part VI", title: "Rules of procedure.", desc: "State Houses make rules regulating their procedure and conduct of business.", icon: "fa-book-bookmark", color: "icon-green", link: "../articles/article-208.html" },
+    { num: 209, part: "Part VI", title: "Regulation by law of procedure in Legislature in relation to financial business.", desc: "State law regulates procedure for timely completion of financial business.", icon: "fa-gavel", color: "icon-orange", link: "../articles/article-209.html" },
+    { num: 210, part: "Part VI", title: "Language to be used in Legislature.", desc: "Business transacted in official language of State, Hindi, or English.", icon: "fa-language", color: "icon-purple", link: "../articles/article-210.html" },
+    { num: 211, part: "Part VI", title: "Restriction on discussion in Legislature.", desc: "No discussion in State Legislature regarding judicial conduct of SC/HC judges.", icon: "fa-comment-slash", color: "icon-teal", link: "../articles/article-211.html" },
+    { num: 212, part: "Part VI", title: "Courts not to inquire into proceedings of Legislature.", desc: "Courts cannot inquire into validity of legislative proceedings based on procedural irregularity.", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-212.html" },
+    { num: 213, part: "Part VI", title: "Power of Governor to promulgate Ordinances during recess of Legislature.", desc: "Governor issues Ordinances when State Legislature is not in session.", icon: "fa-scroll", color: "icon-blue", link: "../articles/article-213.html" },
+    { num: 214, part: "Part VI", title: "High Courts for States.", desc: "There shall be a High Court for each State.", icon: "fa-building-columns", color: "icon-green", link: "../articles/article-214.html" },
+    { num: 215, part: "Part VI", title: "High Courts to be courts of record.", desc: "High Court is Court of Record with power to punish for contempt of itself.", icon: "fa-box-archive", color: "icon-orange", link: "../articles/article-215.html" },
+    { num: 216, part: "Part VI", title: "Constitution of High Courts.", desc: "High Court consists of Chief Justice and such other judges appointed by President.", icon: "fa-sitemap", color: "icon-purple", link: "../articles/article-216.html" },
+    { num: 217, part: "Part VI", title: "Appointment and conditions of office of a Judge of a High Court.", desc: "Judges appointed by President after consulting CJI, Governor and HC Chief Justice.", icon: "fa-user-check", color: "icon-teal", link: "../articles/article-217.html" },
+    { num: 218, part: "Part VI", title: "Application of certain provisions relating to Supreme Court to High Courts.", desc: "Provisions regarding removal of SC judges apply to HC judges.", icon: "fa-repeat", color: "icon-amber", link: "../articles/article-218.html" },
+    { num: 219, part: "Part VI", title: "Oath or affirmation by Judges of High Courts.", desc: "Oath administered to High Court judge by Governor.", icon: "fa-signature", color: "icon-blue", link: "../articles/article-219.html" },
+    { num: 220, part: "Part VI", title: "Restriction on practice after being a permanent Judge.", desc: "Permanent HC judge cannot practice in courts except SC and other HCs.", icon: "fa-user-lock", color: "icon-green", link: "../articles/article-220.html" },
+    { num: 221, part: "Part VI", title: "Salaries, etc., of Judges.", desc: "Salaries and allowances paid to High Court judges.", icon: "fa-money-bill", color: "icon-orange", link: "../articles/article-221.html" },
+    { num: 222, part: "Part VI", title: "Transfer of a Judge from one High Court to another.", desc: "President may transfer a judge from one High Court to another after consulting CJI.", icon: "fa-right-left", color: "icon-purple", link: "../articles/article-222.html" },
+    { num: 223, part: "Part VI", title: "Appointment of acting Chief Justice.", desc: "President appoints acting Chief Justice of High Court during vacancy.", icon: "fa-user-plus", color: "icon-teal", link: "../articles/article-223.html" },
+    { num: 224, part: "Part VI", title: "Appointment of additional and acting Judges.", desc: "President appoints additional judges (max 2 years) to clear pending cases.", icon: "fa-users-gear", color: "icon-amber", link: "../articles/article-224.html" },
+    { num: "224A", part: "Part VI", title: "Appointment of retired Judges at sittings of High Courts.", desc: "HC Chief Justice with President consent may request retired judge to sit and act as judge.", icon: "fa-user-clock", color: "icon-blue", link: "../articles/article-224a.html" },
+    { num: 225, part: "Part VI", title: "Jurisdiction of existing High Courts.", desc: "Preservation of jurisdiction and powers of pre-Constitution High Courts.", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-225.html" },
+    { num: 226, part: "Part VI", title: "Power of High Courts to issue certain writs.", desc: "Power of HC to issue writs (Habeas Corpus, Mandamus, etc.) for fundamental rights and other legal rights.", icon: "fa-file-shield", color: "icon-orange", link: "../articles/article-226.html" },
+    { num: "226A", part: "Part VI", title: "Constitutional validity of Central laws not to be considered in proceedings under Article 226.", desc: "(Repealed by 43rd Amendment Act, 1977).", icon: "fa-ban", color: "icon-purple", link: "../articles/article-226a.html" },
+    { num: 227, part: "Part VI", title: "Power of superintendence over all courts by the High Court.", desc: "High Court has administrative and judicial superintendence over all subordinate courts and tribunals.", icon: "fa-eye", color: "icon-teal", link: "../articles/article-227.html" },
+    { num: 228, part: "Part VI", title: "Transfer of certain cases to High Court.", desc: "HC may withdraw pending lower court case involving substantial question of constitutional law.", icon: "fa-arrow-up-from-bracket", color: "icon-amber", link: "../articles/article-228.html" },
+    { num: "228A", part: "Part VI", title: "Special provisions as to disposal of questions relating to validity of State laws.", desc: "(Repealed by 43rd Amendment Act, 1977).", icon: "fa-ban", color: "icon-blue", link: "../articles/article-228a.html" },
+    { num: 229, part: "Part VI", title: "Officers and servants and the expenses of High Courts.", desc: "Appointments of officers/servants made by HC Chief Justice; expenses charged on State Fund.", icon: "fa-users-rectangle", color: "icon-green", link: "../articles/article-229.html" },
+    { num: 230, part: "Part VI", title: "Extension of jurisdiction of High Courts to Union territories.", desc: "Parliament may extend or exclude High Court jurisdiction regarding Union Territories.", icon: "fa-expand", color: "icon-orange", link: "../articles/article-230.html" },
+    { num: 231, part: "Part VI", title: "Establishment of a common High Court for two or more States.", desc: "Parliament may by law establish a common High Court for two or more States.", icon: "fa-building-columns", color: "icon-purple", link: "../articles/article-231.html" },
+    { num: 232, part: "Part VI", title: "Interpretation regarding High Courts.", desc: "(Omitted by 7th Amendment Act, 1956).", icon: "fa-section", color: "icon-teal", link: "../articles/article-232.html" },
+    { num: 233, part: "Part VI", title: "Appointment of district judges.", desc: "District judges appointed by Governor in consultation with High Court.", icon: "fa-user-nurse", color: "icon-amber", link: "../articles/article-233.html" },
+    { num: "233A", part: "Part VI", title: "Validation of appointments of, and judgments delivered by, certain district judges.", desc: "Validation of certain district judge appointments and judgments.", icon: "fa-stamp", color: "icon-blue", link: "../articles/article-233a.html" },
+    { num: 234, part: "Part VI", title: "Recruitment of persons other than district judges to the judicial service.", desc: "Appointments to State Judicial Service made according to rules framed with State Public Service Commission.", icon: "fa-user-pen", color: "icon-green", link: "../articles/article-234.html" },
+    { num: 235, part: "Part VI", title: "Control over subordinate courts.", desc: "Control over district courts and subordinate courts vested in High Court.", icon: "fa-sliders", color: "icon-orange", link: "../articles/article-235.html" },
+    { num: 236, part: "Part VI", title: "Interpretation.", desc: "Expression 'district judge' and 'judicial service' defined.", icon: "fa-book-open", color: "icon-purple", link: "../articles/article-236.html" },
+    { num: 237, part: "Part VI", title: "Application of the provisions of this Chapter to certain class or classes of magistrates.", desc: "Governor may apply subordinate court provisions to specified classes of magistrates.", icon: "fa-gavel", color: "icon-teal", link: "../articles/article-237.html" },
+
+    // PART VII: THE STATES IN PART B OF THE FIRST SCHEDULE (238 - REPEALED)
+    { num: 238, part: "Part VII", title: "Application of Part VI to States in Part B of First Schedule.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-amber", link: "../articles/article-238.html" },
+
+    // PART VIII: THE UNION TERRITORIES (239 - 242)
+    { num: 239, part: "Part VIII", title: "Administration of Union territories.", desc: "Union Territories administered by President acting through Administrator appointed by him.", icon: "fa-city", color: "icon-blue", link: "../articles/article-239.html" },
+    { num: "239A", part: "Part VIII", title: "Creation of local Legislatures or Council of Ministers or both for certain UTs.", desc: "Parliament may create Legislature or Council of Ministers for Puducherry.", icon: "fa-building-user", color: "icon-green", link: "../articles/article-239a.html" },
+    { num: "239AA", part: "Part VIII", title: "Special provisions with respect to Delhi.", desc: "National Capital Territory of Delhi shall have a Legislative Assembly and Council of Ministers.", icon: "fa-landmark-flag", color: "icon-orange", link: "../articles/article-239aa.html" },
+    { num: "239AB", part: "Part VIII", title: "Provision in case of failure of constitutional machinery in Delhi.", desc: "President's Rule in Delhi upon report of Lieutenant Governor.", icon: "fa-triangle-exclamation", color: "icon-purple", link: "../articles/article-239ab.html" },
+    { num: "239B", part: "Part VIII", title: "Power of administrator to promulgate Ordinances during recess of Legislature.", desc: "Administrator of UT may issue Ordinance during recess of legislature.", icon: "fa-scroll", color: "icon-teal", link: "../articles/article-239b.html" },
+    { num: 240, part: "Part VIII", title: "Power of President to make regulations for certain Union territories.", desc: "President power to make regulations for peace, progress and good government of certain UTs.", icon: "fa-file-shield", color: "icon-amber", link: "../articles/article-240.html" },
+    { num: 241, part: "Part VIII", title: "High Courts for Union territories.", desc: "Parliament may by law constitute a High Court for a UT or declare existing court as HC.", icon: "fa-building-columns", color: "icon-blue", link: "../articles/article-241.html" },
+    { num: 242, part: "Part VIII", title: "Coorg.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-green", link: "../articles/article-242.html" },
+
+    // PART IX: THE PANCHAYATS (243 - 243O)
+    { num: 243, part: "Part IX", title: "Definitions in Panchayats Part.", desc: "Definitions of Gram Sabha, Panchayat, Village, District, Intermediate level.", icon: "fa-tree", color: "icon-orange", link: "../articles/article-243.html" },
+    { num: "243A", part: "Part IX", title: "Gram Sabha.", desc: "Gram Sabha exercises powers and performs functions at village level as provided by State law.", icon: "fa-users-rectangle", color: "icon-purple", link: "../articles/article-243a.html" },
+    { num: "243B", part: "Part IX", title: "Constitution of Panchayats.", desc: "Three-tier Panchayat system at village, intermediate and district levels.", icon: "fa-sitemap", color: "icon-teal", link: "../articles/article-243b.html" },
+    { num: "243C", part: "Part IX", title: "Composition of Panchayats.", desc: "Direct election of seats in Panchayats from territorial constituencies.", icon: "fa-check-to-slot", color: "icon-amber", link: "../articles/article-243c.html" },
+    { num: "243D", part: "Part IX", title: "Reservation of seats.", desc: "Reservation of seats for SCs, STs and not less than 1/3rd reservation for Women.", icon: "fa-scale-balanced", color: "icon-blue", link: "../articles/article-243d.html" },
+    { num: "243E", part: "Part IX", title: "Duration of Panchayats, etc.", desc: "Panchayat duration is 5 years from date appointed for its first meeting.", icon: "fa-calendar-days", color: "icon-green", link: "../articles/article-243e.html" },
+    { num: "243F", part: "Part IX", title: "Disqualifications for membership.", desc: "Disqualifications for Panchayat membership under State law.", icon: "fa-user-xmark", color: "icon-orange", link: "../articles/article-243f.html" },
+    { num: "243G", part: "Part IX", title: "Powers, authority and responsibilities of Panchayats.", desc: "Panchayats prepare plans for economic development and social justice (11th Schedule).", icon: "fa-list-check", color: "icon-purple", link: "../articles/article-243g.html" },
+    { num: "243H", part: "Part IX", title: "Powers to impose taxes by, and Funds of, the Panchayats.", desc: "State law may authorize Panchayats to levy, collect and appropriate taxes/fees.", icon: "fa-coins", color: "icon-teal", link: "../articles/article-243h.html" },
+    { num: "243I", part: "Part IX", title: "Constitution of Finance Commission to review financial position.", desc: "State Finance Commission constituted every 5 years to review Panchayat finances.", icon: "fa-chart-pie", color: "icon-amber", link: "../articles/article-243i.html" },
+    { num: "243J", part: "Part IX", title: "Audit of accounts of Panchayats.", desc: "State Legislature makes provisions for maintenance and auditing of Panchayat accounts.", icon: "fa-calculator", color: "icon-blue", link: "../articles/article-243j.html" },
+    { num: "243K", part: "Part IX", title: "Elections to the Panchayats.", desc: "Superintendence, direction and control of elections vested in State Election Commission.", icon: "fa-box-archive", color: "icon-green", link: "../articles/article-243k.html" },
+    { num: "243L", part: "Part IX", title: "Application to Union territories.", desc: "Provisions of Part IX apply to Union Territories subject to modifications by President.", icon: "fa-layer-group", color: "icon-orange", link: "../articles/article-243l.html" },
+    { num: "243M", part: "Part IX", title: "Part not to apply to certain areas.", desc: "Exemption of Scheduled Areas, Tribal Areas, Nagaland, Meghalaya, Mizoram.", icon: "fa-shield-xmark", color: "icon-purple", link: "../articles/article-243m.html" },
+    { num: "243N", part: "Part IX", title: "Continuance of existing laws and Panchayats.", desc: "Existing Panchayat laws remain valid for one year unless repealed earlier.", icon: "fa-arrows-spin", color: "icon-teal", link: "../articles/article-243n.html" },
+    { num: "243O", part: "Part IX", title: "Bar to interference by courts in electoral matters.", desc: "Courts barred from questioning validity of electoral boundaries and seat allotment.", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-243o.html" },
+
+    // PART IXA: THE MUNICIPALITIES (243P - 243ZG)
+    { num: "243P", part: "Part IXA", title: "Definitions in Municipalities Part.", desc: "Definitions of Nagar Panchayat, Municipal Council, Municipal Corporation.", icon: "fa-building", color: "icon-blue", link: "../articles/article-243p.html" },
+    { num: "243Q", part: "Part IXA", title: "Constitution of Municipalities.", desc: "Nagar Panchayat for transitional area, Municipal Council for smaller urban area, Municipal Corporation for larger urban area.", icon: "fa-city", color: "icon-green", link: "../articles/article-243q.html" },
+    { num: "243R", part: "Part IXA", title: "Composition of Municipalities.", desc: "Direct election of seats in Municipalities by territorial wards.", icon: "fa-users-rectangle", color: "icon-orange", link: "../articles/article-243r.html" },
+    { num: "243S", part: "Part IXA", title: "Constitution and composition of Wards Committees, etc.", desc: "Wards Committees constituted for urban areas with population of 3 lakh or more.", icon: "fa-people-group", color: "icon-purple", link: "../articles/article-243s.html" },
+    { num: "243T", part: "Part IXA", title: "Reservation of seats.", desc: "Reservation of seats for SCs, STs and 1/3rd for Women in urban local bodies.", icon: "fa-scale-balanced", color: "icon-teal", link: "../articles/article-243t.html" },
+    { num: "243U", part: "Part IXA", title: "Duration of Municipalities, etc.", desc: "Municipality duration is 5 years from date appointed for first meeting.", icon: "fa-calendar", color: "icon-amber", link: "../articles/article-243u.html" },
+    { num: "243V", part: "Part IXA", title: "Disqualifications for membership.", desc: "Disqualifications for municipal membership defined by State law.", icon: "fa-user-xmark", color: "icon-blue", link: "../articles/article-243v.html" },
+    { num: "243W", part: "Part IXA", title: "Powers, authority and responsibilities of Municipalities, etc.", desc: "Municipalities prepare plans for economic development (12th Schedule).", icon: "fa-list-check", color: "icon-green", link: "../articles/article-243w.html" },
+    { num: "243X", part: "Part IXA", title: "Power to impose taxes by, and Funds of, the Municipalities.", desc: "State Legislature authorizes Municipalities to levy taxes and duties.", icon: "fa-receipt", color: "icon-orange", link: "../articles/article-243x.html" },
+    { num: "243Y", part: "Part IXA", title: "Finance Commission.", desc: "State Finance Commission reviews financial position of Municipalities.", icon: "fa-chart-column", color: "icon-purple", link: "../articles/article-243y.html" },
+    { num: "243Z", part: "Part IXA", title: "Audit of accounts of Municipalities.", desc: "State law provisions regarding maintenance and audit of municipal accounts.", icon: "fa-calculator", color: "icon-teal", link: "../articles/article-243z.html" },
+    { num: "243ZA", part: "Part IXA", title: "Elections to the Municipalities.", desc: "State Election Commission conducts municipal elections.", icon: "fa-check-to-slot", color: "icon-amber", link: "../articles/article-243za.html" },
+    { num: "243ZB", part: "Part IXA", title: "Application to Union territories.", desc: "Application of municipal provisions to Union Territories.", icon: "fa-layer-group", color: "icon-blue", link: "../articles/article-243zb.html" },
+    { num: "243ZC", part: "Part IXA", title: "Part not to apply to certain areas.", desc: "Exemption of Scheduled Areas and Tribal Areas from municipal provisions.", icon: "fa-shield-xmark", color: "icon-green", link: "../articles/article-243zc.html" },
+    { num: "243ZD", part: "Part IXA", title: "Committee for district planning.", desc: "District Planning Committee consolidates plans prepared by Panchayats and Municipalities.", icon: "fa-sitemap", color: "icon-orange", link: "../articles/article-243zd.html" },
+    { num: "243ZE", part: "Part IXA", title: "Committee for Metropolitan planning.", desc: "Metropolitan Planning Committee prepares draft development plan for metropolitan area.", icon: "fa-diagram-project", color: "icon-purple", link: "../articles/article-243ze.html" },
+    { num: "243ZF", part: "Part IXA", title: "Continuance of existing laws and Municipalities.", desc: "Existing municipal laws remain valid for 1 year from amendment.", icon: "fa-rotate", color: "icon-teal", link: "../articles/article-243zf.html" },
+    { num: "243ZG", part: "Part IXA", title: "Bar to interference by courts in electoral matters.", desc: "Courts barred from interfering in delimitation and municipal elections.", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-243zg.html" },
+
+    // PART IXB: THE CO-OPERATIVE SOCIETIES (243ZH - 243ZT)
+    { num: "243ZH", part: "Part IXB", title: "Definitions in Co-operative Societies Part.", desc: "Definitions of Authorized Person, Board, Co-operative Society, Multi-State Co-operative Society.", icon: "fa-handshake", color: "icon-blue", link: "../articles/article-243zh.html" },
+    { num: "243ZI", part: "Part IXB", title: "Incorporation of co-operative societies.", desc: "State law regulates voluntary formation, democratic control and management of co-operative societies.", icon: "fa-people-hands-together", color: "icon-green", link: "../articles/article-243zi.html" },
+    { num: "243ZJ", part: "Part IXB", title: "Number and term of members of board and its office bearers.", desc: "Board size capped at 21 members; term of office is 5 years; reservation for SC/ST and Women.", icon: "fa-id-card-clip", color: "icon-orange", link: "../articles/article-243zj.html" },
+    { num: "243ZK", part: "Part IXB", title: "Election of members of board.", desc: "Elections to co-operative society board conducted before expiry of term.", icon: "fa-check-double", color: "icon-purple", link: "../articles/article-243zk.html" },
+    { num: "243ZL", part: "Part IXB", title: "Supersession and suspension of board and interim management.", desc: "Conditions under which co-operative board can be superseded or suspended.", icon: "fa-ban-bug", color: "icon-teal", link: "../articles/article-243zl.html" },
+    { num: "243ZM", part: "Part IXB", title: "Audit of accounts of co-operative societies.", desc: "State Legislature appoints qualified auditors for auditing co-operative society accounts.", icon: "fa-file-invoice", color: "icon-amber", link: "../articles/article-243zm.html" },
+    { num: "243ZN", part: "Part IXB", title: "Convening of general body meetings.", desc: "Annual general body meeting of co-operative society convened within six months of financial year close.", icon: "fa-users-viewfinder", color: "icon-blue", link: "../articles/article-243zn.html" },
+    { num: "243ZO", part: "Part IXB", title: "Right of a member to get information.", desc: "Members entitled to receive books, accounts and documents of co-operative society.", icon: "fa-circle-info", color: "icon-green", link: "../articles/article-243zo.html" },
+    { num: "243ZP", part: "Part IXB", title: "Returns.", desc: "Co-operative society files annual returns within six months of financial year close.", icon: "fa-file-export", color: "icon-orange", link: "../articles/article-243zp.html" },
+    { num: "243ZQ", part: "Part IXB", title: "Offences and penalties.", desc: "State Legislature prescribes offences and punishment regarding willful false returns/information.", icon: "fa-triangle-exclamation", color: "icon-purple", link: "../articles/article-243zq.html" },
+    { num: "243ZR", part: "Part IXB", title: "Application to multi-State co-operative societies.", desc: "Application of provisions to co-operative societies extending beyond one State.", icon: "fa-globe-asia", color: "icon-teal", link: "../articles/article-243zr.html" },
+    { num: "243ZS", part: "Part IXB", title: "Application to Union territories.", desc: "President extends co-operative society provisions to Union Territories.", icon: "fa-layer-group", color: "icon-amber", link: "../articles/article-243zs.html" },
+    { num: "243ZT", part: "Part IXB", title: "Continuance of existing laws.", desc: "Existing co-operative laws remain in force until modified or for 1 year.", icon: "fa-arrows-rotate", color: "icon-blue", link: "../articles/article-243zt.html" },
+
+    // PART X: THE SCHEDULED AND TRIBAL AREAS (244 - 244A)
+    { num: 244, part: "Part X", title: "Administration of Scheduled Areas and Tribal Areas.", desc: "Fifth Schedule applies to Scheduled Areas in States; Sixth Schedule applies to Assam, Meghalaya, Tripura, Mizoram.", icon: "fa-campground", color: "icon-green", link: "../articles/article-244.html" },
+    { num: "244A", part: "Part X", title: "Formation of an autonomous State comprising certain tribal areas in Assam.", desc: "Parliament may by law form an autonomous State within Assam for certain tribal areas.", icon: "fa-mountain-city", color: "icon-orange", link: "../articles/article-244a.html" },
+
+    // PART XI: RELATIONS BETWEEN THE UNION AND THE STATES (245 - 263)
+    { num: 245, part: "Part XI", title: "Extent of laws made by Parliament and by the Legislatures of States.", desc: "Parliament makes laws for whole/part of India; State Legislature makes laws for whole/part of State.", icon: "fa-map", color: "icon-purple", link: "../articles/article-245.html" },
+    { num: 246, part: "Part XI", title: "Subject-matter of laws made by Parliament and by State Legislatures.", desc: "Distribution of legislative powers between Union List, State List, and Concurrent List.", icon: "fa-list-ol", color: "icon-teal", link: "../articles/article-246.html" },
+    { num: "246A", part: "Part XI", title: "Special provision with respect to goods and services tax (GST).", desc: "Parliament and State Legislatures have power to make laws with respect to GST.", icon: "fa-receipt", color: "icon-amber", link: "../articles/article-246a.html" },
+    { num: 247, part: "Part XI", title: "Power of Parliament to provide for the establishment of certain additional courts.", desc: "Parliament may establish additional courts for better administration of Central laws.", icon: "fa-gavel", color: "icon-blue", link: "../articles/article-247.html" },
+    { num: 248, part: "Part XI", title: "Residuary powers of legislation.", desc: "Parliament has exclusive power to make laws with respect to any matter not enumerated in List II or III.", icon: "fa-key", color: "icon-green", link: "../articles/article-248.html" },
+    { num: 249, part: "Part XI", title: "Power of Parliament to legislate in State List in national interest.", desc: "Rajya Sabha resolution by 2/3rd majority allows Parliament to legislate on State List subject.", icon: "fa-flag", color: "icon-orange", link: "../articles/article-249.html" },
+    { num: 250, part: "Part XI", title: "Power of Parliament to legislate in State List during Proclamation of Emergency.", desc: "Parliament acquires power to legislate on State List matters during National Emergency.", icon: "fa-triangle-exclamation", color: "icon-purple", link: "../articles/article-250.html" },
+    { num: 251, part: "Part XI", title: "Inconsistency between laws made under Articles 249/250 and State laws.", desc: "Parliamentary law overrides State law in case of conflict during emergency/national interest.", icon: "fa-scale-unbalanced", color: "icon-teal", link: "../articles/article-251.html" },
+    { num: 252, part: "Part XI", title: "Power of Parliament to legislate for two or more States by consent.", desc: "Parliament legislates on State List matters if two or more State Assemblies pass consent resolution.", icon: "fa-handshake", color: "icon-amber", link: "../articles/article-252.html" },
+    { num: 253, part: "Part XI", title: "Legislation for giving effect to international agreements.", desc: "Parliament has power to make laws for whole India to implement international treaties.", icon: "fa-earth-americas", color: "icon-blue", link: "../articles/article-253.html" },
+    { num: 254, part: "Part XI", title: "Inconsistency between laws made by Parliament and State Legislatures.", desc: "Union law prevails over State law on Concurrent List subjects (repugnancy principle).", icon: "fa-code-compare", color: "icon-green", link: "../articles/article-254.html" },
+    { num: 255, part: "Part XI", title: "Requirements as to recommendations and previous sanctions to be regarded as procedural.", desc: "No Act invalidated merely because required recommendation was not given.", icon: "fa-check-double", color: "icon-orange", link: "../articles/article-255.html" },
+    { num: 256, part: "Part XI", title: "Obligation of States and the Union.", desc: "Executive power of State exercised to ensure compliance with Parliamentary laws.", icon: "fa-building-circle-check", color: "icon-purple", link: "../articles/article-256.html" },
+    { num: 257, part: "Part XI", title: "Control of the Union over States in certain cases.", desc: "Union directions to States regarding construction/maintenance of means of communication.", icon: "fa-sliders", color: "icon-teal", link: "../articles/article-257.html" },
+    { num: "257A", part: "Part XI", title: "Assistance to States by deployment of armed forces.", desc: "(Repealed by 44th Amendment Act, 1978).", icon: "fa-ban", color: "icon-amber", link: "../articles/article-257a.html" },
+    { num: 258, part: "Part XI", title: "Power of the Union to confer powers, etc., on States in certain cases.", desc: "President may entrust Union executive functions to State Government with its consent.", icon: "fa-user-gear", color: "icon-blue", link: "../articles/article-258.html" },
+    { num: "258A", part: "Part XI", title: "Power of the States to entrust functions to the Union.", desc: "Governor of State may entrust State functions to Union Government with consent.", icon: "fa-hand-holding-hand", color: "icon-green", link: "../articles/article-258a.html" },
+    { num: 259, part: "Part XI", title: "Armed Forces in States in Part B of First Schedule.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-section", color: "icon-orange", link: "../articles/article-259.html" },
+    { num: 260, part: "Part XI", title: "Jurisdiction of the Union in relation to territories outside India.", desc: "Union Government may by agreement undertake executive/legislative functions in foreign territories.", icon: "fa-globe", color: "icon-purple", link: "../articles/article-260.html" },
+    { num: 261, part: "Part XI", title: "Public acts, records and judicial proceedings.", desc: "Full faith and credit given throughout India to public acts, records and judicial proceedings.", icon: "fa-stamp", color: "icon-teal", link: "../articles/article-261.html" },
+    { num: 262, part: "Part XI", title: "Adjudication of disputes relating to waters of inter-State rivers or river valleys.", desc: "Parliament may by law provide for adjudication of inter-State river water disputes.", icon: "fa-water", color: "icon-amber", link: "../articles/article-262.html" },
+    { num: 263, part: "Part XI", title: "Provisions with respect to an Inter-State Council.", desc: "President may establish Inter-State Council to inquire into and discuss inter-State disputes.", icon: "fa-people-arrows", color: "icon-blue", link: "../articles/article-263.html" },
+
+    // PART XII: FINANCE, PROPERTY, CONTRACTS AND SUITS (264 - 300A)
+    { num: 264, part: "Part XII", title: "Interpretation of Finance Part.", desc: "Expression 'Finance Commission' defined.", icon: "fa-calculator", color: "icon-green", link: "../articles/article-264.html" },
+    { num: 265, part: "Part XII", title: "Taxes not to be imposed save by authority of law.", desc: "No tax shall be levied or collected except by authority of law.", icon: "fa-receipt", color: "icon-orange", link: "../articles/article-265.html" },
+    { num: 266, part: "Part XII", title: "Consolidated Funds and public accounts of India and of the States.", desc: "Establishment of Consolidated Fund and Public Account for Centre and States.", icon: "fa-vault", color: "icon-purple", link: "../articles/article-266.html" },
+    { num: 267, part: "Part XII", title: "Contingency Fund.", desc: "Establishment of Contingency Fund of India and Contingency Fund of States for urgent expenditure.", icon: "fa-piggy-bank", color: "icon-teal", link: "../articles/article-267.html" },
+    { num: 268, part: "Part XII", title: "Duties levied by the Union but collected and appropriated by the States.", desc: "Stamp duties levied by Centre but collected and kept by States.", icon: "fa-file-invoice-dollar", color: "icon-amber", link: "../articles/article-268.html" },
+    { num: "268A", part: "Part XII", title: "Service tax levied by Union and collected/appropriated by Union and States.", desc: "(Repealed by 101st Amendment Act, GST).", icon: "fa-ban", color: "icon-blue", link: "../articles/article-268a.html" },
+    { num: 269, part: "Part XII", title: "Taxes levied and collected by the Union but assigned to the States.", desc: "Taxes on sale/purchase of goods in inter-State trade assigned to States.", icon: "fa-money-bill-transfer", color: "icon-green", link: "../articles/article-269.html" },
+    { num: "269A", part: "Part XII", title: "Levy and collection of Goods and Services Tax in course of inter-State trade.", desc: "IGST levied and collected by Centre and apportioned between Centre and States.", icon: "fa-percent", color: "icon-orange", link: "../articles/article-269a.html" },
+    { num: 270, part: "Part XII", title: "Taxes levied and distributed between Union and States.", desc: "Taxes levied and collected by Centre distributed between Centre and States on Finance Commission recommendation.", icon: "fa-chart-pie", color: "icon-purple", link: "../articles/article-270.html" },
+    { num: 271, part: "Part XII", title: "Surcharge on certain duties and taxes for purposes of the Union.", desc: "Parliament may levy surcharge on taxes exclusively for Union purposes.", icon: "fa-coins", color: "icon-teal", link: "../articles/article-271.html" },
+    { num: 272, part: "Part XII", title: "Taxes levied and collected by Union and distributed between Union and States.", desc: "(Repealed by 80th Amendment Act, 2000).", icon: "fa-ban", color: "icon-amber", link: "../articles/article-272.html" },
+    { num: 273, part: "Part XII", title: "Grants in lieu of export duty on jute and jute products.", desc: "Grants-in-aid charged on Consolidated Fund for Assam, Bihar, Odisha, West Bengal.", icon: "fa-sack-dollar", color: "icon-blue", link: "../articles/article-273.html" },
+    { num: 274, part: "Part XII", title: "Prior recommendation of President required to Bills affecting taxation in which States interested.", desc: "Prior recommendation of President required for taxation bills affecting States.", icon: "fa-file-signature", color: "icon-green", link: "../articles/article-274.html" },
+    { num: 275, part: "Part XII", title: "Grants from the Union to certain States.", desc: "Parliamentary grants-in-aid to needy States charged on Consolidated Fund of India.", icon: "fa-hand-holding-dollar", color: "icon-orange", link: "../articles/article-275.html" },
+    { num: 276, part: "Part XII", title: "Taxes on professions, trades, callings and employments.", desc: "State/local bodies power to levy professional tax (subject to constitutional ceiling).", icon: "fa-briefcase", color: "icon-purple", link: "../articles/article-276.html" },
+    { num: 277, part: "Part XII", title: "Savings.", desc: "Pre-Constitution taxes/duties levied by States/Municipalities continue until Parliament legislates.", icon: "fa-box-archive", color: "icon-teal", link: "../articles/article-277.html" },
+    { num: 278, part: "Part XII", title: "Agreement with States in Part B of First Schedule.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-section", color: "icon-amber", link: "../articles/article-278.html" },
+    { num: 279, part: "Part XII", title: "Calculation of 'net proceeds', etc.", desc: "Net proceeds of tax/duty calculated and certified by CAG (certification is final).", icon: "fa-calculator", color: "icon-blue", link: "../articles/article-279.html" },
+    { num: "279A", part: "Part XII", title: "Goods and Services Tax Council (GST Council).", desc: "President constitutes GST Council headed by Union Finance Minister to recommend GST rates.", icon: "fa-users-gear", color: "icon-green", link: "../articles/article-279a.html" },
+    { num: 280, part: "Part XII", title: "Finance Commission.", desc: "President constitutes Finance Commission every 5 years to recommend tax distribution.", icon: "fa-building-columns", color: "icon-orange", link: "../articles/article-280.html" },
+    { num: 281, part: "Part XII", title: "Recommendations of the Finance Commission.", desc: "President causes recommendations of Finance Commission together with explanatory memorandum to be laid before Parliament.", icon: "fa-file-contract", color: "icon-purple", link: "../articles/article-281.html" },
+    { num: 282, part: "Part XII", title: "Expenditure defrayable by Union or State out of its revenues.", desc: "Union or State may make discretionary grants for any public purpose.", icon: "fa-money-bill-wave", color: "icon-teal", link: "../articles/article-282.html" },
+    { num: 283, part: "Part XII", title: "Custody, etc., of Consolidated Funds, Contingency Funds and moneys credited to Public Accounts.", desc: "Regulation of custody and withdrawal of public moneys by law.", icon: "fa-vault", color: "icon-amber", link: "../articles/article-283.html" },
+    { num: 284, part: "Part XII", title: "Custody of suitors' deposits and other moneys received by public servants and courts.", desc: "Moneys deposited in courts/public offices credited to Public Account.", icon: "fa-scale-balanced", color: "icon-blue", link: "../articles/article-284.html" },
+    { num: 285, part: "Part XII", title: "Exemption of property of Union from State taxation.", desc: "Property of Central Government exempt from State/local taxes unless Parliament provides otherwise.", icon: "fa-shield-halved", color: "icon-green", link: "../articles/article-285.html" },
+    { num: 286, part: "Part XII", title: "Restrictions as to imposition of tax on sale or purchase of goods.", desc: "States restricted from taxing sales outside State or during import/export.", icon: "fa-ban", color: "icon-orange", link: "../articles/article-286.html" },
+    { num: 287, part: "Part XII", title: "Exemption from taxes on electricity.", desc: "State cannot tax electricity consumed by Central Government or Railways.", icon: "fa-bolt", color: "icon-purple", link: "../articles/article-287.html" },
+    { num: 288, part: "Part XII", title: "Exemption from taxation by States in respect of water or electricity in certain cases.", desc: "State tax on water/electricity from inter-State river authorities requires President assent.", icon: "fa-faucet-drip", color: "icon-teal", link: "../articles/article-288.html" },
+    { num: 289, part: "Part XII", title: "Exemption of property and income of a State from Union taxation.", desc: "Property and income of State exempt from Union taxation (except trade/business).", icon: "fa-building-shield", color: "icon-amber", link: "../articles/article-289.html" },
+    { num: 290, part: "Part XII", title: "Adjustment in respect of certain expenses and pensions.", desc: "Financial adjustments between Centre and States regarding judicial/pension expenses.", icon: "fa-right-left", color: "icon-blue", link: "../articles/article-290.html" },
+    { num: "290A", part: "Part XII", title: "Annual payment to certain Devaswom Funds.", desc: "Annual payment charged on Consolidated Fund of Kerala and Tamil Nadu for Devaswom temples.", icon: "fa-gopuram", color: "icon-green", link: "../articles/article-290a.html" },
+    { num: 291, part: "Part XII", title: "Privy purse sums of Rulers.", desc: "(Repealed by 26th Amendment Act, 1971).", icon: "fa-crown", color: "icon-orange", link: "../articles/article-291.html" },
+    { num: 292, part: "Part XII", title: "Borrowing by the Government of India.", desc: "Executive power of Union extends to borrowing money upon security of Consolidated Fund.", icon: "fa-hand-holding-dollar", color: "icon-purple", link: "../articles/article-292.html" },
+    { num: 293, part: "Part XII", title: "Borrowing by States.", desc: "State executive power to borrow within India; requires Centre consent if earlier loan outstanding.", icon: "fa-landmark-dome", color: "icon-teal", link: "../articles/article-293.html" },
+    { num: 294, part: "Part XII", title: "Succession to property, assets, rights, liabilities and obligations in certain cases.", desc: "Succession of property/assets from British Crown to Union and States.", icon: "fa-arrows-left-right-to-line", color: "icon-amber", link: "../articles/article-294.html" },
+    { num: 295, part: "Part XII", title: "Succession to property, assets, rights, liabilities and obligations in other cases.", desc: "Succession of property of Indian Princely States to Union/States.", icon: "fa-file-shield", color: "icon-blue", link: "../articles/article-295.html" },
+    { num: 296, part: "Part XII", title: "Property accruing by escheat or lapse or as bona vacantia.", desc: "Property accruing to Centre or State by escheat, lapse or heirless owner.", icon: "fa-house-lock", color: "icon-green", link: "../articles/article-296.html" },
+    { num: 297, part: "Part XII", title: "Things of value lying within territorial waters/continental shelf to vest in Union.", desc: "Minerals, petroleum, and resources in territorial waters/EEZ vest in Union.", icon: "fa-water-lower", color: "icon-orange", link: "../articles/article-297.html" },
+    { num: 298, part: "Part XII", title: "Power to carry on trade, etc.", desc: "Executive power of Union and States extends to carrying on trade or business.", icon: "fa-store", color: "icon-purple", link: "../articles/article-298.html" },
+    { num: 299, part: "Part XII", title: "Contracts.", desc: "Contracts made in exercise of executive power expressed to be made in name of President/Governor.", icon: "fa-file-contract", color: "icon-teal", link: "../articles/article-299.html" },
+    { num: 300, part: "Part XII", title: "Suits and proceedings.", desc: "Government of India may sue or be sued by name of Union of India; State Government by name of State.", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-300.html" },
+    { num: "300A", part: "Part XII", title: "Persons not to be deprived of property save by authority of law.", desc: "No person shall be deprived of his property save by authority of law (Constitutional Legal Right).", icon: "fa-house-flag", color: "icon-blue", link: "../articles/article-300a.html" },
+
+    // PART XIII: TRADE, COMMERCE AND INTERCOURSE WITHIN TERRITORY OF INDIA (301 - 307)
+    { num: 301, part: "Part XIII", title: "Freedom of trade, commerce and intercourse.", desc: "Trade, commerce and intercourse throughout territory of India shall be free.", icon: "fa-truck-fast", color: "icon-green", link: "../articles/article-301.html" },
+    { num: 302, part: "Part XIII", title: "Power of Parliament to impose restrictions on trade, commerce and intercourse.", desc: "Parliament may by law impose restrictions on trade freedom in public interest.", icon: "fa-road-barrier", color: "icon-orange", link: "../articles/article-302.html" },
+    { num: 303, part: "Part XIII", title: "Restrictions on legislative powers of Union and States with regard to trade and commerce.", desc: "No preference or discrimination between States regarding trade laws.", icon: "fa-scale-balanced", color: "icon-purple", link: "../articles/article-303.html" },
+    { num: 304, part: "Part XIII", title: "Restrictions on trade, commerce and intercourse among States.", desc: "State Legislature power to impose non-discriminatory tax on imported goods from other States.", icon: "fa-border-top-left", color: "icon-teal", link: "../articles/article-304.html" },
+    { num: 305, part: "Part XIII", title: "Saving of existing laws and laws providing for State monopolies.", desc: "Savings of pre-existing trade laws and nationalization/State monopoly laws.", icon: "fa-file-prescription", color: "icon-amber", link: "../articles/article-305.html" },
+    { num: 306, part: "Part XIII", title: "Power of certain States in Part B of First Schedule to impose restrictions on trade.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-blue", link: "../articles/article-306.html" },
+    { num: 307, part: "Part XIII", title: "Appointment of authority for carrying out the purposes of Articles 301 to 304.", desc: "Parliament may appoint an authority to carry out free trade purposes.", icon: "fa-user-check", color: "icon-green", link: "../articles/article-307.html" },
+
+    // PART XIV: SERVICES UNDER THE UNION AND THE STATES (308 - 323)
+    { num: 308, part: "Part XIV", title: "Interpretation of Services Part.", desc: "In this Part, expression 'State' does not include Jammu and Kashmir (historically).", icon: "fa-users-gear", color: "icon-orange", link: "../articles/article-308.html" },
+    { num: 309, part: "Part XIV", title: "Recruitment and conditions of service of persons serving Union or a State.", desc: "Parliament and State Legislatures regulate recruitment and service conditions of civil servants.", icon: "fa-user-plus", color: "icon-purple", link: "../articles/article-309.html" },
+    { num: 310, part: "Part XIV", title: "Tenure of office of persons serving Union or a State.", desc: "Civil servants hold office during 'pleasure of President' or 'pleasure of Governor'.", icon: "fa-user-clock", color: "icon-teal", link: "../articles/article-310.html" },
+    { num: 311, part: "Part XIV", title: "Dismissal, removal or reduction in rank of civil servants.", desc: "Constitutional safeguards: Inquiry and opportunity of being heard before dismissal/removal.", icon: "fa-shield-halved", color: "icon-amber", link: "../articles/article-311.html" },
+    { num: 312, part: "Part XIV", title: "All-India Services.", desc: "Rajya Sabha resolution allows Parliament to create new All-India Services (e.g., IAS, IPS, IFS).", icon: "fa-user-tie", color: "icon-blue", link: "../articles/article-312.html" },
+    { num: "312A", part: "Part XIV", title: "Power of Parliament to vary or revoke conditions of service of officers of certain services.", desc: "Parliament power to alter service conditions of Secretary of State services.", icon: "fa-user-pen", color: "icon-green", link: "../articles/article-312a.html" },
+    { num: 313, part: "Part XIV", title: "Transitional provisions.", desc: "Pre-existing civil service regulations continue in force.", icon: "fa-arrows-rotate", color: "icon-orange", link: "../articles/article-313.html" },
+    { num: 314, part: "Part XIV", title: "Provision for protection of existing officers of certain services.", desc: "(Repealed by 28th Amendment Act, 1972).", icon: "fa-ban", color: "icon-purple", link: "../articles/article-314.html" },
+    { num: 315, part: "Part XIV", title: "Public Service Commissions for the Union and for the States.", desc: "Establishment of UPSC for Centre and SPSC for each State.", icon: "fa-building-columns", color: "icon-teal", link: "../articles/article-315.html" },
+    { num: 316, part: "Part XIV", title: "Appointment and term of office of members.", desc: "UPSC members appointed by President; SPSC by Governor; Term 6 years or 65/62 age.", icon: "fa-user-check", color: "icon-amber", link: "../articles/article-316.html" },
+    { num: 317, part: "Part XIV", title: "Removal and suspension of a member of a Public Service Commission.", desc: "Removal of PSC Chairman/member by President on grounds of misbehaviour after SC inquiry.", icon: "fa-user-minus", color: "icon-blue", link: "../articles/article-317.html" },
+    { num: 318, part: "Part XIV", title: "Power to make regulations as to conditions of service of members and staff.", desc: "President/Governor frames regulations for PSC staff and service terms.", icon: "fa-sliders", color: "icon-green", link: "../articles/article-318.html" },
+    { num: 319, part: "Part XIV", title: "Prohibition as to holding of offices by members on ceasing to be members.", desc: "Bar on future government employment for retired PSC members.", icon: "fa-user-slash", color: "icon-orange", link: "../articles/article-319.html" },
+    { num: 320, part: "Part XIV", title: "Functions of Public Service Commissions.", desc: "Conduct civil service examinations, advise on recruitment, appointments, promotions, disciplinaries.", icon: "fa-list-check", color: "icon-purple", link: "../articles/article-320.html" },
+    { num: 321, part: "Part XIV", title: "Power to extend functions of Public Service Commissions.", desc: "Parliament or State Legislature may extend PSC functions to local authorities/corporations.", icon: "fa-expand", color: "icon-teal", link: "../articles/article-321.html" },
+    { num: 322, part: "Part XIV", title: "Expenses of Public Service Commissions.", desc: "UPSC expenses charged on Consolidated Fund of India; SPSC on Consolidated Fund of State.", icon: "fa-money-bill-transfer", color: "icon-amber", link: "../articles/article-322.html" },
+    { num: 323, part: "Part XIV", title: "Reports of Public Service Commissions.", desc: "UPSC/SPSC submits annual report to President/Governor to be presented in Parliament/Legislature.", icon: "fa-chart-line", color: "icon-blue", link: "../articles/article-323.html" },
+
+    // PART XIVA: TRIBUNALS (323A - 323B)
+    { num: "323A", part: "Part XIVA", title: "Administrative tribunals.", desc: "Parliament may by law establish Administrative Tribunals (CAT/SAT) for service disputes.", icon: "fa-gavel", color: "icon-green", link: "../articles/article-323a.html" },
+    { num: "323B", part: "Part XIVA", title: "Tribunals for other matters.", desc: "Legislatures may establish tribunals for taxation, foreign exchange, industrial, land reforms.", icon: "fa-scale-balanced", color: "icon-orange", link: "../articles/article-323b.html" },
+
+    // PART XV: ELECTIONS (324 - 329A)
+    { num: 324, part: "Part XV", title: "Superintendence, direction and control of elections vested in Election Commission.", desc: "Election Commission of India responsible for free/fair elections to Parliament, State Legislatures, President, Vice-President.", icon: "fa-box-archive", color: "icon-purple", link: "../articles/article-324.html" },
+    { num: 325, part: "Part XV", title: "No person to be ineligible for inclusion in electoral roll on grounds of religion, race, caste or sex.", desc: "Single general electoral roll for every constituency; no discrimination.", icon: "fa-address-book", color: "icon-teal", link: "../articles/article-325.html" },
+    { num: 326, part: "Part XV", title: "Elections to Lok Sabha and Assemblies on basis of adult suffrage.", desc: "Universal Adult Suffrage: Every citizen of 18 years or older has right to vote.", icon: "fa-check-to-slot", color: "icon-amber", link: "../articles/article-326.html" },
+    { num: 327, part: "Part XV", title: "Power of Parliament to make provision with respect to elections to Legislatures.", desc: "Parliament power to legislate on electoral rolls, delimitation of constituencies.", icon: "fa-landmark", color: "icon-blue", link: "../articles/article-327.html" },
+    { num: 328, part: "Part XV", title: "Power of Legislature of a State to make provision with respect to elections.", desc: "State Legislature power to make election laws on matters not covered by Parliament.", icon: "fa-building-user", color: "icon-green", link: "../articles/article-328.html" },
+    { num: 329, part: "Part XV", title: "Bar to interference by courts in electoral matters.", desc: "Courts barred from questioning constituency delimitation; elections challenged only via election petition.", icon: "fa-gavel", color: "icon-orange", link: "../articles/article-329.html" },
+    { num: "329A", part: "Part XV", title: "Special provision as to elections to Parliament in case of Prime Minister/Speaker.", desc: "(Repealed by 44th Amendment Act, 1978).", icon: "fa-ban", color: "icon-purple", link: "../articles/article-329a.html" },
+
+    // PART XVI: SPECIAL PROVISIONS RELATING TO CERTAIN CLASSES (330 - 342A)
+    { num: 330, part: "Part XVI", title: "Reservation of seats for SCs and STs in the House of the People.", desc: "Reservation of seats for Scheduled Castes and Scheduled Tribes in Lok Sabha.", icon: "fa-chair", color: "icon-teal", link: "../articles/article-330.html" },
+    { num: 331, part: "Part XVI", title: "Representation of the Anglo-Indian community in Lok Sabha.", desc: "(Discontinued via 104th Amendment Act, 2019).", icon: "fa-user-group", color: "icon-amber", link: "../articles/article-331.html" },
+    { num: 332, part: "Part XVI", title: "Reservation of seats for SCs and STs in Legislative Assemblies.", desc: "Reservation of seats for SCs and STs in State Legislative Assemblies.", icon: "fa-users-between-lines", color: "icon-blue", link: "../articles/article-332.html" },
+    { num: 333, part: "Part XVI", title: "Representation of Anglo-Indian community in State Assemblies.", desc: "(Discontinued via 104th Amendment Act, 2019).", icon: "fa-user-group", color: "icon-green", link: "../articles/article-333.html" },
+    { num: 334, part: "Part XVI", title: "Reservation of seats and special representation to cease after seventy years.", desc: "Time limit for SC/ST reservations (extended periodically up to 2030).", icon: "fa-clock", color: "icon-orange", link: "../articles/article-334.html" },
+    { num: 335, part: "Part XVI", title: "Claims of SCs and STs to services and posts.", desc: "Claims of SCs/STs considered consistently with maintenance of efficiency of administration.", icon: "fa-briefcase", color: "icon-purple", link: "../articles/article-335.html" },
+    { num: 336, part: "Part XVI", title: "Special provision for Anglo-Indian community in certain services.", desc: "Transitional reservations for Anglo-Indians in railway, customs, postal services.", icon: "fa-building-columns", color: "icon-teal", link: "../articles/article-336.html" },
+    { num: 337, part: "Part XVI", title: "Special provision with respect to educational grants for Anglo-Indian community.", desc: "Transitional grants for educational institutions of Anglo-Indian community.", icon: "fa-graduation-cap", color: "icon-amber", link: "../articles/article-337.html" },
+    { num: 338, part: "Part XVI", title: "National Commission for Scheduled Castes (NCSC).", desc: "Constitutional body to investigate and monitor all matters relating to safeguards for SCs.", icon: "fa-shield-halved", color: "icon-blue", link: "../articles/article-338.html" },
+    { num: "338A", part: "Part XVI", title: "National Commission for Scheduled Tribes (NCST).", desc: "Constitutional body to safeguard rights and welfare of Scheduled Tribes.", icon: "fa-tree-city", color: "icon-green", link: "../articles/article-338a.html" },
+    { num: "338B", part: "Part XVI", title: "National Commission for Backward Classes (NCBC).", desc: "Constitutional status granted to NCBC via 102nd Amendment Act, 2018.", icon: "fa-people-group", color: "icon-orange", link: "../articles/article-338b.html" },
+    { num: 339, part: "Part XVI", title: "Control of the Union over administration of Scheduled Areas and welfare of STs.", desc: "President appoints commission to report on administration of Scheduled Areas.", icon: "fa-campground", color: "icon-purple", link: "../articles/article-339.html" },
+    { num: 340, part: "Part XVI", title: "Appointment of a Commission to investigate conditions of backward classes.", desc: "President appoints commission to investigate socially/educationally backward classes (e.g., Mandal Commission).", icon: "fa-magnifying-glass-chart", color: "icon-teal", link: "../articles/article-340.html" },
+    { num: 341, part: "Part XVI", title: "Scheduled Castes.", desc: "President specifies castes, races, or tribes deemed to be Scheduled Castes.", icon: "fa-list-ol", color: "icon-amber", link: "../articles/article-341.html" },
+    { num: 342, part: "Part XVI", title: "Scheduled Tribes.", desc: "President specifies tribes or tribal communities deemed to be Scheduled Tribes.", icon: "fa-list-check", color: "icon-blue", link: "../articles/article-342.html" },
+    { num: "342A", part: "Part XVI", title: "Socially and educationally backward classes (SEBCs).", desc: "President prepares central SEBC list; 105th Amendment restored State power to maintain State lists.", icon: "fa-users-line", color: "icon-green", link: "../articles/article-342a.html" },
+
+    // PART XVII: OFFICIAL LANGUAGE (343 - 351)
+    { num: 343, part: "Part XVII", title: "Official language of the Union.", desc: "Official language of Union is Hindi in Devanagari script; English continued for official use.", icon: "fa-language", color: "icon-orange", link: "../articles/article-343.html" },
+    { num: 344, part: "Part XVII", title: "Commission and Committee of Parliament on official language.", desc: "President constitutes Official Language Commission at 5 and 10 year intervals.", icon: "fa-comments", color: "icon-purple", link: "../articles/article-344.html" },
+    { num: 345, part: "Part XVII", title: "Official language or languages of a State.", desc: "State Legislature may adopt any one or more languages or Hindi as official language.", icon: "fa-book", color: "icon-teal", link: "../articles/article-345.html" },
+    { num: 346, part: "Part XVII", title: "Official language for communication between one State and another or State and Union.", desc: "Language authorized for Union official communication used between States.", icon: "fa-headset", color: "icon-amber", link: "../articles/article-346.html" },
+    { num: 347, part: "Part XVII", title: "Special provision relating to language spoken by a section of population of a State.", desc: "President may direct official recognition of a language spoken by substantial population.", icon: "fa-bullhorn", color: "icon-blue", link: "../articles/article-347.html" },
+    { num: 348, part: "Part XVII", title: "Language in Supreme Court, High Courts and for Acts, Bills, etc.", desc: "Language of Supreme Court, High Courts, Central/State Acts and Bills shall be English.", icon: "fa-gavel", color: "icon-green", link: "../articles/article-348.html" },
+    { num: 349, part: "Part XVII", title: "Special procedure for enactment of certain laws relating to language.", desc: "Presidential sanction required for language bills during first 15 years.", icon: "fa-file-signature", color: "icon-orange", link: "../articles/article-349.html" },
+    { num: 350, part: "Part XVII", title: "Language to be used in representations for redress of grievances.", desc: "Every person entitled to submit grievance representation in any language used in Union/State.", icon: "fa-envelope-open-text", color: "icon-purple", link: "../articles/article-350.html" },
+    { num: "350A", part: "Part XVII", title: "Facilities for instruction in mother-tongue at primary stage.", desc: "State shall endeavour to provide adequate facilities for instruction in mother-tongue at primary level.", icon: "fa-child-reaching", color: "icon-teal", link: "../articles/article-350a.html" },
+    { num: "350B", part: "Part XVII", title: "Special Officer for linguistic minorities.", desc: "President appoints Special Officer to investigate safeguards provided for linguistic minorities.", icon: "fa-user-shield", color: "icon-amber", link: "../articles/article-350b.html" },
+    { num: 351, part: "Part XVII", title: "Directive for development of the Hindi language.", desc: "Duty of the Union to promote the spread and development of the Hindi language.", icon: "fa-pen-nib", color: "icon-blue", link: "../articles/article-351.html" },
+
+    // PART XVIII: EMERGENCY PROVISIONS (352 - 360)
+    { num: 352, part: "Part XVIII", title: "Proclamation of Emergency (National Emergency).", desc: "President proclaims National Emergency on grounds of War, External Aggression, or Armed Rebellion.", icon: "fa-triangle-exclamation", color: "icon-green", link: "../articles/article-352.html" },
+    { num: 353, part: "Part XVIII", title: "Effect of Proclamation of Emergency.", desc: "Executive power of Centre extends to giving directions to States; Parliament can legislate on State List.", icon: "fa-sitemap", color: "icon-orange", link: "../articles/article-353.html" },
+    { num: 354, part: "Part XVIII", title: "Application of provisions relating to distribution of revenues during Emergency.", desc: "President may modify financial revenue-sharing rules between Centre and States.", icon: "fa-coins", color: "icon-purple", link: "../articles/article-354.html" },
+    { num: 355, part: "Part XVIII", title: "Duty of Union to protect States against external aggression and internal disturbance.", desc: "Union duty to protect every State against external aggression and internal disturbance.", icon: "fa-shield-cat", color: "icon-teal", link: "../articles/article-355.html" },
+    { num: 356, part: "Part XVIII", title: "Provisions in case of failure of constitutional machinery in States (President's Rule).", desc: "President assumes State government functions if State cannot carry on governance under Constitution.", icon: "fa-building-lock", color: "icon-amber", link: "../articles/article-356.html" },
+    { num: 357, part: "Part XVIII", title: "Exercise of legislative powers under Proclamation issued under Article 356.", desc: "Parliament exercises State legislative powers during President's Rule.", icon: "fa-gavel", color: "icon-blue", link: "../articles/article-357.html" },
+    { num: 358, part: "Part XVIII", title: "Suspension of provisions of Article 19 during emergencies.", desc: "Six Fundamental Freedoms under Article 19 automatically suspended during War/External Aggression.", icon: "fa-comment-slash", color: "icon-green", link: "../articles/article-358.html" },
+    { num: 359, part: "Part XVIII", title: "Suspension of enforcement of rights conferred by Part III during emergencies.", desc: "President may suspend right to move court for enforcement of Fundamental Rights (except Arts 20 & 21).", icon: "fa-handcuffs", color: "icon-orange", link: "../articles/article-359.html" },
+    { num: "359A", part: "Part XVIII", title: "Application of Part XVIII to State of Punjab.", desc: "(Repealed by 63rd Amendment Act, 1990).", icon: "fa-ban", color: "icon-purple", link: "../articles/article-359a.html" },
+    { num: 360, part: "Part XVIII", title: "Provisions as to Financial Emergency.", desc: "President proclaims Financial Emergency if financial stability or credit of India is threatened.", icon: "fa-sack-xmark", color: "icon-teal", link: "../articles/article-360.html" },
+
+    // PART XIX: MISCELLANEOUS (361 - 367)
+    { num: 361, part: "Part XIX", title: "Protection of President and Governors and Rajpramukhs.", desc: "President and Governors not answerable to any court for exercise of official powers; immune from criminal proceedings.", icon: "fa-user-shield", color: "icon-amber", link: "../articles/article-361.html" },
+    { num: "361A", part: "Part XIX", title: "Protection of publication of proceedings of Parliament and State Assemblies.", desc: "Immunity from civil/criminal liability for publishing substantially true report of parliamentary proceedings.", icon: "fa-newspaper", color: "icon-blue", link: "../articles/article-361a.html" },
+    { num: "361B", part: "Part XIX", title: "Disqualification for appointment on remunerative political post.", desc: "Member disqualified under Anti-Defection Law disqualified from holding remunerative political post.", icon: "fa-user-xmark", color: "icon-green", link: "../articles/article-361b.html" },
+    { num: 362, part: "Part XIX", title: "Rights and privileges of Rulers of Indian States.", desc: "(Repealed by 26th Amendment Act, 1971).", icon: "fa-ban", color: "icon-orange", link: "../articles/article-362.html" },
+    { num: 363, part: "Part XIX", title: "Bar to interference by courts in disputes arising out of certain treaties, agreements, etc.", desc: "Courts barred from deciding disputes arising out of pre-Constitution princely covenants.", icon: "fa-gavel", color: "icon-purple", link: "../articles/article-363.html" },
+    { num: "363A", part: "Part XIX", title: "Abolition of Privy Purses and recognition of Rulers.", desc: "Recognition granted to Rulers of Indian States ceased and Privy Purses abolished.", icon: "fa-crown", color: "icon-teal", link: "../articles/article-363a.html" },
+    { num: 364, part: "Part XIX", title: "Special provisions as to major ports and aerodromes.", desc: "President may exempt or modify application of laws regarding major ports and aerodromes.", icon: "fa-plane-departure", color: "icon-amber", link: "../articles/article-364.html" },
+    { num: 365, part: "Part XIX", title: "Effect of failure to comply with, or to give effect to, directions given by Union.", desc: "Failure of State to comply with Union directions grounds for President's Rule under Art 356.", icon: "fa-triangle-exclamation", color: "icon-blue", link: "../articles/article-365.html" },
+    { num: 366, part: "Part XIX", title: "Definitions in Miscellaneous Part.", desc: "Definitions of Agricultural Income, Goods, Debt, Estate, Schedule, Service Tax, GST, etc.", icon: "fa-book-open", color: "icon-green", link: "../articles/article-366.html" },
+    { num: 367, part: "Part XIX", title: "Interpretation.", desc: "General Clauses Act, 1897 applies for interpretation of Constitution.", icon: "fa-magnifying-glass", color: "icon-orange", link: "../articles/article-367.html" },
+
+    // PART XX: AMENDMENT OF THE CONSTITUTION (368)
+    { num: 368, part: "Part XX", title: "Power of Parliament to amend Constitution and procedure therefor.", desc: "Parliament may amend by addition, variation or repeal any provision of Constitution via Special Majority (and State Ratification for federal items).", icon: "fa-pen-to-square", color: "icon-purple", link: "../articles/article-368.html" },
+
+    // PART XXI: TEMPORARY, TRANSITIONAL AND SPECIAL PROVISIONS (369 - 392)
+    { num: 369, part: "Part XXI", title: "Temporary power to Parliament to make laws with respect to certain matters in State List.", desc: "Temporary 5-year power of Parliament regarding concurrent trade matters.", icon: "fa-clock", color: "icon-teal", link: "../articles/article-369.html" },
+    { num: 370, part: "Part XXI", title: "Temporary provisions with respect to State of Jammu and Kashmir.", desc: "Special autonomous status of J&K (rendered inoperative by Presidential Orders on August 5-6, 2019).", icon: "fa-location-dot", color: "icon-amber", link: "../articles/article-370.html" },
+    { num: 371, part: "Part XXI", title: "Special provision with respect to States of Maharashtra and Gujarat.", desc: "Establishment of separate Development Boards for Vidarbha, Marathwada, Saurashtra, Kutch.", icon: "fa-building-user", color: "icon-blue", link: "../articles/article-371.html" },
+    { num: "371A", part: "Part XXI", title: "Special provision with respect to State of Nagaland.", desc: "Religious, social practices, customary law, ownership/transfer of land protected in Nagaland.", icon: "fa-mountain-city", color: "icon-green", link: "../articles/article-371a.html" },
+    { num: "371B", part: "Part XXI", title: "Special provision with respect to State of Assam.", desc: "Committee of Legislative Assembly for Tribal Areas in Assam.", icon: "fa-people-roof", color: "icon-orange", link: "../articles/article-371b.html" },
+    { num: "371C", part: "Part XXI", title: "Special provision with respect to State of Manipur.", desc: "Committee of Legislative Assembly for Hill Areas in Manipur.", icon: "fa-hill-rockslide", color: "icon-purple", link: "../articles/article-371c.html" },
+    { num: "371D", part: "Part XXI", title: "Special provisions with respect to State of Andhra Pradesh or Telangana.", desc: "Equitable opportunities in public employment and education in Andhra Pradesh and Telangana.", icon: "fa-map-location", color: "icon-teal", link: "../articles/article-371d.html" },
+    { num: "371E", part: "Part XXI", title: "Establishment of Central University in Andhra Pradesh.", desc: "Parliament may by law establish a Central University in Andhra Pradesh.", icon: "fa-graduation-cap", color: "icon-amber", link: "../articles/article-371e.html" },
+    { num: "371F", part: "Part XXI", title: "Special provisions with respect to State of Sikkim.", desc: "Special governance arrangements following Sikkim integration into India in 1975.", icon: "fa-flag-usa", color: "icon-blue", link: "../articles/article-371f.html" },
+    { num: "371G", part: "Part XXI", title: "Special provision with respect to State of Mizoram.", desc: "Protection of Mizo customary law, religion, land ownership.", icon: "fa-shield-cat", color: "icon-green", link: "../articles/article-371g.html" },
+    { num: "371H", part: "Part XXI", title: "Special provision with respect to State of Arunachal Pradesh.", desc: "Special responsibility of Governor regarding law and order in Arunachal Pradesh.", icon: "fa-user-shield", color: "icon-orange", link: "../articles/article-371h.html" },
+    { num: "371I", part: "Part XXI", title: "Special provision with respect to State of Goa.", desc: "Goa Legislative Assembly shall consist of not less than 30 members.", icon: "fa-umbrella-beach", color: "icon-purple", link: "../articles/article-371i.html" },
+    { num: "371J", part: "Part XXI", title: "Special status for Hyderabad-Karnataka region.", desc: "Special development board and reservations in education/employment for Kalyana-Karnataka region.", icon: "fa-city", color: "icon-teal", link: "../articles/article-371j.html" },
+    { num: 372, part: "Part XXI", title: "Continuance in force of existing laws and their adaptation.", desc: "All pre-Constitution laws continue in force until altered or repealed by competent legislature.", icon: "fa-arrows-rotate", color: "icon-amber", link: "../articles/article-372.html" },
+    { num: "372A", part: "Part XXI", title: "Power of President to adapt laws.", desc: "Presidential power to adapt and modify laws to bring them into accord with Constitution.", icon: "fa-sliders", color: "icon-blue", link: "../articles/article-372a.html" },
+    { num: 373, part: "Part XXI", title: "Power of President to make order in respect of persons under preventive detention.", desc: "Presidential orders regarding preventive detention during transitional period.", icon: "fa-person-military-rifle", color: "icon-green", link: "../articles/article-373.html" },
+    { num: 374, part: "Part XXI", title: "Provisions as to Judges of Federal Court and proceedings pending before Federal Court.", desc: "Federal Court judges transferred to Supreme Court upon commencement.", icon: "fa-repeat", color: "icon-orange", link: "../articles/article-374.html" },
+    { num: 375, part: "Part XXI", title: "Courts, authorities and officers to continue to function subject to Constitution.", desc: "Existing courts and public officers continue to function under Constitution.", icon: "fa-building-columns", color: "icon-purple", link: "../articles/article-375.html" },
+    { num: 376, part: "Part XXI", title: "Provisions as to Judges of High Courts.", desc: "Continuance of existing pre-Independence High Court judges.", icon: "fa-user-tie", color: "icon-teal", link: "../articles/article-376.html" },
+    { num: 377, part: "Part XXI", title: "Provisions as to Auditor-General of India.", desc: "Continuance of existing Auditor-General of India.", icon: "fa-calculator", color: "icon-amber", link: "../articles/article-377.html" },
+    { num: 378, part: "Part XXI", title: "Provisions as to Public Service Commissions.", desc: "Continuance of members of Federal and State Public Service Commissions.", icon: "fa-users-gear", color: "icon-blue", link: "../articles/article-378.html" },
+    { num: "378A", part: "Part XXI", title: "Special provisions as to duration of Andhra Pradesh Legislative Assembly.", desc: "Transitional provisions for Andhra Pradesh Legislative Assembly duration.", icon: "fa-timeline", color: "icon-green", link: "../articles/article-378a.html" },
+    { num: 379, part: "Part XXI", title: "Provisions as to provisional Parliament and Speaker.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-orange", link: "../articles/article-379.html" },
+    { num: 380, part: "Part XXI", title: "Provision as to President of India.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-purple", link: "../articles/article-380.html" },
+    { num: 381, part: "Part XXI", title: "Council of Ministers of the President.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-teal", link: "../articles/article-381.html" },
+    { num: 382, part: "Part XXI", title: "Provisions as to provisional Legislatures for States.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-amber", link: "../articles/article-382.html" },
+    { num: 383, part: "Part XXI", title: "Provision as to Governors of Provinces.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-blue", link: "../articles/article-383.html" },
+    { num: 384, part: "Part XXI", title: "Council of Ministers of Governors.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-green", link: "../articles/article-384.html" },
+    { num: 385, part: "Part XXI", title: "Provision as to provisional Legislatures in States in Part B.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-orange", link: "../articles/article-385.html" },
+    { num: 386, part: "Part XXI", title: "Council of Ministers for States in Part B.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-purple", link: "../articles/article-386.html" },
+    { num: 387, part: "Part XXI", title: "Special provision as to determination of population for elections.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-teal", link: "../articles/article-387.html" },
+    { num: 388, part: "Part XXI", title: "Casual vacancies in provisional Parliament and provisional Legislatures.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-amber", link: "../articles/article-388.html" },
+    { num: 389, part: "Part XXI", title: "Provision as to Bills pending in Dominion Legislature and in Legislatures of Provinces.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-blue", link: "../articles/article-389.html" },
+    { num: 390, part: "Part XXI", title: "Moneys received or raised between 26th Jan 1950 and commencement of Constitution.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-green", link: "../articles/article-390.html" },
+    { num: 391, part: "Part XXI", title: "Power of President to amend First and Fourth Schedules in certain contingencies.", desc: "(Repealed by 7th Amendment Act, 1956).", icon: "fa-ban", color: "icon-orange", link: "../articles/article-391.html" },
+    { num: 392, part: "Part XXI", title: "Power of the President to remove difficulties.", desc: "Presidential power to resolve transitional difficulties upon adoption of Constitution.", icon: "fa-wrench", color: "icon-purple", link: "../articles/article-392.html" },
+
+    // PART XXII: SHORT TITLE, COMMENCEMENT, AUTHORITATIVE TEXT IN HINDI AND REPEALS (393 - 395)
+    { num: 393, part: "Part XXII", title: "Short title.", desc: "This Constitution may be cited as the Constitution of India.", icon: "fa-bookmark", color: "icon-teal", link: "../articles/article-393.html" },
+    { num: 394, part: "Part XXII", title: "Commencement.", desc: "Articles 5-9, 60, 324, 366, 367, 379, 380, 388, 391-393 came into force on Nov 26, 1949; remaining on Jan 26, 1950.", icon: "fa-calendar-check", color: "icon-amber", link: "../articles/article-394.html" },
+    { num: "394A", part: "Part XXII", title: "Authoritative text in the Hindi language.", desc: "President shall cause to be published authoritative text of the Constitution in Hindi.", icon: "fa-language", color: "icon-blue", link: "../articles/article-394a.html" },
+    { num: 395, part: "Part XXII", title: "Repeals.", desc: "The Indian Independence Act, 1947, and the Government of India Act, 1935, together with all enactments amending or supplementing the latter, are hereby repealed.", icon: "fa-trash-can", color: "icon-green", link: "../articles/article-395.html" }
+];
+
+
+
+
+
+
+
+    // Part to Subject Mapping
+    const partSubjectMap = {
+      'Part I': 'The Union',
+      'Part II': 'Citizenship',
+      'Part III': 'Fundamental Rights',
+      'Part IV': 'Directive Principles of State Policy',
+      'Part IVA': 'Fundamental Duties',
+      'Part V': 'The Union'
+    };
+
+    // State Variables
+    let currentPage = 1;
+    const itemsPerPage = 10;
+    let currentSortOrder = "asc";
+    let filteredData = [...articlesData];
+
+    // DOM Elements
+    const container = document.getElementById('articles-list-container');
+    const sortSelect = document.getElementById('sortSelect');
+    const prevBtn = document.getElementById('prev-page-btn');
+    const nextBtn = document.getElementById('next-page-btn');
+    const pageInfo = document.getElementById('page-info-text');
+    const articlesCountText = document.getElementById('articlesCountText');
+
+    const searchInput = document.getElementById('filterSearchInput');
+    const partSelect = document.getElementById('filterPartSelect');
+    const subjectSelect = document.getElementById('filterSubjectSelect');
+    const keywordInput = document.getElementById('filterKeywordInput');
+    const applyBtn = document.getElementById('btnApplyFilters');
+    const resetBtn = document.getElementById('btnResetFilters');
+
+    // Filter Logic
+    function runFilters() {
+      const searchVal = searchInput.value.trim().toLowerCase();
+      const partVal = partSelect.value;
+      const subjectVal = subjectSelect.value;
+      const keywordVal = keywordInput.value.trim().toLowerCase();
+
+      filteredData = articlesData.filter(item => {
+        let match = true;
+
+        if (searchVal) {
+          const numMatch = String(item.num).toLowerCase().includes(searchVal) || ('article ' + item.num).toLowerCase().includes(searchVal);
+          const textMatch = item.title.toLowerCase().includes(searchVal) || item.desc.toLowerCase().includes(searchVal);
+          if (!numMatch && !textMatch) match = false;
+        }
+
+        if (match && partVal !== 'All Parts') {
+          if (item.part !== partVal) match = false;
+        }
+
+        if (match && subjectVal !== 'All Subjects') {
+          const mappedSubject = partSubjectMap[item.part] || '';
+          if (mappedSubject !== subjectVal) match = false;
+        }
+
+        if (match && keywordVal) {
+          const kwMatch = item.title.toLowerCase().includes(keywordVal) || item.desc.toLowerCase().includes(keywordVal);
+          if (!kwMatch) match = false;
+        }
+
+        return match;
+      });
+
+      currentPage = 1;
+      renderArticles();
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      partSelect.selectedIndex = 0;
+      subjectSelect.selectedIndex = 0;
+      keywordInput.value = '';
+      sortSelect.selectedIndex = 0;
+      currentSortOrder = 'asc';
+      filteredData = [...articlesData];
+      currentPage = 1;
+      renderArticles();
+    }
+
+    // Render Function
+    function renderArticles() {
+      container.innerHTML = '';
+
+      // Sort
+      filteredData.sort((a, b) => {
+        const numA = parseInt(a.num) || 0;
+        const numB = parseInt(b.num) || 0;
+        return currentSortOrder === 'asc' ? numA - numB : numB - numA;
+      });
+
+      articlesCountText.textContent = `ALL ARTICLES (${filteredData.length})`;
+
+      if (filteredData.length === 0) {
+        container.innerHTML = `
+          <div style="padding: 30px 12px; text-align: center; color: #637381; font-size: 12px; font-weight: 500;">
+            No articles found matching your filters.
+          </div>
+        `;
+        pageInfo.textContent = `Page 0 of 0`;
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        return;
+      }
+
+      // Pagination
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, filteredData.length);
+      const paginatedItems = filteredData.slice(startIndex, endIndex);
+
+      paginatedItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'article-card';
+        card.innerHTML = `
+          <div class="article-icon ${item.color}">
+            <i class="fa-solid ${item.icon}"></i>
+          </div>
+          <div class="article-details">
+            <div class="article-header-line">
+              <span class="article-number">Article ${item.num}</span>
+              <span class="part-badge">${item.part}</span>
+            </div>
+            <div class="article-heading">${item.title}</div>
+            <div class="article-desc">${item.desc}</div>
+          </div>
+          <div class="article-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          const targetLink = item.link || `articles/article-${item.num}.html`;
+          window.location.href = targetLink;
+        });
+
+        container.appendChild(card);
+      });
+
+      pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+    }
+
+    // Event Listeners
+    applyBtn.addEventListener('click', runFilters);
+    resetBtn.addEventListener('click', resetFilters);
+    searchInput.addEventListener('input', runFilters);
+
+    sortSelect.addEventListener('change', (e) => {
+      currentSortOrder = e.target.value.includes('desc') ? 'desc' : 'asc';
+      renderArticles();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderArticles();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderArticles();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      }
+    });
+
+    // Popular Articles Sidebar Click
+    document.querySelectorAll('.popular-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const num = item.getAttribute('data-num');
+        resetFilters();
+        searchInput.value = num;
+        runFilters();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      });
+    });
+
+    // Browse by Part Sidebar Click
+    document.querySelectorAll('.part-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const partName = item.getAttribute('data-part');
+        resetFilters();
+        partSelect.value = partName;
+        runFilters();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      });
+    });
+
+    document.getElementById('viewAllPopular').addEventListener('click', (e) => {
+      e.preventDefault();
+      resetFilters();
+    });
+
+   
+
+    document.getElementById('btnBottomBrowse').addEventListener('click', () => {
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+      partSelect.focus();
+    });
+
+    // Initial Load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderArticles();
+    });
+
+    document.querySelectorAll(".part-item").forEach(item => {
+    item.addEventListener("click", function () {
+        const link = this.dataset.link;
+
+        if (link) {
+            window.location.href = link;
+        }
+    });
+});
+  </script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>

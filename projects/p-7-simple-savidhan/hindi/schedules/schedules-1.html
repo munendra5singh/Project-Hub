@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - पहली अनुसूची: राज्य और केंद्र शासित प्रदेश</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar: Browse Schedules */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .schedules-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .schedules-nav-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .schedules-nav-item i {
+      font-size: 14px;
+      color: #637381;
+      margin-top: 2px;
+      width: 16px;
+      text-align: center;
+    }
+
+    .schedules-nav-item .sch-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2b3649;
+      line-height: 1.2;
+    }
+
+    .schedules-nav-item .sch-desc {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 2px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .schedules-nav-item:hover {
+      background-color: #f4f6f8;
+    }
+
+    .schedules-nav-item.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+    }
+
+    .schedules-nav-item.active i,
+    .schedules-nav-item.active .sch-name,
+    .schedules-nav-item.active .sch-desc {
+      color: #ffffff;
+    }
+
+    .btn-view-all-sch {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all-sch:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .schedule-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .schedule-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .schedule-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .schedule-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-listen-schedule {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .schedule-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Yellow Info Box */
+    .yellow-alert-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .yellow-alert-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #b37b12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b37b12;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .yellow-alert-text {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    .yellow-alert-text strong {
+      color: #0b1a30;
+    }
+
+    .yellow-alert-text a {
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    /* Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 15px;
+      color: #103254;
+    }
+
+    .card-paragraph {
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.55;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    /* States & UTs List Container Box */
+    .list-category-card {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 12px;
+    }
+
+    .list-category-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #f0e6d2;
+      padding-bottom: 6px;
+    }
+
+    /* 3 Column Items Grid */
+    .three-column-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 14px;
+    }
+
+    .grid-list-item {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .grid-list-item .item-num {
+      color: #637381;
+      font-weight: 500;
+      display: inline-block;
+      width: 20px;
+    }
+
+    /* Checklist Points */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Exam Note Box */
+    .exam-note-box {
+      background-color: #edf3f9;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border: 1px solid #d0dbe7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .exam-icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 13px;
+      flex-shrink: 0;
+      border: 1px solid #b0c0d0;
+    }
+
+    .exam-note-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .building-illustration {
+      width: 100px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23103254" opacity="0.25" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg"><path d="M60 10 L30 30 L90 30 Z M35 30 L35 55 L85 55 L85 30 Z M42 38 L48 38 L48 55 L42 55 Z M57 38 L63 38 L63 55 L57 55 Z M72 38 L78 38 L78 55 L72 55 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right center;
+      flex-shrink: 0;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 14px;
+    }
+
+    /* Quick Overview Table */
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .overview-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .overview-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .overview-table td {
+      padding: 8px 0;
+      vertical-align: top;
+    }
+
+    .overview-label {
+      font-weight: 700;
+      color: #0b1a30;
+      width: 45%;
+    }
+
+    .overview-val {
+      color: #3d4a5d;
+      width: 55%;
+    }
+
+    /* Key Features Checklist */
+    .features-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .feature-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Did You Know Widget Special Box */
+    .widget-did-you-know {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 45px;
+    }
+
+    .widget-did-you-know .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-did-you-know .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .did-you-know-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .india-map-illustration {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      width: 80px;
+      height: 80px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%232a7d4f" opacity="0.25" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L60 25 L75 25 L65 40 L70 60 L50 90 L40 65 L20 50 L35 40 L30 25 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Related Articles Links */
+    .related-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .related-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e3a8a;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+
+    .related-link-item:hover {
+      text-decoration: underline;
+    }
+
+    .related-link-item i {
+      font-size: 10.5px;
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    /* Download Box */
+    .download-sub {
+      font-size: 11.5px;
+      color: #3d4a5d;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .btn-download-pdf {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-download-pdf:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .schedule-main-heading {
+        font-size: 18px;
+      }
+      .three-column-grid {
+        grid-template-columns: 1fr;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .building-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR SCHEDULES-1 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .schedule-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .schedule-main-heading,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .overview-label,
+    [data-theme="dark"] .grid-list-item,
+    [data-theme="dark"] .point-item,
+    [data-theme="dark"] .feature-item,
+    [data-theme="dark"] .exam-note-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .schedules-nav-item .sch-name {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .schedules-nav-item i,
+    [data-theme="dark"] .schedules-nav-item .sch-desc,
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .schedules-nav-item:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .schedules-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .schedules-nav-item.active i,
+    [data-theme="dark"] .schedules-nav-item.active .sch-name,
+    [data-theme="dark"] .schedules-nav-item.active .sch-desc {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-view-all-sch,
+    [data-theme="dark"] .btn-listen-schedule,
+    [data-theme="dark"] .btn-download-pdf {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-view-all-sch:hover,
+    [data-theme="dark"] .btn-listen-schedule:hover,
+    [data-theme="dark"] .btn-download-pdf:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .card-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .overview-val,
+    [data-theme="dark"] .did-you-know-desc,
+    [data-theme="dark"] .download-sub,
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .yellow-alert-box,
+    [data-theme="dark"] .list-category-card {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .yellow-alert-text,
+    [data-theme="dark"] .yellow-alert-text strong {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .yellow-alert-text a,
+    [data-theme="dark"] .related-link-item,
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .point-item i,
+    [data-theme="dark"] .feature-item i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .list-category-title {
+      color: #fbbf24;
+      border-bottom-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .overview-table tr {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .widget-did-you-know {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-did-you-know .widget-title-text,
+    [data-theme="dark"] .widget-did-you-know .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html">भाग</a></li>
+      <li><a href="../pages/schedules.html" class="active">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/schedules/schedules-1.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">पहली अनुसूची</h1>
+      <span class="hero-subtitle">(अनुच्छेद 1 एवं 4)</span>
+      <p class="hero-description">
+        भारत के संविधान की पहली अनुसूची<br>
+        राज्यों और केंद्र शासित प्रदेशों<br>
+        तथा उनके राज्यक्षेत्रों का निर्धारण करती है।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/schedules.html">अनुसूचियां</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>पहली अनुसूची</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Browse Schedules -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-regular fa-book-bookmark"></i>
+          <span>अनुसूचियां देखें</span>
+        </div>
+
+        <ul class="schedules-nav-list">
+          <li class="schedules-nav-item active">
+            <i class="fa-solid fa-landmark"></i>
+            <div>
+              <div class="sch-name">पहली अनुसूची</div>
+              <div class="sch-desc">राज्य और केंद्र शासित प्रदेश</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-user-gear"></i>
+            <div>
+              <div class="sch-name">दूसरी अनुसूची</div>
+              <div class="sch-desc">वेतन, भत्ते आदि</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-list-check"></i>
+            <div>
+              <div class="sch-name">तीसरी अनुसूची</div>
+              <div class="sch-desc">शपथ के प्रारूप</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-star"></i>
+            <div>
+              <div class="sch-name">चौथी अनुसूची</div>
+              <div class="sch-desc">राज्यसभा में सीटों का आवंटन</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-building-columns"></i>
+            <div>
+              <div class="sch-name">पांचवीं अनुसूची</div>
+              <div class="sch-desc">अनुसूचित क्षेत्रों और अनुसूचित जनजातियों के संबंध में प्रावधान</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-wheat-awn"></i>
+            <div>
+              <div class="sch-name">छठी अनुसूची</div>
+              <div class="sch-desc">असम, मेघालय, त्रिपुरा, मिजोरम में जनजातीय क्षेत्रों का प्रशासन</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <div class="sch-name">सातवीं अनुसूची</div>
+              <div class="sch-desc">विधायी शक्तियों का विभाजन</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-language"></i>
+            <div>
+              <div class="sch-name">आठवीं अनुसूची</div>
+              <div class="sch-desc">भाषाएं</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-regular fa-file-lines"></i>
+            <div>
+              <div class="sch-name">नौवीं अनुसूची</div>
+              <div class="sch-desc">अधिनियम और नियम</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-gavel"></i>
+            <div>
+              <div class="sch-name">दसवीं अनुसूची</div>
+              <div class="sch-desc">दल-बदल विरोधी कानून</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-house-chimney"></i>
+            <div>
+              <div class="sch-name">ग्यारहवीं अनुसूची</div>
+              <div class="sch-desc">पंचायतों की शक्तियां, प्राधिकार और उत्तरदायित्व</div>
+            </div>
+          </li>
+          <li class="schedules-nav-item">
+            <i class="fa-solid fa-city"></i>
+            <div>
+              <div class="sch-name">बारहवीं अनुसूची</div>
+              <div class="sch-desc">नगरपालिकाओं की शक्तियां, प्राधिकार और उत्तरदायित्व</div>
+            </div>
+          </li>
+        </ul>
+
+        <button class="btn-view-all-sch" type="button" onclick="window.location.href='../pages/schedules.html'">
+          सभी अनुसूचियां देखें <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </aside>
+
+      <!-- Middle Main Content Panel - SCROLLABLE -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="schedule-header-card">
+          <div class="schedule-top-bar">
+            <div class="schedule-badge-title">
+              <i class="fa-regular fa-file-lines"></i> पहली अनुसूची
+            </div>
+            <div class="schedule-actions">
+              <button class="action-icon-btn" title="बुकमार्क करें"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" title="साझा करें"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-schedule" type="button">
+                <i class="fa-solid fa-volume-high"></i> अनुसूची सुनें
+              </button>
+            </div>
+          </div>
+          <h1 class="schedule-main-heading">राज्य और केंद्र शासित प्रदेश</h1>
+        </div>
+
+        <!-- Yellow Info Box -->
+        <div class="yellow-alert-box">
+          <div class="yellow-alert-icon">
+            <i class="fa-solid fa-info"></i>
+          </div>
+          <div class="yellow-alert-text">
+            पहली अनुसूची संविधान के <a href="#">अनुच्छेद 1</a> और <a href="#">अनुच्छेद 4</a> के अनुसार राज्यों और केंद्र शासित प्रदेशों के नाम और उनके राज्यक्षेत्रों का निर्धारण करती है।
+          </div>
+        </div>
+
+        <!-- About First Schedule -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-landmark"></i> पहली अनुसूची के बारे में
+          </div>
+          <p class="card-paragraph">
+            पहली अनुसूची भारत के सभी राज्यों और केंद्र शासित प्रदेशों को सूचीबद्ध करती है तथा उनके राज्यक्षेत्र की सीमा का वर्णन करती है।<br><br>
+            संसद अनुच्छेद 3 में दिए गए प्रावधानों के अनुसार कानून बनाकर किसी भी राज्य या केंद्र शासित प्रदेश के क्षेत्र, सीमाओं या नाम में परिवर्तन कर सकती है।
+          </p>
+        </div>
+
+        <!-- What Does the First Schedule Contain -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-folder-open"></i> पहली अनुसूची में क्या शामिल है?
+          </div>
+          <ul class="bullet-points-list">
+            <li>प्रत्येक राज्य और केंद्र शासित प्रदेश का नाम।</li>
+            <li>प्रत्येक के राज्यक्षेत्र की सीमा।</li>
+            <li>संविधान लागू होने (26 जनवरी, 1950) के समय मौजूद सीमाएं और समय-समय पर किए गए परिवर्तन।</li>
+          </ul>
+        </div>
+
+        <!-- Current List of States and UTs -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-map-location-dot"></i> राज्यों और केंद्र शासित प्रदेशों की वर्तमान सूची
+          </div>
+
+          <!-- Section A: States (28) -->
+          <div class="list-category-card">
+            <div class="list-category-title">क. राज्य (28)</div>
+            <div class="three-column-grid">
+              <div class="grid-list-item"><span class="item-num">1.</span> आंध्र प्रदेश</div>
+              <div class="grid-list-item"><span class="item-num">11.</span> कर्नाटक</div>
+              <div class="grid-list-item"><span class="item-num">21.</span> राजस्थान</div>
+              
+              <div class="grid-list-item"><span class="item-num">2.</span> अरुणाचल प्रदेश</div>
+              <div class="grid-list-item"><span class="item-num">12.</span> केरल</div>
+              <div class="grid-list-item"><span class="item-num">22.</span> सिक्किम</div>
+              
+              <div class="grid-list-item"><span class="item-num">3.</span> असम</div>
+              <div class="grid-list-item"><span class="item-num">13.</span> मध्य प्रदेश</div>
+              <div class="grid-list-item"><span class="item-num">23.</span> तमिलनाडु</div>
+              
+              <div class="grid-list-item"><span class="item-num">4.</span> बिहार</div>
+              <div class="grid-list-item"><span class="item-num">14.</span> महाराष्ट्र</div>
+              <div class="grid-list-item"><span class="item-num">24.</span> तेलंगाना</div>
+              
+              <div class="grid-list-item"><span class="item-num">5.</span> छत्तीसगढ़</div>
+              <div class="grid-list-item"><span class="item-num">15.</span> मणिपुर</div>
+              <div class="grid-list-item"><span class="item-num">25.</span> त्रिपुरा</div>
+              
+              <div class="grid-list-item"><span class="item-num">6.</span> गोवा</div>
+              <div class="grid-list-item"><span class="item-num">16.</span> मेघालय</div>
+              <div class="grid-list-item"><span class="item-num">26.</span> उत्तर प्रदेश</div>
+              
+              <div class="grid-list-item"><span class="item-num">7.</span> गुजरात</div>
+              <div class="grid-list-item"><span class="item-num">17.</span> मिजोरम</div>
+              <div class="grid-list-item"><span class="item-num">27.</span> उत्तराखंड</div>
+              
+              <div class="grid-list-item"><span class="item-num">8.</span> हरियाणा</div>
+              <div class="grid-list-item"><span class="item-num">18.</span> नागालैंड</div>
+              <div class="grid-list-item"><span class="item-num">28.</span> पश्चिम बंगाल</div>
+              
+              <div class="grid-list-item"><span class="item-num">9.</span> हिमाचल प्रदेश</div>
+              <div class="grid-list-item"><span class="item-num">19.</span> ओडिशा</div>
+              <div></div>
+              
+              <div class="grid-list-item"><span class="item-num">10.</span> झारखंड</div>
+              <div class="grid-list-item"><span class="item-num">20.</span> पंजाब</div>
+              <div></div>
+            </div>
+          </div>
+
+          <!-- Section B: Union Territories (8) -->
+          <div class="list-category-card">
+            <div class="list-category-title">ख. केंद्र शासित प्रदेश (8)</div>
+            <div class="three-column-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="grid-list-item"><span class="item-num">1.</span> अंडमान और निकोबार द्वीप समूह</div>
+              <div class="grid-list-item"><span class="item-num">5.</span> जम्मू और कश्मीर</div>
+              
+              <div class="grid-list-item"><span class="item-num">2.</span> चंडीगढ़</div>
+              <div class="grid-list-item"><span class="item-num">6.</span> लद्दाख</div>
+              
+              <div class="grid-list-item"><span class="item-num">3.</span> दादरा और नगर हवेली तथा दमन और दीव</div>
+              <div class="grid-list-item"><span class="item-num">7.</span> पुडुचेरी</div>
+              
+              <div class="grid-list-item"><span class="item-num">4.</span> दिल्ली</div>
+              <div class="grid-list-item"><span class="item-num">8.</span> लक्षद्वीप</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Important Points -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-circle-check"></i> महत्वपूर्ण बिंदु
+          </div>
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>संसद द्वारा समय के साथ राज्यों और केंद्र शासित प्रदेशों की संख्या में परिवर्तन किया जा सकता है।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>अनुच्छेद 3 के तहत नए राज्यों का गठन, सीमाओं में परिवर्तन या नाम बदले जा सकते हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>पहली अनुसूची कठोर नहीं है; इसे कानून द्वारा संशोधित किया जा सकता है।</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Exam Note Banner -->
+        <div class="exam-note-box">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">परीक्षा के लिए टिप्पणी</div>
+              <div class="exam-note-desc">
+                पहली अनुसूची संविधान द्वारा मान्यता प्राप्त भारत के राजनीतिक मानचित्र का आधार बनती है।
+              </div>
+            </div>
+          </div>
+          <div class="building-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Quick Overview Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>त्वरित अवलोकन</span>
+          </div>
+
+          <table class="overview-table">
+            <tr>
+              <td class="overview-label">अनुसूची संख्या</td>
+              <td class="overview-val">पहली अनुसूची</td>
+            </tr>
+            <tr>
+              <td class="overview-label">संबंधित अनुच्छेद</td>
+              <td class="overview-val">1, 3, 4</td>
+            </tr>
+            <tr>
+              <td class="overview-label">विषय</td>
+              <td class="overview-val">राज्य और केंद्र शासित प्रदेश</td>
+            </tr>
+            <tr>
+              <td class="overview-label">संवैधानिक स्थिति</td>
+              <td class="overview-val">मूल (1950)</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Key Features Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>मुख्य विशेषताएं</span>
+          </div>
+
+          <ul class="features-checklist">
+            <li class="feature-item">
+              <i class="fa-solid fa-building-columns"></i>
+              <span>सभी राज्यों और केंद्र शासित प्रदेशों को सूचीबद्ध करती है।</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>उनके राज्यक्षेत्रों की सीमाएं निर्धारित करती है।</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-gavel"></i>
+              <span>संसद द्वारा परिवर्तन किया जा सकता है।</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>भारत के राजनीतिक मानचित्र का आधार है।</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Did You Know Widget -->
+        <div class="sidebar-widget widget-did-you-know">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>क्या आप जानते हैं?</span>
+          </div>
+
+          <p class="did-you-know-desc">
+            जब 1950 में संविधान लागू हुआ था, तब भारत में 14 राज्य और 6 केंद्र शासित प्रदेश थे। समय के साथ यह संख्या बदलती रही है।
+          </p>
+
+          <div class="india-map-illustration"></div>
+        </div>
+
+        <!-- Related Articles Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-link"></i>
+            <span>संबंधित अनुच्छेद</span>
+          </div>
+
+          <ul class="related-links-list">
+            <li class="related-link-item">
+              <span>अनुच्छेद 1 – संघ का नाम और राज्यक्षेत्र</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>अनुच्छेद 2 – नए राज्यों का प्रवेश या स्थापना</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>अनुच्छेद 3 – नए राज्यों का निर्माण और सीमाओं में परिवर्तन</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>अनुच्छेद 4 – पहली व चौथी अनुसूची के संशोधन के लिए बनाए गए कानून</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-download"></i>
+            <span>डाउनलोड</span>
+          </div>
+
+          <div class="download-sub">संविधान की पहली अनुसूची (PDF)</div>
+
+          <button class="btn-download-pdf" type="button">
+            <i class="fa-regular fa-file-pdf"></i> PDF डाउनलोड करें
+          </button>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निर्देशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+</body>
+</html>

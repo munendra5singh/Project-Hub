@@ -1,0 +1,289 @@
+/* ==========================================================================
+   ExcelSuperGuru - Shared UI Components
+   ========================================================================== */
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
+/* ==========================================================================
+   Header & Navigation (Updated for Hide/Show on Scroll)
+   ========================================================================== */
+
+.site-header {
+    position: fixed; /* sticky से बदलकर fixed किया ताकि पूरे पेज पर स्मूथली काम करे */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(var(--bg-secondary), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    
+    /* स्मूथ एनीमेशन के लिए transition */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s;
+}
+
+/* जब यूजर नीचे स्क्रॉल करेगा (Hide Navbar) */
+.site-header.scroll-down {
+    transform: translateY(-100%);
+}
+
+/* जब यूजर ऊपर स्क्रॉल करेगा (Show Navbar) */
+.site-header.scroll-up {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md); /* स्क्रॉल करते समय हल्का शैडो देने के लिए */
+}
+
+/* बॉडी में टॉप पैडिंग ताकि पहला सेक्शन हेडर के पीछे न छुपे */
+body {
+    padding-top: 70px; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.nav-brand span {
+    color: var(--excel-green);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    list-style: none;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--excel-green);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--excel-green);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ==========================================================================
+   Theme Controller Button
+   ========================================================================== */
+
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--excel-green);
+}
+
+.theme-toggle-btn .sun-icon { display: none; }
+body.dark-mode .theme-toggle-btn .moon-icon { display: none; }
+body.dark-mode .theme-toggle-btn .sun-icon { display: block; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--excel-green);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--excel-green-hover);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Cards Structure
+   ========================================================================== */
+
+.ui-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.ui-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--excel-green-alpha);
+}
+
+.card-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background-color: var(--excel-green-alpha);
+    color: var(--excel-green);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.card-title {
+    margin-bottom: 0.75rem;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--excel-green);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 4rem 0 2rem 0;
+    margin-top: auto;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand-summary p {
+    margin-top: 1rem;
+    max-width: 320px;
+    font-size: 0.95rem;
+}
+
+.footer-heading {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--excel-green);
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}

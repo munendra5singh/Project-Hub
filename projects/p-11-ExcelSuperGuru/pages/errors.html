@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Resolution Framework - ExcelSuperGuru</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/components.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+     <link rel="stylesheet" href="../CSS/join.css">
+    <style>
+        .error-grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .error-resolution-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .error-token-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+        .error-token-badge {
+            background-color: #fff3cd;
+            color: #856404;
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid #ffeeba;
+        }
+        body.dark-mode .error-token-badge {
+            background-color: rgba(255, 193, 7, 0.15);
+            color: #ffe066;
+            border-color: rgba(255, 193, 7, 0.3);
+        }
+        .diagnostic-step-box {
+            background-color: var(--bg-primary);
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="../index.html" class="nav-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="#107C41"/>
+                    <path d="M14 2V8H20L14 2Z" fill="#1f9a55"/>
+                    <path d="M8 12L11 15L8 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M12 18H16" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </svg>
+                Excel<span>SuperGuru</span>
+            </a>
+            
+ <nav aria-label="Main Navigation">
+    <ul class="nav-menu">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../pages/formulas.html" class="nav-link">Formulas</a></li>
+        <li><a href="https://1drv.ms/x/c/6cdb61f930bce09a/IQA9TY7Yo-FOQ7umiZWgQlpnAdLa52zJ5KeV2HjREoWcjGk?e=1GyxGB" target="_blank"rel=" noopener noreferrer">Live Excel</a></li>
+        <li><a href="../pages/shortcuts.html">Shortcuts</a></li>
+        <li><a href="../pages/quiz.html">Trivia Quiz</a></li>
+        <li><a href="../pages/interview.html">Interview Q&A</a></li>
+    </ul>
+</nav>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Global Theme Mode">
+                    <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="../pages/practice.html" class="btn btn-primary">Launch Sandbox</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        <header style="margin-bottom: 3rem;">
+            <h1>Error Resolution Framework</h1>
+            <p>Deconstruct compiled formula compiler warnings, evaluation exceptions, and tracking breakages systematically.</p>
+        </header>
+
+        <section class="error-grid-container" id="errorModuleTarget">
+            </section>
+    </main>
+
+
+    <footer 
+    class="site-footer">
+
+          <div class="live-counter-section glass-card">
+        <a href="../index.html#followers-section" class="members-badge-live">
+            <span class="pulse-dot"></span>
+            <span class="live-text">
+                🚀 Join the ExcelSuperGuru Community
+            </span>
+            <span class="count-number memberCount">
+                0
+            </span>
+        </a>
+    </div>
+
+        <div class="container footer-top">
+            <div class="footer-brand-summary">
+                <a href="../index.html" class="nav-brand">Excel<span>SuperGuru</span></a>
+                <p>An advanced, decoupled dashboard learning environment optimized for high-performance analysts and developers.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 600;">
+                    A Premium Initiative by <span class="neon-blue-text">FreeCourseHub</span>
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Ecosystem</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/formulas.html">Formulas Dictionary</a></li>
+                     <li><a href="https://1drv.ms/x/c/6cdb61f930bce09a/IQA9TY7Yo-FOQ7umiZWgQlpnAdLa52zJ5KeV2HjREoWcjGk?e=1GyxGB" target="_blank"rel=" noopener noreferrer">Live Excel</a></li>
+                    <li><a href="../pages/cheatsheet.html">Syntax Cheatsheet</a></li>
+                    <li><a href="../pages/roadmap.html">Interactive Tracks</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Assessment</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/quiz.html">Interactive Trivia</a></li>
+                    <li><a href="../pages/interview.html">Interview Technical Q&A</a></li>
+                    <li><a href="../pages/tips.html">Pro Performance Tips</a></li>
+                    <li><a href="../pages/errors.html">Error Resolution Hub</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Legal & Scope</h4>
+                <ul class="footer-links">
+                    <li><a href="../about.html">About Project</a></li>
+                    <li><a href="../contact.html">Contact Channel</a></li>
+                    <li><a href="../privacy.html">Privacy Matrix</a></li>
+                    <li><a href="../terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+      <div class="container footer-bottom">
+           <div class="container footer-bottom">
+   <p>
+    &copy; 2026 ExcelSuperGuru | Powered by
+    <a href="https://freecoursehub.xyz/index.html"
+       class="neon-blue-text"
+       target="_blank"
+       rel="noopener noreferrer">
+        FreeCourseHub
+    </a>
+</p>
+    <p>All rights reserved.</p>
+    <p>Optimized for Modern Web Workflows.</p>
+</div>
+      </div>
+
+
+
+    </footer>
+
+    <script src="../JS/app.js"></script>
+      <script type="module" src="../followgrid/firebase-config.js"></script>
+    <script type="module" src="../followgrid/community.js"></script>
+    <script type="module">
+        const ERROR_MANIFEST = [
+            {
+                token: "#SPILL!",
+                cause: "A modern dynamic array formula computed a multi-cell output boundary but collided with an existing string record block in the neighboring downstream region.",
+                fix: "Clear all data filters, literals, or nested formats from the projected expansion path array or isolate the formula structure into a dedicated block matrix."
+            },
+            {
+                token: "#VALUE!",
+                cause: "An entry string mismatch configuration encountered conflicting variable variants, such as passing a plain text literal argument into a strict mathematical aggregate operation.",
+                fix: "Inspect cell parameters using explicit evaluation trackers or sanitize text spaces using clean transformations like VALUE() or INT()."
+            },
+            {
+                token: "#REF?",
+                cause: "The workbook evaluation logic targeted cell coordinates or structured dimensions that were deleted or unlinked during workbook schema maintenance migrations.",
+                fix: "Audit formula compilation history logs or restore data reference bridges using explicit 2D index arrays rather than absolute hardcoded index references."
+            }
+        ];
+
+        function initErrorView() {
+            const target = document.getElementById('errorModuleTarget');
+            if (!target) return;
+
+            target.innerHTML = ERROR_MANIFEST.map(err => `
+                <article class="error-resolution-card">
+                    <div class="error-token-header">
+                        <span class="error-token-badge">${err.token}</span>
+                        <h2 style="font-size: 1.25rem; color: var(--text-primary); margin: 0;">Evaluation Exception Warning Node</h2>
+                    </div>
+                    <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem;"><strong>Root Mechanics:</strong> ${err.cause}</p>
+                    <div class="diagnostic-step-box">
+                        <strong style="color: var(--text-primary); display: block; font-size: 0.9rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.02em;">Resolution Protocol</strong>
+                        <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary);">${err.fix}</p>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        initErrorView();
+    </script>
+</body>
+</html>

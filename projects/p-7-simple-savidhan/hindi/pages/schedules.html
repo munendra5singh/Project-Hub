@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - भारत के संविधान की अनुसूचियां</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel: Filters */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .filter-group {
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2b3649;
+      margin-bottom: 6px;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+    }
+
+    .search-box-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #919eab;
+      font-size: 12px;
+    }
+
+    .search-box-wrapper input {
+      width: 100%;
+      padding: 8px 10px 8px 30px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box-wrapper input:focus {
+      border-color: #0b1a30;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      background: #ffffff;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: #0b1a30;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .btn-apply-filters {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 6px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-apply-filters:hover {
+      background-color: #162a47;
+    }
+
+    .btn-reset-filters {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset-filters:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Schedules List */
+    .schedules-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .schedules-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .schedules-title-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #637381;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Schedule Card Item */
+    .schedule-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .schedule-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .schedule-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .schedule-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Category Specific Colors */
+    .icon-blue { background-color: #103254; }
+    .icon-green { background-color: #2a7d4f; }
+    .icon-orange { background-color: #e06d20; }
+    .icon-purple { background-color: #6a4498; }
+    .icon-teal { background-color: #12828e; }
+    .icon-amber { background-color: #d18d27; }
+
+    .schedule-info {
+      flex: 1;
+    }
+
+    .schedule-name-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+    }
+
+    .schedule-desc-text {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    /* Article Range Badge Box */
+    .article-range-box {
+      background-color: #edf3f9;
+      border-radius: 6px;
+      padding: 6px 12px;
+      text-align: center;
+      min-width: 85px;
+    }
+
+    .range-label {
+      font-size: 10px;
+      color: #103254;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .range-numbers {
+      font-size: 11.5px;
+      color: #103254;
+      font-weight: 700;
+    }
+
+    /* Specific badge color variations */
+    .badge-green { background-color: #eaf5ea; }
+    .badge-green .range-label, .badge-green .range-numbers { color: #2a7d4f; }
+
+    .badge-orange { background-color: #fdf0e6; }
+    .badge-orange .range-label, .badge-orange .range-numbers { color: #e06d20; }
+
+    .badge-purple { background-color: #f3ecf8; }
+    .badge-purple .range-label, .badge-purple .range-numbers { color: #6a4498; }
+
+    .badge-teal { background-color: #e6f4f6; }
+    .badge-teal .range-label, .badge-teal .range-numbers { color: #12828e; }
+
+    .badge-amber { background-color: #fcf4e8; }
+    .badge-amber .range-label, .badge-amber .range-numbers { color: #d18d27; }
+
+    .schedule-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding-left: 6px;
+    }
+
+    /* View All Schedules Button */
+    .view-all-wrapper {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 10px;
+    }
+
+    .btn-view-all {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #0b1a30;
+      font-size: 14px;
+    }
+
+    .widget-description {
+      font-size: 11.5px;
+      color: #526071;
+      line-height: 1.5;
+    }
+
+    /* Schedules at a Glance List */
+    .facts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .fact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-icon {
+      font-size: 16px;
+      color: #103254;
+      width: 20px;
+      text-align: center;
+    }
+
+    .fact-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    .fact-label {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 1px;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .schedule-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .article-range-box {
+        align-self: flex-start;
+      }
+      .schedule-arrow {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR SCHEDULES PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .schedules-section {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .schedules-title-text,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .filter-label,
+    [data-theme="dark"] .checkbox-item {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input,
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input::placeholder {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .search-box-wrapper i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a99ad" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    }
+
+    [data-theme="dark"] .btn-apply-filters {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-apply-filters:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .btn-reset-filters,
+    [data-theme="dark"] .btn-view-all {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-reset-filters:hover,
+    [data-theme="dark"] .btn-view-all:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .schedules-header,
+    [data-theme="dark"] .schedule-card,
+    [data-theme="dark"] .fact-item {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .schedule-card:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .schedule-name-title,
+    [data-theme="dark"] .fact-number {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .schedule-desc-text,
+    [data-theme="dark"] .sort-wrapper,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .fact-label {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .schedule-arrow {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .fact-icon {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .article-range-box {
+      background-color: rgba(16, 50, 84, 0.35);
+    }
+
+    [data-theme="dark"] .article-range-box .range-label,
+    [data-theme="dark"] .article-range-box .range-numbers {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .badge-green { background-color: rgba(42, 125, 79, 0.25); }
+    [data-theme="dark"] .badge-green .range-label,
+    [data-theme="dark"] .badge-green .range-numbers { color: #4ade80; }
+
+    [data-theme="dark"] .badge-orange { background-color: rgba(224, 109, 32, 0.25); }
+    [data-theme="dark"] .badge-orange .range-label,
+    [data-theme="dark"] .badge-orange .range-numbers { color: #fb923c; }
+
+    [data-theme="dark"] .badge-purple { background-color: rgba(106, 68, 152, 0.25); }
+    [data-theme="dark"] .badge-purple .range-label,
+    [data-theme="dark"] .badge-purple .range-numbers { color: #c084fc; }
+
+    [data-theme="dark"] .badge-teal { background-color: rgba(18, 130, 142, 0.25); }
+    [data-theme="dark"] .badge-teal .range-label,
+    [data-theme="dark"] .badge-teal .range-numbers { color: #2dd4bf; }
+
+    [data-theme="dark"] .badge-amber { background-color: rgba(209, 141, 39, 0.25); }
+    [data-theme="dark"] .badge-amber .range-label,
+    [data-theme="dark"] .badge-amber .range-numbers { color: #fbbf24; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="articles.html">अनुच्छेद</a></li>
+      <li><a href="parts.html">भाग</a></li>
+      <li><a href="schedules.html" class="active">अनुसूचियां</a></li>
+      <li><a href="amendments.html">संशोधन</a></li>
+      <li><a href="judgments.html">फैसले</a></li>
+      <li><a href="glossary.html">शब्दावली</a></li>
+      <li><a href="quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/pages/schedules.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड चालू करें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">भारत के संविधान की अनुसूचियां</h1>
+      <p class="hero-description">
+        अनुसूचियां संविधान का एक महत्वपूर्ण हिस्सा हैं और आवश्यक विवरण, सूचियां व प्रावधान प्रदान करती हैं।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>अनुसूचियां</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Filter Schedules -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-solid fa-filter"></i>
+          <span>अनुसूचियां फ़िल्टर करें</span>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">अनुसूचियां खोजें</label>
+          <div class="search-box-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="अनुसूची संख्या या मुख्य शब्द से खोजें">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">विषय के अनुसार फ़िल्टर करें</label>
+          <select class="filter-select" id="subjectSelect">
+            <option value="All Subjects">सभी विषय</option>
+            <option value="States & Union Territories">राज्य एवं केंद्र शासित प्रदेश</option>
+            <option value="Emoluments & Privileges">वेतन, भत्ते एवं विशेषाधिकार</option>
+            <option value="Oaths & Affirmations">शपथ एवं प्रतिज्ञान</option>
+            <option value="Allocation of Seats">सीटों का आवंटन</option>
+            <option value="Scheduled & Tribal Areas">अनुसूचित एवं जनजातीय क्षेत्र</option>
+            <option value="Distribution of Powers">शक्तियों का विभाजन</option>
+            <option value="Official Languages">आधिकारिक भाषाएं</option>
+            <option value="Land Reforms & Validation">भूमि सुधार एवं विधिमान्यकरण</option>
+            <option value="Anti-Defection Law">दल-बदल विरोधी कानून</option>
+            <option value="Panchayats & Municipalities">पंचायतें एवं नगरपालिकाएं</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">प्रकार के अनुसार फ़िल्टर करें</label>
+          <div class="checkbox-list" id="typeCheckboxes">
+            <label class="checkbox-item">
+              <input type="checkbox" value="Administrative"> प्रशासनिक
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="Financial"> वित्तीय
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="Legal and Miscellaneous"> कानूनी और विविध
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-apply-filters" id="btnApplyFilters" type="button">फ़िल्टर लागू करें</button>
+        <button class="btn-reset-filters" id="btnResetFilters" type="button">रिसेट करें</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Schedules List -->
+      <main class="schedules-section">
+        <div class="schedules-header">
+          <div class="schedules-title-text" id="schedulesCountText">सभी अनुसूचियां (12)</div>
+          <div class="sort-wrapper">
+            <span>क्रमबद्ध करें</span>
+            <select class="sort-select" id="sortSelect">
+              <option value="asc">अनुसूची संख्या (बढ़ते क्रम में)</option>
+              <option value="desc">अनुसूची संख्या (घटते क्रम में)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Container for dynamically rendered Schedule cards -->
+        <div id="schedulesContainer">
+          <!-- Populated via JavaScript -->
+        </div>
+
+        <!-- View All Button -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all" id="btnViewAll" type="button">
+            सभी अनुसूचियां देखें <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Information & Quick Facts -->
+      <aside class="right-sidebar">
+        
+        <!-- About Schedules Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>अनुसूचियों के बारे में</span>
+          </div>
+          <p class="widget-description">
+            मूल संविधान में 8 अनुसूचियां थीं। विभिन्न संशोधनों के माध्यम से 4 और अनुसूचियां जोड़ी गईं, जिससे कुल संख्या 12 हो गई। ये राज्यों और केंद्र शासित प्रदेशों, वेतन, शपथ, सीटों के आवंटन, जनजातीय क्षेत्रों, आधिकारिक भाषाओं, भूमि सुधार, दल-बदल विरोधी प्रावधानों, पंचायतों और नगरपालिकाओं सहित विषयों की विस्तृत श्रृंखला को कवर करती हैं।
+          </p>
+        </div>
+
+        <!-- Schedules at a Glance Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>अनुसूचियां: एक नज़र में</span>
+          </div>
+
+          <div class="facts-list">
+            <div class="fact-item">
+              <i class="fa-regular fa-book-open fact-icon"></i>
+              <div>
+                <div class="fact-number">12</div>
+                <div class="fact-label">कुल अनुसूचियां</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-file-lines fact-icon"></i>
+              <div>
+                <div class="fact-number">230+</div>
+                <div class="fact-label">संबंधित अनुच्छेद</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-solid fa-location-dot fact-icon"></i>
+              <div>
+                <div class="fact-number">6</div>
+                <div class="fact-label">विशेष क्षेत्रों को कवर करने वाली अनुसूचियां</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-solid fa-language fact-icon"></i>
+              <div>
+                <div class="fact-number">22</div>
+                <div class="fact-label">8वीं अनुसूची में मान्यता प्राप्त भाषाएं</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">अनुच्छेद</a></li>
+            <li><a href="parts.html">भाग</a></li>
+            <li><a href="schedules.html">अनुसूचियां</a></li>
+            <li><a href="amendments.html">संशोधन</a></li>
+            <li><a href="judgments.html">फैसले</a></li>
+            <li><a href="glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निर्देशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    // Complete Dataset of All 12 Schedules
+    const schedulesData = [
+      {
+        id: 1,
+        title: "पहली अनुसूची",
+        desc: "भारत के राज्यों और केंद्र शासित प्रदेशों और उनके प्रादेशिक क्षेत्राधिकारों की सूची।",
+        articles: "1 और 4",
+        subject: "States & Union Territories",
+        type: "Administrative",
+        icon: "fa-landmark",
+        iconColor: "icon-blue",
+        badgeColor: "" ,
+        link: "../schedules/schedules-1.html"
+      },
+      {
+        id: 2,
+        title: "दूसरी अनुसूची",
+        desc: "राष्ट्रपति, राज्यपालों, न्यायाधीशों, CAG आदि के वेतन, भत्ते, विशेषाधिकार और पेंशन के संबंध में प्रावधान।",
+        articles: "59, 65, 75, 97, 125, 148, 158, 164, 186 और 221",
+        subject: "Emoluments & Privileges",
+        type: "Financial",
+        icon: "fa-user-gear",
+        iconColor: "icon-green",
+        badgeColor: "badge-green",
+        link: "../schedules/schedules-2.html"
+      },
+      {
+        id: 3,
+        title: "तीसरी अनुसूची",
+        desc: "मंत्रियों, सांसदों, न्यायाधीशों, CAG और उम्मीदवारों द्वारा ली जाने वाली शपथ या प्रतिज्ञान के प्रारूप।",
+        articles: "75, 84, 99, 124, 146, 173, 188 और 219",
+        subject: "Oaths & Affirmations",
+        type: "Legal and Miscellaneous",
+        icon: "fa-list-check",
+        iconColor: "icon-orange",
+        badgeColor: "badge-orange",
+        link: "../schedules/schedules-3.html"
+      },
+      {
+        id: 4,
+        title: "चौथी अनुसूची",
+        desc: "राज्यों और केंद्र शासित प्रदेशों को राज्यसभा (राज्यों की परिषद) में सीटों का आवंटन।",
+        articles: "4 और 80",
+        subject: "Allocation of Seats",
+        type: "Administrative",
+        icon: "fa-star",
+        iconColor: "icon-purple",
+        badgeColor: "badge-purple",
+        link: "../schedules/schedules-4.html"
+      },
+      {
+        id: 5,
+        title: "पांचवीं अनुसूची",
+        desc: "विभिन्न राज्यों में अनुसूचित क्षेत्रों और अनुसूचित जनजातियों के प्रशासन और नियंत्रण के बारे में प्रावधान।",
+        articles: "244",
+        subject: "Scheduled & Tribal Areas",
+        type: "Administrative",
+        icon: "fa-building-columns",
+        iconColor: "icon-teal",
+        badgeColor: "badge-teal",
+        link: "../schedules/schedules-5.html"
+      },
+      {
+        id: 6,
+        title: "छठी अनुसूची",
+        desc: "असम, मेघालय, त्रिपुरा और मिजोरम राज्यों में जनजातीय क्षेत्रों के प्रशासन के संबंध में प्रावधान।",
+        articles: "244 और 275",
+        subject: "Scheduled & Tribal Areas",
+        type: "Administrative",
+        icon: "fa-wheat-awn",
+        iconColor: "icon-amber",
+        badgeColor: "badge-amber",
+        link: "../schedules/schedules-6.html"
+      },
+      {
+        id: 7,
+        title: "सातवीं अनुसूची",
+        desc: "संघ और राज्यों के बीच शक्तियों का तीन सूचियों में विभाजन: संघ सूची (100 विषय), राज्य सूची (61 विषय), और समवर्ती सूची (52 विषय)।",
+        articles: "246",
+        subject: "Distribution of Powers",
+        type: "Legal and Miscellaneous",
+        icon: "fa-scale-balanced",
+        iconColor: "icon-blue",
+        badgeColor: "",
+        link: "../schedules/schedules-7.html"
+      },
+      {
+        id: 8,
+        title: "आठवीं अनुसूची",
+        desc: "भारत के संविधान द्वारा मान्यता प्राप्त 22 आधिकारिक भाषाओं की सूची।",
+        articles: "344 और 351",
+        subject: "Official Languages",
+        type: "Legal and Miscellaneous",
+        icon: "fa-language",
+        iconColor: "icon-green",
+        badgeColor: "badge-green",
+        link: "../schedules/schedules-8.html"
+      },
+      {
+        id: 9,
+        title: "नौवीं अनुसूची",
+        desc: "भूमि सुधार और जमींदारी उन्मूलन से संबंधित राज्य विधानमंडलों के अधिनियमों और नियमों को न्यायिक समीक्षा से सुरक्षा।",
+        articles: "31B",
+        subject: "Land Reforms & Validation",
+        type: "Legal and Miscellaneous",
+        icon: "fa-shield-halved",
+        iconColor: "icon-orange",
+        badgeColor: "badge-orange",
+        link: "../schedules/schedules-9.html"
+      },
+      {
+        id: 10,
+        title: "दसवीं अनुसूची",
+        desc: "दल-बदल के आधार पर अयोग्यता के संबंध में प्रावधान (52वें संशोधन, 1985 द्वारा जोड़ा गया दल-बदल विरोधी कानून)।",
+        articles: "102 और 191",
+        subject: "Anti-Defection Law",
+        type: "Legal and Miscellaneous",
+        icon: "fa-gavel",
+        iconColor: "icon-purple",
+        badgeColor: "badge-purple",
+        link: "../schedules/schedules-10.html"
+      },
+      {
+        id: 11,
+        title: "ग्यारहवीं अनुसूची",
+        desc: "पंचायतों के 29 कार्यात्मक विषयों और शक्तियों को निर्दिष्ट करती है (73वें संशोधन अधिनियम, 1992 द्वारा जोड़ी गई)।",
+        articles: "243G",
+        subject: "Panchayats & Municipalities",
+        type: "Administrative",
+        icon: "fa-tree",
+        iconColor: "icon-teal",
+        badgeColor: "badge-teal",
+        link: "../schedules/schedules-11.html"
+      },
+      {
+        id: 12,
+        title: "बारहवीं अनुसूची",
+        desc: "नगरपालिकाओं की 18 कार्यात्मक शक्तियों, प्राधिकारों और जिम्मेदारियों को निर्दिष्ट करती है (74वें संशोधन अधिनियम, 1992 द्वारा जोड़ी गई)।",
+        articles: "243W",
+        subject: "Panchayats & Municipalities",
+        type: "Administrative",
+        icon: "fa-city",
+        iconColor: "icon-amber",
+        badgeColor: "badge-amber",
+        link: "../schedules/schedules-12.html"
+      }
+    ];
+
+    // State Variables
+    let isExpanded = false;
+    const INITIAL_COUNT = 6;
+
+    // DOM References
+    const container = document.getElementById('schedulesContainer');
+    const searchInput = document.getElementById('searchInput');
+    const subjectSelect = document.getElementById('subjectSelect');
+    const sortSelect = document.getElementById('sortSelect');
+    const btnApplyFilters = document.getElementById('btnApplyFilters');
+    const btnResetFilters = document.getElementById('btnResetFilters');
+    const btnViewAll = document.getElementById('btnViewAll');
+    const countText = document.getElementById('schedulesCountText');
+
+    // Render Cards
+    function renderSchedules() {
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      const selectedSubject = subjectSelect ? subjectSelect.value : 'All Subjects';
+      
+      const checkedTypes = Array.from(document.querySelectorAll('#typeCheckboxes input[type="checkbox"]:checked'))
+        .map(cb => cb.value.trim());
+
+      const sortOrder = sortSelect ? sortSelect.value : 'asc';
+
+      // Filter
+      let filtered = schedulesData.filter(item => {
+        // Search
+        if (query) {
+          const matchTitle = item.title.toLowerCase().includes(query);
+          const matchDesc = item.desc.toLowerCase().includes(query);
+          const matchId = item.id.toString() === query;
+          if (!matchTitle && !matchDesc && !matchId) return false;
+        }
+
+        // Subject
+        if (selectedSubject !== 'All Subjects') {
+          if (item.subject !== selectedSubject) return false;
+        }
+
+        // Type
+        if (checkedTypes.length > 0) {
+          if (!checkedTypes.includes(item.type)) return false;
+        }
+
+        return true;
+      });
+
+      // Sort
+      filtered.sort((a, b) => {
+        return sortOrder === 'desc' ? b.id - a.id : a.id - b.id;
+      });
+
+      // Update Header Text
+      if (countText) {
+        countText.textContent = `सभी अनुसूचियां (${filtered.length})`;
+      }
+
+      // Clear Container
+      if (container) {
+        container.innerHTML = '';
+
+        if (filtered.length === 0) {
+          container.innerHTML = `
+            <div style="padding: 40px 10px; text-align: center; color: var(--sv-text-muted, #637381); font-size: 13px;">
+              <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; margin-bottom: 12px; display: block; color: var(--sv-text-muted, #919eab);"></i>
+              आपकी खोज या फ़िल्टर से मेल खाती कोई अनुसूची नहीं मिली।
+            </div>
+          `;
+          if (btnViewAll) btnViewAll.style.display = 'none';
+          return;
+        }
+
+        // Slice for View All state
+        const displayList = isExpanded ? filtered : filtered.slice(0, INITIAL_COUNT);
+
+        displayList.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'schedule-card';
+          card.style.cursor = 'pointer';
+          card.innerHTML = `
+            <div class="schedule-icon ${item.iconColor}">
+              <i class="fa-solid ${item.icon}"></i>
+            </div>
+            <div class="schedule-info">
+              <div class="schedule-name-title">${item.title}</div>
+              <div class="schedule-desc-text">${item.desc}</div>
+            </div>
+            <div class="article-range-box ${item.badgeColor}">
+              <span class="range-label">अनुच्छेद</span>
+              <span class="range-numbers">${item.articles}</span>
+            </div>
+            <div class="schedule-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          `;
+
+          // Direct Page Navigation on Click
+          card.addEventListener('click', () => {
+            const targetPage = item.link || `../schedules/schedules-${item.id}.html`;
+            window.location.href = targetPage;
+          });
+
+          container.appendChild(card);
+        });
+
+        // Button Visibility
+        if (btnViewAll) {
+          if (filtered.length <= INITIAL_COUNT) {
+            btnViewAll.style.display = 'none';
+          } else {
+            btnViewAll.style.display = 'inline-flex';
+            btnViewAll.innerHTML = isExpanded 
+              ? `कम दिखाएं <i class="fa-solid fa-chevron-up"></i>` 
+              : `सभी अनुसूचियां देखें <i class="fa-solid fa-chevron-down"></i>`;
+          }
+        }
+      }
+    }
+
+    // Event Binding
+    if (btnApplyFilters) {
+      btnApplyFilters.addEventListener('click', () => {
+        isExpanded = false;
+        renderSchedules();
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        isExpanded = false;
+        renderSchedules();
+      });
+    }
+
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => {
+        renderSchedules();
+      });
+    }
+
+    if (btnResetFilters) {
+      btnResetFilters.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (subjectSelect) subjectSelect.selectedIndex = 0;
+        document.querySelectorAll('#typeCheckboxes input[type="checkbox"]').forEach(cb => cb.checked = false);
+        if (sortSelect) sortSelect.value = 'asc';
+        isExpanded = false;
+        renderSchedules();
+      });
+    }
+
+    if (btnViewAll) {
+      btnViewAll.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        renderSchedules();
+      });
+    }
+
+    // Initial Execution
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSchedules();
+    });
+  </script>
+
+</body>
+</html>

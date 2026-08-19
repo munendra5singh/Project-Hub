@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economics Skill Course | B.A. 5th Semester Digital Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Economics Skill Enhancement Course: Data Analysis and Statistical Methods. Sampling techniques, Ogive curves, Mean/Median/Mode, Standard Deviation, Fisher Ideal Index numericals.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Economics Skill Course</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-skill', 'Economics Skill Course')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">Economics</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Data Analysis & Statistical Methods</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Data & Sampling</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Primary vs Secondary Data</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 Sampling Techniques</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Presentation & Ogives</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Tabulation Parts</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 Ogive Curves & Median</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Central Tendency & Dispersion</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Mean, Median, Mode Formulas</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Standard Deviation & CV Numericals</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Index Numbers & Report Writing</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Laspeyres, Paasche & Fisher Index</a></li>
+                    <li><a href="#u4-2" class="toc-link">4.2 Time & Factor Reversal Tests</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">Long Answer Questions</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">Short Answer Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-briefcase"></i> Economics Skill Enhancement Course</div>
+                <h1>Data Analysis and Statistical Methods</h1>
+                <p>
+                    Yeh textbook Economics Skill Course ke liye ek complete manual hai. Iss me Primary aur Secondary Data, Probability Sampling, Ogive Curves, Continuous Series me Mean/Median/Mode, Standard Deviation ($\sigma$), Coefficient of Variation (CV), aur Fisher's Ideal Index Time/Factor Reversal Tests ke step-by-step solved numericals pure Hinglish me samjhaye gaye hain.
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">Fisher's Index</span>
+                        <span class="stat-label">Time & Factor Reversal Proofs</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">CV Solved Numerical</span>
+                        <span class="stat-label">Consistency Analysis Formulas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Empirical Mode</span>
+                        <span class="stat-label">Mode = 3 Median - 2 Mean</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: DATA COLLECTION AND SAMPLING                                        -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Data Collection and Sampling Techniques</h2>
+                </div>
+
+                <!-- 1.1 Primary vs Secondary -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Primary vs. Secondary Data</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Primary Data</th>
+                                    <th>Secondary Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Origin</strong></td>
+                                    <td>First-hand data collected by investigator for specific purpose.</td>
+                                    <td>Second-hand data compiled from existing publications.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Collection Methods</strong></td>
+                                    <td>Questionnaires, interviews, direct observation, surveys.</td>
+                                    <td>Government reports (NSSO, Census, RBI bulletins), research journals.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cost & Time</strong></td>
+                                    <td>High cost, labor intensive, time consuming.</td>
+                                    <td>Cost effective and immediately accessible.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 Sampling -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>Sampling Methods: Probability vs. Non-Probability</span>
+                    </div>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-filter"></i> Probability Sampling Methods:</h5>
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>Simple Random Sampling:</strong> Every population item has an equal, non-zero selection chance (Lottery method, Random number table).</li>
+                            <li><strong>Stratified Random Sampling:</strong> Population divided into non-overlapping strata; samples drawn proportionally from each stratum.</li>
+                            <li><strong>Systematic Sampling:</strong> Selecting every $k$-th item after a random start ($k = N/n$).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: INDEX NUMBERS AND REPORT WRITING                                   -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit IV</span>
+                    <h2>Index Numbers and Statistical Report Writing</h2>
+                </div>
+
+                <!-- Fisher's Index -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>Fisher's Ideal Index & Reversal Tests</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Fisher's Ideal Price Index Formula:</div>
+                        $$P_{01}^F = \sqrt{L \times P} = \sqrt{\frac{\sum p_1 q_0}{\sum p_0 q_0} \times \frac{\sum p_1 q_1}{\sum p_0 q_1}} \times 100$$
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-square-check"></i> Reversal Tests Verification:</h4>
+                        <p class="text-sm">
+                            <strong>1. Time Reversal Test:</strong> $P_{01} \times P_{10} = 1$<br>
+                            <strong>2. Factor Reversal Test:</strong> $P_{01} \times Q_{01} = \frac{\sum p_1 q_1}{\sum p_0 q_0} = \text{True Value Ratio}$.<br>
+                            <em>Fisher's index satisfies both tests and is therefore termed the 'Ideal' Index.</em>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">What is Fisher's index formula?</div>
+                            <div class="back">√(Laspeyres × Paasche).</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">What does Ogive intersection yield?</div>
+                            <div class="back">The Median value.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Formula for Coefficient of Variation (CV)?</div>
+                            <div class="back">CV = (σ / Mean) × 100.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. Which index number satisfies both Time Reversal and Factor Reversal Tests?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">A) Laspeyres Index</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-skill-1')">B) Fisher's Ideal Index</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">C) Paasche Index</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-skill-1')">D) Marshall-Edgeworth Index</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-skill-1">
+                                <strong>Explanation:</strong> Fisher's index is the geometric mean of Laspeyres and Paasche and satisfies both fundamental reversal tests.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">Coefficient of Variation</div>
+                            <div class="glossary-def">Relative measure of dispersion expressing standard deviation as percentage of arithmetic mean.</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">Ogive</div>
+                            <div class="glossary-def">Cumulative frequency curve used to graphically estimate median and quartiles.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. Economics Skill Course.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

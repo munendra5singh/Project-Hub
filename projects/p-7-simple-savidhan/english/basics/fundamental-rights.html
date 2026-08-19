@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Fundamental Rights of the Constitution of India</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 30px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-part-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .hero-description {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr 270px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Left Sidebar */
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item::before {
+      content: "•";
+      font-size: 12px;
+      color: #0b1a30;
+    }
+
+    .nav-item.active {
+      background-color: #edf3f9;
+      color: #103254;
+      font-weight: 600;
+    }
+
+    .nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .article-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .article-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icon-btn:hover {
+      color: #0b1a30;
+    }
+
+    .action-icon-btn.bookmarked {
+      color: #d4af37;
+    }
+
+    .btn-listen-article {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-listen-article:hover {
+      background-color: #f8f9fb;
+    }
+
+    .article-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Original Article Card Box */
+    .original-article-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .original-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .original-header-line i {
+      font-size: 16px;
+    }
+
+    .article-clause-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+      color: #0b1a30;
+      line-height: 1.6;
+    }
+
+    .article-clause-list li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .article-clause-list li strong {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #103254;
+      font-weight: 700;
+    }
+
+    /* Detailed Explanation Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .english-paragraph {
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.6;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Key Takeaway Exam Note Box */
+    .exam-note-box {
+      background-color: #f3ecf8;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid #e5d7f2;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .exam-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6a4498;
+      font-size: 14px;
+      flex-shrink: 0;
+      border: 1px solid #d8c2eb;
+    }
+
+    .exam-note-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6a4498;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .gavel-illustration {
+      width: 80px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a5cb8" opacity="0.8" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="45" width="80" height="8" rx="2"/><rect x="20" y="30" width="30" height="12" rx="2"/><rect x="60" y="10" width="10" height="30" rx="2" transform="rotate(30 65 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 15px;
+    }
+
+    /* Key Points Checklist */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Important Terms Box */
+    .important-terms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    .important-terms-list strong {
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner {
+        padding: 24px 30px;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .article-main-heading {
+        font-size: 20px;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gavel-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR FUNDAMENTAL RIGHTS PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-part-label {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .article-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .article-main-heading,
+    [data-theme="dark"] .article-clause-list,
+    [data-theme="dark"] .article-clause-list li strong,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .important-terms-list strong {
+      color: var(--sv-text-heading) !important;
+    }
+
+    [data-theme="dark"] .nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-listen-article {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-listen-article:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .action-icon-btn:hover {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .original-article-box {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .original-header-line {
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .point-item i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .english-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .point-item,
+    [data-theme="dark"] .important-terms-list {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: rgba(106, 68, 152, 0.2);
+      border-color: rgba(106, 68, 152, 0.4);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: rgba(106, 68, 152, 0.4);
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-title {
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../pages/articles.html">ARTICLES</a></li>
+      <li><a href="../pages/parts.html" class="active">PARTS</a></li>
+      <li><a href="../pages/schedules.html">SCHEDULES</a></li>
+      <li><a href="../pages/amendments.html">AMENDMENTS</a></li>
+      <li><a href="../pages/judgments.html">JUDGMENTS</a></li>
+      <li><a href="../pages/glossary.html">GLOSSARY</a></li>
+      <li><a href="../pages/quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/basics/fundamental-rights.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <div class="hero-part-label">PART III (ARTICLES 12 TO 35)</div>
+      <h1 class="hero-title">Fundamental Rights</h1>
+      <p class="hero-description">
+        Part III of the Constitution guarantees basic civil liberties to protect<br>
+        individual freedom, equality, and human dignity across India.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/parts.html">Parts</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="#">Part III - Fundamental Rights</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>Articles 12–35</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: On This Page -->
+      <aside class="left-sidebar">
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>ON THIS PAGE</span>
+          </div>
+
+          <ul class="nav-list" id="onThisPageNav">
+            <li class="nav-item active" data-target="section-overview">Overview & State Def.</li>
+            <li class="nav-item" data-target="section-equality">1. Right to Equality</li>
+            <li class="nav-item" data-target="section-freedom">2. Right to Freedom</li>
+            <li class="nav-item" data-target="section-exploitation">3. Against Exploitation</li>
+            <li class="nav-item" data-target="section-religion">4. Freedom of Religion</li>
+            <li class="nav-item" data-target="section-cultural">5. Cultural & Educational</li>
+            <li class="nav-item" data-target="section-remedies">6. Constitutional Remedies</li>
+            <li class="nav-item" data-target="section-key-takeaway">Exam Note / Key Takeaway</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Middle Main Content Panel -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="article-header-card" id="section-header">
+          <div class="article-top-bar">
+            <div class="article-badge-title">
+              <i class="fa-regular fa-file-lines"></i> PART III (ARTICLES 12–35)
+            </div>
+            <div class="article-actions">
+              <button class="action-icon-btn" id="bookmarkBtn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" id="shareBtn" title="Share"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-article" id="listenBtn" type="button">
+                <i class="fa-solid fa-volume-high"></i> <span id="listenText">Listen to Overview</span>
+              </button>
+            </div>
+          </div>
+          <h1 class="article-main-heading">Fundamental Rights guaranteed by the Constitution</h1>
+        </div>
+
+        <!-- Overview & Definition of State -->
+        <div class="original-article-box" id="section-overview">
+          <div class="original-header-line">
+            <i class="fa-solid fa-quote-left"></i> GENERAL PROVISIONS (ARTICLES 12 & 13)
+          </div>
+          <ul class="article-clause-list">
+            <li><strong>Article 12:</strong> Defines the 'State' including the Government and Parliament of India, State Governments and Legislatures, local authorities, and other statutory bodies.</li>
+            <li><strong>Article 13:</strong> Declares all laws that are inconsistent with or in derogation of Fundamental Rights to be void. It provides the basis for Judicial Review.</li>
+          </ul>
+        </div>
+
+        <!-- 1. Right to Equality -->
+        <div class="content-card-box" id="section-equality">
+          <div class="card-section-title">
+            <i class="fa-solid fa-scale-balanced"></i> 1. RIGHT TO EQUALITY (ARTICLES 14–18)
+          </div>
+          <p class="english-paragraph">
+            Ensures equal treatment before the law and prohibits discrimination across social, educational, and employment sectors.
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>Article 14:</strong> Equality before law and equal protection of the laws for all persons.</li>
+            <li><strong>Article 15:</strong> Prohibition of discrimination on grounds of religion, race, caste, sex, or place of birth.</li>
+            <li><strong>Article 16:</strong> Equality of opportunity in matters of public employment.</li>
+            <li><strong>Article 17:</strong> Abolition of Untouchability and prohibition of its practice in any form.</li>
+            <li><strong>Article 18:</strong> Abolition of titles except military and academic distinctions.</li>
+          </ul>
+        </div>
+
+        <!-- 2. Right to Freedom -->
+        <div class="content-card-box" id="section-freedom">
+          <div class="card-section-title">
+            <i class="fa-solid fa-hand-fist"></i> 2. RIGHT TO FREEDOM (ARTICLES 19–22)
+          </div>
+          <p class="english-paragraph">
+            Guarantees key democratic freedoms necessary for individual liberty and personal development.
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>Article 19:</strong> Guarantees 6 basic freedoms:
+              <ul style="list-style-type: circle; margin-left: 20px; margin-top: 4px;">
+                <li>Freedom of speech and expression</li>
+                <li>Freedom to assemble peacefully and without arms</li>
+                <li>Freedom to form associations, unions, or co-operative societies</li>
+                <li>Freedom to move freely throughout India</li>
+                <li>Freedom to reside and settle in any part of India</li>
+                <li>Freedom to practice any profession, trade, or business</li>
+              </ul>
+            </li>
+            <li><strong>Article 20:</strong> Protection in respect of conviction for offences (safeguards against ex-post facto laws, double jeopardy, and self-incrimination).</li>
+            <li><strong>Article 21:</strong> Protection of life and personal liberty.</li>
+            <li><strong>Article 21A:</strong> Right to elementary education for children aged 6 to 14 years.</li>
+            <li><strong>Article 22:</strong> Protection against arbitrary arrest and detention in certain cases.</li>
+          </ul>
+        </div>
+
+        <!-- 3. Right against Exploitation -->
+        <div class="content-card-box" id="section-exploitation">
+          <div class="card-section-title">
+            <i class="fa-solid fa-ban"></i> 3. RIGHT AGAINST EXPLOITATION (ARTICLES 23–24)
+          </div>
+          <p class="english-paragraph">
+            Protects vulnerable citizens from human trafficking, forced labor, and child exploitation.
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>Article 23:</strong> Prohibition of human trafficking, begar (forced labor), and involuntary servitude.</li>
+            <li><strong>Article 24:</strong> Prohibition of employment of children under 14 years of age in factories, mines, or hazardous workplaces.</li>
+          </ul>
+        </div>
+
+        <!-- 4. Right to Freedom of Religion -->
+        <div class="content-card-box" id="section-religion">
+          <div class="card-section-title">
+            <i class="fa-solid fa-place-of-worship"></i> 4. RIGHT TO FREEDOM OF RELIGION (ARTICLES 25–28)
+          </div>
+          <p class="english-paragraph">
+            Ensures secular values by protecting religious liberty for all individuals and groups.
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>Article 25:</strong> Freedom of conscience and free profession, practice, and propagation of religion.</li>
+            <li><strong>Article 26:</strong> Freedom to manage religious affairs and institutions.</li>
+            <li><strong>Article 27:</strong> Freedom from taxation for the promotion of any particular religion.</li>
+            <li><strong>Article 28:</strong> Freedom from attending religious instruction in educational institutions fully maintained by State funds.</li>
+          </ul>
+        </div>
+
+        <!-- 5. Cultural and Educational Rights -->
+        <div class="content-card-box" id="section-cultural">
+          <div class="card-section-title">
+            <i class="fa-solid fa-graduation-cap"></i> 5. CULTURAL & EDUCATIONAL RIGHTS (ARTICLES 29–30)
+          </div>
+          <p class="english-paragraph">
+            Safeguards the unique identity, language, script, and institutions of minorities.
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>Article 29:</strong> Protection of language, script, and culture of minorities.</li>
+            <li><strong>Article 30:</strong> Right of religious and linguistic minorities to establish and administer educational institutions.</li>
+          </ul>
+        </div>
+
+        <!-- 6. Right to Constitutional Remedies -->
+        <div class="content-card-box" id="section-remedies">
+          <div class="card-section-title">
+            <i class="fa-solid fa-gavel"></i> 6. RIGHT TO CONSTITUTIONAL REMEDIES (ARTICLE 32)
+          </div>
+          <p class="english-paragraph">
+            Considered the "Heart and Soul" of the Constitution, Article 32 empowers citizens to directly approach the Supreme Court for the enforcement of Fundamental Rights via 5 Writs:
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>Habeas Corpus:</strong> Protects against illegal detention ("To have the body").</li>
+            <li><strong>Mandamus:</strong> Directs a public official to perform a legal duty ("We Command").</li>
+            <li><strong>Prohibition:</strong> Restrains lower courts from exceeding jurisdiction.</li>
+            <li><strong>Certiorari:</strong> Quashes illegal orders passed by lower judicial bodies ("To be certified").</li>
+            <li><strong>Quo-Warranto:</strong> Inquires into the authority by which a person holds public office.</li>
+          </ul>
+        </div>
+
+        <!-- Exam Note / Key Takeaway Banner -->
+        <div class="exam-note-box" id="section-key-takeaway">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">EXAM NOTE / KEY TAKEAWAY</div>
+              <div class="exam-note-desc">
+                Remember: Part III | Articles 12–35 | 6 Categories | Justiciable in Court | Inspired by US Bill of Rights | Articles 20 & 21 cannot be suspended even during a National Emergency.
+              </div>
+            </div>
+          </div>
+          <div class="gavel-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Key Points Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>KEY POINTS</span>
+          </div>
+
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Guaranteed to all citizens; some apply to foreigners too.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Justiciable and directly enforceable by Courts.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Right to Property (Art. 31) was removed by 44th Amendment (1978).</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Subject to reasonable restrictions for national security and order.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Terms Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-book-bookmark"></i>
+            <span>IMPORTANT TERMS</span>
+          </div>
+
+          <div class="important-terms-list">
+            <p><strong>Part III:</strong> Magna Carta of the Constitution of India.</p>
+            <p><strong>Article 32:</strong> Constitutional remedy allowing direct Supreme Court access.</p>
+            <p><strong>Judicial Review:</strong> Court's power to strike down unconstitutional laws under Art 13.</p>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">Articles</a></li>
+            <li><a href="../pages/parts.html">Parts</a></li>
+            <li><a href="../pages/schedules.html">Schedules</a></li>
+            <li><a href="../pages/amendments.html">Amendments</a></li>
+            <li><a href="../pages/judgments.html">Judgments</a></li>
+            <li><a href="../pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="../pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation Smooth Scroll
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Bookmark Toggle
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    let isBookmarked = false;
+    bookmarkBtn.addEventListener('click', () => {
+      isBookmarked = !isBookmarked;
+      const icon = bookmarkBtn.querySelector('i');
+      if (isBookmarked) {
+        icon.className = "fa-solid fa-bookmark";
+        bookmarkBtn.classList.add('bookmarked');
+      } else {
+        icon.className = "fa-regular fa-bookmark";
+        bookmarkBtn.classList.remove('bookmarked');
+      }
+    });
+
+    // Share Action
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Part III - Fundamental Rights of India',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        prompt("Copy this link to share Fundamental Rights:", window.location.href);
+      }
+    });
+
+    // Listen to Rights Text-to-Speech
+    const listenBtn = document.getElementById('listenBtn');
+    const listenText = document.getElementById('listenText');
+    let isListening = false;
+    listenBtn.addEventListener('click', () => {
+      isListening = !isListening;
+      const icon = listenBtn.querySelector('i');
+      if (isListening) {
+        icon.className = "fa-solid fa-stop";
+        listenText.textContent = "Stop Audio";
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance("Part III of the Constitution of India. Fundamental Rights. Articles 12 to 35 guaranteeing basic civil liberties, equality, freedom, and constitutional remedies.");
+          window.speechSynthesis.speak(utterance);
+        }
+      } else {
+        icon.className = "fa-solid fa-volume-high";
+        listenText.textContent = "Listen to Overview";
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    });
+
+    // Scroll spy for 'On This Page'
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 150;
+      navItems.forEach(item => {
+        const targetId = item.getAttribute('data-target');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const top = targetEl.offsetTop;
+          const height = targetEl.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            navItems.forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

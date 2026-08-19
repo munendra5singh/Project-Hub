@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos - Premium Analytics & Comparison Dashboard</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Course Hub | Age Calculator">
+    <meta property="og:description" content="Upgrade your skills with 100% free and verified online course links.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/munendra5singh/FreeCourseHub/main/preview.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+  
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/age.css">
+</head>
+<body>
+  <div id="site-header-root"></div>
+
+
+    <div class="calc-container" id="calculator" role="application">
+        <div class="toast" id="globalToast"><i class="fa-solid fa-bolt"></i> <span id="toastMessageText">Action Complete</span></div>
+
+        <header class="calc-header">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <a href="index.html" class="icon-btn" title="Back to Home Dashboard" style="text-decoration: none;">
+                    <i class="fa-solid fa-house" style="font-size: 14px; color: var(--text-main);"></i>
+                </a>
+                <div class="calc-title">Chronos Analytics Suite</div>
+            </div>
+            <div class="header-controls">
+                <button class="icon-btn" id="history-toggle" title="Review Calculations Stack Log History">
+                    <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.53.85-1.34-3.63-2.16V8h-1.5z"/></svg>
+                </button>
+                <button class="icon-btn theme-btn" id="theme-toggle" title="Toggle Layout Spectral Theme">
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 1-1.1-19.8m.7-2A12 12 0 1 0 24 11.5c0-.4 0-.7-.1-1.1a10 10 0 0 1-11.6-10.4z"/></svg>
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0c-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0c-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="calc-body-workspace">
+            <div class="mode-toggle-container">
+                <div class="toggle-box">
+                    <button class="toggle-btn active" id="btnSingleMode" onclick="switchMode('single')">Single Age Insight</button>
+                    <button class="toggle-btn" id="btnCompareMode" onclick="switchMode('compare')">Compare Two Peoples</button>
+                </div>
+            </div>
+
+            <div class="grid-inputs">
+                <div class="form-group-item">
+                    <label for="userNameInput1"><i class="fa-solid fa-signature"></i> Profile Name</label>
+                    <input type="text" id="userNameInput1" placeholder="Enter name (e.g. Munendra)">
+                </div>
+                <div class="form-group-item" id="user2NameBlock" style="display: none;">
+                    <label for="userNameInput2"><i class="fa-solid fa-signature"></i> Person 2 Name</label>
+                    <input type="text" id="userNameInput2" placeholder="Enter name (e.g. Rahul)">
+                </div>
+            </div>
+
+            <div class="grid-inputs">
+                <div class="form-group-item">
+                    <label id="lblDob1" for="dob1"><i class="fa-solid fa-user"></i> Date of Birth</label>
+                    <input type="date" id="dob1">
+                </div>
+                <div class="form-group-item" id="targetInputBlock">
+                    <label for="targetDate"><i class="fa-solid fa-calendar-day"></i> Target Date (Optional)</label>
+                    <input type="date" id="targetDate">
+                </div>
+                <div class="form-group-item" id="comparisonInputBlock" style="display: none;">
+                    <label for="dob2"><i class="fa-solid fa-user-group"></i> Person 2 Birth Date</label>
+                    <input type="date" id="dob2">
+                </div>
+            </div>
+
+            <div class="btn-panel">
+                <button class="action-btn btn-calc" onclick="processEngine()"><i class="fa-solid fa-chart-simple"></i> Run Analytics</button>
+                <button class="action-btn btn-reset" onclick="clearUniverse()"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button>
+            </div>
+
+            <div class="view-section" id="singleViewPanel">
+                <div class="hero-metric-card">
+                    <button class="copy-floating-btn" onclick="copySingleAge()" title="Copy Breakdown"><i class="fa-solid fa-share-nodes"></i></button>
+                    <p id="lblHeroHeadline">Chronological Age Standings</p>
+                    <div class="hero-numbers">
+                        <div class="num-box"><h2 id="sYear">0</h2><p>Years</p></div>
+                        <div class="num-box"><h2 id="sMonth">0</h2><p>Months</p></div>
+                        <div class="num-box"><h2 id="sDay">0</h2><p>Days</p></div>
+                    </div>
+                </div>
+
+                <h3 class="section-headline"><i class="fa-solid fa-stopwatch"></i> Live Celebration Countdown</h3>
+                <div class="split-columns">
+                    <div class="glass-card">
+                        <div class="card-title-bar"><i class="fa-solid fa-hourglass-half"></i><h3>Time Remaining</h3></div>
+                        <div class="premium-countdown-container">
+                            <div class="countdown-segment-card" id="cardCdDays"><span class="countdown-val" id="premiumCdDays">00</span><span class="countdown-lbl">Days</span></div>
+                            <div class="countdown-segment-card" id="cardCdHours"><span class="countdown-val" id="premiumCdHours">00</span><span class="countdown-lbl">Hours</span></div>
+                            <div class="countdown-segment-card" id="cardCdMins"><span class="countdown-val" id="premiumCdMins">00</span><span class="countdown-lbl">Mins</span></div>
+                            <div class="countdown-segment-card" id="cardCdSecs"><span class="countdown-val" id="premiumCdSecs">00</span><span class="countdown-lbl">Secs</span></div>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-title-bar"><i class="fa-solid fa-cake-candles"></i><h3>Next Birthday Information</h3></div>
+                        <div class="data-row"><span class="data-label">Target Date</span><span class="data-val" id="lblBdayInfoDate">-- -- ----</span></div>
+                        <div class="data-row"><span class="data-label">Day of Week</span><span class="data-val" id="lblBdayInfoDay">--</span></div>
+                        <div class="data-row"><span class="data-label">Remaining Space</span><span class="data-val" id="lblBdayInfoDaysLeft">0 Days</span></div>
+                    </div>
+                </div>
+
+                <h3 class="section-headline"><i class="fa-solid fa-compass"></i> Macro Life Journey Map</h3>
+                <div class="glass-card">
+                    <div class="progress-meta"><span class="data-label">Actuarial Journey Progress</span><span class="data-val" id="lblProgressPercentage">0.00%</span></div>
+                    <div class="progress-track-wrapper"><div class="progress-bar-fill" id="barLifeJourneyFill"></div></div>
+                    <div class="split-columns">
+                        <div class="data-row" style="background:var(--calc-bg); padding:10px; border-radius:12px;"><span class="data-label">Left (Years)</span><span class="data-val" id="lblProgressYrsLeft">0</span></div>
+                        <div class="data-row" style="background:var(--calc-bg); padding:10px; border-radius:12px;"><span class="data-label">Left (Months)</span><span class="data-val" id="lblProgressMthsLeft">0</span></div>
+                    </div>
+                </div>
+
+                <h3 class="section-headline"><i class="fa-solid fa-fingerprint"></i> Celestial Alignment Profile</h3>
+                <div class="profile-badges-grid">
+                    <div class="profile-tile"><i class="fa-solid fa-calendar-day"></i><span class="tile-label">Born On</span><span class="tile-value" id="cWeekday">-</span></div>
+                    <div class="profile-tile"><i class="fa-solid fa-sun"></i><span class="tile-label">Zodiac Sign</span><span class="tile-value" id="cZodiac">-</span></div>
+                    <div class="profile-tile"><i class="fa-solid fa-dragon"></i><span class="tile-label">Chinese Zodiac</span><span class="tile-value" id="cChinese">-</span></div>
+                    <div class="profile-tile"><i class="fa-solid fa-gem"></i><span class="tile-label">Birthstone</span><span class="tile-value" id="cStone">-</span></div>
+                    <div class="profile-tile"><i class="fa-solid fa-clover"></i><span class="tile-label">Lucky Number</span><span class="tile-value" id="cLuckyNum">-</span></div>
+                    <div class="profile-tile"><i class="fa-solid fa-cloud-sun"></i><span class="tile-label">Birth Season</span><span class="tile-value" id="cSeason">-</span></div>
+                </div>
+
+                <div class="split-columns">
+                    <div class="glass-card">
+                        <div class="card-title-bar"><i class="fa-solid fa-timeline"></i><h3>Lifespan Metrics</h3></div>
+                        <div class="data-row"><span class="data-label">Total Months</span><span class="data-val" id="mTotalMonths">0</span></div>
+                        <div class="data-row"><span class="data-label">Total Weeks</span><span class="data-val" id="mTotalWeeks">0</span></div>
+                        <div class="data-row"><span class="data-label">Total Days</span><span class="data-val" id="mTotalDays">0</span></div>
+                        <div class="data-row"><span class="data-label">Total Hours</span><span class="data-val" id="mTotalHours">0</span></div>
+                        <div class="data-row"><span class="data-label">Live Seconds Tracker</span><span class="data-val ticker-highlight" id="mLiveSeconds">0</span></div>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="card-title-bar"><i class="fa-solid fa-atom"></i><h3>Advanced Cosmic Insights</h3></div>
+                        <div class="data-row"><span class="data-label">Estimated Heartbeats</span><span class="data-val" id="bHeart">0</span></div>
+                        <div class="data-row"><span class="data-label">Earth Revolutions</span><span class="data-val" id="bRevolutions">0</span></div>
+                        <div class="data-row"><span class="data-label">Moon Cycles Lived</span><span class="data-val" id="bMoonCycles">0</span></div>
+                        <div class="data-row"><span class="data-label">Estimated Hours Asleep</span><span class="data-val" id="bSleep">0</span></div>
+                        <div class="data-row"><span class="data-label">Estimated Steps Taken</span><span class="data-val" id="bSteps">0</span></div>
+                        <div class="data-row"><span class="data-label">Weekends Lived</span><span class="data-val" id="bWeekends">0</span></div>
+                        <div class="data-row" style="display:none;"><span id="nWeekday">-</span><span id="bLeap">0</span><span id="nCountdown">-</span></div>
+                    </div>
+                </div>
+
+                <div class="share-composer-card">
+                    <div class="wrapped-logo">CHRONOS WRAPPED</div>
+                    <div class="wrapped-title" id="lblWrappedTitle">Your <span>Chronological</span> Archetype Snapshot</div>
+                    <div class="wrapped-stat-item"><div class="wrapped-stat-lbl">Days on Earth</div><div class="wrapped-stat-val" id="wrapDays">0</div></div>
+                    <div class="wrapped-stat-item"><div class="wrapped-stat-lbl">Zodiac Affinity</div><div class="wrapped-stat-val" id="wrapZodiac">-</div></div>
+                    <div class="wrapped-stat-item"><div class="wrapped-stat-lbl">Total Heartbeats</div><div class="wrapped-stat-val" id="wrapHeart">0</div></div>
+                    
+                    <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
+                        <span style="font-size:0.75rem; font-weight:700; color:#94a3b8;">Format Layout:</span>
+                        <select id="exportAspectSelection" class="export-resolution-selector" style="width: auto; padding: 6px; background: rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.1); color: #fff;">
+                            <option value="square" selected>Square (1080×1080)</option>
+                            <option value="story">Story (1080×1920)</option>
+                            <option value="landscape">Landscape (1200×630)</option>
+                        </select>
+                    </div>
+
+                    <div class="share-btn-row">
+                        <button class="share-action-trigger download-trigger" onclick="generatePremiumWrappedCardAsset()"><i class="fa-solid fa-download"></i> Save Card</button>
+                        <button class="share-action-trigger" onclick="triggerNativeAppShare('twitter')"><i class="fa-brands fa-x-twitter"></i> Tweet</button>
+                        <button class="share-action-trigger" onclick="triggerNativeAppShare('whatsapp')"><i class="fa-brands fa-whatsapp"></i> Share</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-section" id="comparisonViewPanel">
+                <div class="gap-verdict-banner">
+                    <h4 id="lblBattleArenaTitle">Age Gap Verdict</h4>
+                    <p id="comparisonVerdictText">Select Dates to Analyze Differences</p>
+                </div>
+
+                <div class="split-columns">
+                    <div class="person-hero-card" id="cardP1">
+                        <div class="p-name" id="lblP1CardHeader">First Person Profile</div>
+                        <div class="p-age-string" id="p1AgeString">0 Years, 0 Months, 0 Days</div>
+                    </div>
+                    <div class="person-hero-card" id="cardP2">
+                        <div class="p-name" id="lblP2CardHeader">Second Person Profile</div>
+                        <div class="p-age-string" id="p2AgeString">0 Years, 0 Months, 0 Days</div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3 class="section-headline"><i class="fa-solid fa-chart-bar"></i> Granular Age Gap Visualization</h3>
+                    <div class="gap-metric-bar-group">
+                        <div class="gap-bar-label"><span class="data-label">Years Segment</span><span class="data-val" id="gapBarValY">0</span></div>
+                        <div class="gap-bar-track"><div class="gap-bar-fill-indicator" id="gapBarFillY" style="background:#6366f1;"></div></div>
+                    </div>
+                    <div class="gap-metric-bar-group">
+                        <div class="gap-bar-label"><span class="data-label">Months Segment</span><span class="data-val" id="gapBarValM">0</span></div>
+                        <div class="gap-bar-track"><div class="gap-bar-fill-indicator" id="gapBarFillM" style="background:#a855f7;"></div></div>
+                    </div>
+                    <div class="gap-metric-bar-group" style="margin-bottom:0;">
+                        <div class="gap-bar-label"><span class="data-label">Days Segment</span><span class="data-val" id="gapBarValD">0</span></div>
+                        <div class="gap-bar-track"><div class="gap-bar-fill-indicator" id="gapBarFillD" style="background:#ec4899;"></div></div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3 class="section-headline"><i class="fa-solid fa-handfist"></i> Experience Battle Arena</h3>
+                    <table class="battle-comparison-table">
+                        <thead>
+                            <tr><th>Experience Node</th><th id="lblThP1">Person 1</th><th id="lblThP2">Person 2</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="battle-row-title">Total Heartbeats</td><td id="battleP1Heart">0</td><td id="battleP2Heart">0</td></tr>
+                            <tr><td class="battle-row-title">Earth Revolutions</td><td id="battleP1Rev">0</td><td id="battleP2Rev">0</td></tr>
+                            <tr><td class="battle-row-title">Moon Cycles</td><td id="battleP1Moon">0</td><td id="battleP2Moon">0</td></tr>
+                            <tr><td class="battle-row-title">Birthdays Celebrated</td><td id="battleP1Bday">0</td><td id="battleP2Bday">0</td></tr>
+                            <tr><td class="battle-row-title">Weekends Experienced</td><td id="battleP1Wknd">0</td><td id="battleP2Wknd">0</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="glass-card">
+                    <h3 class="section-headline"><i class="fa-solid fa-timeline"></i> Lifespan Timeline Lane</h3>
+                    <div class="timeline-track-lane" style="height:60px;">
+                        <div class="timeline-base-line"></div>
+                        <div class="timeline-progress-segment" id="tlP1Track" style="background:rgba(99,102,241,0.2); left:0;"></div>
+                        <div class="timeline-progress-segment" id="tlP2Track" style="background:rgba(236,72,153,0.2); left:0;"></div>
+                        <div class="timeline-node-pin" id="tlP1Pin" style="background:#6366f1; left:0;"><span class="timeline-lbl-tag" id="lblTlP1Tag" style="color:#6366f1;">P1 Birth</span></div>
+                        <div class="timeline-node-pin" id="tlP2Pin" style="background:#ec4899; left:0;"><span class="timeline-lbl-tag" id="lblTlP2Tag" style="color:#ec4899;">P2 Birth</span></div>
+                        <div class="timeline-node-pin" style="background:var(--success); left:100%;"><span class="timeline-lbl-tag" style="color:var(--success); transform:translateX(-100%);">Today</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="history-panel" id="history-panel">
+            <div class="history-header">
+                <span class="history-title">Calculations History</span>
+                <button class="icon-btn" id="history-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="history-list" id="history-list"></div>
+            <div class="history-footer">
+                <button class="clear-hist-btn" id="clear-history">Clear History Cache</button>
+            </div>
+        </aside>
+    </div>
+
+  <script src="js/pages/age-engine.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
+
+  <div id="site-footer-root"></div>
+
+</body>
+</html>

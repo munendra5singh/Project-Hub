@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Development & Policy in India-I | B.A. 5th Semester Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Economics Elective 1: Economic Development and Policy in India-I. Detailed notes, formulas, tables, MCQs, and Q&A.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Economics Elective 1 — Policy</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-elective-1', 'Economics Elective 1 — Policy')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">Economics</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Economic Development & Policy in India-I</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Content Layout -->
+    <div class="main-wrapper">
+        
+        <!-- Sidebar Backdrop for Mobile -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar Table of Contents -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Growth & Sustainability</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Growth vs Development</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 Indicators of Development</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 PQLI Index</a></li>
+                    <li><a href="#u1-4" class="toc-link">1.4 HDI & MPI (UNDP)</a></li>
+                    <li><a href="#u1-5" class="toc-link">1.5 NITI Aayog vs Planning Comm.</a></li>
+                    <li><a href="#u1-6" class="toc-link">1.6 Sustainable Development (SDGs)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Factors in Development</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Natural & Human Resources</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 Capital Formation & ICOR</a></li>
+                    <li><a href="#u2-3" class="toc-link">2.3 Physical vs Human Capital</a></li>
+                    <li><a href="#u2-4" class="toc-link">2.4 Foreign Capital: FDI vs FII</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Population & Migration</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Demographic Transition</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Demographic Dividend</a></li>
+                    <li><a href="#u3-3" class="toc-link">3.3 Rural-Urban Migration</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Employment & MGNREGA</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Organised vs Unorganised</a></li>
+                    <li><a href="#u4-2" class="toc-link">4.2 Types of Unemployment</a></li>
+                    <li><a href="#u4-3" class="toc-link">4.3 MGNREGA Scheme & Impact</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">Long Answer Questions</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">Short Answer Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Textbook Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-chart-line"></i> Economics Elective Paper I</div>
+                <h1>Economic Development & Policy in India-I</h1>
+                <p class="hindi-text">
+                    यह पाठ्यपुस्तक बी.ए. 5वें सेमेस्टर अर्थशास्त्र के प्रथम ऐच्छिक प्रश्नपत्र को पूरी गहराई से कवर करती है। इसमें आर्थिक वृद्धि बनाम विकास, सतत विकास लक्ष्य (SDGs), मानव विकास सूचकांक (HDI), नीति आयोग, पूँजी निर्माण (ICOR), जनसांख्यिकी लाभांश और मनरेगा (MGNREGA) पर विस्तृत अध्ययन सामग्री शामिल है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">4 Core Units</span>
+                        <span class="stat-label">Full Syllabus Included</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Textbook Depth</span>
+                        <span class="stat-label">Formulas & Case Studies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Exam Ready</span>
+                        <span class="stat-label">MCQs, Q&A & Flashcards</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: ISSUES IN GROWTH, DEVELOPMENT AND SUSTAINABILITY                   -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Issues in Growth, Development and Sustainability</h2>
+                </div>
+
+                <!-- 1.1 Growth vs Development -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Economic Growth vs Economic Development (आर्थिक वृद्धि बनाम आर्थिक विकास)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        अर्थशास्त्र में <strong>आर्थिक वृद्धि (Economic Growth)</strong> और <strong>आर्थिक विकास (Economic Development)</strong> दो भिन्न अवधारणाएँ हैं। 
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> Core Definitions (मुख्य परिभाषाएँ)</h4>
+                        <p><strong>Economic Growth (Prof. Simon Kuznets):</strong> "Economic growth is a long-term rise in capacity to supply diverse economic goods to its population, based on advancing technology and institutional adjustments." (किसी देश की जनसंख्या को उन्नत तकनीक द्वारा विविध आर्थिक वस्तुओं की आपूर्ति करने की दीर्घकालिक क्षमता में वृद्धि आर्थिक संवृद्धि कहलाती है।)</p>
+                        <p class="mt-2"><strong>Economic Development (Prof. Michael Todaro):</strong> "Economic development must be conceived of as a multidimensional process involving major changes in social structures, popular attitudes, and national institutions, as well as the acceleration of economic growth, the reduction of inequality, and the eradication of poverty." (आर्थिक विकास एक बहुआयामी प्रक्रिया है जिसमें सामाजिक संरचनाओं, जन-अभिवृत्तियों और राष्ट्रीय संस्थाओं में परिवर्तन के साथ-साथ गरीबी और असमानता में कमी शामिल है।)</p>
+                        <p class="mt-2"><strong>Prof. Amartya Sen (Capability Approach):</strong> Development is the expansion of human capabilities and freedom—the freedom to lead a long, healthy, and meaningful life.</p>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>आधार (Criterion)</th>
+                                    <th>आर्थिक वृद्धि (Economic Growth)</th>
+                                    <th>आर्थिक विकास (Economic Development)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>प्रकृति (Nature)</strong></td>
+                                    <td>मात्रात्मक (Quantitative) - जीडीपी तथा प्रति व्यक्ति आय में वृद्धि।</td>
+                                    <td>गुणात्मक एवं मात्रात्मक (Qualitative & Quantitative) दोनों।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>दायरा (Scope)</strong></td>
+                                    <td>संकीर्ण (Narrow) - केवल उत्पादन तथा आय के आंकड़ों पर केंद्रित।</td>
+                                    <td>व्यापक (Broad) - शिक्षा, स्वास्थ्य, जीवन स्तर, असमानता में कमी।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>प्रयोज्यता (Applicability)</strong></td>
+                                    <td>विकसित देशों (Developed Nations) के लिए अधिक प्रासंगिक।</td>
+                                    <td>विकासशील एवं अल्पविकसित देशों (Developing Nations) के लिए मुख्य लक्ष्य।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>मापन (Measurement)</strong></td>
+                                    <td>Real GDP, Real GNI, Per Capita Income.</td>
+                                    <td>HDI, PQLI, Multi-dimensional Poverty Index (MPI).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>समयावधि (Time Horizon)</strong></td>
+                                    <td>अल्पकालिक या दीर्घकालिक (Short/Long term stream).</td>
+                                    <td>दीर्घकालिक सतत बहुआयामी प्रक्रिया (Long-term structural change).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 & 1.3 Indicators & PQLI -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2 - 1.3</span>
+                        <span>Physical Quality of Life Index - PQLI (भौतिक जीवन गुणवत्ता सूचकांक)</span>
+                    </div>
+                    <p class="hindi-text">
+                        सन 1979 में <strong>Morris D. Morris</strong> द्वारा Overseas Development Council के लिए PQLI का विकास किया गया। यह केवल आय पर निर्भर रहने के बजाय जीवन की गुणवत्ता मापने का प्रथम प्रमुख प्रयास था।
+                    </p>
+
+                    <div class="diagram-container">
+                        <h4 class="text-sm font-bold mb-2">3 Indicators of PQLI (PQLI के तीन घटक)</h4>
+                        <div class="flowchart-flex">
+                            <div class="flow-node"><i class="fa-solid fa-baby mr-1"></i> Infant Mortality Rate (IMR)</div>
+                            <span class="flow-arrow">+</span>
+                            <div class="flow-node"><i class="fa-solid fa-heart-pulse mr-1"></i> Life Expectancy at Age 1</div>
+                            <span class="flow-arrow">+</span>
+                            <div class="flow-node"><i class="fa-solid fa-book-open mr-1"></i> Basic Literacy Rate</div>
+                        </div>
+                    </div>
+
+                    <p class="hindi-text text-sm">
+                        प्रत्येक घटक को 1 से 100 के पैमाने (Scale) पर मापा जाता है, और तीनों का औसत निकालकर PQLI ज्ञात किया जाता है:
+                    </p>
+                    <div class="formula-box">
+                        <div class="formula-title">PQLI Formula:</div>
+                        \[ \text{PQLI} = \frac{\text{IMR Index} + \text{Life Expectancy Index} + \text{Basic Literacy Index}}{3} \]
+                    </div>
+                </div>
+
+                <!-- 1.4 HDI & MPI -->
+                <div class="topic-card" id="u1-4">
+                    <div class="topic-title">
+                        <span class="topic-number">1.4</span>
+                        <span>Human Development Index - HDI & MPI (मानव विकास सूचकांक)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        मानव विकास सूचकांक (HDI) का प्रतिपादन 1990 में पाकिस्तानी अर्थशास्त्री <strong>महबूब उल हक (Mahbub ul Haq)</strong> तथा भारतीय नोबेल पुरस्कार विजेता <strong>अमर्त्य सेन (Amartya Sen)</strong> द्वारा UNDP (संयुक्त राष्ट्र विकास कार्यक्रम) की पहली मानव विकास रिपोर्ट में किया गया।
+                    </p>
+
+                    <div class="diagram-container">
+                        <h4 class="text-sm font-bold mb-3">3 Dimensions & 4 Indicators of HDI</h4>
+                        <div class="flowchart-flex">
+                            <div class="flow-node" style="border-color: #2563eb;">
+                                <strong>1. Health (स्वास्थ्य)</strong><br>
+                                <span class="text-xs">Life Expectancy at Birth</span>
+                            </div>
+                            <div class="flow-node" style="border-color: #0d9488;">
+                                <strong>2. Education (शिक्षा)</strong><br>
+                                <span class="text-xs">Mean Years & Expected Years of Schooling</span>
+                            </div>
+                            <div class="flow-node" style="border-color: #7c3aed;">
+                                <strong>3. Living Standard (जीवन स्तर)</strong><br>
+                                <span class="text-xs">GNI Per Capita (PPP in USD)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">HDI Calculation Method (Geometric Mean):</div>
+                        \[ \text{HDI} = \sqrt[3]{I_{\text{Health}} \times I_{\text{Education}} \times I_{\text{Income}}} \]
+                        <p class="text-xs text-subtle mt-1">2010 से UNDP ज्यामितीय माध्य (Geometric Mean) का प्रयोग करता है ताकि आयामों के बीच असमानता का पता चल सके।</p>
+                    </div>
+
+                    <!-- Multi-dimensional Poverty Index -->
+                    <div class="definition-box mt-4">
+                        <h4><i class="fa-solid fa-chart-pie"></i> Multi-dimensional Poverty Index (MPI)</h4>
+                        <p class="hindi-text text-sm">
+                            OPHI (Oxford Poverty and Human Development Initiative) और UNDP द्वारा 2010 से जारी MPI केवल आय आधारित गरीबी के स्थान पर स्वास्थ्य (Nutrition, Child Mortality), शिक्षा (Years of Schooling, School Attendance) और जीवन स्तर (Cooking Fuel, Sanitation, Drinking Water, Electricity, Housing, Assets) के 10 घटकों पर गरीबी का आकलन करता है।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1.5 NITI Aayog vs Planning Commission -->
+                <div class="topic-card" id="u1-5">
+                    <div class="topic-title">
+                        <span class="topic-number">1.5</span>
+                        <span>Planning Commission vs NITI Aayog (योजना आयोग बनाम नीति आयोग)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        15 मार्च 1950 को स्थापित योजना आयोग को समाप्त करके <strong>1 जनवरी 2015</strong> को <strong>NITI Aayog (National Institution for Transforming India)</strong> का गठन किया गया।
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>विशेषता (Feature)</th>
+                                    <th>योजना आयोग (Planning Commission)</th>
+                                    <th>नीति आयोग (NITI Aayog)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>दृष्टिकोण (Approach)</strong></td>
+                                    <td>Top-Down Approach (केंद्र से राज्यों पर नीतियाँ थोपना)।</td>
+                                    <td>Bottom-Up Approach (सहकारी संघवाद - Cooperative Federalism)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>वित्तीय शक्तियाँ (Financial Power)</strong></td>
+                                    <td>राज्यों को धन आवंटित करने की शक्ति प्राप्त थी।</td>
+                                    <td>केवल Think-Tank; धन आवंटन का अधिकार वित्त मंत्रालय के पास।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>संरचना (Structure)</strong></td>
+                                    <td>सीमित राज्य भागीदारी (राष्ट्रीय विकास परिषद के माध्यम से)।</td>
+                                    <td>शासी परिषद (Governing Council) में सभी राज्यों के मुख्यमंत्री शामिल।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>योजना चक्र (Planning Cycle)</strong></td>
+                                    <td>5-वर्षीय योजनाएँ (Five Year Plans).</td>
+                                    <td>3-वर्षीय एक्शन एजेंडा, 7-वर्षीय रणनीति, 15-वर्षीय विजन दस्तावेज।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.6 Sustainable Development Goals -->
+                <div class="topic-card" id="u1-6">
+                    <div class="topic-title">
+                        <span class="topic-number">1.6</span>
+                        <span>Sustainable Development Goals - SDGs (सतत विकास लक्ष्य)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        1987 की <strong>Brundtland Report ("Our Common Future")</strong> के अनुसार: <em>"Sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs."</em>
+                    </p>
+                    <p class="hindi-text">
+                        संयुक्त राष्ट्र द्वारा 2015 में 2030 एजेंडा के तहत <strong>17 सतत विकास लक्ष्य (SDGs)</strong> तथा 169 उप-लक्ष्य स्वीकृत किए गए।
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-list-check"></i> Key SDGs for Indian Economy:</h5>
+                        <ul class="text-sm hindi-text" style="padding-left: 20px;">
+                            <li><strong>SDG 1:</strong> No Poverty (गरीबी का अंत)</li>
+                            <li><strong>SDG 2:</strong> Zero Hunger (भूखमरी की समाप्ति)</li>
+                            <li><strong>SDG 3:</strong> Good Health & Well-being (उत्तम स्वास्थ्य)</li>
+                            <li><strong>SDG 4:</strong> Quality Education (गुणवत्तापूर्ण शिक्षा)</li>
+                            <li><strong>SDG 8:</strong> Decent Work & Economic Growth (सम्मानजनक कार्य एवं आर्थिक वृद्धि)</li>
+                            <li><strong>SDG 13:</strong> Climate Action (जलवायु कार्यवाही)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: FACTORS IN DEVELOPMENT AND CAPITAL FORMATION                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit II</span>
+                    <h2>Factors in Development and Capital Formation</h2>
+                </div>
+
+                <!-- 2.1 Natural & Human Resources -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>Natural and Human Resources in Development</span>
+                    </div>
+                    <p class="hindi-text">
+                        विकास प्रक्रिया में प्राकृतिक संसाधन (भूमि, खनिज, जल, वन) प्राथमिक आधार प्रदान करते हैं, जबकि मानव संसाधन (श्रम, कौशल, उद्यमशीलता) उन संसाधनों का कुशलतापूर्वक दोहन करते हैं।
+                    </p>
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-triangle-exclamation"></i> Resource Curse Hypothesis (संसाधन अभिशाप)</h4>
+                        <p class="hindi-text text-sm">
+                            अर्थशास्त्र में यह सिद्धांत दर्शाता है कि प्रचुर प्राकृतिक संसाधनों (जैसे खनिज, तेल) वाले देश अक्सर कमजोर आर्थिक वृद्धि दर्ज करते हैं, क्योंकि वे अन्य क्षेत्रों (जैसे विनिर्माण) की उपेक्षा कर बैठते हैं।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2.2 Capital Formation & ICOR -->
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.2</span>
+                        <span>Capital Formation & ICOR (पूँजी निर्माण एवं वृद्धिगत पूँजी-उत्पाद अनुपात)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        पूँजी निर्माण का अर्थ समाज की वास्तविक पूँजी संपत्ति (मशीनें, कारखाने, परिवहन नेटवर्क, अवसंरचना) में वृद्धि से है। पूँजी निर्माण की प्रक्रिया के 3 चरण होते हैं:
+                    </p>
+                    <ol class="hindi-text text-sm" style="padding-left: 20px; margin-bottom: 1rem;">
+                        <li><strong>बचतों का सृजन (Creation of Savings):</strong> आय और उपभोग का अंतर।</li>
+                        <li><strong>बचतों का संग्रहण (Mobilization of Savings):</strong> बैंकों व वित्तीय संस्थाओं द्वारा बचतों को एकत्र करना।</li>
+                        <li><strong>पूँजी निवेश (Investment of Savings):</strong> बचतों का उत्पादक पूँजी परिसंपत्तियों में रूपांतरण।</li>
+                    </ol>
+
+                    <!-- ICOR Formula & Solved Numerical -->
+                    <div class="formula-box">
+                        <div class="formula-title">ICOR (Incremental Capital-Output Ratio) Formula:</div>
+                        \[ \text{ICOR} = \frac{\Delta K}{\Delta Y} = \frac{\text{Capital Investment}}{\text{Additional Output Produced}} \]
+                        <p class="text-xs mt-1">ICOR जितना <strong>कम (Lower)</strong> होगा, पूँजी की उत्पादकता उतनी ही <strong>अधिक (Higher Efficiency)</strong> होगी।</p>
+                    </div>
+
+                    <div class="qa-card" style="background-color: var(--bg-card-alt);">
+                        <div class="qa-header">
+                            <span class="qa-badge">Numerical Example</span>
+                            <span>यदि भारत की बचत दर (Saving Rate) 30% है और ICOR = 5 है, तो Harrod-Domar मॉडल अनुसार विकास दर कितनी होगी?</span>
+                        </div>
+                        <div class="hindi-text text-sm" style="padding-left: 10px;">
+                            <p><strong>सूत्र:</strong> \[ g = \frac{s}{\text{ICOR}} \]</p>
+                            <p><strong>हल:</strong> \[ g = \frac{30\%}{5} = 6\% \text{ per annum} \]</p>
+                            <p class="text-xs text-subtle">अर्थात अर्थव्यवस्था प्रतिवर्ष 6% की दर से वृद्धि करेगी। यदि ICOR घटकर 4 हो जाए, तो वृद्धि दर बढ़कर $30/4 = 7.5\%$ हो जाएगी।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.3 Physical vs Human Capital -->
+                <div class="topic-card" id="u2-3">
+                    <div class="topic-title">
+                        <span class="topic-number">2.3</span>
+                        <span>Physical Capital vs Human Capital</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>विशेषता</th>
+                                    <th>भौतिक पूँजी (Physical Capital)</th>
+                                    <th>मानव पूँजी (Human Capital)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>परिभाषा</strong></td>
+                                    <td>मशीनें, भवन, उपकरण, सड़क इत्यादि।</td>
+                                    <td>मानव में निहित ज्ञान, कौशल, स्वास्थ्य एवं दक्षता।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>मूर्तता (Tangibility)</strong></td>
+                                    <td>मूर्त (Tangible) - देखा व छुआ जा सकता है।</td>
+                                    <td>अमूर्त (Intangible) - व्यक्ति के मस्तिष्क व स्वास्थ्य में निहित।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>गतिशीलता (Mobility)</strong></td>
+                                    <td>देशों के बीच आसानी से स्थानांतरित हो सकती है।</td>
+                                    <td>सीमित गतिशीलता (आप्रवासन कानूनों द्वारा सीमित)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>मूल्यह्रास (Depreciation)</strong></td>
+                                    <td>समय और उपयोग के साथ मूल्य घटता है।</td>
+                                    <td>निरंतर शिक्षा व स्वास्थ्य देखभाल से संवर्धित होता है।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2.4 FDI vs FII -->
+                <div class="topic-card" id="u2-4">
+                    <div class="topic-title">
+                        <span class="topic-number">2.4</span>
+                        <span>Foreign Capital: FDI vs FII (विदेशी प्रत्यक्ष निवेश बनाम पोर्टफोलियो निवेश)</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>तुलना बिंदु</th>
+                                    <th>FDI (Foreign Direct Investment)</th>
+                                    <th>FII / FPI (Foreign Institutional Investment)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>निवेश का स्वरूप</strong></td>
+                                    <td>कारखाने, अवसंरचना, भौतिक परिसंपत्तियों में दीर्घकालिक निवेश।</td>
+                                    <td>शेयर बाजार, बॉन्ड व प्रतिभूतियों में अल्पकालिक निवेश।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>प्रबंधन एवं नियंत्रण</strong></td>
+                                    <td>कंपनी के प्रबंधन में प्रत्यक्ष नियंत्रण एवं मताधिकार।</td>
+                                    <td>प्रबंधन पर कोई नियंत्रण नहीं (केवल लाभांश व लाभ हेतु)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>स्थिरता (Stability)</strong></td>
+                                    <td>अत्यंत स्थिर; आसानी से वापस नहीं लिया जा सकता।</td>
+                                    <td>अस्थिर (Hot Money); बाजार में अनिश्चितता पर तुरंत निकासी।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>प्रौद्योगिकी हस्तांतरण</strong></td>
+                                    <td>उन्नत तकनीक और प्रबंधन कौशल का हस्तांतरण होता है।</td>
+                                    <td>तकनीक हस्तांतरण नहीं होता, केवल वित्तीय पूँजी आती है।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: POPULATION AND ECONOMIC DEVELOPMENT                                -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit III</span>
+                    <h2>Population and Economic Development</h2>
+                </div>
+
+                <!-- 3.1 Demographic Transition -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>Theory of Demographic Transition (जनांकिकीय संक्रमण का सिद्धांत)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        यह सिद्धांत दर्शाता है कि आर्थिक विकास के साथ किसी देश की जन्म दर और मृत्यु दर में किस प्रकार परिवर्तन आता है।
+                    </p>
+
+                    <div class="diagram-container">
+                        <h4 class="text-sm font-bold mb-3">4 Stages of Demographic Transition</h4>
+                        <div class="flowchart-flex">
+                            <div class="flow-node">Stage 1: High BR & High DR<br><span class="text-xs">Stable Population</span></div>
+                            <span class="flow-arrow">&rarr;</span>
+                            <div class="flow-node">Stage 2: High BR & Falling DR<br><span class="text-xs">Population Explosion</span></div>
+                            <span class="flow-arrow">&rarr;</span>
+                            <div class="flow-node">Stage 3: Falling BR & Low DR<br><span class="text-xs">Slowing Growth</span></div>
+                            <span class="flow-arrow">&rarr;</span>
+                            <div class="flow-node">Stage 4: Low BR & Low DR<br><span class="text-xs">Stable/Declining</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.2 Demographic Dividend -->
+                <div class="topic-card" id="u3-2">
+                    <div class="topic-title">
+                        <span class="topic-number">3.2</span>
+                        <span>Demographic Dividend in India (जनांकिकीय लाभांश)</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-users-line"></i> UN Population Fund (UNFPA) Definition</h4>
+                        <p class="hindi-text text-sm">
+                            "Demographic dividend is the economic growth potential that can result from shifts in a population’s age structure, mainly when the share of the working-age population (15 to 64) is larger than the non-working-age share of the population (under 14 and above 65)."
+                        </p>
+                    </div>
+
+                    <p class="hindi-text">
+                        भारत में कार्यशील जनसंख्या (15-64 वर्ष) का अनुपात 65% से अधिक है। इस लाभांश का लाभ उठाने के लिए सरकार ने <strong>Skill India Mission, PMKVY, Make in India</strong> जैसी योजनाएँ प्रारंभ की हैं।
+                    </p>
+                </div>
+
+                <!-- 3.3 Migration -->
+                <div class="topic-card" id="u3-3">
+                    <div class="topic-title">
+                        <span class="topic-number">3.3</span>
+                        <span>Rural-Urban Migration: Push & Pull Factors (ग्रामीण-शहरी प्रवास)</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>प्रतिकर्ष कारक (Push Factors - गाँव छोड़ने के कारण)</th>
+                                    <th>अपकर्ष कारक (Pull Factors - शहर की ओर आकर्षण)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>कृषि भूमि का विखंडन एवं कम उत्पादकता।</td>
+                                    <td>शहरी क्षेत्रों में उच्च मजदूरी दर एवं रोजगार अवसर।</td>
+                                </tr>
+                                <tr>
+                                    <td>ग्रामीण क्षेत्रों में प्रच्छन्न बेरोजगारी (Disguised Unemployment)।</td>
+                                    <td>बेहतर शिक्षा, स्वास्थ्य सेवाएँ एवं आधुनिक जीवन स्तर।</td>
+                                </tr>
+                                <tr>
+                                    <td>सूखा, बाढ़ तथा प्राकृतिक आपदाएँ।</td>
+                                    <td>सड़क, बिजली, परिवहन तथा संचार की बेहतर सुविधाएँ।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: EMPLOYMENT, UNEMPLOYMENT AND POLICY INTERVENTIONS                 -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit IV</span>
+                    <h2>Employment, Unemployment and Policy Interventions</h2>
+                </div>
+
+                <!-- 4.1 Organised vs Unorganised -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>Organised vs Unorganised Sector (संगठित बनाम असंगठित क्षेत्र)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        Periodic Labour Force Survey (PLFS) के अनुसार भारत के कुल कार्यबल का लगभग 85%-90% हिस्सा असंगठित (Informal) क्षेत्र में कार्यरत है।
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>मानदंड</th>
+                                    <th>संगठित क्षेत्र (Organised Sector)</th>
+                                    <th>असंगठित क्षेत्र (Unorganised Sector)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>पंजीकरण</strong></td>
+                                    <td>सरकार के पास पंजीकृत (Factories Act, Shops Act)।</td>
+                                    <td>अधिकांशतः गैर-पंजीकृत छोटे उद्यम।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>सामाजिक सुरक्षा</strong></td>
+                                    <td>PF, ESI, ग्रेच्युटी, सवैतनिक अवकाश उपलब्ध।</td>
+                                    <td>सामाजिक सुरक्षा तथा पेंशन का अभाव।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>रोजगार सुरक्षा</strong></td>
+                                    <td>निश्चित कार्य घंटे व रोजगार सुरक्षा नियम।</td>
+                                    <td>अनियमित रोजगार; बिना नोटिस निष्कासन का जोखिम।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 4.2 Types of Unemployment -->
+                <div class="topic-card" id="u4-2">
+                    <div class="topic-title">
+                        <span class="topic-number">4.2</span>
+                        <span>Types of Unemployment in India (रोजगारी के प्रकार)</span>
+                    </div>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-user-slash"></i> Major Types of Unemployment:</h5>
+                        <ul class="hindi-text text-sm" style="padding-left: 20px;">
+                            <li><strong>प्रच्छन्न बेरोजगारी (Disguised Unemployment):</strong> आवश्यकता से अधिक श्रमिक नियोजित होना; श्रमिकों की सीमांत उत्पादकता (Marginal Productivity) शून्य ($\text{MP}_L = 0$) होती है। (जैसे कृषि क्षेत्र)।</li>
+                            <li><strong>मौसमी बेरोजगारी (Seasonal Unemployment):</strong> वर्ष के कुछ विशेष महीनों में काम न मिलना (जैसे कृषि कटाई के बाद)।</li>
+                            <li><strong>संरचनात्मक बेरोजगारी (Structural Unemployment):</strong> बाजार में उपलब्ध कौशल और नौकरियों की आवश्यकता के बीच विसंगति (Mismatch of skills).</li>
+                            <li><strong>चक्रीय बेरोजगारी (Cyclical Unemployment):</strong> अर्थव्यवस्था में मंदी (Recession) के कारण उत्पन्न बेरोजगारी।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4.3 MGNREGA Scheme -->
+                <div class="topic-card" id="u4-3">
+                    <div class="topic-title">
+                        <span class="topic-number">4.3</span>
+                        <span>MGNREGA Scheme (महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी अधिनियम)</span>
+                    </div>
+
+                    <p class="hindi-text">
+                        संसद द्वारा 2005 में पारित (2 फरवरी 2006 से लागू) MGNREGA विश्व का सबसे बड़ा ग्रामीण रोजगार गारंटी कार्यक्रम है।
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-gavel"></i> Key Statutory Provisions of MGNREGA:</h4>
+                        <ul class="hindi-text text-sm" style="padding-left: 20px;">
+                            <li><strong>100 दिनों की गारंटी:</strong> प्रत्येक ग्रामीण परिवार के वयस्क सदस्यों को एक वित्तीय वर्ष में 100 दिनों के अकुशल शारीरिक श्रम की कानूनी गारंटी।</li>
+                            <li><strong>महिलाओं हेतु आरक्षण:</strong> कम से कम 1/3 (33%) लाभार्थी महिलाएँ होंगी।</li>
+                            <li><strong>रोजगार का समय:</strong> आवेदन के 15 दिनों के भीतर काम न मिलने पर बेरोजगारी भत्ता (Unemployment Allowance) देय।</li>
+                            <li><strong>कार्यस्थल की दूरी:</strong> गाँव के 5 किमी के दायरे में काम; अधिक दूरी पर 10% अतिरिक्त मजदूरी।</li>
+                            <li><strong>डिजिटल पारदर्शिता:</strong> GeoMGNREGA द्वारा संपत्ति की जिओ-टैगिंग तथा डायरेक्ट बेनिफिट ट्रांसफर (DBT) द्वारा बैंक खाते में मजदूरी।</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION: LONG & SHORT QUESTIONS, FLASHCARDS, MCQS, GLOSSARY  -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Long Answer Questions -->
+                <div class="topic-card" id="sec-qa-long">
+                    <div class="topic-title"><i class="fa-solid fa-file-pen text-amber-500"></i> Long Answer Questions (दीर्घ उत्तरीय प्रश्न)</div>
+
+                    <div class="qa-card">
+                        <div class="qa-header">
+                            <span class="qa-badge">Q1 (15 Marks)</span>
+                            <span>आर्थिक वृद्धि और आर्थिक विकास के बीच अंतर स्पष्ट कीजिए। भारत में मानव विकास सूचकांक (HDI) को सुधारने के मुख्य उपायों की विवेचना कीजिए।</span>
+                        </div>
+                        <div class="hindi-text text-sm">
+                            <p><strong>उत्तर की रूपरेखा (Model Outline):</strong></p>
+                            <ol style="padding-left: 20px;">
+                                <li><strong>भूमिका:</strong> शूमपीटर तथा टोडारो की परिभाषाओं के साथ वृद्धि व विकास का अंतर।</li>
+                                <li><strong>तुलनात्मक तालिका:</strong> मात्रात्मक बनाम गुणात्मक, दायरा, मापन सूचकांक (GDP vs HDI/MPI)।</li>
+                                <li><strong>HDI के घटक:</strong> स्वास्थ्य (जीवन प्रत्याशा), शिक्षा (स्कूली शिक्षा के औसत वर्ष), जीवन स्तर (प्रति व्यक्ति GNI)।</li>
+                                <li><strong>भारत की स्थिति व सुधार के उपाय:</strong> स्वास्थ्य आवंटन में वृद्धि (जीडीपी का 2.5%), नई शिक्षा नीति 2020 का कार्यान्वयन, लैंगिक असमानता में कमी।</li>
+                                <li><strong>निष्कर्ष:</strong> सतत विकास लक्ष्यों की प्राप्ति हेतु समावेशी वृद्धि की आवश्यकता।</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="qa-card mt-3">
+                        <div class="qa-header">
+                            <span class="qa-badge">Q2 (15 Marks)</span>
+                            <span>मनरेगा (MGNREGA) की प्रमुख विशेषताओं तथा ग्रामीण अर्थव्यवस्था, महिला सशक्तिकरण और प्रवासन पर इसके प्रभाव का आलोचनात्मक मूल्यांकन कीजिए।</span>
+                        </div>
+                        <div class="hindi-text text-sm">
+                            <p><strong>उत्तर की रूपरेखा:</strong></p>
+                            <ol style="padding-left: 20px;">
+                                <li><strong>प्रस्तावना:</strong> अधिनियम 2005 के उद्देश्य (काम का अधिकार)।</li>
+                                <li><strong>मुख्य प्रावधान:</strong> 100 दिन गारंटी, 1/3 महिला आरक्षण, बेरोजगारी भत्ता, 15-दिवसीय DBT।</li>
+                                <li><strong>सकारात्मक प्रभाव:</strong> ग्रामीण मजदूरी दर में वृद्धि, संकटकालीन प्रवासन में कमी, महिला श्रम सहभागिता में सुधार।</li>
+                                <li><strong>चुनौतियाँ व कमियाँ:</strong> मजदूरी भुगतान में देरी, परिसंपत्तियों की गुणवत्ता पर सवाल, भ्रष्टाचार।</li>
+                                <li><strong>सुझाव व निष्कर्ष:</strong> GeoMGNREGA और अभिसरण (Convergence) के माध्यम से सुधार।</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short Answer Questions -->
+                <div class="topic-card" id="sec-qa-short">
+                    <div class="topic-title"><i class="fa-solid fa-list-check text-emerald-500"></i> Short Answer Questions (लघु उत्तरीय प्रश्न)</div>
+                    <div class="qa-card">
+                        <div class="qa-header">
+                            <span class="qa-badge">Q1 (5 Marks)</span>
+                            <span>वृद्धिगत पूँजी-उत्पाद अनुपात (ICOR) क्या है?</span>
+                        </div>
+                        <p class="hindi-text text-sm">
+                            <strong>उत्तर:</strong> ICOR अतिरिक्त उत्पाद की एक इकाई प्राप्त करने के लिए आवश्यक अतिरिक्त पूँजी निवेश का अनुपात ($\text{ICOR} = \Delta K / \Delta Y$) है। ICOR का कम होना अर्थव्यवस्था की पूँजी दक्षता (Capital Efficiency) को दर्शाता है।
+                        </p>
+                    </div>
+
+                    <div class="qa-card mt-2">
+                        <div class="qa-header">
+                            <span class="qa-badge">Q2 (5 Marks)</span>
+                            <span>जनांकिकीय लाभांश (Demographic Dividend) से आप क्या समझते हैं?</span>
+                        </div>
+                        <p class="hindi-text text-sm">
+                            <strong>उत्तर:</strong> जब किसी देश की कुल जनसंख्या में 15 से 64 वर्ष के कार्यशील आयु वर्ग का अनुपात आश्रित वर्ग (0-14 वर्ष व 65+ वर्ष) से अधिक हो जाता है, तो मिलने वाले आर्थिक लाभ को जनांकिकीय लाभांश कहते हैं।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Revision Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards (क्लिक करके उत्तर देखें)</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">HDI का प्रतिपादन किसने और कब किया?</div>
+                            <div class="back">1990 में महबूब उल हक और अमर्त्य सेन द्वारा UNDP के लिए।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">PQLI के 3 मुख्य घटक कौन से हैं?</div>
+                            <div class="back">1. IMR, 2. Life Expectancy at Age 1, 3. Basic Literacy Rate.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">NITI Aayog की स्थापना कब हुई?</div>
+                            <div class="back">1 जनवरी 2015 को (योजना आयोग के स्थान पर)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Harrod-Domar मॉडल में वृद्धि दर का सूत्र क्या है?</div>
+                            <div class="back">\( g = s / \text{ICOR} \)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs (बहुविकल्पीय प्रश्न)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. निम्नलिखित में से कौन सा आर्थिक विकास का गुणात्मक मापक है?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">A) सकल घरेलू उत्पाद (GDP)</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">B) प्रति व्यक्ति राष्ट्रीय आय</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco1-1')">C) मानव विकास सूचकांक (HDI)</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">D) सकल राष्ट्रीय उत्पाद (GNP)</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco1-1">
+                                <strong>व्याख्या:</strong> HDI स्वास्थ्य, शिक्षा और जीवन स्तर के गुणात्मक सुधारों का मापन करता है, जबकि GDP और Per Capita Income केवल मात्रात्मक मापक हैं।
+                            </div>
+                        </div>
+
+                        <div class="mcq-card mt-3">
+                            <div class="mcq-question">Q2. नीति आयोग की शासी परिषद (Governing Council) में कौन शामिल होते हैं?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-2')">A) केवल केंद्रीय मंत्री</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco1-2')">B) प्रधानमंत्री, सभी राज्यों के मुख्यमंत्री एवं केंद्रशासित प्रदेशों के उपराज्यपाल</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-2')">C) केवल अर्थशास्त्री</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-2')">D) योजना आयोग के सदस्य</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco1-2">
+                                <strong>व्याख्या:</strong> सहकारी संघवाद को बढ़ावा देने के लिए शासी परिषद में सभी राज्यों के मुख्यमंत्रियों को शामिल किया गया है।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary (शब्दावली)</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">ICOR</div>
+                            <div class="glossary-def">Incremental Capital-Output Ratio — उत्पाद की 1 इकाई बढ़ाने हेतु आवश्यक अतिरिक्त पूँजी।</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">FDI</div>
+                            <div class="glossary-def">Foreign Direct Investment — किसी विदेशी कंपनी द्वारा किसी देश में भौतिक संपत्ति में प्रत्यक्ष निवेश।</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">FII / FPI</div>
+                            <div class="glossary-def">Foreign Institutional Investment — शेयर बाजार या ऋण प्रतिभूतियों में वित्तीय निवेश (Hot Money)।</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">Disguised Unemployment</div>
+                            <div class="glossary-def">प्रच्छन्न बेरोजगारी — जब आवश्यकता से अधिक लोग काम पर लगे हों और सीमांत उत्पादकता शून्य हो।</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. Eco Elective Paper 1.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

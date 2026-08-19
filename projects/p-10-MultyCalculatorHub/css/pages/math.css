@@ -1,0 +1,180 @@
+/* math.css — extracted verbatim from math.html's original inline <style>; logic/behavior unchanged, only relocated */
+/* ==========================================================================
+           1. DESIGN SYSTEM & VARIABLES (Synced with Suite Ecosystem)
+           ========================================================================== */
+        :root {
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --transition-speed: 0.4s;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --calc-bg: #ffffff;
+            --calc-border: rgba(15, 23, 42, 0.06);
+            --calc-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.04);
+            --text-main: #0f172a;
+            --text-secondary: #64748b;
+            
+            --input-bg: rgba(241, 245, 249, 0.8);
+            --accent-color: #4f46e5; /* Math Suite Indigo Theme Accent */
+            --accent-hover: #4338ca;
+            --panel-bg: #ffffff;
+            --scrollbar-thumb: rgba(15, 23, 42, 0.15);
+        }
+
+        body.dark-mode {
+            --bg-gradient: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            --calc-bg: rgba(15, 23, 42, 0.6);
+            --calc-border: rgba(255, 255, 255, 0.06);
+            --calc-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            
+            --input-bg: rgba(30, 41, 59, 0.5);
+            --accent-color: #818cf8;
+            --accent-hover: #6366f1;
+            --panel-bg: rgba(15, 23, 42, 0.95);
+            --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ==========================================================================
+           2. GLOBAL STYLES & RESET
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
+        body {
+            font-family: var(--font-main); background: var(--bg-gradient); min-height: 100vh;
+            display: flex; justify-content: center; align-items: center; padding: 40px 20px;
+            color: var(--text-main); transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+            overflow-x: hidden; position: relative;
+        }
+        body::before {
+            content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            filter: blur(150px); opacity: 0.12; z-index: -1; top: -10%; left: -10%; background: #4f46e5;
+        }
+
+        /* ==========================================================================
+           3. CONTAINER & VIEWPORTS
+           ========================================================================== */
+        .calc-container {
+            position: relative; width: 100%; max-width: 600px; 
+            max-height: calc(100vh - 40px);
+            background: var(--calc-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--calc-border); border-radius: 28px; box-shadow: var(--calc-shadow);
+            display: flex; flex-direction: column; overflow: hidden; transition: var(--transition-smooth);
+        }
+        .calc-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 24px 14px 24px; z-index: 10; flex-shrink: 0; border-bottom: 1px solid var(--calc-border);
+        }
+        .calc-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.5px; }
+        .header-controls { display: flex; gap: 10px; align-items: center; }
+        
+        .icon-btn {
+            background: var(--input-bg); border: 1px solid var(--calc-border);
+            width: 38px; height: 38px; border-radius: 12px; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            color: var(--text-main); transition: var(--transition-smooth);
+        }
+        .icon-btn:hover { transform: scale(1.05); border-color: var(--accent-color); }
+        .icon-btn:active { transform: scale(0.95); }
+        .icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .theme-btn .sun-icon, body.dark-mode .theme-btn .moon-icon { display: none; }
+        body.dark-mode .theme-btn .sun-icon { display: block; }
+
+        /* Workspace Scroller Navigation */
+        .calc-body-workspace {
+            padding: 20px 24px 24px 24px; flex-grow: 1; display: flex;
+            flex-direction: column; gap: 20px; overflow-y: auto;
+        }
+        .calc-body-workspace::-webkit-scrollbar { width: 5px; }
+        .calc-body-workspace::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+
+        /* Tabs Strip */
+        .tabs-nav {
+            display: flex; gap: 6px; background: var(--input-bg); padding: 6px; border-radius: 14px; flex-shrink: 0;
+        }
+        .tab-btn {
+            flex: 1; background: transparent; border: none; padding: 10px; font-family: var(--font-main);
+            font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); border-radius: 10px;
+            cursor: pointer; transition: var(--transition-smooth);
+        }
+        .tab-btn.active {
+            background: var(--calc-bg); color: var(--accent-color); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); font-weight: 700;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: flex; flex-direction: column; gap: 14px; }
+
+        .form-group-item { display: flex; flex-direction: column; gap: 6px; }
+        label { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.3px; }
+        
+        input[type="number"], input[type="text"], select {
+            width: 100%; background: var(--input-bg); border: 1px solid var(--calc-border);
+            padding: 12px 16px; border-radius: 12px; font-family: var(--font-main);
+            font-size: 0.95rem; font-weight: 600; color: var(--text-main); outline: none;
+            transition: var(--transition-smooth); -webkit-user-select: text; user-select: text;
+        }
+        input:focus, select:focus { border-color: var(--accent-color); }
+
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn {
+            flex: 1; min-width: 120px; padding: 12px; border: none; border-radius: 12px; font-family: var(--font-main);
+            font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: var(--transition-smooth);
+        }
+        .btn-primary { background: var(--accent-color); color: white; }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-secondary { background: rgba(14, 165, 233, 0.1); color: #0ea5e9; }
+        body.dark-mode .btn-secondary { color: #38bdf8; }
+        .btn-success { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        body.dark-mode .btn-success { color: #34d399; }
+
+        /* Matrix Elements */
+        .matrix-container { display: flex; flex-direction: column; gap: 12px; }
+        .matrix-box {
+            display: grid; gap: 8px; max-width: 220px; background: var(--input-bg);
+            padding: 12px; border-radius: 14px; border: 1px dashed var(--calc-border);
+        }
+        .matrix-input {
+            width: 100%; padding: 8px; text-align: center; background: var(--calc-bg);
+            border: 1px solid var(--calc-border); border-radius: 8px; font-family: var(--font-main); font-weight: 600; color: var(--text-main);
+        }
+
+        /* Output Frame Box */
+        .output-summary-box {
+            background: var(--input-bg); border-left: 4px solid var(--accent-color);
+            padding: 16px; border-radius: 0 16px 16px 0; display: flex; flex-direction: column; gap: 4px;
+        }
+        .summary-title { font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+        .summary-body { font-size: 1.05rem; font-weight: 700; color: var(--text-main); font-family: 'Space Grotesk', sans-serif; line-height: 1.5; }
+
+        /* Slidout History Module */
+        .history-panel {
+            position: absolute; top: 0; right: -100%; width: 100%; max-width: 380px; height: 100%;
+            background: var(--panel-bg); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            z-index: 100; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column;
+            border-left: 1px solid var(--calc-border);
+        }
+        .history-panel.open { right: 0; }
+        .history-header { display: flex; justify-content: space-between; align-items: center; padding: 24px; border-bottom: 1px solid var(--calc-border); }
+        .history-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; }
+        .history-list { flex-grow: 1; overflow-y: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+        .history-item { text-align: left; padding: 12px; border-radius: 12px; background: var(--input-bg); border: 1px solid var(--calc-border); cursor: pointer; }
+        .history-item-meta { font-size: 0.75rem; font-weight: 700; color: var(--accent-color); text-transform: uppercase; }
+        .history-item-expr { font-size: 0.85rem; color: var(--text-secondary); margin: 2px 0; }
+        .history-item-res { font-size: 1.1rem; font-weight: 700; }
+        .history-footer { padding: 20px 24px; border-top: 1px solid var(--calc-border); display: flex; justify-content: flex-end; }
+        .clear-hist-btn { background: transparent; border: none; color: var(--accent-color); font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+
+        .toast {
+            position: fixed; bottom: 35px; left: 50%; transform: translate(-50%, 40px);
+            background: #0f172a; color: #ffffff; padding: 12px 24px; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; opacity: 0; pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease; z-index: 9999;
+        }
+        body.dark-mode .toast { background: #f8fafc; color: #0f172a; }
+        .toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+        @media (max-width: 580px) {
+            .calc-container { height: 100vh; max-height: 100vh; border-radius: 0; border: none; }
+            body { padding: 0; }
+        }

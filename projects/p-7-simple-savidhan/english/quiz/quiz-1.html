@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Quiz on Fundamental Rights</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 240px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .left-sidebar, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Scrollbar Styling for Sidebars */
+    .left-sidebar::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .left-sidebar::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .sidebar-panel, .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title, .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i, .widget-title-text i {
+      font-size: 14px;
+      color: #103254;
+    }
+
+    /* Progress Widget */
+    .progress-circle-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 6px auto 12px auto;
+    }
+
+    .progress-circle-svg {
+      width: 100px;
+      height: 100px;
+      transform: rotate(-90deg);
+    }
+
+    .circle-bg {
+      fill: none;
+      stroke: #e8ecef;
+      stroke-width: 8;
+    }
+
+    .circle-fill {
+      fill: none;
+      stroke: #103254;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 326.7;
+      stroke-dashoffset: 326.7;
+      transition: stroke-dashoffset 0.4s ease;
+    }
+
+    .progress-circle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .progress-pct {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1;
+    }
+
+    .progress-sub {
+      font-size: 9px;
+      color: #637381;
+      margin-top: 2px;
+    }
+
+    .progress-count-text {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #2b3649;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background-color: #edf3f9;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background-color: #103254;
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+
+    .timer-box {
+      text-align: center;
+    }
+
+    .timer-lbl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #103254;
+      margin-bottom: 2px;
+    }
+
+    .timer-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.5px;
+    }
+
+    /* Question Navigation Grid */
+    .q-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+
+    .q-nav-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #dfe3e8;
+      background-color: #ffffff;
+      color: #2b3649;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 0 auto;
+    }
+
+    .q-nav-btn:hover {
+      border-color: #0b1a30;
+    }
+
+    .q-nav-btn.answered {
+      background-color: #103254;
+      color: #ffffff;
+      border-color: #103254;
+    }
+
+    .q-nav-btn.current {
+      background-color: #103254;
+      color: #ffffff;
+      border-color: #103254;
+      box-shadow: 0 0 0 2px #d4af37;
+    }
+
+    .legend-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+      color: #3d4a5d;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-box {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .box-answered { background-color: #103254; }
+    .box-current { background-color: #103254; border: 1.5px solid #d4af37; }
+    .box-not-answered { background-color: #ffffff; border: 1px solid #dfe3e8; }
+
+    /* Quiz Details List */
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .details-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .details-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .details-table td {
+      padding: 8px 0;
+      vertical-align: middle;
+    }
+
+    .details-icon {
+      width: 22px;
+      font-size: 13px;
+      color: #103254;
+    }
+
+    .details-lbl {
+      color: #637381;
+      font-size: 10.5px;
+    }
+
+    .details-val {
+      font-weight: 700;
+      color: #0b1a30;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    .btn-exit-quiz {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-exit-quiz:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .questions-header-bar {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 14px 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .questions-header-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .questions-header-title i {
+      font-size: 14px;
+      color: #103254;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icon-btn:hover, .action-icon-btn.active {
+      color: #103254;
+    }
+
+    /* Individual Question Card */
+    .question-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+      position: relative;
+    }
+
+    .q-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-right: 24px;
+    }
+
+    .q-number-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #103254;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .q-text-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.4;
+      padding-top: 3px;
+    }
+
+    .q-bookmark-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #103254;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 6px;
+      border: 1px solid #dfe3e8;
+      background-color: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 12.5px;
+      color: #2b3649;
+    }
+
+    .option-item:hover {
+      border-color: #103254;
+      background-color: #f8f9fb;
+    }
+
+    .option-radio {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid #919eab;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .option-radio::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: none;
+    }
+
+    .option-item.selected {
+      border-color: #103254;
+      background-color: #edf3f9;
+      font-weight: 600;
+      color: #103254;
+    }
+
+    .option-item.selected .option-radio {
+      border-color: #103254;
+      background-color: #103254;
+    }
+
+    .option-item.selected .option-radio::after {
+      display: block;
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+      border-top: 1px solid #f0f4f8;
+      padding-top: 12px;
+      margin-top: 8px;
+    }
+
+    .exp-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 4px;
+    }
+
+    .exp-desc {
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-prev-q {
+      background-color: #ffffff;
+      color: #103254;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+
+    .btn-prev-q:hover {
+      background-color: #f4f6f8;
+    }
+
+    .btn-next-q {
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+
+    .btn-next-q:hover {
+      background-color: #162a47;
+    }
+
+    .btn-submit-quiz {
+      background-color: #27ae60;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+
+    .btn-submit-quiz:hover {
+      background-color: #219150;
+    }
+
+    /* Dynamic Result Container */
+    #resultContainer {
+      display: none;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #e8ecef;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .result-score-card {
+      text-align: center;
+      background: #f4f7fb;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #103254;
+      margin-bottom: 20px;
+    }
+
+    .result-score-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 6px;
+    }
+
+    .result-score-num {
+      font-size: 32px;
+      font-weight: 700;
+      color: #103254;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .result-stat-box {
+      background: #ffffff;
+      border: 1px solid #e8ecef;
+      border-radius: 6px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .stat-lbl {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 2px;
+    }
+
+    .val-correct { color: #27ae60; }
+    .val-incorrect { color: #e74c3c; }
+    .val-unanswered { color: #f39c12; }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .review-item {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #e8ecef;
+      background: #ffffff;
+    }
+
+    .review-item.correct { border-left: 4px solid #27ae60; }
+    .review-item.incorrect { border-left: 4px solid #e74c3c; }
+    .review-item.unanswered { border-left: 4px solid #f39c12; }
+
+    /* About This Quiz Box */
+    .about-quiz-banner {
+      background-color: #f4f7fb;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-left: 4px solid #103254;
+    }
+
+    .about-quiz-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .about-quiz-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 1px solid #d0dbe7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .about-quiz-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .about-quiz-desc {
+      font-size: 11.5px;
+      color: #3d4a5d;
+      line-height: 1.4;
+    }
+
+    .books-illustration {
+      width: 70px;
+      height: 40px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23103254" opacity="0.3" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="40" width="80" height="12" rx="2"/><rect x="20" y="26" width="60" height="12" rx="2"/><rect x="75" y="10" width="10" height="30" rx="2" transform="rotate(20 80 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Instructions Checklist */
+    .instructions-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .inst-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .inst-item i {
+      font-size: 12px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Topics Covered Table */
+    .topics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .topics-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .topics-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .topics-table td {
+      padding: 7px 0;
+    }
+
+    .topic-name {
+      color: #2b3649;
+      font-weight: 500;
+    }
+
+    .topic-badge {
+      text-align: right;
+    }
+
+    .badge-count {
+      display: inline-block;
+      background-color: #edf3f9;
+      color: #103254;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #d0dbe7;
+    }
+
+    /* Leaderboard Widget */
+    .lb-subtitle {
+      font-size: 10px;
+      color: #637381;
+      font-weight: 400;
+      margin-left: -4px;
+    }
+
+    .leaderboard-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .lb-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+    }
+
+    .lb-rank {
+      width: 16px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-align: center;
+    }
+
+    .lb-name {
+      flex: 1;
+      font-weight: 600;
+      color: #2b3649;
+    }
+
+    .lb-score {
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .btn-full-lb {
+      width: 100%;
+      background-color: #ffffff;
+      color: #103254;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-full-lb:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Did You Know Widget Special Box */
+    .widget-did-you-know {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 40px;
+    }
+
+    .widget-did-you-know .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-did-you-know .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .did-you-know-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .scales-illustration {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      width: 70px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%232a7d4f" opacity="0.25" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L50 50 M20 20 L50 10 L80 20 M20 20 L10 40 L30 40 Z M80 20 L70 40 L90 40 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 20px;
+      }
+      .about-quiz-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .books-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR QUIZ-1 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .questions-header-bar,
+    [data-theme="dark"] .question-card,
+    [data-theme="dark"] #resultContainer {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .questions-header-title,
+    [data-theme="dark"] .questions-header-title i,
+    [data-theme="dark"] .q-text-title,
+    [data-theme="dark"] .progress-pct,
+    [data-theme="dark"] .details-val,
+    [data-theme="dark"] .topic-name,
+    [data-theme="dark"] .lb-rank,
+    [data-theme="dark"] .lb-name,
+    [data-theme="dark"] .lb-score,
+    [data-theme="dark"] .result-score-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .progress-sub,
+    [data-theme="dark"] .progress-count-text,
+    [data-theme="dark"] .details-lbl,
+    [data-theme="dark"] .exp-desc,
+    [data-theme="dark"] .legend-list,
+    [data-theme="dark"] .inst-item,
+    [data-theme="dark"] .about-quiz-desc,
+    [data-theme="dark"] .lb-subtitle,
+    [data-theme="dark"] .did-you-know-desc {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .timer-lbl,
+    [data-theme="dark"] .timer-val,
+    [data-theme="dark"] .exp-label,
+    [data-theme="dark"] .about-quiz-title,
+    [data-theme="dark"] .about-quiz-icon,
+    [data-theme="dark"] .inst-item i,
+    [data-theme="dark"] .details-icon,
+    [data-theme="dark"] .q-bookmark-btn {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .progress-bar-bg {
+      background-color: var(--sv-bg-input);
+    }
+
+    [data-theme="dark"] .progress-bar-fill,
+    [data-theme="dark"] .circle-fill {
+      stroke: var(--sv-gold);
+      background-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .circle-bg {
+      stroke: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .q-nav-btn {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .q-nav-btn:hover {
+      border-color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .q-nav-btn.answered {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      border-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .q-nav-btn.current {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      border-color: var(--sv-gold);
+      box-shadow: 0 0 0 2px var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .option-item {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .option-item:hover {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .option-item.selected {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-gold);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .option-item.selected .option-radio {
+      border-color: var(--sv-gold);
+      background-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .btn-prev-q,
+    [data-theme="dark"] .btn-exit-quiz,
+    [data-theme="dark"] .btn-full-lb {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-prev-q:hover,
+    [data-theme="dark"] .btn-exit-quiz:hover,
+    [data-theme="dark"] .btn-full-lb:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .btn-next-q {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-next-q:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .about-quiz-banner,
+    [data-theme="dark"] .result-score-card {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-border);
+      border-left-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .badge-count {
+      background-color: var(--sv-bg-input);
+      color: var(--sv-text-link);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .explanation-box,
+    [data-theme="dark"] .details-table tr,
+    [data-theme="dark"] .topics-table tr {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .result-stat-box,
+    [data-theme="dark"] .review-item {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .result-score-num {
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .widget-did-you-know {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-did-you-know .widget-title-text,
+    [data-theme="dark"] .widget-did-you-know .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../pages/articles.html">ARTICLES</a></li>
+      <li><a href="../pages/parts.html">PARTS</a></li>
+      <li><a href="../pages/schedules.html">SCHEDULES</a></li>
+      <li><a href="../pages/amendments.html">AMENDMENTS</a></li>
+      <li><a href="../pages/judgments.html">JUDGMENTS</a></li>
+      <li><a href="../pages/glossary.html">GLOSSARY</a></li>
+      <li><a href="../pages/quiz.html" class="active">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/quiz/quiz-1.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">Quiz on Fundamental Rights</h1>
+      <p class="hero-description">
+        Test your knowledge of Part III of the Constitution of India with 50 practice questions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <ul class="sv-breadcrumb">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../pages/quiz.html">Quiz</a></li>
+      <li>Quiz on Fundamental Rights</li>
+    </ul>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: FIXED / STICKY -->
+      <aside class="left-sidebar">
+        
+        <!-- Quiz Progress Widget -->
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>QUIZ PROGRESS</span>
+          </div>
+
+          <div class="progress-circle-container">
+            <svg class="progress-circle-svg">
+              <circle class="circle-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="circle-fill" id="progressCircleFill" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <div class="progress-circle-text">
+              <div class="progress-pct" id="progressPctText">0%</div>
+              <div class="progress-sub">Completed</div>
+            </div>
+          </div>
+
+          <div class="progress-count-text" id="progressCountText">0 / 50 Questions</div>
+
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+          </div>
+
+          <div class="timer-box">
+            <div class="timer-lbl">
+              <i class="fa-regular fa-clock"></i> Time Left
+            </div>
+            <div class="timer-val" id="timerDisplay">45:00</div>
+          </div>
+        </div>
+
+        <!-- Question Navigation Widget -->
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-grid-2"></i>
+            <span>QUESTION NAVIGATION</span>
+          </div>
+
+          <div class="q-nav-grid" id="qNavGrid">
+            <!-- Dynamically generated 50 buttons -->
+          </div>
+
+          <div class="legend-list">
+            <div class="legend-item">
+              <div class="legend-box box-answered"></div>
+              <span>Answered</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-box box-current"></div>
+              <span>Current</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-box box-not-answered"></div>
+              <span>Not Answered</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Details Widget -->
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>QUIZ DETAILS</span>
+          </div>
+
+          <table class="details-table">
+            <tr>
+              <td class="details-icon"><i class="fa-regular fa-file-lines"></i></td>
+              <td>
+                <div class="details-lbl">Total Questions</div>
+                <div class="details-val">50</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="details-icon"><i class="fa-regular fa-star"></i></td>
+              <td>
+                <div class="details-lbl">Marks per Question</div>
+                <div class="details-val">1</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="details-icon"><i class="fa-solid fa-award"></i></td>
+              <td>
+                <div class="details-lbl">Total Marks</div>
+                <div class="details-val">50</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="details-icon"><i class="fa-regular fa-circle-xmark"></i></td>
+              <td>
+                <div class="details-lbl">Negative Marking</div>
+                <div class="details-val">No</div>
+              </td>
+            </tr>
+          </table>
+
+          <button class="btn-exit-quiz" type="button" onclick="exitQuiz()">
+            EXIT QUIZ <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- Middle Main Content Panel - SCROLLABLE -->
+      <main class="main-content-panel">
+        
+        <!-- Header Bar -->
+        <div class="questions-header-bar">
+          <div class="questions-header-title">
+            <i class="fa-regular fa-file-lines"></i> QUESTIONS
+          </div>
+          <div class="header-actions">
+            <button class="action-icon-btn" id="btnBookmarkAll" title="Bookmark All" onclick="toggleBookmarkAll()"><i class="fa-regular fa-bookmark"></i></button>
+            <button class="action-icon-btn" title="Share" onclick="shareQuiz()"><i class="fa-solid fa-share-nodes"></i></button>
+            <button class="btn-submit-quiz" style="padding: 6px 12px; font-size: 11px;" onclick="submitQuiz()">SUBMIT</button>
+          </div>
+        </div>
+
+        <!-- Question Cards Container -->
+        <div id="questionsContainer">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Bottom Navigation Controls -->
+        <div class="bottom-quiz-nav" id="quizNavControls">
+          <button class="btn-prev-q" id="btnPrevQ" onclick="navigateQuestion(-1)">
+            <i class="fa-solid fa-arrow-left"></i> Previous
+          </button>
+          <button class="btn-next-q" id="btnNextQ" onclick="navigateQuestion(1)">
+            Next Question <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-submit-quiz" id="btnSubmitQ" style="display: none;" onclick="submitQuiz()">
+            SUBMIT QUIZ <i class="fa-solid fa-check"></i>
+          </button>
+        </div>
+
+        <!-- Dynamic Results Section (Loaded via JS) -->
+        <div id="resultContainer">
+          <!-- Dynamically populated when quiz is submitted -->
+        </div>
+
+        <!-- About This Quiz Banner -->
+        <div class="about-quiz-banner">
+          <div class="about-quiz-content">
+            <div class="about-quiz-icon">
+              <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <div>
+              <div class="about-quiz-title">ABOUT THIS QUIZ</div>
+              <div class="about-quiz-desc">
+                This quiz is designed to help you test and improve your knowledge of Fundamental Rights under the Constitution of India. Keep learning and know your rights!
+              </div>
+            </div>
+          </div>
+          <div class="books-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: FIXED / STICKY -->
+      <aside class="right-sidebar">
+        
+        <!-- Instructions Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>INSTRUCTIONS</span>
+          </div>
+
+          <ul class="instructions-list">
+            <li class="inst-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <span>The quiz contains 50 multiple choice questions.</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-clock"></i>
+              <span>Each question carries 1 mark.</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-circle-xmark"></i>
+              <span>There is no negative marking.</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Select the best answer and click "Next Question".</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-compass"></i>
+              <span>You can navigate between questions using the panel on the left.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Topics Covered Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>TOPICS COVERED</span>
+          </div>
+
+          <table class="topics-table">
+            <tr>
+              <td class="topic-name">Right to Equality</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-0">0/10</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">Right to Freedom</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-1">0/12</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">Right against Exploitation</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-2">0/5</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">Right to Freedom of Religion</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-3">0/6</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">Cultural and Educational Rights</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-4">0/5</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">Right to Constitutional Remedies</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-5">0/6</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">General Questions</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-6">0/6</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Leaderboard Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text" style="margin-bottom: 10px;">
+            <i class="fa-solid fa-trophy" style="color: #d18d27;"></i>
+            <span>LEADERBOARD</span>
+            <span class="lb-subtitle">(Top 5)</span>
+          </div>
+
+          <ul class="leaderboard-list">
+            <li class="lb-item">
+              <span class="lb-rank">1</span>
+              <span class="lb-name">Aarav Sharma</span>
+              <span class="lb-score">48/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">2</span>
+              <span class="lb-name">Ananya Singh</span>
+              <span class="lb-score">46/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">3</span>
+              <span class="lb-name">Vihaan Patel</span>
+              <span class="lb-score">44/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">4</span>
+              <span class="lb-name">Diya Gupta</span>
+              <span class="lb-score">42/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">5</span>
+              <span class="lb-name">Rohan Verma</span>
+              <span class="lb-score">40/50</span>
+            </li>
+          </ul>
+
+          <button class="btn-full-lb" type="button" onclick="showLeaderboardMsg()">
+            <i class="fa-solid fa-chart-simple"></i> VIEW FULL LEADERBOARD
+          </button>
+        </div>
+
+        <!-- Did You Know Widget -->
+        <div class="sidebar-widget widget-did-you-know">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>DID YOU KNOW?</span>
+          </div>
+
+          <p class="did-you-know-desc">
+            Fundamental Rights are the soul of the Constitution and ensure justice, liberty, equality and dignity to every citizen.
+          </p>
+
+          <div class="scales-illustration"></div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Interactive JavaScript Engine -->
+  <script>
+    // Complete EXACT 50-Question Database with Correct Answer Indices
+    const quizData = [
+      {
+        id: 1,
+        topicIndex: 0,
+        question: "Which Article of the Constitution guarantees the Right to Equality?",
+        options: ["A. Article 14 to 18", "B. Article 19 to 22", "C. Article 23 to 24", "D. Article 25 to 28"],
+        correct: 0,
+        explanation: "Articles 14 to 18 guarantee the Right to Equality under Part III of the Constitution."
+      },
+      {
+        id: 2,
+        topicIndex: 6,
+        question: "In which Part of the Indian Constitution are Fundamental Rights enshrined?",
+        options: ["A. Part I", "B. Part II", "C. Part III", "D. Part IV"],
+        correct: 2,
+        explanation: "Fundamental Rights are codified in Part III of the Indian Constitution (Articles 12 to 35)."
+      },
+      {
+        id: 3,
+        topicIndex: 1,
+        question: "Under which Article is the Right to Freedom of Speech and Expression guaranteed?",
+        options: ["A. Article 14", "B. Article 19(1)(a)", "C. Article 21", "D. Article 32"],
+        correct: 1,
+        explanation: "Article 19(1)(a) guarantees to all citizens the Right to Freedom of Speech and Expression."
+      },
+      {
+        id: 4,
+        topicIndex: 5,
+        question: "Which Fundamental Right allows a citizen to move the Supreme Court for enforcement of rights?",
+        options: ["A. Article 19", "B. Article 21", "C. Article 32", "D. Article 15"],
+        correct: 2,
+        explanation: "Article 32 provides the Right to Constitutional Remedies, famously called the 'Heart and Soul' of the Constitution."
+      },
+      {
+        id: 5,
+        topicIndex: 0,
+        question: "Which Article abolishes 'Untouchability' and forbids its practice in any form?",
+        options: ["A. Article 15", "B. Article 16", "C. Article 17", "D. Article 18"],
+        correct: 2,
+        explanation: "Article 17 explicitly abolishes 'Untouchability' and forbids its practice in any form."
+      },
+      {
+        id: 6,
+        topicIndex: 1,
+        question: "Which Article guarantees Protection of Life and Personal Liberty?",
+        options: ["A. Article 20", "B. Article 21", "C. Article 21A", "D. Article 22"],
+        correct: 1,
+        explanation: "Article 21 provides that no person shall be deprived of his life or personal liberty except according to procedure established by law."
+      },
+      {
+        id: 7,
+        topicIndex: 1,
+        question: "Under Article 21A, free and compulsory education is provided for children of which age group?",
+        options: ["A. 5 to 12 years", "B. 6 to 14 years", "C. 6 to 18 years", "D. 3 to 6 years"],
+        correct: 1,
+        explanation: "The 86th Constitutional Amendment Act, 2002 inserted Article 21A making free education a fundamental right for ages 6 to 14."
+      },
+      {
+        id: 8,
+        topicIndex: 2,
+        question: "Prohibition of human trafficking and forced labor is dealt under which Article?",
+        options: ["A. Article 23", "B. Article 24", "C. Article 25", "D. Article 29"],
+        correct: 0,
+        explanation: "Article 23 prohibits traffic in human beings, begar and other similar forms of forced labor."
+      },
+      {
+        id: 9,
+        topicIndex: 2,
+        question: "Article 24 prohibits the employment of children below what age in factories and mines?",
+        options: ["A. 12 years", "B. 14 years", "C. 16 years", "D. 18 years"],
+        correct: 1,
+        explanation: "Article 24 forbids employment of children below the age of 14 years in any factory, mine or hazardous workplace."
+      },
+      {
+        id: 10,
+        topicIndex: 3,
+        question: "Freedom of conscience and free profession, practice and propagation of religion is guaranteed by which Article?",
+        options: ["A. Article 25", "B. Article 26", "C. Article 27", "D. Article 28"],
+        correct: 0,
+        explanation: "Article 25 provides freedom of conscience and the right to freely profess, practice and propagate religion."
+      },
+      {
+        id: 11,
+        topicIndex: 3,
+        question: "Which Article guarantees freedom to manage religious affairs?",
+        options: ["A. Article 25", "B. Article 26", "C. Article 27", "D. Article 28"],
+        correct: 1,
+        explanation: "Article 26 gives religious denominations the right to establish and maintain institutions for religious and charitable purposes."
+      },
+      {
+        id: 12,
+        topicIndex: 4,
+        question: "Which Article protects the interests of minorities regarding conservation of language, script, or culture?",
+        options: ["A. Article 28", "B. Article 29", "C. Article 30", "D. Article 31"],
+        correct: 1,
+        explanation: "Article 29 guarantees protection to minorities to conserve their distinct language, script, or culture."
+      },
+      {
+        id: 13,
+        topicIndex: 4,
+        question: "Article 30 gives minorities the right to establish and administer which type of institutions?",
+        options: ["A. Financial Institutions", "B. Educational Institutions", "C. Political Assemblies", "D. Judicial Bodies"],
+        correct: 1,
+        explanation: "Article 30 grants all minorities, based on religion or language, the right to establish and administer educational institutions."
+      },
+      {
+        id: 14,
+        topicIndex: 0,
+        question: "Which Article ensures equality of opportunity in matters of public employment?",
+        options: ["A. Article 14", "B. Article 15", "C. Article 16", "D. Article 19"],
+        correct: 2,
+        explanation: "Article 16 guarantees equality of opportunity for all citizens in matters relating to employment under the State."
+      },
+      {
+        id: 15,
+        topicIndex: 0,
+        question: "Abolition of all titles except military and academic distinctions is prescribed under:",
+        options: ["A. Article 18", "B. Article 17", "C. Article 16", "D. Article 15"],
+        correct: 0,
+        explanation: "Article 18 abolishes titles and prohibits the State from conferring titles except military or academic distinctions."
+      },
+      {
+        id: 16,
+        topicIndex: 1,
+        question: "Protection against double jeopardy and self-incrimination is guaranteed under which Article?",
+        options: ["A. Article 19", "B. Article 20", "C. Article 21", "D. Article 22"],
+        correct: 1,
+        explanation: "Article 20 grants protection against retrospective penal laws, double jeopardy, and self-incrimination."
+      },
+      {
+        id: 17,
+        topicIndex: 1,
+        question: "Which Constitutional Amendment deleted the Right to Property from the list of Fundamental Rights?",
+        options: ["A. 42nd Amendment, 1976", "B. 44th Amendment, 1978", "C. 86th Amendment, 2002", "D. 91st Amendment, 2003"],
+        correct: 1,
+        explanation: "The 44th Amendment Act, 1978 deleted Right to Property (Art 31) from Fundamental Rights and made it a Legal Right under Art 300A."
+      },
+      {
+        id: 18,
+        topicIndex: 5,
+        question: "Which writ literally means 'We Command' and is issued to direct a public authority to perform its duty?",
+        options: ["A. Habeas Corpus", "B. Mandamus", "C. Prohibition", "D. Quo-Warranto"],
+        correct: 1,
+        explanation: "Mandamus is a judicial writ issued as a command to an officer, board, or court to perform a public or statutory duty."
+      },
+      {
+        id: 19,
+        topicIndex: 2,
+        question: "Which fundamental right safeguards citizens against arbitrary arrest and detention?",
+        options: ["A. Article 20", "B. Article 21", "C. Article 22", "D. Article 23"],
+        correct: 2,
+        explanation: "Article 22 provides procedural safeguards against arbitrary arrest and detention in certain cases."
+      },
+      {
+        id: 20,
+        topicIndex: 6,
+        question: "Can Fundamental Rights be suspended during a National Emergency?",
+        options: ["A. No, they can never be suspended", "B. Yes, except Articles 20 and 21", "C. Yes, all rights are suspended automatically", "D. Only Article 14 remains active"],
+        correct: 1,
+        explanation: "During a National Emergency under Article 359, execution of Fundamental Rights can be suspended EXCEPT Articles 20 and 21."
+      },
+      {
+        id: 21,
+        topicIndex: 0,
+        question: "Which Article defines the term 'State' for the purpose of Part III of the Constitution?",
+        options: ["A. Article 11", "B. Article 12", "C. Article 13", "D. Article 14"],
+        correct: 1,
+        explanation: "Article 12 defines the 'State' including the Government, Parliament, State Legislatures, and local or other authorities."
+      },
+      {
+        id: 22,
+        topicIndex: 0,
+        question: "Which Article declares that laws inconsistent with or in derogation of Fundamental Rights are void?",
+        options: ["A. Article 12", "B. Article 13", "C. Article 14", "D. Article 32"],
+        correct: 1,
+        explanation: "Article 13 provides for judicial review by declaring laws inconsistent with Part III as unconstitutional and void."
+      },
+      {
+        id: 23,
+        topicIndex: 0,
+        question: "Equality before Law and Equal Protection of Laws is derived respectively from which legal systems?",
+        options: ["A. British and American Law", "B. American and British Law", "C. Irish and Canadian Law", "D. French and German Law"],
+        correct: 0,
+        explanation: "'Equality before law' is of British origin, while 'Equal protection of laws' is borrowed from the US Constitution."
+      },
+      {
+        id: 24,
+        topicIndex: 0,
+        question: "Article 15 prohibits discrimination by the State on which grounds?",
+        options: ["A. Religion, Race, Caste, Sex, Place of Birth", "B. Religion, Race, Income, Residence, Sex", "C. Caste, Language, Sex, Residence, Age", "D. Religion, Caste, Education, Sex, Birth"],
+        correct: 0,
+        explanation: "Article 15(1) specifies five grounds: Religion, Race, Caste, Sex, or Place of Birth."
+      },
+      {
+        id: 25,
+        topicIndex: 0,
+        question: "Which Constitutional Amendment provided 10% reservation for Economically Weaker Sections (EWS)?",
+        options: ["A. 101st Amendment Act", "B. 102nd Amendment Act", "C. 103rd Amendment Act", "D. 104th Amendment Act"],
+        correct: 2,
+        explanation: "The 103rd Constitutional Amendment Act, 2019 introduced 10% EWS reservation under Articles 15(6) and 16(6)."
+      },
+      {
+        id: 26,
+        topicIndex: 0,
+        question: "In which landmark case did the Supreme Court cap total reservations at 50%?",
+        options: ["A. Kesavananda Bharati case", "B. Indra Sawhney case (1992)", "C. Minerva Mills case", "D. Maneka Gandhi case"],
+        correct: 1,
+        explanation: "In the Indra Sawhney vs Union of India case (1992), the Supreme Court upheld the 50% ceiling on reservations."
+      },
+      {
+        id: 27,
+        topicIndex: 1,
+        question: "How many specific freedom rights are currently guaranteed under Article 19?",
+        options: ["A. 5", "B. 6", "C. 7", "D. 8"],
+        correct: 1,
+        explanation: "Originally there were 7 freedoms, but with the deletion of Right to Property (Art 19(1)(f)), 6 freedoms remain."
+      },
+      {
+        id: 28,
+        topicIndex: 1,
+        question: "Which freedom under Article 19 allows citizens to form associations or unions or co-operative societies?",
+        options: ["A. Article 19(1)(a)", "B. Article 19(1)(b)", "C. Article 19(1)(c)", "D. Article 19(1)(d)"],
+        correct: 2,
+        explanation: "Article 19(1)(c) guarantees the right to form associations, unions, or co-operative societies."
+      },
+      {
+        id: 29,
+        topicIndex: 1,
+        question: "Under Article 19(1)(d), citizens have the right to:",
+        options: ["A. Assemble peacefully without arms", "B. Move freely throughout the territory of India", "C. Reside in any part of India", "D. Practice any profession"],
+        correct: 1,
+        explanation: "Article 19(1)(d) guarantees freedom to move freely throughout the territory of India."
+      },
+      {
+        id: 30,
+        topicIndex: 1,
+        question: "What does the protection against 'ex-post facto law' under Article 20(1) mean?",
+        options: ["A. No person can be tried twice for same offence", "B. No person can be convicted for an act that was not an offence when committed", "C. No person shall be compelled to be a witness against himself", "D. No person can be detained without trial"],
+        correct: 1,
+        explanation: "Article 20(1) prohibits enacting retrospective criminal laws to penalize acts committed before law enactment."
+      },
+      {
+        id: 31,
+        topicIndex: 1,
+        question: "The principle of 'Self-Incrimination' in Article 20(3) means:",
+        options: ["A. A person cannot be jailed without trial", "B. An accused cannot be compelled to be a witness against himself", "C. A person cannot be fined twice", "D. Protection against arrest"],
+        correct: 1,
+        explanation: "Article 20(3) mandates that no person accused of any offence shall be compelled to be a witness against himself."
+      },
+      {
+        id: 32,
+        topicIndex: 1,
+        question: "Which landmark judgment expanded Article 21 to include Right to Privacy as a Fundamental Right?",
+        options: ["A. Maneka Gandhi case (1978)", "B. K.S. Puttaswamy case (2017)", "C. AK Gopalan case (1950)", "D. Shankari Prasad case (1951)"],
+        correct: 1,
+        explanation: "A 9-judge bench in K.S. Puttaswamy vs Union of India (2017) unanimously held Privacy as a fundamental right under Art 21."
+      },
+      {
+        id: 33,
+        topicIndex: 1,
+        question: "Within how many hours must an arrested person be produced before the nearest magistrate under Article 22?",
+        options: ["A. 12 hours", "B. 24 hours", "C. 48 hours", "D. 72 hours"],
+        correct: 1,
+        explanation: "Article 22(2) mandates producing an arrested person before a magistrate within 24 hours excluding travel time."
+      },
+      {
+        id: 34,
+        topicIndex: 1,
+        question: "What is the maximum initial period of preventive detention allowed without advisory board approval?",
+        options: ["A. 1 month", "B. 2 months", "C. 3 months", "D. 6 months"],
+        correct: 2,
+        explanation: "Under Article 22(4), preventive detention cannot exceed 3 months unless an Advisory Board extends it."
+      },
+      {
+        id: 35,
+        topicIndex: 2,
+        question: "Which forced labor system was declared illegal and prohibited under Article 23?",
+        options: ["A. Zamindari System", "B. Begar", "C. Ryotwari System", "D. Mahalwari System"],
+        correct: 1,
+        explanation: "'Begar' (compulsory work without remuneration) is explicitly prohibited under Article 23."
+      },
+      {
+        id: 36,
+        topicIndex: 2,
+        question: "Can the State impose compulsory public service (like military conscription) under Article 23?",
+        options: ["A. No, it violates Article 23 completely", "B. Yes, provided it does not discriminate on grounds of religion, race, caste or class", "C. Yes, but only for defense personnel", "D. Only during martial law"],
+        correct: 1,
+        explanation: "Article 23(2) allows State to impose compulsory service for public purposes without discrimination."
+      },
+      {
+        id: 37,
+        topicIndex: 3,
+        question: "Article 27 restricts the State from doing which of the following?",
+        options: ["A. Compelling any person to pay taxes for promoting any specific religion", "B. Teaching religion in private colleges", "C. Allowing religious processions", "D. Funding minority educational institutes"],
+        correct: 0,
+        explanation: "Article 27 prohibits levying taxes where proceeds are specifically appropriated for promoting a religious denomination."
+      },
+      {
+        id: 38,
+        topicIndex: 3,
+        question: "According to Article 28, religious instruction is completely prohibited in:",
+        options: ["A. Educational institutions wholly maintained out of State funds", "B. Educational institutions recognized by State", "C. Educational institutions receiving aid from State", "D. Minority educational institutions"],
+        correct: 0,
+        explanation: "Article 28(1) strictly prohibits religious instruction in educational institutions wholly maintained by State funds."
+      },
+      {
+        id: 39,
+        topicIndex: 3,
+        question: "Is wearing and carrying of 'Kirpans' recognized as part of religious practice under Article 25?",
+        options: ["A. No, it is prohibited", "B. Yes, deemed included in profession of Sikh religion", "C. Only allowed inside Gurudwaras", "D. Allowed only with prior police permit"],
+        correct: 1,
+        explanation: "Explanation I of Article 25 states that wearing and carrying of kirpans shall be deemed included in Sikh religion."
+      },
+      {
+        id: 40,
+        topicIndex: 4,
+        question: "Article 29 protects the rights of which section of citizens?",
+        options: ["A. Religious minorities only", "B. Linguistic minorities only", "C. Any section of citizens residing in India having distinct language, script or culture", "D. Foreign citizens residing in India"],
+        correct: 2,
+        explanation: "Article 29 protects 'any section of citizens', covering both religious and linguistic minorities."
+      },
+      {
+        id: 41,
+        topicIndex: 4,
+        question: "Can the State discriminate in granting aid to educational institutions on grounds of minority management?",
+        options: ["A. Yes, State gives preference to general institutes", "B. No, prohibited under Article 30(2)", "C. Depends on State budget", "D. Only for primary schools"],
+        correct: 1,
+        explanation: "Article 30(2) restrains the State from discriminating against minority institutions while granting financial aid."
+      },
+      {
+        id: 42,
+        topicIndex: 4,
+        question: "Do non-minority communities have the protection of Article 30?",
+        options: ["A. Yes, all citizens get it", "B. No, Article 30 applies exclusively to religious and linguistic minorities", "C. Only linguistic majority gets it", "D. Applicable only in Union Territories"],
+        correct: 1,
+        explanation: "Article 30 specifically confers rights upon religious and linguistic minorities to set up educational institutions."
+      },
+      {
+        id: 43,
+        topicIndex: 5,
+        question: "Which writ is issued to release a person unlawfully detained by public or private entities?",
+        options: ["A. Mandamus", "B. Habeas Corpus", "C. Certiorari", "D. Quo-Warranto"],
+        correct: 1,
+        explanation: "Habeas Corpus (literally 'To have the body of') protects individual liberty against unlawful detention."
+      },
+      {
+        id: 44,
+        topicIndex: 5,
+        question: "The writ of 'Certiorari' is issued by a Higher Court to a Lower Court for:",
+        options: ["A. Ordering arrest", "B. Quashing an order passed without jurisdiction or in excess of jurisdiction", "C. Inquiring into legality of claim to public office", "D. Directing execution of law"],
+        correct: 1,
+        explanation: "Certiorari is a corrective writ issued to quash an illegally passed order of lower courts or tribunals."
+      },
+      {
+        id: 45,
+        topicIndex: 5,
+        question: "Which writ prevents a person from holding a public office which he is not entitled to hold?",
+        options: ["A. Mandamus", "B. Prohibition", "C. Quo-Warranto", "D. Habeas Corpus"],
+        correct: 2,
+        explanation: "Quo-Warranto ('By what authority?') inquires into the legality of a claim of a person to a public office."
+      },
+      {
+        id: 46,
+        topicIndex: 5,
+        question: "Under which Article can High Courts issue writs for enforcement of Fundamental Rights and other legal rights?",
+        options: ["A. Article 32", "B. Article 136", "C. Article 226", "D. Article 243"],
+        correct: 2,
+        explanation: "Article 226 empowers High Courts to issue writs for both Fundamental Rights and ordinary legal rights."
+      },
+      {
+        id: 47,
+        topicIndex: 6,
+        question: "Which Article empowers Parliament to modify Fundamental Rights in their application to Armed Forces?",
+        options: ["A. Article 33", "B. Article 34", "C. Article 35", "D. Article 19"],
+        correct: 0,
+        explanation: "Article 33 authorizes Parliament to restrict or abrogate Fundamental Rights of members of armed forces/police."
+      },
+      {
+        id: 48,
+        topicIndex: 6,
+        question: "Article 34 provides for restriction on Fundamental Rights while what is in force in any area?",
+        options: ["A. President Rule", "B. Financial Emergency", "C. Martial Law", "D. Model Code of Conduct"],
+        correct: 2,
+        explanation: "Article 34 restricts Fundamental Rights while Martial Law (military rule) is in operation in any territory."
+      },
+      {
+        id: 49,
+        topicIndex: 6,
+        question: "Who called Article 32 the 'Very Soul and Heart' of the Constitution?",
+        options: ["A. Mahatma Gandhi", "B. Jawaharlal Nehru", "C. Dr. B.R. Ambedkar", "D. Sardar Vallabhbhai Patel"],
+        correct: 2,
+        explanation: "Dr. B.R. Ambedkar famously referred to Article 32 as the 'Heart and Soul' of the Constitution."
+      },
+      {
+        id: 50,
+        topicIndex: 6,
+        question: "Fundamental Rights in the Indian Constitution were primarily inspired by which nation's Constitution?",
+        options: ["A. USA (Bill of Rights)", "B. UK (Unwritten Constitution)", "C. USSR (Constitution of 1936)", "D. Australia"],
+        correct: 0,
+        explanation: "The concept of Fundamental Rights was heavily inspired by the Bill of Rights in the Constitution of the USA."
+      }
+    ];
+
+    // Topic configurations for calculation across 50 questions
+    const topicTotals = [10, 12, 5, 6, 5, 6, 6];
+
+    // State Variables
+    const totalQuestions = 50;
+    let currentQuestion = 1;
+    let answeredQuestions = {}; // Format: { qNum: optionIndex }
+    let bookmarkedQuestions = {}; // Format: { qNum: boolean }
+    let timeRemaining = 45 * 60; // 45 minutes
+    let timerInterval = null;
+
+    // Render All Question Cards into Main Container
+    function renderQuestionCards() {
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = '';
+
+      quizData.forEach((item, index) => {
+        const qNum = index + 1;
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `qCard-${qNum}`;
+        card.style.display = (qNum === currentQuestion) ? 'block' : 'none';
+
+        const isBookmarked = bookmarkedQuestions[qNum] ? 'fa-solid' : 'fa-regular';
+        const selectedOpt = answeredQuestions[qNum];
+
+        let optionsHtml = '';
+        item.options.forEach((optText, optIdx) => {
+          const isSelected = (selectedOpt === optIdx) ? 'selected' : '';
+          optionsHtml += `
+            <div class="option-item ${isSelected}" onclick="selectOption(${qNum}, ${optIdx})">
+              <div class="option-radio"></div>
+              <span>${optText}</span>
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <button class="q-bookmark-btn" onclick="toggleBookmark(${qNum})">
+            <i class="${isBookmarked} fa-bookmark"></i>
+          </button>
+          <div class="q-card-header">
+            <div class="q-number-circle">${qNum}</div>
+            <div class="q-text-title">${item.question}</div>
+          </div>
+          <div class="options-list">
+            ${optionsHtml}
+          </div>
+          <div class="explanation-box">
+            <div class="exp-label">Explanation:</div>
+            <div class="exp-desc">${item.explanation}</div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // Initialize Question Navigation Grid
+    function renderQuestionGrid() {
+      const qNavGrid = document.getElementById('qNavGrid');
+      qNavGrid.innerHTML = '';
+
+      for (let i = 1; i <= totalQuestions; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'q-nav-btn';
+        btn.innerText = i;
+        btn.onclick = () => jumpToQuestion(i);
+
+        if (i === currentQuestion) {
+          btn.classList.add('current');
+        } else if (answeredQuestions[i] !== undefined) {
+          btn.classList.add('answered');
+        }
+
+        qNavGrid.appendChild(btn);
+      }
+    }
+
+    // Select Option Logic
+    function selectOption(qNum, optionIndex) {
+      answeredQuestions[qNum] = optionIndex;
+      
+      const card = document.getElementById(`qCard-${qNum}`);
+      if (card) {
+        const options = card.querySelectorAll('.option-item');
+        options.forEach((opt, idx) => {
+          if (idx === optionIndex) {
+            opt.classList.add('selected');
+          } else {
+            opt.classList.remove('selected');
+          }
+        });
+      }
+
+      updateProgress();
+      updateTopicBadges();
+      renderQuestionGrid();
+    }
+
+    // Bookmark Toggle Logic
+    function toggleBookmark(qNum) {
+      bookmarkedQuestions[qNum] = !bookmarkedQuestions[qNum];
+      renderQuestionCards();
+    }
+
+    function toggleBookmarkAll() {
+      const btn = document.getElementById('btnBookmarkAll');
+      const shouldBookmark = !btn.classList.contains('active');
+      
+      for (let i = 1; i <= totalQuestions; i++) {
+        bookmarkedQuestions[i] = shouldBookmark;
+      }
+      
+      if (shouldBookmark) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+      renderQuestionCards();
+    }
+
+    // Update Progress Bar & SVG Circular Chart
+    function updateProgress() {
+      const count = Object.keys(answeredQuestions).length;
+      const pct = Math.round((count / totalQuestions) * 100);
+
+      document.getElementById('progressCountText').innerText = `${count} / ${totalQuestions} Questions`;
+      document.getElementById('progressPctText').innerText = `${pct}%`;
+
+      document.getElementById('progressBarFill').style.width = `${pct}%`;
+
+      const circumference = 263.8;
+      const offset = circumference - (pct / 100) * circumference;
+      document.getElementById('progressCircleFill').style.strokeDashoffset = offset;
+    }
+
+    // Topic Badges Update
+    function updateTopicBadges() {
+      let topicCounts = [0, 0, 0, 0, 0, 0, 0];
+      
+      Object.keys(answeredQuestions).forEach(qNum => {
+        const qIndex = parseInt(qNum) - 1;
+        const topicIdx = quizData[qIndex].topicIndex;
+        topicCounts[topicIdx]++;
+      });
+
+      topicCounts.forEach((cnt, idx) => {
+        const badge = document.getElementById(`topic-badge-${idx}`);
+        if (badge) {
+          badge.innerText = `${cnt}/${topicTotals[idx]}`;
+        }
+      });
+    }
+
+    // Navigate Questions
+    function navigateQuestion(direction) {
+      currentQuestion += direction;
+      if (currentQuestion < 1) currentQuestion = 1;
+      if (currentQuestion > totalQuestions) currentQuestion = totalQuestions;
+
+      updateCardVisibility();
+      renderQuestionGrid();
+    }
+
+    function jumpToQuestion(qNum) {
+      currentQuestion = qNum;
+      updateCardVisibility();
+      renderQuestionGrid();
+    }
+
+    function updateCardVisibility() {
+      for (let i = 1; i <= totalQuestions; i++) {
+        const card = document.getElementById(`qCard-${i}`);
+        if (card) {
+          card.style.display = (i === currentQuestion) ? 'block' : 'none';
+        }
+      }
+
+      const btnNext = document.getElementById('btnNextQ');
+      const btnSubmit = document.getElementById('btnSubmitQ');
+      if (currentQuestion === totalQuestions) {
+        btnNext.style.display = 'none';
+        btnSubmit.style.display = 'inline-flex';
+      } else {
+        btnNext.style.display = 'inline-flex';
+        btnSubmit.style.display = 'none';
+      }
+
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    // Timer Countdown Logic
+    function startTimer() {
+      const timerDisplay = document.getElementById('timerDisplay');
+      if (timerInterval) clearInterval(timerInterval);
+
+      timerInterval = setInterval(() => {
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          submitQuiz();
+          return;
+        }
+        timeRemaining--;
+        const mins = Math.floor(timeRemaining / 60);
+        const secs = timeRemaining % 60;
+        timerDisplay.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    // Submit Quiz & Dynamic Result Render
+    function submitQuiz() {
+      if (timerInterval) clearInterval(timerInterval);
+
+      let correctCount = 0;
+      let incorrectCount = 0;
+      let unattemptedCount = 0;
+
+      quizData.forEach((q, idx) => {
+        const qNum = idx + 1;
+        const userAns = answeredQuestions[qNum];
+        if (userAns === undefined) {
+          unattemptedCount++;
+        } else if (userAns === q.correct) {
+          correctCount++;
+        } else {
+          incorrectCount++;
+        }
+      });
+
+      const totalMarks = correctCount;
+      const percentage = Math.round((totalMarks / totalQuestions) * 100);
+
+      document.getElementById('questionsContainer').style.display = 'none';
+      document.getElementById('quizNavControls').style.display = 'none';
+
+      const resultBox = document.getElementById('resultContainer');
+      resultBox.style.display = 'block';
+
+      let reviewItemsHtml = '';
+      quizData.forEach((q, idx) => {
+        const qNum = idx + 1;
+        const userAns = answeredQuestions[qNum];
+        let statusClass = 'unanswered';
+
+        if (userAns !== undefined) {
+          if (userAns === q.correct) {
+            statusClass = 'correct';
+          } else {
+            statusClass = 'incorrect';
+          }
+        }
+
+        reviewItemsHtml += `
+          <div class="review-item ${statusClass}">
+            <div style="font-weight:700; font-size:12.5px; color:var(--sv-text-heading, #0b1a30); margin-bottom:6px;">
+              Q${qNum}. ${q.question}
+            </div>
+            <div style="font-size:11.5px; margin-bottom:4px; color:var(--sv-text-primary, #2b3649);">
+              <strong>Your Answer:</strong> ${userAns !== undefined ? q.options[userAns] : '<span style="color:#f39c12">Skipped</span>'}
+            </div>
+            <div style="font-size:11.5px; margin-bottom:6px; color:#27ae60;">
+              <strong>Correct Answer:</strong> ${q.options[q.correct]}
+            </div>
+            <div style="font-size:11px; color:var(--sv-text-secondary, #526071); background:var(--sv-bg-input, #f8f9fb); padding:8px; border-radius:4px;">
+              <strong>Explanation:</strong> ${q.explanation}
+            </div>
+          </div>
+        `;
+      });
+
+      resultBox.innerHTML = `
+        <div class="result-score-card">
+          <div class="result-score-title">QUIZ COMPLETED</div>
+          <div class="result-score-num">${totalMarks} / ${totalQuestions}</div>
+          <div style="font-size:12.5px; color:var(--sv-text-secondary, #637381); margin-top:4px;">Overall Score: ${percentage}%</div>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-stat-box">
+            <div class="stat-val val-correct">${correctCount}</div>
+            <div class="stat-lbl">Correct</div>
+          </div>
+          <div class="result-stat-box">
+            <div class="stat-val val-incorrect">${incorrectCount}</div>
+            <div class="stat-lbl">Incorrect</div>
+          </div>
+          <div class="result-stat-box">
+            <div class="stat-val val-unanswered">${unattemptedCount}</div>
+            <div class="stat-lbl">Unattempted</div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-bottom:16px;">
+          <button class="btn-submit-quiz" onclick="restartQuiz()">
+            <i class="fa-solid fa-rotate-left"></i> RESTART QUIZ
+          </button>
+        </div>
+
+        <div style="font-size:13px; font-weight:700; color:var(--sv-text-heading, #0b1a30); margin-bottom:10px; border-bottom:1px solid var(--sv-border, #e8ecef); padding-bottom:6px;">
+          DETAILED ANSWER KEY & REVIEW
+        </div>
+        <div class="review-list">
+          ${reviewItemsHtml}
+        </div>
+      `;
+
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    // Restart Quiz Functionality
+    function restartQuiz() {
+      answeredQuestions = {};
+      bookmarkedQuestions = {};
+      currentQuestion = 1;
+      timeRemaining = 45 * 60;
+
+      document.getElementById('resultContainer').style.display = 'none';
+      document.getElementById('questionsContainer').style.display = 'block';
+      document.getElementById('quizNavControls').style.display = 'flex';
+
+      renderQuestionCards();
+      renderQuestionGrid();
+      updateProgress();
+      updateTopicBadges();
+      updateCardVisibility();
+      startTimer();
+    }
+
+    // Share Functionality
+    function shareQuiz() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Savidhan Quiz on Fundamental Rights',
+          text: 'Test your understanding of Fundamental Rights under the Constitution of India!',
+          url: window.location.href
+        }).catch(() => {});
+      }
+    }
+
+    // Exit Quiz Logic
+    function exitQuiz() {
+      const count = Object.keys(answeredQuestions).length;
+      if (confirm(`You have answered ${count} out of 50 questions. Are you sure you want to exit?`)) {
+        window.location.href = '../pages/quiz.html';
+      }
+    }
+
+    function showLeaderboardMsg() {
+      alert('Leaderboard is updated live after quiz completion!');
+    }
+
+    // On Load Initializer
+    document.addEventListener('DOMContentLoaded', () => {
+      renderQuestionCards();
+      renderQuestionGrid();
+      updateProgress();
+      updateTopicBadges();
+      startTimer();
+    });
+  </script>
+
+  <!-- Footer -->
+ <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+          <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">Articles</a></li>
+            <li><a href="../pages/parts.html">Parts</a></li>
+            <li><a href="../pages/schedules.html">Schedules</a></li>
+            <li><a href="../pages/amendments.html">Amendments</a></li>
+            <li><a href="../pages/judgments.html">Judgments</a></li>
+            <li><a href="../pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="../pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

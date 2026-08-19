@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अर्थशास्त्र ऐच्छिक 3 — पर्यावरणीय अर्थशास्त्र | बी.ए. 5वां सेमेस्टर पाठ्यपुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर अर्थशास्त्र ऐच्छिक 3: पर्यावरणीय अर्थशास्त्र। बाह्यताएं, कोस का प्रमेय, पर्यावरणीय कुजनेट्स वक्र (EKC), पिगोवियन कर, पेरिस जलवायु समझौता एवं पंचामृत लक्ष्य।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">अर्थशास्त्र ऐच्छिक 3</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> पाठ्य सामग्री</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> परीक्षा विशेष</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-elective-3', 'अर्थशास्त्र ऐच्छिक 3 — पर्यावरण')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">अर्थशास्त्र</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">पर्यावरणीय अर्थशास्त्र एवं सतत विकास</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: बाजार विफलताओं एवं बाह्यताएं</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 पर्यावरण एवं ऊष्मागतिकी के नियम</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 बाह्यताएँ एवं कोस का प्रमेय (Coase Theorem)</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 पर्यावरणीय कुजनेट्स वक्र (EKC)</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: पर्यावरणीय नीतियां</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 पिगोवियन कर (Pigouvian Tax) एवं कैप-एंड-ट्रेड</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 3: वैश्विक समझौते एवं भारत</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 पेरिस समझौता एवं भारत का 'पंचामृत' लक्ष्य</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 4: भारत में पर्यावरण आंदोलन</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 चिपको आंदोलन एवं NGT एक्ट 2010</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>परीक्षा विशेष अनुभाग</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-flashcards" class="toc-link">त्वरित पुनरीक्षण फ्लैशकार्ड</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">अभ्यास प्रश्न (MCQs)</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-leaf"></i> अर्थशास्त्र ऐच्छिक प्रश्नपत्र III</div>
+                <h1>पर्यावरणीय अर्थशास्त्र एवं सतत विकास</h1>
+                <p>
+                    यह संपूर्ण पाठ्यपुस्तक अर्थव्यवस्था एवं पर्यावरण की परस्पर क्रिया, बाह्यताओं (Externalities), कोस के प्रमेय (Coase Theorem), पर्यावरणीय कुजनेट्स वक्र (EKC), पिगोवियन कर, कार्बन व्यापार, पेरिस जलवायु समझौते और भारत के पंचामृत लक्ष्यों का विस्तृत अध्ययन प्रस्तुत करती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">कोस का प्रमेय</span>
+                        <span class="stat-label">संपत्ति के अधिकार एवं सौदेबाजी</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">EKC मॉडल</span>
+                        <span class="stat-label">उल्टा U-आकार वक्र</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">पंचामृत लक्ष्य</span>
+                        <span class="stat-label">COP26 2070 शुद्ध शून्य (Net Zero)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: MARKET FAILURE & EXTERNALITIES                                     -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>बाजार विफलताएं एवं बाह्यताएं</h2>
+                </div>
+
+                <!-- 1.1 Externalities -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>बाजार विफलता एवं नकारात्मक बाह्यताएं (Negative Externalities)</span>
+                    </div>
+
+                    <p>
+                        पर्यावरणीय अर्थशास्त्र में बाजार विफलता (Market Failure) तब होती है जब स्वतंत्र बाजार व्यवस्था संसाधनों का कुशल आवंटन करने में विफल रहती है। जब किसी कारखाने के प्रदूषण का प्रभाव तीसरे पक्ष को भुगतना पड़ता है, तो इसे नकारात्मक बाह्यता कहा जाता है।
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-triangle-exclamation"></i> सामाजिक लागत (Social Cost) समीकरण:</h4>
+                        $$\text{सामाजिक लागत (Social Cost)} = \text{निजी लागत (Private Cost)} + \text{बाह्य लागत (External Cost)}$$
+                    </div>
+                </div>
+
+                <!-- 1.2 Coase Theorem -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>रोनाल्ड कोस का प्रमेय (Coase Theorem - 1960)</span>
+                    </div>
+                    <p>
+                        कोस प्रमेय के अनुसार, यदि संपत्ति के अधिकार (Property Rights) स्पष्ट रूप से परिभाषित हों और सौदा करने की लागत (Transaction Costs) नगण्य हो, तो सरकारी हस्तक्षेप के बिना भी निजी पक्ष बाह्यताओं का कुशल आर्थिक समाधान निकाल सकते हैं।
+                    </p>
+                </div>
+
+                <!-- 1.3 EKC -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>पर्यावरणीय कुजनेट्स वक्र (Environmental Kuznets Curve - EKC)</span>
+                    </div>
+
+                    <p>
+                        EKC परिकल्पना के अनुसार, आर्थिक विकास के शुरुआती चरणों में प्रदूषण बढ़ता है, लेकिन एक निश्चित प्रति व्यक्ति आय (Turning Point) प्राप्त करने के बाद तकनीकी विकास और पर्यावरण जागरूकता के कारण प्रदूषण घटने लगता है (उल्टा U-आकार का वक्र)।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: ENVIRONMENTAL POLICIES                                             -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>पर्यावरणीय नीतियां: पिगोवियन कर एवं कैप-एंड-ट्रेड</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>पिगोवियन कर (Pigouvian Tax) एवं कार्बन परमिट व्यापार</span>
+                    </div>
+                    <p>
+                        अर्थशास्त्री आर्थर पिगू के अनुसार, प्रदूषण उत्पन्न करने वाली इकाइयों पर उनकी बाह्य क्षति के बराबर कर लगाया जाना चाहिए ('प्रदूषक भुगतान करे' सिद्धांत)। 'कैप-एंड-ट्रेड' (Cap-and-Trade) व्यवस्था में सरकार प्रदूषण की सीमा निर्धारित करती है और कार्बन क्रेडिट का व्यापार करने की अनुमति देती है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: GLOBAL AGREEMENTS & INDIA                                          -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 3</span>
+                    <h2>वैश्विक समझौते एवं भारत का 'पंचामृत' लक्ष्य</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>पेरिस जलवायु समझौता (2015) एवं COP26 पंचामृत संकल्प</span>
+                    </div>
+                    <p>
+                        भारत ने ग्लासगो COP26 सम्मेलन (2021) में 5 पंचामृत संकल्प पेश किए: 1. 2030 तक गैर-जीवाश्म ऊर्जा क्षमता को 500 GW तक बढ़ाना, 2. 50% ऊर्जा नवीकरणीय स्रोतों से प्राप्त करना, 3. 2030 तक कुल कार्बन उत्सर्जन में 1 बिलियन टन की कटौती, 4. अर्थव्यवस्था की कार्बन तीव्रता को 45% से कम करना, और 5. <strong>वर्ष 2070 तक शुद्ध शून्य (Net Zero) कार्बन उत्सर्जन का लक्ष्य।</strong>
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: ENVIRONMENTAL MOVEMENTS IN INDIA                                  -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 4</span>
+                    <h2>भारत में पर्यावरण आंदोलन एवं नेशनल ग्रीन ट्रिब्यूनल (NGT)</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>चिपको आंदोलन, नर्मदा बचाओ आंदोलन एवं NGT एक्ट 2010</span>
+                    </div>
+                    <p>
+                        सुंदरलाल बहुगुणा के नेतृत्व में चिपको आंदोलन (1973) तथा मेधा पाटकर के नेतृत्व में नर्मदा बचाओ आंदोलन ने भारत में पर्यावरण संरक्षण को जन-आंदोलन बनाया। वर्ष 2010 में त्वरित पर्यावरणीय न्याय हेतु <strong>राष्ट्रीय हरित अधिकरण (National Green Tribunal - NGT)</strong> की स्थापना की गई।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">परीक्षा विशेष</span>
+                    <h2>परीक्षा प्रश्न बैंक एवं पुनरीक्षण उपकरण</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> त्वरित पुनरीक्षण फ्लैशकार्ड</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">पर्यावरणीय कुजनेट्स वक्र (EKC) का आकार कैसा होता है?</div>
+                            <div class="back">उल्टा U-आकार (Inverted U-Shape)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">प्रदूषक द्वारा दी जाने वाली क्षति पर लगाए जाने वाले कर को क्या कहते हैं?</div>
+                            <div class="back">पिगोवियन कर (Pigouvian Tax)।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">भारत का नेट-जीरो (Net-Zero) कार्बन उत्सर्जन का लक्ष्य किस वर्ष तक है?</div>
+                            <div class="back">वर्ष 2070 तक (COP26 पंचामृत संकल्प)।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> अभ्यास प्रश्न (MCQs)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">प्र1. कोस के प्रमेय (Coase Theorem) की मुख्य शर्त निम्नलिखित में से कौन सी है?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco3-1')">क) उच्च सरकारी हस्तक्षेप</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco3-1')">ख) सुपरिभाषित संपत्ति अधिकार एवं शून्य लेनदेन लागत</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco3-1')">ग) उच्च कराधान</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco3-1')">घ) एकाधिकार बाजार</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco3-1">
+                                <strong>स्पष्टीकरण:</strong> कोस प्रमेय के अनुसार, यदि संपत्ति के अधिकार स्पष्ट रूप से परिभाषित हैं और सौदा करने की लागत शून्य है, तो निजी पक्ष बाह्यताओं का कुशल समाधान स्वयं खोज सकते हैं।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। अर्थशास्त्र ऐच्छिक 3।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3" selected>अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

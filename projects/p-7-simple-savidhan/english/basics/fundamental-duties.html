@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Fundamental Duties of the Constitution of India</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 30px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-part-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .hero-description {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr 270px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Left Sidebar */
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item::before {
+      content: "•";
+      font-size: 12px;
+      color: #0b1a30;
+    }
+
+    .nav-item.active {
+      background-color: #edf3f9;
+      color: #103254;
+      font-weight: 600;
+    }
+
+    .nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .article-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .article-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icon-btn:hover {
+      color: #0b1a30;
+    }
+
+    .action-icon-btn.bookmarked {
+      color: #d4af37;
+    }
+
+    .btn-listen-article {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-listen-article:hover {
+      background-color: #f8f9fb;
+    }
+
+    .article-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Original Article Card Box */
+    .original-article-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .original-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .original-header-line i {
+      font-size: 16px;
+    }
+
+    .article-clause-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+      color: #0b1a30;
+      line-height: 1.6;
+    }
+
+    .article-clause-list li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .article-clause-list li strong {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #103254;
+      font-weight: 700;
+    }
+
+    /* Detailed Explanation Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .english-paragraph {
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.6;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Key Takeaway Exam Note Box */
+    .exam-note-box {
+      background-color: #f3ecf8;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid #e5d7f2;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .exam-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6a4498;
+      font-size: 14px;
+      flex-shrink: 0;
+      border: 1px solid #d8c2eb;
+    }
+
+    .exam-note-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6a4498;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .gavel-illustration {
+      width: 80px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a5cb8" opacity="0.8" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="45" width="80" height="8" rx="2"/><rect x="20" y="30" width="30" height="12" rx="2"/><rect x="60" y="10" width="10" height="30" rx="2" transform="rotate(30 65 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 15px;
+    }
+
+    /* Key Points Checklist */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Important Terms Box */
+    .important-terms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    .important-terms-list strong {
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner {
+        padding: 24px 30px;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .article-main-heading {
+        font-size: 20px;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gavel-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR FUNDAMENTAL DUTIES PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-part-label {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .article-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .article-main-heading,
+    [data-theme="dark"] .article-clause-list,
+    [data-theme="dark"] .article-clause-list li strong,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .important-terms-list strong {
+      color: var(--sv-text-heading) !important;
+    }
+
+    [data-theme="dark"] .nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-listen-article {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-listen-article:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .action-icon-btn:hover {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .original-article-box {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .original-header-line {
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .point-item i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .english-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .point-item,
+    [data-theme="dark"] .important-terms-list {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: rgba(106, 68, 152, 0.2);
+      border-color: rgba(106, 68, 152, 0.4);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: rgba(106, 68, 152, 0.4);
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-title {
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../pages/articles.html">ARTICLES</a></li>
+      <li><a href="../pages/parts.html" class="active">PARTS</a></li>
+      <li><a href="../pages/schedules.html">SCHEDULES</a></li>
+      <li><a href="../pages/amendments.html">AMENDMENTS</a></li>
+      <li><a href="../pages/judgments.html">JUDGMENTS</a></li>
+      <li><a href="../pages/glossary.html">GLOSSARY</a></li>
+      <li><a href="../pages/quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/basics/fundamental-duties.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <div class="hero-part-label">PART IV-A (ARTICLE 51A)</div>
+      <h1 class="hero-title">Fundamental Duties</h1>
+      <p class="hero-description">
+        Part IV-A of the Constitution lays down the moral and civic duties<br>
+        expected from every patriotic citizen of India.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/parts.html">Parts</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="#">Part IV-A - Fundamental Duties</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>Article 51A</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: On This Page -->
+      <aside class="left-sidebar">
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>ON THIS PAGE</span>
+          </div>
+
+          <ul class="nav-list" id="onThisPageNav">
+            <li class="nav-item active" data-target="section-duties-text">Article 51A Text</li>
+            <li class="nav-item" data-target="section-simple-explanation">Simple Explanation</li>
+            <li class="nav-item" data-target="section-background">Historical Background</li>
+            <li class="nav-item" data-target="section-importance">Importance & Significance</li>
+            <li class="nav-item" data-target="section-key-takeaway">Exam Note / Key Takeaway</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Middle Main Content Panel -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="article-header-card" id="section-header">
+          <div class="article-top-bar">
+            <div class="article-badge-title">
+              <i class="fa-regular fa-file-lines"></i> ARTICLE 51A
+            </div>
+            <div class="article-actions">
+              <button class="action-icon-btn" id="bookmarkBtn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" id="shareBtn" title="Share"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-article" id="listenBtn" type="button">
+                <i class="fa-solid fa-volume-high"></i> <span id="listenText">Listen to Duties</span>
+              </button>
+            </div>
+          </div>
+          <h1 class="article-main-heading">Fundamental Duties of Citizens</h1>
+        </div>
+
+        <!-- Section 1: Original Text of 11 Fundamental Duties -->
+        <div class="original-article-box" id="section-duties-text">
+          <div class="original-header-line">
+            <i class="fa-solid fa-quote-left"></i> 1. ARTICLE 51A - 11 FUNDAMENTAL DUTIES
+          </div>
+          <p style="font-size: 13px; margin-bottom: 14px; font-weight: 600;">It shall be the duty of every citizen of India—</p>
+          
+          <ul class="article-clause-list">
+            <li><strong>(a)</strong> To abide by the Constitution and respect its ideals and institutions, the National Flag and the National Anthem;</li>
+            <li><strong>(b)</strong> To cherish and follow the noble ideals which inspired our national struggle for freedom;</li>
+            <li><strong>(c)</strong> To uphold and protect the sovereignty, unity and integrity of India;</li>
+            <li><strong>(d)</strong> To defend the country and render national service when called upon to do so;</li>
+            <li><strong>(e)</strong> To promote harmony and the spirit of common brotherhood amongst all the people of India transcending religious, linguistic and regional or sectional diversities; to renounce practices derogatory to the dignity of women;</li>
+            <li><strong>(f)</strong> To value and preserve the rich heritage of our composite culture;</li>
+            <li><strong>(g)</strong> To protect and improve the natural environment including forests, lakes, rivers and wild life, and to have compassion for living creatures;</li>
+            <li><strong>(h)</strong> To develop the scientific temper, humanism and the spirit of inquiry and reform;</li>
+            <li><strong>(i)</strong> To safeguard public property and to abjure violence;</li>
+            <li><strong>(j)</strong> To strive towards excellence in all spheres of individual and collective activity so that the nation constantly rises to higher levels of endeavour and achievement;</li>
+            <li><strong>(k)</strong> To provide opportunities for education to his child or ward between the age of six and fourteen years (Added by 86th Amendment, 2002).</li>
+          </ul>
+        </div>
+
+        <!-- Section 2: Simple Explanation -->
+        <div class="content-card-box" id="section-simple-explanation">
+          <div class="card-section-title">
+            <i class="fa-regular fa-file-code"></i> 2. SIMPLE EXPLANATION
+          </div>
+          <p class="english-paragraph">
+            Just as the Constitution grants us Fundamental Rights, it also expects civic and moral responsibilities from its citizens in the form of Fundamental Duties. These 11 duties serve as a constant reminder that while enjoying our rights, we must also perform our obligations towards society, the environment, and the nation.
+          </p>
+        </div>
+
+        <!-- Section 3: Historical Background -->
+        <div class="content-card-box" id="section-background">
+          <div class="card-section-title">
+            <i class="fa-solid fa-clock-rotate-left"></i> 3. HISTORICAL BACKGROUND
+          </div>
+          <ul class="bullet-points-list">
+            <li>The original Constitution of India (1950) did not contain Fundamental Duties.</li>
+            <li>They were incorporated into Part IV-A through the <strong>42nd Constitutional Amendment Act, 1976</strong>, upon the recommendations of the <strong>Swaran Singh Committee</strong>.</li>
+            <li>Initially, 10 Fundamental Duties were added to Article 51A.</li>
+            <li>The 11th Fundamental Duty (duty regarding education for children) was added by the <strong>86th Amendment Act, 2002</strong>.</li>
+          </ul>
+        </div>
+
+        <!-- Section 4: Importance & Enforcement -->
+        <div class="content-card-box" id="section-importance">
+          <div class="card-section-title">
+            <i class="fa-solid fa-shield-halved"></i> 4. IMPORTANCE & ENFORCEABILITY
+          </div>
+          <p class="english-paragraph">
+            Fundamental Duties are non-justiciable in nature, meaning they cannot be directly enforced by courts nor is there any direct constitutional punishment for their violation. However, Parliament has enacted several statutory laws (e.g., Prevention of Insults to National Honour Act, Wildlife Protection Act) to enforce specific duties effectively.
+          </p>
+        </div>
+
+        <!-- Exam Note / Key Takeaway Banner -->
+        <div class="exam-note-box" id="section-key-takeaway">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">EXAM NOTE / KEY TAKEAWAY</div>
+              <div class="exam-note-desc">
+                Remember: Part IV-A | Article 51A | Total 11 Duties | Borrowed from USSR Constitution | Added by 42nd Amendment (1976) & 86th Amendment (2002).
+              </div>
+            </div>
+          </div>
+          <div class="gavel-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Key Points Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>KEY POINTS</span>
+          </div>
+
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Applies only to Citizens of India (not foreigners).</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Non-justiciable in nature.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Inspired by USSR Constitution.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Referred to Swaran Singh Committee.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Terms Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-book-bookmark"></i>
+            <span>IMPORTANT TERMS</span>
+          </div>
+
+          <div class="important-terms-list">
+            <p><strong>Part IV-A:</strong> Separate Part dedicated to Fundamental Duties.</p>
+            <p><strong>Article 51A:</strong> The single Article containing all 11 duties.</p>
+            <p><strong>Scientific Temper:</strong> Duty to foster logic, inquiry, and scientific thinking.</p>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+   <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">Articles</a></li>
+            <li><a href="../pages/parts.html">Parts</a></li>
+            <li><a href="../pages/schedules.html">Schedules</a></li>
+            <li><a href="../pages/amendments.html">Amendments</a></li>
+            <li><a href="../pages/judgments.html">Judgments</a></li>
+            <li><a href="../pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="../pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation Smooth Scroll
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Bookmark Toggle
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    let isBookmarked = false;
+    bookmarkBtn.addEventListener('click', () => {
+      isBookmarked = !isBookmarked;
+      const icon = bookmarkBtn.querySelector('i');
+      if (isBookmarked) {
+        icon.className = "fa-solid fa-bookmark";
+        bookmarkBtn.classList.add('bookmarked');
+      } else {
+        icon.className = "fa-regular fa-bookmark";
+        bookmarkBtn.classList.remove('bookmarked');
+      }
+    });
+
+    // Share Action
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Article 51A - Fundamental Duties of India',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        prompt("Copy this link to share Fundamental Duties:", window.location.href);
+      }
+    });
+
+    // Listen to Duties Text-to-Speech
+    const listenBtn = document.getElementById('listenBtn');
+    const listenText = document.getElementById('listenText');
+    let isListening = false;
+    listenBtn.addEventListener('click', () => {
+      isListening = !isListening;
+      const icon = listenBtn.querySelector('i');
+      if (isListening) {
+        icon.className = "fa-solid fa-stop";
+        listenText.textContent = "Stop Audio";
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance("Article 51A. Fundamental Duties. It shall be the duty of every citizen of India to abide by the Constitution and respect its ideals and institutions.");
+          window.speechSynthesis.speak(utterance);
+        }
+      } else {
+        icon.className = "fa-solid fa-volume-high";
+        listenText.textContent = "Listen to Duties";
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    });
+
+    // Scroll spy for 'On This Page'
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 150;
+      navItems.forEach(item => {
+        const targetId = item.getAttribute('data-target');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const top = targetEl.offsetTop;
+          const height = targetEl.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            navItems.forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

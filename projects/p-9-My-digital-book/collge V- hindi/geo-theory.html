@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>भूगोल सिद्धांत (थ्योरी) | बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर भूगोल सिद्धांत: भू-आकृति विज्ञान, वायुमंडल, आर्थिक भूगोल एवं भारत का भूगोल। पृथ्वी की आंतरिक संरचना, प्लेट विवर्तनिकी, डेविस चक्र, वेबर सिद्धांत, मानसून।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="geography">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">भूगोल सिद्धांत प्रश्नपत्र</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> पाठ्य सामग्री</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> परीक्षा विशेष</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('geo-theory', 'भूगोल सिद्धांत')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#geography">भूगोल</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">भू-आकृति विज्ञान एवं आर्थिक भूगोल</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: भू-आकृति विज्ञान</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 पृथ्वी की आंतरिक संरचना</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 प्लेट विवर्तनिकी सिद्धांत</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 डेविस का अपरदन चक्र</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: वायुमंडल एवं समुद्र विज्ञान</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 वायुमंडलीय परतें एवं पवनें</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 महासागरीय नितल का उच्चावच</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 3: आर्थिक भूगोल</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 वेबर का औद्योगिक अवस्थिति सिद्धांत</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 4: भारत का भूगोल</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 भारतीय भू-आकृति एवं मानसून</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>परीक्षा विशेष अनुभाग</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">दीर्घ उत्तरीय प्रश्न</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">लघु उत्तरीय प्रश्न</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">त्वरित पुनरीक्षण फ्लैशकार्ड</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">अभ्यास प्रश्न (MCQs)</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">महत्वपूर्ण शब्दावली</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-earth-americas"></i> भूगोल मुख्य प्रश्नपत्र</div>
+                <h1>भू-आकृति विज्ञान एवं आर्थिक भूगोल</h1>
+                <p>
+                    यह संपूर्ण पाठ्यपुस्तक भौतिक भू-आकृति विज्ञान, पृथ्वी की आंतरिक संरचना (सियाल, सीमा, निफे), प्लेट विवर्तनिकी, डेविस का अपरदन चक्र, वायुमंडल की परतें, अल्फ्रेड वेबर का औद्योगिक अवस्थिति मॉडल तथा भारतीय मानसून की प्रक्रिया का विस्तृत अध्ययन प्रदान करती है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">पृथ्वी की परतें</span>
+                        <span class="stat-label">सियाल, सीमा, निफे एवं असंततता</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">वेबर अवस्थिति मॉडल</span>
+                        <span class="stat-label">पदार्थ सूचकांक (MI) सूत्र</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">प्लेट विवर्तनिकी</span>
+                        <span class="stat-label">अभिसारी एवं अपसारी सीमाएं</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: GEOMORPHOLOGY                                                      -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>भू-आकृति विज्ञान एवं आंतरिक संरचना</h2>
+                </div>
+
+                <!-- 1.1 Earth Interior -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>पृथ्वी की आंतरिक संरचना एवं भूकंपीय असंततताएँ (Discontinuities)</span>
+                    </div>
+
+                    <p>
+                        भूकंपीय तरंगों की गति में परिवर्तन ($P$ एवं $S$ तरंगें) पृथ्वी की संकेंद्री परतदार संरचना का प्रत्यक्ष प्रमाण प्रदान करते हैं:
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>परत / असंततता रेखा</th>
+                                    <th>रासायनिक संगठन / घनत्व</th>
+                                    <th>मुख्य भौतिक विशेषताएँ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>भूपर्पटी (सियाल - SIAL)</strong></td>
+                                    <td>सिलिका + एल्युमीनियम ($2.7 \, \text{g/cm}^3$)</td>
+                                    <td>ग्रेनाइट युक्त महाद्वीपीय भूपर्पटी तथा बेसाल्ट युक्त महासागरीय भूपर्पटी।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>मोहो असंततता (Moho)</strong></td>
+                                    <td>भूपर्पटी और मेंटल की सीमा।</td>
+                                    <td>P-तरंगों की गति 6.9 से बढ़कर 8.1 किमी/सेकंड हो जाती है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>मेंटल (सीमा - SIMA)</strong></td>
+                                    <td>सिलिका + मैग्नीशियम ($3.3 - 5.7 \, \text{g/cm}^3$)</td>
+                                    <td>एस्थेनोस्फीयर (100-200 किमी) मैग्मा का मुख्य स्रोत है जहाँ प्लेट गति होती है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>गुटेनबर्ग असंततता</strong></td>
+                                    <td>मेंटल और क्रोड की सीमा (2,900 किमी)।</td>
+                                    <td>S-तरंगें पूरी तरह समाप्त हो जाती हैं (यह सिद्ध करता है कि बाह्य क्रोड द्रव है)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>क्रोड (निफे - NIFE)</strong></td>
+                                    <td>निकेल + लोहा ($11 - 13 \, \text{g/cm}^3$)</td>
+                                    <td>द्रव बाह्य क्रोड तथा ठोस आंतरिक क्रोड (लेहमैन असंततता)।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 Plate Tectonics -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>महाद्वीपीय विस्थापन एवं प्लेट विवर्तनिकी सिद्धांत (Plate Tectonics)</span>
+                    </div>
+                    <p>
+                        अल्फ्रैड वेगनर के महाद्वीपीय विस्थापन सिद्धांत (1912) के बाद हैरी हैस और मॉर्गन ने प्लेट विवर्तनिकी सिद्धांत प्रतिपादित किया। स्थलखंड 7 मुख्य तथा कई छोटी विवर्तनिक प्लेटों में विभाजित है।
+                    </p>
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-shapes"></i> प्लेट सीमाओं के प्रकार:</h4>
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>1. अभिसारी सीमा (Convergent Boundary):</strong> दो प्लेटें एक-दूसरे की ओर आती हैं; एक प्लेट नीचे धंसती है (जैसे हिमालय का निर्माण)।</li>
+                            <li><strong>2. अपसारी सीमा (Divergent Boundary):</strong> दो प्लेटें विपरीत दिशा में दूर जाती हैं; नए क्रस्ट का निर्माण होता है (जैसे मध्य-अटलांटिक कटक)।</li>
+                            <li><strong>3. रूपांतरण सीमा (Transform Boundary):</strong> प्लेटें एक-दूसरे के समानांतर फिसलती हैं (जैसे सैन एंड्रियास भ्रंश)।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 1.3 Davis Cycle -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>डब्ल्यू. एम. डेविस का अपरदन चक्र सिद्धांत (1899)</span>
+                    </div>
+
+                    <p>
+                        विलियम मॉरिस डेविस के अनुसार स्थलरूप का विकास <strong>संरचना (Structure), प्रक्रम (Process) और अवस्था (Stage)</strong> का प्रतिफल है ("डेविस का त्रिक"):
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-mountain"></i> स्थलरूप विकास की तीन अवस्थाएँ:</h5>
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>युवावस्था (Youth Stage):</strong> तीव्र लंबवत कटाव, V-आकार की घाटियाँ, गॉर्ज, जलप्रपात एवं उच्च उच्चावच।</li>
+                            <li><strong>प्रौढ़ावस्था (Mature Stage):</strong> क्षैतिज अपरदन की प्रधानता; घाटी का चौड़ा होना, नदी विसर्प (Meanders)।</li>
+                            <li><strong>वृद्धावस्था (Old Age Stage):</strong> समप्राय मैदान (Peneplain) का निर्माण; यत्र-तत्र अवशिष्ट पहाड़ियाँ (Monadnocks)।</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: ATMOSPHERE & OCEANOGRAPHY                                         -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>वायुमंडल की संरचना एवं समुद्र विज्ञान</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>वायुमंडल की परतें एवं भूमंडलीय पवन तंत्र</span>
+                    </div>
+                    <p>
+                        वायुमंडल को तापीय विशेषताओं के आधार पर 5 प्रमुख परतों में विभाजित किया गया है: <strong>क्षोभमंडल (Troposphere - सभी मौसम घटनाएँ), समतापमंडल (Stratosphere - ओजोन परत), मध्यमंडल (Mesosphere - न्यूनतम तापमान), आयनमंडल (Ionosphere - रेडियो संचार) तथा बाह्यमंडल (Exosphere)</strong>।
+                    </p>
+                </div>
+
+                <div class="topic-card" id="u2-2">
+                    <div class="topic-title">
+                        <span class="topic-number">2.2</span>
+                        <span>महासागरीय नितल का उच्चावच (Ocean Floor Topography)</span>
+                    </div>
+                    <p>
+                        महासागरीय नितल को 4 मुख्य भागों में बांटा गया है: 1. महाद्वीपीय मग्नतट (Continental Shelf), 2. महाद्वीपीय ढाल (Continental Slope), 3. गहरे महासागरीय मैदान (Abyssal Plain), 4. महासागरीय गर्त (Oceanic Trenches - जैसे मरियाना गर्त)।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: ECONOMIC GEOGRAPHY                                                 -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u3-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 3</span>
+                    <h2>आर्थिक भूगोल एवं अवस्थिति सिद्धांत</h2>
+                </div>
+
+                <!-- Weber Model -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>अल्फ्रेड वेबर का न्यूनतम परिवहन लागत औद्योगिक अवस्थिति सिद्धांत (1909)</span>
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-title">वेबर का पदार्थ सूचकांक (Material Index - MI) सूत्र:</div>
+                        $$\text{MI} = \frac{\text{स्थानिक कच्चे माल का भार}}{\text{तैयार उत्पाद का भार}}$$
+                    </div>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-industry"></i> औद्योगिक अवस्थिति के नियम:</h5>
+                        <ul class="text-sm" style="padding-left: 20px;">
+                            <li><strong>यदि $\text{MI} > 1$ (भार-ह्रासी कच्चा माल):</strong> उद्योग कच्चे माल के स्रोत के पास स्थापित होगा (जैसे चीनी मिलें, लोहा-इस्पात उद्योग)।</li>
+                            <li><strong>यदि $\text{MI} = 1$ (शुद्ध कच्चा माल):</strong> उद्योग स्रोत या बाजार में कहीं भी स्थापित हो सकता है (जैसे सूती वस्त्र उद्योग)।</li>
+                            <li><strong>यदि $\text{MI} < 1$ (भार-वर्द्धक कच्चा माल):</strong> उद्योग उपभोग बाजार के निकट स्थापित होगा (जैसे शीतल पेय बॉटलिंग)।</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: GEOGRAPHY OF INDIA                                                 -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u4-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 4</span>
+                    <h2>भारत का भू-आकृतिक स्वरूप एवं मानसून तंत्र</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>भारतीय मानसून की क्रियाविधि एवं ITCZ का प्रभाव</span>
+                    </div>
+                    <p>
+                        भारतीय मानसून ग्रीष्मकाल में उत्तर-भारत के मैदानों पर निर्मित तापीय निम्न वायुदाब तथा दक्षिण-हिंद महासागर से आने वाली दक्षिण-पश्चिम मानसूनी हवाओं (South-West Monsoon) पर निर्भर करता है। अंतः उष्णकटिबंधीय अभिसरण क्षेत्र (ITCZ) का उत्तर की ओर खिसकना तथा जेट स्ट्रीम मानसून आगमन को नियंत्रित करते हैं।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">परीक्षा विशेष</span>
+                    <h2>परीक्षा प्रश्न बैंक एवं पुनरीक्षण उपकरण</h2>
+                </div>
+
+                <!-- Long Answer Questions -->
+                <div class="topic-card" id="sec-qa-long">
+                    <div class="topic-title"><i class="fa-solid fa-pen-nib text-emerald-500"></i> मुख्य दीर्घ उत्तरीय प्रश्न (Long Answer Questions)</div>
+                    <div class="qa-card mb-3">
+                        <div class="qa-header">
+                            <span class="qa-badge">प्रश्न 1</span>
+                            <span>पृथ्वी की आंतरिक संरचना की विवेचना कीजिए तथा मुख्य भूकंपीय असंततताओं का वर्णन कीजिए।</span>
+                        </div>
+                        <p class="text-sm mt-2">
+                            <strong>उत्तर ढांचा:</strong> क्रस्ट (सियाल), मेंटल (सीमा), क्रोड (निफे) का विवरण दें। मोहो, गुटेनबर्ग एवं लेहमैन असंततता रेखाओं का भूकंपीय तरंगों (P एवं S तरंगों) के आधार पर सचित्र वर्णन करें।
+                        </p>
+                    </div>
+                    <div class="qa-card">
+                        <div class="qa-header">
+                            <span class="qa-badge">प्रश्न 2</span>
+                            <span>अल्फ्रेड वेबर के औद्योगिक अवस्थिति सिद्धांत की आलोचनात्मक व्याख्या कीजिए।</span>
+                        </div>
+                        <p class="text-sm mt-2">
+                            <strong>उत्तर ढांचा:</strong> न्यूनतम परिवहन लागत मान्यता, पदार्थ सूचकांक (MI > 1, MI = 1, MI < 1), श्रम लागत विचलन तथा अग्लोमिरेशन (Agglomeration) प्रभाव का विवरण दें।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Short Answer Questions -->
+                <div class="topic-card" id="sec-qa-short">
+                    <div class="topic-title"><i class="fa-solid fa-list-check text-sky-500"></i> महत्वपूर्ण लघु उत्तरीय प्रश्न (Short Answer Questions)</div>
+                    <ul class="text-sm" style="padding-left: 20px;">
+                        <li>1. डेविस के 'समप्राय मैदान' (Peneplain) एवं मोनाडनॉक से आप क्या समझते हैं?</li>
+                        <li>2. अभिसारी एवं अपसारी प्लेट सीमाओं में मुख्य अंतर स्पष्ट कीजिए।</li>
+                        <li>3. ITCZ (अंतः उष्णकटिबंधीय अभिसरण क्षेत्र) मानसून को कैसे प्रभावित करता है?</li>
+                    </ul>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> त्वरित पुनरीक्षण फ्लैशकार्ड (Revision Flashcards)</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">पदार्थ सूचकांक (MI) का सूत्र क्या है?</div>
+                            <div class="back">MI = स्थानिक कच्चे माल का भार / तैयार उत्पाद का भार।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">भूपर्पटी और मेंटल को अलग करने वाली असंततता रेखा कौन सी है?</div>
+                            <div class="back">मोहरोविसिक (मोहो - Moho) असंततता।</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">डेविस के अनुसार अपरदन चक्र का अंतिम स्थल रूप क्या बनता है?</div>
+                            <div class="back">मोनाडनॉक (Monadnock) पहाड़ियों युक्त समप्राय मैदान (Peneplain)।</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> अभ्यास प्रश्न (MCQs)</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">प्र1. अल्फ्रेड वेबर के सिद्धांत के अनुसार, यदि पदार्थ सूचकांक MI > 1 है, तो उद्योग कहाँ स्थापित होना चाहिए?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-geo1-1')">क) उपभोक्ता बाजार के निकट</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-geo1-1')">ख) कच्चे माल के स्रोत के पास</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-geo1-1')">ग) बंदरगाह पर</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-geo1-1')">घ) परिवहन मार्ग में कहीं भी</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-geo1-1">
+                                <strong>स्पष्टीकरण:</strong> जब MI > 1 होता है, तो कच्चा माल उत्पादन प्रक्रिया में भार खोता है। इसलिए कच्चे माल के स्रोत के पास उद्योग लगाने से परिवहन लागत न्यूनतम होती है।
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> महत्वपूर्ण शब्दावली (Glossary)</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">मोहो असंततता (Moho Boundary)</div>
+                            <div class="glossary-def">पृथ्वी की भूपर्पटी (Crust) और मेंटल (Mantle) को विभाजित करने वाली सीमा।</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">समप्राय मैदान (Peneplain)</div>
+                            <div class="glossary-def">नदी अपरदन चक्र की अंतिम अवस्था में निर्मित मंद ढाल वाला सपाट मैदान।</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। भूगोल सिद्धांत प्रश्नपत्र।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory" selected>भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

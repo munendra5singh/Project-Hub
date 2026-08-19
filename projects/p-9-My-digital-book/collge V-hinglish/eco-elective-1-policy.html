@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economics Elective 1 — Policy | B.A. 5th Semester Digital Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Economics Elective 1: Economic Development and Policy in India-I. HDI, MPI, NITI Aayog, SDGs, ICOR, Harrod-Domar Model, and MGNREGA.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="economics">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Economics Elective 1</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('eco-elective-1', 'Economics Elective 1 — Policy')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#economics">Economics</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Economic Development & Policy in India-I</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Growth & Development</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Growth vs Development</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 PQLI, HDI & MPI Index</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 NITI Aayog vs Planning Commission</a></li>
+                    <li><a href="#u1-4" class="toc-link">1.4 Sustainable Development Goals</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Factors & Capital Formation</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Factors & Harrod-Domar Model</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 Capital Formation & ICOR</a></li>
+                    <li><a href="#u2-3" class="toc-link">2.3 FDI vs FII Investment</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Population & Migration</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Demographic Transition & Dividend</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Harris-Todaro Migration Model</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Employment & MGNREGA</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Organised vs Unorganised Sector</a></li>
+                    <li><a href="#u4-2" class="toc-link">4.2 MGNREGA Scheme Analysis</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">Long Answer Questions</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">Short Answer Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-chart-line"></i> Economics Major / Elective Paper I</div>
+                <h1>Economic Development and Policy in India-I</h1>
+                <p>
+                    Yeh textbook B.A. 5th Semester Economics Elective 1 ke sabhi core concepts ko aasan Hinglish me cover karta hai. Iss me Economic Growth vs Development, HDI, MPI, NITI Aayog policy, Harrod-Domar ICOR numericals, FDI vs FII, Demographic Dividend, aur MGNREGA analysis jaise exam topics detailed tarike se samjhaye gaye hain.
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">HDI & MPI</span>
+                        <span class="stat-label">UNDP Formulas & Indicators</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Harrod-Domar ICOR</span>
+                        <span class="stat-label">Solved Numerical Problems</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">NITI Aayog</span>
+                        <span class="stat-label">Cooperative Federalism Framework</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: ECONOMIC GROWTH, DEVELOPMENT AND SUSTAINABILITY                     -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Economic Growth, Development and Sustainability</h2>
+                </div>
+
+                <!-- 1.1 Growth vs Development -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Economic Growth vs. Economic Development</span>
+                    </div>
+
+                    <p>
+                        Modern economics me <strong>Economic Growth</strong> aur <strong>Economic Development</strong> ke beech me spasht antar (clear distinction) hota hai. Growth ka matlab real Gross Domestic Product (GDP) ya per capita income me quantitative badhotri hota hai, jabki Development me samajik dhancha (structural change), gareebi me kami (poverty alleviation), as समानता me kami (reduction in inequality), aur quality of life me sudhar shamil hota hai.
+                    </p>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> Michael P. Todaro Ka Definition</h4>
+                        <p>
+                            "Economic development ek multidimensional process hai jisme social structures, logo ke attitudes, aur national institutions me bade badlav aate hain, sath hi economic growth ki speed badhti hai, inequality kam hoti hai aur gareebi ka jad se khatma hota hai."
+                        </p>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Economic Growth</th>
+                                    <th>Economic Development</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nature</strong></td>
+                                    <td>Quantitative expansion (GDP, Per Capita Income).</td>
+                                    <td>Multidimensional: Quantitative + Qualitative structural changes.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Scope</strong></td>
+                                    <td>Narrow; focuses on national output volume.</td>
+                                    <td>Broad; incorporates health, education, equity, and environmental quality.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Measurement</strong></td>
+                                    <td>Real GDP Growth Rate, Per Capita GDP.</td>
+                                    <td>Human Development Index (HDI), Multidimensional Poverty Index (MPI), PQLI.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Relevance</strong></td>
+                                    <td>More applicable to developed economies.</td>
+                                    <td>Essential for developing nations like India.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.2 PQLI, HDI & MPI -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>Quality of Life Indices: PQLI, HDI and Multidimensional Poverty Index (MPI)</span>
+                    </div>
+
+                    <p>
+                        To overcome the limitations of per capita income as a measure of welfare, economists developed composite human development indices:
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-calculator"></i> 1. Physical Quality of Life Index (PQLI - Morris D. Morris 1979)</h5>
+                        <p class="text-sm">
+                            PQLI averages 3 basic indicators scaled from 1 to 100: Infant Mortality Rate (IMR), Life Expectancy at Age 1, and Basic Literacy Rate.
+                        </p>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-chart-pie"></i> 2. Human Development Index (HDI - UNDP Formula)</h4>
+                        <p class="text-sm">
+                            HDI combines 3 dimensions using a <strong>Geometric Mean</strong>:
+                        </p>
+                        <div class="formula-box mt-2">
+                            <div class="formula-title">HDI Mathematical Formula:</div>
+                            $$\text{HDI} = \sqrt[3]{I_{\text{Health}} \times I_{\text{Education}} \times I_{\text{Income}}}$$
+                        </div>
+                        <ul class="text-sm" style="padding-left: 20px; margin-top: 8px;">
+                            <li><strong>Health Dimension:</strong> Life Expectancy at Birth ($I_{\text{Health}}$).</li>
+                            <li><strong>Education Dimension:</strong> Mean Years of Schooling + Expected Years of Schooling ($I_{\text{Education}}$).</li>
+                            <li><strong>Standard of Living:</strong> Gross National Income (GNI) per capita in PPP ($I_{\text{Income}}$).</li>
+                        </ul>
+                    </div>
+
+                    <!-- MPI Breakdown Table -->
+                    <h4 class="text-sm font-bold mt-4 mb-2">3. Oxford/UNDP Multidimensional Poverty Index (MPI - 10 Indicators)</h4>
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Dimension</th>
+                                    <th>Weight</th>
+                                    <th>Indicators</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Health</strong></td>
+                                    <td>1/3 Total Weight</td>
+                                    <td>1. Nutrition, 2. Child Mortality.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Education</strong></td>
+                                    <td>1/3 Total Weight</td>
+                                    <td>3. Years of Schooling, 4. School Attendance.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Living Standard</strong></td>
+                                    <td>1/3 Total Weight</td>
+                                    <td>5. Cooking Fuel, 6. Sanitation, 7. Drinking Water, 8. Electricity, 9. Housing, 10. Assets.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.3 NITI Aayog vs Planning Commission -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>Planning Commission vs. NITI Aayog: Policy Shift in India</span>
+                    </div>
+
+                    <p>
+                        On January 1, 2015, the Government of India replaced the 65-year-old Planning Commission with <strong>NITI Aayog (National Institution for Transforming India)</strong> to transition from centralized planning to cooperative federalism.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Planning Commission (1950 - 2014)</th>
+                                    <th>NITI Aayog (2015 - Present)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Planning Approach</strong></td>
+                                    <td>Top-Down planning approach.</td>
+                                    <td>Bottom-Up approach fostering Cooperative Federalism.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Role of States</strong></td>
+                                    <td>Passive recipients of central funds; limited consultation.</td>
+                                    <td>Active partners in Governing Council.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Financial Powers</strong></td>
+                                    <td>Empowered to allocate central budget funds to states.</td>
+                                    <td>Advisory think-tank; fund allocation delegated to Finance Ministry.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Time Frame</strong></td>
+                                    <td>Five-Year Plans (1st to 12th FYP).</td>
+                                    <td>15-Year Vision, 7-Year Strategy, 3-Year Action Agenda.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.4 SDGs -->
+                <div class="topic-card" id="u1-4">
+                    <div class="topic-title">
+                        <span class="topic-number">1.4</span>
+                        <span>Sustainable Development Goals (SDGs 2015-2030)</span>
+                    </div>
+
+                    <p>
+                        Sustainable development meets the needs of the present without compromising the ability of future generations to meet their own needs (Brundtland Commission 1987). The UN 2030 Agenda mandates 17 SDGs covering poverty eradication, clean energy, climate action, and reduced inequality.
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: FACTORS IN DEVELOPMENT AND CAPITAL FORMATION                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit II</span>
+                    <h2>Factors in Development and Capital Formation</h2>
+                </div>
+
+                <!-- 2.1 Harrod-Domar Model & ICOR -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>Harrod-Domar Growth Model & Capital-Output Ratio (ICOR)</span>
+                    </div>
+
+                    <p>
+                        The Harrod-Domar growth model stresses that economic growth depends directly on the national net savings rate ($s$) and inversely on the Incremental Capital-Output Ratio ($\text{ICOR}$).
+                    </p>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Harrod-Domar Growth Equation:</div>
+                        $$g = \frac{s}{\text{ICOR}}$$
+                        <p class="text-sm mt-2">
+                            Where: $g = \text{Target GDP Growth Rate}$, $s = \text{Net Savings Rate (Savings/GDP)}$, $\text{ICOR} = \text{Capital units required to produce 1 unit of output}$.
+                        </p>
+                    </div>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-calculator"></i> Solved Numerical Example:</h5>
+                        <p class="text-sm">
+                            <strong>Problem:</strong> Suppose India's target GDP growth rate ($g$) is 8% per annum, and the Incremental Capital-Output Ratio ($\text{ICOR}$) is 4. Calculate the required savings rate ($s$).
+                        </p>
+                        <p class="text-sm mt-2">
+                            <strong>Solution:</strong><br>
+                            Given: $g = 8\% = 0.08$, $\text{ICOR} = 4$<br>
+                            Using formula: $g = s / \text{ICOR} \implies 0.08 = s / 4 \implies s = 0.08 \times 4 = 0.32 = 32\%$.<br>
+                            <strong>Answer:</strong> India must achieve a domestic net savings rate of <strong>32% of GDP</strong> to sustain an 8% growth rate.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2.3 FDI vs FII -->
+                <div class="topic-card" id="u2-3">
+                    <div class="topic-title">
+                        <span class="topic-number">2.3</span>
+                        <span>Foreign Direct Investment (FDI) vs. Foreign Institutional Investment (FII)</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Foreign Direct Investment (FDI)</th>
+                                    <th>Foreign Institutional Investment (FII/FPI)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nature</strong></td>
+                                    <td>Long-term physical asset investment (factories, infrastructure).</td>
+                                    <td>Short-term financial capital investment (stock market, bonds).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Management Control</strong></td>
+                                    <td>Grants direct ownership and management control (>10% equity).</td>
+                                    <td>No direct management control; passive investment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Volatility</strong></td>
+                                    <td>Highly stable; cannot be withdrawn quickly.</td>
+                                    <td>Highly volatile ("Hot Money"); swift capital flight risks.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Technology Transfer</strong></td>
+                                    <td>Transfers physical technology, skills, and managerial practices.</td>
+                                    <td>Brings financial liquidity without direct technology transfer.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Long Questions -->
+                <div class="topic-card" id="sec-qa-long">
+                    <div class="topic-title"><i class="fa-solid fa-file-pen text-amber-500"></i> Long Answer Questions</div>
+                    <div class="qa-card">
+                        <div class="qa-header">
+                            <span class="qa-badge">Q1 (15 Marks)</span>
+                            <span>Critically examine the differences between Economic Growth and Economic Development. Discuss the components of UNDP's Human Development Index (HDI).</span>
+                        </div>
+                        <div class="text-sm">
+                            <p><strong>Model Answer Outline:</strong> 1. Introduction & Todaro's definition, 2. Comparative table of growth vs development, 3. 3 HDI dimensions (Health, Education, Income) and UNDP Geometric Mean formula, 4. Limitations of HDI and conclusions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">What is the Harrod-Domar formula?</div>
+                            <div class="back">Growth rate g = s / ICOR.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">When was NITI Aayog established?</div>
+                            <div class="back">January 1, 2015.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">How many indicators are in MPI?</div>
+                            <div class="back">10 Indicators across 3 dimensions.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. In the Harrod-Domar model, if savings rate s = 24% and ICOR = 4, what is the growth rate?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">A) 5%</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-eco1-1')">B) 6%</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">C) 7%</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-eco1-1')">D) 8%</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-eco1-1">
+                                <strong>Explanation:</strong> g = s / ICOR = 24 / 4 = 6%.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">ICOR</div>
+                            <div class="glossary-def">Incremental Capital-Output Ratio — units of capital required to yield 1 unit of output.</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">Hot Money</div>
+                            <div class="glossary-def">Short-term FII/FPI investments that quickly move across borders seeking higher yields.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. Economics Elective Paper I.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

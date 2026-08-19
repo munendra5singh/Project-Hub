@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Finance Calculator Suite</title>
+    <!-- Google Fonts & Font Awesome Icons Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+ 
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/finance.css">
+</head>
+<body>
+  <div id="site-header-root"></div>
+
+
+    <div class="calc-container" id="calculator" role="application">
+        <div class="toast" id="toast">Copied to Clipboard</div>
+
+        <!-- MAIN HEADER CONTAINER -->
+        <header class="calc-header">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <a href="index.html" class="icon-btn" title="Back to Home Dashboard" style="text-decoration: none;">
+                    <i class="fa-solid fa-house" style="font-size: 15px;"></i>
+                </a>
+                <div class="calc-title" id="suite-title-node">Fintech Dashboard</div>
+            </div>
+            <div class="header-controls">
+                <button class="icon-btn" id="history-toggle" title="Review Calculations Stack History Log">
+                    <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.53.85-1.34-3.63-2.16V8h-1.5z"/></svg>
+                </button>
+                <button class="icon-btn theme-btn" id="theme-toggle" title="Toggle System Spectral Theme">
+                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 1-1.1-19.8m.7-2A12 12 0 1 0 24 11.5c0-.4 0-.7-.1-1.1a10 10 0 0 1-11.6-10.4z"/></svg>
+                    <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0c-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0c-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- SUITE SIDEBAR AND WORKSPACE PANES CONTAINER -->
+        <div class="suite-workspace">
+            <nav class="suite-sidebar" id="suite-nav-sidebar">
+                <div class="sidebar-item active" data-target="dash"><i class="fa-solid fa-chart-pie"></i> Dashboard</div>
+                <div class="sidebar-item" data-target="emi"><i class="fa-solid fa-landmark"></i> EMI Loan</div>
+                <div class="sidebar-item" data-target="sip"><i class="fa-solid fa-chart-line"></i> SIP / Wealth</div>
+                <div class="sidebar-item" data-target="fd"><i class="fa-solid fa-vault"></i> FD Register</div>
+                <div class="sidebar-item" data-target="ppf"><i class="fa-solid fa-piggy-bank"></i> PPF Vault</div>
+                <div class="sidebar-item" data-target="gst"><i class="fa-solid fa-receipt"></i> GST / Tax</div>
+                <div class="sidebar-item" data-target="retire"><i class="fa-solid fa-couch"></i> Retirement</div>
+            </nav>
+
+            <!-- MAIN DYNAMIC CONTENT WORKSPACE STAGE -->
+            <main class="stage-pane" id="stage-viewport-pane">
+                <!-- Appended dynamically via javascript state router -->
+            </main>
+        </div>
+
+        <!-- LOG RETENTION SIDEBAR HISTORY PANEL -->
+        <aside class="history-panel" id="history-panel">
+            <div class="history-header">
+                <span class="history-title">Financial Logs</span>
+                <button class="icon-btn" id="history-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="history-list" id="history-list"></div>
+            <div class="history-footer">
+                <button class="clear-hist-btn" id="clear-history">Flush Storage Registers</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ==========================================================================
+       6. JAVASCRIPT FINANCIAL SUITE ARCHITECTURE CONTROLLER LOGIC ENGINE
+       ========================================================================== */ -->
+  <script src="js/pages/finance-engine.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
+ 
+  <div id="site-footer-root"></div>
+
+</body>
+</html>

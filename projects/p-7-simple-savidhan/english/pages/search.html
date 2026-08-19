@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Search</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    /* Search Page Specific Styles */
+    .search-page-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      min-height: 60vh;
+    }
+
+    .search-page-header {
+      border-bottom: 1px solid var(--sv-border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .search-page-header h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--sv-text-heading);
+      margin-bottom: 4px;
+    }
+
+    .search-page-header p {
+      font-size: 12px;
+      color: var(--sv-text-secondary);
+    }
+
+    .search-box-wrapper {
+      background: var(--sv-bg-card);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--sv-border);
+      box-shadow: var(--sv-shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .search-box-wrapper input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--sv-border-input);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--sv-text-primary);
+      background: var(--sv-bg-input);
+      outline: none;
+      font-family: inherit;
+      transition: border-color var(--sv-transition-fast);
+    }
+
+    .search-box-wrapper input:focus {
+      border-color: var(--sv-gold);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    }
+
+    .search-box-wrapper input::placeholder {
+      color: var(--sv-text-muted);
+    }
+
+    #search-results-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .search-result-card {
+      background: var(--sv-bg-card);
+      border: 1px solid var(--sv-border);
+      border-radius: 8px;
+      padding: 16px;
+      transition: box-shadow var(--sv-transition-fast);
+    }
+
+    .search-result-card:hover {
+      box-shadow: var(--sv-shadow-md);
+    }
+
+    .search-result-card h4 {
+      color: var(--sv-text-heading);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .search-result-card p {
+      color: var(--sv-text-secondary);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--sv-text-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .search-page-header h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="articles.html">ARTICLES</a></li>
+      <li><a href="parts.html">PARTS</a></li>
+      <li><a href="schedules.html">SCHEDULES</a></li>
+      <li><a href="amendments.html">AMENDMENTS</a></li>
+      <li><a href="judgments.html">JUDGMENTS</a></li>
+      <li><a href="glossary.html">GLOSSARY</a></li>
+      <li><a href="quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/pages/search.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="search-page-main">
+    <div class="search-page-header">
+      <h2><i class="fa-solid fa-magnifying-glass" style="color: var(--sv-gold); margin-right: 8px;"></i> Search Across All Collections</h2>
+      <p>Search by article number, title, keyword, or legal term (e.g. 21, equality, basic structure)</p>
+    </div>
+
+    <div class="search-box-wrapper">
+      <input
+        id="search-input-field"
+        type="text"
+        placeholder="Type to search... (e.g. 21, equality, basic structure, केसवानंद)"
+      />
+    </div>
+
+    <div id="search-results-container">
+      <div class="no-results">
+        <i class="fa-solid fa-search" style="font-size: 32px; margin-bottom: 12px; display: block; color: var(--sv-text-muted);"></i>
+        Start typing to search across Articles, Parts, Schedules, Amendments, Judgments, and more.
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="parts.html">Parts</a></li>
+            <li><a href="schedules.html">Schedules</a></li>
+            <li><a href="amendments.html">Amendments</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="judgments.html">Judgments</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+            <li><a href="knowledge.html">Knowledge Hub</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="#" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="#" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="#" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="#" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>

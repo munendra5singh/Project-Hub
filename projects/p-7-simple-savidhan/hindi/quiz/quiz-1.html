@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - मौलिक अधिकारों पर क्विज़</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 240px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .left-sidebar, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Scrollbar Styling for Sidebars */
+    .left-sidebar::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .left-sidebar::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .sidebar-panel, .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title, .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i, .widget-title-text i {
+      font-size: 14px;
+      color: #103254;
+    }
+
+    /* Progress Widget */
+    .progress-circle-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 6px auto 12px auto;
+    }
+
+    .progress-circle-svg {
+      width: 100px;
+      height: 100px;
+      transform: rotate(-90deg);
+    }
+
+    .circle-bg {
+      fill: none;
+      stroke: #e8ecef;
+      stroke-width: 8;
+    }
+
+    .circle-fill {
+      fill: none;
+      stroke: #103254;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 326.7;
+      stroke-dashoffset: 326.7;
+      transition: stroke-dashoffset 0.4s ease;
+    }
+
+    .progress-circle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .progress-pct {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1;
+    }
+
+    .progress-sub {
+      font-size: 9px;
+      color: #637381;
+      margin-top: 2px;
+    }
+
+    .progress-count-text {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #2b3649;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background-color: #edf3f9;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background-color: #103254;
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+
+    .timer-box {
+      text-align: center;
+    }
+
+    .timer-lbl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #103254;
+      margin-bottom: 2px;
+    }
+
+    .timer-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.5px;
+    }
+
+    /* Question Navigation Grid */
+    .q-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+
+    .q-nav-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #dfe3e8;
+      background-color: #ffffff;
+      color: #2b3649;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 0 auto;
+    }
+
+    .q-nav-btn:hover {
+      border-color: #0b1a30;
+    }
+
+    .q-nav-btn.answered {
+      background-color: #103254;
+      color: #ffffff;
+      border-color: #103254;
+    }
+
+    .q-nav-btn.current {
+      background-color: #103254;
+      color: #ffffff;
+      border-color: #103254;
+      box-shadow: 0 0 0 2px #d4af37;
+    }
+
+    .legend-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+      color: #3d4a5d;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-box {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .box-answered { background-color: #103254; }
+    .box-current { background-color: #103254; border: 1.5px solid #d4af37; }
+    .box-not-answered { background-color: #ffffff; border: 1px solid #dfe3e8; }
+
+    /* Quiz Details List */
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .details-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .details-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .details-table td {
+      padding: 8px 0;
+      vertical-align: middle;
+    }
+
+    .details-icon {
+      width: 22px;
+      font-size: 13px;
+      color: #103254;
+    }
+
+    .details-lbl {
+      color: #637381;
+      font-size: 10.5px;
+    }
+
+    .details-val {
+      font-weight: 700;
+      color: #0b1a30;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    .btn-exit-quiz {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-exit-quiz:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .questions-header-bar {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 14px 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .questions-header-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .questions-header-title i {
+      font-size: 14px;
+      color: #103254;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icon-btn:hover, .action-icon-btn.active {
+      color: #103254;
+    }
+
+    /* Individual Question Card */
+    .question-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+      position: relative;
+    }
+
+    .q-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-right: 24px;
+    }
+
+    .q-number-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #103254;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .q-text-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.4;
+      padding-top: 3px;
+    }
+
+    .q-bookmark-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #103254;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 6px;
+      border: 1px solid #dfe3e8;
+      background-color: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 12.5px;
+      color: #2b3649;
+    }
+
+    .option-item:hover {
+      border-color: #103254;
+      background-color: #f8f9fb;
+    }
+
+    .option-radio {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid #919eab;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .option-radio::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: none;
+    }
+
+    .option-item.selected {
+      border-color: #103254;
+      background-color: #edf3f9;
+      font-weight: 600;
+      color: #103254;
+    }
+
+    .option-item.selected .option-radio {
+      border-color: #103254;
+      background-color: #103254;
+    }
+
+    .option-item.selected .option-radio::after {
+      display: block;
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+      border-top: 1px solid #f0f4f8;
+      padding-top: 12px;
+      margin-top: 8px;
+    }
+
+    .exp-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 4px;
+    }
+
+    .exp-desc {
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-prev-q {
+      background-color: #ffffff;
+      color: #103254;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+
+    .btn-prev-q:hover {
+      background-color: #f4f6f8;
+    }
+
+    .btn-next-q {
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+
+    .btn-next-q:hover {
+      background-color: #162a47;
+    }
+
+    .btn-submit-quiz {
+      background-color: #27ae60;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+
+    .btn-submit-quiz:hover {
+      background-color: #219150;
+    }
+
+    /* Dynamic Result Container */
+    #resultContainer {
+      display: none;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #e8ecef;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .result-score-card {
+      text-align: center;
+      background: #f4f7fb;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #103254;
+      margin-bottom: 20px;
+    }
+
+    .result-score-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 6px;
+    }
+
+    .result-score-num {
+      font-size: 32px;
+      font-weight: 700;
+      color: #103254;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .result-stat-box {
+      background: #ffffff;
+      border: 1px solid #e8ecef;
+      border-radius: 6px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .stat-lbl {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 2px;
+    }
+
+    .val-correct { color: #27ae60; }
+    .val-incorrect { color: #e74c3c; }
+    .val-unanswered { color: #f39c12; }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .review-item {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #e8ecef;
+      background: #ffffff;
+    }
+
+    .review-item.correct { border-left: 4px solid #27ae60; }
+    .review-item.incorrect { border-left: 4px solid #e74c3c; }
+    .review-item.unanswered { border-left: 4px solid #f39c12; }
+
+    /* About This Quiz Box */
+    .about-quiz-banner {
+      background-color: #f4f7fb;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-left: 4px solid #103254;
+    }
+
+    .about-quiz-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .about-quiz-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 1px solid #d0dbe7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .about-quiz-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .about-quiz-desc {
+      font-size: 11.5px;
+      color: #3d4a5d;
+      line-height: 1.4;
+    }
+
+    .books-illustration {
+      width: 70px;
+      height: 40px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23103254" opacity="0.3" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="40" width="80" height="12" rx="2"/><rect x="20" y="26" width="60" height="12" rx="2"/><rect x="75" y="10" width="10" height="30" rx="2" transform="rotate(20 80 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Instructions Checklist */
+    .instructions-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .inst-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .inst-item i {
+      font-size: 12px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Topics Covered Table */
+    .topics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .topics-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .topics-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .topics-table td {
+      padding: 7px 0;
+    }
+
+    .topic-name {
+      color: #2b3649;
+      font-weight: 500;
+    }
+
+    .topic-badge {
+      text-align: right;
+    }
+
+    .badge-count {
+      display: inline-block;
+      background-color: #edf3f9;
+      color: #103254;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #d0dbe7;
+    }
+
+    /* Leaderboard Widget */
+    .lb-subtitle {
+      font-size: 10px;
+      color: #637381;
+      font-weight: 400;
+      margin-left: -4px;
+    }
+
+    .leaderboard-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .lb-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+    }
+
+    .lb-rank {
+      width: 16px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-align: center;
+    }
+
+    .lb-name {
+      flex: 1;
+      font-weight: 600;
+      color: #2b3649;
+    }
+
+    .lb-score {
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .btn-full-lb {
+      width: 100%;
+      background-color: #ffffff;
+      color: #103254;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-full-lb:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Did You Know Widget Special Box */
+    .widget-did-you-know {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 40px;
+    }
+
+    .widget-did-you-know .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-did-you-know .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .did-you-know-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .scales-illustration {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      width: 70px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%232a7d4f" opacity="0.25" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L50 50 M20 20 L50 10 L80 20 M20 20 L10 40 L30 40 Z M80 20 L70 40 L90 40 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 20px;
+      }
+      .about-quiz-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .books-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR QUIZ-1 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .questions-header-bar,
+    [data-theme="dark"] .question-card,
+    [data-theme="dark"] #resultContainer {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .questions-header-title,
+    [data-theme="dark"] .questions-header-title i,
+    [data-theme="dark"] .q-text-title,
+    [data-theme="dark"] .progress-pct,
+    [data-theme="dark"] .details-val,
+    [data-theme="dark"] .topic-name,
+    [data-theme="dark"] .lb-rank,
+    [data-theme="dark"] .lb-name,
+    [data-theme="dark"] .lb-score,
+    [data-theme="dark"] .result-score-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .progress-sub,
+    [data-theme="dark"] .progress-count-text,
+    [data-theme="dark"] .details-lbl,
+    [data-theme="dark"] .exp-desc,
+    [data-theme="dark"] .legend-list,
+    [data-theme="dark"] .inst-item,
+    [data-theme="dark"] .about-quiz-desc,
+    [data-theme="dark"] .lb-subtitle,
+    [data-theme="dark"] .did-you-know-desc {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .timer-lbl,
+    [data-theme="dark"] .timer-val,
+    [data-theme="dark"] .exp-label,
+    [data-theme="dark"] .about-quiz-title,
+    [data-theme="dark"] .about-quiz-icon,
+    [data-theme="dark"] .inst-item i,
+    [data-theme="dark"] .details-icon,
+    [data-theme="dark"] .q-bookmark-btn {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .progress-bar-bg {
+      background-color: var(--sv-bg-input);
+    }
+
+    [data-theme="dark"] .progress-bar-fill,
+    [data-theme="dark"] .circle-fill {
+      stroke: var(--sv-gold);
+      background-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .circle-bg {
+      stroke: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .q-nav-btn {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .q-nav-btn:hover {
+      border-color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .q-nav-btn.answered {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      border-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .q-nav-btn.current {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      border-color: var(--sv-gold);
+      box-shadow: 0 0 0 2px var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .option-item {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .option-item:hover {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .option-item.selected {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-gold);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .option-item.selected .option-radio {
+      border-color: var(--sv-gold);
+      background-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .btn-prev-q,
+    [data-theme="dark"] .btn-exit-quiz,
+    [data-theme="dark"] .btn-full-lb {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-prev-q:hover,
+    [data-theme="dark"] .btn-exit-quiz:hover,
+    [data-theme="dark"] .btn-full-lb:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .btn-next-q {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-next-q:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .about-quiz-banner,
+    [data-theme="dark"] .result-score-card {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-border);
+      border-left-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .badge-count {
+      background-color: var(--sv-bg-input);
+      color: var(--sv-text-link);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .explanation-box,
+    [data-theme="dark"] .details-table tr,
+    [data-theme="dark"] .topics-table tr {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .result-stat-box,
+    [data-theme="dark"] .review-item {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .result-score-num {
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .widget-did-you-know {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-did-you-know .widget-title-text,
+    [data-theme="dark"] .widget-did-you-know .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html">भाग</a></li>
+      <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html" class="active">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/quiz/quiz-1.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">मौलिक अधिकारों पर क्विज़</h1>
+      <p class="hero-description">
+        50 प्रश्नों के माध्यम से भारत के संविधान के भाग III (मौलिक अधिकार) के अपने ज्ञान की परीक्षा लें।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <ul class="sv-breadcrumb">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+      <li>मौलिक अधिकारों पर क्विज़</li>
+    </ul>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: FIXED / STICKY -->
+      <aside class="left-sidebar">
+        
+        <!-- Quiz Progress Widget -->
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>क्विज़ की प्रगति</span>
+          </div>
+
+          <div class="progress-circle-container">
+            <svg class="progress-circle-svg">
+              <circle class="circle-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="circle-fill" id="progressCircleFill" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <div class="progress-circle-text">
+              <div class="progress-pct" id="progressPctText">0%</div>
+              <div class="progress-sub">पूरा हुआ</div>
+            </div>
+          </div>
+
+          <div class="progress-count-text" id="progressCountText">0 / 50 प्रश्न</div>
+
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+          </div>
+
+          <div class="timer-box">
+            <div class="timer-lbl">
+              <i class="fa-regular fa-clock"></i> शेष समय
+            </div>
+            <div class="timer-val" id="timerDisplay">45:00</div>
+          </div>
+        </div>
+
+        <!-- Question Navigation Widget -->
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-grid-2"></i>
+            <span>प्रश्न नेविगेशन</span>
+          </div>
+
+          <div class="q-nav-grid" id="qNavGrid">
+            <!-- Dynamically generated 50 buttons -->
+          </div>
+
+          <div class="legend-list">
+            <div class="legend-item">
+              <div class="legend-box box-answered"></div>
+              <span>उत्तर दिया गया</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-box box-current"></div>
+              <span>वर्तमान प्रश्न</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-box box-not-answered"></div>
+              <span>उत्तर नहीं दिया गया</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Details Widget -->
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>क्विज़ का विवरण</span>
+          </div>
+
+          <table class="details-table">
+            <tr>
+              <td class="details-icon"><i class="fa-regular fa-file-lines"></i></td>
+              <td>
+                <div class="details-lbl">कुल प्रश्न</div>
+                <div class="details-val">50</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="details-icon"><i class="fa-regular fa-star"></i></td>
+              <td>
+                <div class="details-lbl">प्रत्येक प्रश्न का अंक</div>
+                <div class="details-val">1</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="details-icon"><i class="fa-solid fa-award"></i></td>
+              <td>
+                <div class="details-lbl">कुल अंक</div>
+                <div class="details-val">50</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="details-icon"><i class="fa-regular fa-circle-xmark"></i></td>
+              <td>
+                <div class="details-lbl">ऋणात्मक अंकन (Negative Marking)</div>
+                <div class="details-val">नहीं</div>
+              </td>
+            </tr>
+          </table>
+
+          <button class="btn-exit-quiz" type="button" onclick="exitQuiz()">
+            क्विज़ से बाहर निकलें <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- Middle Main Content Panel - SCROLLABLE -->
+      <main class="main-content-panel">
+        
+        <!-- Header Bar -->
+        <div class="questions-header-bar">
+          <div class="questions-header-title">
+            <i class="fa-regular fa-file-lines"></i> प्रश्न
+          </div>
+          <div class="header-actions">
+            <button class="action-icon-btn" id="btnBookmarkAll" title="सभी बुकमार्क करें" onclick="toggleBookmarkAll()"><i class="fa-regular fa-bookmark"></i></button>
+            <button class="action-icon-btn" title="साझा करें" onclick="shareQuiz()"><i class="fa-solid fa-share-nodes"></i></button>
+            <button class="btn-submit-quiz" style="padding: 6px 12px; font-size: 11px;" onclick="submitQuiz()">जमा करें</button>
+          </div>
+        </div>
+
+        <!-- Question Cards Container -->
+        <div id="questionsContainer">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Bottom Navigation Controls -->
+        <div class="bottom-quiz-nav" id="quizNavControls">
+          <button class="btn-prev-q" id="btnPrevQ" onclick="navigateQuestion(-1)">
+            <i class="fa-solid fa-arrow-left"></i> पिछला
+          </button>
+          <button class="btn-next-q" id="btnNextQ" onclick="navigateQuestion(1)">
+            अगला प्रश्न <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-submit-quiz" id="btnSubmitQ" style="display: none;" onclick="submitQuiz()">
+            क्विज़ जमा करें <i class="fa-solid fa-check"></i>
+          </button>
+        </div>
+
+        <!-- Dynamic Results Section (Loaded via JS) -->
+        <div id="resultContainer">
+          <!-- Dynamically populated when quiz is submitted -->
+        </div>
+
+        <!-- About This Quiz Banner -->
+        <div class="about-quiz-banner">
+          <div class="about-quiz-content">
+            <div class="about-quiz-icon">
+              <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <div>
+              <div class="about-quiz-title">इस क्विज़ के बारे में</div>
+              <div class="about-quiz-desc">
+                यह क्विज़ आपको भारत के संविधान के तहत मौलिक अधिकारों की आपकी जानकारी को परखने और बेहतर बनाने में मदद करने के लिए डिज़ाइन किया गया है। सीखते रहें और अपने अधिकारों को जानें!
+              </div>
+            </div>
+          </div>
+          <div class="books-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: FIXED / STICKY -->
+      <aside class="right-sidebar">
+        
+        <!-- Instructions Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>निर्देश</span>
+          </div>
+
+          <ul class="instructions-list">
+            <li class="inst-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <span>क्विज़ में 50 बहुविकल्पीय प्रश्न शामिल हैं।</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-clock"></i>
+              <span>प्रत्येक प्रश्न का 1 अंक है।</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-circle-xmark"></i>
+              <span>इसमें कोई ऋणात्मक अंकन (नेगेटिव मार्किंग) नहीं है।</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>सही उत्तर चुनें और "अगला प्रश्न" पर क्लिक करें।</span>
+            </li>
+            <li class="inst-item">
+              <i class="fa-regular fa-compass"></i>
+              <span>आप बाईं ओर दिए गए पैनल का उपयोग करके प्रश्नों के बीच आ-जा सकते हैं।</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Topics Covered Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>शामिल विषय</span>
+          </div>
+
+          <table class="topics-table">
+            <tr>
+              <td class="topic-name">समानता का अधिकार</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-0">0/10</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">स्वतंत्रता का अधिकार</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-1">0/12</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">शोषण के विरुद्ध अधिकार</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-2">0/5</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">धार्मिक स्वतंत्रता का अधिकार</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-3">0/6</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">संस्कृति और शिक्षा संबंधी अधिकार</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-4">0/5</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">संवैधानिक उपचारों का अधिकार</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-5">0/6</span></td>
+            </tr>
+            <tr>
+              <td class="topic-name">सामान्य प्रश्न</td>
+              <td class="topic-badge"><span class="badge-count" id="topic-badge-6">0/6</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Leaderboard Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text" style="margin-bottom: 10px;">
+            <i class="fa-solid fa-trophy" style="color: #d18d27;"></i>
+            <span>लीडरबोर्ड</span>
+            <span class="lb-subtitle">(शीर्ष 5)</span>
+          </div>
+
+          <ul class="leaderboard-list">
+            <li class="lb-item">
+              <span class="lb-rank">1</span>
+              <span class="lb-name">आरव शर्मा</span>
+              <span class="lb-score">48/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">2</span>
+              <span class="lb-name">अनन्या सिंह</span>
+              <span class="lb-score">46/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">3</span>
+              <span class="lb-name">विहान पटेल</span>
+              <span class="lb-score">44/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">4</span>
+              <span class="lb-name">दिया गुप्ता</span>
+              <span class="lb-score">42/50</span>
+            </li>
+            <li class="lb-item">
+              <span class="lb-rank">5</span>
+              <span class="lb-name">रोहन वर्मा</span>
+              <span class="lb-score">40/50</span>
+            </li>
+          </ul>
+
+          <button class="btn-full-lb" type="button" onclick="showLeaderboardMsg()">
+            <i class="fa-solid fa-chart-simple"></i> पूरा लीडरबोर्ड देखें
+          </button>
+        </div>
+
+        <!-- Did You Know Widget -->
+        <div class="sidebar-widget widget-did-you-know">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>क्या आप जानते हैं?</span>
+          </div>
+
+          <p class="did-you-know-desc">
+            मौलिक अधिकार संविधान की आत्मा हैं और प्रत्येक नागरिक को न्याय, स्वतंत्रता, समानता और गरिमा सुनिश्चित करते हैं।
+          </p>
+
+          <div class="scales-illustration"></div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Interactive JavaScript Engine -->
+  <script>
+    // Complete EXACT 50-Question Database with Correct Answer Indices (In Hindi)
+    const quizData = [
+      {
+        id: 1,
+        topicIndex: 0,
+        question: "संविधान का कौन सा अनुच्छेद समानता के अधिकार की गारंटी देता है?",
+        options: ["A. अनुच्छेद 14 से 18", "B. अनुच्छेद 19 से 22", "C. अनुच्छेद 23 से 24", "D. अनुच्छेद 25 से 28"],
+        correct: 0,
+        explanation: "अनुच्छेद 14 से 18 संविधान के भाग III के तहत समानता के अधिकार की गारंटी देते हैं।"
+      },
+      {
+        id: 2,
+        topicIndex: 6,
+        question: "भारतीय संविधान के किस भाग में मौलिक अधिकार निहित हैं?",
+        options: ["A. भाग I", "B. भाग II", "C. भाग III", "D. भाग IV"],
+        correct: 2,
+        explanation: "मौलिक अधिकार भारतीय संविधान के भाग III (अनुच्छेद 12 से 35) में वर्णित हैं।"
+      },
+      {
+        id: 3,
+        topicIndex: 1,
+        question: "किस अनुच्छेद के तहत वाक् और अभिव्यक्ति की स्वतंत्रता का अधिकार दिया गया है?",
+        options: ["A. अनुच्छेद 14", "B. अनुच्छेद 19(1)(क)", "C. अनुच्छेद 21", "D. अनुच्छेद 32"],
+        correct: 1,
+        explanation: "अनुच्छेद 19(1)(क) सभी नागरिकों को वाक् और अभिव्यक्ति की स्वतंत्रता की गारंटी देता है।"
+      },
+      {
+        id: 4,
+        topicIndex: 5,
+        question: "कौन सा मौलिक अधिकार नागरिक को अधिकारों के प्रवर्तन के लिए सीधे सुप्रीम कोर्ट जाने की अनुमति देता है?",
+        options: ["A. अनुच्छेद 19", "B. अनुच्छेद 21", "C. अनुच्छेद 32", "D. अनुच्छेद 15"],
+        correct: 2,
+        explanation: "अनुच्छेद 32 संवैधानिक उपचारों का अधिकार प्रदान करता है, जिसे डॉ. अम्बेडकर ने संविधान का 'हृदय और आत्मा' कहा था।"
+      },
+      {
+        id: 5,
+        topicIndex: 0,
+        question: "कौन सा अनुच्छेद 'अस्पृश्यता' का अंत करता है और किसी भी रूप में इसके आचरण पर रोक लगाता है?",
+        options: ["A. अनुच्छेद 15", "B. अनुच्छेद 16", "C. अनुच्छेद 17", "D. अनुच्छेद 18"],
+        correct: 2,
+        explanation: "अनुच्छेद 17 स्पष्ट रूप से 'अस्पृश्यता' का उन्मूलन करता है और इसके किसी भी रूप में आचरण को निषिद्ध करता है।"
+      },
+      {
+        id: 6,
+        topicIndex: 1,
+        question: "कौन सा अनुच्छेद प्राण और दैहिक स्वतंत्रता का संरक्षण प्रदान करता है?",
+        options: ["A. अनुच्छेद 20", "B. अनुच्छेद 21", "C. अनुच्छेद 21A", "D. अनुच्छेद 22"],
+        correct: 1,
+        explanation: "अनुच्छेद 21 यह प्रावधान करता है कि किसी व्यक्ति को उसके प्राण या दैहिक स्वतंत्रता से विधि द्वारा स्थापित प्रक्रिया के अनुसार ही वंचित किया जाएगा।"
+      },
+      {
+        id: 7,
+        topicIndex: 1,
+        question: "अनुच्छेद 21A के तहत, किस आयु वर्ग के बच्चों के लिए मुफ्त और अनिवार्य शिक्षा का प्रावधान है?",
+        options: ["A. 5 से 12 वर्ष", "B. 6 से 14 वर्ष", "C. 6 से 18 वर्ष", "D. 3 से 6 वर्ष"],
+        correct: 1,
+        explanation: "86वें संविधान संशोधन अधिनियम, 2002 द्वारा जोड़े गए अनुच्छेद 21A के तहत 6 से 14 वर्ष के बच्चों के लिए शिक्षा को मौलिक अधिकार बनाया गया।"
+      },
+      {
+        id: 8,
+        topicIndex: 2,
+        question: "मानव के दुर्व्यापार और बलात्श्रम (बेगार) का प्रतिषेध किस अनुच्छेद के तहत है?",
+        options: ["A. अनुच्छेद 23", "B. अनुच्छेद 24", "C. अनुच्छेद 25", "D. अनुच्छेद 29"],
+        correct: 0,
+        explanation: "अनुच्छेद 23 मानव दुर्व्यापार, बेगार और इसी प्रकार के अन्य बलात्श्रम को निषिद्ध करता है।"
+      },
+      {
+        id: 9,
+        topicIndex: 2,
+        question: "अनुच्छेद 24 के अनुसार कारखानों और खानों में किस आयु से कम के बच्चों के नियोजन का प्रतिषेध है?",
+        options: ["A. 12 वर्ष", "B. 14 वर्ष", "C. 16 वर्ष", "D. 18 वर्ष"],
+        correct: 1,
+        explanation: "अनुच्छेद 24 के अनुसार 14 वर्ष से कम आयु के किसी भी बच्चे को किसी कारखाने, खान या अन्य जोखिम वाले काम में नहीं लगाया जाएगा।"
+      },
+      {
+        id: 10,
+        topicIndex: 3,
+        question: "अंतःकरण की और धर्म के अबाध रूप से मानने, आचरण और प्रचार करने की स्वतंत्रता किस अनुच्छेद में है?",
+        options: ["A. अनुच्छेद 25", "B. अनुच्छेद 26", "C. अनुच्छेद 27", "D. अनुच्छेद 28"],
+        correct: 0,
+        explanation: "अनुच्छेद 25 अंतःकरण की स्वतंत्रता और धर्म को अबाध रूप से मानने, आचरण करने और प्रचार करने का अधिकार देता है।"
+      },
+      {
+        id: 11,
+        topicIndex: 3,
+        question: "धार्मिक कार्यों के प्रबंध की स्वतंत्रता की गारंटी कौन सा अनुच्छेद देता है?",
+        options: ["A. अनुच्छेद 25", "B. अनुच्छेद 26", "C. अनुच्छेद 27", "D. अनुच्छेद 28"],
+        correct: 1,
+        explanation: "अनुच्छेद 26 धार्मिक संप्रदायों को धार्मिक और धर्मार्थ प्रयोजनों के लिए संस्थाओं की स्थापना और पोषण का अधिकार देता है।"
+      },
+      {
+        id: 12,
+        topicIndex: 4,
+        question: "अल्पसंख्यकों की भाषा, लिपि या संस्कृति के संरक्षण का अधिकार किस अनुच्छेद में है?",
+        options: ["A. अनुच्छेद 28", "B. अनुच्छेद 29", "C. अनुच्छेद 30", "D. अनुच्छेद 31"],
+        correct: 1,
+        explanation: "अनुच्छेद 29 अल्पसंख्यकों को अपनी विशिष्ट भाषा, लिपि या संस्कृति को बनाए रखने की गारंटी देता है।"
+      },
+      {
+        id: 13,
+        topicIndex: 4,
+        question: "अनुच्छेद 30 अल्पसंख्यकों को किस प्रकार की संस्थाएं स्थापित करने और संचालित करने का अधिकार देता है?",
+        options: ["A. वित्तीय संस्थान", "B. शिक्षा संस्थाएं", "C. राजनीतिक सभाएं", "D. न्यायिक निकाय"],
+        correct: 1,
+        explanation: "अनुच्छेद 30 धर्म या भाषा पर आधारित सभी अल्पसंख्यकों को अपनी रुचि की शिक्षा संस्थाओं की स्थापना और प्रशासन का अधिकार देता है।"
+      },
+      {
+        id: 14,
+        topicIndex: 0,
+        question: "लोक नियोजन (सरकारी नौकरियों) के विषयों में अवसर की समानता कौन सा अनुच्छेद सुनिश्चित करता है?",
+        options: ["A. अनुच्छेद 14", "B. अनुच्छेद 15", "C. अनुच्छेद 16", "D. अनुच्छेद 19"],
+        correct: 2,
+        explanation: "अनुच्छेद 16 राज्य के अधीन किसी भी पद पर नियोजन या नियुक्ति से संबंधित विषयों में सभी नागरिकों के लिए अवसर की समानता की गारंटी देता है।"
+      },
+      {
+        id: 15,
+        topicIndex: 0,
+        question: "सैन्य और शैक्षणिक सम्मान को छोड़कर अन्य सभी उपाधियों का अंत किस अनुच्छेद में वर्णित है?",
+        options: ["A. अनुच्छेद 18", "B. अनुच्छेद 17", "C. अनुच्छेद 16", "D. अनुच्छेद 15"],
+        correct: 0,
+        explanation: "अनुच्छेद 18 उपाधियों का अंत करता है और राज्य को सैन्य या शैक्षणिक सम्मान के अलावा कोई अन्य उपाधि प्रदान करने से रोकता है।"
+      },
+      {
+        id: 16,
+        topicIndex: 1,
+        question: "दोहरे दंड (Double Jeopardy) और आत्म-अभिशंसन से संरक्षण किस अनुच्छेद के तहत प्राप्त है?",
+        options: ["A. अनुच्छेद 19", "B. अनुच्छेद 20", "C. अनुच्छेद 21", "D. अनुच्छेद 22"],
+        correct: 1,
+        explanation: "अनुच्छेद 20 कार्योत्तर विधियों, दोहरे दंड और स्वयं के विरुद्ध गवाही देने के खिलाफ संरक्षण प्रदान करता है।"
+      },
+      {
+        id: 17,
+        topicIndex: 1,
+        question: "किस संविधान संशोधन द्वारा संपत्ति के अधिकार को मौलिक अधिकारों की सूची से हटा दिया गया था?",
+        options: ["A. 42वां संशोधन, 1976", "B. 44वां संशोधन, 1978", "C. 86वां संशोधन, 2002", "D. 91वां संशोधन, 2003"],
+        correct: 1,
+        explanation: "44वें संशोधन अधिनियम, 1978 द्वारा संपत्ति के अधिकार (अनुच्छेद 31) को मौलिक अधिकारों से हटाकर अनुच्छेद 300A के तहत एक कानूनी अधिकार बनाया गया।"
+      },
+      {
+        id: 18,
+        topicIndex: 5,
+        question: "किस रिट का शाब्दिक अर्थ 'हम आदेश देते हैं' होता है, जो किसी लोक प्राधिकारी को उसका कर्तव्य निभाने का निर्देश देती है?",
+        options: ["A. बंदी प्रत्यक्षीकरण (Habeas Corpus)", "B. परमादेश (Mandamus)", "C. प्रतिषेध (Prohibition)", "D. अधिकार-पृच्छा (Quo-Warranto)"],
+        correct: 1,
+        explanation: "परमादेश (Mandamus) एक न्यायिक रिट है जो किसी अधिकारी, बोर्ड या अदालत को सार्वजनिक कर्तव्य पूरा करने का आदेश देती है।"
+      },
+      {
+        id: 19,
+        topicIndex: 2,
+        question: "कौन सा मौलिक अधिकार नागरिकों को मनमानी गिरफ्तारी और निरोध (हिरासत) से सुरक्षा प्रदान करता है?",
+        options: ["A. अनुच्छेद 20", "B. अनुच्छेद 21", "C. अनुच्छेद 22", "D. अनुच्छेद 23"],
+        correct: 2,
+        explanation: "अनुच्छेद 22 कुछ मामलों में गिरफ्तारी और निरोध से प्रक्रियात्मक संरक्षण प्रदान करता है।"
+      },
+      {
+        id: 20,
+        topicIndex: 6,
+        question: "क्या राष्ट्रीय आपातकाल के दौरान मौलिक अधिकार निलंबित किए जा सकते हैं?",
+        options: ["A. नहीं, वे कभी निलंबित नहीं हो सकते", "B. हां, अनुच्छेद 20 और 21 को छोड़कर", "C. हां, सभी अधिकार स्वतः निलंबित हो जाते हैं", "D. केवल अनुच्छेद 14 लागू रहता है"],
+        correct: 1,
+        explanation: "राष्ट्रीय आपातकाल (अनुच्छेद 359) के दौरान भी अनुच्छेद 20 और 21 द्वारा दिए गए अधिकारों को निलंबित नहीं किया जा सकता।"
+      },
+      {
+        id: 21,
+        topicIndex: 0,
+        question: "भाग III के प्रयोजनों के लिए 'राज्य' शब्द को किस अनुच्छेद में परिभाषित किया गया है?",
+        options: ["A. अनुच्छेद 11", "B. अनुच्छेद 12", "C. अनुच्छेद 13", "D. अनुच्छेद 14"],
+        correct: 1,
+        explanation: "अनुच्छेद 12 भारत की सरकार, संसद, राज्य सरकारों, विधानमंडलों और स्थानीय प्राधिकारियों को शामिल करते हुए 'राज्य' को परिभाषित करता है।"
+      },
+      {
+        id: 22,
+        topicIndex: 0,
+        question: "कौन सा अनुच्छेद यह घोषित करता है कि मौलिक अधिकारों से असंगत या उनका अल्पीकरण करने वाली विधियां शून्य होंगी?",
+        options: ["A. अनुच्छेद 12", "B. अनुच्छेद 13", "C. अनुच्छेद 14", "D. अनुच्छेद 32"],
+        correct: 1,
+        explanation: "अनुच्छेद 13 मौलिक अधिकारों से असंगत कानूनों को अमान्य घोषित करके न्यायिक पुनरावलोकन (Judicial Review) का आधार प्रदान करता है।"
+      },
+      {
+        id: 23,
+        topicIndex: 0,
+        question: "'विधि के समक्ष समानता' और 'विधियों का समान संरक्षण' क्रमशः किन देशों की प्रणालियों से लिए गए हैं?",
+        options: ["A. ब्रिटेन और अमेरिका", "B. अमेरिका और ब्रिटेन", "C. आयरलैंड और कनाडा", "D. फ्रांस और जर्मनी"],
+        correct: 0,
+        explanation: "'विधि के समक्ष समानता' ब्रिटिश अवधारणा है, जबकि 'विधियों का समान संरक्षण' अमेरिकी संविधान से लिया गया है।"
+      },
+      {
+        id: 24,
+        topicIndex: 0,
+        question: "अनुच्छेद 15 राज्य को किन आधारों पर भेदभाव करने से रोकता है?",
+        options: ["A. धर्म, मूलवंश, जाति, लिंग, जन्मस्थान", "B. धर्म, मूलवंश, आय, निवास, लिंग", "C. जाति, भाषा, लिंग, निवास, आयु", "D. धर्म, जाति, शिक्षा, लिंग, जन्म"],
+        correct: 0,
+        explanation: "अनुच्छेद 15(1) केवल 5 आधारों का उल्लेख करता है: धर्म, मूलवंश, जाति, लिंग या जन्मस्थान।"
+      },
+      {
+        id: 25,
+        topicIndex: 0,
+        question: "किस संविधान संशोधन द्वारा आर्थिक रूप से कमजोर वर्गों (EWS) के लिए 10% आरक्षण का प्रावधान किया गया?",
+        options: ["A. 101वां संशोधन अधिनियम", "B. 102वां संशोधन अधिनियम", "C. 103वां संशोधन अधिनियम", "D. 104वां संशोधन अधिनियम"],
+        correct: 2,
+        explanation: "103वें संविधान संशोधन अधिनियम, 2019 द्वारा अनुच्छेद 15(6) और 16(6) जोड़कर 10% EWS आरक्षण लागू किया गया।"
+      },
+      {
+        id: 26,
+        topicIndex: 0,
+        question: "किस ऐतिहासिक मामले में सुप्रीम कोर्ट ने कुल आरक्षण की सीमा 50% तय की थी?",
+        options: ["A. केशवानंद भारती केस", "B. इंदिरा साहनी केस (1992)", "C. मिनर्वा मिल्स केस", "D. मेनका गांधी केस"],
+        correct: 1,
+        explanation: "इंदिरा साहनी बनाम भारत संघ मामले (1992) में सुप्रीम कोर्ट ने आरक्षण पर 50% की अधिकतम सीमा निर्धारित की थी।"
+      },
+      {
+        id: 27,
+        topicIndex: 1,
+        question: "वर्तमान में अनुच्छेद 19 के तहत कुल कितने प्रकार की स्वतंत्रताओं की गारंटी दी गई है?",
+        options: ["A. 5", "B. 6", "C. 7", "D. 8"],
+        correct: 1,
+        explanation: "मूल रूप से 7 स्वतंत्रताएं थीं, लेकिन संपत्ति की स्वतंत्रता (19(1)(f)) हटने के बाद अब 6 स्वतंत्रताएं बची हैं।"
+      },
+      {
+        id: 28,
+        topicIndex: 1,
+        question: "अनुच्छेद 19 के तहत कौन सी स्वतंत्रता नागरिकों को संघ, संगठन या सहकारी समितियां बनाने का अधिकार देती है?",
+        options: ["A. अनुच्छेद 19(1)(क)", "B. अनुच्छेद 19(1)(ख)", "C. अनुच्छेद 19(1)(ग)", "D. अनुच्छेद 19(1)(घ)"],
+        correct: 2,
+        explanation: "अनुच्छेद 19(1)(ग) संगम, संघ या सहकारी समितियां बनाने की स्वतंत्रता देता है।"
+      },
+      {
+        id: 29,
+        topicIndex: 1,
+        question: "अनुच्छेद 19(1)(घ) के तहत नागरिकों को कौन सा अधिकार प्राप्त है?",
+        options: ["A. शांतिपूर्वक सभा करने का", "B. भारत के राज्यक्षेत्र में सर्वत्र अबाध संचरण का", "C. भारत में कहीं भी बसने का", "D. कोई भी व्यापार करने का"],
+        correct: 1,
+        explanation: "अनुच्छेद 19(1)(घ) भारत के संपूर्ण राज्यक्षेत्र में स्वतंत्रतापूर्वक घूमने (संचरण) का अधिकार देता है।"
+      },
+      {
+        id: 30,
+        topicIndex: 1,
+        question: "अनुच्छेद 20(1) के तहत 'कार्योत्तर विधि' (ex-post facto law) से संरक्षण का क्या अर्थ है?",
+        options: ["A. किसी व्यक्ति को एक ही अपराध के लिए दो बार सजा नहीं मिल सकती", "B. किसी व्यक्ति को उस काम के लिए सजा नहीं दी जा सकती जो करते समय अपराध नहीं था", "C. स्वयं के खिलाफ गवाही देने के लिए बाध्य नहीं किया जा सकता", "D. बिना मुकदमे के जेल नहीं भेजा जा सकता"],
+        correct: 1,
+        explanation: "अनुच्छेद 20(1) आपराधिक कानूनों को भूतलक्षी (पुराने समय से) लागू करके सजा देने पर रोक लगाता है।"
+      },
+      {
+        id: 31,
+        topicIndex: 1,
+        question: "अनुच्छेद 20(3) में वर्णित 'आत्म-अभिशंसन' (Self-Incrimination) के सिद्धांत का क्या अर्थ है?",
+        options: ["A. बिना मुकदमे के जेल नहीं हो सकती", "B. किसी अभियुक्त को अपने ही खिलाफ गवाह बनने के लिए बाध्य नहीं किया जाएगा", "C. दोहरा जुर्माना नहीं लगाया जा सकता", "D. गिरफ्तारी से सुरक्षा"],
+        correct: 1,
+        explanation: "अनुच्छेद 20(3) के अनुसार किसी अपराध के अभियुक्त व्यक्ति को स्वयं अपने विरुद्ध साक्षी बनने के लिए बाध्य नहीं किया जाएगा।"
+      },
+      {
+        id: 32,
+        topicIndex: 1,
+        question: "किस ऐतिहासिक फैसले में सुप्रीम कोर्ट ने निजता के अधिकार (Right to Privacy) को अनुच्छेद 21 के तहत मौलिक अधिकार माना?",
+        options: ["A. मेनका गांधी केस (1978)", "B. के.एस. पुट्टस्वामी केस (2017)", "C. ए.के. गोपालन केस (1950)", "D. शंकरी प्रसाद केस (1951)"],
+        correct: 1,
+        explanation: "के.एस. पुट्टस्वामी बनाम भारत संघ (2017) में सुप्रीम कोर्ट की 9 जजों की पीठ ने निजता के अधिकार को अनुच्छेद 21 के तहत मौलिक अधिकार घोषित किया।"
+      },
+      {
+        id: 33,
+        topicIndex: 1,
+        question: "अनुच्छेद 22 के तहत गिरफ्तार किए गए व्यक्ति को कितने घंटों के भीतर निकटतम मजिस्ट्रेट के सामने पेश करना अनिवार्य है?",
+        options: ["A. 12 घंटे", "B. 24 घंटे", "C. 48 घंटे", "D. 72 घंटे"],
+        correct: 1,
+        explanation: "अनुच्छेद 22(2) के तहत यात्रा के समय को छोड़कर 24 घंटे के भीतर गिरफ्तार व्यक्ति को मजिस्ट्रेट के सामने पेश करना होता है।"
+      },
+      {
+        id: 34,
+        topicIndex: 1,
+        question: "सलाहकार बोर्ड की मंजूरी के बिना निवारक निरोध (Preventive Detention) की अधिकतम शुरुआती अवधि कितनी हो सकती है?",
+        options: ["A. 1 महीना", "B. 2 महीने", "C. 3 महीने", "D. 6 महीने"],
+        correct: 2,
+        explanation: "अनुच्छेद 22(4) के अनुसार किसी व्यक्ति को सलाहकार बोर्ड की रिपोर्ट के बिना 3 महीने से अधिक हिरासत में नहीं रखा जा सकता।"
+      },
+      {
+        id: 35,
+        topicIndex: 2,
+        question: "अनुच्छेद 23 के तहत किस प्रकार के जबरन श्रम को अवैध और निषिद्ध घोषित किया गया है?",
+        options: ["A. जमींदारी प्रथा", "B. बेगार", "C. रैयतवाड़ी प्रथा", "D. महालवाड़ी प्रथा"],
+        correct: 1,
+        explanation: "बिना मजदूरी दिए जबरन काम कराने की 'बेगार' प्रथा को अनुच्छेद 23 द्वारा स्पष्ट रूप से प्रतिबंधित किया गया है।"
+      },
+      {
+        id: 36,
+        topicIndex: 2,
+        question: "क्या राज्य अनुच्छेद 23 के बावजूद अनिवार्य सार्वजनिक सेवा (जैसे सैन्य सेवा) लागू कर सकता है?",
+        options: ["A. नहीं, यह अनुच्छेद 23 का उल्लंघन है", "B. हां, बशर्ते यह धर्म, मूलवंश, जाति या वर्ग के आधार पर भेदभाव न करे", "C. केवल रक्षा कर्मियों के लिए लागू हो सकता है", "D. केवल मार्शल लॉ में लागू हो सकता है"],
+        correct: 1,
+        explanation: "अनुच्छेद 23(2) राज्य को सार्वजनिक प्रयोजनों के लिए अनिवार्य सेवा लागू करने की अनुमति देता है, बिना किसी भेदभाव के।"
+      },
+      {
+        id: 37,
+        topicIndex: 3,
+        question: "अनुच्छेद 27 राज्य को किस कार्य पर रोक लगाता है?",
+        options: ["A. किसी विशिष्ट धर्म को बढ़ावा देने के लिए कर देने हेतु बाध्य करने पर", "B. निजी कॉलेजों में धर्म पढ़ाने पर", "C. धार्मिक जुलूसों की अनुमति देने पर", "D. अल्पसंख्यक संस्थाओं को फंड देने पर"],
+        correct: 0,
+        explanation: "अनुच्छेद 27 के तहत किसी व्यक्ति को ऐसे कर देने के लिए बाध्य नहीं किया जा सकता जिनका उपयोग किसी विशिष्ट धर्म की अभिवृद्धि में होना हो।"
+      },
+      {
+        id: 38,
+        topicIndex: 3,
+        question: "अनुच्छेद 28 के अनुसार, किस प्रकार के शिक्षण संस्थानों में धार्मिक शिक्षा पूरी तरह से प्रतिबंधित है?",
+        options: ["A. पूरी तरह राज्य-निधि से पोषित संस्थानों में", "B. राज्य द्वारा मान्यता प्राप्त संस्थानों में", "C. राज्य से सहायता पाने वाले संस्थानों में", "D. अल्पसंख्यक शिक्षण संस्थानों में"],
+        correct: 0,
+        explanation: "अनुच्छेद 28(1) के तहत पूर्णतः राज्य के पैसों से चलने वाले शिक्षण संस्थानों में कोई धार्मिक शिक्षा नहीं दी जाएगी।"
+      },
+      {
+        id: 39,
+        topicIndex: 3,
+        question: "क्या सिख समुदाय द्वारा 'कृपाण' धारण करना अनुच्छेद 25 के तहत धार्मिक स्वतंत्रता का हिस्सा माना गया है?",
+        options: ["A. नहीं, इस पर रोक है", "B. हां, यह सिख धर्म के मानने का अंग माना गया है", "C. केवल गुरुद्वारे के अंदर अनुमति है", "D. केवल पुलिस की विशेष अनुमति से"],
+        correct: 1,
+        explanation: "अनुच्छेद 25 के स्पष्टीकरण I के अनुसार कृपाण धारण करना और लेकर चलना सिख धर्म के मानने का अंग समझा जाएगा।"
+      },
+      {
+        id: 40,
+        topicIndex: 4,
+        question: "अनुच्छेद 29 नागरिकों के किस वर्ग के अधिकारों का संरक्षण करता है?",
+        options: ["A. केवल धार्मिक अल्पसंख्यकों का", "B. केवल भाषाई अल्पसंख्यकों का", "C. भारत के किसी भी भाग में रहने वाले अपनी विशिष्ट भाषा, लिपि या संस्कृति वाले नागरिकों के वर्ग का", "D. केवल विदेशी नागरिकों का"],
+        correct: 2,
+        explanation: "अनुच्छेद 29 'नागरिकों के किसी भी वर्ग' को अपनी भाषा, लिपि या संस्कृति को सुरक्षित रखने का अधिकार देता है।"
+      },
+      {
+        id: 41,
+        topicIndex: 4,
+        question: "क्या राज्य शैक्षणिक संस्थानों को सहायता देने में अल्पसंख्यक प्रबंधन के आधार पर भेदभाव कर सकता है?",
+        options: ["A. हां, राज्य सामान्य संस्थानों को प्राथमिकता देता है", "B. नहीं, अनुच्छेद 30(2) के तहत ऐसा भेदभाव निषिद्ध है", "C. यह राज्य के बजट पर निर्भर करता है", "D. केवल प्राथमिक स्कूलों के लिए लागू है"],
+        correct: 1,
+        explanation: "अनुच्छेद 30(2) राज्य को निर्देश देता है कि वह सहायता देने में किसी शिक्षण संस्थान के खिलाफ इस आधार पर भेदभाव नहीं करेगा कि वह अल्पसंख्यक के प्रबंध में है।"
+      },
+      {
+        id: 42,
+        topicIndex: 4,
+        question: "क्या बहुसंख्यक (Non-minority) समुदायों को अनुच्छेद 30 का संरक्षण प्राप्त है?",
+        options: ["A. हां, सभी नागरिकों को प्राप्त है", "B. नहीं, अनुच्छेद 30 केवल धार्मिक और भाषाई अल्पसंख्यकों पर लागू होता है", "C. केवल भाषाई बहुसंख्यक को प्राप्त है", "D. केवल केंद्र शासित प्रदेशों में लागू है"],
+        correct: 1,
+        explanation: "अनुच्छेद 30 विशेष रूप से केवल धार्मिक और भाषाई अल्पसंख्यक वर्गों को शिक्षा संस्थाएं स्थापित करने का अधिकार देता है।"
+      },
+      {
+        id: 43,
+        topicIndex: 5,
+        question: "गैर-कानूनी रूप से हिरासत में लिए गए व्यक्ति को छुड़ाने के लिए कौन सी रिट जारी की जाती है?",
+        options: ["A. परमादेश (Mandamus)", "B. बंदी प्रत्यक्षीकरण (Habeas Corpus)", "C. उत्प्रेषण (Certiorari)", "D. अधिकार-पृच्छा (Quo-Warranto)"],
+        correct: 1,
+        explanation: "बंदी प्रत्यक्षीकरण (Habeas Corpus) रिट का उपयोग किसी व्यक्ति को अवैध हिरासत से मुक्त कराने के लिए किया जाता है।"
+      },
+      {
+        id: 44,
+        topicIndex: 5,
+        question: "उच्च अदालत द्वारा निचली अदालत के अवैध आदेश को रद्द करने के लिए कौन सी रिट जारी की जाती है?",
+        options: ["A. अधिकार-पृच्छा (Quo-Warranto)", "B. उत्प्रेषण (Certiorari)", "C. प्रतिषेध (Prohibition)", "D. बंदी प्रत्यक्षीकरण (Habeas Corpus)"],
+        correct: 1,
+        explanation: "उत्प्रेषण (Certiorari) रिट निचली अदालत या न्यायाधिकरण द्वारा अधिकार क्षेत्र से बाहर जाकर दिए गए आदेश को रद्द करने के लिए जारी होती है।"
+      },
+      {
+        id: 45,
+        topicIndex: 5,
+        question: "अवैध रूप से किसी सार्वजनिक पद पर कब्जा करने वाले व्यक्ति को रोकने के लिए कौन सी रिट जारी की जाती है?",
+        options: ["A. परमादेश", "B. प्रतिषेध", "C. अधिकार-पृच्छा (Quo-Warranto)", "D. बंदी प्रत्यक्षीकरण"],
+        correct: 2,
+        explanation: "अधिकार-पृच्छा (Quo-Warranto - 'आपका क्या अधिकार है?') रिट सार्वजनिक पद पर किसी व्यक्ति के दावे की कानूनी वैधता की जांच करती है।"
+      },
+      {
+        id: 46,
+        topicIndex: 5,
+        question: "किस अनुच्छेद के तहत हाई कोर्ट मौलिक अधिकारों और अन्य कानूनी अधिकारों के लिए रिट जारी कर सकते हैं?",
+        options: ["A. अनुच्छेद 32", "B. अनुच्छेद 136", "C. अनुच्छेद 226", "D. अनुच्छेद 243"],
+        correct: 2,
+        explanation: "अनुच्छेद 226 हाई कोर्ट को मौलिक अधिकारों के साथ-साथ अन्य सामान्य कानूनी अधिकारों के लिए भी रिट जारी करने की शक्ति देता है।"
+      },
+      {
+        id: 47,
+        topicIndex: 6,
+        question: "सशस्त्र बलों के सदस्यों के मौलिक अधिकारों को सीमित करने की शक्ति संसद को किस अनुच्छेद से मिलती है?",
+        options: ["A. अनुच्छेद 33", "B. अनुच्छेद 34", "C. अनुच्छेद 35", "D. अनुच्छेद 19"],
+        correct: 0,
+        explanation: "अनुच्छेद 33 संसद को सशस्त्र बलों, पुलिस बलों आदि के सदस्यों के मौलिक अधिकारों को प्रतिबंधित या रूपांतरित करने की शक्ति देता है।"
+      },
+      {
+        id: 48,
+        topicIndex: 6,
+        question: "अनुच्छेद 34 किस स्थिति में किसी क्षेत्र में मौलिक अधिकारों पर प्रतिबंध लगाने का प्रावधान करता है?",
+        options: ["A. राष्ट्रपति शासन", "B. वित्तीय आपातकाल", "C. सेना विधि (Martial Law) लागू होने पर", "D. आचार संहिता में"],
+        correct: 2,
+        explanation: "अनुच्छेद 34 किसी क्षेत्र में सेना विधि (मार्शल लॉ) लागू रहने के दौरान मौलिक अधिकारों पर निर्बंधन लगाता है।"
+      },
+      {
+        id: 49,
+        topicIndex: 6,
+        question: "अनुच्छेद 32 को किसने संविधान का 'हृदय और आत्मा' कहा था?",
+        options: ["A. महात्मा गांधी", "B. जवाहरलाल नेहरू", "C. डॉ. बी.आर. अम्बेडकर", "D. सरदार वल्लभभाई पटेल"],
+        correct: 2,
+        explanation: "डॉ. बी.आर. अम्बेडकर ने अनुच्छेद 32 (संवैधानिक उपचारों का अधिकार) को संविधान का सबसे महत्वपूर्ण अनुच्छेद और 'हृदय व आत्मा' कहा था।"
+      },
+      {
+        id: 50,
+        topicIndex: 6,
+        question: "भारतीय संविधान में मौलिक अधिकारों की अवधारणा मुख्य रूप से किस देश के संविधान से प्रेरित है?",
+        options: ["A. अमेरिका (बिल ऑफ राइट्स)", "B. ब्रिटेन", "C. सोवियत संघ (USSR)", "D. ऑस्ट्रेलिया"],
+        correct: 0,
+        explanation: "भारत के संविधान में मौलिक अधिकारों की प्रेरणा अमेरिका के संविधान के 'बिल ऑफ राइट्स' से ली गई है।"
+      }
+    ];
+
+    // Topic configurations for calculation across 50 questions
+    const topicTotals = [10, 12, 5, 6, 5, 6, 6];
+
+    // State Variables
+    const totalQuestions = 50;
+    let currentQuestion = 1;
+    let answeredQuestions = {}; // Format: { qNum: optionIndex }
+    let bookmarkedQuestions = {}; // Format: { qNum: boolean }
+    let timeRemaining = 45 * 60; // 45 minutes
+    let timerInterval = null;
+
+    // Render All Question Cards into Main Container
+    function renderQuestionCards() {
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = '';
+
+      quizData.forEach((item, index) => {
+        const qNum = index + 1;
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `qCard-${qNum}`;
+        card.style.display = (qNum === currentQuestion) ? 'block' : 'none';
+
+        const isBookmarked = bookmarkedQuestions[qNum] ? 'fa-solid' : 'fa-regular';
+        const selectedOpt = answeredQuestions[qNum];
+
+        let optionsHtml = '';
+        item.options.forEach((optText, optIdx) => {
+          const isSelected = (selectedOpt === optIdx) ? 'selected' : '';
+          optionsHtml += `
+            <div class="option-item ${isSelected}" onclick="selectOption(${qNum}, ${optIdx})">
+              <div class="option-radio"></div>
+              <span>${optText}</span>
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <button class="q-bookmark-btn" onclick="toggleBookmark(${qNum})">
+            <i class="${isBookmarked} fa-bookmark"></i>
+          </button>
+          <div class="q-card-header">
+            <div class="q-number-circle">${qNum}</div>
+            <div class="q-text-title">${item.question}</div>
+          </div>
+          <div class="options-list">
+            ${optionsHtml}
+          </div>
+          <div class="explanation-box">
+            <div class="exp-label">व्याख्या:</div>
+            <div class="exp-desc">${item.explanation}</div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // Initialize Question Navigation Grid
+    function renderQuestionGrid() {
+      const qNavGrid = document.getElementById('qNavGrid');
+      qNavGrid.innerHTML = '';
+
+      for (let i = 1; i <= totalQuestions; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'q-nav-btn';
+        btn.innerText = i;
+        btn.onclick = () => jumpToQuestion(i);
+
+        if (i === currentQuestion) {
+          btn.classList.add('current');
+        } else if (answeredQuestions[i] !== undefined) {
+          btn.classList.add('answered');
+        }
+
+        qNavGrid.appendChild(btn);
+      }
+    }
+
+    // Select Option Logic
+    function selectOption(qNum, optionIndex) {
+      answeredQuestions[qNum] = optionIndex;
+      
+      const card = document.getElementById(`qCard-${qNum}`);
+      if (card) {
+        const options = card.querySelectorAll('.option-item');
+        options.forEach((opt, idx) => {
+          if (idx === optionIndex) {
+            opt.classList.add('selected');
+          } else {
+            opt.classList.remove('selected');
+          }
+        });
+      }
+
+      updateProgress();
+      updateTopicBadges();
+      renderQuestionGrid();
+    }
+
+    // Bookmark Toggle Logic
+    function toggleBookmark(qNum) {
+      bookmarkedQuestions[qNum] = !bookmarkedQuestions[qNum];
+      renderQuestionCards();
+    }
+
+    function toggleBookmarkAll() {
+      const btn = document.getElementById('btnBookmarkAll');
+      const shouldBookmark = !btn.classList.contains('active');
+      
+      for (let i = 1; i <= totalQuestions; i++) {
+        bookmarkedQuestions[i] = shouldBookmark;
+      }
+      
+      if (shouldBookmark) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+      renderQuestionCards();
+    }
+
+    // Update Progress Bar & SVG Circular Chart
+    function updateProgress() {
+      const count = Object.keys(answeredQuestions).length;
+      const pct = Math.round((count / totalQuestions) * 100);
+
+      document.getElementById('progressCountText').innerText = `${count} / ${totalQuestions} प्रश्न`;
+      document.getElementById('progressPctText').innerText = `${pct}%`;
+
+      document.getElementById('progressBarFill').style.width = `${pct}%`;
+
+      const circumference = 263.8;
+      const offset = circumference - (pct / 100) * circumference;
+      document.getElementById('progressCircleFill').style.strokeDashoffset = offset;
+    }
+
+    // Topic Badges Update
+    function updateTopicBadges() {
+      let topicCounts = [0, 0, 0, 0, 0, 0, 0];
+      
+      Object.keys(answeredQuestions).forEach(qNum => {
+        const qIndex = parseInt(qNum) - 1;
+        const topicIdx = quizData[qIndex].topicIndex;
+        topicCounts[topicIdx]++;
+      });
+
+      topicCounts.forEach((cnt, idx) => {
+        const badge = document.getElementById(`topic-badge-${idx}`);
+        if (badge) {
+          badge.innerText = `${cnt}/${topicTotals[idx]}`;
+        }
+      });
+    }
+
+    // Navigate Questions
+    function navigateQuestion(direction) {
+      currentQuestion += direction;
+      if (currentQuestion < 1) currentQuestion = 1;
+      if (currentQuestion > totalQuestions) currentQuestion = totalQuestions;
+
+      updateCardVisibility();
+      renderQuestionGrid();
+    }
+
+    function jumpToQuestion(qNum) {
+      currentQuestion = qNum;
+      updateCardVisibility();
+      renderQuestionGrid();
+    }
+
+    function updateCardVisibility() {
+      for (let i = 1; i <= totalQuestions; i++) {
+        const card = document.getElementById(`qCard-${i}`);
+        if (card) {
+          card.style.display = (i === currentQuestion) ? 'block' : 'none';
+        }
+      }
+
+      const btnNext = document.getElementById('btnNextQ');
+      const btnSubmit = document.getElementById('btnSubmitQ');
+      if (currentQuestion === totalQuestions) {
+        btnNext.style.display = 'none';
+        btnSubmit.style.display = 'inline-flex';
+      } else {
+        btnNext.style.display = 'inline-flex';
+        btnSubmit.style.display = 'none';
+      }
+
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    // Timer Countdown Logic
+    function startTimer() {
+      const timerDisplay = document.getElementById('timerDisplay');
+      if (timerInterval) clearInterval(timerInterval);
+
+      timerInterval = setInterval(() => {
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          submitQuiz();
+          return;
+        }
+        timeRemaining--;
+        const mins = Math.floor(timeRemaining / 60);
+        const secs = timeRemaining % 60;
+        timerDisplay.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    // Submit Quiz & Dynamic Result Render
+    function submitQuiz() {
+      if (timerInterval) clearInterval(timerInterval);
+
+      let correctCount = 0;
+      let incorrectCount = 0;
+      let unattemptedCount = 0;
+
+      quizData.forEach((q, idx) => {
+        const qNum = idx + 1;
+        const userAns = answeredQuestions[qNum];
+        if (userAns === undefined) {
+          unattemptedCount++;
+        } else if (userAns === q.correct) {
+          correctCount++;
+        } else {
+          incorrectCount++;
+        }
+      });
+
+      const totalMarks = correctCount;
+      const percentage = Math.round((totalMarks / totalQuestions) * 100);
+
+      document.getElementById('questionsContainer').style.display = 'none';
+      document.getElementById('quizNavControls').style.display = 'none';
+
+      const resultBox = document.getElementById('resultContainer');
+      resultBox.style.display = 'block';
+
+      let reviewItemsHtml = '';
+      quizData.forEach((q, idx) => {
+        const qNum = idx + 1;
+        const userAns = answeredQuestions[qNum];
+        let statusClass = 'unanswered';
+
+        if (userAns !== undefined) {
+          if (userAns === q.correct) {
+            statusClass = 'correct';
+          } else {
+            statusClass = 'incorrect';
+          }
+        }
+
+        reviewItemsHtml += `
+          <div class="review-item ${statusClass}">
+            <div style="font-weight:700; font-size:12.5px; color:var(--sv-text-heading, #0b1a30); margin-bottom:6px;">
+              प्रश्न ${qNum}. ${q.question}
+            </div>
+            <div style="font-size:11.5px; margin-bottom:4px; color:var(--sv-text-primary, #2b3649);">
+              <strong>आपका उत्तर:</strong> ${userAns !== undefined ? q.options[userAns] : '<span style="color:#f39c12">छोड़ दिया गया</span>'}
+            </div>
+            <div style="font-size:11.5px; margin-bottom:6px; color:#27ae60;">
+              <strong>सही उत्तर:</strong> ${q.options[q.correct]}
+            </div>
+            <div style="font-size:11px; color:var(--sv-text-secondary, #526071); background:var(--sv-bg-input, #f8f9fb); padding:8px; border-radius:4px;">
+              <strong>व्याख्या:</strong> ${q.explanation}
+            </div>
+          </div>
+        `;
+      });
+
+      resultBox.innerHTML = `
+        <div class="result-score-card">
+          <div class="result-score-title">क्विज़ समाप्त हुआ</div>
+          <div class="result-score-num">${totalMarks} / ${totalQuestions}</div>
+          <div style="font-size:12.5px; color:var(--sv-text-secondary, #637381); margin-top:4px;">कुल स्कोर: ${percentage}%</div>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-stat-box">
+            <div class="stat-val val-correct">${correctCount}</div>
+            <div class="stat-lbl">सही</div>
+          </div>
+          <div class="result-stat-box">
+            <div class="stat-val val-incorrect">${incorrectCount}</div>
+            <div class="stat-lbl">गलत</div>
+          </div>
+          <div class="result-stat-box">
+            <div class="stat-val val-unanswered">${unattemptedCount}</div>
+            <div class="stat-lbl">छोड़े गए</div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-bottom:16px;">
+          <button class="btn-submit-quiz" onclick="restartQuiz()">
+            <i class="fa-solid fa-rotate-left"></i> क्विज़ पुनः शुरू करें
+          </button>
+        </div>
+
+        <div style="font-size:13px; font-weight:700; color:var(--sv-text-heading, #0b1a30); margin-bottom:10px; border-bottom:1px solid var(--sv-border, #e8ecef); padding-bottom:6px;">
+          विस्तृत उत्तर कुंजी एवं समीक्षा
+        </div>
+        <div class="review-list">
+          ${reviewItemsHtml}
+        </div>
+      `;
+
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    // Restart Quiz Functionality
+    function restartQuiz() {
+      answeredQuestions = {};
+      bookmarkedQuestions = {};
+      currentQuestion = 1;
+      timeRemaining = 45 * 60;
+
+      document.getElementById('resultContainer').style.display = 'none';
+      document.getElementById('questionsContainer').style.display = 'block';
+      document.getElementById('quizNavControls').style.display = 'flex';
+
+      renderQuestionCards();
+      renderQuestionGrid();
+      updateProgress();
+      updateTopicBadges();
+      updateCardVisibility();
+      startTimer();
+    }
+
+    // Share Functionality
+    function shareQuiz() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'संविधान - मौलिक अधिकारों पर क्विज़',
+          text: 'भारतीय संविधान के तहत मौलिक अधिकारों की अपनी समझ की परीक्षा लें!',
+          url: window.location.href
+        }).catch(() => {});
+      }
+    }
+
+    // Exit Quiz Logic
+    function exitQuiz() {
+      const count = Object.keys(answeredQuestions).length;
+      if (confirm(`आपने 50 में से ${count} प्रश्नों के उत्तर दिए हैं। क्या आप वाकई बाहर निकलना चाहते हैं?`)) {
+        window.location.href = '../pages/quiz.html';
+      }
+    }
+
+    function showLeaderboardMsg() {
+      alert('क्विज़ पूरा होने के बाद लीडरबोर्ड अपने आप अपडेट हो जाता है!');
+    }
+
+    // On Load Initializer
+    document.addEventListener('DOMContentLoaded', () => {
+      renderQuestionCards();
+      renderQuestionGrid();
+      updateProgress();
+      updateTopicBadges();
+      startTimer();
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+</body>
+</html>

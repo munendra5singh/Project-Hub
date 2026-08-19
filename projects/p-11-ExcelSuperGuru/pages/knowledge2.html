@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Complete Knowledge Hub | ExcelSuperGuru</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <meta name="description" content="The complete Microsoft Excel knowledge base — from first cell to advanced Power Query, DAX and dashboards. Functions, formulas, shortcuts, errors, interview questions and a full learning roadmap in one place.">
+    <meta name="keywords" content="Excel tutorial, Excel functions, Excel formulas, VLOOKUP, XLOOKUP, Pivot Table, Power Query, Excel shortcuts, Excel errors, Excel interview questions, ExcelSuperGuru">
+    <meta name="author" content="ExcelSuperGuru">
+    <link rel="canonical" href="https://www.excelsuperguru.com/knowledge">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Excel Complete Knowledge Hub | ExcelSuperGuru">
+    <meta property="og:description" content="Learn Microsoft Excel from beginner to expert — one page, everything you need.">
+    <meta property="og:url" content="https://www.excelsuperguru.com/knowledge">
+    <meta property="og:image" content="https://www.excelsuperguru.com/assets/images/shareimg.png">
+    <meta property="og:site_name" content="ExcelSuperGuru">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Excel Complete Knowledge Hub | ExcelSuperGuru">
+    <meta name="twitter:description" content="Learn Microsoft Excel from beginner to expert — one page, everything you need.">
+    <meta name="twitter:image" content="https://www.excelsuperguru.com/assets/images/shareimg.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <link rel="stylesheet" href="../CSS/knowledge2.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/components.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+     <link rel="stylesheet" href="../CSS/join.css">
+     <link rel="stylesheet" href="../CSS/join.css">
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Excel Complete Knowledge Hub",
+        "description": "The complete Microsoft Excel knowledge base for beginners to advanced users.",
+        "author": { "@type": "Organization", "name": "ExcelSuperGuru" },
+        "publisher": { "@type": "Organization", "name": "ExcelSuperGuru" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.excelsuperguru.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Knowledge Hub", "item": "https://www.excelsuperguru.com/knowledge" }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <div class="progress-rail" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+<header class="site-header">
+    <div class="container navbar">
+        <a href="../index.html" class="nav-brand">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="#107C41"/>
+                <path d="M14 2V8H20L14 2Z" fill="#1f9a55"/>
+                <path d="M8 12L11 15L8 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M12 18H16" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+            Excel<span>SuperGuru</span>
+        </a>
+        
+        <nav aria-label="Main Navigation">
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/formulas.html" class="nav-link">Formulas</a></li>
+                <li><a href="https://1drv.ms/x/c/6cdb61f930bce09a/IQA9TY7Yo-FOQ7umiZWgQlpnAdLa52zJ5KeV2HjREoWcjGk?e=1GyxGB" target="_blank" rel="noopener noreferrer">Live Excel</a></li>
+                <li><a href="../pages/shortcuts.html">Shortcuts</a></li>
+                <li><a href="../pages/quiz.html">Trivia Quiz</a></li>
+                <li><a href="../pages/interview.html">Interview Q&A</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="menuToggleBtn" class="theme-toggle-btn" aria-label="Toggle Table of Contents">☰</button>
+          
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Global Theme Mode">
+                <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <a href="../pages/practice.html" class="btn btn-primary">Launch Sandbox</a>
+        </div>
+    </div>
+</header>
+
+    <section class="hero" id="top">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-inner">
+            <p class="eyebrow">A1 · Knowledge Hub</p>
+            <h1>Excel Complete<br><span>Knowledge Hub</span></h1>
+            <p class="hero-sub">Learn Microsoft Excel easily from the very first step to Power Query, DAX, and dashboards. Find every topic, function, and shortcut in one simple place.</p>
+
+            <form class="formula-search" id="searchForm" role="search">
+                <label for="searchInput" class="visually-hidden">Search the knowledge hub</label>
+                <span class="fx-tag">=SEARCH(</span>
+                <input type="text" id="searchInput" placeholder="&quot;vlookup&quot;, &quot;pivot table&quot;, &quot;#REF!&quot;, shortcut..." autocomplete="off">
+                <span class="fx-tag">)</span>
+                <button type="submit" aria-label="Search">Go</button>
+                <div class="search-results" id="searchResults" hidden></div>
+            </form>
+
+            <div class="quick-chips" id="quickChips">
+                <button data-target="sec-intro">Beginner</button>
+                <button data-target="sec-pivot-tables">Intermediate</button>
+                <button data-target="sec-power-query">Advanced</button>
+                <button data-target="sec-functions">Functions</button>
+                <button data-target="sec-projects">Projects</button>
+                <button data-target="sec-interview">Interview Questions</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="layout">
+        <aside class="toc-sidebar" id="tocSidebar" aria-label="Table of contents">
+            <div class="toc-head">
+                <span class="toc-label">Sheet1</span>
+                <span class="reading-time" id="readingTime">~0 min read</span>
+            </div>
+            <nav id="tocNav"></nav>
+        </aside>
+
+        <main class="content" id="mainContent">
+            <section class="topic" id="sec-intro" data-ref="A1" data-title="Introduction" data-keywords="what is excel, history, spreadsheet, versions, career">
+                <header class="topic-head">
+                    <span class="cell-ref">A1</span>
+                    <h2>Introduction to Excel</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link to this topic">🔗</button>
+                    </div>
+                </header>
+
+                <h3>What is Excel?</h3>
+                <p>Microsoft Excel is a software program that arranges data into a grid of <strong>rows and columns</strong>. The box where a row and a column meet is called a <em>cell</em>. Each cell can hold text, a number, a date, or a formula. The best feature of Excel is that cells can connect to each other. If you change a number in one cell, all the related formulas update automatically. This automatic recalculation makes a spreadsheet much better than a simple table or document.</p>
+
+                <h3>Who created Excel, and when?</h3>
+                <p>Microsoft created Excel and first released it in <strong>1985 for Apple Macintosh computers</strong>. The Windows version came out in <strong>1987</strong>. Microsoft built Excel to compete with the most popular spreadsheet tool at that time, Lotus 1-2-3. Soon, Excel became more popular than Lotus 1-2-3 and became the standard tool for businesses, schools, and offices worldwide.</p>
+
+                <h3>Major version milestones</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Version</th><th>Year</th><th>New Feature Added</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Excel 2.0 (Windows)</td><td>1987</td><td>First version for Windows</td></tr>
+                            <tr><td>Excel 97</td><td>1997</td><td>VBA editor and new menu system</td></tr>
+                            <tr><td>Excel 2007</td><td>2007</td><td>Ribbon toolbar, .xlsx files, and 1 million+ rows</td></tr>
+                            <tr><td>Excel 2010</td><td>2010</td><td>Sparklines, Slicers, and PowerPivot tool</td></tr>
+                            <tr><td>Excel 2016</td><td>2016</td><td>Built-in Power Query and new charts</td></tr>
+                            <tr><td>Excel 2019 / 365</td><td>2018–present</td><td>Dynamic arrays, XLOOKUP, LET, and live teamwork</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Why learn Excel</h3>
+                <ul class="check-list">
+                    <li>It is the most common skill asked for in job postings for finance, operations, HR, marketing, and data roles.</li>
+                    <li>It helps you turn raw data into clear choices (using sums, trends, and totals) without writing hard code.</li>
+                    <li>It is the first step to learning advanced data analysis tools like Power BI, which uses the same system (Power Query, Power Pivot, DAX).</li>
+                </ul>
+
+                <div class="grid-2">
+                    <div class="glass-card">
+                        <h4>Advantages</h4>
+                        <ul>
+                            <li>Available on almost all office computers and easy to learn</li>
+                            <li>Very flexible — works for simple lists or large financial reports</li>
+                            <li>Has a huge list of built-in functions and automated tools (VBA)</li>
+                            <li>Easy to share as a single file with others</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card">
+                        <h4>Disadvantages</h4>
+                        <ul>
+                            <li>Not made for many people to edit at the exact same time at a very large scale</li>
+                            <li>Manual work can lead to mistakes (a wrong cell reference can ruin a report)</li>
+                            <li>It has a row limit (1,048,576), so it cannot hold extremely huge data</li>
+                            <li>Can create confusion with too many file copies (like "final_v3_FINAL.xlsx")</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Career scope</h3>
+                <p>Knowing Excel helps you get jobs like MIS Executive, Data Analyst, Financial Analyst, Business Analyst, Accountant, and Operations Analyst. Advanced Excel skills are also the easiest way to learn <strong>Power BI</strong> and start a career in Business Intelligence (BI).</p>
+                <p class="practice-note">Related: <a href="#sec-roadmap">Learning Roadmap →</a></p>
+            </section>
+
+            <section class="topic" id="sec-uses" data-ref="A2" data-title="Excel Uses" data-keywords="uses, industries, applications, real world examples">
+                <header class="topic-head">
+                    <span class="cell-ref">A2</span>
+                    <h2>Excel Uses Across Industries</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Excel can be used in any field. The same simple grid adapts easily to different kinds of tracking and data analysis. Here is how different industries use it every day:</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Industry</th><th>Common Use</th><th>Real-World Example</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Accounting &amp; Finance</td><td>Tracking money, matching accounts, financial models</td><td>Monthly profit reports made with the SUMIFS function</td></tr>
+                            <tr><td>HR (Human Resources)</td><td>Employee attendance, monthly payroll, leave tracking</td><td>Attendance sheets that change color automatically for missing employees</td></tr>
+                            <tr><td>Inventory &amp; Supply Chain</td><td>Stock levels, ordering new items</td><td>Stock dashboard that alerts you when items are running low</td></tr>
+                            <tr><td>Sales &amp; Marketing</td><td>Tracking deals, marketing results</td><td>Pivot tables to see total sales by region and salesperson</td></tr>
+                            <tr><td>Banking</td><td>Loan details, interest calculations</td><td>Loan repayment schedule made with PMT, IPMT, and PPMT functions</td></tr>
+                            <tr><td>Healthcare</td><td>Patient visits, tracking medical tools</td><td>Hospital bed tracker that shows empty beds using colors</td></tr>
+                            <tr><td>Manufacturing</td><td>Factory planning, product quality logs</td><td>Defect tracker dashboard using control charts</td></tr>
+                            <tr><td>Government</td><td>Budget handling, public data tables</td><td>Department reports showing how budget money is spent</td></tr>
+                            <tr><td>Education</td><td>Teacher gradebooks, student results</td><td>Student report cards using AVERAGEIFS and rank formulas</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-interface" data-ref="A3" data-title="Excel Interface" data-keywords="ribbon, tabs, formula bar, name box, status bar, quick access toolbar">
+                <header class="topic-head">
+                    <span class="cell-ref">A3</span>
+                    <h2>The Excel Interface</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Before learning formulas, it is important to know the names of the different parts of the screen. This makes tutorials much easier to follow.</p>
+                <div class="interface-diagram" aria-hidden="true">
+                    <div class="diag-row diag-title">Quick Access Toolbar <span>·</span> Title Bar</div>
+                    <div class="diag-row diag-ribbon">Ribbon (Tabs → Groups → Commands)</div>
+                    <div class="diag-row diag-formula"><span class="diag-namebox">Name Box</span> <span class="diag-fx">fx  Formula Bar</span></div>
+                    <div class="diag-grid">Worksheet Grid (Rows × Columns × Cells)</div>
+                    <div class="diag-row diag-sheettabs">Sheet Tabs</div>
+                    <div class="diag-row diag-status">Status Bar <span>·</span> Zoom Slider</div>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Part of Screen</th><th>What it does</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ribbon</td><td>The main menu bar at the top. It has Tabs (Home, Insert, etc.) that hold groups of related buttons.</td></tr>
+                            <tr><td>Quick Access Toolbar</td><td>A small bar at the top-left for your favorite tools, like Save, Undo, and Redo.</td></tr>
+                            <tr><td>Name Box</td><td>Shows the address of the cell you selected (like B4). You can also type a cell address here to jump to it.</td></tr>
+                            <tr><td>Formula Bar</td><td>Shows and lets you edit the actual formula or value inside the selected cell.</td></tr>
+                            <tr><td>Worksheet</td><td>The single grid page made of rows and columns. It is just one page inside a workbook file.</td></tr>
+                            <tr><td>Workbook</td><td>The whole Excel file (.xlsx) which contains one or many worksheets.</td></tr>
+                            <tr><td>Sheet Tabs</td><td>The small tabs at the bottom used to add, rename, color, or switch between pages.</td></tr>
+                            <tr><td>Status Bar</td><td>The bottom strip that shows quick totals (Sum, Average, Count) when you select numbers, plus zoom controls.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-basics" data-ref="A4" data-title="Basic Concepts" data-keywords="cell, range, relative absolute mixed reference, fill handle, autofill">
+                <header class="topic-head">
+                    <span class="cell-ref">A4</span>
+                    <h2>Basic Concepts</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Term</th><th>Meaning</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Cell</td><td>A single box formed where a column and row meet (e.g., <code>C5</code>).</td></tr>
+                            <tr><td>Range</td><td>A group of multiple cells selected together (e.g., <code>C5:C10</code>).</td></tr>
+                            <tr><td>Active cell</td><td>The cell you have currently selected and are typing in.</td></tr>
+                            <tr><td>Relative reference</td><td><code>A1</code> — Changes automatically when you copy a formula to other cells.</td></tr>
+                            <tr><td>Absolute reference</td><td><code>$A$1</code> — Stays completely locked and does not change when copied.</td></tr>
+                            <tr><td>Mixed reference</td><td><code>$A1</code> or <code>A$1</code> — Locks only the column or only the row.</td></tr>
+                            <tr><td>Fill handle</td><td>The small square at the bottom-right corner of a selected cell. Drag it to copy formulas or data.</td></tr>
+                            <tr><td>AutoFill</td><td>Excel's ability to complete a pattern (like Jan, Feb, Mar... or 1, 2, 3...) when you drag the fill handle.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Simple Example:</strong> In a price sheet, a tax formula like <code>=B2*$E$1</code> (with tax rate locked in E1) can be dragged down safely. The <code>B2</code> will change for each row, but <code>$E$1</code> will stay locked.</p>
+            </section>
+
+            <section class="topic" id="sec-navigation" data-ref="A5" data-title="Navigation" data-keywords="find replace go to shortcuts name box">
+                <header class="topic-head">
+                    <span class="cell-ref">A5</span>
+                    <h2>Navigation</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ul class="check-list">
+                    <li><strong>Ctrl + Arrow Key</strong> — Instantly jump to the very edge of your data block.</li>
+                    <li><strong>Ctrl + Home / End</strong> — Jump straight to the first cell (A1) or the last used cell of the page.</li>
+                    <li><strong>Ctrl + F</strong> (Find) and <strong>Ctrl + H</strong> (Replace) — Find specific words/numbers or change them in bulk.</li>
+                    <li><strong>F5 / Ctrl + G</strong> (Go To) — Jump directly to a cell address. The "Go To Special" button helps select only blank cells or cells with formulas.</li>
+                    <li><strong>Name Box</strong> — Type a cell location here and hit Enter to go there instantly.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-data-entry" data-ref="B1" data-title="Data Entry" data-keywords="text number date currency percentage time custom format">
+                <header class="topic-head">
+                    <span class="cell-ref">B1</span>
+                    <h2>Data Entry &amp; Data Types</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Excel automatically guesses what kind of data you are typing. It aligns text to the left and numbers to the right by default.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Data Type</th><th>What You Type</th><th>How Excel Displays It</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Text</td><td>Invoice</td><td>Invoice</td></tr>
+                            <tr><td>Number</td><td>2500</td><td>2500</td></tr>
+                            <tr><td>Currency</td><td>2500 → apply format</td><td>$2,500.00</td></tr>
+                            <tr><td>Percentage</td><td>0.18 → apply format</td><td>18%</td></tr>
+                            <tr><td>Date</td><td>7/7/2026</td><td>07-Jul-2026</td></tr>
+                            <tr><td>Time</td><td>14:30</td><td>2:30 PM</td></tr>
+                            <tr><td>Scientific</td><td>1500000 → apply format</td><td>1.50E+06</td></tr>
+                            <tr><td>Custom</td><td><code>0.00" kg"</code></td><td>45.20 kg</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-formatting" data-ref="B2" data-title="Formatting" data-keywords="conditional formatting, data bars, color scales, icon sets, cell styles, themes">
+                <header class="topic-head">
+                    <span class="cell-ref">B2</span>
+                    <h2>Formatting</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Formatting only changes how data <em>looks</em> on the screen, not its actual value. For example, a cell showing "18%" still stores the value 0.18 inside.</p>
+                <h3>Conditional Formatting</h3>
+                <p>This changes a cell's color automatically based on a rule you set. Example: Go to <code>Home → Conditional Formatting → Highlight Cell Rules → Greater Than</code> to highlight high sales numbers, or use a custom formula like <code>=$D2&lt;$C2</code> to highlight rows that are under budget.</p>
+                <ul class="check-list">
+                    <li><strong>Data Bars</strong> — Adds a colored bar inside the cell. The bigger the number, the longer the bar.</li>
+                    <li><strong>Color Scales</strong> — Uses color shades (like green to red) to highlight high and low numbers.</li>
+                    <li><strong>Icon Sets</strong> — Adds arrows or traffic lights to show if numbers meet your target thresholds.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-formulas" data-ref="B3" data-title="Formulas" data-keywords="formula basics operator priority references common mistakes bodmas">
+                <header class="topic-head">
+                    <span class="cell-ref">B3</span>
+                    <h2>Formulas</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <h3>Formula basics</h3>
+                <p>Every formula must start with an equals sign (<code>=</code>). Excel calculates the mathematical operators and functions, showing the result in the cell while hiding the formula in the background.</p>
+                <h3>Operator priority (Order of Operations)</h3>
+                <ol>
+                    <li>Parentheses <code>()</code></li>
+                    <li>Exponents <code>^</code></li>
+                    <li>Multiplication and Division <code>* /</code> (calculated left to right)</li>
+                    <li>Addition and Subtraction <code>+ -</code> (calculated left to right)</li>
+                    <li>Text joining <code>&amp;</code></li>
+                    <li>Comparisons <code>= &lt; &gt; &lt;= &gt;= &lt;&gt;</code></li>
+                </ol>
+                <p>Typing <code>=10+2*5</code> gives an answer of <strong>20</strong> (not 60), because Excel multiplies before adding.</p>
+                <h3>Common mistakes to avoid</h3>
+                <ul class="check-list">
+                    <li>Forgetting to lock a cell reference with <code>$</code> before dragging a formula down many rows.</li>
+                    <li>Mismatched parentheses — Missing a closing bracket <code>)</code> when nesting multiple functions.</li>
+                    <li>Mixing text strings and numbers without using the <code>&amp;</code> sign, which causes a <code>#VALUE!</code> error.</li>
+                    <li>Selecting whole columns (like <code>A:A</code>) without a reason, which can make large files run very slowly.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-functions" data-ref="B4" data-title="Functions" data-keywords="math logical lookup text date statistical financial dynamic array vlookup xlookup index match sumif iferror">
+                <header class="topic-head">
+                    <span class="cell-ref">B4</span>
+                    <h2>Functions Library</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Functions are sorted by categories below. Each entry explains its Purpose, Syntax (how to write it), Arguments, an Example, Output, common Errors, and a practice tip.</p>
+
+                <div class="func-tabs" id="funcTabs">
+                    <button class="func-tab active" data-cat="math">Math</button>
+                    <button class="func-tab" data-cat="logical">Logical</button>
+                    <button class="func-tab" data-cat="lookup">Lookup</button>
+                    <button class="func-tab" data-cat="text">Text</button>
+                    <button class="func-tab" data-cat="date">Date &amp; Time</button>
+                    <button class="func-tab" data-cat="stat">Statistical</button>
+                    <button class="func-tab" data-cat="fin">Financial</button>
+                    <button class="func-tab" data-cat="array">Dynamic Array</button>
+                    <button class="func-tab" data-cat="info">Information</button>
+                </div>
+
+                <div class="func-panels">
+                    <div class="func-panel active" data-cat="math">
+                        <article class="func-card">
+                            <h4><code>SUMIFS</code> <span class="badge">Math</span></h4>
+                            <p><strong>Purpose:</strong> Adds numbers together if they meet one or more conditions.</p>
+                            <p><strong>Syntax:</strong> <code>=SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)</code></p>
+                            <p><strong>Arguments:</strong> sum_range (the numbers to add), criteria_range/criteria pairs (the rules to check).</p>
+                            <p><strong>Example:</strong> <code>=SUMIFS(D2:D200, A2:A200, "North", C2:C200, "2026")</code></p>
+                            <p><strong>Output:</strong> Total sales for the North region specifically in the year 2026.</p>
+                            <p><strong>Common errors:</strong> If your ranges are not the exact same size, you will get a <code>#VALUE!</code> error.</p>
+                            <p><strong>Tip:</strong> Always lock ranges with <code>$</code> signs if you plan to copy the formula to other cells.</p>
+                            <p><strong>Related:</strong> SUMIF, COUNTIFS, AVERAGEIFS</p>
+                            <p class="practice-note">Practice: Add up "Expenses" where the Department is "HR" and Month is "June".</p>
+                        </article>
+                        <article class="func-card">
+                            <h4><code>ROUND</code> <span class="badge">Math</span></h4>
+                            <p><strong>Purpose:</strong> Rounds a number to a chosen amount of decimal places.</p>
+                            <p><strong>Syntax:</strong> <code>=ROUND(number, num_digits)</code></p>
+                            <p><strong>Example:</strong> <code>=ROUND(482.657, 2)</code> → <strong>482.66</strong></p>
+                            <p><strong>Tip:</strong> Use a negative number for digits to round to the nearest tens or hundreds, like <code>=ROUND(482,-2)</code> → 500.</p>
+                            <p><strong>Related:</strong> ROUNDUP, ROUNDDOWN, MROUND</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="logical">
+                        <article class="func-card">
+                            <h4><code>IF</code> <span class="badge">Logical</span></h4>
+                            <p><strong>Purpose:</strong> Gives one answer if a condition is true, and a different answer if it is false.</p>
+                            <p><strong>Syntax:</strong> <code>=IF(logical_test, value_if_true, value_if_false)</code></p>
+                            <p><strong>Example:</strong> <code>=IF(B2&gt;=50,"Pass","Fail")</code></p>
+                            <p><strong>Output:</strong> Shows "Pass" if B2 is 50 or more, otherwise shows "Fail".</p>
+                            <p><strong>Common errors:</strong> Forgetting a comma or a closing bracket will cause a formula error.</p>
+                            <p><strong>Tip:</strong> Do not mix too many IF statements together. For 3 or more rules, use the <code>IFS</code> function instead.</p>
+                            <p><strong>Related:</strong> IFS, IFERROR, AND, OR</p>
+                            <p class="practice-note">Practice: Show "Senior" if experience is 5 years or more, else show "Junior".</p>
+                        </article>
+                        <article class="func-card">
+                            <h4><code>IFERROR</code> <span class="badge">Logical</span></h4>
+                            <p><strong>Purpose:</strong> Catches formulas that result in an error and replaces the error with a clean text or number.</p>
+                            <p><strong>Syntax:</strong> <code>=IFERROR(value, value_if_error)</code></p>
+                            <p><strong>Example:</strong> <code>=IFERROR(VLOOKUP(A2,Prices,2,0),"Not found")</code></p>
+                            <p><strong>Tip:</strong> Use this to hide ugly error codes from reports before sharing files with managers.</p>
+                            <p><strong>Related:</strong> IFNA, IF</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="lookup">
+                        <article class="func-card">
+                            <h4><code>XLOOKUP</code> <span class="badge">Lookup</span></h4>
+                            <p><strong>Purpose:</strong> Searches for a value in one column and returns a matching value from another column in any direction.</p>
+                            <p><strong>Syntax:</strong> <code>=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])</code></p>
+                            <p><strong>Example:</strong> <code>=XLOOKUP(A2, ProductID, ProductPrice, "Not found")</code></p>
+                            <p><strong>Output:</strong> The price matching the Product ID in cell A2, or the text "Not found" if it does not exist.</p>
+                            <p><strong>Common errors:</strong> Shows <code>#N/A</code> if the item is missing and you did not set a custom 'if_not_found' message.</p>
+                            <p><strong>Tip:</strong> It is much better than VLOOKUP because it can look left and does not break when you insert new columns.</p>
+                            <p><strong>Related:</strong> VLOOKUP, INDEX/MATCH, LOOKUP</p>
+                            <p class="practice-note">Practice: Find an employee's department using an ID column that is placed on the right side of the Department column.</p>
+                        </article>
+                        <article class="func-card">
+                            <h4><code>INDEX / MATCH</code> <span class="badge">Lookup</span></h4>
+                            <p><strong>Purpose:</strong> A powerful formula duo where MATCH finds the position number of an item, and INDEX extracts the value from that position.</p>
+                            <p><strong>Syntax:</strong> <code>=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code></p>
+                            <p><strong>Example:</strong> <code>=INDEX(C2:C200, MATCH(A2, B2:B200, 0))</code></p>
+                            <p><strong>Tip:</strong> This was the standard method to look left or search using multiple rules before XLOOKUP was created.</p>
+                            <p><strong>Related:</strong> XLOOKUP, VLOOKUP</p>
+                        </article>
+                        <article class="func-card">
+                            <h4><code>VLOOKUP</code> <span class="badge">Lookup</span></h4>
+                            <p><strong>Purpose:</strong> Looks for an item in the very first column of a table and moves right to return a value from a specified column number.</p>
+                            <p><strong>Syntax:</strong> <code>=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></p>
+                            <p><strong>Example:</strong> <code>=VLOOKUP(A2, $D$2:$F$100, 3, FALSE)</code></p>
+                            <p><strong>Common errors:</strong> Forgetting to use FALSE (or 0) at the end will make it search for a close match, which can give wrong answers on unsorted lists.</p>
+                            <p><strong>Tip:</strong> Always use FALSE or 0 at the end for an exact match search.</p>
+                            <p><strong>Related:</strong> HLOOKUP, XLOOKUP, INDEX/MATCH</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="text">
+                        <article class="func-card">
+                            <h4><code>TEXTJOIN</code> <span class="badge">Text</span></h4>
+                            <p><strong>Purpose:</strong> Connects text from multiple cells together using a delimiter (like a comma or space) and skips empty cells.</p>
+                            <p><strong>Syntax:</strong> <code>=TEXTJOIN(delimiter, ignore_empty, text1, [text2]...)</code></p>
+                            <p><strong>Example:</strong> <code>=TEXTJOIN(", ", TRUE, A2:A5)</code></p>
+                            <p><strong>Output:</strong> "Delhi, Mumbai, Pune" (automatically leaves out empty cells).</p>
+                            <p><strong>Related:</strong> CONCAT, &amp; operator</p>
+                        </article>
+                        <article class="func-card">
+                            <h4><code>LEFT / RIGHT / MID</code> <span class="badge">Text</span></h4>
+                            <p><strong>Purpose:</strong> Extracts a chosen number of characters from the start, end, or middle of a text string.</p>
+                            <p><strong>Syntax:</strong> <code>=LEFT(text,n)</code>, <code>=RIGHT(text,n)</code>, <code>=MID(text,start,n)</code></p>
+                            <p><strong>Example:</strong> <code>=MID("INV-2026-045",5,4)</code> → <strong>2026</strong></p>
+                            <p><strong>Related:</strong> FIND, SEARCH, LEN</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="date">
+                        <article class="func-card">
+                            <h4><code>DATEDIF</code> <span class="badge">Date</span></h4>
+                            <p><strong>Purpose:</strong> Calculates the exact time gap between two dates in total Years, Months, or Days.</p>
+                            <p><strong>Syntax:</strong> <code>=DATEDIF(start_date, end_date, unit)</code> — choose units: "y" for years, "m" for months, "d" for days.</p>
+                            <p><strong>Example:</strong> <code>=DATEDIF(A2, TODAY(), "y")</code> → Calculates a person's age in completed years.</p>
+                            <p><strong>Tip:</strong> Excel hides this function from its auto-complete formula list, but it works perfectly. Type it out manually.</p>
+                            <p><strong>Related:</strong> TODAY, EDATE, NETWORKDAYS</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="stat">
+                        <article class="func-card">
+                            <h4><code>AVERAGEIFS</code> <span class="badge">Statistical</span></h4>
+                            <p><strong>Purpose:</strong> Finds the average of numbers that match multiple specific conditions.</p>
+                            <p><strong>Syntax:</strong> <code>=AVERAGEIFS(avg_range, criteria_range1, criteria1, ...)</code></p>
+                            <p><strong>Example:</strong> <code>=AVERAGEIFS(Score, Subject,"Math", Term,"Final")</code></p>
+                            <p><strong>Related:</strong> AVERAGEIF, SUMIFS, COUNTIFS</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="fin">
+                        <article class="func-card">
+                            <h4><code>PMT</code> <span class="badge">Financial</span></h4>
+                            <p><strong>Purpose:</strong> Calculates the fixed monthly payment amount for a loan with a set interest rate.</p>
+                            <p><strong>Syntax:</strong> <code>=PMT(rate, nper, pv)</code></p>
+                            <p><strong>Example:</strong> <code>=PMT(7%/12, 60, -500000)</code> → Calculates the monthly EMI for a 5-year loan.</p>
+                            <p><strong>Tip:</strong> Type the loan amount (pv) as a negative number so the formula output shows up as a clean positive number.</p>
+                            <p><strong>Related:</strong> IPMT, PPMT, RATE, NPER</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="array">
+                        <article class="func-card">
+                            <h4><code>FILTER</code> <span class="badge">Dynamic Array</span></h4>
+                            <p><strong>Purpose:</strong> Pulls out all data rows that match a rule and lists them automatically across multiple rows.</p>
+                            <p><strong>Syntax:</strong> <code>=FILTER(array, include, [if_empty])</code></p>
+                            <p><strong>Example:</strong> <code>=FILTER(A2:D200, C2:C200="North", "No matches")</code></p>
+                            <p><strong>Common errors:</strong> Shows a <code>#SPILL!</code> error if other data blocks the new list from expanding downward.</p>
+                            <p><strong>Related:</strong> SORT, UNIQUE, LET</p>
+                        </article>
+                    </div>
+
+                    <div class="func-panel" data-cat="info">
+                        <article class="func-card">
+                            <h4><code>ISNUMBER / ISTEXT / ISBLANK</code> <span class="badge">Information</span></h4>
+                            <p><strong>Purpose:</strong> Checks what kind of data is inside a cell and answers with a clear TRUE or FALSE.</p>
+                            <p><strong>Example:</strong> <code>=ISBLANK(A2)</code> helps check for empty cells before running formulas on a column.</p>
+                            <p><strong>Related:</strong> ISERROR, ISNA, TYPE</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-charts" data-ref="B5" data-title="Charts" data-keywords="chart types bar line pie scatter combo best practices">
+                <header class="topic-head">
+                    <span class="cell-ref">B5</span>
+                    <h2>Charts</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Chart Type</th><th>Best Used For</th><th>When To Avoid</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Column / Bar</td><td>Comparing different categories</td><td>When you have too many items (&gt;10) — it looks crowded</td></tr>
+                            <tr><td>Line</td><td>Showing trends over time (months/years)</td><td>Comparing separate, unrelated items</td></tr>
+                            <tr><td>Pie</td><td>Showing parts of a whole (use ≤5 slices)</td><td>When there are too many slices or negative numbers</td></tr>
+                            <tr><td>Scatter</td><td>Showing relationships between two sets of numbers</td><td>When using non-numeric text categories</td></tr>
+                            <tr><td>Combo (Line + Column)</td><td>Showing two metrics with different scales (e.g., Revenue vs. Profit %)</td><td>When both lines already use the exact same scale range</td></tr>
+                            <tr><td>Waterfall</td><td>Showing positive and negative changes in a sequence (like cash flow)</td><td>For simple lists that are not in a specific order</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Best practice tip:</strong> Always start the Y-axis at zero for column and bar charts so you do not distort differences. Make sure to add labels to axes and units.</p>
+            </section>
+
+            <section class="topic" id="sec-tables" data-ref="C1" data-title="Excel Tables" data-keywords="excel table structured references ctrl+t">
+                <header class="topic-head">
+                    <span class="cell-ref">C1</span>
+                    <h2>Excel Tables</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Select your data cells and press <strong>Ctrl + T</strong> to turn them into an official Excel Table. Tables expand automatically when you type new rows at the bottom. They use clean <strong>structured references</strong> like <code>=SUM(Sales[Amount])</code> instead of standard cell addresses, and update charts or PivotTables instantly.</p>
+                <ul class="check-list">
+                    <li>Formulas fill down the entire column automatically when a new row is added.</li>
+                    <li>The main header row stays locked at the top while scrolling, without needing Freeze Panes.</li>
+                    <li>Includes built-in color styling and a quick Total Row with easy summary math dropdowns.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-sort-filter" data-ref="C2" data-title="Sorting and Filtering" data-keywords="sort filter custom sort advanced filter multi level">
+                <header class="topic-head">
+                    <span class="cell-ref">C2</span>
+                    <h2>Sorting &amp; Filtering</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ul class="check-list">
+                    <li><strong>Basic Sort:</strong> Go to Data → Sort A→Z or Z→A to organize a single column quickly.</li>
+                    <li><strong>Multi-Level Sort:</strong> Go to Data → Sort → Add Level. For example, sort by Region first, then sort by highest Sales inside each region.</li>
+                    <li><strong>Custom Sort:</strong> Sort by a unique order you define (like Small, Medium, Large) instead of basic alphabetical order.</li>
+                    <li><strong>AutoFilter:</strong> The drop-down filter arrows on top of columns used to pick specific items to display.</li>
+                    <li><strong>Advanced Filter:</strong> Filters data in its current place or copies matching rows to a new spot using separate criteria rules. Supports OR logic across columns.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-validation" data-ref="C3" data-title="Data Validation" data-keywords="dropdown list dependent validation custom formula">
+                <header class="topic-head">
+                    <span class="cell-ref">C3</span>
+                    <h2>Data Validation</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Go to Data → Data Validation to restrict what data users can type into a cell. This stops typos and bad data before it entry time, saving you cleanup work later.</p>
+                <ul class="check-list">
+                    <li><strong>Drop-Down List:</strong> Choose "List", then pick a range of cells or type items separated by commas.</li>
+                    <li><strong>Date Rules:</strong> Choose "Date" and set a minimum or maximum range (like blocking future dates).</li>
+                    <li><strong>Number Rules:</strong> Choose "Whole Number" or "Decimal" to force entries to stay within fixed boundaries.</li>
+                    <li><strong>Custom Formulas:</strong> Use a rule like <code>=COUNTIF($A$2:$A$100,A2)=1</code> to stop users from entering duplicate values.</li>
+                    <li><strong>Dependent Drop-Downs:</strong> A dynamic system where choices in the second drop-down change automatically based on what you picked in the first one. Built using <code>INDIRECT</code> and named ranges.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-pivot-tables" data-ref="C4" data-title="Pivot Tables" data-keywords="pivot table pivot chart slicer timeline calculated field">
+                <header class="topic-head">
+                    <span class="cell-ref">C4</span>
+                    <h2>Pivot Tables</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>A PivotTable summarizes massive lists of data instantly. You drag data fields into four simple zones: <strong>Rows</strong>, <strong>Columns</strong>, <strong>Values</strong>, and <strong>Filters</strong>. The table updates immediately when your data source changes.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Feature</th><th>What it is used for</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>PivotChart</td><td>A visual chart connected directly to a PivotTable's live summary</td></tr>
+                            <tr><td>Slicer</td><td>Visual buttons you can click to filter data instantly</td></tr>
+                            <tr><td>Timeline</td><td>A clean filtering slider bar made specifically for dates</td></tr>
+                            <tr><td>Calculated Field</td><td>Creating a new field inside the pivot table using simple math (e.g., Profit = Revenue − Cost)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Simple Example:</strong> To see total sales sorted by region and quarter, drag Region into Rows, Quarter into Columns, and Sales into Values (set to Sum).</p>
+            </section>
+
+            <section class="topic" id="sec-dashboards" data-ref="C5" data-title="Dashboards" data-keywords="kpi cards interactive dynamic dashboard">
+                <header class="topic-head">
+                    <span class="cell-ref">C5</span>
+                    <h2>Dashboards</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>A good Excel dashboard fits onto a single screen view and answers important business questions instantly. Common components include:</p>
+                <ul class="check-list">
+                    <li><strong>KPI Cards</strong> — Large single numbers showing big values (like Total Revenue or conversion rates) along with trend arrows.</li>
+                    <li><strong>Interactive Charts</strong> connected to slicers, so clicking one button updates all graphics at the same time.</li>
+                    <li><strong>Dynamic Titles</strong> that change using formulas, like <code>="Sales Dashboard – "&amp;TEXT(TODAY(),"mmmm yyyy")</code>.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-data-analysis" data-ref="D1" data-title="Data Analysis" data-keywords="goal seek scenario manager solver forecast what-if">
+                <header class="topic-head">
+                    <span class="cell-ref">D1</span>
+                    <h2>Data Analysis (What-If Tools)</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ul class="check-list">
+                    <li><strong>Goal Seek</strong> — Works backward to find inputs: "What sales number do I need to reach my profit goal?"</li>
+                    <li><strong>Scenario Manager</strong> — Lets you save and easily switch between different business assumptions (like Best Case or Worst Case).</li>
+                    <li><strong>Solver</strong> — A built-in add-in tool that finds the best business answers based on fixed limits (like maximizing profit with a fixed team size).</li>
+                    <li><strong>Forecast Sheet</strong> — Creates a quick trend line into the future using historical timeline data.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-power-query" data-ref="D2" data-title="Power Query" data-keywords="import transform merge append split clean etl">
+                <header class="topic-head">
+                    <span class="cell-ref">D2</span>
+                    <h2>Power Query</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Power Query (found under Data → Get &amp; Transform) is Excel's data cleaning tool. It connects to a source file, records your step-by-step cleaning edits, and imports the clean data. You can rerun the whole cleanup later with a single click.</p>
+                <ul class="check-list">
+                    <li><strong>Import:</strong> Pull data from CSV files, folders, databases, or public websites.</li>
+                    <li><strong>Transform:</strong> Remove junk columns, split text blocks apart, change data types, or unpivot data.</li>
+                    <li><strong>Merge:</strong> Connect two separate tables together like a repeatable VLOOKUP.</li>
+                    <li><strong>Append:</strong> Stack multiple data tables with matching columns directly on top of each other into one big list.</li>
+                    <li><strong>Clean:</strong> Trim empty spaces, fix uppercase text, and clear out duplicate rows as saved steps you can edit anytime.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-power-pivot" data-ref="D3" data-title="Power Pivot" data-keywords="data model relationships measures dax">
+                <header class="topic-head">
+                    <span class="cell-ref">D3</span>
+                    <h2>Power Pivot</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Power Pivot links multiple separate data tables together using **relationships** (like a relational database system). This lets you build a single PivotTable that summarizes across tables without merging them with a giant VLOOKUP formula.</p>
+                <p><strong>Measures</strong> are calculated data fields written in **DAX** (Data Analysis Expressions) language, like <code>Total Sales := SUM(Sales[Amount])</code>. They calculate correctly no matter how you filter or slice the PivotTable. This is the exact same engine used inside Power BI.</p>
+            </section>
+
+            <section class="topic" id="sec-macros" data-ref="D4" data-title="Macros" data-keywords="macro recorder vba security enable macros">
+                <header class="topic-head">
+                    <span class="cell-ref">D4</span>
+                    <h2>Macros &amp; VBA</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ul class="check-list">
+                    <li><strong>Record Macro:</strong> (On the Developer tab) Automatically saves your clicks and typing into reusable VBA code scripts.</li>
+                    <li><strong>Edit VBA:</strong> Press Alt + F11 to open the code editor window to tweak recorded actions or write code scripts from scratch.</li>
+                    <li><strong>Run Macro:</strong> Press Alt + F8 or click a custom button to run your automation script.</li>
+                    <li><strong>Security Info:</strong> Macros from the internet can have unsafe code. Excel turns them off by default. Only run macros from people or files you trust.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-printing" data-ref="D5" data-title="Printing" data-keywords="print area margins scaling headers footers page layout">
+                <header class="topic-head">
+                    <span class="cell-ref">D5</span>
+                    <h2>Printing</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ul class="check-list">
+                    <li><strong>Print Area:</strong> Go to Page Layout → Print Area → Set to print only your selected cells instead of the whole page.</li>
+                    <li><strong>Margins &amp; Scaling:</strong> Choose "Fit Sheet on One Page" to shrink large tables onto a single piece of paper safely.</li>
+                    <li><strong>Headers/Footers:</strong> Add automatic page numbers, file names, or dates to the top or bottom of every printed sheet.</li>
+                    <li><strong>Print Titles:</strong> Repeats the top header row on every printed page automatically for long tables.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-sharing" data-ref="E1" data-title="Sharing" data-keywords="protect sheet workbook password comments co-authoring">
+                <header class="topic-head">
+                    <span class="cell-ref">E1</span>
+                    <h2>Sharing &amp; Protection</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ul class="check-list">
+                    <li><strong>Protect Sheet:</strong> Locks specified cells so other users cannot overwrite formulas, while still letting them sort or filter.</li>
+                    <li><strong>Protect Workbook:</strong> Stops other users from adding new sheets, deleting pages, or rearranging tabs.</li>
+                    <li><strong>File Passwords:</strong> Go to File → Info → Protect Workbook → Encrypt with Password to keep data locked safely.</li>
+                    <li><strong>Comments/Notes:</strong> Add floating note cards to specific cells to add context without changing cell data.</li>
+                    <li><strong>Co-Authoring:</strong> Save files on OneDrive or SharePoint to let multiple teammates edit the sheet at the exact same time.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-errors" data-ref="E2" data-title="Excel Errors" data-keywords="#value #ref #div/0 #name #num #n/a #spill circular reference">
+                <header class="topic-head">
+                    <span class="cell-ref">E2</span>
+                    <h2>Excel Errors</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <div class="error-grid">
+                    <div class="glass-card error-card">
+                        <h4><code>#VALUE!</code></h4>
+                        <p><strong>Cause:</strong> Using the wrong data type inside a formula, like trying to add text to a standard number.</p>
+                        <p><strong>Solution:</strong> Use the <code>VALUE()</code> function or check for text hidden inside your number columns.</p>
+                        <p><strong>Example:</strong> <code>="5"+"apple"</code> → results in <code>#VALUE!</code></p>
+                    </div>
+                    <div class="glass-card error-card">
+                        <h4><code>#REF!</code></h4>
+                        <p><strong>Cause:</strong> A formula points to a cell, row, or column that was completely deleted from the sheet.</p>
+                        <p><strong>Solution:</strong> Press Undo (Ctrl + Z) immediately or fix the broken cell links manually.</p>
+                        <p><strong>Example:</strong> Deleting Column B when a formula reads <code>=B2*2</code>.</p>
+                    </div>
+                    <div class="glass-card error-card">
+                        <h4><code>#DIV/0!</code></h4>
+                        <p><strong>Cause:</strong> Trying to divide a number by zero or by a completely blank cell.</p>
+                        <p><strong>Solution:</strong> Wrap your formula inside an <code>IFERROR</code> function or pre-check the cell with an <code>IF</code> statement.</p>
+                        <p><strong>Example:</strong> <code>=10/0</code></p>
+                    </div>
+                    <div class="glass-card error-card">
+                        <h4><code>#NAME?</code></h4>
+                        <p><strong>Cause:</strong> A typo in a function name or using an undefined named range label.</p>
+                        <p><strong>Solution:</strong> Check for typos in your formula spelling, or verify labels inside the Name Manager tool.</p>
+                        <p><strong>Example:</strong> <code>=SUMM(A1:A10)</code></p>
+                    </div>
+                    <div class="glass-card error-card">
+                        <h4><code>#NUM!</code></h4>
+                        <p><strong>Cause:</strong> Using an impossible mathematical number argument, like a negative value inside a <code>SQRT</code> function.</p>
+                        <p><strong>Solution:</strong> Fix your input values before running the mathematical calculation.</p>
+                        <p><strong>Example:</strong> <code>=SQRT(-9)</code></p>
+                    </div>
+                    <div class="glass-card error-card">
+                        <h4><code>#N/A</code></h4>
+                        <p><strong>Cause:</strong> A lookup formula could not find any match for your search term.</p>
+                        <p><strong>Solution:</strong> Confirm the search item exists and check that data types match (text vs number), or wrap it with <code>IFNA</code>.</p>
+                        <p><strong>Example:</strong> <code>=VLOOKUP("Z999",A:B,2,0)</code> when "Z999" does not exist anywhere.</p>
+                    </div>
+                    <div class="glass-card error-card">
+                        <h4><code>#SPILL!</code></h4>
+                        <p><strong>Cause:</strong> A new dynamic array formula is blocked from listing out results because old data is in its path.</p>
+                        <p><strong>Solution:</strong> Clear out the blocking cells below the formula or move the formula to an empty row.</p>
+                        <p><strong>Example:</strong> <code>=UNIQUE(A1:A20)</code> when cell B1 already has typed content.</p>
+                    </div>
+                    <div class="glass-card error-card">
+                        <h4>Circular Reference</h4>
+                        <p><strong>Cause:</strong> A formula points back to its own cell address directly or through a loop chain.</p>
+                        <p><strong>Solution:</strong> Go to Formulas → Error Checking → Circular References to find the loop and redesign the calculation path.</p>
+                        <p><strong>Example:</strong> Cell A1 contains the formula <code>=A1+1</code>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-shortcuts" data-ref="E3" data-title="Keyboard Shortcuts" data-keywords="ctrl shortcuts editing formatting navigation selection formula charts workbook printing developer">
+                <header class="topic-head">
+                    <span class="cell-ref">E3</span>
+                    <h2>Keyboard Shortcuts</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <input type="text" id="shortcutSearch" class="mini-search" placeholder="Filter shortcuts…">
+                <div class="shortcut-grid" id="shortcutGrid">
+                    <div class="shortcut-cat" data-cat="Editing">
+                        <h4>Editing</h4>
+                        <ul><li><kbd>Ctrl+Z</kbd> Undo</li><li><kbd>Ctrl+Y</kbd> Redo</li><li><kbd>Ctrl+X/C/V</kbd> Cut / Copy / Paste</li><li><kbd>Delete</kbd> Clear cell content</li><li><kbd>F2</kbd> Edit active cell</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Formatting">
+                        <h4>Formatting</h4>
+                        <ul><li><kbd>Ctrl+B/I/U</kbd> Bold / Italic / Underline</li><li><kbd>Ctrl+1</kbd> Open Format Cells window</li><li><kbd>Ctrl+Shift+%</kbd> Apply percentage format</li><li><kbd>Ctrl+Shift+$</kbd> Apply currency format</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Navigation">
+                        <h4>Navigation</h4>
+                        <ul><li><kbd>Ctrl+Home</kbd> Go directly to A1</li><li><kbd>Ctrl+End</kbd> Go to the last used cell</li><li><kbd>Ctrl+Arrow</kbd> Jump to the edge of data block</li><li><kbd>Page Up/Down</kbd> Scroll up or down one screen view</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Selection">
+                        <h4>Selection</h4>
+                        <ul><li><kbd>Ctrl+A</kbd> Select all cells</li><li><kbd>Ctrl+Shift+Arrow</kbd> Select cells to the data edge</li><li><kbd>Shift+Space</kbd> Select the entire row</li><li><kbd>Ctrl+Space</kbd> Select the entire column</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Formula">
+                        <h4>Formula</h4>
+                        <ul><li><kbd>=</kbd> Start writing a formula</li><li><kbd>F4</kbd> Switch relative/absolute locking</li><li><kbd>Ctrl+`</kbd> Show formulas on the grid screen</li><li><kbd>Alt+=</kbd> AutoSum shortcut</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Charts">
+                        <h4>Charts</h4>
+                        <ul><li><kbd>Alt+F1</kbd> Create chart on the same sheet</li><li><kbd>F11</kbd> Create chart on a separate sheet</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Workbook">
+                        <h4>Workbook</h4>
+                        <ul><li><kbd>Ctrl+N</kbd> Open new blank workbook file</li><li><kbd>Ctrl+S</kbd> Save current file</li><li><kbd>Ctrl+Tab</kbd> Switch open workbooks</li><li><kbd>Ctrl+PageDown/Up</kbd> Switch spreadsheet tabs</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Printing">
+                        <h4>Printing</h4>
+                        <ul><li><kbd>Ctrl+P</kbd> Print shortcut</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Data">
+                        <h4>Data</h4>
+                        <ul><li><kbd>Ctrl+T</kbd> Turn cells into an official Table</li><li><kbd>Ctrl+Shift+L</kbd> Turn filter arrows on or off</li><li><kbd>Alt+D+P</kbd> Open PivotTable wizard tool</li></ul>
+                    </div>
+                    <div class="shortcut-cat" data-cat="Developer">
+                        <h4>Developer</h4>
+                        <ul><li><kbd>Alt+F11</kbd> Open VBA code window</li><li><kbd>Alt+F8</kbd> Open Macro options list</li></ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-interview" data-ref="E4" data-title="Interview Questions" data-keywords="interview questions beginner intermediate advanced scenario">
+                <header class="topic-head">
+                    <span class="cell-ref">E4</span>
+                    <h2>Interview Questions</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+
+                <h3>Beginner</h3>
+                <div class="accordion" data-accordion>
+                    <div class="acc-item"><button class="acc-trigger">What is the difference between a Workbook and a Worksheet?</button><div class="acc-panel"><p>A Workbook is the complete Excel file. A Worksheet is a single spreadsheet page or tab inside that file. A single workbook file can have many worksheets inside.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is a relative vs. an absolute reference?</button><div class="acc-panel"><p>A relative cell link (A1) changes position automatically when dragged to new cells. An absolute link ($A$1) stays completely locked to that spot. Press F4 to switch them.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do you freeze the header row?</button><div class="acc-panel"><p>Select the row directly below your main headers, then click View → Freeze Panes → Freeze Panes. This keeps header rows visible while scrolling down deep lists.</p></div></div>
+                </div>
+
+                <h3>Intermediate</h3>
+                <div class="accordion" data-accordion>
+                    <div class="acc-item"><button class="acc-trigger">What's the difference between VLOOKUP and INDEX/MATCH?</button><div class="acc-panel"><p>VLOOKUP only searches from left to right and breaks if columns are inserted. INDEX/MATCH (and XLOOKUP) can look left or right safely and does not break when rows or columns change.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How would you remove duplicate rows?</button><div class="acc-panel"><p>Select data → click Data → Remove Duplicates, then select column checkboxes. To check duplicates safely without deleting them, use a COUNTIF formula first.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What does a PivotTable do that a formula can't do easily?</button><div class="acc-panel"><p>It lets you reorganize, group, and summarize huge lists of data dynamically by dragging fields around, without needing to write new formulas for each view.</p></div></div>
+                </div>
+
+                <h3>Advanced</h3>
+                <div class="accordion" data-accordion>
+                    <div class="acc-item"><button class="acc-trigger">How does Power Query differ from formulas for data cleaning?</button><div class="acc-panel"><p>Power Query records a set sequence of cleaning steps connected to your source files. Refreshing the tool runs the whole cleanup automatically on new data. Formulas must be dragged manually every time.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is a DAX measure and how does it differ from a calculated column?</button><div class="acc-panel"><p>A DAX measure calculates values dynamically on the fly based on how you filter or slice your PivotTable. A calculated column calculates values row-by-row once and stores them inside the file model permanently.</p></div></div>
+                </div>
+
+                <h3>Scenario Based</h3>
+                <div class="accordion" data-accordion>
+                    <div class="acc-item"><button class="acc-trigger">Sales data arrives daily as separate CSVs — how would you build a single refreshable report?</button><div class="acc-panel"><p>Use Power Query to import data from a folder, append files together into one master table, clean the columns, load them to the Data Model, and create a PivotTable report on top. Refreshing the report imports new files automatically.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">A formula that used to work now shows #REF! after a colleague edited the file — what do you check first?</button><div class="acc-panel"><p>Check if a row, column, or tab page referenced by the formula was deleted. Check the formula bar text to see which cell link broke, then link it again or restore an old version copy.</p></div></div>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-practice-files" data-ref="E5" data-title="Practice Files" data-keywords="student sales hr finance inventory attendance dashboard budget invoice download">
+                <header class="topic-head">
+                    <span class="cell-ref">E5</span>
+                    <h2>Practice Files</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Download sample data files to practice your skills. (These buttons are placeholders for your actual download links.)</p>
+                <div class="download-grid">
+                    <button class="download-card" data-file="student-marks.xlsx">🎓 Student Marksheet</button>
+                    <button class="download-card" data-file="sales-data.xlsx">💹 Sales Data</button>
+                    <button class="download-card" data-file="hr-attendance.xlsx">🧑‍💼 HR Attendance</button>
+                    <button class="download-card" data-file="finance-model.xlsx">💰 Finance Model</button>
+                    <button class="download-card" data-file="inventory-tracker.xlsx">📦 Inventory Tracker</button>
+                    <button class="download-card" data-file="attendance-sheet.xlsx">📋 Attendance Sheet</button>
+                    <button class="download-card" data-file="dashboard-template.xlsx">📊 Dashboard Template</button>
+                    <button class="download-card" data-file="budget-planner.xlsx">🧾 Budget Planner</button>
+                    <button class="download-card" data-file="invoice-template.xlsx">🧮 Invoice Template</button>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-projects" data-ref="F1" data-title="Projects" data-keywords="attendance system payroll billing dashboard inventory sales report expense tracker loan calculator invoice">
+                <header class="topic-head">
+                    <span class="cell-ref">F1</span>
+                    <h2>Projects</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <p>Build these end-to-end projects to move from basic formulas to building full workbooks:</p>
+                <div class="grid-3">
+                    <div class="glass-card"><h4>Attendance System</h4><p>Use drop-down menus for daily tracking, COUNTIFS for totals, and colors for missing employees.</p></div>
+                    <div class="glass-card"><h4>Payroll Sheet</h4><p>Calculate base pay, deductions, and tax tax slabs using nested IF or IFS functions.</p></div>
+                    <div class="glass-card"><h4>Billing System</h4><p>Create invoice lines with item prices using VLOOKUP, plus automatic tax and final totals calculations.</p></div>
+                    <div class="glass-card"><h4>Sales Dashboard</h4><p>Build PivotTables, slick visual slicer buttons, and main KPI cards from raw transaction lists.</p></div>
+                    <div class="glass-card"><h4>Inventory Tracker</h4><p>Set up automatic reorder alerts using IF rules, data check validations, and text colors.</p></div>
+                    <div class="glass-card"><h4>Expense Tracker</h4><p>Build category-wise summaries using SUMIFS combined with monthly spending trend charts.</p></div>
+                    <div class="glass-card"><h4>Loan Calculator</h4><p>Create full amortization plans with PMT/IPMT/PPMT functions and try Goal Seek target rules.</p></div>
+                    <div class="glass-card"><h4>Business Dashboard</h4><p>Learn to pull data with Power Query, connect tables in Power Pivot, and use DAX metrics formulas.</p></div>
+                </div>
+            </section>
+
+            <section class="topic" id="sec-tips" data-ref="F2" data-title="Tips and Tricks" data-keywords="hidden features time saving productivity advanced tricks">
+                <header class="topic-head">
+                    <span class="cell-ref">F2</span>
+                    <h2>Tips &amp; Tricks</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ul class="check-list">
+                    <li><strong>Flash Fill:</strong> (Ctrl + E) Excel spots your pattern from one typed example and fills the rest automatically (like splitting full names into first/last columns).</li>
+                    <li><strong>Double-Click Fill Handle:</strong> Double-click the tiny corner box to run a formula all the way down to match the adjacent data rows instantly.</li>
+                    <li><strong>Ctrl + Enter:</strong> Select multiple cells, type data or formula, and hit Ctrl + Enter to fill all of them at the exact same time.</li>
+                    <li><strong>Alt + Enter:</strong> Inserts a clean line break to type text on a new line inside a single cell box.</li>
+                    <li><strong>Paste Special as Values:</strong> Clears out underlying formulas while permanently saving the final calculated numbers inside cells.</li>
+                    <li><strong>Watch Window:</strong> (On the Formulas tab) Keeps a floating view block on an important cell's values even when you scroll away.</li>
+                </ul>
+            </section>
+
+            <section class="topic" id="sec-vs-sheets" data-ref="F3" data-title="Excel vs Google Sheets" data-keywords="comparison table advantages disadvantages when to use">
+                <header class="topic-head">
+                    <span class="cell-ref">F3</span>
+                    <h2>Excel vs. Google Sheets</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Feature</th><th>Microsoft Excel</th><th>Google Sheets</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Live Teamwork</td><td>Good (using OneDrive cloud paths)</td><td>Excellent, built directly for browsers</td></tr>
+                            <tr><td>Offline Work</td><td>Excellent offline desktop features</td><td>Limited unless configured first</td></tr>
+                            <tr><td>Function Depth &amp; Coding</td><td>Extremely deep features, uses VBA scripts</td><td>Lighter, uses JavaScript Apps Scripts</td></tr>
+                            <tr><td>Handling Massive Data</td><td>Very fast handling large file grids</td><td>Runs slowly on very large files</td></tr>
+                            <tr><td>Cost</td><td>Paid pricing models (Office 365)</td><td>Free access with standard Google accounts</td></tr>
+                            <tr><td>Power Query / Pivot Models</td><td>Fully built-in tools</td><td>Not available as native tools</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Which one to use:</strong> Choose Microsoft Excel for deep financial modeling, massive files, or complex data query cleanup tasks. Choose Google Sheets for live online teamwork with multiple users editing from basic browsers instantly.</p>
+            </section>
+
+            <section class="topic" id="sec-faq" data-ref="F4" data-title="FAQ" data-keywords="frequently asked questions faq">
+                <header class="topic-head">
+                    <span class="cell-ref">F4</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <input type="text" id="faqSearch" class="mini-search" placeholder="Search FAQs…">
+                <div class="accordion" data-accordion id="faqAccordion">
+                    <div class="acc-item"><button class="acc-trigger">What file formats does Excel use?</button><div class="acc-panel"><p>.xlsx (standard file), .xlsm (macro files), .xlsb (binary format for fast loading), and .xls (old legacy format from Excel 97–2003).</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the maximum number of rows in Excel?</button><div class="acc-panel"><p>Every worksheet has a limit of 1,048,576 rows and 16,384 columns (ending at column label XFD).</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I freeze the first row and first column?</button><div class="acc-panel"><p>Select cell box B2, then go to View → Freeze Panes → Freeze Panes. All rows above and columns to the left stay locked while you scroll.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What's the difference between COUNT and COUNTA?</button><div class="acc-panel"><p>COUNT only counts cells that have standard numbers. COUNTA counts any cell that is not blank, including text entries.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I merge cells?</button><div class="acc-panel"><p>Select your cells → click Home → Merge &amp; Center. Note: This action only keeps the top-left data value and can make sorting your columns harder later.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I convert text to columns?</button><div class="acc-panel"><p>Select column data → click Data → Text to Columns → select Delimited option to split terms like "City, State" into separate cells automatically.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is a named range and why use one?</button><div class="acc-panel"><p>A named range assigns a clear readable label to cell blocks (like "TaxRate" instead of $E$1). This makes your calculation paths much easier to read and troubleshoot.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I lock only some cells in a sheet?</button><div class="acc-panel"><p>Select cells you want users to edit → click Format Cells → Protection tab → uncheck Locked box, then activate Review → Protect Sheet. Only your unlocked cells remain editable.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">Why does my formula show as text instead of a result?</button><div class="acc-panel"><p>This happens if the cell category was set to Text before you typed the formula. Change formatting to General or Number and hit Enter inside the formula bar again.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What's the difference between a formula and a function?</button><div class="acc-panel"><p>A formula is any calculation path starting with a "=" sign. A function (like SUM, IF, VLOOKUP) is a pre-made tool built into Excel to use inside a formula block.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I remove duplicate values?</button><div class="acc-panel"><p>Select data → click Data → Remove Duplicates, then pick which target columns must match to count a row as a double entry.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What does the $ symbol do in a formula?</button><div class="acc-panel"><p>It locks a cell link position so it does not shift when dragging formulas. Using $A$1 locks both the row and column lines securely.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I create a drop-down list in a cell?</button><div class="acc-panel"><p>Go to Data → Data Validation → change Allow rule to List → type your options with commas or select a source cell list range.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">Why is my date showing as a number like 45678?</button><div class="acc-panel"><p>Excel converts all dates into sequential serial count numbers starting from Jan 1, 1900. Simply choose Date format (Ctrl + 1 → Number → Date) to fix it.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the quickest way to sum a column?</button><div class="acc-panel"><p>Click the blank cell below your column numbers and press Alt + = (AutoSum shortcut), or select values and check totals in the Status Bar.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I compare two lists for differences?</button><div class="acc-panel"><p>Use a search rule like =COUNTIF(List2,A2)=0 to highlight items on List1 that are missing from List2, or highlight them using color formatting rules.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What's a Pivot Table used for in one sentence?</button><div class="acc-panel"><p>It summarizes and groups large data structures interactively without writing individual formulas for every view.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I protect a workbook with a password?</button><div class="acc-panel"><p>Go to File → Info → Protect Workbook → Encrypt with Password, then type and confirm a secure password.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">Can two people edit an Excel file at the same time?</button><div class="acc-panel"><p>Yes, if the file is saved on OneDrive or SharePoint cloud paths and both users open it via desktop app or Excel Online (Co-Authoring feature).</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the difference between SUM and SUBTOTAL?</button><div class="acc-panel"><p>SUBTOTAL can ignore rows hidden by dropdown filters or manual actions, whereas SUM always calculates every cell inside the target range row group.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I highlight duplicate values automatically?</button><div class="acc-panel"><p>Select range rows → click Conditional Formatting → Highlight Cell Rules → Duplicate Values.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What does #### mean in a cell?</button><div class="acc-panel"><p>The column width is too small to show your data values. Double-click the top header column dividing line to auto-fit cell space.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I convert a range into a formal Table?</button><div class="acc-panel"><p>Select cell areas and press Ctrl + T shortcuts, or go to Insert → Table button paths.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the difference between AND and OR functions?</button><div class="acc-panel"><p>AND answers TRUE only if every single rule inside is met. OR answers TRUE if at least one rule inside is met.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I insert a checkbox in Excel?</button><div class="acc-panel"><p>Go to Developer tab → click Insert → choose Checkbox under Form Controls, then link it to an active cell to output TRUE/FALSE results.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the fastest way to jump to the last row of data?</button><div class="acc-panel"><p>Click an active cell inside your main column and hit Ctrl + Down Arrow shortcuts together.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How can I make a chart update automatically with new data?</button><div class="acc-panel"><p>Convert your raw dataset into an official Excel Table (Ctrl + T) before inserting charts. The source range expands automatically when new rows are added.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What's the difference between .xlsx and .csv?</button><div class="acc-panel"><p>.xlsx files store formulas, formatting, macros, and multiple tabs. .csv files are plain text files containing basic values split by commas — no formats or calculations saved.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I recover an unsaved Excel file?</button><div class="acc-panel"><p>Go to File → Info → Manage Workbook → click Recover Unsaved Workbooks option to view the AutoRecover file system cache.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the difference between IFERROR and IFNA?</button><div class="acc-panel"><p>IFERROR masks any calculation error code. IFNA only catches #N/A lookup errors, leaving system breaks like #REF! visible for debugging checks.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I show negative numbers in red?</button><div class="acc-panel"><p>Go to Format Cells → click Number tab → choose Custom rules, and use code setups like <code>0;[Red]-0</code>.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the difference between a chart and a sparkline?</button><div class="acc-panel"><p>A sparkline is a micro trend graphic built inside a single cell block for quick inline views. Charts are separate floating visual objects.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I split one worksheet's view into two panes?</button><div class="acc-panel"><p>Go to View → click Split option. This splits your screen grid so you can look at two distant sections of the same page side by side.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I count cells that meet a condition?</button><div class="acc-panel"><p>Use the COUNTIF function for a single tracking rule (e.g., <code>=COUNTIF(A:A,"Completed")</code>), or use COUNTIFS for tracking multiple conditions.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">Why did my formula turn into #NAME? after I renamed a sheet?</button><div class="acc-panel"><p>Formulas pointing to old sheets via typed text (like inside <code>INDIRECT</code>) will not change automatically. Standard direct cell links update on their own.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What is the quickest way to apply the same formatting to many cells?</button><div class="acc-panel"><p>Format your first cell box perfectly, click the Format Painter paintbrush button (on Home tab), and highlight other cells to match.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I prevent Excel from auto-formatting a long ID number?</button><div class="acc-panel"><p>Change cell category to Text before you type values, or start your entry with a single quote character (').</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">What's the difference between Save and Save As?</button><div class="acc-panel"><p>Save updates your existing file copy in its place. Save As copies contents into a brand new file with a new name, format type, or storage directory folder.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">How do I calculate someone's age from their birth date?</button><div class="acc-panel"><p>The formula setup <code>=DATEDIF(BirthDate, TODAY(), "y")</code> gives you the number of full completed years.</p></div></div>
+                    <div class="acc-item"><button class="acc-trigger">Can Excel connect directly to a SQL database?</button><div class="acc-panel"><p>Yes. Go to Data → Get Data → From Database to pull data tables using Power Query connection paths.</p></div></div>
+                </div>
+                <p class="practice-note">This FAQ set is intentionally structured to keep growing — add new <code>.acc-item</code> blocks in the same format to reach 100+.</p>
+            </section>
+
+            <section class="topic" id="sec-roadmap" data-ref="F5" data-title="Learning Roadmap" data-keywords="beginner intermediate advanced expert data analyst business analyst mis financial analyst power bi path">
+                <header class="topic-head">
+                    <span class="cell-ref">F5</span>
+                    <h2>Learning Roadmap</h2>
+                    <div class="topic-tools">
+                        <button class="tool-btn bookmark-btn" aria-label="Bookmark this topic">★</button>
+                        <button class="tool-btn copy-link-btn" aria-label="Copy link">🔗</button>
+                    </div>
+                </header>
+                <ol class="roadmap-list">
+                    <li><strong>Beginner:</strong> Screen layout basics, simple formulas, formatting cells, data entry, and sorting/filtering.</li>
+                    <li><strong>Intermediate:</strong> Advanced lookups, conditional rules (IFS), PivotTable summaries, chart generation, and data validations.</li>
+                    <li><strong>Advanced:</strong> Power Query tools, dynamic array formulas, interactive dashboards, and macro automation scripts.</li>
+                    <li><strong>Expert:</strong> Data models in Power Pivot, DAX expressions, complex custom VBA coding, and system model audits.</li>
+                </ol>
+                <div class="grid-2">
+                    <div class="glass-card"><h4>Path: Data Analyst</h4><p>Master basic formulas → PivotTables → Power Query cleanup → Power Pivot/DAX metrics → Power BI systems.</p></div>
+                    <div class="glass-card"><h4>Path: Financial Analyst</h4><p>Master financial math formulas (PMT, NPV, IRR) → setup scenario forecasting models → build reporting dashboards.</p></div>
+                    <div class="glass-card"><h4>Path: Business Analyst</h4><p>Master cell rules checking, lookup functions library, pivot summaries, and dashboard presentation techniques.</p></div>
+                    <div class="glass-card"><h4>Path: MIS Executive</h4><p>Focus on data entry speed, VLOOKUP/SUMIFS data reports, and macro scripts to automate recurring files.</p></div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="right-sidebar" aria-label="Quick navigation">
+            <div class="glass-card sidebar-card">
+                <h4>Quick Links</h4>
+                <ul class="quick-links">
+                    <li><a href="#sec-functions">Functions Library</a></li>
+                    <li><a href="#sec-errors">Excel Errors</a></li>
+                    <li><a href="#sec-shortcuts">Keyboard Shortcuts</a></li>
+                    <li><a href="#sec-faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="glass-card sidebar-card">
+                <h4>Popular Topics</h4>
+                <ul class="quick-links">
+                    <li><a href="#sec-pivot-tables">Pivot Tables</a></li>
+                    <li><a href="#sec-power-query">Power Query</a></li>
+                    <li><a href="#sec-interview">Interview Questions</a></li>
+                </ul>
+            </div>
+            <div class="glass-card sidebar-card">
+                <h4>Recently Viewed</h4>
+                <ul class="quick-links" id="recentList"><li class="muted">Nothing yet</li></ul>
+            </div>
+            <div class="glass-card sidebar-card">
+                <h4>Bookmarks</h4>
+                <ul class="quick-links" id="bookmarkList"><li class="muted">No bookmarks yet</li></ul>
+            </div>
+            <div class="glass-card sidebar-card">
+                <h4>Reading Progress</h4>
+                <div class="mini-progress"><div class="mini-progress-fill" id="miniProgressFill"></div></div>
+                <p class="muted" id="miniProgressLabel">0% of page read</p>
+            </div>
+        </aside>
+    </div>
+
+    <section class="feedback-section">
+        <div class="glass-card">
+            <h3>Was this page helpful?</h3>
+            <div class="feedback-buttons">
+                <button class="fb-btn" data-val="up">👍 Yes</button>
+                <button class="fb-btn" data-val="down">👎 Needs work</button>
+            </div>
+            <p class="muted" id="feedbackThanks" hidden>Thanks — your feedback helps improve this hub.</p>
+        </div>
+
+        <div class="live-counter-section glass-card">
+            <a href="../index.html#followers-section" class="members-badge-live">
+                <span class="pulse-dot"></span>
+                <span class="live-text">🚀 Join the ExcelSuperGuru Community</span>
+                <span class="count-number memberCount">0</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container footer-top">
+            <div class="footer-brand-summary">
+                <a href="../index.html" class="nav-brand">Excel<span>SuperGuru</span></a>
+                <p>An advanced, decoupled dashboard learning environment optimized for high-performance analysts and developers.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 600;">
+                    A Premium Initiative by <span class="neon-blue-text">FreeCourseHub</span>
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Ecosystem</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/formulas.html">Formulas Dictionary</a></li>
+                    <li><a href="https://1drv.ms/x/c/6cdb61f930bce09a/IQA9TY7Yo-FOQ7umiZWgQlpnAdLa52zJ5KeV2HjREoWcjGk?e=1GyxGB" target="_blank" rel="noopener noreferrer">Live Excel</a></li>
+                    <li><a href="../pages/cheatsheet.html">Syntax Cheatsheet</a></li>
+                    <li><a href="../pages/roadmap.html">Interactive Tracks</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Assessment</h4>
+                <ul class="footer-links">
+                    <li><a href="../pages/quiz.html">Interactive Trivia</a></li>
+                    <li><a href="../pages/interview.html">Interview Technical Q&A</a></li>
+                    <li><a href="../pages/tips.html">Pro Performance Tips</a></li>
+                    <li><a href="../pages/errors.html">Error Resolution Hub</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Legal &amp; Scope</h4>
+                <ul class="footer-links">
+                    <li><a href="../about.html">About Project</a></li>
+                    <li><a href="../contact.html">Contact Channel</a></li>
+                    <li><a href="../privacy.html">Privacy Matrix</a></li>
+                    <li><a href="../terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 ExcelSuperGuru | Powered by <a href="https://freecoursehub.xyz/index.html" class="neon-blue-text" target="_blank" rel="noopener noreferrer">FreeCourseHub</a></p>
+            <p>All rights reserved.</p>
+            <p>Optimized for Modern Web Workflows.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="../data/knowledge2.js"></script>
+    <script src="../JS/app.js"></script>
+      <script type="module" src="../followgrid/firebase-config.js"></script>
+    <script type="module" src="../followgrid/community.js"></script>
+</body>
+</html>

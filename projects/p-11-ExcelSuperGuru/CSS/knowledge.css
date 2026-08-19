@@ -1,0 +1,432 @@
+/* ==========================================================================
+   ExcelSuperGuru Core Theme Palette System - CSS Variables Configuration
+   ========================================================================== */
+:root {
+    --bg-primary: #f3f2f1;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #faf9f8;
+    --text-primary: #323130;
+    --text-secondary: #605e5c;
+    --text-muted: #a19f9d;
+    --excel-green: #107C41;
+    --excel-green-alpha: rgba(16, 124, 65, 0.08);
+    --border-color: #edebe9;
+    --border-color-hover: #d2d0ce;
+    --radius-md: 8px;
+    --radius-sm: 4px;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+}
+
+/* System Dark Theme Palette Mutation Rules Override */
+body.dark-theme {
+    --bg-primary: #111111;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #222222;
+    --text-primary: #f5f5f5;
+    --text-secondary: #cccccc;
+    --text-muted: #777777;
+    --border-color: #2d2d2d;
+    --border-color-hover: #444444;
+    --excel-green: #1f9a55;
+    --excel-green-alpha: rgba(31, 154, 85, 0.15);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* ==========================================================================
+   Global Normalization & Setup Layout Base Mechanics
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Top Sticky Reading Progress Scroll Indicator Bar Element */
+#scrollProgressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background-color: var(--excel-green);
+    z-index: 1050;
+    transition: width 0.1s linear;
+}
+
+/* ==========================================================================
+   Header Navbar Core Layout Parameters Layout
+   ========================================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(var(--bg-secondary), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+.header-container {
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+.nav-brand span { color: var(--excel-green); }
+.nav-menu-list {
+    display: flex;
+    list-style: none;
+    gap: 1.75rem;
+}
+.nav-menu-list a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+.nav-menu-list a:hover { color: var(--excel-green); }
+
+/* Interface Theme Toggle Core Control Button Styles */
+.theme-toggle-control {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+}
+.theme-toggle-control:hover { border-color: var(--excel-green); color: var(--excel-green); }
+body.light-theme .moon-glyph { display: block; }
+body.light-theme .sun-glyph { display: none; }
+body.dark-theme .moon-glyph { display: none; }
+body.dark-theme .sun-glyph { display: block; }
+
+/* ==========================================================================
+   Breadcrumb and Architectural Hero Section Styles
+   ========================================================================== */
+.breadcrumb-container { margin-top: 90px; margin-bottom: 1rem; }
+.breadcrumb-list { display: flex; list-style: none; gap: 0.5rem; font-size: 0.85rem; }
+.breadcrumb-list li:not(:last-child)::after { content: "›"; margin-left: 0.5rem; color: var(--text-muted); }
+.breadcrumb-list a { color: var(--text-secondary); text-decoration: none; }
+.breadcrumb-list a:hover { color: var(--excel-green); }
+
+.hero-canvas {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 3.5rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-sm);
+}
+.hero-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+.hero-subtitle { color: var(--text-secondary); max-width: 800px; margin-bottom: 2rem; font-size: 1.1rem; }
+
+/* Real-time Search Box UI Form Elements Configuration */
+.search-engine-wrapper { position: relative; max-width: 650px; margin-bottom: 1.5rem; }
+.search-input-field {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+}
+.search-input-field:focus {
+    outline: none;
+    border-color: var(--excel-green);
+    background-color: var(--bg-secondary);
+    box-shadow: 0 0 0 3px var(--excel-green-alpha);
+}
+.suggestions-dropdown-canvas {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: 1100;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+.suggestion-node-item {
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+.suggestion-node-item:hover { background-color: var(--excel-green-alpha); color: var(--excel-green); }
+
+.hero-quick-jumps { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+.jump-pill-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+.jump-pill-btn:hover { border-color: var(--excel-green); color: var(--excel-green); background-color: var(--excel-green-alpha); }
+
+/* ==========================================================================
+   Primary Core Layout Structural Content Column Grid Setup
+   ========================================================================== */
+.hub-layout-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 300px;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 5rem;
+}
+.sticky-sidebar-box { position: sticky; top: 100px; }
+.sidebar-heading { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1rem; }
+.sidebar-subheading { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+
+/* Left Sidebar Table of Contents Mapping Layout Tree */
+.toc-root-list { list-style: none; }
+.toc-node-link {
+    display: block;
+    padding: 0.45rem 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-left: 2px solid transparent;
+    transition: var(--transition-smooth);
+}
+.toc-node-link:hover { color: var(--excel-green); background-color: var(--excel-green-alpha); }
+.toc-node-link.active-scrollspy-node {
+    color: var(--excel-green);
+    font-weight: 700;
+    border-left-color: var(--excel-green);
+    background-color: var(--excel-green-alpha);
+}
+
+/* Right Sidebar Informative Tracking Item Grid Panels */
+.metric-card-item {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+.metric-label-text { font-size: 0.75rem; color: var(--text-secondary); }
+.metric-value-data { font-size: 1rem; font-weight: 700; color: var(--excel-green); }
+.separator-line-divider { border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0; }
+.history-tracking-list-node { list-style: none; font-size: 0.85rem; color: var(--text-secondary); }
+.history-tracking-list-node li {
+    padding: 0.35rem 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.empty-state-notice { color: var(--text-muted); font-style: italic; border: none !important; }
+
+/* ==========================================================================
+   Main Presentation Documentation Canvas Module Settings
+   ========================================================================== */
+.main-document-canvas { display: flex; flex-direction: column; gap: 3rem; min-width: 0; }
+.documentation-chapter-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 3rem;
+    box-shadow: var(--shadow-sm);
+    scroll-margin-top: 100px;
+}
+.card-header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+.category-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--bg-primary);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+.bookmark-action-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+}
+.bookmark-action-toggle-btn:hover, .bookmark-action-toggle-btn.node-bookmarked {
+    border-color: var(--excel-green);
+    color: #ffffff;
+    background-color: var(--excel-green);
+}
+.documentation-chapter-card h2 { font-size: 1.85rem; font-weight: 800; margin-bottom: 1.25rem; letter-spacing: -0.01em; }
+.documentation-chapter-card h3 { font-size: 1.3rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.85rem; }
+.documentation-chapter-card p { margin-bottom: 1.25rem; color: var(--text-secondary); font-size: 1.025rem; }
+.documentation-chapter-card ul { list-style-position: inside; margin-bottom: 1.25rem; color: var(--text-secondary); }
+.documentation-chapter-card li { margin-bottom: 0.45rem; }
+
+/* Structural Reusable Components Layer Definition Layout */
+.technical-callout-note {
+    background-color: var(--bg-tertiary);
+    border-left: 4px solid var(--excel-green);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+.technical-callout-note strong { display: block; color: var(--excel-green); margin-bottom: 0.25rem; }
+.code-execution-block {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    font-family: monospace;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    border-bottom: 3px solid #333;
+}
+blockquote {
+    font-style: italic;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--text-muted);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+}
+
+/* UI Components Vector Drawing Image Illustration Framework Placeholder Canvas */
+.diagram-placeholder-canvas {
+    background-color: var(--bg-tertiary);
+    border: 2px dashed var(--border-color-hover);
+    border-radius: var(--radius-md);
+    padding: 4rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+.diagram-canvas-title { font-weight: 700; font-size: 1rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+.diagram-caption-text { font-size: 0.85rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+/* High Performance Reusable Standard Action Configuration Interface Control Buttons */
+.action-btn-primary {
+    background: linear-gradient(135deg, var(--excel-green), #1f9a55);
+    color: #ffffff;
+    border: none;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(16,124,65,0.2);
+    transition: var(--transition-smooth);
+}
+.action-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 8px rgba(16,124,65,0.3); }
+.action-btn-secondary {
+    background: none;
+    border: 1px solid var(--border-color-hover);
+    color: var(--text-primary);
+    padding: 0.5rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.action-btn-secondary:hover { border-color: var(--text-primary); }
+.download-grid-layout { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+/* Responsive Dynamic Data Presentation Grid Layout Table Matrix Structure */
+.table-responsive-wrapper { width: 100%; overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--border-color); border-radius: var(--radius-md); }
+.data-matrix-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; background-color: var(--bg-secondary); }
+.data-matrix-table th { background-color: var(--bg-tertiary); color: var(--text-primary); font-weight: 700; padding: 0.85rem 1.25rem; border-bottom: 2px solid var(--border-color); }
+.data-matrix-table td { padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
+.data-matrix-table tr:last-child td { border-bottom: none; }
+
+/* Function Profiles and Sub-Item Configurations */
+.function-item-profile { border: 1px solid var(--border-color); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; background-color: var(--bg-tertiary); }
+.function-item-profile h4 { font-size: 1.1rem; color: var(--excel-green); margin-bottom: 0.5rem; font-weight: 700; }
+.fn-description { font-size: 0.95rem !important; margin-bottom: 0.75rem !important; }
+.example-grid-box { font-size: 0.9rem; padding: 0.75rem; background-color: var(--bg-secondary); border-left: 3px solid var(--text-muted); margin-top: 0.75rem; border-radius: var(--radius-sm); color: var(--text-secondary); }
+
+/* FAQ Accordion Block Assembly Components Layout */
+.faq-accordion-group { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+.faq-node-item { border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background-color: var(--bg-secondary); }
+.faq-trigger-header-btn { width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: none; border: none; color: var(--text-primary); font-size: 1.05rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-trigger-header-btn:hover { background-color: var(--bg-tertiary); }
+.faq-content-slider-panel { padding: 0 1.5rem 1.25rem 1.5rem; display: none; background-color: var(--bg-secondary); }
+.faq-content-slider-panel p { font-size: 0.975rem !important; margin: 0 !important; color: var(--text-secondary); }
+
+/* Unified Global Floating Operational Layout Elements Layout */
+.back-to-top-control-btn { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; background-color: var(--excel-green); color: #ffffff; border: none; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; font-weight: bold; box-shadow: var(--shadow-md); opacity: 0; visibility: hidden; transition: var(--transition-smooth); z-index: 990; }
+.back-to-top-control-btn.reveal-btn { opacity: 1; visibility: visible; }
+.back-to-top-control-btn:hover { transform: translateY(-3px); background-color: #1f9a55; }
+
+/* ==========================================================================
+   Media Queries Viewport Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .hub-layout-grid { grid-template-columns: 240px 1fr; }
+    .sidebar-right-nav { display: none; }
+}
+@media (max-width: 900px) {
+    .hub-layout-grid { grid-template-columns: 1fr; }
+    .sidebar-left-nav { display: none; }
+    .nav-menu-list { display: none; } /* On production deploy a mobile drawer panel */
+    .hero-title { font-size: 2rem; }
+    .documentation-chapter-card { padding: 2rem; }
+}
+
+/* Hard-Copy Physical Print Matrix Variables Mapping Configurations Override */
+@media print {
+    .site-header, .sidebar-left-nav, .sidebar-right-nav, .breadcrumb-container, .hero-canvas, .back-to-top-control-btn, .bookmark-action-toggle-btn { display: none !important; }
+    body { background-color: #ffffff; color: #000000; font-size: 12pt; }
+    .hub-layout-grid { grid-template-columns: 1fr; }
+    .documentation-chapter-card { border: none; box-shadow: none; padding: 0; margin-bottom: 3rem; page-break-inside: avoid; }
+    .code-execution-block { background-color: #f5f5f5; color: #000000; border: 1px solid #ccc; }
+}

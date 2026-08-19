@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociology Additional | B.A. 5th Semester Digital Textbook</title>
+    <meta name="description" content="Complete digital textbook for B.A. 5th Semester Sociology Additional: Auguste Comte, Émile Durkheim, Karl Marx, Max Weber, M.N. Srinivas, and Indian Caste System.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="sociology">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Sociology Additional Paper</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-book"></i> Textbook Content</a></li>
+            <li><a href="#sec-exam" class="nav-link"><i class="fa-solid fa-pen-to-square"></i> Exam Special</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="Take 100-MCQ Quiz">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ Quiz</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('socio-additional', 'Sociology Additional')" title="View Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="Toggle Distraction-Free Mode">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Focus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Topic">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#sociology">Sociology</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">Sociological Theories & Indian Society</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> Contents</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 1: Classical Thinkers</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 Auguste Comte: 3 Stages</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 Émile Durkheim: Social Facts</a></li>
+                    <li><a href="#u1-3" class="toc-link">1.3 Karl Marx: Class Struggle</a></li>
+                    <li><a href="#u1-4" class="toc-link">1.4 Max Weber: Bureaucracy</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 2: Indian Society</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u2-1" class="toc-link">2.1 Caste System & M.N. Srinivas</a></li>
+                    <li><a href="#u2-2" class="toc-link">2.2 Sanskritization Concept</a></li>
+                    <li><a href="#u2-3" class="toc-link">2.3 Jajmani System & Kinship</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 3: Stratification & Change</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u3-1" class="toc-link">3.1 Caste, Class & Gender</a></li>
+                    <li><a href="#u3-2" class="toc-link">3.2 Modernization & Secularization</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Unit 4: Research Methods</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 Observation & Case Study</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>Exam Special Section</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-qa-long" class="toc-link">Long Answer Questions</a></li>
+                    <li><a href="#sec-qa-short" class="toc-link">Short Answer Questions</a></li>
+                    <li><a href="#sec-flashcards" class="toc-link">Revision Flashcards</a></li>
+                    <li><a href="#sec-mcq" class="toc-link">Practice MCQs</a></li>
+                    <li><a href="#sec-glossary" class="toc-link">Key Terms Glossary</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-users"></i> Sociology Major / Additional</div>
+                <h1>Sociological Theories & Indian Society</h1>
+                <p>
+                    This textbook covers classical sociological theorists (Auguste Comte, Émile Durkheim, Karl Marx, Max Weber), Indian sociology (M.N. Srinivas, G.S. Ghurye), Sanskritization, the caste system, the Jajmani system, and social stratification.
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">4 Classical Thinkers</span>
+                        <span class="stat-label">Comte, Durkheim, Marx & Weber</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Sanskritization</span>
+                        <span class="stat-label">M.N. Srinivas Social Change Model</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">Indian Society</span>
+                        <span class="stat-label">Caste, Jajmani & Kinship Dynamics</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: CLASSICAL SOCIOLOGICAL THINKERS                                    -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit I</span>
+                    <h2>Classical Sociological Thinkers</h2>
+                </div>
+
+                <!-- 1.1 Auguste Comte -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>Auguste Comte: Law of Three Stages & Positivism</span>
+                    </div>
+
+                    <p>
+                        <strong>Auguste Comte (1798–1857)</strong>, the founding father of sociology, posited that human intellectual development progresses through three sequential stages:
+                    </p>
+
+                    <div class="diagram-container">
+                        <h4 class="text-sm font-bold mb-2">Comte's Law of Three Stages</h4>
+                        <div class="flowchart-flex">
+                            <div class="flow-node">1. Theological Stage<br><span class="text-xs">Supernatural Powers</span></div>
+                            <span class="flow-arrow">&rarr;</span>
+                            <div class="flow-node">2. Metaphysical Stage<br><span class="text-xs">Abstract Forces</span></div>
+                            <span class="flow-arrow">&rarr;</span>
+                            <div class="flow-node" style="border-color:var(--accent-color);">3. Positive Stage<br><span class="text-xs">Scientific Laws</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1.2 Durkheim -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>Émile Durkheim: Social Facts & Suicide Theory</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> Definition of Social Facts</h4>
+                        <p>
+                            "Social facts are ways of acting, thinking, and feeling, external to the individual, and endowed with a power of coercion by reason of which they control him."
+                        </p>
+                    </div>
+
+                    <div class="table-responsive mt-3">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>Suicide Type</th>
+                                    <th>Underlying Social Mechanism (Integration / Regulation)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Egoistic Suicide</strong></td>
+                                    <td>Extremely <strong>low</strong> social integration; individual feels isolated.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Altruistic Suicide</strong></td>
+                                    <td>Extremely <strong>high</strong> social integration; individual sacrifices self for group.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anomic Suicide</strong></td>
+                                    <td>Sudden breakdown in social regulation/rules (economic crashes).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 1.3 Karl Marx -->
+                <div class="topic-card" id="u1-3">
+                    <div class="topic-title">
+                        <span class="topic-number">1.3</span>
+                        <span>Karl Marx: Historical Materialism & Class Struggle</span>
+                    </div>
+
+                    <p>
+                        <strong>Karl Marx (1818–1883)</strong> asserted: <em>"The history of all hitherto existing society is the history of class struggles."</em>
+                    </p>
+
+                    <div class="formula-box">
+                        <div class="formula-title">Marxian Base-Superstructure Model:</div>
+                        <p><strong>Substructure (Base):</strong> Forces of production + Relations of production (Economic foundation).</p>
+                        <p class="mt-1"><strong>Superstructure:</strong> Law, politics, religion, ideology (Determined by the Base).</p>
+                    </div>
+                </div>
+
+                <!-- 1.4 Max Weber -->
+                <div class="topic-card" id="u1-4">
+                    <div class="topic-title">
+                        <span class="topic-number">1.4</span>
+                        <span>Max Weber: Social Action & Bureaucracy</span>
+                    </div>
+
+                    <p>
+                        <strong>Max Weber (1864–1920)</strong> categorized social action into 4 types: 1. Instrumental-Rational (Zweckrational), 2. Value-Rational (Wertrational), 3. Affective, and 4. Traditional.
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: INDIAN SOCIETY AND STRUCTURAL CONCEPTS                             -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u2-1">
+                <div class="unit-header">
+                    <span class="unit-tag">Unit II</span>
+                    <h2>Indian Society and Structural Concepts</h2>
+                </div>
+
+                <!-- 2.1 Sanskritization -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>M.N. Srinivas Concept of Sanskritization</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-quote-left"></i> Definition of Sanskritization</h4>
+                        <p>
+                            "Sanskritization is a process by which a low Hindu caste or tribe or other group changes its customs, ritual, ideology, and way of life in the direction of a high and frequently 'twice-born' (Dvija) caste."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- EXAM SPECIAL SECTION                                                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-exam">
+                <div class="unit-header">
+                    <span class="unit-tag">Exam Special</span>
+                    <h2>Examination Question Bank & Revision Tools</h2>
+                </div>
+
+                <!-- Flashcards -->
+                <div class="topic-card" id="sec-flashcards">
+                    <div class="topic-title"><i class="fa-solid fa-bolt text-amber-400"></i> Quick Revision Flashcards</div>
+                    <div class="flashcard-grid">
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Who is the father of sociology?</div>
+                            <div class="back">Auguste Comte.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Cause of Anomic Suicide according to Durkheim?</div>
+                            <div class="back">Sudden breakdown of social rules and regulation.</div>
+                        </div>
+                        <div class="flashcard" onclick="flipFlashcard(this)">
+                            <div class="front">Who coined the term Sanskritization?</div>
+                            <div class="back">M.N. Srinivas.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQs -->
+                <div class="topic-card" id="sec-mcq">
+                    <div class="topic-title"><i class="fa-solid fa-circle-question text-sky-500"></i> Practice MCQs</div>
+                    <div class="mcq-container">
+                        <div class="mcq-card">
+                            <div class="mcq-question">Q1. According to Karl Marx, what drives historical development?</div>
+                            <div class="mcq-options">
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-socio-1')">A) Religious ideas</div>
+                                <div class="mcq-option" data-correct="true" onclick="selectMcqOption(this, true, 'exp-socio-1')">B) Class Struggle</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-socio-1')">C) Monarchy</div>
+                                <div class="mcq-option" onclick="selectMcqOption(this, false, 'exp-socio-1')">D) Population growth</div>
+                            </div>
+                            <div class="mcq-explanation" id="exp-socio-1">
+                                <strong>Explanation:</strong> Marx held that conflict between opposing economic classes is the fundamental motor of history.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glossary -->
+                <div class="topic-card" id="sec-glossary">
+                    <div class="topic-title"><i class="fa-solid fa-spell-check text-purple-500"></i> Key Terms Glossary</div>
+                    <div class="glossary-grid">
+                        <div class="glossary-card">
+                            <div class="glossary-term">Social Fact</div>
+                            <div class="glossary-def">Émile Durkheim — external and coercive ways of acting, thinking, and feeling.</div>
+                        </div>
+                        <div class="glossary-card">
+                            <div class="glossary-term">Ideal Type</div>
+                            <div class="glossary-def">Max Weber — analytical construct serving as a measuring rod to ascertain social reality.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 B.A. 5th Semester Digital Textbook Portal. Sociology Additional Paper.</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Policy</option>
+                    <option value="eco-elective-2">Economics Elective 2 — Money</option>
+                    <option value="eco-elective-3">Economics Elective 3 — Environment</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology Additional</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset Zoom">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close Viewer">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">Official Syllabus PNG Document • High Resolution</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Type topic name, concept, or subject..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

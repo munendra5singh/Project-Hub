@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - भारत के संविधान की प्रस्तावना</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .left-sidebar, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .left-sidebar::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .left-sidebar::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .page-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .page-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .page-nav-item::before {
+      content: "•";
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .page-nav-item.active {
+      background-color: #edf3f9;
+      color: #103254;
+      font-weight: 600;
+    }
+
+    .page-nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+      color: #0b1a30;
+    }
+
+    /* Quick Fact Card with Illustration */
+    .quick-fact-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-fact-card .sidebar-title i {
+      font-size: 18px;
+      color: #103254;
+    }
+
+    .quick-fact-text {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    .india-gate-illustration {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23d8c3a5" opacity="0.35" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20 90 h60 v-10 h-10 v-20 h-10 v-30 h10 v-5 h-40 v5 h10 v30 h-10 v20 h-10 z M40 90 v-20 a10 10 0 0 1 20 0 v20 z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 24px;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .panel-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .btn-listen {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-listen:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Preamble Ornamental Box */
+    .preamble-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 24px;
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+    }
+
+    .ornament-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .ornament-line {
+      height: 1px;
+      width: 80px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    }
+
+    .ornament-icon {
+      color: #d4af37;
+      font-size: 22px;
+    }
+
+    .preamble-text {
+      font-family: 'Cinzel', serif;
+      color: #0b1a30;
+      line-height: 2;
+      font-size: 13.5px;
+    }
+
+    .preamble-text .highlight-heading {
+      color: #d4af37;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .preamble-text .highlight-bold {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .preamble-text .highlight-footer {
+      color: #d4af37;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-top: 16px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* Note Container Box */
+    .note-box {
+      background-color: #f4f7fb;
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-left: 4px solid #103254;
+      margin-bottom: 24px;
+    }
+
+    .note-icon-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      border: 1px solid #d0dbe7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .note-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .note-desc {
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    /* Dynamic Content Section Styles */
+    .content-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f4f8;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-heading i {
+      color: #d4af37;
+      font-size: 14px;
+    }
+
+    .section-text {
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .section-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .section-list li {
+      font-size: 12px;
+      color: #2b3649;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .section-list li i {
+      color: #103254;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 16px;
+    }
+
+    .widget-description {
+      font-size: 12px;
+      color: #526071;
+      line-height: 1.65;
+    }
+
+    /* Key Features List */
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .feature-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Download Box */
+    .download-sub {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 12px;
+    }
+
+    .btn-download-pdf {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-download-pdf:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Related Sections Links */
+    .related-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .related-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e3a8a;
+      cursor: pointer;
+    }
+
+    .related-link-item:hover {
+      text-decoration: underline;
+    }
+
+    .related-link-item i {
+      font-size: 11px;
+    }
+
+    /* Fully Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .preamble-box {
+        padding: 24px 15px;
+      }
+      .preamble-text {
+        font-size: 12px;
+      }
+      .note-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR PREAMBLE PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .quick-fact-card,
+    [data-theme="dark"] .main-content-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .panel-title,
+    [data-theme="dark"] .panel-title i,
+    [data-theme="dark"] .preamble-text,
+    [data-theme="dark"] .section-heading,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .download-sub {
+      color: var(--sv-text-heading) !important;
+    }
+
+    [data-theme="dark"] .page-nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .page-nav-item::before {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .page-nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .page-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .page-nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-listen,
+    [data-theme="dark"] .btn-download-pdf {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-listen:hover,
+    [data-theme="dark"] .btn-download-pdf:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .preamble-box {
+      background-color: rgba(209, 141, 39, 0.08);
+      border-color: rgba(209, 141, 39, 0.3);
+      box-shadow: inset 0 0 20px rgba(209, 141, 39, 0.08);
+    }
+
+    [data-theme="dark"] .preamble-text .highlight-heading,
+    [data-theme="dark"] .preamble-text .highlight-footer,
+    [data-theme="dark"] .ornament-icon {
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .ornament-line {
+      background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+    }
+
+    [data-theme="dark"] .note-box {
+      background-color: var(--sv-bg-card-hover);
+      border-left-color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .note-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .note-title {
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .quick-fact-text,
+    [data-theme="dark"] .note-desc,
+    [data-theme="dark"] .section-text,
+    [data-theme="dark"] .section-list li,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .feature-item {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .section-heading i,
+    [data-theme="dark"] .section-list li i,
+    [data-theme="dark"] .feature-item i,
+    [data-theme="dark"] .related-link-item {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .panel-header,
+    [data-theme="dark"] .content-section {
+      border-color: var(--sv-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html">भाग</a></li>
+      <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/basics/premble.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">उद्देशिका (प्रस्तावना)<br>भारत का संविधान</h1>
+      <p class="hero-description">
+        प्रस्तावना संविधान का प्रारंभिक कथन है।<br>
+        यह हमारे राष्ट्र के आदर्शों और उद्देश्यों को निर्धारित करता है।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container Layout -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+      <a href="#">भारत का संविधान</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+      <span>प्रस्तावना</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: On This Page & Quick Fact -->
+      <aside class="left-sidebar">
+        
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>इस पृष्ठ पर</span>
+          </div>
+
+          <ul class="page-nav-list" id="pageNavList">
+            <li class="page-nav-item active" data-target="sec-text">प्रस्तावना का पाठ</li>
+            <li class="page-nav-item" data-target="sec-meaning">अर्थ और महत्व</li>
+            <li class="page-nav-item" data-target="sec-features">मुख्य विशेषताएं</li>
+            <li class="page-nav-item" data-target="sec-ideals">प्रमुख आदर्श</li>
+            <li class="page-nav-item" data-target="sec-history">ऐतिहासिक पृष्ठभूमि</li>
+            <li class="page-nav-item" data-target="sec-amendments">संशोधन</li>
+            <li class="page-nav-item" data-target="sec-judicial">न्यायिक व्याख्या</li>
+          </ul>
+        </div>
+
+        <div class="quick-fact-card">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-quote-left"></i>
+            <span>मुख्य तथ्य</span>
+          </div>
+          <p class="quick-fact-text" id="quickFactText">
+            प्रस्तावना को 26 नवंबर 1949<br>
+            को अपनाया गया था।
+          </p>
+          <div class="india-gate-illustration"></div>
+        </div>
+
+      </aside>
+
+      <!-- Middle Panel: Text of the Preamble -->
+      <main class="main-content-panel">
+        <div class="panel-header" id="sec-text">
+          <div class="panel-title">
+            <i class="fa-solid fa-landmark"></i>
+            <span>प्रस्तावना का पाठ</span>
+          </div>
+          <button class="btn-listen" id="btnListen" type="button">
+            <i class="fa-solid fa-volume-high" id="listenIcon"></i> <span id="listenText">प्रस्तावना सुनें</span>
+          </button>
+        </div>
+
+        <!-- Ornamental Box -->
+        <div class="preamble-box">
+          <div class="ornament-header">
+            <div class="ornament-line"></div>
+            <i class="fa-solid fa-scale-balanced ornament-icon"></i>
+            <div class="ornament-line"></div>
+          </div>
+
+          <div class="preamble-text" id="preambleTextContainer">
+            <span class="highlight-heading">हम, भारत के लोग,</span>
+            भारत को एक संपूर्ण<br>
+            <span class="highlight-bold">प्रभुत्व-संपन्न समाजवादी पंथनिरपेक्ष लोकतंत्रात्मक गणराज्य</span><br>
+            बनाने के लिए, तथा उसके समस्त नागरिकों को:<br>
+            <span class="highlight-bold">सामाजिक, आर्थिक और राजनीतिक न्याय</span>;<br>
+            विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की <span class="highlight-bold">स्वतंत्रता</span>;<br>
+            प्रतिष्ठा और अवसर की <span class="highlight-bold">समता</span> प्राप्त कराने के लिए,<br>
+            तथा उन सब में व्यक्ति की गरिमा और राष्ट्र की एकता और अखंडता सुनिश्चित करने वाली <span class="highlight-bold">बंधुता</span> बढ़ाने के लिए दृढ़संकल्प होकर;<br>
+            <span class="highlight-footer">अपनी इस संविधान सभा में</span>
+            आज तारीख 26 नवंबर, 1949 ई. (मिति मार्गशीर्ष शीर्ष शुक्ला सप्तमी, संवत् दो हजार छह विक्रमी) को एतद्द्वारा इस संविधान को<br>
+            <span class="highlight-bold">अंगीकृत, अधिनियमित और आत्मार्पित करते हैं।</span>
+          </div>
+        </div>
+
+        <!-- Note Box -->
+        <div class="note-box">
+          <div class="note-icon-circle">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <div>
+            <div class="note-title">विशेष टिप्पणी</div>
+            <div class="note-desc">
+              प्रस्तावना स्वयं शक्ति का स्रोत नहीं है, बल्कि यह संविधान के प्रावधानों को समझने और उनकी व्याख्या करने की कुंजी है। यह हमारे संविधान के मूल ढांचे और मार्गदर्शक सिद्धांतों को प्रस्तुत करती है।
+            </div>
+          </div>
+        </div>
+
+        <!-- Meaning and Significance Section -->
+        <div class="content-section" id="sec-meaning">
+          <div class="section-heading">
+            <i class="fa-solid fa-circle-info"></i> अर्थ और महत्व
+          </div>
+          <p class="section-text">
+            प्रस्तावना भारत के संविधान की भूमिका (भूमिका) के रूप में कार्य करती है। यह उन मूलभूत मूल्यों और संवैधानिक दर्शन को समाहित करती है जिस पर हमारा गणराज्य आधारित है। यह उस स्रोत की ओर संकेत करती है जिससे यह दस्तावेज़ अपना अधिकार प्राप्त करता है—अर्थात भारत की जनता।
+          </p>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="content-section" id="sec-features">
+          <div class="section-heading">
+            <i class="fa-solid fa-star"></i> मुख्य विशेषताएं
+          </div>
+          <ul class="section-list">
+            <li><i class="fa-solid fa-check"></i> <strong>अधिकार का स्रोत:</strong> यह घोषित करती है कि संविधान अपना अधिकार सीधे भारत की जनता से प्राप्त करता है।</li>
+            <li><i class="fa-solid fa-check"></i> <strong>भारतीय राज्य का स्वरूप:</strong> भारत को एक संपूर्ण प्रभुत्व-संपन्न, समाजवादी, पंथनिरपेक्ष, लोकतंत्रात्मक गणराज्य स्थापित करती है।</li>
+            <li><i class="fa-solid fa-check"></i> <strong>मूल उद्देश्य:</strong> सभी नागरिकों के लिए न्याय, स्वतंत्रता, समता और बंधुता सुनिश्चित करने का लक्ष्य रखती है।</li>
+            <li><i class="fa-solid fa-check"></i> <strong>अपनाने की तिथि:</strong> 26 नवंबर 1949 को अपनाने और अधिनियमित करने की तिथि के रूप में स्पष्ट रूप से उल्लेख करती है।</li>
+          </ul>
+        </div>
+
+        <!-- Salient Ideals Section -->
+        <div class="content-section" id="sec-ideals">
+          <div class="section-heading">
+            <i class="fa-solid fa-gem"></i> प्रमुख आदर्श
+          </div>
+          <p class="section-text">
+            प्रस्तावना में निहित आदर्श देश के शासन और अदालतों द्वारा कानूनी व्याख्याओं का मार्गदर्शन करते हैं:
+          </p>
+          <ul class="section-list">
+            <li><i class="fa-solid fa-shield"></i> <strong>संपूर्ण प्रभुत्व-संपन्न (Sovereign):</strong> भारत पूरी तरह से स्वतंत्र है और किसी भी बाहरी नियंत्रण से मुक्त है।</li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> <strong>समाजवादी (Socialist):</strong> लोकतांत्रिक समाजवाद का लक्ष्य, जिसका उद्देश्य गरीबी और असमानता को समाप्त करना है।</li>
+            <li><i class="fa-solid fa-scale-balanced"></i> <strong>पंथनिरपेक्ष (Secular):</strong> राज्य द्वारा सभी धर्मों को समान सम्मान और संरक्षण।</li>
+            <li><i class="fa-solid fa-check-to-slot"></i> <strong>लोकतंत्रात्मक (Democratic):</strong> जनता की संप्रभु इच्छा से चुनी गई लोकतांत्रिक सरकार।</li>
+            <li><i class="fa-solid fa-building-columns"></i> <strong>गणराज्य (Republic):</strong> राज्य का प्रमुख (राष्ट्रपति) निर्वाचित होता है, कोई वंशानुगत राजा नहीं।</li>
+          </ul>
+        </div>
+
+        <!-- Historical Background Section -->
+        <div class="content-section" id="sec-history">
+          <div class="section-heading">
+            <i class="fa-solid fa-clock-rotate-left"></i> ऐतिहासिक पृष्ठभूमि
+          </div>
+          <p class="section-text">
+            प्रस्तावना पंडित जवाहरलाल नेहरू द्वारा 13 दिसंबर 1946 को तैयार किए गए और पेश किए गए 'उद्देश्य प्रस्ताव' (Objectives Resolution) पर आधारित है, जिसे 22 जनवरी 1947 को संविधान सभा द्वारा सर्वसम्मति से स्वीकार किया गया था।
+          </p>
+        </div>
+
+        <!-- Amendments Section -->
+        <div class="content-section" id="sec-amendments">
+          <div class="section-heading">
+            <i class="fa-solid fa-pen-to-square"></i> संशोधन
+          </div>
+          <p class="section-text">
+            प्रस्तावना में अब तक केवल एक बार <strong>42वें संविधान संशोधन अधिनियम, 1976</strong> द्वारा संशोधन किया गया है। इस संशोधन द्वारा प्रस्तावना में तीन नए शब्द जोड़े गए: <strong>'समाजवादी'</strong>, <strong>'पंथनिरपेक्ष'</strong>, और <strong>'अखंडता'</strong>।
+          </p>
+        </div>
+
+        <!-- Judicial Interpretation Section -->
+        <div class="content-section" id="sec-judicial">
+          <div class="section-heading">
+            <i class="fa-solid fa-gavel"></i> न्यायिक व्याख्या
+          </div>
+          <p class="section-text">
+            ऐतिहासिक <em>केशवानंद भारती मामले (1973)</em> में उच्चतम न्यायालय ने फैसला दिया कि प्रस्तावना संविधान का एक अभिन्न अंग है और इसके 'मूल ढांचे' (Basic Structure) का हिस्सा है। यद्यपि अनुच्छेद 368 के तहत इसमें संशोधन किया जा सकता है, लेकिन इसके मूल तत्वों को नष्ट नहीं किया जा सकता।
+          </p>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- About Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>प्रस्तावना के बारे में</span>
+          </div>
+          <p class="widget-description">
+            प्रस्तावना संविधान निर्माताओं के दर्शन, आदर्शों और आकांक्षाओं को दर्शाती है। यह संविधान के मन को खोलने वाली कुंजी है।
+          </p>
+        </div>
+
+        <!-- Key Features Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>मुख्य विशेषताएं</span>
+          </div>
+
+          <ul class="features-list">
+            <li class="feature-item">
+              <i class="fa-regular fa-compass"></i>
+              <span>संविधान के लक्ष्यों को निर्धारित करती है</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-regular fa-lightbulb"></i>
+              <span>इसके प्रावधानों की व्याख्या को प्रेरित करती है</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>किसी भी अदालत द्वारा सीधे लागू कराने योग्य नहीं</span>
+            </li>
+            <li class="feature-item">
+              <i class="fa-regular fa-book-open"></i>
+              <span>संविधान का ही एक हिस्सा है</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-download"></i>
+            <span>डाउनलोड</span>
+          </div>
+
+          <div class="download-sub">संविधान की प्रस्तावना (PDF)</div>
+
+          <button class="btn-download-pdf" id="btnDownloadPdf" type="button">
+            <i class="fa-regular fa-file-pdf"></i> PDF डाउनलोड करें
+          </button>
+        </div>
+
+        <!-- Related Sections Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-link"></i>
+            <span>संबंधित भाग</span>
+          </div>
+
+          <ul class="related-links-list">
+            <li class="related-link-item" onclick="window.location.href='../basics/fundamental-rights.html'">
+              <span>मौलिक अधिकार</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item" onclick="window.location.href='../basics/directive-principles.html'">
+              <span>नीति निदेशक तत्व</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item" onclick="window.location.href='../basics/fundamental-duties.html'">
+              <span>मौलिक कर्तव्य</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sidebar Navigation Smooth Scroll & Active Toggle
+    const navItems = document.querySelectorAll('.page-nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+
+        const targetId = item.getAttribute('data-target');
+        if (targetId) {
+          const targetElem = document.getElementById(targetId);
+          if (targetElem) {
+            targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    // Text-to-Speech (Audio Player) Logic for Preamble
+    const btnListen = document.getElementById('btnListen');
+    const listenIcon = document.getElementById('listenIcon');
+    const listenText = document.getElementById('listenText');
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    if ('speechSynthesis' in window) {
+      btnListen.addEventListener('click', () => {
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
+          isSpeaking = false;
+          listenIcon.className = 'fa-solid fa-volume-high';
+          listenText.textContent = 'प्रस्तावना सुनें';
+        } else {
+          const preambleText = `हम, भारत के लोग, भारत को एक संपूर्ण प्रभुत्व-संपन्न समाजवादी पंथनिरपेक्ष लोकतंत्रात्मक गणराज्य बनाने के लिए, तथा उसके समस्त नागरिकों को: सामाजिक, आर्थिक और राजनीतिक न्याय; विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की स्वतंत्रता; प्रतिष्ठा और अवसर की समता प्राप्त कराने के लिए, तथा उन सब में व्यक्ति की गरिमा और राष्ट्र की एकता और अखंडता सुनिश्चित करने वाली बंधुता बढ़ाने के लिए दृढ़संकल्प होकर; अपनी इस संविधान सभा में आज तारीख 26 नवंबर, 1949 ईस्वी को एतद्द्वारा इस संविधान को अंगीकृत, अधिनियमित और आत्मार्पित करते हैं।`;
+
+          speechUtterance = new SpeechSynthesisUtterance(preambleText);
+          speechUtterance.lang = 'hi-IN';
+          speechUtterance.rate = 0.9;
+
+          speechUtterance.onend = () => {
+            isSpeaking = false;
+            listenIcon.className = 'fa-solid fa-volume-high';
+            listenText.textContent = 'प्रस्तावना सुनें';
+          };
+
+          speechUtterance.onerror = () => {
+            isSpeaking = false;
+            listenIcon.className = 'fa-solid fa-volume-high';
+            listenText.textContent = 'प्रस्तावना सुनें';
+          };
+
+          window.speechSynthesis.speak(speechUtterance);
+          isSpeaking = true;
+          listenIcon.className = 'fa-solid fa-circle-pause';
+          listenText.textContent = 'ऑडियो रोकें';
+        }
+      });
+    } else {
+      btnListen.addEventListener('click', () => {
+        alert('आपके ब्राउज़र में टेक्स्ट-टू-स्पीच समर्थित नहीं है।');
+      });
+    }
+
+    // PDF Download Simulation
+    const btnDownloadPdf = document.getElementById('btnDownloadPdf');
+    if (btnDownloadPdf) {
+      btnDownloadPdf.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    // Dynamic Quick Fact Rotator
+    const quickFacts = [
+      "प्रस्तावना को 26 नवंबर 1949 को अपनाया गया था।",
+      "'समाजवादी', 'पंथनिरपेक्ष' और 'अखंडता' शब्द 1976 में जोड़े गए थे।",
+      "प्रस्तावना नेहरू के 'उद्देश्य प्रस्ताव' पर आधारित है।",
+      "यह शक्ति के स्रोत की घोषणा करती है: 'हम, भारत के लोग'।"
+    ];
+    let factIndex = 0;
+    const quickFactText = document.getElementById('quickFactText');
+
+    setInterval(() => {
+      factIndex = (factIndex + 1) % quickFacts.length;
+      if (quickFactText) {
+        quickFactText.innerHTML = quickFacts[factIndex];
+      }
+    }, 6000);
+  </script>
+
+</body>
+</html>

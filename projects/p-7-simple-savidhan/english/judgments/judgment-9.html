@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - State of Madras v. Champakam Dorairajan (1951)</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .left-sidebar, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .left-sidebar::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .left-sidebar::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .page-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 14px;
+    }
+
+    .page-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .page-nav-item::before {
+      content: "•";
+      font-size: 12px;
+      color: #0b1a30;
+    }
+
+    .page-nav-item.active {
+      background-color: #0b1a30;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .page-nav-item.active::before {
+      color: #ffffff;
+    }
+
+    .page-nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+    }
+
+    .btn-view-all-jnd {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all-jnd:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Related Judgments Links */
+    .related-jnd-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .related-jnd-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e3a8a;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+
+    .related-jnd-item:hover {
+      text-decoration: underline;
+    }
+
+    .related-jnd-item i {
+      font-size: 10px;
+      margin-left: 6px;
+      flex-shrink: 0;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .judgment-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .judgment-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .court-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .judgment-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-download-top {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .judgment-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.25;
+    }
+
+    /* Yellow Alert Box */
+    .yellow-alert-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .yellow-alert-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #b37b12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b37b12;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .yellow-alert-text {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 15px;
+      color: #103254;
+    }
+
+    /* Overview Meta Table */
+    .meta-overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .meta-overview-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .meta-overview-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .meta-overview-table td {
+      padding: 8px 0;
+      vertical-align: top;
+    }
+
+    .meta-label {
+      font-weight: 700;
+      color: #0b1a30;
+      width: 25%;
+    }
+
+    .meta-colon {
+      width: 3%;
+      color: #637381;
+    }
+
+    .meta-val {
+      color: #3d4a5d;
+      width: 72%;
+      line-height: 1.45;
+    }
+
+    .card-paragraph {
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .card-paragraph:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Numbered List for Issues */
+    .numbered-issues-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .issue-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.45;
+    }
+
+    .issue-num-badge {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #edf3f9;
+      color: #103254;
+      font-size: 10.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Judgment Callout Box */
+    .judgment-callout-box {
+      background-color: #eaf5ea;
+      border-radius: 8px;
+      padding: 16px 18px;
+      border: 1px solid #cce8cc;
+    }
+
+    .callout-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #2a7d4f;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .callout-desc {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Bullet List */
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12.5px;
+      color: #3d4a5d;
+      line-height: 1.45;
+    }
+
+    /* Checklist Points */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #2a7d4f;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Case Citation Banner Box */
+    .citation-banner-box {
+      background-color: #edf3f9;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border: 1px solid #d0dbe7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .citation-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .citation-icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #103254;
+      font-size: 13px;
+      flex-shrink: 0;
+      border: 1px solid #b0c0d0;
+    }
+
+    .citation-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .citation-desc {
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .building-illustration {
+      width: 100px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23103254" opacity="0.2" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg"><path d="M60 10 L30 30 L90 30 Z M35 30 L35 55 L85 55 L85 30 Z M42 38 L48 38 L48 55 L42 55 Z M57 38 L63 38 L63 55 L57 55 Z M72 38 L78 38 L78 55 L72 55 Z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right center;
+      flex-shrink: 0;
+    }
+
+    /* Bottom Navigation Controls Bar */
+    .bottom-nav-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      gap: 12px;
+    }
+
+    .btn-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #1e3a8a;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-nav-link .nav-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-nav-link .nav-lbl {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #1e3a8a;
+    }
+
+    .btn-nav-link .nav-sub {
+      font-size: 11px;
+      color: #3d4a5d;
+    }
+
+    .btn-center-all {
+      background-color: #ffffff;
+      color: #1e3a8a;
+      border: 1px solid #1e3a8a;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-center-all:hover {
+      background-color: #edf3f9;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 14px;
+    }
+
+    /* Overview Table */
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+
+    .overview-table tr {
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .overview-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .overview-table td {
+      padding: 8px 0;
+      vertical-align: top;
+    }
+
+    .overview-label {
+      font-weight: 700;
+      color: #0b1a30;
+      width: 45%;
+    }
+
+    .overview-val {
+      color: #3d4a5d;
+      width: 55%;
+      line-height: 1.35;
+    }
+
+    /* What Does It Mean Special Box */
+    .widget-what-does-it-mean {
+      background-color: #edf3f9;
+      border: 1px solid #d0dbe7;
+    }
+
+    .what-does-it-mean-desc {
+      font-size: 11.5px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Impact List */
+    .impact-list {
+      list-style: disc;
+      padding-left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #3d4a5d;
+      line-height: 1.4;
+    }
+
+    /* Related Articles Links */
+    .related-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .related-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e3a8a;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+
+    .related-link-item:hover {
+      text-decoration: underline;
+    }
+
+    .related-link-item i {
+      font-size: 10.5px;
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    /* Download Box */
+    .download-sub {
+      font-size: 11.5px;
+      color: #3d4a5d;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .btn-download-pdf {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-download-pdf:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .judgment-main-heading {
+        font-size: 18px;
+      }
+      .meta-overview-table tr, .meta-overview-table td {
+        display: block;
+        width: 100%;
+      }
+      .meta-colon {
+        display: none;
+      }
+      .meta-label {
+        padding-bottom: 2px;
+      }
+      .meta-val {
+        padding-bottom: 8px;
+      }
+      .citation-banner-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .building-illustration {
+        display: none;
+      }
+      .bottom-nav-controls {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .btn-nav-link {
+        justify-content: center;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR JUGDMENT-9 PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-label {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .judgment-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .judgment-main-heading,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .meta-label,
+    [data-theme="dark"] .overview-label,
+    [data-theme="dark"] .issue-item strong,
+    [data-theme="dark"] .bullet-points-list strong,
+    [data-theme="dark"] .citation-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .page-nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .page-nav-item::before {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .page-nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .page-nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .page-nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-view-all-jnd,
+    [data-theme="dark"] .btn-download-top,
+    [data-theme="dark"] .btn-center-all,
+    [data-theme="dark"] .btn-download-pdf {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-view-all-jnd:hover,
+    [data-theme="dark"] .btn-download-top:hover,
+    [data-theme="dark"] .btn-center-all:hover,
+    [data-theme="dark"] .btn-download-pdf:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .btn-nav-link,
+    [data-theme="dark"] .btn-nav-link .nav-lbl,
+    [data-theme="dark"] .related-jnd-item,
+    [data-theme="dark"] .related-link-item,
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .court-badge-title {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .card-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .meta-val,
+    [data-theme="dark"] .overview-val,
+    [data-theme="dark"] .issue-item,
+    [data-theme="dark"] .impact-list,
+    [data-theme="dark"] .what-does-it-mean-desc,
+    [data-theme="dark"] .download-sub,
+    [data-theme="dark"] .btn-nav-link .nav-sub,
+    [data-theme="dark"] .citation-desc {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .yellow-alert-box {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .yellow-alert-text {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .judgment-callout-box {
+      background-color: rgba(42, 125, 79, 0.2);
+      border-color: rgba(42, 125, 79, 0.4);
+    }
+
+    [data-theme="dark"] .callout-title {
+      color: #4ade80;
+    }
+
+    [data-theme="dark"] .callout-desc {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .issue-num-badge {
+      background-color: var(--sv-bg-input);
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .citation-banner-box,
+    [data-theme="dark"] .widget-what-does-it-mean {
+      background-color: var(--sv-bg-card-hover);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .citation-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: var(--sv-border);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .meta-overview-table tr,
+    [data-theme="dark"] .overview-table tr {
+      border-color: var(--sv-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../pages/articles.html">ARTICLES</a></li>
+      <li><a href="../pages/parts.html">PARTS</a></li>
+      <li><a href="../pages/schedules.html">SCHEDULES</a></li>
+      <li><a href="../pages/amendments.html">AMENDMENTS</a></li>
+      <li><a href="../pages/judgments.html" class="active">JUDGMENTS</a></li>
+      <li><a href="../pages/glossary.html">GLOSSARY</a></li>
+      <li><a href="../pages/quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../../hindi/judgments/judgment-9.html">हिंदी</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <div class="hero-label">IMPORTANT JUDGMENT</div>
+      <h1 class="hero-title">State of Madras v. Champakam Dorairajan (1951)</h1>
+      <p class="hero-description">
+        A landmark judgment that shaped the interpretation<br>
+        of Fundamental Rights and led to the First Amendment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/judgments.html">Judgments</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>State of Madras v. Champakam Dorairajan (1951)</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY On This Page & Related Judgments -->
+      <aside class="left-sidebar">
+        
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>ON THIS PAGE</span>
+          </div>
+
+          <ul class="page-nav-list">
+            <li class="page-nav-item active">Case Overview</li>
+            <li class="page-nav-item">Background of the Case</li>
+            <li class="page-nav-item">Facts of the Case</li>
+            <li class="page-nav-item">Issues Before the Court</li>
+            <li class="page-nav-item">Arguments</li>
+            <li class="page-nav-item">Judgment</li>
+            <li class="page-nav-item">Reasoning of the Court</li>
+            <li class="page-nav-item">Significance of the Judgment</li>
+            <li class="page-nav-item">Impact of the Judgment</li>
+            <li class="page-nav-item">Related Articles</li>
+            <li class="page-nav-item">Key Takeaways</li>
+            <li class="page-nav-item">Case Citation</li>
+          </ul>
+
+          <button class="btn-view-all-jnd" type="button" onclick="window.location.href='../pages/judgments.html'">
+            VIEW ALL JUDGMENTS <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-solid fa-gavel"></i>
+            <span>RELATED JUDGMENTS</span>
+          </div>
+
+          <ul class="related-jnd-list">
+            <li class="related-jnd-item">
+              <span>Keshavananda Bharati v. State of Kerala (1973)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-jnd-item">
+              <span>Golaknath v. State of Punjab (1967)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-jnd-item">
+              <span>I.C. Golak Nath v. State of Punjab (1967)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-jnd-item">
+              <span>Minerva Mills Ltd. v. Union of India (1980)</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+
+          <button class="btn-view-all-jnd" type="button" onclick="window.location.href='../pages/judgments.html'" style="border: none; background: transparent; color: var(--sv-text-link, #1e3a8a); justify-content: flex-start; padding: 0;">
+            VIEW ALL <i class="fa-solid fa-arrow-right" style="font-size: 10px;"></i>
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- Middle Main Content Panel - SCROLLABLE -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="judgment-header-card">
+          <div class="judgment-top-bar">
+            <div class="court-badge-title">
+              <i class="fa-solid fa-scale-balanced"></i> SUPREME COURT OF INDIA
+            </div>
+            <div class="judgment-actions">
+              <button class="action-icon-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" title="Share"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-download-top" type="button">
+                <i class="fa-solid fa-download"></i> Download PDF
+              </button>
+            </div>
+          </div>
+          <h1 class="judgment-main-heading">State of Madras v. Champakam Dorairajan (1951)</h1>
+        </div>
+
+        <!-- Yellow Alert Box -->
+        <div class="yellow-alert-box">
+          <div class="yellow-alert-icon">
+            <i class="fa-solid fa-info"></i>
+          </div>
+          <div class="yellow-alert-text">
+            This was one of the earliest and most important judgments of the Supreme Court of India which upheld the supremacy of Fundamental Rights over Directive Principles of State Policy.
+          </div>
+        </div>
+
+        <!-- Case Overview Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-scale-balanced"></i> CASE OVERVIEW
+          </div>
+
+          <table class="meta-overview-table">
+            <tr>
+              <td class="meta-label">Court</td>
+              <td class="meta-colon">:</td>
+              <td class="meta-val">Supreme Court of India</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Date of Judgment</td>
+              <td class="meta-colon">:</td>
+              <td class="meta-val">29 April 1951</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Bench</td>
+              <td class="meta-colon">:</td>
+              <td class="meta-val">Chief Justice M. Patanjali Sastri, Justice Fazl Ali, Justice Kania, Justice M. L. Sethi, Justice B. K. Mukherjee</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Case Type</td>
+              <td class="meta-colon">:</td>
+              <td class="meta-val">Constitutional Law – Fundamental Rights</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Citation</td>
+              <td class="meta-colon">:</td>
+              <td class="meta-val">AIR 1951 SC 226</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Background of the Case Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-landmark"></i> BACKGROUND OF THE CASE
+          </div>
+          <p class="card-paragraph">
+            The Government of Madras issued a Communal G.O. (Government Order) providing for reservation of seats in educational institutions on the basis of communal representation (Muslims, Christians, Backward Classes, etc.).
+          </p>
+          <p class="card-paragraph">
+            Champakam Dorairajan, who belonged to a non-reserved category, challenged this order as it denied her admission to a medical college despite her higher marks.
+          </p>
+        </div>
+
+        <!-- Facts of the Case Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-file-lines"></i> FACTS OF THE CASE
+          </div>
+          <p class="card-paragraph">
+            The State of Madras had prescribed a system of communal reservation in educational institutions. The petitioner, Champakam Dorairajan, argued that the order violated her Fundamental Right to equality under Article 29(2) and Article 15(1) of the Constitution.
+          </p>
+        </div>
+
+        <!-- Issues Before the Court Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-comments"></i> ISSUES BEFORE THE COURT
+          </div>
+
+          <ul class="numbered-issues-list">
+            <li class="issue-item">
+              <span class="issue-num-badge">1</span>
+              <span>Whether the Communal G.O. violated <strong>Article 29(2)</strong> of the Constitution?</span>
+            </li>
+            <li class="issue-item">
+              <span class="issue-num-badge">2</span>
+              <span>Whether <strong>Article 15(1)</strong> prohibits the State from making any discrimination on grounds of religion, race, caste, sex or place of birth?</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Judgment Box -->
+        <div class="judgment-callout-box">
+          <div class="callout-title">
+            <i class="fa-solid fa-gavel"></i> JUDGMENT
+          </div>
+          <div class="callout-desc">
+            The Supreme Court held that the Communal G.O. was violative of Article 29(2) and Article 15(1) of the Constitution and therefore, it was unconstitutional and void.
+          </div>
+        </div>
+
+        <!-- Reasoning of the Court Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-solid fa-scale-balanced"></i> REASONING OF THE COURT
+          </div>
+
+          <ul class="bullet-points-list">
+            <li><strong>Article 29(2)</strong> guarantees that no citizen shall be denied admission in any educational institution maintained by the State or receiving aid out of State funds on grounds only of religion, race, caste, language or any of them.</li>
+            <li><strong>Article 15(1)</strong> prohibits the State from discriminating against any citizen on grounds only of religion, race, caste, sex or place of birth.</li>
+            <li><strong>Directive Principles (like Article 46)</strong> cannot override Fundamental Rights.</li>
+            <li>Fundamental Rights are justiciable and prevail over Directive Principles in case of conflict.</li>
+          </ul>
+        </div>
+
+        <!-- Significance of the Judgment Box -->
+        <div class="content-card-box">
+          <div class="card-section-title">
+            <i class="fa-regular fa-star"></i> SIGNIFICANCE OF THE JUDGMENT
+          </div>
+
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Upheld the supremacy of Fundamental Rights.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Established that <strong>Directive Principles</strong> cannot override Fundamental Rights.</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Led to the <strong>First Constitutional Amendment, 1951</strong>, which inserted <strong>Article 15(4)</strong> and <strong>Article 31A</strong>.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Case Citation Banner -->
+        <div class="citation-banner-box">
+          <div class="citation-content">
+            <div class="citation-icon-circle">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+              <div class="citation-title">CASE CITATION</div>
+              <div class="citation-desc">
+                State of Madras v. Champakam Dorairajan (1951) 1 SCR 247;<br>
+                AIR 1951 SC 226
+              </div>
+            </div>
+          </div>
+          <div class="building-illustration"></div>
+        </div>
+
+        <!-- Bottom Navigation Controls -->
+        <div class="bottom-nav-controls">
+          <a href="#" class="btn-nav-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            <div class="nav-text-block">
+              <span class="nav-lbl">PREVIOUS JUDGMENT</span>
+              <span class="nav-sub">A.K. Gopalan v. State of Madras (1950)</span>
+            </div>
+          </a>
+
+          <button class="btn-center-all" type="button" onclick="window.location.href='../pages/judgments.html'">
+            <i class="fa-solid fa-border-all"></i> VIEW ALL JUDGMENTS
+          </button>
+
+          <a href="#" class="btn-nav-link">
+            <div class="nav-text-block" style="text-align: right;">
+              <span class="nav-lbl">NEXT JUDGMENT</span>
+              <span class="nav-sub">M. P. Sharma v. Satish Chandra (1954)</span>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Quick Facts Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>QUICK FACTS</span>
+          </div>
+
+          <table class="overview-table">
+            <tr>
+              <td class="overview-label">Petitioner</td>
+              <td class="overview-val">Champakam Dorairajan</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Respondent</td>
+              <td class="overview-val">State of Madras</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Provision Involved</td>
+              <td class="overview-val">Article 15(1),<br>Article 29(2)</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Nature of Case</td>
+              <td class="overview-val">Challenge to Communal G.O. on reservation</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Outcome</td>
+              <td class="overview-val">Communal G.O. held unconstitutional</td>
+            </tr>
+            <tr>
+              <td class="overview-label">Impact</td>
+              <td class="overview-val">Led to the First Amendment, 1951</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- What Does It Mean Widget -->
+        <div class="sidebar-widget widget-what-does-it-mean">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>WHAT DOES IT MEAN?</span>
+          </div>
+
+          <p class="what-does-it-mean-desc">
+            This judgment clearly laid down that Fundamental Rights are the supreme law of the land. The State cannot make any law or order that takes away or infringes these rights.<br><br>
+            It was a turning point in India's constitutional journey.
+          </p>
+        </div>
+
+        <!-- Impact of the Judgment Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>IMPACT OF THE JUDGMENT</span>
+          </div>
+
+          <ul class="impact-list">
+            <li>Strengthened the enforcement of Fundamental Rights.</li>
+            <li>Triggered the First Amendment Act, 1951.</li>
+            <li>Inserted Article 15(4) to allow special provisions for socially and educationally backward classes.</li>
+            <li>Inserted Article 31A and 31B to protect certain laws from judicial review.</li>
+          </ul>
+        </div>
+
+        <!-- Related Articles Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-link"></i>
+            <span>RELATED ARTICLES</span>
+          </div>
+
+          <ul class="related-links-list">
+            <li class="related-link-item">
+              <span>Article 14 – Equality Before Law</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>Article 15 – Prohibition of Discrimination</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>Article 29 – Protection of Interests of Minorities</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item">
+              <span>Article 46 – Promotion of Educational and Economic Interests</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li class="related-link-item" onclick="window.location.href='../pages/articles.html'">
+              <span>View All Articles</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-download"></i>
+            <span>DOWNLOAD JUDGMENT</span>
+          </div>
+
+          <div class="download-sub">Read the full judgment PDF</div>
+
+          <button class="btn-download-pdf" type="button">
+            <i class="fa-regular fa-file-pdf"></i> Download PDF
+          </button>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+ <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+          <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">Articles</a></li>
+            <li><a href="../pages/parts.html">Parts</a></li>
+            <li><a href="../pages/schedules.html">Schedules</a></li>
+            <li><a href="../pages/amendments.html">Amendments</a></li>
+            <li><a href="../pages/judgments.html">Judgments</a></li>
+            <li><a href="../pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="../basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="../basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="../basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="../basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="../pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

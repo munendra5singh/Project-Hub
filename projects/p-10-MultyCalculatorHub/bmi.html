@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Analytics BMI Dashboard</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Course Hub | BMI Calculator">
+    <meta property="og:description" content="Upgrade your skills with 100% free and verified online course links.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/munendra5singh/FreeCourseHub/main/preview.png">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/bmi.css">
+</head>
+<body>
+  <div id="site-header-root"></div>
+
+
+    <div class="calc-container" id="calculator" role="application">
+        <div class="toast" id="toast">Copied to Clipboard</div>
+
+        <header class="calc-header">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <a href="index.html" class="icon-btn" title="Back to Home Dashboard" style="text-decoration: none;">
+                    <i class="fa-solid fa-house" style="font-size: 14px; color: var(--text-main);"></i>
+                </a>
+                <div class="calc-title">BMI Engine Suite</div>
+            </div>
+            <div class="header-controls">
+                <button class="icon-btn" id="history-toggle" title="Review Calculations Stack Log History">
+                    <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.53.85-1.34-3.63-2.16V8h-1.5z"/></svg>
+                </button>
+                <button class="icon-btn theme-btn" id="theme-toggle" title="Toggle Layout Theme">
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 1-1.1-19.8m.7-2A12 12 0 1 0 24 11.5c0-.4 0-.7-.1-1.1a10 10 0 0 1-11.6-10.4z"/></svg>
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 0 0-1.41 0c-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 0 0-1.41 0c-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="dashboard-workspace">
+            <main class="workspace-pane left-pane">
+                <form id="bmiForm" autocomplete="off" onsubmit="event.preventDefault(); computeBmiEngine();">
+                    <div class="form-group-item">
+                        <label>Gender Configuration</label>
+                        <div class="gender-grid">
+                            <div>
+                                <input type="radio" id="gMale" name="gender" value="Male" checked>
+                                <label for="gMale" class="gender-label">♂️ Male</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="gFemale" name="gender" value="Female">
+                                <label for="gFemale" class="gender-label">♀️ Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="form-group-item">
+                            <label for="inputAge">Age (Optional)</label>
+                            <input type="number" id="inputAge" min="2" max="120" placeholder="e.g., 25">
+                            <span class="input-unit">Yrs</span>
+                        </div>
+                        <div class="form-group-item">
+                            <label for="inputWeight">Weight</label>
+                            <input type="number" id="inputWeight" min="5" max="350" step="0.1" placeholder="e.g., 70" required>
+                            <span class="input-unit">KG</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group-item" id="blockHeightCm">
+                        <div class="height-toggle-container">
+                            <label for="inputHeightCm">Height</label>
+                            <span class="toggle-link" onclick="toggleHeightMetrics(true)">Switch to Ft/In</span>
+                        </div>
+                        <input type="number" id="inputHeightCm" min="50" max="260" placeholder="e.g., 175">
+                        <span class="input-unit">CM</span>
+                    </div>
+
+                    <div class="form-group-item" id="blockHeightFt" style="display: none;">
+                        <div class="height-toggle-container">
+                            <label>Height (Imperial)</label>
+                            <span class="toggle-link" onclick="toggleHeightMetrics(false)">Switch to CM</span>
+                        </div>
+                        <div class="input-row">
+                            <div style="position:relative; flex:1;">
+                                <input type="number" id="inputHeightFt" min="2" max="8" placeholder="Feet">
+                                <span class="input-unit">Ft</span>
+                            </div>
+                            <div style="position:relative; flex:1;">
+                                <input type="number" id="inputHeightIn" min="0" max="11" placeholder="Inches">
+                                <span class="input-unit">In</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-grid">
+                        <button type="submit" class="btn-calc">🧮 Calculate Analytics</button>
+                        <button type="button" class="btn-reset" onclick="resetEngineConsole()">Reset</button>
+                    </div>
+                </form>
+            </main>
+
+            <section class="workspace-pane">
+                <div class="card-title-bar">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3 style="font-family:'Space Grotesk', sans-serif;">Visual Summary</h3>
+                    <span style="font-size: 11px; font-weight: 700; margin-left: auto;" id="timestampStamp">---</span>
+                </div>
+
+                <div class="meter-container">
+                    <div class="semi-circle" id="speedometerArc"></div>
+                    <div class="needle" id="gaugeNeedle"></div>
+                    <div class="needle-center"></div>
+                </div>
+
+                <div class="output-score">
+                    <h2 id="lblBmiScore">0.0</h2>
+                    <p id="lblBmiCategory" class="state-normal">Enter Data</p>
+                </div>
+
+                <div>
+                    <div class="spectrum-bar">
+                        <div class="spec-chunk" style="background: var(--warning);"></div>
+                        <div class="spec-chunk" style="background: var(--success);"></div>
+                        <div class="spec-chunk" style="background: var(--warning);"></div>
+                        <div class="spec-chunk" style="background: var(--danger);"></div>
+                    </div>
+                    <div class="scale-legend">
+                        <span>18.5 Under</span>
+                        <span>18.5 - 24.9</span>
+                        <span>25.0 - 29.9</span>
+                        <span>30.0 Obese</span>
+                    </div>
+                </div>
+
+                <table class="data-sheet">
+                    <tr>
+                        <td>Target Optimum Range:</td>
+                        <td class="data-val" id="lblHealthyRange">0.0 - 0.0 KG</td>
+                    </tr>
+                    <tr>
+                        <td>Clinical Risk Status:</td>
+                        <td class="data-val" id="lblRiskIndicator">---</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; padding-top: 8px;" id="lblGuidanceText">
+                            Please input parameters to execute diagnostic report overview.
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="util-row">
+                    <button class="btn-util" onclick="copyBmiReportToClipboard()">📋 Copy</button>
+                    <button class="btn-util" onclick="window.print()">🖨️ Print</button>
+                    <button class="btn-util" onclick="window.print()">📄 PDF Report</button>
+                </div>
+            </section>
+        </div>
+
+        <aside class="history-panel" id="history-panel">
+            <div class="history-header">
+                <span class="history-title">Calculations History</span>
+                <button class="icon-btn" id="history-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="history-list" id="history-list"></div>
+            <div class="history-footer">
+                <button class="clear-hist-btn" id="clear-history">Clear History Cache</button>
+            </div>
+        </aside>
+    </div>
+
+  <script src="js/pages/bmi-engine.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
+ 
+  <div id="site-footer-root"></div>
+
+</body>
+</html>

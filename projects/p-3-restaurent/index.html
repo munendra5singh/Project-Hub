@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Royal Spice - Delicious Food Made with Love. Premium authentic dining experience." />
+  <title>ROYAL SPICE | Delicious Food Made with Love</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==================== DESKTOP NAVBAR ==================== -->
+  <header class="desktop-header" id="desktopHeader">
+    <nav class="desktop-nav container" aria-label="Main Desktop Navigation">
+      <a href="#home" class="brand-logo">
+        <span class="logo-accent">ROYAL</span> SPICE
+      </a>
+
+      <ul class="desktop-nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#specialities" class="nav-link">Specialities</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#chefs" class="nav-link">Chefs</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#reservation" class="nav-link">Reservations</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="desktop-nav-actions">
+        <button class="cart-btn" id="openCartBtn" aria-label="View Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </button>
+        <a href="#reservation" class="btn btn-primary">Book a Table</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+  <main id="mainContent">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-container">
+        <span class="hero-badge">ROYAL SPICE RESTAURANT</span>
+        <h1 class="hero-title">Delicious Food<br><span class="text-gradient">Made with Love</span></h1>
+        <p class="hero-desc">
+          Experience unforgettable flavors, carefully crafted dishes, and warm hospitality in an elegant dining atmosphere.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#reservation" class="btn btn-primary">Book a Table</a>
+          <a href="#menu" class="btn btn-secondary">Explore Menu</a>
+        </div>
+        <div class="hero-features">
+          <div class="hero-feature-item">
+            <span class="feature-dot"></span> Open Daily (11 AM - 11 PM)
+          </div>
+          <div class="hero-feature-item">
+            <span class="feature-dot"></span> Fresh Ingredients
+          </div>
+          <div class="hero-feature-item">
+            <span class="feature-dot"></span> Authentic Flavors
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section" id="stats">
+      <div class="container stats-grid">
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="15" data-suffix="+">0</h3>
+          <p class="stat-label">Years of Experience</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="50" data-suffix="+">0</h3>
+          <p class="stat-label">Signature Dishes</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="10" data-suffix="K+">0</h3>
+          <p class="stat-label">Happy Guests</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="4.9" data-decimals="1" data-suffix="">0</h3>
+          <p class="stat-label">Guest Rating</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section section-padding" id="about">
+      <div class="container about-grid">
+        <div class="about-image-wrap reveal">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" alt="Royal Spice Dining Interior" loading="lazy" class="about-img" />
+          <div class="about-experience-badge">
+            <span class="exp-years">15+</span>
+            <span class="exp-text">Years of Culinary Excellence</span>
+          </div>
+        </div>
+
+        <div class="about-content reveal">
+          <span class="section-tag">OUR HERITAGE</span>
+          <h2 class="section-title">Where Tradition<br>Meets Modern Taste</h2>
+          <p class="section-desc">
+            At Royal Spice, every dish tells a story. We combine authentic ancestral recipes, farm-fresh ingredients, and refined modern presentation to create an unforgettable fine-dining journey.
+          </p>
+          <ul class="feature-checklist">
+            <li><span class="check-icon">✓</span> 100% Fresh & Locally Sourced Ingredients</li>
+            <li><span class="check-icon">✓</span> Traditional Slow-Cooking Heritage Recipes</li>
+            <li><span class="check-icon">✓</span> Master Class Experienced Chefs</li>
+            <li><span class="check-icon">✓</span> Attentive & Warm Hospitality</li>
+          </ul>
+          <a href="#specialities" class="btn btn-primary mt-2">Discover Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIALITIES SECTION -->
+    <section class="specialities-section section-padding bg-darker" id="specialities">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">CHEF RECOMMENDATIONS</span>
+          <h2 class="section-title">Our Specialities</h2>
+          <p class="section-desc max-w-600">Handcrafted delicacies created with signature spices and delicate craftsmanship.</p>
+        </div>
+
+        <div class="specialities-grid">
+          <!-- Item 1 -->
+          <div class="food-card reveal">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80" alt="Butter Chicken" loading="lazy" />
+              <span class="food-badge non-veg">Non-Veg</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="food-title">Butter Chicken</h3>
+                <span class="food-price">₹349</span>
+              </div>
+              <p class="food-desc">Rich, velvety tomato-butter gravy simmered with tender tandoori chicken.</p>
+              <div class="card-footer-row">
+                <div class="food-rating">★★★★★ <span>(4.9)</span></div>
+                <button class="btn btn-sm btn-outline add-cart-btn" data-id="spec-1" data-name="Butter Chicken" data-price="349" data-img="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=600&q=80">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="food-card reveal">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80" alt="Paneer Tikka" loading="lazy" />
+              <span class="food-badge veg">Veg</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="food-title">Paneer Tikka</h3>
+                <span class="food-price">₹289</span>
+              </div>
+              <p class="food-desc">Char-grilled cottage cheese cubes marinated in mustard oil and roasted ground spices.</p>
+              <div class="card-footer-row">
+                <div class="food-rating">★★★★★ <span>(4.8)</span></div>
+                <button class="btn btn-sm btn-outline add-cart-btn" data-id="spec-2" data-name="Paneer Tikka" data-price="289" data-img="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="food-card reveal">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Dum Biryani" loading="lazy" />
+              <span class="food-badge non-veg">Non-Veg</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="food-title">Royal Dum Biryani</h3>
+                <span class="food-price">₹399</span>
+              </div>
+              <p class="food-desc">Fragrant long-grain basmati layered with saffron, caramelized onions, and spiced meat.</p>
+              <div class="card-footer-row">
+                <div class="food-rating">★★★★★ <span>(5.0)</span></div>
+                <button class="btn btn-sm btn-outline add-cart-btn" data-id="spec-3" data-name="Royal Dum Biryani" data-price="399" data-img="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="food-card reveal">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Tandoori Platter" loading="lazy" />
+              <span class="food-badge non-veg">Non-Veg</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="food-title">Tandoori Platter</h3>
+                <span class="food-price">₹549</span>
+              </div>
+              <p class="food-desc">Assorted clay-oven skewers featuring chicken seekh, malai tikka, and fish kebabs.</p>
+              <div class="card-footer-row">
+                <div class="food-rating">★★★★★ <span>(4.9)</span></div>
+                <button class="btn btn-sm btn-outline add-cart-btn" data-id="spec-4" data-name="Tandoori Platter" data-price="549" data-img="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="food-card reveal">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" alt="Garlic Naan" loading="lazy" />
+              <span class="food-badge veg">Veg</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="food-title">Garlic Butter Naan</h3>
+                <span class="food-price">₹89</span>
+              </div>
+              <p class="food-desc">Artisan flatbread baked on tandoor clay walls with minced fresh garlic and butter.</p>
+              <div class="card-footer-row">
+                <div class="food-rating">★★★★★ <span>(4.8)</span></div>
+                <button class="btn btn-sm btn-outline add-cart-btn" data-id="spec-5" data-name="Garlic Butter Naan" data-price="89" data-img="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="food-card reveal">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Royal Thali" loading="lazy" />
+              <span class="food-badge veg">Veg</span>
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="food-title">Royal Grand Thali</h3>
+                <span class="food-price">₹499</span>
+              </div>
+              <p class="food-desc">An extravagant feast featuring dal makhani, shahi paneer, pulao, breads, and gulab jamun.</p>
+              <div class="card-footer-row">
+                <div class="food-rating">★★★★★ <span>(5.0)</span></div>
+                <button class="btn btn-sm btn-outline add-cart-btn" data-id="spec-6" data-name="Royal Grand Thali" data-price="499" data-img="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80">Order Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section section-padding" id="menu">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">CULINARY DELIGHTS</span>
+          <h2 class="section-title">Explore Our Menu</h2>
+          <p class="section-desc max-w-600">Browse our comprehensive selection of authentic dining creations.</p>
+
+          <!-- Filter Tabs -->
+          <div class="menu-tabs-container">
+            <button class="menu-tab-btn active" data-category="all">All</button>
+            <button class="menu-tab-btn" data-category="starters">Starters</button>
+            <button class="menu-tab-btn" data-category="main-course">Main Course</button>
+            <button class="menu-tab-btn" data-category="biryani">Biryani</button>
+            <button class="menu-tab-btn" data-category="breads">Breads</button>
+            <button class="menu-tab-btn" data-category="desserts">Desserts</button>
+            <button class="menu-tab-btn" data-category="drinks">Drinks</button>
+          </div>
+        </div>
+
+        <div class="menu-grid" id="menuItemsGrid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TODAY'S SPECIAL OFFER -->
+    <section class="special-offer-section section-padding bg-darker" id="offers">
+      <div class="container">
+        <div class="offer-banner-card reveal">
+          <div class="offer-badge-tag">EXCLUSIVE COMBO OFFER</div>
+          <h2 class="offer-title">ROYAL DINNER COMBO</h2>
+          <p class="offer-subtitle">Choice of Starter + Signature Main Course + Artisan Bread + Dessert</p>
+          <div class="offer-pricing">
+            <span class="old-price">₹1199</span>
+            <span class="current-price">₹799</span>
+          </div>
+
+          <!-- Dynamic JS Countdown -->
+          <div class="countdown-wrapper">
+            <p class="countdown-label">Offer ends in:</p>
+            <div class="countdown-timer" id="offerTimer">
+              <div class="timer-box"><span id="timerHours">02</span><small>Hours</small></div>
+              <span class="timer-colon">:</span>
+              <div class="timer-box"><span id="timerMinutes">45</span><small>Mins</small></div>
+              <span class="timer-colon">:</span>
+              <div class="timer-box"><span id="timerSeconds">32</span><small>Secs</small></div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary add-cart-btn mt-2" data-id="offer-combo" data-name="Royal Dinner Combo" data-price="799" data-img="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80">
+            Claim Offer & Order Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="features-section section-padding" id="why-us">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">THE ROYAL DIFFERENCE</span>
+          <h2 class="section-title">Why Dine With Us?</h2>
+          <p class="section-desc max-w-600">Elevated culinary standards designed to ensure an unforgettable dining journey.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap">🌱</div>
+            <h3>Fresh Ingredients</h3>
+            <p>100% farm-sourced fresh produce and unadulterated spices blended daily in-house.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap">🍲</div>
+            <h3>Authentic Flavors</h3>
+            <p>Centuries-old recipes passed down generations to preserve genuine regional heritage.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap">👨‍🍳</div>
+            <h3>Experienced Chefs</h3>
+            <p>Award-winning culinary masters passionate about precision, flavor harmony, and art.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap">✨</div>
+            <h3>Elegant Ambience</h3>
+            <p>Warm ambient lighting, soothing acoustics, and luxury interiors tailored for comfort.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap">⚡</div>
+            <h3>Fast & Cordial Service</h3>
+            <p>Thoughtful table-side hospitality guaranteeing prompt dining without cutting culinary corners.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon-wrap">👨‍👩‍👧‍👦</div>
+            <h3>Family Friendly</h3>
+            <p>Spacious seating, custom spice preferences, and dedicated menu items tailored for all ages.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHEFS SECTION -->
+    <section class="chefs-section section-padding bg-darker" id="chefs">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">CULINARY ARTISTS</span>
+          <h2 class="section-title">Meet Our Chefs</h2>
+          <p class="section-desc max-w-600">The masters behind the magic in our kitchen.</p>
+        </div>
+
+        <div class="chefs-grid">
+          <!-- Chef 1 -->
+          <div class="chef-card reveal">
+            <div class="chef-img-wrap">
+              <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Chef Arjun Sharma" loading="lazy" />
+            </div>
+            <div class="chef-details">
+              <h3 class="chef-name">Chef Arjun Sharma</h3>
+              <p class="chef-pos">Executive Chef</p>
+              <div class="chef-meta">
+                <span><strong>Experience:</strong> 15+ Years</span>
+                <span><strong>Specialty:</strong> Royal Indian Cuisine</span>
+              </div>
+              <div class="chef-socials">
+                <a href="#chefs" aria-label="Arjun Instagram">IG</a>
+                <a href="#chefs" aria-label="Arjun LinkedIn">IN</a>
+                <a href="#chefs" aria-label="Arjun Twitter">X</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chef 2 -->
+          <div class="chef-card reveal">
+            <div class="chef-img-wrap">
+              <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=600&q=80" alt="Chef Meera Kapoor" loading="lazy" />
+            </div>
+            <div class="chef-details">
+              <h3 class="chef-name">Chef Meera Kapoor</h3>
+              <p class="chef-pos">Master Pastry Chef</p>
+              <div class="chef-meta">
+                <span><strong>Experience:</strong> 8+ Years</span>
+                <span><strong>Specialty:</strong> Desserts & Fusion Pastry</span>
+              </div>
+              <div class="chef-socials">
+                <a href="#chefs" aria-label="Meera Instagram">IG</a>
+                <a href="#chefs" aria-label="Meera LinkedIn">IN</a>
+                <a href="#chefs" aria-label="Meera Twitter">X</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section section-padding" id="gallery">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">VISUAL ODYSSEY</span>
+          <h2 class="section-title">A Taste of Royal Spice</h2>
+          <p class="section-desc max-w-600">Glimpse into our dining rooms, kitchen craft, and signature plates.</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Gallery Items with data-src for lightbox -->
+          <div class="gallery-item reveal" data-index="0" data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" data-caption="Opulent Restaurant Interior">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurant Interior" loading="lazy" />
+            <div class="gallery-overlay"><span>View Image</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-index="1" data-src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" data-caption="Fine Dining Table Setup">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Fine Dining Table" loading="lazy" />
+            <div class="gallery-overlay"><span>View Image</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-index="2" data-src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80" data-caption="Culinary Plating Artistry">
+            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Culinary Plating" loading="lazy" />
+            <div class="gallery-overlay"><span>View Image</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-index="3" data-src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80" data-caption="Private Celebration Dining">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80" alt="Private Celebration" loading="lazy" />
+            <div class="gallery-overlay"><span>View Image</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-index="4" data-src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1200&q=80" data-caption="Artisan Biryani Pot">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Biryani Pot" loading="lazy" />
+            <div class="gallery-overlay"><span>View Image</span></div>
+          </div>
+
+          <div class="gallery-item reveal" data-index="5" data-src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80" data-caption="Handcrafted Cocktails & Mocktails">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Handcrafted Drinks" loading="lazy" />
+            <div class="gallery-overlay"><span>View Image</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVATION SECTION -->
+    <section class="reservation-section section-padding bg-darker" id="reservation">
+      <div class="container">
+        <div class="reservation-wrapper reveal">
+          <div class="reservation-info">
+            <span class="section-tag">TABLE BOOKING</span>
+            <h2 class="section-title">Reserve Your Table</h2>
+            <p class="section-desc">
+              Book your table in advance for seamless seating. For private parties with more than 12 guests, please contact our events desk directly.
+            </p>
+            <div class="reservation-highlights">
+              <div class="res-highlight-item">
+                <strong>Instant Confirmation:</strong> SMS & Email confirmation delivered immediately.
+              </div>
+              <div class="res-highlight-item">
+                <strong>Free Cancellation:</strong> Modify or cancel up to 2 hours prior with zero fees.
+              </div>
+            </div>
+          </div>
+
+          <form class="reservation-form" id="reservationForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resName">Full Name *</label>
+                <input type="text" id="resName" class="form-control" placeholder="e.g. Rahul Sharma" required />
+                <span class="error-text">Please enter your full name</span>
+              </div>
+              <div class="form-group">
+                <label for="resPhone">Phone Number *</label>
+                <input type="tel" id="resPhone" class="form-control" placeholder="e.g. +91 98765 43210" required />
+                <span class="error-text">Please enter a valid 10-digit phone number</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resEmail">Email Address *</label>
+                <input type="email" id="resEmail" class="form-control" placeholder="e.g. rahul@example.com" required />
+                <span class="error-text">Please enter a valid email address</span>
+              </div>
+              <div class="form-group">
+                <label for="resGuests">Number of Guests *</label>
+                <select id="resGuests" class="form-control" required>
+                  <option value="1">1 Guest (Solo Dining)</option>
+                  <option value="2" selected>2 Guests (Couple)</option>
+                  <option value="4">4 Guests (Family / Friends)</option>
+                  <option value="6">6 Guests (Small Gathering)</option>
+                  <option value="8">8 Guests (Large Group)</option>
+                  <option value="12">10-12 Guests (Celebration)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resDate">Reservation Date *</label>
+                <input type="date" id="resDate" class="form-control" required />
+                <span class="error-text">Please select a valid upcoming date</span>
+              </div>
+              <div class="form-group">
+                <label>Select Dining Time *</label>
+                <div class="time-slots-grid" id="timeSlotsGroup">
+                  <button type="button" class="time-slot-btn active" data-time="12:00 PM">12:00 PM</button>
+                  <button type="button" class="time-slot-btn" data-time="01:00 PM">1:00 PM</button>
+                  <button type="button" class="time-slot-btn" data-time="02:00 PM">2:00 PM</button>
+                  <button type="button" class="time-slot-btn" data-time="07:00 PM">7:00 PM</button>
+                  <button type="button" class="time-slot-btn" data-time="08:00 PM">8:00 PM</button>
+                  <button type="button" class="time-slot-btn" data-time="09:00 PM">9:00 PM</button>
+                </div>
+                <input type="hidden" id="selectedTimeValue" value="12:00 PM" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="resSpecial">Special Requests (Optional)</label>
+              <textarea id="resSpecial" class="form-control" rows="2" placeholder="Dietary restrictions, anniversary table, quiet corner..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Check Availability & Book</button>
+            <div class="form-success-banner" id="resSuccessMsg">
+              ✓ Table request confirmed! A booking voucher has been dispatched to your email & SMS.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SLIDER -->
+    <section class="testimonials-section section-padding" id="testimonials">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">GUEST PRAISE</span>
+          <h2 class="section-title">What Our Guests Say</h2>
+          <p class="section-desc max-w-600">Genuine impressions from patrons who share our culinary passion.</p>
+        </div>
+
+        <div class="testimonials-slider-container reveal" id="testimonialSlider">
+          <div class="testimonial-slides-track" id="testimonialTrack">
+            <!-- Slide 1 -->
+            <div class="testimonial-card">
+              <div class="guest-rating">★★★★★</div>
+              <p class="guest-quote">“Absolutely delicious food and beautiful ambience. The Butter Chicken and Garlic Naan were cooked to perfection. The service was top notch!”</p>
+              <div class="guest-profile">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Ananya Verma" loading="lazy" />
+                <div>
+                  <h4>Ananya Verma</h4>
+                  <small>Food Critic & Architect</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-card">
+              <div class="guest-rating">★★★★★</div>
+              <p class="guest-quote">“Royal Spice hosted our 10th anniversary dinner. Every course arrived hot, fresh, and bursting with flavors. Chef Arjun’s personal touch was memorable.”</p>
+              <div class="guest-profile">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Vikram Malhotra" loading="lazy" />
+                <div>
+                  <h4>Vikram Malhotra</h4>
+                  <small>Verified Diner</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-card">
+              <div class="guest-rating">★★★★★</div>
+              <p class="guest-quote">“The Grand Thali is by far the most authentic feast I’ve experienced in town. Sublime paneer, aromatic dal, and the Gulab Jamun melted right away.”</p>
+              <div class="guest-profile">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Priya Sengupta" loading="lazy" />
+                <div>
+                  <h4>Priya Sengupta</h4>
+                  <small>Travel & Lifestyle Blogger</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="testimonial-card">
+              <div class="guest-rating">★★★★★</div>
+              <p class="guest-quote">“Seamless online ordering and prompt table reservations! Elegant atmosphere paired with cordial staff. Highly recommend for family dinners.”</p>
+              <div class="guest-profile">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Rohan Singhania" loading="lazy" />
+                <div>
+                  <h4>Rohan Singhania</h4>
+                  <small>Local Guide</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls">
+            <button class="slider-arrow prev" id="sliderPrevBtn" aria-label="Previous Slide">‹</button>
+            <div class="slider-dots" id="sliderDotsGroup"></div>
+            <button class="slider-arrow next" id="sliderNextBtn" aria-label="Next Slide">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section section-padding bg-darker" id="faq">
+      <div class="container max-w-800">
+        <div class="section-header text-center reveal">
+          <span class="section-tag">COMMON QUESTIONS</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Got queries? We have assembled quick answers for you.</p>
+        </div>
+
+        <div class="faq-accordion reveal">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I need to reserve a table in advance?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>While walk-ins are always welcomed warmly, reservations are strongly recommended during weekend evenings and holidays to guarantee immediate seating.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you offer vegetarian and vegan dishes?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We have an extensive, dedicated vegetarian menu prepared with dedicated cookware and certified dairy/vegan ingredients.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you offer takeaway and express home delivery?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. You can place takeaway orders directly via our website's integrated cart system or call our dispatch desk.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I order food online directly?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, click "Order Now" on any menu card, navigate to your Cart, and complete our rapid checkout process.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you host corporate dinners and private events?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, we feature an exclusive private dining hall accommodating up to 45 guests with tailored set menus and dedicated banquet service.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you offer custom birthday party arrangements?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We provide personalized table decoration, celebratory cake service from our Pastry Chef Meera Kapoor, and special background music support on request.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section class="contact-section section-padding" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left Info -->
+          <div class="contact-info reveal">
+            <span class="section-tag">REACH OUT</span>
+            <h2 class="section-title">Visit Royal Spice</h2>
+            <p class="section-desc">Join us for a royal dining experience or reach out for inquiries.</p>
+
+            <div class="info-blocks-list">
+              <div class="info-block">
+                <div class="info-icon">📍</div>
+                <div>
+                  <h4>Address</h4>
+                  <p>123 Main Street, Connaught Place, New Delhi, 110001, India</p>
+                </div>
+              </div>
+
+              <div class="info-block">
+                <div class="info-icon">📞</div>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+91 98765 43210 / +91 11 2345 6789</p>
+                </div>
+              </div>
+
+              <div class="info-block">
+                <div class="info-icon">✉</div>
+                <div>
+                  <h4>Email</h4>
+                  <p>hello@royalspice.com</p>
+                </div>
+              </div>
+
+              <div class="info-block">
+                <div class="info-icon">🕒</div>
+                <div>
+                  <h4>Opening Hours</h4>
+                  <p>Monday – Sunday: 11:00 AM – 11:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Form -->
+          <div class="contact-form-card reveal">
+            <h3 class="form-title">Send a Message</h3>
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName">Name *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="Your name" required />
+                <span class="error-text">Please enter your name</span>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email *</label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="Your email address" required />
+                <span class="error-text">Please enter a valid email</span>
+              </div>
+              <div class="form-group">
+                <label for="contactPhone">Phone Number</label>
+                <input type="tel" id="contactPhone" class="form-control" placeholder="Your phone number" />
+              </div>
+              <div class="form-group">
+                <label for="contactMsg">Message *</label>
+                <textarea id="contactMsg" class="form-control" rows="4" placeholder="How can we assist you?" required></textarea>
+                <span class="error-text">Please enter a message</span>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+              <div class="form-success-banner" id="contactSuccessMsg">
+                ✓ Thank you! Your message has been transmitted to our hospitality desk.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Interactive Map Placeholder -->
+        <div class="map-container reveal">
+          <div class="map-placeholder-card">
+            <div class="map-pin-pulse">📍</div>
+            <h3>ROYAL SPICE</h3>
+            <p>123 Main Street, Connaught Place, New Delhi, India</p>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary mt-1">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#home" class="brand-logo footer-logo">
+          <span class="logo-accent">ROYAL</span> SPICE
+        </a>
+        <p class="footer-tagline">"Delicious Food Made with Love"</p>
+        <p class="footer-brief">Honoring culinary heritage through pristine ingredients and timeless recipes in the heart of Delhi.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reservation">Reservations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Dining Hours</h4>
+        <p class="footer-time-line">Monday – Sunday</p>
+        <p class="footer-time-highlight">11:00 AM – 11:00 PM</p>
+        <p class="footer-sub-note">Kitchen closes daily at 10:30 PM for fresh prep.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Follow Us</h4>
+        <p class="footer-brief">Stay connected for seasonal specials and private dining events.</p>
+        <div class="footer-social-links">
+          <a href="#footer" aria-label="Instagram">Instagram</a>
+          <a href="#footer" aria-label="Facebook">Facebook</a>
+          <a href="#footer" aria-label="YouTube">YouTube</a>
+          <a href="#footer" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="container text-center">
+        <p>© 2026 ROYAL SPICE. All Rights Reserved. Designed for Fine Dining.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE BOTTOM NAVIGATION ==================== -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <a href="#home" class="mobile-nav-item active" data-target="home">
+      <span class="mobile-nav-icon">🏠</span>
+      <span class="mobile-nav-label">Home</span>
+    </a>
+    <a href="#menu" class="mobile-nav-item" data-target="menu">
+      <span class="mobile-nav-icon">🍽</span>
+      <span class="mobile-nav-label">Menu</span>
+    </a>
+    <a href="#reservation" class="mobile-nav-item" data-target="reservation">
+      <span class="mobile-nav-icon">📅</span>
+      <span class="mobile-nav-label">Booking</span>
+    </a>
+    <a href="#gallery" class="mobile-nav-item" data-target="gallery">
+      <span class="mobile-nav-icon">🖼</span>
+      <span class="mobile-nav-label">Gallery</span>
+    </a>
+    <button type="button" class="mobile-nav-item" id="openMoreBtn" aria-label="Open More Menu">
+      <span class="mobile-nav-icon">☰</span>
+      <span class="mobile-nav-label">More</span>
+    </button>
+  </nav>
+
+  <!-- ==================== MOBILE "MORE" BOTTOM SHEET ==================== -->
+  <div class="modal-backdrop" id="moreSheetBackdrop" aria-hidden="true">
+    <div class="bottom-sheet" id="moreSheet" role="dialog" aria-modal="true" aria-label="More Navigation">
+      <div class="sheet-header">
+        <div class="sheet-handle"></div>
+        <h3 class="sheet-title">Explore Royal Spice</h3>
+        <button class="sheet-close-btn" id="closeMoreBtn" aria-label="Close sheet">✕</button>
+      </div>
+      <div class="sheet-body">
+        <ul class="sheet-nav-list">
+          <li><a href="#about" class="sheet-link"><span>🏛</span> About Restaurant</a></li>
+          <li><a href="#chefs" class="sheet-link"><span>👨‍🍳</span> Meet Our Chefs</a></li>
+          <li><a href="#offers" class="sheet-link"><span>🔥</span> Today's Special Offers</a></li>
+          <li><a href="#why-us" class="sheet-link"><span>✨</span> Why Dine With Us</a></li>
+          <li><a href="#testimonials" class="sheet-link"><span>⭐</span> Guest Testimonials</a></li>
+          <li><a href="#faq" class="sheet-link"><span>❓</span> FAQs</a></li>
+          <li><a href="#contact" class="sheet-link"><span>📍</span> Visit & Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CART DRAWER / MODAL ==================== -->
+  <div class="modal-backdrop" id="cartBackdrop" aria-hidden="true">
+    <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+      <div class="cart-header">
+        <h3 class="cart-title">Your Order</h3>
+        <button class="cart-close-btn" id="closeCartBtn" aria-label="Close cart">✕</button>
+      </div>
+
+      <div class="cart-body" id="cartItemsContainer">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-line">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>GST & Packaging (5%):</span>
+          <span id="cartTax">₹0</span>
+        </div>
+        <div class="cart-summary-line total">
+          <span>Total Payable:</span>
+          <span id="cartTotal">₹0</span>
+        </div>
+        <button class="btn btn-primary btn-block mt-1" id="proceedCheckoutBtn" disabled>Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CHECKOUT MODAL ==================== -->
+  <div class="modal-backdrop" id="checkoutBackdrop" aria-hidden="true">
+    <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout">
+      <div class="modal-header">
+        <h3>Complete Your Order</h3>
+        <button class="modal-close-btn" id="closeCheckoutBtn" aria-label="Close Checkout">✕</button>
+      </div>
+      <form id="checkoutForm" class="modal-body" novalidate>
+        <div class="form-group">
+          <label for="chkName">Recipient Full Name *</label>
+          <input type="text" id="chkName" class="form-control" placeholder="e.g. John Doe" required />
+          <span class="error-text">Please enter your name</span>
+        </div>
+        <div class="form-group">
+          <label for="chkPhone">Mobile Phone *</label>
+          <input type="tel" id="chkPhone" class="form-control" placeholder="10-digit mobile number" required />
+          <span class="error-text">Please enter a valid phone number</span>
+        </div>
+        <div class="form-group">
+          <label>Order Type</label>
+          <div class="order-type-toggle">
+            <label class="radio-label">
+              <input type="radio" name="orderType" value="delivery" checked /> Delivery
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="orderType" value="pickup" /> Express Pickup
+            </label>
+          </div>
+        </div>
+        <div class="form-group" id="addressFieldGroup">
+          <label for="chkAddress">Delivery Address *</label>
+          <textarea id="chkAddress" class="form-control" rows="2" placeholder="Building, Street, Landmark" required></textarea>
+          <span class="error-text">Address is required for delivery</span>
+        </div>
+        <div class="form-group">
+          <label for="chkNotes">Special Kitchen Instructions</label>
+          <textarea id="chkNotes" class="form-control" rows="1" placeholder="Mild spice, extra tissues, cutlery..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirm Order</button>
+        <div class="form-success-banner" id="checkoutSuccessMsg">
+          ✓ Order Placed Successfully! Your fresh order is now being prepped in our royal kitchen.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== GALLERY LIGHTBOX ==================== -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Gallery Lightbox">
+    <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Close Lightbox">✕</button>
+    <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Previous image">‹</button>
+    <div class="lightbox-figure">
+      <img id="lightboxImage" src="" alt="Fullscreen View" />
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Next image">›</button>
+  </div>
+
+  <!-- ==================== FLOATING BACK TO TOP ==================== -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Script link -->
+  <script src="script.js"></script>
+</body>
+</html>

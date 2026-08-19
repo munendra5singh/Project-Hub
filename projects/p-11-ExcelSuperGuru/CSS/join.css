@@ -1,0 +1,191 @@
+
+  /* --- Live Counter Section Canvas --- */
+.live-counter-section {
+    background-color: #ffffff; /* Clean white background */
+    padding: 40px 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* --- Dynamic Pill Wrapper Badge --- */
+.members-badge-live {
+    /* Light mode me premium look ke liye soft silver-gray gradient aur strong inner shadow */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #ced4da; /* High visibility slate border */
+    padding: 10px 28px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06), inset 0 1px 0 #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none; 
+    cursor: pointer;
+}
+
+/* --- Micro-interactions Triggers --- */
+.members-badge-live:hover {
+    transform: translateY(-3px);
+    border-color: #6c757d; /* Hover par border thoda dark ho jayega */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.members-badge-live:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* --- Core Label Typography --- */
+.live-text {
+    color: #212529; /* Pure dark charcoal text for absolute sharpness */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 800; /* Boldness badha di taaki light mode me dhundhla na lage */
+    font-size: 13px;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+/* --- Crisp Numeric Counter System --- */
+.members-badge-live .memberCount {
+    color: #008f39; /* Deep emerald premium green jo white par aakhon ko chubhega nahi aur clear dikhega */
+    font-size: 24px; /* Size thoda badha diya visibility ke liye */
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Light shadow taaki text pop out kare */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* --- Pulsing Status Orb Anchor --- */
+.pulse-dot {
+    width: 12px; /* Dots ko thoda bada kiya */
+    height: 12px;
+    background-color: #00aa44; /* Alert vibrant green */
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(0, 170, 68, 0.4);
+    animation: pulse 2s infinite;
+    transition: background-color 0.3s ease;
+}
+
+/* --- Unified Pulse Keyframe Engine --- */
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(0, 170, 68, 0.6);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 170, 68, 0);
+    }
+    100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(0, 170, 68, 0);
+    }
+}
+
+/* ==========================================================================
+   SECTION 2: DARK THEME OVERRIDES (TRIGGERED ON TOGGLE)
+   ========================================================================== */
+
+body.dark-theme .live-counter-section,
+body.dark-mode .live-counter-section {
+    background-color: #050505; /* Black layout matching screenshot */
+}
+
+body.dark-theme .members-badge-live,
+body.dark-mode .members-badge-live {
+    background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+    border: 1px solid rgba(0, 255, 102, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .members-badge-live:hover,
+body.dark-mode .members-badge-live:hover {
+    border-color: rgba(0, 255, 102, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 255, 102, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .live-text,
+body.dark-mode .live-text {
+    color: #aaaaaa; /* Soft contrast text */
+}
+
+body.dark-theme .members-badge-live .memberCount,
+body.dark-mode .members-badge-live .memberCount {
+    color: #00ff66; /* Neon green layout */
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+body.dark-theme .pulse-dot,
+body.dark-mode .pulse-dot {
+    background-color: #00ff66;
+}
+
+.feedback-section{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    align-items:stretch;
+    margin:50px auto;
+    max-width:1200px;
+}
+
+.glass-card,
+.live-counter-section{
+    background:var(--paper-raise);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-height:180px;
+}
+
+.feedback-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+}
+
+.members-badge-live{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:700;
+    width:100%;
+    height:100%;
+}
+
+.live-text{
+    color:var(--ink-soft);
+    letter-spacing:1px;
+}
+
+.count-number{
+    color:#00ff66;
+    font-size:26px;
+    font-weight:700;
+}
+
+.pulse-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#00ff66;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(0,255,102,.7);}
+    70%{box-shadow:0 0 0 12px rgba(0,255,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(0,255,102,0);}
+}
+
+@media(max-width:768px){
+    .feedback-section{
+        grid-template-columns:1fr;
+    }
+}

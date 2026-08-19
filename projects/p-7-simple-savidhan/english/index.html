@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savidhan - Know Your Rights. Know Your Law.</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Shared Common CSS -->
+  <link rel="stylesheet" href="assets/css/common.css">
+
+  <!-- Shared Common JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="assets/js/common.js"></script>
+
+  <style>
+    /* Hero Section (homepage-specific) */
+    .hero {
+      position: relative;
+      background: linear-gradient(to right, rgba(245, 230, 210, 0.95) 20%, rgba(245, 230, 210, 0.4) 60%, rgba(0,0,0,0) 100%),
+                  url('supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      padding: 60px 80px 80px 80px;
+      min-height: 420px;
+    }
+
+    [data-theme="dark"] .hero {
+      background: linear-gradient(to right, rgba(26, 29, 35, 0.97) 20%, rgba(26, 29, 35, 0.7) 60%, rgba(0,0,0,0) 100%),
+                  url('supremcort.png');
+      background-size: cover;
+      background-position: right center;
+    }
+
+    .hero .hero-content {
+      max-width: 550px;
+    }
+
+    .hero .hero-content h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 42px;
+      color: var(--sv-text-heading);
+      line-height: 1.1;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero .hero-content .subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--sv-text-heading);
+      margin-bottom: 12px;
+    }
+
+    .hero .hero-content p {
+      font-size: 14px;
+      color: var(--sv-text-secondary);
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    /* Search Box */
+    .search-container {
+      display: flex;
+      max-width: 500px;
+      background: var(--sv-bg-secondary);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: var(--sv-shadow-md);
+    }
+
+    .search-container i {
+      padding: 15px;
+      color: var(--sv-text-muted);
+      font-size: 16px;
+    }
+
+    .search-container input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 13px;
+      color: var(--sv-text-primary);
+      background: transparent;
+      font-family: inherit;
+    }
+
+    .search-container button {
+      background-color: var(--sv-navy);
+      color: #fff;
+      border: none;
+      padding: 0 25px;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Category Cards Grid */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 15px;
+      margin-top: -30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .category-card {
+      background: var(--sv-bg-card);
+      border-radius: 8px;
+      padding: 20px 10px;
+      text-align: center;
+      box-shadow: var(--sv-shadow-sm);
+      border: 1px solid var(--sv-border);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--sv-shadow-md);
+    }
+
+    .icon-circle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px auto;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .category-card h3 {
+      font-size: 12px;
+      color: var(--sv-text-heading);
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .category-card p {
+      font-size: 10px;
+      color: var(--sv-text-secondary);
+      line-height: 1.3;
+    }
+
+    /* Category Specific Colors */
+    .bg-articles { background-color: #123e6d; }
+    .bg-parts { background-color: #2e7d32; }
+    .bg-schedules { background-color: #e65100; }
+    .bg-amendments { background-color: #6a1b9a; }
+    .bg-judgments { background-color: #00838f; }
+    .bg-glossary { background-color: #c0ca33; }
+    .bg-quiz { background-color: #d81b60; }
+    .bg-knowledge { background-color: #29b6f6; }
+    .bg-rights { background-color: #d32f2f; }
+    .bg-dpsp { background-color: #00796b; }
+    .bg-duties { background-color: #7b1fa2; }
+
+    /* Preamble Banner */
+    .preamble-banner {
+      background-color: var(--sv-navy);
+      color: #fff;
+      border-radius: 8px;
+      margin-top: 30px;
+      padding: 25px 30px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: var(--sv-shadow-md);
+    }
+
+    .preamble-book {
+      width: 110px;
+      height: 150px;
+      background-color: var(--sv-navy-light);
+      border: 2px solid var(--sv-gold);
+      border-radius: 4px;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .preamble-book h4 {
+      font-family: 'Cinzel', serif;
+      color: var(--sv-gold);
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .preamble-book i {
+      color: var(--sv-gold);
+      font-size: 24px;
+    }
+
+    .preamble-text {
+      position: relative;
+    }
+
+    .preamble-text h3 {
+      color: var(--sv-gold);
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .preamble-text p {
+      font-size: 11px;
+      line-height: 1.6;
+      color: #e0e0e0;
+      letter-spacing: 0.3px;
+    }
+
+    .preamble-text .highlight {
+      color: var(--sv-gold);
+      font-weight: 600;
+    }
+
+    /* What's New Section */
+    .whats-new {
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .news-header h3 {
+      font-size: 14px;
+      color: var(--sv-text-heading);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .news-header h3 i {
+      color: #e65100;
+    }
+
+    .news-header a {
+      font-size: 11px;
+      color: var(--sv-text-heading);
+      font-weight: 600;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .news-card {
+      background: var(--sv-bg-card);
+      border: 1px solid var(--sv-border);
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      gap: 12px;
+      box-shadow: var(--sv-shadow-sm);
+    }
+
+    .news-icon {
+      color: var(--sv-gold);
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .news-content h4 {
+      font-size: 11px;
+      color: var(--sv-text-heading);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .news-content p {
+      font-size: 10px;
+      color: var(--sv-text-muted);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 30px 60px 30px;
+        min-height: 320px;
+      }
+
+      .hero .hero-content h2 {
+        font-size: 32px;
+      }
+
+      .categories { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 30px 16px 50px 16px;
+        min-height: 280px;
+      }
+
+      .hero .hero-content h2 {
+        font-size: 26px;
+      }
+
+      .hero .hero-content .subtitle {
+        font-size: 15px;
+      }
+
+      .hero .hero-content p {
+        font-size: 13px;
+      }
+
+      .search-container {
+        flex-direction: column;
+      }
+
+      .search-container input {
+        padding: 12px;
+      }
+
+      .search-container button {
+        padding: 12px;
+      }
+
+      .preamble-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px;
+      }
+
+      .categories {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>SAVIDHAN</h1>
+        <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="pages/articles.html">ARTICLES</a></li>
+      <li><a href="pages/parts.html">PARTS</a></li>
+      <li><a href="pages/schedules.html">SCHEDULES</a></li>
+      <li><a href="pages/amendments.html">AMENDMENTS</a></li>
+      <li><a href="pages/judgments.html">JUDGMENTS</a></li>
+      <li><a href="pages/glossary.html">GLOSSARY</a></li>
+      <li><a href="pages/quiz.html">QUIZ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> LANGUAGE <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../hindi/index.html">हिंदी</a>
+          <a href="index.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>THE CONSTITUTION OF INDIA</h2>
+      <div class="subtitle">Discover. Learn. Understand.</div>
+      <p>Explore the Constitution of India in a simple and clear way. Know your rights, duties and the laws that shape our nation.</p>
+      
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search Articles, Parts, Schedules, Amendments, Judgments...">
+        <button type="button">SEARCH</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    
+    <!-- Expanded Category Cards Grid -->
+    <div class="categories">
+      <a href="pages/articles.html">
+        <div class="category-card">
+          <div class="icon-circle bg-articles"><i class="fa-solid fa-book-open"></i></div>
+          <h3>ARTICLES</h3>
+          <p>Explore all Articles of the Constitution.</p>
+        </div>
+      </a>
+      
+      <a href="pages/parts.html">
+        <div class="category-card">
+          <div class="icon-circle bg-parts"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>PARTS</h3>
+          <p>Browse through the various Parts of the Constitution.</p>
+        </div>
+      </a>
+
+      <a href="basics/fundamental-rights.html">
+        <div class="category-card">
+          <div class="icon-circle bg-rights"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>FUNDAMENTAL RIGHTS</h3>
+          <p>Guaranteed rights under Part III (Art. 12-35).</p>
+        </div>
+      </a>
+
+      <a href="basics/directive-principles.html">
+        <div class="category-card">
+          <div class="icon-circle bg-dpsp"><i class="fa-solid fa-compass"></i></div>
+          <h3>DIRECTIVE PRINCIPLES</h3>
+          <p>State policy guidelines under Part IV (Art. 36-51).</p>
+        </div>
+      </a>
+
+      <a href="basics/fundamental-duties.html">
+        <div class="category-card">
+          <div class="icon-circle bg-duties"><i class="fa-solid fa-user-shield"></i></div>
+          <h3>FUNDAMENTAL DUTIES</h3>
+          <p>Civic and moral obligations under Part IV-A (Art. 51A).</p>
+        </div>
+      </a>
+      
+      <a href="pages/schedules.html">
+        <div class="category-card">
+          <div class="icon-circle bg-schedules"><i class="fa-solid fa-calendar-days"></i></div>
+          <h3>SCHEDULES</h3>
+          <p>View all Schedules under the Constitution.</p>
+        </div>
+      </a>
+      
+      <a href="pages/amendments.html">
+        <div class="category-card">
+          <div class="icon-circle bg-amendments"><i class="fa-solid fa-pen-to-square"></i></div>
+          <h3>AMENDMENTS</h3>
+          <p>Explore all Constitutional Amendments.</p>
+        </div>
+      </a>
+      
+      <a href="pages/judgments.html">
+        <div class="category-card">
+          <div class="icon-circle bg-judgments"><i class="fa-solid fa-gavel"></i></div>
+          <h3>JUDGMENTS</h3>
+          <p>Important judgments that shape our Constitution.</p>
+        </div>
+      </a>
+      
+      <a href="pages/glossary.html">
+        <div class="category-card">
+          <div class="icon-circle bg-glossary"><i class="fa-solid fa-book-bookmark"></i></div>
+          <h3>GLOSSARY</h3>
+          <p>Understand legal terms in simple words.</p>
+        </div>
+      </a>
+      
+      <a href="basics/knowledge.html">
+        <div class="category-card">
+          <div class="icon-circle bg-knowledge"><i class="fa-solid fa-brain"></i></div>
+          <h3>KNOWLEDGE</h3>
+          <p>Learn interesting insights about the Constitution.</p>
+        </div>
+      </a>
+
+      <a href="pages/quiz.html">
+        <div class="category-card">
+          <div class="icon-circle bg-quiz"><i class="fa-solid fa-circle-question"></i></div>
+          <h3>QUIZ</h3>
+          <p>Test your knowledge about the Constitution.</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Preamble Section -->
+    <div class="preamble-banner">
+      <a href="basics/premble.html" class="preamble-book-link">
+        <div class="preamble-book">
+          <h4>CONSTITUTION<br>OF<br>INDIA</h4>
+          <i class="fa-solid fa-landmark"></i>
+        </div>
+      </a>
+
+      <div class="preamble-text">
+        <h3>PREAMBLE</h3>
+        <p>
+          WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens: JUSTICE, social, economic and political; LIBERTY of thought, expression, belief, faith and worship; EQUALITY of status and of opportunity; and to promote among them all FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation;<br>
+          <span class="highlight">IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- What's New Section -->
+    <div class="whats-new">
+      <div class="news-header">
+        <h3><i class="fa-solid fa-bullhorn"></i> WHAT'S NEW</h3>
+        <a href="#">View All</a>
+      </div>
+
+      <div class="news-grid">
+        <div class="news-card">
+          <i class="fa-regular fa-lightbulb news-icon"></i>
+          <div class="news-content">
+            <h4>Constitution (130th Amendment) Bill, 2025 introduced in Lok Sabha</h4>
+            <p>May 15, 2025</p>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <i class="fa-regular fa-file-lines news-icon"></i>
+          <div class="news-content">
+            <h4>Important Judgment on Fundamental Rights</h4>
+            <p>May 10, 2025</p>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <i class="fa-regular fa-comments news-icon"></i>
+          <div class="news-content">
+            <h4>New Article Added: Article 239AA Explained</h4>
+            <p>May 05, 2025</p>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <i class="fa-regular fa-circle-question news-icon"></i>
+          <div class="news-content">
+            <h4>Quiz of the Week is Live! Test your knowledge now.</h4>
+            <p>May 01, 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>SAVIDHAN</h3>
+              <p>KNOW YOUR RIGHTS. KNOW YOUR LAW.</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            A comprehensive platform to explore and understand the Constitution of India — its Articles, Parts, Schedules, Amendments, and landmark Judgments.
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Explore</h4>
+          <ul class="sv-footer-links">
+            <li><a href="pages/articles.html">Articles</a></li>
+            <li><a href="pages/parts.html">Parts</a></li>
+            <li><a href="pages/schedules.html">Schedules</a></li>
+            <li><a href="pages/amendments.html">Amendments</a></li>
+            <li><a href="pages/judgments.html">Judgments</a></li>
+            <li><a href="pages/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Learn More</h4>
+          <ul class="sv-footer-links">
+            <li><a href="basics/directive-principles.html">Directive-principles</a></li>
+            <li><a href="basics/fundamental-duties.html">Fundamental-duties</a></li>
+            <li><a href="basics/fundamental-rights.html">Fundamental-rights</a></li>
+            <li><a href="basics/premble.html">Preamble of the Constitution</a></li>
+            <li><a href="basics/knowledge.html">Knowledge Hub</a></li>
+            <li><a href="pages/quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">Did You Know?</h4>
+          <p class="sv-footer-fact">
+            The Indian Constitution is the longest written constitution in the world, originally containing 395 Articles, 22 Parts, and 8 Schedules.
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">Our Platforms</h4>
+        <div class="sv-platforms-grid">
+          <a href="index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>Constitution encyclopaedia</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>Free online courses</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>Master Excel skills</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>All-in-one calculators</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI-powered calculations</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. Made with <span class="heart">&hearts;</span> for India.</p>
+      <p>Know Your Rights. Know Your Law.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

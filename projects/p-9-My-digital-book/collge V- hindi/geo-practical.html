@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>भूगोल प्रायोगिक (प्रैक्टिकल-V) | क्षेत्र सर्वेक्षण एवं वाइवा मैनुअल</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर भूगोल प्रायोगिक (प्रैक्टिकल-V): क्षेत्र सर्वेक्षण, KoboToolbox डिजिटल सर्वे, 10-दिवसीय फील्ड टूर योजना, रिपोर्ट प्रारूप एवं 150+ वाइवा प्रश्नोत्तर।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="geography">
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">भूगोल प्रायोगिक-V मैनुअल</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a></li>
+            <li><a href="#u1-1" class="nav-link active"><i class="fa-solid fa-map-location-dot"></i> प्रायोगिक मैनुअल</a></li>
+            <li><a href="#sec-viva" class="nav-link"><i class="fa-solid fa-comments"></i> 150+ वाइवा बैंक</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="./index.html#quiz-section" class="nav-btn" style="background:linear-gradient(135deg, #f59e0b, #d97706); border:none;" title="100-MCQ क्विज़ दें">
+                <i class="fa-solid fa-brain"></i>
+                <span>100-MCQ क्विज़</span>
+            </a>
+            <button class="nav-btn" onclick="openSyllabusModal('geo-practical', 'भूगोल प्रायोगिक')" title="आधिकारिक सिलेबस देखें">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="toggleReadingMode()" id="reading-mode-btn" title="फ़ोकस मोड">
+                <i class="fa-solid fa-book-open"></i>
+                <span>फ़ोकस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="resetFontSize()">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+            </div>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header Breadcrumb -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> होम</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="./index.html#geography">भूगोल</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="text-main font-semibold">भूगोल प्रायोगिक-V (क्षेत्र सर्वेक्षण एवं GIS मैनुअल)</span>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-toc-toggle"><i class="fa-solid fa-bars"></i> विषय-सूची</button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3><i class="fa-solid fa-list-ul"></i> विषय-सूची (TOC)</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 1: क्षेत्र अध्ययन नियोजन</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u1-1" class="toc-link">1.1 क्षेत्र कार्य की कार्यपद्धति</a></li>
+                    <li><a href="#u1-2" class="toc-link">1.2 प्रतिदर्शन एवं अध्ययन क्षेत्र चयन</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 2: डिजिटल सर्वेक्षण उपकरण</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-u2-kobo" class="toc-link">2.1 KoboToolbox एवं GPS सर्वेक्षण</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 3: रिपोर्ट एवं चेकलिस्ट</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#sec-tour-plan" class="toc-link">3.1 10-दिवसीय टूर योजना</a></li>
+                    <li><a href="#sec-report-template" class="toc-link">3.2 रिपोर्ट प्रारूप (Template)</a></li>
+                    <li><a href="#sec-report-checker" class="toc-link">3.3 गुणवत्ता चेकलिस्ट</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title"><span>इकाई 4: GIS एवं वाइवा बैंक</span></div>
+                <ul class="toc-item-list">
+                    <li><a href="#u4-1" class="toc-link">4.1 QGIS: वेक्टर बनाम रास्टर</a></li>
+                    <li><a href="#sec-viva" class="toc-link">4.2 150+ प्रायोगिक वाइवा बैंक</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Area -->
+        <main class="content-area">
+
+            <!-- Hero Header -->
+            <div class="page-hero">
+                <div class="page-hero-badge"><i class="fa-solid fa-map-location-dot"></i> भूगोल प्रायोगिक प्रश्नपत्र V</div>
+                <h1>भूगोल प्रायोगिक-V: क्षेत्र सर्वेक्षण एवं डिजिटल सर्वे मैनुअल</h1>
+                <p>
+                    यह प्रायोगिक मैनुअल क्षेत्र सर्वेक्षण कार्यपद्धतियों, KoboToolbox मोबाइल डेटा संग्रह, 10-दिवसीय फील्ड टूर योजना, संरचित रिपोर्ट प्रारूप, गुणवत्ता चेकलिस्ट और मॉडल उत्तरों के साथ 150 से अधिक वाइवा (Viva Voce) प्रश्नों की संपूर्ण जानकारी प्रदान करता है।
+                </p>
+                <div class="page-hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">10-दिवसीय टूर योजना</span>
+                        <span class="stat-label">दिन-प्रतिदिन का फील्ड शेड्यूल</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">KoboToolbox & GPS</span>
+                        <span class="stat-label">डिजिटल मोबाइल सर्वेक्षण</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">150+ वाइवा बैंक</span>
+                        <span class="stat-label">प्रश्न एवं मॉडल उत्तर बैंक</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 1: FIELD VISIT PLANNING AND METHODOLOGY                               -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="u1-1">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 1</span>
+                    <h2>क्षेत्र अध्ययन नियोजन एवं कार्यपद्धति</h2>
+                </div>
+
+                <!-- 1.1 Fieldwork Importance -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">1.1</span>
+                        <span>भूगोल में क्षेत्र कार्य का महत्व</span>
+                    </div>
+                    <p>
+                        भूगोल एक स्थानिक विज्ञान है। क्षेत्र कार्य (Fieldwork) प्रत्यक्ष अवलोकन, स्थानिक डेटा संग्रह और प्राथमिक आंकड़ों के माध्यम से सैद्धांतिक अवधारणाओं का धरातल पर सत्यापन (Ground-truthing) संभव बनाता है।
+                    </p>
+                </div>
+
+                <!-- 1.2 Area Selection -->
+                <div class="topic-card" id="u1-2">
+                    <div class="topic-title">
+                        <span class="topic-number">1.2</span>
+                        <span>अध्ययन क्षेत्र का चयन एवं प्रतिदर्शन (Sampling Design)</span>
+                    </div>
+                    <p>
+                        सर्वेक्षण हेतु गाँव या नगरीय वार्ड चुनते समय भौगोलिक विविधता, सामाजिक-आर्थिक पहलुओं, सुगम परिवहन मार्गों और सुरक्षा मानकों का ध्यान रखा जाता है।
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 2: DIGITAL SURVEY TOOLS (KOBOTOOLBOX & GPS)                          -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-u2-kobo">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 2</span>
+                    <h2>डिजिटल सर्वेक्षण: KoboToolbox, ODK एवं GPS</h2>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">2.1</span>
+                        <span>KoboToolbox ऐप द्वारा मोबाइल सर्वेक्षण</span>
+                    </div>
+
+                    <p>
+                        आधुनिक क्षेत्र अध्ययन में कागजी प्रश्नावली के स्थान पर एंड्रॉइड स्मार्टफोन पर <strong>KoboCollect App</strong> का उपयोग कर ऑफलाइन परिवार सर्वेक्षण, भौगोलिक निर्देशांक (अक्षांश/देशांतर) और फोटोग्राफिक साक्ष्य एकत्र किए जाते हैं।
+                    </p>
+
+                    <div class="example-box">
+                        <h5><i class="fa-solid fa-mobile-screen-button"></i> KoboToolbox सर्वेक्षण की प्रक्रिया:</h5>
+                        <ol class="text-sm" style="padding-left: 20px;">
+                            <li><strong>kobotoolbox.org</strong> पर शोधकर्ता खाता बनाएं।</li>
+                            <li>प्रश्नावली तैयार करें (जिसमें GPS लोकेशन एवं फोटो अनिवार्य करें)।</li>
+                            <li>मोबाइल में KoboCollect ऐप डाउनलोड कर फॉर्म सिंक करें।</li>
+                            <li>बिना इंटरनेट वाले दूरस्थ क्षेत्रों में भी डेटा एकत्र करें; इंटरनेट मिलने पर सर्वर पर अपलोड करें।</li>
+                            <li>QGIS में विश्लेषण हेतु डेटा Excel, GeoJSON या CSV फॉर्मेट में डाउनलोड करें।</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 3: 10-DAY TOUR PLAN, REPORT TEMPLATE & CHECKLIST                       -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-tour-plan">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 3</span>
+                    <h2>10-दिवसीय फील्ड टूर योजना एवं रिपोर्ट प्रारूप</h2>
+                </div>
+
+                <!-- 10-Day Plan Table -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <span class="topic-number">3.1</span>
+                        <span>10-दिवसीय अध्ययन यात्रा की समय सारणी</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>दिवस</th>
+                                    <th>प्रस्तावित गतिविधि</th>
+                                    <th>प्राप्त परिणाम / आउटपुट</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>प्रथम दिन</strong></td>
+                                    <td>निर्धारित अध्ययन क्षेत्र में आगमन एवं प्रारंभिक निरीक्षण।</td>
+                                    <td>क्षेत्रीय अभिविन्यास (Reconnaissance Survey)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>दूसरा - तीसरा दिन</strong></td>
+                                    <td>भौतिक वातावरण सर्वेक्षण (ढाल, अपवाह, मृदा, वनस्पति)।</td>
+                                    <td>बेस मैप का सत्यापन एवं भू-आकृतिक रेखाचित्र।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>चौथा - छठा दिन</strong></td>
+                                    <td>घर-घर जाकर सामाजिक-आर्थिक सर्वेक्षण (KoboCollect द्वारा 100+ परिवार)।</td>
+                                    <td>प्राथमिक सामाजिक-आर्थिक आंकड़ों का संग्रह।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>सातवां - आठवां दिन</strong></td>
+                                    <td>ग्राम पंचायत एवं तहसील कार्यालयों से द्वितीयक आंकड़ों का संकलन।</td>
+                                    <td>भूमि उपयोग एवं सिंचाई रिकॉर्ड का संकलन।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>नौवां - दसवां दिन</strong></td>
+                                    <td>डेटा सारणीयन, कार्टोग्राफिक मैपिंग एवं रिपोर्ट का प्राथमिक ड्राफ्ट।</td>
+                                    <td>प्रारंभिक फील्ड वर्क रिपोर्ट।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Report Quality Checklist -->
+                <div class="topic-card" id="sec-report-checker">
+                    <div class="topic-title">
+                        <span class="topic-number">3.3</span>
+                        <span>फील्डवर्क रिपोर्ट गुणवत्ता चेकलिस्ट</span>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="fa-solid fa-list-check"></i> रिपोर्ट सबमिशन पूर्व जांच बिंदु:</h4>
+                        <div style="display:flex; flex-direction:column; gap:8px; margin-top:10px;" class="text-sm">
+                            <label style="cursor:pointer;"><input type="checkbox" checked> 1. QGIS द्वारा निर्मित अध्ययन क्षेत्र का अवस्थिति मानचित्र (Location Map)।</label>
+                            <label style="cursor:pointer;"><input type="checkbox" checked> 2. प्राथमिक आंकड़ों की तालिकाएं, बार डायग्राम और पाई चार्ट।</label>
+                            <label style="cursor:pointer;"><input type="checkbox" checked> 3. न्यूनतम 50 से 100 परिवारों का सर्वेक्षण।</label>
+                            <label style="cursor:pointer;"><input type="checkbox" checked> 4. निष्कर्ष एवं नीतिगत सुझाव शामिल।</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================== -->
+            <!-- UNIT 4: GIS & 150+ PRACTICAL VIVA QUESTION BANK                            -->
+            <!-- ========================================================================== -->
+            <section class="unit-section" id="sec-viva">
+                <div class="unit-header">
+                    <span class="unit-tag">इकाई 4</span>
+                    <h2>GIS एवं 150+ प्रायोगिक वाइवा (Viva Voce) बैंक</h2>
+                </div>
+
+                <!-- QGIS Vector vs Raster -->
+                <div class="topic-card" id="u4-1">
+                    <div class="topic-title">
+                        <span class="topic-number">4.1</span>
+                        <span>QGIS मैपिंग: वेक्टर (Vector) बनाम रास्टर (Raster) डेटा</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="textbook-table">
+                            <thead>
+                                <tr>
+                                    <th>मापदंड</th>
+                                    <th>वेक्टर (Vector) डेटा</th>
+                                    <th>रास्टर (Raster) डेटा</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>संरचना</strong></td>
+                                    <td>बिंदु (Point), रेखा (Line) और बहुभुज (Polygon)</td>
+                                    <td>ग्रिड पिक्सल / सेल्स का मैट्रिक्स</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>उदाहरण</strong></td>
+                                    <td>कुएं (Point), सड़कें (Line), जिला सीमा (Polygon)</td>
+                                    <td>उपग्रह चित्र (Satellite Image), DEM (डिजिटल एलिवेशन मॉडल)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Viva Question Bank -->
+                <div class="topic-card">
+                    <div class="topic-title"><i class="fa-solid fa-comments text-amber-500"></i> प्रायोगिक वाइवा प्रश्न बैंक (Practical Viva Q&A)</div>
+
+                    <div class="qa-card">
+                        <div class="qa-header">
+                            <span class="qa-badge">वाइवा प्रश्न 1</span>
+                            <span>टोपोशीट में R.F. का क्या अर्थ होता है?</span>
+                        </div>
+                        <p class="text-sm">
+                            <strong>उत्तर:</strong> निरूपक भिन्न (Representative Fraction)। उदाहरण के लिए 1:50,000 R.F. का अर्थ है कि मानचित्र की 1 सेमी दूरी धरातल की 50,000 सेमी (या 500 मीटर) दूरी को दर्शाती है।
+                        </p>
+                    </div>
+
+                    <div class="qa-card mt-2">
+                        <div class="qa-header">
+                            <span class="qa-badge">वाइवा प्रश्न 2</span>
+                            <span>GPS क्या है और यह लोकेशन कैसे बताता है?</span>
+                        </div>
+                        <p class="text-sm">
+                            <strong>उत्तर:</strong> ग्लोबल पोजिशनिंग सिस्टम (GPS)। यह कम से कम 4 उपग्रहों के संकेतों की गणना (Triangulation) करके सटीक अक्षांश, देशांतर और ऊंचाई निर्धारित करता है।
+                        </p>
+                    </div>
+
+                    <div class="qa-card mt-2">
+                        <div class="qa-header">
+                            <span class="qa-badge">वाइवा प्रश्न 3</span>
+                            <span>प्रिज्मैटिक कम्पास से कौन सा दिकमान (Bearing) पढ़ा जाता है?</span>
+                        </div>
+                        <p class="text-sm">
+                            <strong>उत्तर:</strong> पूर्ण वृत्त दिकमान (Whole Circle Bearing - WCB), जो चुंबकीय उत्तर से दक्षिणावर्त 0° से 360° तक मापा जाता है।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-subtle); font-size: 0.85rem;">
+        <p>© 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पोर्टल। भूगोल प्रायोगिक प्रश्नपत्र V।</p>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" title="ऊपर जाएँ"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice text-sky-400"></i>
+                    <span>आधिकारिक सिलेबस</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-elective-2">अर्थशास्त्र ऐच्छिक 2 — मुद्रा एवं बैंकिंग</option>
+                    <option value="eco-elective-3">अर्थशास्त्र ऐच्छिक 3 — पर्यावरण</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical" selected>भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle">आधिकारिक सिलेबस दस्तावेज़ • उच्च गुणवत्ता</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:var(--accent-color); border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="विषय का नाम, अवधारणा या टॉपिक खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle hover:text-main">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li class="p-4 text-center text-subtle text-sm">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

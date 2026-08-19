@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - राज्य के नीति निदेशक तत्व</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 30px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-part-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #103254;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .hero-description {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr 270px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Left Sidebar */
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #2b3649;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item::before {
+      content: "•";
+      font-size: 12px;
+      color: #0b1a30;
+    }
+
+    .nav-item.active {
+      background-color: #edf3f9;
+      color: #103254;
+      font-weight: 600;
+    }
+
+    .nav-item:hover:not(.active) {
+      background-color: #f8f9fb;
+    }
+
+    /* Middle Main Content Panel */
+    .main-content-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .article-header-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .article-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .article-badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .article-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-icon-btn {
+      background: none;
+      border: none;
+      color: #637381;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .action-icon-btn:hover {
+      color: #0b1a30;
+    }
+
+    .action-icon-btn.bookmarked {
+      color: #d4af37;
+    }
+
+    .btn-listen-article {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-listen-article:hover {
+      background-color: #f8f9fb;
+    }
+
+    .article-main-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    /* Original Article Card Box */
+    .original-article-box {
+      background-color: #fdfcf7;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .original-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #b37b12;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .original-header-line i {
+      font-size: 16px;
+    }
+
+    .article-clause-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+      color: #0b1a30;
+      line-height: 1.6;
+    }
+
+    .article-clause-list li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .article-clause-list li strong {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #103254;
+      font-weight: 700;
+    }
+
+    /* Detailed Explanation Content Cards */
+    .content-card-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .card-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-title i {
+      font-size: 16px;
+      color: #103254;
+    }
+
+    .english-paragraph {
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.6;
+    }
+
+    .bullet-points-list {
+      list-style: disc;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: #2b3649;
+      line-height: 1.5;
+    }
+
+    /* Key Takeaway Exam Note Box */
+    .exam-note-box {
+      background-color: #f3ecf8;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid #e5d7f2;
+    }
+
+    .exam-note-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .exam-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6a4498;
+      font-size: 14px;
+      flex-shrink: 0;
+      border: 1px solid #d8c2eb;
+    }
+
+    .exam-note-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6a4498;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .exam-note-desc {
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.4;
+    }
+
+    .gavel-illustration {
+      width: 80px;
+      height: 45px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a5cb8" opacity="0.8" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="45" width="80" height="8" rx="2"/><rect x="20" y="30" width="30" height="12" rx="2"/><rect x="60" y="10" width="10" height="30" rx="2" transform="rotate(30 65 25)"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #103254;
+      font-size: 15px;
+    }
+
+    /* Key Points Checklist */
+    .points-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #2b3649;
+      line-height: 1.45;
+    }
+
+    .point-item i {
+      font-size: 13px;
+      color: #103254;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Important Terms Box */
+    .important-terms-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+      color: #3d4a5d;
+      line-height: 1.5;
+    }
+
+    .important-terms-list strong {
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner {
+        padding: 24px 30px;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .article-main-heading {
+        font-size: 20px;
+      }
+      .exam-note-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gavel-illustration {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR DIRECTIVE PRINCIPLES PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .hero-part-label {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .article-header-card,
+    [data-theme="dark"] .content-card-box {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .article-main-heading,
+    [data-theme="dark"] .article-clause-list,
+    [data-theme="dark"] .article-clause-list li strong,
+    [data-theme="dark"] .card-section-title,
+    [data-theme="dark"] .important-terms-list strong {
+      color: var(--sv-text-heading) !important;
+    }
+
+    [data-theme="dark"] .nav-item {
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .nav-item:hover:not(.active) {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .nav-item.active {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .nav-item.active::before {
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-listen-article {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-listen-article:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .action-icon-btn {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .action-icon-btn:hover {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .original-article-box {
+      background-color: rgba(209, 141, 39, 0.12);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .original-header-line {
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .card-section-title i,
+    [data-theme="dark"] .point-item i {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .english-paragraph,
+    [data-theme="dark"] .bullet-points-list,
+    [data-theme="dark"] .point-item,
+    [data-theme="dark"] .important-terms-list {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .exam-note-box {
+      background-color: rgba(106, 68, 152, 0.2);
+      border-color: rgba(106, 68, 152, 0.4);
+    }
+
+    [data-theme="dark"] .exam-icon-circle {
+      background-color: var(--sv-bg-card);
+      border-color: rgba(106, 68, 152, 0.4);
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-title {
+      color: #c084fc;
+    }
+
+    [data-theme="dark"] .exam-note-desc {
+      color: var(--sv-text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+      <li><a href="../pages/parts.html" class="active">भाग</a></li>
+      <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+      <li><a href="../pages/amendments.html">संशोधन</a></li>
+      <li><a href="../pages/judgments.html">फैसले</a></li>
+      <li><a href="../pages/glossary.html">शब्दावली</a></li>
+      <li><a href="../pages/quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/basics/directive-principles.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <div class="hero-part-label">भाग IV (अनुच्छेद 36 से 51)</div>
+      <h1 class="hero-title">राज्य के नीति निर्देशक तत्व</h1>
+      <p class="hero-description">
+        संविधान का भाग IV एक सामाजिक कल्याणकारी राज्य की स्थापना के लिए<br>
+        भारत के शासन हेतु मूलभूत सिद्धांतों और दिशा-निर्देशों को निर्धारित करता है।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="../pages/parts.html">भाग</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <a href="#">भाग IV - नीति निर्देशक तत्व</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>अनुच्छेद 36–51</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: On This Page -->
+      <aside class="left-sidebar">
+        <div class="sidebar-panel">
+          <div class="sidebar-title">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>इस पृष्ठ पर</span>
+          </div>
+
+          <ul class="nav-list" id="onThisPageNav">
+            <li class="nav-item active" data-target="section-dpsp-text">प्रमुख नीति निर्देशक तत्व</li>
+            <li class="nav-item" data-target="section-simple-explanation">सरल व्याख्या</li>
+            <li class="nav-item" data-target="section-classification">नीति निर्देशक तत्वों का वर्गीकरण</li>
+            <li class="nav-item" data-target="section-importance">महत्व एवं प्रवर्तनीयता</li>
+            <li class="nav-item" data-target="section-key-takeaway">परीक्षा के लिए टिप्पणी / मुख्य बिंदु</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Middle Main Content Panel -->
+      <main class="main-content-panel">
+        
+        <!-- Header Card -->
+        <div class="article-header-card" id="section-header">
+          <div class="article-top-bar">
+            <div class="article-badge-title">
+              <i class="fa-regular fa-file-lines"></i> भाग IV (अनुच्छेद 36–51)
+            </div>
+            <div class="article-actions">
+              <button class="action-icon-btn" id="bookmarkBtn" title="बुकमार्क करें"><i class="fa-regular fa-bookmark"></i></button>
+              <button class="action-icon-btn" id="shareBtn" title="साझा करें"><i class="fa-solid fa-share-nodes"></i></button>
+              <button class="btn-listen-article" id="listenBtn" type="button">
+                <i class="fa-solid fa-volume-high"></i> <span id="listenText">विवरण सुनें</span>
+              </button>
+            </div>
+          </div>
+          <h1 class="article-main-heading">राज्य के नीति निर्देशक तत्व</h1>
+        </div>
+
+        <!-- Section 1: Overview of Key DPSP Articles -->
+        <div class="original-article-box" id="section-dpsp-text">
+          <div class="original-header-line">
+            <i class="fa-solid fa-quote-left"></i> 1. नीति निर्देशक तत्वों के प्रमुख अनुच्छेद
+          </div>
+          <p style="font-size: 13px; margin-bottom: 14px; font-weight: 600;">भाग IV में शामिल महत्वपूर्ण नीति निर्देशक तत्व:</p>
+          
+          <ul class="article-clause-list">
+            <li><strong>अनुच्छेद 38:</strong> राज्य लोक कल्याण की अभिवृद्धि के लिए सामाजिक व्यवस्था बनाएगा।</li>
+            <li><strong>अनुच्छेद 39:</strong> राज्य द्वारा अनुसरणीय कुछ नीति तत्व (जैसे जीविका के पर्याप्त साधन, समान कार्य के लिए समान वेतन)।</li>
+            <li><strong>अनुच्छेद 39A:</strong> समान न्याय और गरीबों व आर्थिक रूप से कमजोर नागरिकों को मुफ्त कानूनी सहायता।</li>
+            <li><strong>अनुच्छेद 40:</strong> स्वायत्त शासन की इकाइयों के रूप में ग्राम पंचायतों का संगठन।</li>
+            <li><strong>अनुच्छेद 41:</strong> कुछ दशाओं में काम, शिक्षा और लोक सहायता पाने का अधिकार।</li>
+            <li><strong>अनुच्छेद 43:</strong> कर्मकारों के लिए निर्वाह मजदूरी, शिष्ट जीवनस्तर और कुटीर उद्योगों का संवर्धन।</li>
+            <li><strong>अनुच्छेद 43A:</strong> उद्योगों के प्रबंध में कर्मकारों का भाग लेना।</li>
+            <li><strong>अनुच्छेद 44:</strong> भारत के समस्त राज्यक्षेत्र में नागरिकों के लिए एक समान नागरिक संहिता (UCC)।</li>
+            <li><strong>अनुच्छेद 45:</strong> छह वर्ष से कम आयु के बच्चों के लिए प्रारंभिक बाल्यावस्था देखरेख और शिक्षा का उपबंध।</li>
+            <li><strong>अनुच्छेद 48A:</strong> पर्यावरण का संरक्षण और संवर्धन तथा वनों और वन्य जीवों की रक्षा।</li>
+            <li><strong>अनुच्छेद 50:</strong> राज्य की लोक सेवाओं में कार्यपालिका से न्यायपालिका का पृथक्करण।</li>
+            <li><strong>अनुच्छेद 51:</strong> अंतर्राष्ट्रीय शांति और सुरक्षा की अभिवृद्धि।</li>
+          </ul>
+        </div>
+
+        <!-- Section 2: Simple Explanation -->
+        <div class="content-card-box" id="section-simple-explanation">
+          <div class="card-section-title">
+            <i class="fa-regular fa-file-code"></i> 2. सरल व्याख्या
+          </div>
+          <p class="english-paragraph">
+            राज्य के नीति निर्देशक तत्व (DPSP) सरकार के लिए कानून और नीतियां बनाते समय एक संवैधानिक रोडमैप और दिशा-निर्देश के रूप में कार्य करते हैं। इनका मुख्य उद्देश्य सामाजिक और आर्थिक लोकतंत्र को प्राप्त करना है, जिससे भारत एक कल्याणकारी राज्य में परिवर्तित हो सके।
+          </p>
+        </div>
+
+        <!-- Section 3: Classification of DPSPs -->
+        <div class="content-card-box" id="section-classification">
+          <div class="card-section-title">
+            <i class="fa-solid fa-layer-group"></i> 3. नीति निर्देशक तत्वों का वर्गीकरण
+          </div>
+          <p class="english-paragraph" style="margin-bottom: 10px;">
+            यद्यपि संविधान में नीति निर्देशक तत्वों का स्पष्ट वर्गीकरण नहीं किया गया है, फिर भी उनकी वैचारिक उत्पत्ति के आधार पर इन्हें मुख्य रूप से तीन श्रेणियों में बांटा गया है:
+          </p>
+          <ul class="bullet-points-list">
+            <li><strong>समाजवादी सिद्धांत:</strong> सामाजिक और आर्थिक समानता प्राप्त करने, धन के संकेंद्रण को रोकने और कल्याणकारी गारंटियां प्रदान करने के उद्देश्य से (अनुच्छेद 38, 39, 39A, 41, 42, 43, 43A, 47)।</li>
+            <li><strong>गांधीवादी सिद्धांत:</strong> महात्मा गांधी के ग्रामीण विकास और नैतिक प्रगति के दृष्टिकोण पर आधारित, जैसे ग्राम पंचायतें, कुटीर उद्योग और नशीले पदार्थों पर रोक (अनुच्छेद 40, 43, 43B, 46, 47, 48)।</li>
+            <li><strong>उदारवादी-बौद्धिक सिद्धांत:</strong> समान नागरिक संहिता, मुफ्त प्रारंभिक शिक्षा, पर्यावरण संरक्षण और अंतर्राष्ट्रीय शांति जैसी उदारवादी विचारधाराओं से प्रेरित (अनुच्छेद 44, 45, 48, 48A, 49, 50, 51)।</li>
+          </ul>
+        </div>
+
+        <!-- Section 4: Importance & Enforceability -->
+        <div class="content-card-box" id="section-importance">
+          <div class="card-section-title">
+            <i class="fa-solid fa-shield-halved"></i> 4. महत्व एवं प्रवर्तनीयता
+          </div>
+          <p class="english-paragraph">
+            अनुच्छेद 37 के अनुसार, नीति निर्देशक तत्व गैर-न्यायसंगत (गैर-वादयोग्य) हैं—यानी इन्हें किसी भी अदालत द्वारा सीधे लागू नहीं कराया जा सकता। हालांकि, यह अनुच्छेद स्पष्ट रूप से कहता है कि ये सिद्धांत <em>"देश के शासन में मूलभूत हैं"</em> और कानून बनाते समय इन सिद्धांतों को लागू करना राज्य का कर्तव्य है।
+          </p>
+        </div>
+
+        <!-- Exam Note / Key Takeaway Banner -->
+        <div class="exam-note-box" id="section-key-takeaway">
+          <div class="exam-note-content">
+            <div class="exam-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="exam-note-title">परीक्षा के लिए टिप्पणी / मुख्य बिंदु</div>
+              <div class="exam-note-desc">
+                याद रखें: भाग IV | अनुच्छेद 36–51 | आयरलैंड के संविधान से लिए गए हैं | गैर-न्यायसंगत (Non-justiciable) | उद्देश्य: कल्याणकारी राज्य और आर्थिक लोकतंत्र।
+              </div>
+            </div>
+          </div>
+          <div class="gavel-illustration"></div>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: Widgets -->
+      <aside class="right-sidebar">
+        
+        <!-- Key Points Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>मुख्य बिंदु</span>
+          </div>
+
+          <ul class="points-checklist">
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>आयरलैंड के संविधान से लिए गए हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>गैर-न्यायसंगत और अदालतों द्वारा गैर-प्रवर्तनीय हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>देश के शासन के लिए मूलभूत हैं।</span>
+            </li>
+            <li class="point-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>सामाजिक और आर्थिक लोकतंत्र स्थापित करने का उद्देश्य।</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Important Terms Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-book-bookmark"></i>
+            <span>महत्वपूर्ण शब्द</span>
+          </div>
+
+          <div class="important-terms-list">
+            <p><strong>कल्याणकारी राज्य (Welfare State):</strong> शासन की वह अवधारणा जहां राज्य अपने नागरिकों के आर्थिक और सामाजिक कल्याण की रक्षा और संवर्धन करता है।</p>
+            <p><strong>अनुच्छेद 37:</strong> बताता है कि नीति निर्देशक तत्व गैर-न्यायसंगत हैं लेकिन शासन में मूलभूत हैं।</p>
+            <p><strong>अनुच्छेद 44:</strong> पूरे भारत में समान नागरिक संहिता (UCC)।</p>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="/basics/directive-principles.html">नीति निर्देशक तत्व</a></li>
+            <li><a href="/basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="/basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="/basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="/basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="/pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Navigation Smooth Scroll
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Bookmark Toggle
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    let isBookmarked = false;
+    bookmarkBtn.addEventListener('click', () => {
+      isBookmarked = !isBookmarked;
+      const icon = bookmarkBtn.querySelector('i');
+      if (isBookmarked) {
+        icon.className = "fa-solid fa-bookmark";
+        bookmarkBtn.classList.add('bookmarked');
+      } else {
+        icon.className = "fa-regular fa-bookmark";
+        bookmarkBtn.classList.remove('bookmarked');
+      }
+    });
+
+    // Share Action
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'भाग IV - राज्य के नीति निर्देशक तत्व',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        prompt("नीति निर्देशक तत्वों को साझा करने के लिए इस लिंक को कॉपी करें:", window.location.href);
+      }
+    });
+
+    // Listen to DPSP Text-to-Speech
+    const listenBtn = document.getElementById('listenBtn');
+    const listenText = document.getElementById('listenText');
+    let isListening = false;
+    listenBtn.addEventListener('click', () => {
+      isListening = !isListening;
+      const icon = listenBtn.querySelector('i');
+      if (isListening) {
+        icon.className = "fa-solid fa-stop";
+        listenText.textContent = "ऑडियो रोकें";
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance("भारत के संविधान का भाग 4. राज्य के नीति निर्देशक तत्व. अनुच्छेद 36 से 51 जो शासन के लिए मूलभूत दिशा-निर्देश निर्धारित करते हैं.");
+          utterance.lang = 'hi-IN';
+          window.speechSynthesis.speak(utterance);
+        }
+      } else {
+        icon.className = "fa-solid fa-volume-high";
+        listenText.textContent = "विवरण सुनें";
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+    });
+
+    // Scroll spy for 'On This Page'
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 150;
+      navItems.forEach(item => {
+        const targetId = item.getAttribute('data-target');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const top = targetEl.offsetTop;
+          const height = targetEl.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            navItems.forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

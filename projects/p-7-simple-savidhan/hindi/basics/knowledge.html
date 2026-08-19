@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - ज्ञान केंद्र</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner - Search Bar Included Inside */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 280px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #3d4a5d;
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    /* Search Container inside Hero Section */
+    .hero-search-container {
+      display: flex;
+      max-width: 100%;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      border: 1px solid #d4af37;
+    }
+
+    .hero-search-container i {
+      padding: 12px 15px;
+      color: #0b1a30;
+      font-size: 15px;
+    }
+
+    .hero-search-container input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .hero-search-container button {
+      background-color: #0b1a30;
+      color: #fff;
+      border: none;
+      padding: 0 22px;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .hero-search-container button:hover {
+      background-color: #162a47;
+    }
+
+    /* Container & Breadcrumb */
+    .container {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: #666;
+      margin: 15px 0 20px 0;
+      font-weight: 500;
+    }
+
+    .breadcrumb a {
+      color: #123e6d;
+    }
+
+    /* Search Results Panel */
+    .search-results-panel {
+      background: #fff;
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      display: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-results-panel.active {
+      display: block;
+    }
+
+    .search-results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .search-results-header h3 {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .close-search {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .search-result-item {
+      padding: 10px;
+      border-bottom: 1px solid #f5f5f5;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .search-result-item:hover {
+      background: #f8f9fa;
+    }
+
+    .search-result-item h4 {
+      font-size: 13px;
+      color: #123e6d;
+      margin-bottom: 3px;
+    }
+
+    .search-result-item p {
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* 3-Column Page Layout Grid */
+    .three-column-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr 300px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Fixed/Sticky Sidebars Styling */
+    .left-sidebar, .right-sidebar {
+      position: sticky;
+      top: 20px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .left-sidebar::-webkit-scrollbar, .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .left-sidebar::-webkit-scrollbar-thumb, .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #0b1a30;
+      letter-spacing: 0.8px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Explore By Category (Left Sidebar Version) */
+    .sidebar-categories-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .category-card-small {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .category-card-small:hover {
+      transform: translateX(3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #d4af37;
+    }
+
+    .cat-icon-small {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .category-info-small h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 2px;
+    }
+
+    .category-info-small p {
+      font-size: 10px;
+      color: #666;
+      line-height: 1.2;
+    }
+
+    /* Center Scrollable Area Content Styling */
+    .center-content {
+      min-width: 0;
+    }
+
+    /* Quick Facts Grid */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .fact-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 12px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .fact-card i {
+      font-size: 18px;
+      color: #d4af37;
+    }
+
+    .fact-info h3 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .fact-info p {
+      font-size: 8.5px;
+      color: #666;
+    }
+
+    /* Educational Section Cards Styling */
+    .content-box {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .content-box h3.box-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .content-box h3.box-title i {
+      color: #d4af37;
+    }
+
+    .content-box p {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .sub-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #123e6d;
+      margin: 12px 0 8px 0;
+    }
+
+    .info-list {
+      list-style: none;
+      margin-bottom: 15px;
+    }
+
+    .info-list li {
+      font-size: 11.5px;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 7px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .info-list li::before {
+      content: "▪";
+      color: #d4af37;
+      position: absolute;
+      left: 0;
+      font-size: 13px;
+      top: -1px;
+    }
+
+    /* Popular Topics Grid inside Center */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .topic-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .topic-card img {
+      width: 100%;
+      height: 95px;
+      object-fit: cover;
+    }
+
+    .topic-card-body {
+      padding: 10px;
+    }
+
+    .topic-card h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .topic-card p {
+      font-size: 9.5px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .read-time {
+      font-size: 9px;
+      color: #888;
+    }
+
+    /* Accordion Components */
+    .accordion {
+      margin-top: 10px;
+    }
+
+    .accordion-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .accordion-header {
+      padding: 10px 14px;
+      background: #f8fafc;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #0b1a30;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .accordion-header:hover {
+      background: #f1f5f9;
+    }
+
+    .accordion-header i {
+      color: #d4af37;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-header i {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      padding: 0 14px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: #fff;
+    }
+
+    .accordion-item.active .accordion-content {
+      padding: 12px 14px;
+      max-height: 1500px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .accordion-content p {
+      font-size: 11.5px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    /* Tables */
+    .custom-table-wrapper {
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .custom-table th {
+      background-color: #0b1a30;
+      color: #ffffff;
+      text-align: left;
+      padding: 8px 10px;
+      font-weight: 600;
+    }
+
+    .custom-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .custom-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    /* Badges */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .badge-card {
+      background: #f1f5f9;
+      border-left: 3px solid #d4af37;
+      padding: 8px 10px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .badge-card strong {
+      display: block;
+      font-size: 11px;
+      color: #0b1a30;
+      margin-bottom: 2px;
+    }
+
+    .badge-card span {
+      font-size: 9.5px;
+      color: #666;
+    }
+
+    /* Right Sidebar Widgets */
+    .sidebar-widget {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .widget-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .timeline-date {
+      background: #0b1a30;
+      color: #d4af37;
+      font-weight: 700;
+      font-size: 8.5px;
+      text-align: center;
+      padding: 5px 6px;
+      border-radius: 4px;
+      min-width: 42px;
+      height: fit-content;
+      line-height: 1.2;
+    }
+
+    .timeline-text {
+      font-size: 10.5px;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .did-you-know-box {
+      background: #0b1a30;
+      color: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .did-you-know-box p {
+      font-size: 10.5px;
+      color: #e0e0e0;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .read-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .read-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .read-item-info h5 {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #0b1a30;
+    }
+
+    .read-item-info p {
+      font-size: 9.5px;
+      color: #888;
+    }
+
+    /* FAQ & Newsletter */
+    .faq-card, .newsletter-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .faq-card h3, .newsletter-card h3 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-item-interactive {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .faq-question {
+      padding: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10.5px;
+      color: #444;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      font-size: 10.5px;
+      color: #666;
+      line-height: 1.4;
+      padding: 0 0 8px 0;
+      display: none;
+    }
+
+    .faq-item-interactive.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item-interactive.active .faq-question {
+      color: #123e6d;
+      font-weight: 700;
+    }
+
+    .newsletter-card p {
+      font-size: 10.5px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-card input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      outline: none;
+    }
+
+    .newsletter-card button {
+      width: 100%;
+      background: #0b1a30;
+      color: #fff;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    /* Bottom Banner */
+    .bottom-banner {
+      background: #0b1a30;
+      color: #fff;
+      border-radius: 8px;
+      padding: 20px 25px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .bottom-banner i {
+      font-size: 32px;
+      color: #d4af37;
+    }
+
+    .bottom-banner-text h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+
+    .bottom-banner-text p {
+      font-size: 10.5px;
+      color: #e0e0e0;
+    }
+
+    /* Toast */
+    .toast-msg {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0b1a30;
+      color: #d4af37;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 2000;
+    }
+
+    /* Media Queries for Responsive Handling */
+    @media (max-width: 1100px) {
+      .three-column-grid {
+        grid-template-columns: 240px 1fr 260px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-banner { padding: 30px 30px; }
+      .three-column-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-banner { padding: 25px 20px; }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR KNOWLEDGE PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .hero-search-container {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .hero-search-container i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .hero-search-container input {
+      background: var(--sv-bg-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .hero-search-container button {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .hero-search-container button:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .search-results-panel,
+    [data-theme="dark"] .category-card-small,
+    [data-theme="dark"] .fact-card,
+    [data-theme="dark"] .content-box,
+    [data-theme="dark"] .topic-card,
+    [data-theme="dark"] .sidebar-widget,
+    [data-theme="dark"] .faq-card,
+    [data-theme="dark"] .newsletter-card {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .section-title,
+    [data-theme="dark"] .category-info-small h4,
+    [data-theme="dark"] .fact-info h3,
+    [data-theme="dark"] .box-title,
+    [data-theme="dark"] .topic-card h4,
+    [data-theme="dark"] .widget-title,
+    [data-theme="dark"] .read-item-info h5,
+    [data-theme="dark"] .faq-card h3,
+    [data-theme="dark"] .newsletter-card h3,
+    [data-theme="dark"] .search-results-header h3,
+    [data-theme="dark"] .search-result-item h4 {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .category-info-small p,
+    [data-theme="dark"] .fact-info p,
+    [data-theme="dark"] .content-box p,
+    [data-theme="dark"] .info-list li,
+    [data-theme="dark"] .topic-card p,
+    [data-theme="dark"] .read-time,
+    [data-theme="dark"] .timeline-text,
+    [data-theme="dark"] .read-item-info p,
+    [data-theme="dark"] .faq-question,
+    [data-theme="dark"] .faq-answer,
+    [data-theme="dark"] .newsletter-card p,
+    [data-theme="dark"] .search-result-item p,
+    [data-theme="dark"] .breadcrumb {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .breadcrumb a,
+    [data-theme="dark"] .sub-heading,
+    [data-theme="dark"] .faq-item-interactive.active .faq-question {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .accordion-item,
+    [data-theme="dark"] .accordion-content {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .accordion-header {
+      background: var(--sv-bg-card-hover);
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .accordion-header:hover {
+      background: var(--sv-bg-input);
+    }
+
+    [data-theme="dark"] .accordion-content p {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .custom-table th {
+      background-color: var(--sv-bg-card-hover);
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .custom-table td {
+      border-color: var(--sv-border);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .custom-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    [data-theme="dark"] .badge-card {
+      background: var(--sv-bg-input);
+    }
+
+    [data-theme="dark"] .badge-card strong {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .badge-card span {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .timeline-item,
+    [data-theme="dark"] .faq-item-interactive,
+    [data-theme="dark"] .search-results-header,
+    [data-theme="dark"] .search-result-item {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .search-result-item:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .timeline-date {
+      background: var(--sv-bg-input);
+      color: var(--sv-gold);
+    }
+
+    [data-theme="dark"] .did-you-know-box,
+    [data-theme="dark"] .bottom-banner {
+      background: var(--sv-bg-card);
+      border: 1px solid var(--sv-border);
+    }
+
+    [data-theme="dark"] .newsletter-card input {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .newsletter-card button {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="articles.html">अनुच्छेद</a></li>
+      <li><a href="parts.html">भाग</a></li>
+      <li><a href="schedules.html">अनुसूचियां</a></li>
+      <li><a href="amendments.html">संशोधन</a></li>
+      <li><a href="judgments.html">फैसले</a></li>
+      <li><a href="glossary.html">शब्दावली</a></li>
+      <li><a href="quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/basics/knowledge.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner with Integrated Search Bar -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">ज्ञान केंद्र</h1>
+      <p class="hero-description">
+        भारत के संविधान को सरल और व्यवस्थित तरीके से समझें। सीखें, जानें और खुद को सशक्त बनाएं।
+      </p>
+      
+      <!-- Search Bar Moved into Hero Section -->
+      <div class="hero-search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="विषय, अनुच्छेद (जैसे अनुच्छेद 21), संशोधन, केस खोजें...">
+        <button type="button" id="searchBtn">खोजें</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a> &gt; <span>ज्ञान केंद्र</span>
+    </div>
+
+    <!-- Search Results Panel -->
+    <div class="search-results-panel" id="searchResultsPanel">
+      <div class="search-results-header">
+        <h3><i class="fa-solid fa-magnifying-glass" style="color:#d4af37;"></i> खोज परिणाम</h3>
+        <button class="close-search" id="closeSearchBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="searchResultsList"></div>
+    </div>
+
+    <!-- 3-Column Main Layout Grid -->
+    <div class="three-column-grid">
+      
+      <!-- 1. LEFT SIDEBAR (Expanded Categories List) -->
+      <div class="left-sidebar">
+        <div class="section-title"><i class="fa-solid fa-layer-group" style="color:#d4af37;"></i> श्रेणियां</div>
+        
+        <div class="sidebar-categories-list">
+          <div class="category-card-small" onclick="scrollToSection('sec-basics')">
+            <div class="cat-icon-small" style="background-color: #0b1a30;"><i class="fa-solid fa-landmark-flag"></i></div>
+            <div class="category-info-small">
+              <h4>बुनियादी बातें और इतिहास</h4>
+              <p>एक नज़र में और इतिहास</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-assembly')">
+            <div class="cat-icon-small" style="background-color: #123e6d;"><i class="fa-solid fa-users-gear"></i></div>
+            <div class="category-info-small">
+              <h4>सभा और प्रारूपण</h4>
+              <p>गठन और समितियां</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-timeline')">
+            <div class="cat-icon-small" style="background-color: #2e7d32;"><i class="fa-solid fa-timeline"></i></div>
+            <div class="category-info-small">
+              <h4>समयरेखा और स्रोत</h4>
+              <p>1946–1950 और लिए गए स्रोत</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-preamble')">
+            <div class="cat-icon-small" style="background-color: #6a1b9a;"><i class="fa-solid fa-scroll"></i></div>
+            <div class="category-info-small">
+              <h4>प्रस्तावना और विशेषताएं</h4>
+              <p>मुख्य विशेषताएं और उद्देश्य</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-rights')">
+            <div class="cat-icon-small" style="background-color: #e65100;"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="category-info-small">
+              <h4>मौलिक अधिकार</h4>
+              <p>अनुच्छेद 12–35 और रिट</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-dpsp-duties')">
+            <div class="cat-icon-small" style="background-color: #00838f;"><i class="fa-solid fa-compass"></i></div>
+            <div class="category-info-small">
+              <h4>नीति निदेशक तत्व और कर्तव्य</h4>
+              <p>भाग IV और अनुच्छेद 51A</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-citizenship')">
+            <div class="cat-icon-small" style="background-color: #d81b60;"><i class="fa-solid fa-id-card"></i></div>
+            <div class="category-info-small">
+              <h4>नागरिकता</h4>
+              <p>अनुच्छेद 5–11</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-executive')">
+            <div class="cat-icon-small" style="background-color: #c0ca33;"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="category-info-small">
+              <h4>संघीय कार्यपालिका</h4>
+              <p>राष्ट्रपति, प्रधानमंत्री और मंत्रिमंडल</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-parliament')">
+            <div class="cat-icon-small" style="background-color: #0b1a30;"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="category-info-small">
+              <h4>संसद</h4>
+              <p>लोकसभा, राज्यसभा और विधेयक</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-state-govt')">
+            <div class="cat-icon-small" style="background-color: #2e7d32;"><i class="fa-solid fa-city"></i></div>
+            <div class="category-info-small">
+              <h4>राज्य सरकार</h4>
+              <p>राज्यपाल, मुख्यमंत्री और विधानसभा</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-judiciary')">
+            <div class="cat-icon-small" style="background-color: #00838f;"><i class="fa-solid fa-gavel"></i></div>
+            <div class="category-info-small">
+              <h4>न्यायपालिका</h4>
+              <p>सुप्रीम कोर्ट और हाई कोर्ट</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-relations-lists')">
+            <div class="cat-icon-small" style="background-color: #6a1b9a;"><i class="fa-solid fa-diagram-project"></i></div>
+            <div class="category-info-small">
+              <h4>केंद्र-राज्य संबंध</h4>
+              <p>7वीं अनुसूची और सूचियां</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-local-govt')">
+            <div class="cat-icon-small" style="background-color: #e65100;"><i class="fa-solid fa-people-roof"></i></div>
+            <div class="category-info-small">
+              <h4>स्थानीय शासन</h4>
+              <p>पंचायतें और नगरपालिकायें</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-bodies')">
+            <div class="cat-icon-small" style="background-color: #d81b60;"><i class="fa-solid fa-building-user"></i></div>
+            <div class="category-info-small">
+              <h4>संवैधानिक निकाय</h4>
+              <p>ECI, CAG, UPSC, वित्त आयोग</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-emergency')">
+            <div class="cat-icon-small" style="background-color: #123e6d;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="category-info-small">
+              <h4>आपातकालीन प्रावधान</h4>
+              <p>अनुच्छेद 352, 356, 360</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-amendments')">
+            <div class="cat-icon-small" style="background-color: #2e7d32;"><i class="fa-solid fa-pen-to-square"></i></div>
+            <div class="category-info-small">
+              <h4>संशोधन</h4>
+              <p>अनुच्छेद 368 और प्रमुख संशोधन</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-parts-schedules')">
+            <div class="cat-icon-small" style="background-color: #0b1a30;"><i class="fa-solid fa-book-open"></i></div>
+            <div class="category-info-small">
+              <h4>भाग और अनुसूचियां</h4>
+              <p>सभी भाग और 12 अनुसूचियां</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-judgments')">
+            <div class="cat-icon-small" style="background-color: #00838f;"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
+            <div class="category-info-small">
+              <h4>ऐतिहासिक फैसले</h4>
+              <p>मूल संरचना और निजता</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-elections')">
+            <div class="cat-icon-small" style="background-color: #e65100;"><i class="fa-solid fa-check-to-slot"></i></div>
+            <div class="category-info-small">
+              <h4>चुनाव और मतदान</h4>
+              <p>राष्ट्रपति, लोकसभा और मताधिकार</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-general-gk')">
+            <div class="cat-icon-small" style="background-color: #6a1b9a;"><i class="fa-solid fa-lightbulb"></i></div>
+            <div class="category-info-small">
+              <h4>सामान्य ज्ञान और अवधारणाएं</h4>
+              <p>आसान व्याख्या और गलतफहमियां</p>
+            </div>
+          </div>
+
+          <div class="category-card-small" onclick="scrollToSection('sec-glossary-terms')">
+            <div class="cat-icon-small" style="background-color: #d81b60;"><i class="fa-solid fa-spell-check"></i></div>
+            <div class="category-info-small">
+              <h4>शब्दावली और तुलना</h4>
+              <p>शब्दावली और तुलनात्मक तालिकाएं</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CENTER CONTENT AREA -->
+      <div class="center-content">
+        
+        <!-- Quick Facts -->
+        <div class="section-title"><i class="fa-solid fa-bolt" style="color:#d4af37;"></i> एक नज़र में मुख्य तथ्य</div>
+        <div class="facts-grid">
+          <div class="fact-card" title="22 भागों में 395 मूल अनुच्छेद">
+            <i class="fa-solid fa-book"></i>
+            <div class="fact-info">
+              <h3>395</h3>
+              <p>अनुच्छेद</p>
+            </div>
+          </div>
+          <div class="fact-card" title="विस्तृत सूचियां दर्शाने वाली 12 अनुसूचियां">
+            <i class="fa-solid fa-list-check"></i>
+            <div class="fact-info">
+              <h3>12</h3>
+              <p>अनुसूचियां</p>
+            </div>
+          </div>
+          <div class="fact-card" title="वर्तमान में 25 भागों में विभाजित">
+            <i class="fa-solid fa-diagram-project"></i>
+            <div class="fact-info">
+              <h3>25</h3>
+              <p>भाग</p>
+            </div>
+          </div>
+          <div class="fact-card" title="8वीं अनुसूची के तहत 22 आधिकारिक भाषाएं">
+            <i class="fa-solid fa-comments"></i>
+            <div class="fact-info">
+              <h3>22</h3>
+              <p>भाषाएं</p>
+            </div>
+          </div>
+          <div class="fact-card" title="संविधान सभा द्वारा लिया गया समय">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div class="fact-info">
+              <h3>2वर्ष 11माह 18दिन</h3>
+              <p>बनाने में लगे</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Topics Grid -->
+        <div class="section-title"><i class="fa-solid fa-star" style="color:#d4af37;"></i> लोकप्रिय विषय</div>
+        <div class="topics-grid">
+          <div class="topic-card" onclick="scrollToSection('sec-rights')">
+            <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>मौलिक अधिकार</h4>
+              <p>छह गारंटीकृत अधिकारों को जानें।</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 5 मिनट पढ़ें</span>
+            </div>
+          </div>
+
+          <div class="topic-card" onclick="scrollToSection('sec-parliament')">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>संसद की कार्यप्रणाली</h4>
+              <p>संरचना और कानून बनाने की प्रक्रिया।</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 6 मिनट पढ़ें</span>
+            </div>
+          </div>
+
+          <div class="topic-card" onclick="scrollToSection('sec-judiciary')">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>सुप्रीम कोर्ट की भूमिका</h4>
+              <p>शक्तियां, रिट और ऐतिहासिक मामले।</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 7 मिनट पढ़ें</span>
+            </div>
+          </div>
+
+          <div class="topic-card" onclick="scrollToSection('sec-dpsp-duties')">
+            <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=400&q=80" alt="Topic">
+            <div class="topic-card-body">
+              <h4>मौलिक कर्तव्य</h4>
+              <p>भारतीय नागरिकों के 11 कर्तव्य।</p>
+              <span class="read-time"><i class="fa-regular fa-clock"></i> 4 मिनट पढ़ें</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. CONSTITUTION AT A GLANCE & HISTORICAL BACKGROUND -->
+        <div class="content-box" id="sec-basics">
+          <h3 class="box-title"><i class="fa-solid fa-landmark-flag"></i> 1. संविधान: एक नज़र में और इतिहास</h3>
+          <p><strong>संविधान क्या है?</strong> भारत का संविधान देश का सर्वोच्च कानून है। यह सरकारी संस्थाओं की राजनीतिक संहिता, संरचना, प्रक्रियाओं, शक्तियों और कर्तव्यों को स्थापित करता है और नागरिकों के मौलिक अधिकारों की रक्षा करता है।</p>
+          
+          <div class="sub-heading">मुख्य बुनियादी तथ्य</div>
+          <ul class="info-list">
+            <li><strong>सर्वोच्च कानून:</strong> संसद या राज्य विधानमंडलों द्वारा पारित हर कानून को संविधान के अनुरूप होना चाहिए।</li>
+            <li><strong>स्वीकृति की तिथि:</strong> 26 नवंबर 1949 (संविधान दिवस के रूप में मनाया जाता है)।</li>
+            <li><strong>लागू होने की तिथि:</strong> 26 जनवरी 1950 (गणतंत्र दिवस के रूप में मनाया जाता है)।</li>
+            <li><strong>हस्तलिखित कलाकृति:</strong> प्रेम बिहारी नारायण रायज़ादा द्वारा अंग्रेजी और हिंदी में हाथ से लिखा गया।</li>
+          </ul>
+
+          <div class="sub-heading">ऐतिहासिक पृष्ठभूमि (1773 – 1947)</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>अधिनियम / सुधार</th>
+                  <th>संवैधानिक महत्व</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>रेगुलेटिंग एक्ट 1773</td><td>ब्रिटिश सरकार द्वारा ईस्ट इंडिया कंपनी को नियंत्रित करने का पहला कदम; बंगाल के गवर्नर-जनरल का पद बनाया।</td></tr>
+                <tr><td>पिट्स इंडिया एक्ट 1784</td><td>राजनीतिक और व्यापारिक कार्यों को अलग किया; बोर्ड ऑफ कंट्रोल की स्थापना की।</td></tr>
+                <tr><td>चार्टर एक्ट 1833</td><td>बंगाल के गवर्नर-जनरल को भारत का गवर्नर-जनरल बनाया (लॉर्ड विलियम बेंटिक)।</td></tr>
+                <tr><td>भारत सरकार अधिनियम 1858</td><td>शासन की शक्ति ईस्ट इंडिया कंपनी से ब्रिटिश क्राउन को स्थानांतरित की गई (वायसराय का पद बना)।</td></tr>
+                <tr><td>भारतीय परिषद अधिनियम 1861/1892</td><td>पोर्टफोलियो प्रणाली की शुरुआत की और विधान परिषद की शक्तियों का विस्तार किया।</td></tr>
+                <tr><td>मार्ले-मिंटो सुधार (1909)</td><td>सांप्रदायिक प्रतिनिधित्व (मुसलमानों के लिए अलग निर्वाचक मंडल) की शुरुआत की।</td></tr>
+                <tr><td>मांटेग्यू-चेम्सफोर्ड (1919)</td><td>प्रांतों में द्वैध शासन (Dyarchy) और केंद्र में द्विसदनीय व्यवस्था शुरू की।</td></tr>
+                <tr><td>भारत सरकार अधिनियम 1935</td><td>अखिल भारतीय संघ, प्रांतीय स्वायत्तता और 3 विधायी सूचियों का प्रावधान किया।</td></tr>
+                <tr><td>भारतीय स्वतंत्रता अधिनियम 1947</td><td>ब्रिटिश शासन का अंत किया, भारत को स्वतंत्र घोषित किया और दो अधिराज्य (भारत और पाकिस्तान) बनाए।</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 2. CONSTITUENT ASSEMBLY & DRAFTING COMMITTEE -->
+        <div class="content-box" id="sec-assembly">
+          <h3 class="box-title"><i class="fa-solid fa-users-gear"></i> 2. संविधान सभा और प्रारूप समिति</h3>
+          <p>संविधान सभा एक संप्रभु निकाय थी जिसका गठन 1946 के कैबिनेट मिशन प्लान के तहत भारत का संविधान बनाने के लिए किया गया था।</p>
+
+          <div class="badge-grid">
+            <div class="badge-card"><strong>पहली बैठक</strong><span>9 दिसंबर 1946</span></div>
+            <div class="badge-card"><strong>अस्थायी अध्यक्ष</strong><span>डॉ. सच्चिदानंद सिन्हा</span></div>
+            <div class="badge-card"><strong>स्थायी अध्यक्ष</strong><span>डॉ. राजेंद्र प्रसाद</span></div>
+            <div class="badge-card"><strong>संवैधानिक सलाहकार</strong><span>सर बी. एन. राव</span></div>
+            <div class="badge-card"><strong>प्रारूप समिति अध्यक्ष</strong><span>डॉ. बी. आर. अम्बेडकर</span></div>
+          </div>
+
+          <div class="sub-heading">प्रारूप समिति और डॉ. बी. आर. अम्बेडकर</div>
+          <p>29 अगस्त 1947 को गठित प्रारूप समिति को संविधान का मसौदा तैयार करने का काम सौंपा गया था। "भारतीय संविधान के जनक" के रूप में जाने जाने वाले डॉ. बी. आर. अम्बेडकर ने चर्चाओं का मार्गदर्शन किया और सभा की बहस में प्रावधानों का बचाव किया।</p>
+          <ul class="info-list">
+            <li><strong>सदस्य:</strong> डॉ. बी. आर. अम्बेडकर (अध्यक्ष), एन. गोपालस्वामी आयंगर, अल्लादी कृष्णास्वामी अय्यर, डॉ. के. एम. मुंशी, सैयद मोहम्मद सादुल्ला, एन. माधव राव, टी. टी. कृष्णमाचारी।</li>
+            <li><strong>उद्देश्य प्रस्ताव:</strong> 13 दिसंबर 1946 को जवाहरलाल नेहरू द्वारा पेश किया गया; इसने संवैधानिक ढांचे के मूल सिद्धांतों और दर्शन को सामने रखा।</li>
+          </ul>
+        </div>
+
+        <!-- 3. TIMELINE & SOURCES OF THE CONSTITUTION -->
+        <div class="content-box" id="sec-timeline">
+          <h3 class="box-title"><i class="fa-solid fa-timeline"></i> 3. संविधान की समयरेखा और लिए गए स्रोत</h3>
+          
+          <div class="sub-heading">विभिन्न देशों से लिए गए प्रमुख स्रोत</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>देश / स्रोत</th>
+                  <th>लिए गए प्रमुख प्रावधान</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>भारत सरकार अधिनियम 1935</td><td>संघीय ढांचा, राज्यपाल का पद, न्यायपालिका, लोक सेवा आयोग, आपातकालीन प्रावधान।</td></tr>
+                <tr><td>यूनाइटेड किंगडम (ब्रिटेन)</td><td>संसदीय शासन प्रणाली, कानून का शासन (Rule of Law), मंत्रिमंडल प्रणाली, एकल नागरिकता, द्विसदनीय व्यवस्था, रिट।</td></tr>
+                <tr><td>संयुक्त राज्य अमेरिका (USA)</td><td>मौलिक अधिकार, न्यायिक पुनरावलोकन, न्यायपालिका की स्वतंत्रता, राष्ट्रपति पर महाभियोग।</td></tr>
+                <tr><td>आयरलैंड</td><td>राज्य के नीति निदेशक तत्व (DPSP), राज्यसभा में सदस्यों का नामांकन।</td></tr>
+                <tr><td>कनाडा</td><td>मजबूत केंद्र के साथ संघीय व्यवस्था, केंद्र के पास अवशिष्ट शक्तियां, सुप्रीम कोर्ट की सलाहकारी अधिकारिता।</td></tr>
+                <tr><td>ऑस्ट्रेलिया</td><td>समवर्ती सूची, व्यापार और वाणिज्य की स्वतंत्रता, संसद के दोनों सदनों की संयुक्त बैठक।</td></tr>
+                <tr><td>जर्मनी (वाइमर)</td><td>आपातकाल के दौरान मौलिक अधिकारों का निलंबन।</td></tr>
+                <tr><td>सोवियत संघ (USSR / रूस)</td><td>मौलिक कर्तव्य, प्रस्तावना में न्याय के आदर्श (सामाजिक, आर्थिक, राजनीतिक)।</td></tr>
+                <tr><td>फ्रांस</td><td>प्रस्तावना में स्वतंत्रता, समता और बंधुत्व के आदर्श; गणतंत्र की अवधारणा।</td></tr>
+                <tr><td>दक्षिण अफ्रीका</td><td>संविधान संशोधन की प्रक्रिया, राज्यसभा के सदस्यों का निर्वाचन।</td></tr>
+                <tr><td>जापान</td><td>विधि द्वारा स्थापित प्रक्रिया (अनुच्छेद 21)।</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 4. SALIENT FEATURES & THE PREAMBLE -->
+        <div class="content-box" id="sec-preamble">
+          <h3 class="box-title"><i class="fa-solid fa-scroll"></i> 4. मुख्य विशेषताएं और प्रस्तावना</h3>
+          <p><strong>मुख्य विशेषताएं:</strong> दुनिया का सबसे लंबा लिखित संविधान, नम्यता और नम्यता का मिश्रण (लचीला और कठोर), एकात्मक झुकाव के साथ संघीय व्यवस्था, सरकार का संसदीय रूप, एकीकृत और स्वतंत्र न्यायपालिका, वयस्क मताधिकार और पंथनिरपेक्ष राज्य।</p>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>प्रस्तावना के मुख्य शब्दों की व्याख्या</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="info-list">
+                  <li><strong>संपूर्ण प्रभुत्व-संपन्न (Sovereign):</strong> बिना किसी बाहरी हस्तक्षेप के पूरी तरह स्वतंत्र।</li>
+                  <li><strong>समाजवादी (Socialist):</strong> 42वें संशोधन (1976) द्वारा जोड़ा गया; आय और स्थिति की असमानताओं को समाप्त करने का लक्ष्य।</li>
+                  <li><strong>पंथनिरपेक्ष (Secular):</strong> 42वें संशोधन (1976) द्वारा जोड़ा गया; सभी धर्मों को समान सम्मान और संरक्षण।</li>
+                  <li><strong>लोकतंत्रात्मक (Democratic):</strong> जनता की संप्रभु इच्छा से बनी सरकार।</li>
+                  <li><strong>गणराज्य (Republic):</strong> वंशानुगत राजा के बजाय चुना हुआ राष्ट्राध्यक्ष (राष्ट्रपति)।</li>
+                  <li><strong>न्याय (Justice):</strong> सामाजिक, आर्थिक और राजनीतिक न्याय की गारंटी।</li>
+                  <li><strong>स्वतंत्रता (Liberty):</strong> विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की स्वतंत्रता।</li>
+                  <li><strong>समता (Equality):</strong> प्रतिष्ठा और अवसर की समता।</li>
+                  <li><strong>बंधुता (Fraternity):</strong> व्यक्ति की गरिमा और राष्ट्र की एकता व अखंडता सुनिश्चित करने वाला भाईचारा।</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. FUNDAMENTAL RIGHTS & SUB-SECTIONS -->
+        <div class="content-box" id="sec-rights">
+          <h3 class="box-title"><i class="fa-solid fa-shield-halved"></i> 5. मौलिक अधिकार (अनुच्छेद 12–35)</h3>
+          <p>भाग III में गारंटीकृत, मौलिक अधिकार अदालत द्वारा लागू कराने योग्य नागरिक स्वतंत्रताएं हैं। ये कार्यपालिका और विधायिका की शक्तियों पर अंकुश लगाते हैं।</p>
+
+          <div class="badge-grid">
+            <div class="badge-card"><strong>समता का अधिकार</strong><span>अनुच्छेद 14 – 18</span></div>
+            <div class="badge-card"><strong>स्वतंत्रता का अधिकार</strong><span>अनुच्छेद 19 – 22</span></div>
+            <div class="badge-card"><strong>शोषण के विरुद्ध</strong><span>अनुच्छेद 23 – 24</span></div>
+            <div class="badge-card"><strong>धार्मिक स्वतंत्रता</strong><span>अनुच्छेद 25 – 28</span></div>
+            <div class="badge-card"><strong>संस्कृति व शिक्षा</strong><span>अनुच्छेद 29 – 30</span></div>
+            <div class="badge-card"><strong>संवैधानिक उपचार</strong><span>अनुच्छेद 32</span></div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>मौलिक अधिकारों की श्रेणियों का विवरण</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p><strong>1. समता का अधिकार (अनुच्छेद 14–18):</strong> अनुच्छेद 14 (कानून के समक्ष समानता), अनुच्छेद 15 (भेदभाव पर रोक), अनुच्छेद 16 (सरकारी नौकरियों में अवसर की समानता), अनुच्छेद 17 (अस्पृश्यता का अंत), अनुच्छेद 18 (उपाधियों का अंत)।</p>
+                <p><strong>2. स्वतंत्रता का अधिकार (अनुच्छेद 19–22):</strong> अनुच्छेद 19 (6 स्वतंत्रताएं: भाषण, सभा, संगठन, आवागमन, निवास, व्यापार), अनुच्छेद 20 (अपराधों की दोषसिद्धि के संबंध में संरक्षण), अनुच्छेद 21 (प्राण और दैहिक स्वतंत्रता), अनुच्छेद 21A (शिक्षा का अधिकार), अनुच्छेद 22 (गिरफ्तारी और निरोध से संरक्षण)।</p>
+                <p><strong>3. शोषण के विरुद्ध अधिकार (अनुच्छेद 23–24):</strong> अनुच्छेद 23 (मानव दुर्व्यापार और बलात्श्रम पर रोक), अनुच्छेद 24 (जोखिम वाले कामों में बाल श्रम पर रोक)।</p>
+                <p><strong>4. धार्मिक स्वतंत्रता का अधिकार (अनुच्छेद 25–28):</strong> अनुच्छेद 25 (धर्म को मानने और प्रचार की स्वतंत्रता), अनुच्छेद 26 (धार्मिक मामलों के प्रबंध की स्वतंत्रता), अनुच्छेद 27 (धार्मिक प्रचार के लिए कर से छूट), अनुच्छेद 28 (सरकारी संस्थाओं में धार्मिक शिक्षा पर रोक)।</p>
+                <p><strong>5. संस्कृति और शिक्षा संबंधी अधिकार (अनुच्छेद 29–30):</strong> अनुच्छेद 29 (अल्पसंख्यकों की भाषा, लिपि व संस्कृति का संरक्षण), अनुच्छेद 30 (अल्पसंख्यकों को शैक्षणिक संस्थान स्थापित करने का अधिकार)।</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>5 संवैधानिक रिट (अनुच्छेद 32 और 226)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <ul class="info-list">
+                  <li><strong>बंदी प्रत्यक्षीकरण (Habeas Corpus - "शरीर को प्रस्तुत किया जाए"):</strong> गैर-कानूनी हिरासत से बचाता है; व्यक्ति को अदालत में पेश करने का आदेश देता है।</li>
+                  <li><strong>परमादेश (Mandamus - "हम आदेश देते हैं"):</strong> किसी सार्वजनिक अधिकारी या संस्था को उसके कर्तव्य का पालन करने का निर्देश देता है।</li>
+                  <li><strong>प्रतिषेध (Prohibition):</strong> ऊपरी अदालत द्वारा निचली अदालत को अपने अधिकार क्षेत्र से बाहर जाने से रोकने के लिए जारी किया जाता है।</li>
+                  <li><strong>उत्प्रेषण (Certiorari - "पूर्णतः सूचित होना"):</strong> निचली अदालत या न्यायाधिकरण द्वारा पारित अवैध आदेश को रद्द करता है।</li>
+                  <li><strong>अधिकार-पृच्छा (Quo-Warranto - "किस अधिकार से?"):</strong> यह जांच करता है कि कोई व्यक्ति किस अधिकार से किसी सार्वजनिक पद को धारण किए हुए है।</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. DPSP & FUNDAMENTAL DUTIES -->
+        <div class="content-box" id="sec-dpsp-duties">
+          <h3 class="box-title"><i class="fa-solid fa-compass"></i> 6. नीति निदेशक तत्व और मौलिक कर्तव्य</h3>
+          <p><strong>राज्य के नीति निदेशक तत्व (भाग IV, अनुच्छेद 36–51):</strong> आयरलैंड से लिए गए हैं; एक कल्याणकारी राज्य स्थापित करने के लिए सामाजिक और आर्थिक दिशा-निर्देश। ये अदालत द्वारा लागू नहीं कराए जा सकते।</p>
+          <ul class="info-list">
+            <li><strong>समाजवादी सिद्धांत:</strong> अनुच्छेद 38 (लोक कल्याण को बढ़ावा), अनुच्छेद 39 (समान काम के लिए समान वेतन), अनुच्छेद 41 (काम का अधिकार), अनुच्छेद 43 (निर्वाह मजदूरी)।</li>
+            <li><strong>गांधीवादी सिद्धांत:</strong> अनुच्छेद 40 (ग्राम पंचायतों का संगठन), अनुच्छेद 47 (नशीले पदार्थों पर रोक), अनुच्छेद 48 (गोवध पर रोक)।</li>
+            <li><strong>उदारवादी-बौद्धिक सिद्धांत:</strong> अनुच्छेद 44 (समान नागरिक संहिता - UCC), अनुच्छेद 45 (बाल्यावस्था की देखरेख), अनुच्छेद 50 (कार्यपालिका से न्यायपालिका का पृथक्करण), अनुच्छेद 51 (अंतर्राष्ट्रीय शांति)।</li>
+          </ul>
+
+          <div class="sub-heading">मौलिक कर्तव्य (भाग IV-A, अनुच्छेद 51A)</div>
+          <p>स्वर्ण सिंह समिति की सिफारिश पर <strong>42वें संशोधन (1976)</strong> द्वारा जोड़े गए। मूल रूप से 10 कर्तव्य थे; 11वां कर्तव्य <strong>86वें संशोधन (2002)</strong> द्वारा जोड़ा गया।</p>
+          <p><em>मुख्य कर्तव्य:</em> संविधान, राष्ट्रध्वज और राष्ट्रगान का सम्मान करना, स्वतंत्रता संग्राम के आदर्शों को संजोना, भारत की संप्रभुता व अखंडता की रक्षा करना, देश की रक्षा करना, भाईचारा बढ़ाना, संस्कृति का संरक्षण करना, पर्यावरण की रक्षा करना, वैज्ञानिक दृष्टिकोण विकसित करना, सार्वजनिक संपत्ति की सुरक्षा करना, उत्कर्ष की ओर बढ़ना, और 6–14 वर्ष के बच्चों को शिक्षा के अवसर देना।</p>
+        </div>
+
+        <!-- 7. CITIZENSHIP -->
+        <div class="content-box" id="sec-citizenship">
+          <h3 class="box-title"><i class="fa-solid fa-id-card"></i> 7. नागरिकता (अनुच्छेद 5–11)</h3>
+          <p>संविधान का भाग II 26 जनवरी 1950 को संविधान के प्रारंभ के समय नागरिकता से संबंधित है। पूरे भारत में एकल नागरिकता (Single Citizenship) का प्रावधान है।</p>
+          <ul class="info-list">
+            <li><strong>अनुच्छेद 5:</strong> भारत में अधिवास ( domicile) द्वारा नागरिकता।</li>
+            <li><strong>अनुच्छेद 6 और 7:</strong> पाकिस्तान से आने और पाकिस्तान जाने वाले व्यक्तियों के नागरिकता अधिकार।</li>
+            <li><strong>अनुच्छेद 8:</strong> भारत के बाहर रहने वाले भारतीय मूल के व्यक्तियों के नागरिकता अधिकार।</li>
+            <li><strong>अनुच्छेद 9:</strong> स्वेच्छा से विदेशी नागरिकता प्राप्त करने पर भारतीय नागरिकता समाप्त हो जाती है।</li>
+            <li><strong>अनुच्छेद 11:</strong> संसद को नागरिकता पर कानून बनाने की पूर्ण शक्ति है (नागरिकता अधिनियम, 1955)।</li>
+          </ul>
+        </div>
+
+        <!-- 8. UNION EXECUTIVE -->
+        <div class="content-box" id="sec-executive">
+          <h3 class="box-title"><i class="fa-solid fa-user-tie"></i> 8. संघीय कार्यपालिका</h3>
+          <p>भाग V (अनुच्छेद 52–78) में राष्ट्रपति, उपराष्ट्रपति, प्रधानमंत्री, मंत्रिपरिषद और महान्यायवादी (Attorney General) से मिलकर बनी संघीय कार्यपालिका शामिल है।</p>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>भारत के राष्ट्रपति (अनुच्छेद 52–62)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>संवैधानिक प्रमुख और रक्षा बलों के सर्वोच्च कमांडर।</p>
+                <ul class="info-list">
+                  <li><strong>निर्वाचन (अनुच्छेद 54 व 55):</strong> लोकसभा, राज्यसभा और राज्य विधानसभाओं (दिल्ली और पुडुचेरी सहित) के निर्वाचित सदस्यों के निर्वाचक मंडल द्वारा एकल संक्रमणीय मत प्रणाली से चुनाव।</li>
+                  <li><strong>शक्तियां:</strong> कार्यपालिका, विधायी (अध्यादेश - अनुच्छेद 123), न्यायिक (क्षमादान शक्ति - अनुच्छेद 72), आपातकालीन शक्तियां (अनुच्छेद 352, 356, 360)।</li>
+                  <li><strong>महाभियोग (अनुच्छेद 61):</strong> "संविधान के अतिक्रमण" के आधार पर संसद द्वारा महाभियोग चलाया जा सकता है।</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>प्रधानमंत्री और मंत्रिपरिषद (अनुच्छेद 74–75)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p><strong>प्रधानमंत्री:</strong> वास्तविक कार्यपालिका प्रमुख (सरकार के प्रमुख)। नियुक्ति राष्ट्रपति द्वारा की जाती है।</p>
+                <p><strong>मंत्रिपरिषद:</strong> अनुच्छेद 75 बताता है कि मंत्रिपरिषद सामूहिक रूप से लोकसभा के प्रति उत्तरदायी होती है। मंत्रियों की कुल संख्या लोकसभा की कुल संख्या के 15% से अधिक नहीं हो सकती (91वां संशोधन)।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. PARLIAMENT & LAW-MAKING -->
+        <div class="content-box" id="sec-parliament">
+          <h3 class="box-title"><i class="fa-solid fa-building-columns"></i> 9. भारत की संसद और कानून निर्माण</h3>
+          <p>संघीय संसद राष्ट्रपति और दो सदनों से मिलकर बनती है: लोकसभा (जनता का सदन) और राज्यसभा (राज्यों की परिषद)।</p>
+
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>विशेषता</th>
+                  <th>लोकसभा (निचला सदन)</th>
+                  <th>राज्यसभा (ऊपरी सदन)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>प्रकृति</td><td>अस्थायी (हर 5 साल में भंग होती है)</td><td>स्थायी सदन (1/3 सदस्य हर 2 साल में सेवानिवृत्त होते हैं)</td></tr>
+                <tr><td>अधिकतम संख्या</td><td>550 सदस्य</td><td>250 सदस्य (12 राष्ट्रपति द्वारा नामांकित)</td></tr>
+                <tr><td>पीठासीन अधिकारी</td><td>अध्यक्ष / स्पीकर (सदस्यों द्वारा चुना हुआ)</td><td>उपराष्ट्रपति (पदेन सभापति)</td></tr>
+                <tr><td>वित्तीय शक्ति</td><td>धन विधेयक पर अनन्य शक्ति</td><td>धन विधेयक को केवल 14 दिन रोक सकती है</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sub-heading">विधेयकों के प्रकार और कानून बनाने की प्रक्रिया</div>
+          <ul class="info-list">
+            <li><strong>साधारण विधेयक:</strong> किसी भी सदन में पेश किया जा सकता है; गतिरोध होने पर संयुक्त बैठक (अनुच्छेद 108) बुलाई जा सकती है।</li>
+            <li><strong>धन विधेयक (अनुच्छेद 110):</strong> केवल राष्ट्रपति की सिफारिश पर लोकसभा में पेश होता है; स्पीकर द्वारा प्रमाणित।</li>
+            <li><strong>वित्त विधेयक:</strong> इसमें सामान्य विधान के साथ-साथ वित्तीय प्रावधान शामिल होते हैं।</li>
+            <li><strong>संविधान संशोधन विधेयक (अनुच्छेद 368):</strong> विशेष बहुमत की आवश्यकता होती है; संयुक्त बैठक का प्रावधान नहीं है।</li>
+          </ul>
+        </div>
+
+        <!-- 10. STATE GOVERNMENT -->
+        <div class="content-box" id="sec-state-govt">
+          <h3 class="box-title"><i class="fa-solid fa-city"></i> 10. राज्य सरकार</h3>
+          <p>भाग VI (अनुच्छेद 152–237) राज्य प्रशासनिक ढांचे का निर्धारण करता है।</p>
+          <ul class="info-list">
+            <li><strong>राज्यपाल (अनुच्छेद 153–161):</strong> राज्य के कार्यपालिका प्रमुख, जिनकी नियुक्ति राष्ट्रपति करता है। राष्ट्रपति के प्रसादपर्यंत पद धारण करते हैं। क्षमादान शक्ति (अनुच्छेद 161) और अध्यादेश शक्ति (अनुच्छेद 213) प्राप्त है।</li>
+            <li><strong>मुख्यमंत्री और मंत्रिमंडल:</strong> राज्य स्तर पर वास्तविक कार्यपालिका प्रमुख; राज्य विधानसभा के प्रति उत्तरदायी।</li>
+            <li><strong>राज्य विधानमंडल:</strong> 6 राज्यों (आंध्र प्रदेश, तेलंगाना, उत्तर प्रदेश, बिहार, महाराष्ट्र, कर्नाटक) में द्विसदनीय है, जहां विधानसभा और विधान परिषद दोनों हैं।</li>
+          </ul>
+        </div>
+
+        <!-- 11. JUDICIARY -->
+        <div class="content-box" id="sec-judiciary">
+          <h3 class="box-title"><i class="fa-solid fa-gavel"></i> 11. न्यायपालिका</h3>
+          <p>भारत में एक एकीकृत और एकल न्यायिक व्यवस्था है: सुप्रीम कोर्ट &rarr; हाई कोर्ट &rarr; अधीनस्थ न्यायालय।</p>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>भारत का उच्चतम न्यायालय / सुप्रीम कोर्ट (अनुच्छेद 124–147)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>देश का सर्वोच्च न्यायालय और अपील का अंतिम स्थान। संविधान का संरक्षक।</p>
+                <ul class="info-list">
+                  <li><strong>आरंभिक अधिकारिता (अनुच्छेद 131):</strong> अंतर-सरकारी विवाद (केंद्र बनाम राज्य, राज्य बनाम राज्य)।</li>
+                  <li><strong>रिट अधिकारिता (अनुच्छेद 32):</strong> मौलिक अधिकारों को लागू कराना।</li>
+                  <li><strong>अपीली अधिकारिता (अनुच्छेद 132–134):</strong> दीवानी, आपराधिक और संवैधानिक मामलों में अपील।</li>
+                  <li><strong>सलाहकारी अधिकारिता (अनुच्छेद 143):</strong> राष्ट्रपति कानून या तथ्य के प्रश्नों पर SC से राय ले सकता है।</li>
+                  <li><strong>अभिलेख न्यायालय (अनुच्छेद 129):</strong> अपनी अवमानना के लिए दंड देने की शक्ति।</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>उच्च न्यायालय / हाई कोर्ट (अनुच्छेद 214–237)</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>हाई कोर्ट राज्य स्तर पर सर्वोच्च अदालतें हैं। अनुच्छेद 226 हाई कोर्ट को सुप्रीम कोर्ट (अनुच्छेद 32) से भी व्यापक रिट अधिकारिता देता है (यह मौलिक अधिकारों के साथ-साथ अन्य कानूनी अधिकारों के लिए भी रिट जारी कर सकता है)।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. CENTRE-STATE RELATIONS & 7TH SCHEDULE -->
+        <div class="content-box" id="sec-relations-lists">
+          <h3 class="box-title"><i class="fa-solid fa-diagram-project"></i> 12. केंद्र-राज्य संबंध और 7वीं अनुसूची</h3>
+          <p>भाग XI और XII केंद्र और राज्यों के बीच विधायी, प्रशासनिक और वित्तीय शक्तियों का विभाजन करते हैं।</p>
+          
+          <div class="sub-heading">3 विधायी सूचियां (सातवीं अनुसूची)</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>सूची का नाम</th>
+                  <th>विषयों की संख्या</th>
+                  <th>प्रमुख उदाहरण</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>संघ सूची (Union List)</td><td>100 विषय</td><td>रक्षा, विदेश मामले, बैंकिंग, रेलवे, परमाणु ऊर्जा, मुद्रा।</td></tr>
+                <tr><td>राज्य सूची (State List)</td><td>61 विषय</td><td>लोक व्यवस्था, पुलिस, जन स्वास्थ्य, कृषि, स्थानीय शासन, जेल।</td></tr>
+                <tr><td>समवर्ती सूची (Concurrent List)</td><td>52 विषय</td><td>शिक्षा, वन, आपराधिक कानून, विवाह, ट्रेड यूनियन, बिजली।</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><em>अवशिष्ट शक्तियां (अनुच्छेद 248):</em> किसी भी सूची में शामिल न किए गए विषयों पर कानून बनाने की शक्ति केवल केंद्रीय संसद के पास है।</p>
+        </div>
+
+        <!-- 13. LOCAL GOVERNMENT -->
+        <div class="content-box" id="sec-local-govt">
+          <h3 class="box-title"><i class="fa-solid fa-people-roof"></i> 13. स्थानीय स्वशासन (पंचायतें और नगरपालिकायें)</h3>
+          <p>1992 के ऐतिहासिक संशोधनों द्वारा लोकतंत्र का विकेंद्रीकरण कर ज़मीनी स्तर तक पहुंचाया गया।</p>
+          <ul class="info-list">
+            <li><strong>73वां संशोधन अधिनियम (1992):</strong> पंचायती राज के लिए भाग IX और 11वीं अनुसूची (29 विषय) जोड़ी गई। त्रिस्तरीय प्रणाली: ग्राम पंचायत (गांव), पंचायत समिति (ब्लॉक), जिला परिषद (जिला)।</li>
+            <li><strong>74वां संशोधन अधिनियम (1992):</strong> शहरी स्थानीय निकायों के लिए भाग IX-A और 12वीं अनुसूची (18 विषय) जोड़ी गई (नगर पंचायत, नगरपालिका परिषद, नगर निगम)।</li>
+          </ul>
+        </div>
+
+        <!-- 14. CONSTITUTIONAL BODIES -->
+        <div class="content-box" id="sec-bodies">
+          <h3 class="box-title"><i class="fa-solid fa-building-user"></i> 14. संवैधानिक बनाम वैधानिक निकाय</h3>
+          <p>संवैधानिक निकाय अपनी शक्तियां सीधे संविधान के अनुच्छेदों से प्राप्त करते हैं, जबकि वैधानिक निकाय संसद के अधिनियमों द्वारा बनाए जाते हैं।</p>
+
+          <div class="badge-grid">
+            <div class="badge-card"><strong>निर्वाचन आयोग (ECI)</strong><span>अनुच्छेद 324</span></div>
+            <div class="badge-card"><strong>CAG (कैग)</strong><span>अनुच्छेद 148</span></div>
+            <div class="badge-card"><strong>वित्त आयोग</strong><span>अनुच्छेद 280</span></div>
+            <div class="badge-card"><strong>UPSC व SPSC</strong><span>अनुच्छेद 315</span></div>
+            <div class="badge-card"><strong>महान्यायवादी</strong><span>अनुच्छेद 76</span></div>
+            <div class="badge-card"><strong>महाधिवक्ता</strong><span>अनुच्छेद 165</span></div>
+          </div>
+        </div>
+
+        <!-- 15. EMERGENCY PROVISIONS -->
+        <div class="content-box" id="sec-emergency">
+          <h3 class="box-title"><i class="fa-solid fa-triangle-exclamation"></i> 15. आपातकालीन प्रावधान (अनुच्छेद 352–360)</h3>
+          <p>भाग XVIII केंद्र को असाधारण परिस्थितियों से निपटने और संप्रभुता की रक्षा करने में सक्षम बनाता है।</p>
+
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>प्रकार</th>
+                  <th>अनुच्छेद</th>
+                  <th>आधार</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>राष्ट्रीय आपातकाल</td><td>अनुच्छेद 352</td><td>युद्ध, बाह्य आक्रमण या सशस्त्र विद्रोह (44वें संशोधन द्वारा आंतरिक अशान्ति के स्थान पर बदला गया)।</td></tr>
+                <tr><td>राष्ट्रपति शासन</td><td>अनुच्छेद 356</td><td>राज्य में संवैधानिक तंत्र की विफलता।</td></tr>
+                <tr><td>वित्तीय आपातकाल</td><td>अनुच्छेद 360</td><td>भारत की वित्तीय स्थिरता या साख को खतरा (अब तक कभी लागू नहीं हुआ)।</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 16. AMENDMENTS & MAJOR AMENDMENTS -->
+        <div class="content-box" id="sec-amendments">
+          <h3 class="box-title"><i class="fa-solid fa-pen-to-square"></i> 16. संवैधानिक संशोधन (अनुच्छेद 368)</h3>
+          <p>भाग XX में अनुच्छेद 368 साधारण बहुमत, विशेष बहुमत, या आधे राज्यों के अनुमोदन के साथ विशेष बहुमत द्वारा संशोधन की प्रक्रिया निर्धारित करता है।</p>
+
+          <div class="sub-heading">महत्वपूर्ण संशोधनों का संदर्भ</div>
+          <ul class="info-list">
+            <li><strong>पहला संशोधन (1951):</strong> भूमि सुधार कानूनों को न्यायिक समीक्षा से बचाने के लिए 9वीं अनुसूची जोड़ी गई।</li>
+            <li><strong>42वां संशोधन (1976) - "मिनी संविधान":</strong> प्रस्तावना में समाजवादी, पंथनिरपेक्ष, अखंडता शब्द जोड़े गए; मौलिक कर्तव्य जोड़े गए; संघीय संतुलन बदला गया।</li>
+            <li><strong>44वां संशोधन (1978):</strong> 42वें संशोधन की अति को सुधारा गया; 'आंतरिक अशांति' को 'सशस्त्र विद्रोह' से बदला गया; संपत्ति के अधिकार को कानूनी अधिकार (अनुच्छेद 300A) बनाया गया।</li>
+            <li><strong>52वां संशोधन (1985):</strong> 10वीं अनुसूची (दल-बदल विरोधी कानून) जोड़ी गई।</li>
+            <li><strong>61वां संशोधन (1989):</strong> मतदान की आयु 21 वर्ष से घटाकर 18 वर्ष की गई (अनुच्छेद 326)।</li>
+            <li><strong>73वां और 74वां संशोधन (1992):</strong> पंचायतों और नगरपालिकाओं को संवैधानिक दर्जा दिया गया।</li>
+            <li><strong>86वां संशोधन (2002):</strong> शिक्षा का अधिकार मौलिक अधिकार बनाया गया (अनुच्छेद 21A)।</li>
+            <li><strong>101वां संशोधन (2016):</strong> वस्तु एवं सेवा कर (GST) लागू किया गया।</li>
+            <li><strong>103वां संशोधन (2019):</strong> नौकरियों और शिक्षा में EWS को 10% आरक्षण।</li>
+            <li><strong>106वां संशोधन (2023):</strong> नारी शक्ति वंदन अधिनियम - लोकसभा और राज्य विधानसभाओं में महिलाओं के लिए 33% आरक्षण।</li>
+          </ul>
+        </div>
+
+        <!-- 17. PARTS & SCHEDULES OF THE CONSTITUTION -->
+        <div class="content-box" id="sec-parts-schedules">
+          <h3 class="box-title"><i class="fa-solid fa-book-open"></i> 17. संविधान के भाग और 12 अनुसूचियां</h3>
+          
+          <div class="sub-heading">सभी 12 अनुसूचियां एक नज़र में</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>अनुसूची</th>
+                  <th>विषय-वस्तु</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1ली अनुसूची</td><td>राज्यों और केंद्र शासित प्रदेशों के नाम और उनका प्रादेशिक विस्तार।</td></tr>
+                <tr><td>2री अनुसूची</td><td>राष्ट्रपति, राज्यपालों, न्यायाधीशों आदि के वेतन, भत्ते और विशेषाधिकार।</td></tr>
+                <tr><td>3री अनुसूची</td><td>संवैधानिक पदों के लिए शपथ और प्रतिज्ञान के प्रारूप।</td></tr>
+                <tr><td>4थी अनुसूची</td><td>राज्यों और केंद्र शासित प्रदेशों को राज्यसभा में सीटों का आवंटन।</td></tr>
+                <tr><td>5वीं अनुसूची</td><td>अनुसूचित क्षेत्रों और अनुसूचित जनजातियों का प्रशासन और नियंत्रण।</td></tr>
+                <tr><td>6ठी अनुसूची</td><td>असम, मेघालय, त्रिपुरा और मिजोरम (AMTM) के जनजातीय क्षेत्रों का प्रशासन।</td></tr>
+                <tr><td>7वीं अनुसूची</td><td>संघ, राज्य और समवर्ती सूचियों में शक्तियों का विभाजन।</td></tr>
+                <tr><td>8वीं अनुसूची</td><td>22 आधिकारिक रूप से मान्यता प्राप्त भाषाएं।</td></tr>
+                <tr><td>9वीं अनुसूची</td><td>न्यायिक समीक्षा से सुरक्षित अधिनियम और नियम (भूमि सुधार)।</td></tr>
+                <tr><td>10वीं अनुसूची</td><td>दल-बदल के आधार पर अयोग्यता (दल-बदल विरोधी कानून)।</td></tr>
+                <tr><td>11वीं अनुसूची</td><td>पंचायती राज के अधीन 29 विषय।</td></tr>
+                <tr><td>12वीं अनुसूची</td><td>नगरपालिकाओं के अधीन 18 विषय।</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 18. LANDMARK SC JUDGMENTS -->
+        <div class="content-box" id="sec-judgments">
+          <h3 class="box-title"><i class="fa-solid fa-scale-unbalanced-flip"></i> 18. सुप्रीम कोर्ट के ऐतिहासिक फैसले</h3>
+          <ul class="info-list">
+            <li><strong>केशवानंद भारती बनाम केरल राज्य (1973):</strong> ऐतिहासिक 13 न्यायाधीशों की पीठ ने फैसला दिया कि संसद अनुच्छेद 368 के तहत किसी भी भाग में संशोधन कर सकती है लेकिन इसके <em>"मूल ढांचे" (Basic Structure)</em> को नहीं बदल सकती।</li>
+            <li><strong>मेनका गांधी बनाम भारत संघ (1978):</strong> अनुच्छेद 21 का विस्तार किया; कानून द्वारा स्थापित प्रक्रिया 'न्यायसंगत, उचित और तर्कसंगत' होनी चाहिए।</li>
+            <li><strong>मिनर्वा मिल्स बनाम भारत संघ (1980):</strong> पुनः पुष्टि की कि न्यायिक समीक्षा और मौलिक अधिकारों व नीति निर्देशक तत्वों में संतुलन मूल ढांचा है।</li>
+            <li><strong>एस. आर. बोम्मई बनाम भारत संघ (1994):</strong> अनुच्छेद 356 (राष्ट्रपति शासन) के मनमाने दुरुपयोग पर रोक लगाई; धर्मनिरपेक्षता को मूल ढांचा माना।</li>
+            <li><strong>जस्टिस के. एस. पुट्टस्वामी बनाम भारत संघ (2017):</strong> सर्वसम्मति से निजता के अधिकार (Right to Privacy) को अनुच्छेद 21 के तहत मौलिक अधिकार घोषित किया।</li>
+          </ul>
+        </div>
+
+        <!-- 19. ELECTIONS & VOTING -->
+        <div class="content-box" id="sec-elections">
+          <h3 class="box-title"><i class="fa-solid fa-check-to-slot"></i> 19. चुनाव और चुनावी प्रक्रिया</h3>
+          <p><strong>वयस्क मताधिकार (अनुच्छेद 326):</strong> भारत के प्रत्येक नागरिक को जो 18 वर्ष से कम आयु का नहीं है, बिना किसी भेदभाव के वोट देने का अधिकार है।</p>
+          <p><strong>दल-बदल विरोधी कानून (10वीं अनुसूची):</strong> संसदीय मतविभाजन के दौरान पार्टी व्हिप के खिलाफ वोट देने या स्वेच्छा से पार्टी छोड़ने पर विधायकों/सांसदों को अयोग्य घोषित करता है।</p>
+        </div>
+
+        <!-- 20. GENERAL CONSTITUTION KNOWLEDGE -->
+        <div class="content-box" id="sec-general-gk">
+          <h3 class="box-title"><i class="fa-solid fa-lightbulb"></i> 20. संविधान का सामान्य ज्ञान</h3>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>संविधान का मसौदा किसने तैयार किया?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>भारत की संविधान सभा ने इसे बनाया, जबकि डॉ. बी. आर. अम्बेडकर की अध्यक्षता वाली 7 सदस्यीय प्रारूप समिति ने इसका कानूनी पाठ तैयार किया।</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>26 जनवरी को ही गणतंत्र दिवस के रूप में क्यों चुना गया?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>26 जनवरी 1930 को भारतीय राष्ट्रीय कांग्रेस द्वारा लाहौर अधिवेशन में घोषित किए गए <em>पूर्ण स्वराज</em> दिवस की याद में इसे चुना गया।</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>यदि कोई कानून संविधान का उल्लंघन करे तो क्या होता है?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>अनुच्छेद 13 के तहत, न्यायपालिका (सुप्रीम कोर्ट / हाई कोर्ट) मौलिक अधिकारों से असंगत किसी भी कानून को असंवैधानिक और अमान्य घोषित कर सकती है।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 21. GLOSSARY & COMPARISON TABLES -->
+        <div class="content-box" id="sec-glossary-terms">
+          <h3 class="box-title"><i class="fa-solid fa-spell-check"></i> 21. शब्दावली और तुलनात्मक तालिकाएं</h3>
+          
+          <div class="sub-heading">संवैधानिक शब्दों का स्पष्ट अंतर</div>
+          <div class="custom-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>अवधारणा A</th>
+                  <th>अवधारणा B</th>
+                  <th>मुख्य अंतर</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>मौलिक अधिकार</td><td>नीति निर्देशक तत्व</td><td>मौलिक अधिकार अदालत में लागू कराए जा सकते हैं; नीति निर्देशक तत्व केवल नीतिगत लक्ष्य हैं।</td></tr>
+                <tr><td>विधेयक (Bill)</td><td>अधिनियम (Act)</td><td>विधेयक एक प्रस्तावित मसौदा है; संसद से पारित होने और राष्ट्रपति की स्वीकृति के बाद यह अधिनियम (कानून) बनता है।</td></tr>
+                <tr><td>अनुच्छेद 32</td><td>अनुच्छेद 226</td><td>अनुच्छेद 32 (SC) केवल मौलिक अधिकारों के लिए है; अनुच्छेद 226 (HC) मौलिक और कानूनी दोनों अधिकारों के लिए है।</td></tr>
+                <tr><td>संवैधानिक निकाय</td><td>वैधानिक निकाय</td><td>संवैधानिक निकाय का उल्लेख संविधान के मूल पाठ में है; वैधानिक निकाय संसद के कानून द्वारा बनाया जाता है।</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FAQ Box -->
+        <div class="faq-card">
+          <h3><i class="fa-regular fa-comments" style="color:#d4af37;"></i> अक्सर पूछे जाने वाले प्रश्न (FAQ)</h3>
+          
+          <div class="faq-item-interactive">
+            <div class="faq-question">संविधान की प्रस्तावना क्या है? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">प्रस्तावना संविधान का शुरुआती कथन है जो इसके मुख्य उद्देश्यों (न्याय, स्वतंत्रता, समानता, बंधुता) को रेखांकित करता है।</div>
+          </div>
+
+          <div class="faq-item-interactive">
+            <div class="faq-question">मौलिक अधिकार कितने हैं? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">भाग III (अनुच्छेद 12-35) में 6 मौलिक अधिकार शामिल हैं।</div>
+          </div>
+
+          <div class="faq-item-interactive">
+            <div class="faq-question">संविधान में संशोधन कैसे किया जा सकता है? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">अनुच्छेद 368 के तहत साधारण बहुमत, विशेष बहुमत या आधे राज्यों के अनुमोदन द्वारा।</div>
+          </div>
+
+          <div class="faq-item-interactive">
+            <div class="faq-question">मूल संरचना का सिद्धांत (Basic Structure) क्या है? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-answer">केशवानंद भारती केस (1973) में स्थापित सिद्धांत, जो तय करता है कि संसद धर्मनिरपेक्षता, संघवाद व न्यायिक समीक्षा जैसे मूल सिद्धांतों को नहीं बदल सकती।</div>
+          </div>
+
+          <a href="javascript:void(0)" onclick="toggleAllFaqs()" style="font-size: 11px; color:var(--sv-text-link, #1e3a8a); font-weight: 600; display: inline-block; margin-top: 10px;">सभी प्रश्न देखें &rarr;</a>
+        </div>
+
+      </div>
+
+      <!-- 3. RIGHT SIDEBAR -->
+      <div class="right-sidebar">
+        
+        <!-- Important Dates Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title"><i class="fa-regular fa-calendar" style="color:#d4af37;"></i> महत्वपूर्ण तिथियां</div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">09<br>दिसंबर<br>1946</div>
+            <div class="timeline-text">संविधान सभा की पहली बैठक</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">26<br>नवंबर<br>1949</div>
+            <div class="timeline-text">संविधान अपनाया गया</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">24<br>जनवरी<br>1950</div>
+            <div class="timeline-text">सदस्यों ने हस्ताक्षर किए</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">26<br>जनवरी<br>1950</div>
+            <div class="timeline-text">संविधान लागू हुआ</div>
+          </div>
+
+          <a href="javascript:void(0)" onclick="scrollToSection('sec-basics')" style="font-size: 10.5px; color: var(--sv-text-link, #1e3a8a); font-weight: 600; text-align: center; display: block; margin-top: 8px;">सभी तिथियां देखें &rarr;</a>
+        </div>
+
+        <!-- Did You Know Box -->
+        <div class="did-you-know-box">
+          <div style="font-size: 10.5px; font-weight: 700; color: #d4af37; display: flex; align-items: center; gap: 6px;">
+            <i class="fa-regular fa-lightbulb"></i> क्या आप जानते हैं?
+          </div>
+          <p id="factBoxText">भारत का संविधान दुनिया के किसी भी संप्रभु देश का सबसे लंबा लिखित संविधान है।</p>
+          <button onclick="rotateFact()" style="background:none; border:none; color:#d4af37; font-size:9.5px; margin-top:6px; cursor:pointer; font-weight:600;"><i class="fa-solid fa-rotate"></i> अगला तथ्य</button>
+        </div>
+
+        <!-- Recommended Reads Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title"><i class="fa-regular fa-bookmark" style="color:#d4af37;"></i> अनुशंसित पाठ</div>
+          
+          <div class="read-item" onclick="scrollToSection('sec-preamble')">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=100&q=80" alt="Book">
+            <div class="read-item-info">
+              <h5>प्रस्तावना का अवलोकन</h5>
+              <p>2 मिनट पढ़ें</p>
+            </div>
+          </div>
+
+          <div class="read-item" onclick="scrollToSection('sec-judgments')">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=100&q=80" alt="Book">
+            <div class="read-item-info">
+              <h5>मूल संरचना का सिद्धांत</h5>
+              <p>6 मिनट पढ़ें</p>
+            </div>
+          </div>
+
+          <div class="read-item" onclick="scrollToSection('sec-rights')">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=100&q=80" alt="Book">
+            <div class="read-item-info">
+              <h5>5 रिटों की व्याख्या</h5>
+              <p>4 मिनट पढ़ें</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Newsletter Card -->
+        <div class="newsletter-card">
+          <h3><i class="fa-regular fa-envelope" style="color:#d4af37;"></i> दैनिक ज्ञान संदेश</h3>
+          <p>संविधान से जुड़े अपडेट रोज़ अपने ईमेल पर पाएं।</p>
+          <input type="email" id="newsletterEmail" placeholder="अपना ईमेल दर्ज करें">
+          <button type="button" onclick="subscribeNewsletter()">सब्सक्राइब करें</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Banner -->
+    <div class="bottom-banner">
+      <i class="fa-solid fa-gavel"></i>
+      <div class="bottom-banner-text">
+        <h3>ज्ञान ही शक्ति है। अपने संविधान को समझें। अपने अधिकारों की रक्षा करें।</h3>
+        <p>सीखते रहें, आगे बढ़ते रहें!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+ <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../pages/articles.html">अनुच्छेद</a></li>
+            <li><a href="../pages/parts.html">भाग</a></li>
+            <li><a href="../pages/schedules.html">अनुसूचियां</a></li>
+            <li><a href="../pages/amendments.html">संशोधन</a></li>
+            <li><a href="../pages/judgments.html">फैसले</a></li>
+            <li><a href="../pages/glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="../pages/quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toastMsg">सफलतापूर्वक सदस्यता ली गई!</div>
+
+  <script>
+    // Accordions Toggle
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const parent = q.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+
+    function toggleAllFaqs() {
+      document.querySelectorAll('.faq-item-interactive').forEach(item => {
+        item.classList.add('active');
+      });
+      showToast("सभी प्रश्न खोल दिए गए हैं!");
+    }
+
+    // Scroll Helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if(el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Search Database containing expanded sections
+    const searchDatabase = [
+      { title: "अनुच्छेद 21: जीवन और स्वतंत्रता का संरक्षण", section: "sec-rights", desc: "जीवन, व्यक्तिगत स्वतंत्रता और निजता की गारंटी देने वाला मौलिक अधिकार।" },
+      { title: "अनुच्छेद 14: समानता का अधिकार", section: "sec-rights", desc: "कानून के समक्ष समानता और समान संरक्षण।" },
+      { title: "अनुच्छेद 32: संवैधानिक उपचार और रिट", section: "sec-rights", desc: "अधिकारों को लागू कराने के लिए संविधान की आत्मा।" },
+      { title: "मौलिक अधिकार (भाग III)", section: "sec-rights", desc: "गारंटीकृत स्वतंत्रताओं का विवरण देने वाले अनुच्छेद 12 से 35।" },
+      { title: "नीति निर्देशक तत्व (DPSP - भाग IV)", section: "sec-dpsp-duties", desc: "कल्याणकारी राज्य के दिशा-निर्देश देने वाले अनुच्छेद 36-51।" },
+      { title: "मौलिक कर्तव्य (अनुच्छेद 51A)", section: "sec-dpsp-duties", desc: "42वें और 86वें संशोधनों द्वारा जोड़े गए 11 मौलिक कर्तव्य।" },
+      { title: "नागरिकता (भाग II, अनुच्छेद 5-11)", section: "sec-citizenship", desc: "भारतीय नागरिकता से संबंधित प्रावधान।" },
+      { title: "भारत के राष्ट्रपति और शक्तियां", section: "sec-executive", desc: "निर्वाचक मंडल, शक्तियां और अनुच्छेद 61 के तहत महाभियोग।" },
+      { title: "प्रधानमंत्री और मंत्रिपरिषद", section: "sec-executive", desc: "सरकार के वास्तविक प्रमुख और मंत्रिमंडल की जिम्मेदारी।" },
+      { title: "संसद: लोकसभा और राज्यसभा", section: "sec-parliament", desc: "संरचना, सत्र और कानून बनाने की प्रक्रिया।" },
+      { title: "धन विधेयक और कानून बनाने की प्रक्रिया", section: "sec-parliament", desc: "अनुच्छेद 110 धन विधेयक और सामान्य विधायी प्रक्रिया।" },
+      { title: "राज्य सरकार और राज्यपाल", section: "sec-state-govt", desc: "राज्यों में कार्यपालिका शक्ति, मुख्यमंत्री और विधानसभा।" },
+      { title: "सुप्रीम कोर्ट और न्यायपालिका", section: "sec-judiciary", desc: "अनुच्छेद 124-147 के तहत क्षेत्राधिकार, न्यायिक समीक्षा और सलाहकारी शक्तियां।" },
+      { title: "सातवीं अनुसूची: 3 विधायी सूचियां", section: "sec-relations-lists", desc: "संघ सूची, राज्य सूची और समवर्ती सूची।" },
+      { title: "पंचायती राज और 73वां संशोधन", section: "sec-local-govt", desc: "स्थानीय स्वशासन, 11वीं अनुसूची और त्रिस्तरीय प्रणाली।" },
+      { title: "संवैधानिक निकाय (ECI, CAG, UPSC)", section: "sec-bodies", desc: "निर्वाचन आयोग (324), कैग (148), वित्त आयोग (280)।" },
+      { title: "आपातकालीन प्रावधान (352, 356, 360)", section: "sec-emergency", desc: "राष्ट्रीय आपातकाल, राष्ट्रपति शासन और वित्तीय आपातकाल।" },
+      { title: "अनुच्छेद 368: संशोधन प्रक्रिया", section: "sec-amendments", desc: "भारतीय संविधान में संशोधन करने की प्रक्रिया।" },
+      { title: "42वां और 44वां संशोधन", section: "sec-amendments", desc: "मिनी-संविधान और नागरिक स्वतंत्रताओं की पुनर्बहाली।" },
+      { title: "संविधान की 12 अनुसूचियां", section: "sec-parts-schedules", desc: "1ली से 12वीं अनुसूची का विस्तृत अवलोकन।" },
+      { title: "केशवानंद भारती केस (1973)", section: "sec-judgments", desc: "मूल संरचना का सिद्धांत स्थापित करने वाला ऐतिहासिक फैसला।" },
+      { title: "पुट्टस्वामी निजता फैसला (2017)", section: "sec-judgments", desc: "अनुच्छेद 21 के तहत निजता का अधिकार मौलिक अधिकार घोषित।" },
+      { title: "वयस्क मताधिकार (अनुच्छेद 326)", section: "sec-elections", desc: "18 वर्ष या उससे अधिक आयु के प्रत्येक नागरिक को वोट का अधिकार।" },
+      { title: "दल-बदल विरोधी कानून (10वीं अनुसूची)", section: "sec-elections", desc: "दल-बदल के आधार पर विधायकों व सांसदों की अयोग्यता।" },
+      { title: "संवैधानिक शब्दों की सामान्य उलझनें", section: "sec-glossary-terms", desc: "विधेयक बनाम अधिनियम, मौलिक अधिकार बनाम DPSP, अनुच्छेद 32 बनाम 226 का अंतर।" }
+    ];
+
+    // Search Logic Implementation
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchResultsPanel = document.getElementById('searchResultsPanel');
+    const searchResultsList = document.getElementById('searchResultsList');
+    const closeSearchBtn = document.getElementById('closeSearchBtn');
+
+    function performSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) return;
+
+      const filtered = searchDatabase.filter(item => 
+        item.title.toLowerCase().includes(query) || 
+        item.desc.toLowerCase().includes(query)
+      );
+
+      searchResultsList.innerHTML = '';
+      if (filtered.length > 0) {
+        filtered.forEach(res => {
+          const div = document.createElement('div');
+          div.className = 'search-result-item';
+          div.innerHTML = `<h4>${res.title}</h4><p>${res.desc}</p>`;
+          div.onclick = () => {
+            searchResultsPanel.classList.remove('active');
+            scrollToSection(res.section);
+          };
+          searchResultsList.appendChild(div);
+        });
+      } else {
+        searchResultsList.innerHTML = `<p style="font-size:11.5px; color:var(--sv-text-muted, #888); padding:8px;">कोई परिणाम नहीं मिला। 'अनुच्छेद 21', 'रिट', 'राष्ट्रपति', 'पंचायत' या 'मूल संरचना' खोज कर देखें।</p>`;
+      }
+      searchResultsPanel.classList.add('active');
+    }
+
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') performSearch();
+    });
+
+    closeSearchBtn.addEventListener('click', () => {
+      searchResultsPanel.classList.remove('active');
+    });
+
+    // Rotating Facts Box
+    const facts = [
+      "भारत के संविधान की मूल प्रति प्रेम बिहारी नारायण रायज़ादा द्वारा हाथ से लिखी गई थी।",
+      "मूल हस्तलिखित संविधान को शांतिनिकेतन के कलाकारों द्वारा सजाया गया था।",
+      "संविधान की मूल प्रतियां संसद भवन के पुस्तकालय में हीलियम से भरे बक्सों में सुरक्षित रखी गई हैं।",
+      "डॉ. अम्बेडकर ने अनुच्छेद 32 को संविधान का 'हृदय और आत्मा' कहा था।",
+      "भारत का संविधान दुनिया के किसी भी संप्रभु देश का सबसे लंबा लिखित संविधान है।"
+    ];
+    let factIdx = 0;
+    function rotateFact() {
+      factIdx = (factIdx + 1) % facts.length;
+      document.getElementById('factBoxText').innerText = facts[factIdx];
+    }
+
+    // Toast Message
+    function showToast(msg) {
+      const toast = document.getElementById('toastMsg');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+    function subscribeNewsletter() {
+      const email = document.getElementById('newsletterEmail').value;
+      if (email && email.includes('@')) {
+        showToast("दैनिक ज्ञान संदेश की सदस्यता सफलतापूर्वक ले ली गई है!");
+        document.getElementById('newsletterEmail').value = '';
+      } else {
+        showToast("कृपया एक सही ईमेल दर्ज करें।");
+      }
+    }
+  </script>
+
+</body>
+</html>

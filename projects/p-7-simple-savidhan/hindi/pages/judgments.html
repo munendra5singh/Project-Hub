@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - भारत के संविधान पर महत्वपूर्ण फैसले</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Shared CSS -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Global Shared JS (Loaded in HEAD to prevent theme flash) -->
+  <script src="../assets/js/common.js"></script>
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container Layout */
+    .main-container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 16px 20px 40px 20px;
+    }
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .sidebar-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Custom Scrollbar for Sidebars */
+    .sidebar-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar Panel: Filters */
+    .sidebar-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .sidebar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-title i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .filter-group {
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2b3649;
+      margin-bottom: 6px;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+    }
+
+    .search-box-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #919eab;
+      font-size: 12px;
+    }
+
+    .search-box-wrapper input {
+      width: 100%;
+      padding: 8px 10px 8px 30px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-box-wrapper input:focus {
+      border-color: #0b1a30;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      background: #ffffff;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #2b3649;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: #0b1a30;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .year-range-flex {
+      display: flex;
+      gap: 8px;
+    }
+
+    .year-range-flex select {
+      flex: 1;
+    }
+
+    .btn-apply-filters {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 6px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-apply-filters:hover {
+      background-color: #162a47;
+    }
+
+    .btn-reset-filters {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset-filters:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Judgments List */
+    .judgments-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .judgments-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .judgments-title-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #637381;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Judgment Card Item */
+    .judgment-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .judgment-card:last-of-type {
+      border-bottom: none;
+    }
+
+    .judgment-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .judgment-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Category Specific Colors */
+    .icon-blue { background-color: #103254; }
+    .icon-green { background-color: #2a7d4f; }
+    .icon-orange { background-color: #e06d20; }
+    .icon-purple { background-color: #6a4498; }
+    .icon-teal { background-color: #12828e; }
+
+    .judgment-info {
+      flex: 1;
+    }
+
+    .judgment-name-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+    }
+
+    .citation-tag {
+      display: inline-block;
+      background-color: #eef4fc;
+      color: #1e3a8a;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+
+    .judgment-desc-text {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    /* Date & Court Badge Box */
+    .date-badge-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .date-badge-box {
+      background-color: #edf3f9;
+      border-radius: 6px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #103254;
+      white-space: nowrap;
+    }
+
+    .date-badge-box i {
+      font-size: 11.5px;
+    }
+
+    .court-label {
+      font-size: 10.5px;
+      color: #637381;
+      font-weight: 500;
+    }
+
+    /* Specific badge color variations */
+    .badge-green { background-color: #eaf5ea; color: #2a7d4f; }
+    .badge-orange { background-color: #fdf0e6; color: #e06d20; }
+    .badge-purple { background-color: #f3ecf8; color: #6a4498; }
+    .badge-teal { background-color: #e6f4f6; color: #12828e; }
+
+    .judgment-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding-left: 6px;
+    }
+
+    /* View All Judgments Button */
+    .view-all-wrapper {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 10px;
+    }
+
+    .btn-view-all {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-view-all:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Right Sidebar Widgets */
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title-text i {
+      color: #0b1a30;
+      font-size: 14px;
+    }
+
+    .widget-description {
+      font-size: 11.5px;
+      color: #526071;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1e3a8a;
+      transition: gap 0.2s;
+    }
+
+    .sidebar-link:hover {
+      gap: 8px;
+    }
+
+    /* Judgments at a Glance List */
+    .facts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .fact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-icon {
+      font-size: 16px;
+      color: #103254;
+      width: 20px;
+      text-align: center;
+    }
+
+    .fact-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+      line-height: 1.2;
+    }
+
+    .fact-label {
+      font-size: 10.5px;
+      color: #637381;
+      margin-top: 1px;
+    }
+
+    /* Latest Judgment Widget Special Box */
+    .widget-latest {
+      background-color: #fdf9f0;
+      border: 1px solid #f2e3c6;
+    }
+
+    .widget-latest .widget-title-text {
+      color: #b37b12;
+    }
+
+    .widget-latest .widget-title-text i {
+      color: #b37b12;
+    }
+
+    .latest-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      margin-bottom: 4px;
+    }
+
+    .latest-desc {
+      font-size: 11px;
+      color: #526071;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    /* Fully Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .hero-banner {
+        padding: 20px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 24px;
+      }
+      .judgment-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .date-badge-wrapper {
+        align-items: flex-start;
+      }
+      .judgment-arrow {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       DARK MODE OVERRIDES FOR JUDGMENTS PAGE
+       ========================================================================== */
+    [data-theme="dark"] .hero-banner::before {
+      background: linear-gradient(
+        90deg,
+        var(--sv-hero-gradient-start, #1a1d23) 0%,
+        var(--sv-hero-gradient-mid, #20242c) 25%,
+        rgba(26, 29, 35, 0.95) 45%,
+        rgba(26, 29, 35, 0.7) 68%,
+        rgba(26, 29, 35, 0.3) 85%,
+        transparent 100%
+      );
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .hero-description {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .sidebar-panel,
+    [data-theme="dark"] .right-sidebar .sidebar-widget,
+    [data-theme="dark"] .judgments-section {
+      background: var(--sv-bg-card);
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .sidebar-title,
+    [data-theme="dark"] .sidebar-title i,
+    [data-theme="dark"] .judgments-title-text,
+    [data-theme="dark"] .widget-title-text,
+    [data-theme="dark"] .widget-title-text i,
+    [data-theme="dark"] .filter-label,
+    [data-theme="dark"] .checkbox-item {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input,
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background: var(--sv-bg-input);
+      border-color: var(--sv-border-input);
+      color: var(--sv-text-primary);
+    }
+
+    [data-theme="dark"] .search-box-wrapper input::placeholder {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .search-box-wrapper i {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .filter-select,
+    [data-theme="dark"] .sort-select {
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%238a99ad" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    }
+
+    [data-theme="dark"] .btn-apply-filters {
+      background-color: var(--sv-gold);
+      color: #0b1a30;
+    }
+
+    [data-theme="dark"] .btn-apply-filters:hover {
+      background-color: var(--sv-gold-light);
+    }
+
+    [data-theme="dark"] .btn-reset-filters,
+    [data-theme="dark"] .btn-view-all {
+      background-color: var(--sv-bg-card);
+      color: var(--sv-text-heading);
+      border-color: var(--sv-border-input);
+    }
+
+    [data-theme="dark"] .btn-reset-filters:hover,
+    [data-theme="dark"] .btn-view-all:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .judgments-header,
+    [data-theme="dark"] .judgment-card,
+    [data-theme="dark"] .fact-item {
+      border-color: var(--sv-border);
+    }
+
+    [data-theme="dark"] .judgment-card:hover {
+      background-color: var(--sv-bg-card-hover);
+    }
+
+    [data-theme="dark"] .judgment-name-title,
+    [data-theme="dark"] .fact-number,
+    [data-theme="dark"] .latest-heading {
+      color: var(--sv-text-heading);
+    }
+
+    [data-theme="dark"] .judgment-desc-text,
+    [data-theme="dark"] .sort-wrapper,
+    [data-theme="dark"] .widget-description,
+    [data-theme="dark"] .fact-label,
+    [data-theme="dark"] .latest-desc,
+    [data-theme="dark"] .court-label {
+      color: var(--sv-text-secondary);
+    }
+
+    [data-theme="dark"] .judgment-arrow {
+      color: var(--sv-text-muted);
+    }
+
+    [data-theme="dark"] .fact-icon,
+    [data-theme="dark"] .sidebar-link {
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .citation-tag {
+      background-color: rgba(30, 58, 138, 0.35);
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .date-badge-box {
+      background-color: rgba(16, 50, 84, 0.35);
+      color: var(--sv-text-link);
+    }
+
+    [data-theme="dark"] .badge-green { background-color: rgba(42, 125, 79, 0.25); color: #4ade80; }
+    [data-theme="dark"] .badge-orange { background-color: rgba(224, 109, 32, 0.25); color: #fb923c; }
+    [data-theme="dark"] .badge-purple { background-color: rgba(106, 68, 152, 0.25); color: #c084fc; }
+    [data-theme="dark"] .badge-teal { background-color: rgba(18, 130, 142, 0.25); color: #2dd4bf; }
+
+    [data-theme="dark"] .widget-latest {
+      background-color: rgba(209, 141, 39, 0.15);
+      border-color: rgba(209, 141, 39, 0.3);
+    }
+
+    [data-theme="dark"] .widget-latest .widget-title-text,
+    [data-theme="dark"] .widget-latest .widget-title-text i {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="articles.html">अनुच्छेद</a></li>
+      <li><a href="parts.html">भाग</a></li>
+      <li><a href="schedules.html">अनुसूचियां</a></li>
+      <li><a href="amendments.html">संशोधन</a></li>
+      <li><a href="judgments.html" class="active">फैसले</a></li>
+      <li><a href="glossary.html">शब्दावली</a></li>
+      <li><a href="quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/pages/judgments.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड चालू करें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">भारत के संविधान पर महत्वपूर्ण फैसले</h1>
+      <p class="hero-description">
+        उन ऐतिहासिक फैसलों को जानें जिन्होंने हमारे संविधान की व्याख्या को आकार दिया और हमारे लोकतंत्र को मजबूत किया।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="../index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>फैसले</span>
+    </div>
+
+    <!-- 3-Column Layout Grid -->
+    <div class="content-grid">
+
+      <!-- Left Sidebar: STICKY Filter Judgments -->
+      <aside class="sidebar-panel">
+        <div class="sidebar-title">
+          <i class="fa-solid fa-filter"></i>
+          <span>फैसले फ़िल्टर करें</span>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">फैसले खोजें</label>
+          <div class="search-box-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="केस का नाम, मुख्य शब्द या साइटेशन से खोजें...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">विषय के अनुसार फ़िल्टर करें</label>
+          <select class="filter-select" id="subjectFilter">
+            <option value="">सभी विषय</option>
+            <option value="Basic Structure Doctrine">मूल संरचना का सिद्धांत</option>
+            <option value="Fundamental Rights">मौलिक अधिकार</option>
+            <option value="Judicial Review">न्यायिक पुनरावलोकन</option>
+            <option value="Reservation Policies">आरक्षण नीतियां</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">अदालत के अनुसार फ़िल्टर करें</label>
+          <div class="checkbox-list" id="courtFilterGroup">
+            <label class="checkbox-item">
+              <input type="checkbox" value="Supreme Court"> सुप्रीम कोर्ट
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="High Courts"> हाई कोर्ट
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="Other Tribunals"> अन्य ट्रिब्यूनल
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">वर्ष के अनुसार फ़िल्टर करें</label>
+          <div class="year-range-flex">
+            <select class="filter-select" id="fromYearFilter">
+              <option value="">इस वर्ष से</option>
+              <option value="1950">1950</option>
+              <option value="1970">1970</option>
+              <option value="1990">1990</option>
+            </select>
+            <select class="filter-select" id="toYearFilter">
+              <option value="">इस वर्ष तक</option>
+              <option value="2000">2000</option>
+              <option value="2020">2020</option>
+              <option value="2025">2025</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn-apply-filters" id="btnApplyFilters" type="button">फ़िल्टर लागू करें</button>
+        <button class="btn-reset-filters" id="btnResetFilters" type="button">रिसेट करें</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Judgments List -->
+      <main class="judgments-section">
+        <div class="judgments-header">
+          <div class="judgments-title-text" id="judgmentsCountText">सभी फैसले (1287)</div>
+          <div class="sort-wrapper">
+            <span>क्रमबद्ध करें</span>
+            <select class="sort-select" id="sortSelect">
+              <option value="latest">फैसले की तारीख (नए से पुराने)</option>
+              <option value="oldest">फैसले की तारीख (पुराने से नए)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Container for dynamically rendered judgment cards -->
+        <div id="judgmentsListContainer">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- View All Button -->
+        <div class="view-all-wrapper">
+          <button class="btn-view-all" id="btnViewAll" type="button">
+            सभी फैसले देखें <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+
+      </main>
+
+      <!-- Right Sidebar: STICKY Information & Quick Facts -->
+      <aside class="right-sidebar">
+        
+        <!-- About Judgments Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-circle-info"></i>
+            <span>फैसलों के बारे में</span>
+          </div>
+          <p class="widget-description">
+            अदालतों के फैसले संविधान की व्याख्या करने और नागरिकों के अधिकारों की रक्षा करने में अहम भूमिका निभाते हैं। विषय, मुख्य शब्द, अदालत और वर्ष के आधार पर फैसले खोजें।
+          </p>
+          <a href="#" class="sidebar-link">
+            न्यायिक समीक्षा के बारे में और जानें <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Judgments at a Glance Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title-text">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>फैसले: एक नज़र में</span>
+          </div>
+
+          <div class="facts-list">
+            <div class="fact-item">
+              <i class="fa-regular fa-book-open fact-icon"></i>
+              <div>
+                <div class="fact-number" id="glanceTotalNumber">1,287</div>
+                <div class="fact-label">कुल फैसले</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-solid fa-gavel fact-icon"></i>
+              <div>
+                <div class="fact-number">812</div>
+                <div class="fact-label">सुप्रीम कोर्ट के फैसले</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-solid fa-landmark fact-icon"></i>
+              <div>
+                <div class="fact-number">425</div>
+                <div class="fact-label">हाई कोर्ट के फैसले</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-calendar-days fact-icon"></i>
+              <div>
+                <div class="fact-number">1950 – 2024</div>
+                <div class="fact-label">फैसलों के वर्ष</div>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <i class="fa-regular fa-folder fact-icon"></i>
+              <div>
+                <div class="fact-number">28</div>
+                <div class="fact-label">शामिल विषय</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Latest Judgment Widget -->
+        <div class="sidebar-widget widget-latest">
+          <div class="widget-title-text">
+            <i class="fa-regular fa-star"></i>
+            <span>नवीनतम फैसला</span>
+          </div>
+
+          <div class="latest-heading">विशाखा बनाम राजस्थान राज्य (2024)</div>
+          <p class="latest-desc">
+            कार्यस्थल पर उत्पीड़न और लैंगिक समानता के सिद्धांतों को दोहराया गया।
+          </p>
+
+          <a href="#" class="sidebar-link">
+            फैसला देखें <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+ <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक आसान प्लेटफॉर्म — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और ऐतिहासिक फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">अनुच्छेद</a></li>
+            <li><a href="parts.html">भाग</a></li>
+            <li><a href="schedules.html">अनुसूचियां</a></li>
+            <li><a href="amendments.html">संशोधन</a></li>
+            <li><a href="judgments.html">फैसले</a></li>
+            <li><a href="glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dataset of Judgments representing comprehensive legal database
+    const judgmentsData = [
+      {
+        id: 1,
+        title: "केशवानंद भारती बनाम केरल राज्य (1973)",
+        citation: "1973 SCC (4) 225",
+        desc: "इस ऐतिहासिक फैसले ने 'मूल संरचना के सिद्धांत' (Basic Structure Doctrine) को स्थापित किया, जिससे संविधान में संशोधन करने की संसद की शक्ति को सीमित किया गया।",
+        dateStr: "24 अप्रैल 1973",
+        dateObj: new Date("1973-04-24"),
+        year: 1973,
+        court: "Supreme Court",
+        subject: "Basic Structure Doctrine",
+        iconClass: "icon-blue",
+        badgeClass: "",
+        link: "../judgments/judgment-1.html"
+      },
+      {
+        id: 2,
+        title: "मेनका गांधी बनाम भारत संघ (1978)",
+        citation: "1978 SCC (1) 248",
+        desc: "अनुच्छेद 21 के दायरे का विस्तार किया गया और यह व्यवस्था दी गई कि कानून द्वारा स्थापित प्रक्रिया न्यायसंगत, उचित और तर्कसंगत होनी चाहिए।",
+        dateStr: "25 जनवरी 1978",
+        dateObj: new Date("1978-01-25"),
+        year: 1978,
+        court: "Supreme Court",
+        subject: "Fundamental Rights",
+        iconClass: "icon-green",
+        badgeClass: "badge-green",
+        link: "../judgments/judgment-2.html"
+      },
+      {
+        id: 3,
+        title: "मिनर्वा मिल्स लिमिटेड बनाम भारत संघ (1980)",
+        citation: "1980 SCC (3) 625",
+        desc: "यह फैसला दिया गया कि मौलिक अधिकारों और नीति निदेशक तत्वों के बीच संतुलन संविधान की मूल संरचना का हिस्सा है।",
+        dateStr: "31 जुलाई 1980",
+        dateObj: new Date("1980-07-31"),
+        year: 1980,
+        court: "Supreme Court",
+        subject: "Basic Structure Doctrine",
+        iconClass: "icon-orange",
+        badgeClass: "badge-orange",
+        link: "../judgments/judgment-3.html"
+      },
+      {
+        id: 4,
+        title: "इंद्रा साहनी बनाम भारत संघ (1992)",
+        citation: "1992 Supp (3) SCC 217",
+        desc: "क्रीमी लेयर को बाहर रखने की शर्त के साथ सरकारी नौकरियों में आरक्षण की वैधता को बरकरार रखा गया।",
+        dateStr: "16 नवंबर 1992",
+        dateObj: new Date("1992-11-16"),
+        year: 1992,
+        court: "Supreme Court",
+        subject: "Reservation Policies",
+        iconClass: "icon-purple",
+        badgeClass: "badge-purple",
+        link: "../judgments/judgment-4.html"
+      },
+      {
+        id: 5,
+        title: "एल. चंद्र कुमार बनाम भारत संघ (1997)",
+        citation: "1997 SCC (3) 261",
+        desc: "यह व्यवस्था दी गई कि अनुच्छेद 32 और 226 के तहत न्यायिक पुनरावलोकन की शक्ति संविधान के मूल ढांचे का हिस्सा है।",
+        dateStr: "22 अप्रैल 1997",
+        dateObj: new Date("1997-04-22"),
+        year: 1997,
+        court: "Supreme Court",
+        subject: "Judicial Review",
+        iconClass: "icon-teal",
+        badgeClass: "badge-teal",
+        link: "../judgments/judgment-5.html"
+      },
+      {
+        id: 6,
+        title: "के.एस. पुट्टस्वामी बनाम भारत संघ (2017)",
+        citation: "2017 (10) SCC 1",
+        desc: "सर्वसम्मति से यह पुष्टि की गई कि निजता का अधिकार (Right to Privacy) अनुच्छेद 21 के तहत जीवन और व्यक्तिगत स्वतंत्रता के अधिकार का आंतरिक हिस्सा है।",
+        dateStr: "24 अगस्त 2017",
+        dateObj: new Date("2017-08-24"),
+        year: 2017,
+        court: "Supreme Court",
+        subject: "Fundamental Rights",
+        iconClass: "icon-blue",
+        badgeClass: "",
+        link: "../judgments/judgment-6.html"
+      },
+      {
+        id: 7,
+        title: "एस.आर. बोम्मई बनाम भारत संघ (1994)",
+        citation: "1994 SCC (3) 1",
+        desc: "अनुच्छेद 356 के तहत राष्ट्रपति शासन लागू करने के संबंध में कड़े दिशा-निर्देश तय किए गए और संघवाद को मूल संरचना का हिस्सा माना गया।",
+        dateStr: "11 मार्च 1994",
+        dateObj: new Date("1994-03-11"),
+        year: 1994,
+        court: "Supreme Court",
+        subject: "Basic Structure Doctrine",
+        iconClass: "icon-green",
+        badgeClass: "badge-green",
+        link: "../judgments/judgment-7.html"
+      },
+      {
+        id: 8,
+        title: "श्रेया सिंघल बनाम भारत संघ (2015)",
+        citation: "2015 (5) SCC 1",
+        desc: "सूचना प्रौद्योगिकी अधिनियम की धारा 66A को असंवैधानिक घोषित कर दिया गया क्योंकि यह अनुच्छेद 19(1)(a) के तहत अभिव्यक्ति की स्वतंत्रता का उल्लंघन करती थी।",
+        dateStr: "24 मार्च 2015",
+        dateObj: new Date("2015-03-24"),
+        year: 2015,
+        court: "Supreme Court",
+        subject: "Fundamental Rights",
+        iconClass: "icon-orange",
+        badgeClass: "badge-orange",
+        link: "../judgments/judgment-8.html"
+      },
+      {
+        id: 9,
+        title: "मद्रास राज्य बनाम चंपकम दोराइराजन (1951)",
+        citation: "AIR 1951 SC 226",
+        desc: "सांप्रदायिक आरक्षण पर ऐतिहासिक फैसला, जिसके परिणामस्वरूप पहला संविधान संशोधन अधिनियम लाया गया।",
+        dateStr: "09 अप्रैल 1951",
+        dateObj: new Date("1951-04-09"),
+        year: 1951,
+        court: "Supreme Court",
+        subject: "Reservation Policies",
+        iconClass: "icon-purple",
+        badgeClass: "badge-purple",
+        link: "../judgments/judgment-9.html"
+      },
+      {
+        id: 10,
+        title: "नाज़ फाउंडेशन बनाम एनसीटी दिल्ली सरकार (2009)",
+        citation: "2009 Cri LJ 3213",
+        desc: "दिल्ली हाई कोर्ट का ऐतिहासिक फैसला जिसने वयस्कों के बीच सहमति से समलैंगिक संबंधों को अपराध की श्रेणी से बाहर किया और समानता व मानवीय गरिमा को सही ठहराया।",
+        dateStr: "02 जुलाई 2009",
+        dateObj: new Date("2009-07-02"),
+        year: 2009,
+        court: "High Courts",
+        subject: "Fundamental Rights",
+        iconClass: "icon-teal",
+        badgeClass: "badge-teal",
+        link: "../judgments/judgment-10.html"
+      },
+      {
+        id: 11,
+        title: "विशाखा बनाम राजस्थान राज्य (1997)",
+        citation: "1997 (6) SCC 241",
+        desc: "कार्यस्थल पर महिलाओं के यौन उत्पीड़न को रोकने के लिए ऐतिहासिक 'विशाखा दिशा-निर्देश' तैयार किए गए।",
+        dateStr: "13 अगस्त 1997",
+        dateObj: new Date("1997-08-13"),
+        year: 1997,
+        court: "Supreme Court",
+        subject: "Fundamental Rights",
+        iconClass: "icon-blue",
+        badgeClass: "",
+        link: "../judgments/judgment-11.html"
+      },
+      {
+        id: 12,
+        title: "एम. नागराज बनाम भारत संघ (2006)",
+        citation: "2006 (8) SCC 212",
+        desc: "पदोन्नति में आरक्षण से जुड़े संवैधानिक संशोधनों को पिछड़ापन और प्रशासनिक दक्षता के मानदंडों के आधार पर वैध माना।",
+        dateStr: "19 अक्टूबर 2006",
+        dateObj: new Date("2006-10-19"),
+        year: 2006,
+        court: "Supreme Court",
+        subject: "Reservation Policies",
+        iconClass: "icon-purple",
+        badgeClass: "badge-purple",
+        link: "../judgments/judgment-12.html"
+      }
+    ];
+
+    // State Variables
+    let showingAll = false;
+    const INITIAL_SHOW_COUNT = 5;
+
+    // DOM Elements
+    const searchInput = document.getElementById('searchInput');
+    const subjectFilter = document.getElementById('subjectFilter');
+    const courtCheckboxes = document.querySelectorAll('#courtFilterGroup input[type="checkbox"]');
+    const fromYearFilter = document.getElementById('fromYearFilter');
+    const toYearFilter = document.getElementById('toYearFilter');
+    const sortSelect = document.getElementById('sortSelect');
+    const btnApplyFilters = document.getElementById('btnApplyFilters');
+    const btnResetFilters = document.getElementById('btnResetFilters');
+    const btnViewAll = document.getElementById('btnViewAll');
+    const judgmentsListContainer = document.getElementById('judgmentsListContainer');
+    const judgmentsCountText = document.getElementById('judgmentsCountText');
+
+    // Rendering Function
+    function renderJudgments() {
+      const filtered = getFilteredAndSortedData();
+      
+      if (judgmentsCountText) judgmentsCountText.textContent = `सभी फैसले (${filtered.length})`;
+
+      if (judgmentsListContainer) judgmentsListContainer.innerHTML = '';
+
+      if (filtered.length === 0) {
+        if (judgmentsListContainer) {
+          judgmentsListContainer.innerHTML = `
+            <div style="padding: 40px 10px; text-align: center; color: var(--sv-text-muted, #637381); font-size: 13px;">
+              <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; margin-bottom: 10px; display: block; color: var(--sv-text-muted, #919eab);"></i>
+              आपकी चुनी हुई फ़िल्टर शर्तों से मेल खाता कोई फैसला नहीं मिला। कृपया अपने फ़िल्टर या खोज शब्द बदलकर प्रयास करें।
+            </div>
+          `;
+        }
+        if (btnViewAll) btnViewAll.style.display = 'none';
+        return;
+      }
+
+      const displayItems = showingAll ? filtered : filtered.slice(0, INITIAL_SHOW_COUNT);
+
+      displayItems.forEach(item => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'judgment-card';
+        cardDiv.style.cursor = 'pointer';
+        
+        let courtDisplay = item.court;
+        if (item.court === 'Supreme Court') courtDisplay = 'सुप्रीम कोर्ट';
+        if (item.court === 'High Courts') courtDisplay = 'हाई कोर्ट';
+
+        cardDiv.innerHTML = `
+          <div class="judgment-icon ${item.iconClass}">
+            <i class="fa-solid fa-gavel"></i>
+          </div>
+          <div class="judgment-info">
+            <div class="judgment-name-title">${item.title}</div>
+            <div class="citation-tag">${item.citation}</div>
+            <div class="judgment-desc-text">${item.desc}</div>
+          </div>
+          <div class="date-badge-wrapper">
+            <div class="date-badge-box ${item.badgeClass}">
+              <i class="fa-regular fa-calendar"></i>
+              <span>${item.dateStr}</span>
+            </div>
+            <span class="court-label">${courtDisplay}</span>
+          </div>
+          <div class="judgment-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+
+        cardDiv.addEventListener('click', () => {
+          if (item.link) {
+            window.location.href = item.link;
+          }
+        });
+
+        if (judgmentsListContainer) judgmentsListContainer.appendChild(cardDiv);
+      });
+
+      if (btnViewAll) {
+        if (filtered.length <= INITIAL_SHOW_COUNT) {
+          btnViewAll.style.display = 'none';
+        } else {
+          btnViewAll.style.display = 'inline-flex';
+          btnViewAll.innerHTML = showingAll 
+            ? `कम दिखाएं <i class="fa-solid fa-chevron-up"></i>` 
+            : `सभी फैसले देखें <i class="fa-solid fa-chevron-down"></i>`;
+        }
+      }
+    }
+
+    // Filter and Sort Processing
+    function getFilteredAndSortedData() {
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      const selectedSubject = subjectFilter ? subjectFilter.value : '';
+      
+      const selectedCourts = Array.from(courtCheckboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+
+      const fromYear = fromYearFilter ? parseInt(fromYearFilter.value, 10) : NaN;
+      const toYear = toYearFilter ? parseInt(toYearFilter.value, 10) : NaN;
+      const sortOrder = sortSelect ? sortSelect.value : 'latest';
+
+      return judgmentsData.filter(item => {
+        if (query) {
+          const titleMatch = item.title.toLowerCase().includes(query);
+          const citationMatch = item.citation.toLowerCase().includes(query);
+          const descMatch = item.desc.toLowerCase().includes(query);
+          if (!titleMatch && !citationMatch && !descMatch) return false;
+        }
+
+        if (selectedSubject && selectedSubject !== "All Subjects") {
+          if (item.subject !== selectedSubject) return false;
+        }
+
+        if (selectedCourts.length > 0) {
+          if (!selectedCourts.includes(item.court)) return false;
+        }
+
+        if (!isNaN(fromYear) && item.year < fromYear) return false;
+        if (!isNaN(toYear) && item.year > toYear) return false;
+
+        return true;
+      }).sort((a, b) => {
+        if (sortOrder === 'latest') {
+          return b.dateObj - a.dateObj;
+        } else {
+          return a.dateObj - b.dateObj;
+        }
+      });
+    }
+
+    // Event Listeners
+    if (btnApplyFilters) {
+      btnApplyFilters.addEventListener('click', () => {
+        showingAll = false;
+        renderJudgments();
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+          showingAll = false;
+          renderJudgments();
+        }
+      });
+    }
+
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => {
+        renderJudgments();
+      });
+    }
+
+    if (btnResetFilters) {
+      btnResetFilters.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (subjectFilter) subjectFilter.selectedIndex = 0;
+        courtCheckboxes.forEach(cb => cb.checked = false);
+        if (fromYearFilter) fromYearFilter.selectedIndex = 0;
+        if (toYearFilter) toYearFilter.selectedIndex = 0;
+        if (sortSelect) sortSelect.value = 'latest';
+        showingAll = false;
+        renderJudgments();
+      });
+    }
+
+    if (btnViewAll) {
+      btnViewAll.addEventListener('click', () => {
+        showingAll = !showingAll;
+        renderJudgments();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderJudgments();
+    });
+  </script>
+
+</body>
+</html>

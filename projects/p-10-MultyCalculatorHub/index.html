@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧮 MultyCalculatorHub</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Course Hub | Multy Calculator">
+  <meta property="og:description" content="Upgrade your skills with 100% free and verified online course links.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/munendra5singh/FreeCourseHub/main/preview.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/index.css">
+</head>
+<body>
+  <div id="site-header-root"></div>
+
+
+  <div class="container">
+    <div class="dashboard-header-card">
+      <div class="clock-widget">
+        <div class="time" id="liveClock">00:00:00 AM</div>
+        <div class="date" id="liveDate">Loading System Space Date...</div>
+      </div>
+      
+      <div class="header-controls">
+        <div class="tool-counter-badge" id="activeModulesBadge"><i class="fa-solid fa-layer-group"></i> 17 Active Modules</div>
+        <button class="theme-action-btn" onclick="toggleGlobalDashboardTheme()" id="btnThemeToggleNode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="app-hero-branding">
+      <h1>🧰 Web Tool Box</h1>
+      <p class="subtitle">Advanced compilation of premium engineering and functional system tools</p>
+    </div>
+
+    <div class="search-wrapper">
+      <input type="text" id="dashboardSearchInput" class="search-input" placeholder="Search tools by key points or titles (e.g., GST, HEX, Matrix, Age)...">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </div>
+
+    <div class="tool-section">
+      <div class="section-category-title"><i class="fa-solid fa-calculator"></i> Core Computing Engines</div>
+      <div class="button-group">
+        <a href="standard.html" class="button btn-standard">
+          <div class="btn-content">
+            <div class="icon">🧮</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Standard Calculator</span>
+              <span class="card-desc-node">Daily basic calculations with memory & full logging</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="scientific.html" class="button btn-scientific">
+          <div class="btn-content">
+            <div class="icon">🧪</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Scientific Calculator</span>
+              <span class="card-desc-node">Trigonometric, logarithmic, and complex science equations</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="programmer.html" class="button btn-programmer">
+          <div class="btn-content">
+            <div class="icon">💻</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Programmer Calculator</span>
+              <span class="card-desc-node">HEX, DEC, OCT, BIN bitwise operations parsing</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-section">
+      <div class="section-category-title"><i class="fa-solid fa-wallet"></i> Finance & Fiscal Matrix</div>
+      <div class="button-group">
+        <a href="emi.html" class="button btn-finance">
+          <div class="btn-content">
+            <div class="icon">💰</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">EMI Calculator</span>
+              <span class="card-desc-node">Calculate absolute finance amortization lines</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="gstcal.html" class="button btn-finance">
+          <div class="btn-content">
+            <div class="icon">🧾</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">GST Calculator</span>
+              <span class="card-desc-node">Process nested fiscal taxation variables</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="finance.html" class="button btn-finance">
+          <div class="btn-content">
+            <div class="icon">📈</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">General Finance</span>
+              <span class="card-desc-node">Compound growth, SIP returns, and investment matrices</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-section">
+      <div class="section-category-title"><i class="fa-solid fa-heart-pulse"></i> Human & Knowledge Logs</div>
+      <div class="button-group">
+        <a href="bmi.html" class="button btn-health">
+          <div class="btn-content">
+            <div class="icon">⚖️</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">BMI Calculator</span>
+              <span class="card-desc-node">Compute body mass analytics proportions</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="age.html" class="button btn-health">
+          <div class="btn-content">
+            <div class="icon">🎂</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">AGE Calculator</span>
+              <span class="card-desc-node">Advanced premium age intelligence platform insights</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="education.html" class="button btn-education">
+          <div class="btn-content">
+            <div class="icon">🎓</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Education Hub</span>
+              <span class="card-desc-node">GPA conversion, grade point parameters, percent scales</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-section">
+      <div class="section-category-title"><i class="fa-solid fa-atom"></i> Academic & Technical Engineering</div>
+      <div class="button-group">
+        <a href="math.html" class="button btn-math">
+          <div class="btn-content">
+            <div class="icon">➕</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Math Suite</span>
+              <span class="card-desc-node">LCM, GCD, prime factors, and matrix equation solvers</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="geometry.html" class="button btn-geometry">
+          <div class="btn-content">
+            <div class="icon">📐</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Geometry Hub</span>
+              <span class="card-desc-node">Area, volume, 2D/3D shapes perimeter scaling formulas</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="electrical.html" class="button btn-electrical">
+          <div class="btn-content">
+            <div class="icon">⚡</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Electrical Station</span>
+              <span class="card-desc-node">Ohm's law, resistance color codes, power conversions</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-section">
+      <div class="section-category-title"><i class="fa-solid fa-arrow-rotate-left"></i> Converters & Chronological Nodes</div>
+      <div class="button-group">
+        <a href="unit_converter.html" class="button btn-unit">
+          <div class="btn-content">
+            <div class="icon">📏</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Unit Converter</span>
+              <span class="card-desc-node">Convert length, weight, data, temperature variables</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="currency.html" class="button btn-currency">
+          <div class="btn-content">
+            <div class="icon">💱</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Currency Converter</span>
+              <span class="card-desc-node">Live international exchange parameter valuation</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="datetime.html" class="button btn-datetime">
+          <div class="btn-content">
+            <div class="icon">📅</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Date-Time Diff</span>
+              <span class="card-desc-node">Calculate precise chronological difference windows</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        
+        <a href="date.html" class="button btn-datetime">
+          <div class="btn-content">
+            <div class="icon">📆</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Date Finder</span>
+              <span class="card-desc-node">Add or subtract calendar steps smoothly</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        
+        <a href="day.html" class="button btn-datetime">
+          <div class="btn-content">
+            <div class="icon">📆</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Day Finder</span>
+              <span class="card-desc-node">Identify historical calendar target weekdays</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="tool-section">
+      <div class="section-category-title"><i class="fa-solid fa-sliders"></i> Systems & Platform Preferences</div>
+      <div class="button-group">
+        <a href="computer-tools.html" class="button btn-computer">
+          <div class="btn-content">
+            <div class="icon">⚙️</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Computer Utilities</span>
+              <span class="card-desc-node">Base64 encryption, hash generators, text tools</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="history-hub.html" class="button btn-sys">
+          <div class="btn-content">
+            <div class="icon">📜</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Central Log History</span>
+              <span class="card-desc-node">Review globally stored calculations across instances</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="favorites.html" class="button btn-sys">
+          <div class="btn-content">
+            <div class="icon">⭐</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">Favorites Vault</span>
+              <span class="card-desc-node">Quick access node for your pinned layout tools</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="settings.html" class="button btn-sys">
+          <div class="btn-content">
+            <div class="icon">🔧</div>
+            <div class="card-meta-text">
+              <span class="card-title-node">System Settings</span>
+              <span class="card-desc-node">Configure storage behaviors, precisions, layout resets</span>
+            </div>
+          </div>
+          <span class="arrow-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="noResults" class="no-results-message">
+      <i class="fa-solid fa-face-frown" style="font-size: 2rem; margin-bottom: 10px; display: block; color: var(--text-muted);"></i>
+      No matching tools found! Try searching for something else.
+    </div>
+    
+    <div class="toggle-wrapper">
+      <span id="toggleStatusText">Preserve State Loop</span>
+      <input type="checkbox" id="darkModeCheckbox"/>
+    </div>
+  </div>
+
+  <div class="footer">
+    Designed by Munendra <a href="https://munendra5singh.github.io/FreeCourseHub/" target="_blank" rel="noopener noreferrer"> — Powered by FreeCourseHub 💻</a>
+  </div>
+
+  <script src="js/pages/index-engine.js"></script>
+  <div id="site-footer-root"></div>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>

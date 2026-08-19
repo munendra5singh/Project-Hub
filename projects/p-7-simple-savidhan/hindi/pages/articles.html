@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>संविधान - अनुच्छेद</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 260px;
+      background-image: url('../supremcort.png');
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #e2cfb4 0%,
+        #ebd7be 25%,
+        rgba(235, 215, 190, 0.95) 45%,
+        rgba(235, 215, 190, 0.5) 68%,
+        rgba(235, 215, 190, 0.1) 85%,
+        transparent 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .hero-description {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #3d4a5d;
+      font-weight: 400;
+    }
+
+    /* Main Container & Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 24px 60px 24px;
+    }
+
+    /* Breadcrumbs styles removed (now in common.css) */
+
+    /* Layout Columns Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left & Right Sidebars STICKY Layout */
+    .filter-panel, .right-sidebar {
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    /* Scrollbar Styling for Sidebars */
+    .filter-panel::-webkit-scrollbar,
+    .right-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .filter-panel::-webkit-scrollbar-thumb,
+    .right-sidebar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    /* Left Sidebar: Filter Panel Box */
+    .filter-panel {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 18px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .filter-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .filter-header i {
+      font-size: 14px;
+      color: #0b1a30;
+    }
+
+    .filter-group {
+      margin-bottom: 14px;
+    }
+
+    .filter-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2b3649;
+      margin-bottom: 6px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+    }
+
+    .search-input-wrapper i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #919eab;
+      font-size: 12px;
+    }
+
+    .search-input-wrapper input {
+      width: 100%;
+      padding: 8px 10px 8px 30px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color: #0b1a30;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+      background: #ffffff;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    .filter-select:focus {
+      border-color: #0b1a30;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      outline: none;
+    }
+
+    .text-input::placeholder {
+      color: #919eab;
+    }
+
+    .btn-apply {
+      width: 100%;
+      background-color: #0b1a30;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 4px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-apply:hover {
+      background-color: #162a47;
+    }
+
+    .btn-reset {
+      width: 100%;
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      margin-top: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-reset:hover {
+      background-color: #f4f6f8;
+    }
+
+    /* Middle Section: Articles List - SCROLLABLE */
+    .articles-section {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .articles-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0f4f8;
+      margin-bottom: 10px;
+    }
+
+    .articles-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .sort-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #637381;
+    }
+
+    .sort-select {
+      padding: 5px 24px 5px 10px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #2b3649;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23637381" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+    }
+
+    /* Article Card */
+    .article-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #f0f4f8;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .article-card:last-child {
+      border-bottom: none;
+    }
+
+    .article-card:hover {
+      background-color: #fafbfc;
+    }
+
+    .article-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .icon-blue { background-color: #103254; }
+    .icon-green { background-color: #2a7d4f; }
+    .icon-orange { background-color: #e06d20; }
+    .icon-purple { background-color: #6a4498; }
+    .icon-teal { background-color: #12828e; }
+    .icon-amber { background-color: #b37b12; }
+
+    .article-details {
+      flex: 1;
+    }
+
+    .article-header-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .article-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b1a30;
+    }
+
+    .part-badge {
+      background-color: #e3ebf6;
+      color: #1e3a8a;
+      font-size: 9.5px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .article-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1a2b42;
+      margin-bottom: 4px;
+    }
+
+    .article-desc {
+      font-size: 11.5px;
+      color: #637381;
+      line-height: 1.4;
+    }
+
+    .article-arrow {
+      color: #2b3649;
+      font-size: 12px;
+      padding: 0 4px;
+    }
+
+    /* Right Sidebar Widgets */
+    .sidebar-widget {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid #e8ecef;
+    }
+
+    .widget-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b1a30;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .widget-title i {
+      color: #e06d20;
+      font-size: 13px;
+    }
+
+    /* Popular Articles List */
+    .popular-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .popular-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .num-badge {
+      background-color: #f4f6f8;
+      color: #1a2b42;
+      font-size: 10.5px;
+      font-weight: 700;
+      min-width: 30px;
+      height: 22px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .popular-text {
+      font-size: 11.5px;
+      color: #2b3649;
+      font-weight: 500;
+    }
+
+    .popular-item:hover .popular-text {
+      color: #1e3a8a;
+    }
+
+    .view-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin-top: 12px;
+      transition: gap 0.2s;
+    }
+
+    .view-more-link:hover {
+      gap: 8px;
+    }
+
+    /* Browse By Part List */
+    .parts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .part-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      cursor: pointer;
+    }
+
+    .part-item-left {
+      display: flex;
+      gap: 8px;
+    }
+
+    .part-name {
+      font-weight: 700;
+      color: #0b1a30;
+      min-width: 44px;
+    }
+
+    .part-label {
+      color: #2b3649;
+      font-weight: 500;
+    }
+
+    .part-count {
+      color: #637381;
+      font-size: 10.5px;
+    }
+
+    .part-item:hover .part-label {
+      color: #1e3a8a;
+    }
+
+    /* Bottom Banner */
+    .bottom-banner {
+      background-color: #0b1a30;
+      border-radius: 8px;
+      margin-top: 24px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .banner-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .banner-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .banner-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .banner-sub {
+      font-size: 11.5px;
+      color: #b0c0d0;
+    }
+
+    .btn-browse {
+      background-color: #f3b353;
+      color: #0b1a30;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-browse:hover {
+      background-color: #e5a440;
+    }
+
+    .btn-listen {
+      background-color: #ffffff;
+      color: #0b1a30;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .filter-panel, .right-sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+      }
+      .bottom-banner {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+      .banner-left {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="sv-navbar">
+    <a href="../index.html" class="brand">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <div class="brand-text">
+        <h1>संविधान</h1>
+        <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">होम</a></li>
+      <li><a href="articles.html" class="active">अनुच्छेद</a></li>
+      <li><a href="parts.html">भाग</a></li>
+      <li><a href="schedules.html">अनुसूचियां</a></li>
+      <li><a href="amendments.html">संशोधन</a></li>
+      <li><a href="judgments.html">फैसले</a></li>
+      <li><a href="glossary.html">शब्दावली</a></li>
+      <li><a href="quiz.html">क्विज़</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="language-dropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <i class="fa-solid fa-globe"></i> भाषा <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <a href="#">हिंदी</a>
+          <a href="../../english/pages/articles.html">English</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="डार्क मोड में बदलें">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="नेविगेशन मेनू खोलें/बंद करें">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">अनुच्छेद</h1>
+      <div class="hero-subtitle">भारत के संविधान के सभी अनुच्छेदों को देखें।</div>
+      <p class="hero-description">
+        उन प्रावधानों को पढ़ें और समझें जो आपके अधिकारों, कर्तव्यों और हमारे देश के ढांचे को परिभाषित करते हैं।
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">होम</a>
+      <i class="fa-solid fa-chevron-right" style="font-size: 9px;"></i>
+      <span>अनुच्छेद</span>
+    </div>
+
+    <!-- Content 3-Column Grid -->
+    <div class="content-grid">
+
+      <!-- Left Panel: STICKY Filter Articles -->
+      <aside class="filter-panel">
+        <div class="filter-header">
+          <i class="fa-solid fa-sliders"></i>
+          <span>अनुच्छेद फ़िल्टर करें</span>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">अनुच्छेद खोजें</label>
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="filterSearchInput" placeholder="अनुच्छेद संख्या या मुख्य शब्द द्वारा खोजें...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">भाग के अनुसार फ़िल्टर करें</label>
+          <select class="filter-select" id="filterPartSelect">
+            <option value="All Parts">सभी भाग</option>
+            <option value="Part I">भाग I</option>
+            <option value="Part II">भाग II</option>
+            <option value="Part III">भाग III</option>
+            <option value="Part IV">भाग IV</option>
+            <option value="Part IVA">भाग IVA</option>
+            <option value="Part V">भाग V</option>
+            <option value="Part VI">भाग VI</option>
+            <option value="Part VIII">भाग VIII</option>
+            <option value="Part IX">भाग IX</option>
+            <option value="Part IXA">भाग IXA</option>
+            <option value="Part IXB">भाग IXB</option>
+            <option value="Part X">भाग X</option>
+            <option value="Part XI">भाग XI</option>
+            <option value="Part XII">भाग XII</option>
+            <option value="Part XIII">भाग XIII</option>
+            <option value="Part XIV">भाग XIV</option>
+            <option value="Part XIVA">भाग XIVA</option>
+            <option value="Part XV">भाग XV</option>
+            <option value="Part XVI">भाग XVI</option>
+            <option value="Part XVII">भाग XVII</option>
+            <option value="Part XVIII">भाग XVIII</option>
+            <option value="Part XIX">भाग XIX</option>
+            <option value="Part XX">भाग XX</option>
+            <option value="Part XXI">भाग XXI</option>
+            <option value="Part XXII">भाग XXII</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">विषय के अनुसार फ़िल्टर करें</label>
+          <select class="filter-select" id="filterSubjectSelect">
+            <option value="All Subjects">सभी विषय</option>
+            <option value="Fundamental Rights">मौलिक अधिकार</option>
+            <option value="Citizenship">नागरिकता</option>
+            <option value="The Union">संघ</option>
+            <option value="Directive Principles of State Policy">राज्य के नीति निदेशक तत्व</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">मुख्य शब्द के अनुसार फ़िल्टर करें</label>
+          <input type="text" class="text-input" id="filterKeywordInput" placeholder="जैसे: मौलिक अधिकार">
+        </div>
+
+        <button class="btn-apply" id="btnApplyFilters" type="button">फ़िल्टर लागू करें</button>
+        <button class="btn-reset" id="btnResetFilters" type="button">रिसेट करें</button>
+      </aside>
+
+      <!-- Middle Panel: SCROLLABLE Articles List -->
+      <main class="articles-section">
+        <div class="articles-header">
+          <div class="articles-title" id="articlesCountText">सभी अनुच्छेद (395)</div>
+          <div class="sort-wrapper">
+            <span>क्रमबद्ध करें</span>
+            <select class="sort-select" id="sortSelect">
+              <option value="asc">अनुच्छेद संख्या (बढ़ते क्रम में)</option>
+              <option value="desc">अनुच्छेद संख्या (घटते क्रम में)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Articles List Container -->
+        <div id="articles-list-container">
+          <!-- Article cards will be rendered dynamically by JavaScript -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination-wrapper" style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f0f4f8; margin-top: 16px;">
+          <button id="prev-page-btn" class="btn-listen" style="cursor: pointer;" disabled>
+            <i class="fa-solid fa-chevron-left"></i> पिछला
+          </button>
+          <span id="page-info-text" style="font-size: 11.5px; font-weight: 600; color: #637381;">पृष्ठ 1 / 40</span>
+          <button id="next-page-btn" class="btn-listen" style="cursor: pointer;">
+            अगला <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </main>
+
+      <!-- Right Panel: STICKY Popular Articles & Browse by Part -->
+      <aside class="right-sidebar">
+        
+        <!-- Popular Articles Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+            <span>लोकप्रिय अनुच्छेद</span>
+          </div>
+
+          <ul class="popular-list">
+            <li class="popular-item" data-num="14">
+              <span class="num-badge">14</span>
+              <span class="popular-text">कानून के समक्ष समानता</span>
+            </li>
+            <li class="popular-item" data-num="19">
+              <span class="num-badge">19</span>
+              <span class="popular-text">वाक् और अभिव्यक्ति की स्वतंत्रता</span>
+            </li>
+            <li class="popular-item" data-num="21">
+              <span class="num-badge">21</span>
+              <span class="popular-text">प्राण और दैहिक स्वतंत्रता का संरक्षण</span>
+            </li>
+            <li class="popular-item" data-num="32">
+              <span class="num-badge">32</span>
+              <span class="popular-text">अधिकारों को प्रवर्तित कराने के उपचार</span>
+            </li>
+            <li class="popular-item" data-num="368">
+              <span class="num-badge">368</span>
+              <span class="popular-text">संविधान का संशोधन</span>
+            </li>
+          </ul>
+
+          <a href="#" class="view-more-link" id="viewAllPopular">
+            सभी लोकप्रिय अनुच्छेद देखें <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Browse By Part Widget -->
+        <div class="sidebar-widget">
+          <div class="widget-title">
+            <i class="fa-solid fa-book-open" style="color: #1e3a8a;"></i>
+            <span>भाग के अनुसार देखें</span>
+          </div>
+
+          <ul class="parts-list">
+            <li class="part-item" data-part="Part I" data-link="../parts/part-1.html">
+              <div class="part-item-left">
+                <span class="part-name">भाग I</span>
+                <span class="part-label">संघ और उसका राज्यक्षेत्र</span>
+              </div>
+              <span class="part-count">(4)</span>
+            </li>
+
+            <li class="part-item" data-part="Part I" data-link="../parts/part-2.html">
+              <div class="part-item-left">
+                <span class="part-name">भाग II</span>
+                <span class="part-label">नागरिकता</span>
+              </div>
+              <span class="part-count">(11)</span>
+            </li>
+
+            <li class="part-item" data-part="Part I" data-link="../parts/part-3.html">
+              <div class="part-item-left">
+                <span class="part-name">भाग III</span>
+                <span class="part-label">मौलिक अधिकार</span>
+              </div>
+              <span class="part-count">(36)</span>
+            </li>
+            
+            <li class="part-item" data-part="Part I" data-link="../parts/part-4.html">
+              <div class="part-item-left">
+                <span class="part-name">भाग IV</span>
+                <span class="part-label">राज्य के नीति निदेशक तत्व</span>
+              </div>
+              <span class="part-count">(24)</span>
+            </li>
+
+             <li class="part-item" data-part="Part I" data-link="../parts/part-4A.html">
+              <div class="part-item-left">
+                <span class="part-name">भाग IVA</span>
+                <span class="part-label">मौलिक कर्तव्य</span>
+              </div>
+              <span class="part-count">(1)</span>
+            </li>
+
+            <li class="part-item" data-part="Part I" data-link="../parts/part-5.html">
+              <div class="part-item-left">
+                <span class="part-name">भाग V</span>
+                <span class="part-label">संघ</span>
+              </div>
+              <span class="part-count">(100)</span>
+            </li>
+          </ul>
+
+          <a href="parts.html" class="view-more-link" id="viewAllParts">
+            सभी भाग देखें <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- Bottom Banner -->
+    <div class="bottom-banner">
+      <div class="banner-left">
+        <div class="banner-icon-circle">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <div>
+          <div class="banner-title">क्या आपको वह नहीं मिला जो आप खोज रहे हैं?</div>
+          <div class="banner-sub">अलग मुख्य शब्दों का उपयोग करके देखें या अनुच्छेदों को खोजने के लिए भागों के अनुसार देखें।</div>
+        </div>
+      </div>
+      <button class="btn-browse" id="btnBottomBrowse" type="button">भागों के अनुसार देखें</button>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+   <footer class="sv-footer">
+    <div class="sv-footer-main">
+      <div class="sv-footer-grid">
+        <div>
+          <div class="sv-footer-brand">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <div>
+              <h3>संविधान</h3>
+              <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+            </div>
+          </div>
+          <p class="sv-footer-desc">
+            भारत के संविधान को समझने और जानने का एक संपूर्ण मंच — इसके अनुच्छेद, भाग, अनुसूचियां, संशोधन और प्रमुख फैसले।
+          </p>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">एक्सप्लोर करें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="articles.html">अनुच्छेद</a></li>
+            <li><a href="parts.html">भाग</a></li>
+            <li><a href="schedules.html">अनुसूचियां</a></li>
+            <li><a href="amendments.html">संशोधन</a></li>
+            <li><a href="judgments.html">फैसले</a></li>
+            <li><a href="glossary.html">शब्दावली</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">और जानें</h4>
+          <ul class="sv-footer-links">
+            <li><a href="../basics/directive-principles.html">नीति निदेशक तत्व</a></li>
+            <li><a href="../basics/fundamental-duties.html">मौलिक कर्तव्य</a></li>
+            <li><a href="../basics/fundamental-rights.html">मौलिक अधिकार</a></li>
+            <li><a href="../basics/premble.html">संविधान की प्रस्तावना</a></li>
+            <li><a href="../basics/knowledge.html">ज्ञान केंद्र</a></li>
+            <li><a href="quiz.html">क्विज़</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="sv-footer-heading">क्या आप जानते हैं?</h4>
+          <p class="sv-footer-fact">
+            भारतीय संविधान दुनिया का सबसे लंबा लिखित संविधान है, जिसमें मूल रूप से 395 अनुच्छेद, 22 भाग और 8 अनुसूचियां थीं।
+          </p>
+        </div>
+      </div>
+
+      <!-- Our Platforms -->
+      <div class="sv-platforms">
+        <h4 class="sv-platforms-heading">हमारे प्लेटफॉर्म</h4>
+        <div class="sv-platforms-grid">
+          <a href="../index.html" class="sv-platform-card">
+            <div class="sv-platform-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="sv-platform-info">
+              <h5>Simple Savidhan</h5>
+              <p>संविधान ज्ञानकोश</p>
+            </div>
+          </a>
+          <a href="https://freecoursehub.xyz/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="sv-platform-info">
+              <h5>FreeCourseHub</h5>
+              <p>मुफ्त ऑनलाइन कोर्स</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/ExcelSuperGuru/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="sv-platform-info">
+              <h5>ExcelSuperGuru</h5>
+              <p>एक्सेल स्किल सीखें</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/MultyCalculatorHub/index.html" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sv-platform-info">
+              <h5>Multy Calculator Hub</h5>
+              <p>ऑल-इन-वन कैलकुलेटर</p>
+            </div>
+          </a>
+          <a href="https://munendra5singh.github.io/smartCalcAi/" class="sv-platform-card" target="_blank" rel="noopener">
+            <div class="sv-platform-icon"><i class="fa-solid fa-robot"></i></div>
+            <div class="sv-platform-info">
+              <h5>smartcalcAi</h5>
+              <p>AI द्वारा गणनाएं</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sv-footer-bottom">
+      <p>&copy; 2025 Simple Savidhan. भारत के लिए <span class="heart">&hearts;</span> के साथ बनाया गया।</p>
+      <p>अपने अधिकार जानें। अपना कानून जानें।</p>
+    </div>
+  </footer>
+
+  <script>
+    // Complete Dataset of All Articles of the Constitution of India
+
+const articlesData = [
+    // PART I: THE UNION AND ITS TERRITORY (1 - 4)
+    { num: 1, part: "Part I", title: "संघ का नाम और राज्यक्षेत्र।", desc: "भारत, अर्थात भारत, राज्यों का एक संघ होगा।", icon: "fa-user", color: "icon-blue", link: "../articles/article-1.html" },
+    { num: 2, part: "Part I", title: "नए राज्यों का प्रवेश या स्थापना।", desc: "संसद कानून द्वारा ऐसे नियमों और शर्तों पर जिन्हें वह ठीक समझे, नए राज्यों को संघ में शामिल कर सकती है या उनकी स्थापना कर सकती है।", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-2.html" },
+    { num: 3, part: "Part I", title: "नए राज्यों का निर्माण और वर्तमान राज्यों के क्षेत्रों, सीमाओं या नामों में परिवर्तन।", desc: "संसद कानून द्वारा किसी राज्य में से उसका राज्यक्षेत्र अलग करके या दो या अधिक राज्यों को मिलाकर नया राज्य बना सकती है।", icon: "fa-location-dot", color: "icon-orange", link: "../articles/article-3.html" },
+    { num: 4, part: "Part I", title: "पहली और चौथी अनुसूची के संशोधन के लिए अनुच्छेद 2 और 3 के तहत बनाए गए कानून।", desc: "अनुच्छेद 2 और 3 के तहत बनाए गए कानूनों में पहली और चौथी अनुसूची में संशोधन के प्रावधान शामिल हैं।", icon: "fa-landmark", color: "icon-purple", link: "../articles/article-4.html" },
+
+    // PART II: CITIZENSHIP (5 - 11)
+    { num: 5, part: "Part II", title: "संविधान के प्रारंभ पर नागरिकता।", desc: "प्रत्येक व्यक्ति जिसका इस संविधान के प्रारंभ पर भारत के राज्यक्षेत्र में अधिवास है।", icon: "fa-users", color: "icon-teal", link: "../articles/article-5.html" },
+    { num: 6, part: "Part II", title: "पाकिस्तान से भारत को प्रव्रजन करने वाले कुछ व्यक्तियों के नागरिकता के अधिकार।", desc: "पाकिस्तान से भारत आए व्यक्तियों के नागरिकता के अधिकार।", icon: "fa-address-card", color: "icon-amber", link: "../articles/article-6.html" },
+    { num: 7, part: "Part II", title: "पाकिस्तान को प्रव्रजन करने वाले कुछ व्यक्तियों के नागरिकता के अधिकार।", desc: "1 मार्च 1947 के बाद पाकिस्तान जाने वाले व्यक्तियों के नागरिकता संबंधी अधिकार।", icon: "fa-passport", color: "icon-blue", link: "../articles/article-7.html" },
+    { num: 8, part: "Part II", title: "भारत के बाहर रहने वाले भारतीय मूल के कुछ व्यक्तियों के नागरिकता के अधिकार।", desc: "भारत के बाहर रहने वाले भारतीय मूल के व्यक्तियों के नागरिकता अधिकार।", icon: "fa-globe", color: "icon-green", link: "../articles/article-8.html" },
+    { num: 9, part: "Part II", title: "विदेशी राज्य की नागरिकता स्वेच्छा से अर्जित करने वाले व्यक्तियों का नागरिक न होना।", desc: "स्वेच्छा से किसी विदेशी देश की नागरिकता प्राप्त करने पर कोई भी व्यक्ति भारत का नागरिक नहीं रहेगा।", icon: "fa-user-slash", color: "icon-orange", link: "../articles/article-9.html" },
+    { num: 10, part: "Part II", title: "नागरिकता के अधिकारों का बना रहना।", desc: "प्रत्येक व्यक्ति जो भारत का नागरिक है या माना जाता है, वह ऐसा नागरिक बना रहेगा।", icon: "fa-user-check", color: "icon-purple", link: "../articles/article-10.html" },
+    { num: 11, part: "Part II", title: "संसद द्वारा नागरिकता के अधिकार का कानून द्वारा विनियमन किया जाना।", desc: "संसद को नागरिकता के अर्जन और समाप्ति के संबंध में नियम बनाने का अधिकार है।", icon: "fa-gavel", color: "icon-teal", link: "../articles/article-11.html" },
+
+    // PART III: FUNDAMENTAL RIGHTS (12 - 35)
+    { num: 12, part: "Part III", title: "राज्य की परिभाषा।", desc: "इस भाग में, जब तक कि संदर्भ से अन्यथा अपेक्षित न हो, 'राज्य' के अंतर्गत भारत की सरकार और संसद शामिल हैं।", icon: "fa-building-columns", color: "icon-amber", link: "../articles/article-12.html" },
+    { num: 13, part: "Part III", title: "मौलिक अधिकारों से असंगत या उनका अल्पीकरण करने वाली विधियां।", desc: "मौलिक अधिकारों से असंगत सभी विधियां उस असंगति की मात्रा तक शून्य होंगी।", icon: "fa-shield-halved", color: "icon-blue", link: "../articles/article-13.html" },
+    { num: 14, part: "Part III", title: "विधि के समक्ष समानता।", desc: "राज्य किसी व्यक्ति को कानून के समक्ष समानता या कानूनों के समान संरक्षण से वंचित नहीं करेगा।", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-14.html" },
+    { num: 15, part: "Part III", title: "धर्म, मूलवंश, जाति, लिंग या जन्मस्थान के आधार पर विभेद का प्रतिषेध।", desc: "राज्य केवल धर्म, मूलवंश, जाति, लिंग या जन्मस्थान के आधार पर किसी नागरिक के साथ भेदभाव नहीं करेगा।", icon: "fa-ban-smoking", color: "icon-orange", link: "../articles/article-15.html" },
+    { num: 16, part: "Part III", title: "लोक नियोजन के विषय में अवसर की समानता।", desc: "राज्य के अधीन पदों पर नियोजन या नियुक्ति से संबंधित विषयों में सभी नागरिकों के लिए अवसर की समानता होगी।", icon: "fa-briefcase", color: "icon-purple", link: "../articles/article-16.html" },
+    { num: 17, part: "Part III", title: "अस्पृश्यता का अंत।", desc: "अस्पृश्यता को समाप्त किया जाता है और किसी भी रूप में इसका आचरण निषिद्ध है।", icon: "fa-hand-fist", color: "icon-teal", link: "../articles/article-17.html" },
+    { num: 18, part: "Part III", title: "उपाधियों का अंत।", desc: "सैन्य या शैक्षणिक सम्मान को छोड़कर, राज्य द्वारा कोई अन्य उपाधि प्रदान नहीं की जाएगी।", icon: "fa-award", color: "icon-amber", link: "../articles/article-18.html" },
+    { num: 19, part: "Part III", title: "वाक्-स्वातंत्र्य आदि विषयक कुछ अधिकारों का संरक्षण।", desc: "भाषण, सभा, संगठन बनाने, आवागमन, निवास और आजीविका की स्वतंत्रता की गारंटी देता है।", icon: "fa-comment-dots", color: "icon-blue", link: "../articles/article-19.html" },
+    { num: 20, part: "Part III", title: "अपराधों के लिए दोषसिद्धि के संबंध में संरक्षण।", desc: "कार्योत्तर कानूनों, दोहरे दंड और स्वयं के विरुद्ध साक्ष्य देने से संरक्षण।", icon: "fa-handcuffs", color: "icon-green", link: "../articles/article-20.html" },
+    { num: 21, part: "Part III", title: "प्राण और दैहिक स्वतंत्रता का संरक्षण।", desc: "विधि द्वारा स्थापित प्रक्रिया के अनुसार ही किसी व्यक्ति को उसके प्राण या दैहिक स्वतंत्रता से वंचित किया जाएगा।", icon: "fa-heart-pulse", color: "icon-orange", link: "../articles/article-21.html" },
+    { num: "21A", part: "Part III", title: "शिक्षा का अधिकार।", desc: "राज्य छह से चौदह वर्ष तक की आयु वाले सभी बच्चों के लिए मुफ्त और अनिवार्य शिक्षा प्रदान करेगा।", icon: "fa-graduation-cap", color: "icon-purple", link: "../articles/article-21a.html" },
+    { num: 22, part: "Part III", title: "कुछ दशाओं में गिरफ्तारी और निरोध से संरक्षण।", desc: "गिरफ्तार किए गए व्यक्तियों के अधिकार, जिनमें गिरफ्तारी के कारणों की जानकारी और वकील से परामर्श शामिल है।", icon: "fa-person-military-rifle", color: "icon-teal", link: "../articles/article-22.html" },
+    { num: 23, part: "Part III", title: "मानव के दुर्व्यापार और बलात्श्रम का प्रतिषेध।", desc: "मानव का दुर्व्यापार, बेगार और इसी प्रकार का अन्य बलात्श्रम निषिद्ध किया जाता है।", icon: "fa-link-slash", color: "icon-amber", link: "../articles/article-23.html" },
+    { num: 24, part: "Part III", title: "कारखानों आदि में बालकों के नियोजन का प्रतिषेध।", desc: "चौदह वर्ष से कम आयु के किसी बालक को किसी कारखाने या खान में काम करने के लिए नियोजित नहीं किया जाएगा।", icon: "fa-child-reaching", color: "icon-blue", link: "../articles/article-24.html" },
+    { num: 25, part: "Part III", title: "अंतःकरण की और धर्म के अबाध रूप से मानने, आचरण और प्रचार करने की स्वतंत्रता।", desc: "सभी व्यक्तियों को अंतःकरण की स्वतंत्रता और धर्म को अबाध रूप से मानने, आचरण करने तथा प्रचार करने का समान अधिकार है।", icon: "fa-hands-praying", color: "icon-green", link: "../articles/article-25.html" },
+    { num: 26, part: "Part III", title: "धार्मिक कार्यों के प्रबंध की स्वतंत्रता।", desc: "प्रत्येक धार्मिक संप्रदाय को धार्मिक और धर्मार्थ प्रयोजनों के लिए संस्थाओं की स्थापना और पोषण का अधिकार है।", icon: "fa-synagogue", color: "icon-orange", link: "../articles/article-26.html" },
+    { num: 27, part: "Part III", title: "किसी विशिष्ट धर्म की अभिवृद्धि के लिए करों के संदाय के बारे में स्वतंत्रता।", desc: "किसी भी व्यक्ति को किसी विशेष धर्म की अभिवृद्धि या पोषण के लिए कर देने के लिए बाध्य नहीं किया जाएगा।", icon: "fa-receipt", color: "icon-purple", link: "../articles/article-27.html" },
+    { num: 28, part: "Part III", title: "कुछ शिक्षा संस्थाओं में धार्मिक शिक्षा या धार्मिक उपासना में उपस्थित होने के बारे में स्वतंत्रता।", desc: "पूर्णतः राज्य-निधि से पोषित किसी शिक्षा संस्था में कोई धार्मिक शिक्षा नहीं दी जाएगी।", icon: "fa-school-flag", color: "icon-teal", link: "../articles/article-28.html" },
+    { num: 29, part: "Part III", title: "अल्पसंख्यक-वर्गों के हितों का संरक्षण।", desc: "अपनी विशिष्ट भाषा, लिपि या संस्कृति वाले नागरिकों के किसी भी वर्ग को उसे बनाए रखने का अधिकार होगा।", icon: "fa-people-roof", color: "icon-amber", link: "../articles/article-29.html" },
+    { num: 30, part: "Part III", title: "शिक्षा संस्थाओं की स्थापना और प्रशासन करने का अल्पसंख्यक-वर्गों का अधिकार।", desc: "सभी अल्पसंख्यकों को अपनी रुचि की शिक्षा संस्थाओं की स्थापना और प्रशासन का अधिकार होगा।", icon: "fa-book-open-reader", color: "icon-blue", link: "../articles/article-30.html" },
+    { num: 31, part: "Part III", title: "संपत्ति का अनिवार्य अर्जन।", desc: "(44वें संशोधन अधिनियम, 1978 द्वारा निरसित)।", icon: "fa-house-circle-xmark", color: "icon-green", link: "../articles/article-31.html" },
+    { num: "31A", part: "Part III", title: "संपदाओं आदि के अर्जन के लिए उपबंध करने वाली विधियों की व्यावृत्ति।", desc: "संपदाओं के अर्जन और कृषि सुधारों के लिए विधियों की व्यावृत्ति।", icon: "fa-file-shield", color: "icon-orange", link: "../articles/article-31a.html" },
+    { num: "31B", part: "Part III", title: "कुछ अधिनियमों और नियमों का विधिमान्यकरण।", desc: "नौवीं अनुसूची में निर्दिष्ट अधिनियमों और नियमों को न्यायिक समीक्षा से संरक्षण।", icon: "fa-box-archive", color: "icon-purple", link: "../articles/article-31b.html" },
+    { num: "31C", part: "Part III", title: "कुछ नीति निदेशक तत्वों को प्रभावी करने वाली विधियों की व्यावृत्ति।", desc: "अनुच्छेद 39(ख) और (ग) के तहत नीति निदेशक तत्वों को प्रभावी करने वाली विधियों को संरक्षण।", icon: "fa-file-contract", color: "icon-teal", link: "../articles/article-31c.html" },
+    { num: 32, part: "Part III", title: "इस भाग द्वारा प्रदत्त अधिकारों को प्रवर्तित कराने के लिए उपचार।", desc: "मौलिक अधिकारों को लागू कराने के लिए उपयुक्त कार्यवाहियों द्वारा उच्चतम न्यायालय में आवेदन करने का अधिकार।", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-32.html" },
+    { num: 33, part: "Part III", title: "इस भाग द्वारा प्रदत्त अधिकारों का बलों आदि को लागू होने में रूपांतरण करने की संसद की शक्ति।", desc: "संसद सशस्त्र बलों, पुलिस और खुफिया एजेंसियों के मौलिक अधिकारों को सीमित कर सकती है।", icon: "fa-shield-cat", color: "icon-blue", link: "../articles/article-33.html" },
+    { num: 34, part: "Part III", title: "जब किसी क्षेत्र में सेना विधि प्रवृत्त है तब इस भाग द्वारा प्रदत्त अधिकारों पर निबंध।", desc: "किसी क्षेत्र में मार्शल लॉ लागू होने के दौरान मौलिक अधिकारों पर निर्बंधन।", icon: "fa-triangle-exclamation", color: "icon-green", link: "../articles/article-34.html" },
+    { num: 35, part: "Part III", title: "इस भाग के उपबंधों को प्रभावी करने के लिए विधान।", desc: "संसद के पास मौलिक अधिकारों के उपबंधों को प्रभावी बनाने के लिए कानून बनाने की शक्ति होगी।", icon: "fa-file-pen", color: "icon-orange", link: "../articles/article-35.html" },
+
+    // PART IV: DIRECTIVE PRINCIPLES OF STATE POLICY (36 - 51)
+    { num: 36, part: "Part IV", title: "भाग IV में राज्य की परिभाषा।", desc: "इस भाग में, जब तक कि संदर्भ से अन्यथा अपेक्षित न हो, 'राज्य' का वही अर्थ है जो भाग III में है।", icon: "fa-city", color: "icon-purple", link: "../articles/article-36.html" },
+    { num: 37, part: "Part IV", title: "इस भाग में अंतर्विष्ट तत्वों का लागू होना।", desc: "नीति निदेशक तत्व किसी न्यायालय द्वारा लागू नहीं कराए जा सकेंगे, लेकिन शासन में मूलभूत हैं।", icon: "fa-compass-drafting", color: "icon-teal", link: "../articles/article-37.html" },
+    { num: 38, part: "Part IV", title: "राज्य लोक कल्याण की अभिवृद्धि के लिए सामाजिक व्यवस्था बनाएगा।", desc: "राज्य सामाजिक, आर्थिक और राजनीतिक न्याय द्वारा लोक कल्याण को बढ़ावा देने का प्रयास करेगा।", icon: "fa-hand-holding-heart", color: "icon-amber", link: "../articles/article-38.html" },
+    { num: 39, part: "Part IV", title: "राज्य द्वारा अनुसरणीय कुछ नीति तत्व।", desc: "जीविका के पर्याप्त साधन सुरक्षित करना, भौतिक संसाधनों का समान वितरण, और समान कार्य के लिए समान वेतन।", icon: "fa-hands-holding-child", color: "icon-blue", link: "../articles/article-39.html" },
+    { num: "39A", part: "Part IV", title: "समान न्याय और निःशुल्क विधिक सहायता।", desc: "राज्य यह सुनिश्चित करने के लिए निःशुल्क कानूनी सहायता प्रदान करेगा कि न्याय पाने के अवसर से कोई वंचित न रहे।", icon: "fa-scale-unbalanced-flip", color: "icon-green", link: "../articles/article-39a.html" },
+    { num: 40, part: "Part IV", title: "ग्राम पंचायतों का संगठन।", desc: "राज्य ग्राम पंचायतों का संगठन करने के लिए कदम उठाएगा और उन्हें स्वायत्त शासन की इकाइयां बनाएगा।", icon: "fa-tree-city", color: "icon-orange", link: "../articles/article-40.html" },
+    { num: 41, part: "Part IV", title: "कुछ दशाओं में काम, शिक्षा और लोक सहायता पाने का अधिकार।", desc: "बेकारी, बुढ़ापे, बीमारी और अशक्तता की दशाओं में काम, शिक्षा और लोक सहायता पाने का अधिकार।", icon: "fa-person-cane", color: "icon-purple", link: "../articles/article-41.html" },
+    { num: 42, part: "Part IV", title: "काम की न्यायसंगत और मानवोचित दशाओं का तथा प्रसूति सहायता का उपबंध।", desc: "राज्य काम की न्यायसंगत दशाएं सुरक्षित करने और प्रसूति सहायता के लिए उपबंध करेगा।", icon: "fa-person-breastfeeding", color: "icon-teal", link: "../articles/article-42.html" },
+    { num: 43, part: "Part IV", title: "कर्मकारों के लिए निर्वाह मजदूरी आदि।", desc: "राज्य कर्मकारों के लिए निर्वाह मजदूरी, शिष्ट जीवनस्तर और सामाजिक-सांस्कृतिक अवसर सुरक्षित करने का प्रयास करेगा।", icon: "fa-coins", color: "icon-amber", link: "../articles/article-43.html" },
+    { num: "43A", part: "Part IV", title: "उद्योगों के प्रबंध में कर्मकारों का भाग लेना।", desc: "राज्य उपक्रमों के प्रबंध में कर्मकारों का भाग लेना सुरक्षित करने के लिए कदम उठाएगा।", icon: "fa-industry", color: "icon-blue", link: "../articles/article-43a.html" },
+    { num: "43B", part: "Part IV", title: "सहकारी समितियों का संवर्धन।", desc: "राज्य सहकारी समितियों के स्वैच्छिक गठन और लोकतांत्रिक नियंत्रण को बढ़ावा देगा।", icon: "fa-handshake-angle", color: "icon-green", link: "../articles/article-43b.html" },
+    { num: 44, part: "Part IV", title: "नागरिकों के लिए एक समान नागरिक संहिता।", desc: "राज्य भारत के समस्त राज्यक्षेत्र में नागरिकों के लिए एक समान नागरिक संहिता (UCC) प्राप्त कराने का प्रयास करेगा।", icon: "fa-scale-balanced", color: "icon-orange", link: "../articles/article-44.html" },
+    { num: 45, part: "Part IV", title: "छह वर्ष से कम आयु के बच्चों के लिए प्रारंभिक बाल्यावस्था देखरेख और शिक्षा।", desc: "राज्य सभी बच्चों को छह वर्ष की आयु पूरी करने तक बाल्यावस्था देखरेख और शिक्षा देने का प्रयास करेगा।", icon: "fa-baby", color: "icon-purple", link: "../articles/article-45.html" },
+    { num: 46, part: "Part IV", title: "अनुसूचित जातियों, अनुसूचित जनजातियों और अन्य दुर्बल वर्गों के शिक्षा और अर्थ संबंधी हितों की अभिवृद्धि।", desc: "राज्य दुर्बल वर्गों के शिक्षा और अर्थ संबंधी हितों की विशेष सावधानी से अभिवृद्धि करेगा।", icon: "fa-people-line", color: "icon-teal", link: "../articles/article-46.html" },
+    { num: 47, part: "Part IV", title: "पोषाहार स्तर और जीवन स्तर को ऊंचा करने तथा लोक स्वास्थ्य का सुधार करने का राज्य का कर्तव्य।", desc: "पोषाहार स्तर और लोक स्वास्थ्य के सुधार को राज्य अपने प्राथमिक कर्तव्यों में मानेगा।", icon: "fa-bowl-rice", color: "icon-amber", link: "../articles/article-47.html" },
+    { num: 48, part: "Part IV", title: "कृषि और पशुपालन का संगठन।", desc: "राज्य कृषि और पशुपालन को आधुनिक और वैज्ञानिक प्रणालियों से संगठित करेगा।", icon: "fa-wheat-awn", color: "icon-blue", link: "../articles/article-48.html" },
+    { num: "48A", part: "Part IV", title: "पर्यावरण का संरक्षण और संवर्धन तथा वन और वन्य जीवों की रक्षा।", desc: "राज्य पर्यावरण के संरक्षण तथा वनों और वन्य जीवों की रक्षा करने का प्रयास करेगा।", icon: "fa-plant-wilt", color: "icon-green", link: "../articles/article-48a.html" },
+    { num: 49, part: "Part IV", title: "राष्ट्रीय महत्व के संस्मारकों, स्थानों और वस्तुओं का संरक्षण।", desc: "राष्ट्रीय महत्व के स्मारकों और ऐतिहासिक स्थानों का संरक्षण करना राज्य की बाध्यता होगी।", icon: "fa-monument", color: "icon-orange", link: "../articles/article-49.html" },
+    { num: 50, part: "Part IV", title: "कार्यपालिका से न्यायपालिका का पृथक्करण।", desc: "राज्य की लोक सेवाओं में न्यायपालिका को कार्यपालिका से अलग करने के लिए राज्य कदम उठाएगा।", icon: "fa-sitemap", color: "icon-purple", link: "../articles/article-50.html" },
+    { num: 51, part: "Part IV", title: "अंतर्राष्ट्रीय शांति और सुरक्षा की अभिवृद्धि।", desc: "राज्य अंतर्राष्ट्रीय शांति और सुरक्षा की अभिवृद्धि और राष्ट्रों के बीच न्यायसंगत संबंधों को बनाए रखेगा।", icon: "fa-dove", color: "icon-teal", link: "../articles/article-51.html" },
+
+    // PART IVA: FUNDAMENTAL DUTIES (51A)
+    { num: "51A", part: "Part IVA", title: "मौलिक कर्तव्य।", desc: "भारत के प्रत्येक नागरिक का यह कर्तव्य होगा कि वह संविधान का पालन करे, राष्ट्रध्वज और राष्ट्रगान का आदर करे।", icon: "fa-shield-heart", color: "icon-amber", link: "../articles/article-51a.html" },
+
+    // PART V: THE UNION (52 - 151)
+    { num: 52, part: "Part V", title: "भारत के राष्ट्रपति।", desc: "भारत का एक राष्ट्रपति होगा।", icon: "fa-user-tie", color: "icon-blue", link: "../articles/article-52.html" },
+    { num: 53, part: "Part V", title: "संघ की कार्यपालिका शक्ति।", desc: "संघ की कार्यपालिका शक्ति राष्ट्रपति में निहित होगी और वह इसका प्रयोग स्वयं या अधीनस्थ अधिकारियों द्वारा करेगा।", icon: "fa-crown", color: "icon-green", link: "../articles/article-53.html" },
+    { num: 54, part: "Part V", title: "राष्ट्रपति का निर्वाचन।", desc: "राष्ट्रपति का निर्वाचन संसद और राज्यों की विधानसभाओं के निर्वाचित सदस्यों से मिलकर बने निर्वाचक मंडल द्वारा होगा।", icon: "fa-check-to-slot", color: "icon-orange", link: "../articles/article-54.html" },
+    { num: 55, part: "Part V", title: "राष्ट्रपति के निर्वाचन की रीति।", desc: "राष्ट्रपति के निर्वाचन में आनुपातिक प्रतिनिधित्व पद्धति के अनुसार एकल संक्रमणीय मत द्वारा मतदान।", icon: "fa-vote-yea", color: "icon-purple", link: "../articles/article-55.html" },
+    { num: 56, part: "Part V", title: "राष्ट्रपति की पदावधि।", desc: "राष्ट्रपति अपने पद ग्रहण की तारीख से पांच वर्ष की अवधि तक पद धारण करेगा।", icon: "fa-calendar-check", color: "icon-teal", link: "../articles/article-56.html" },
+    { num: 57, part: "Part V", title: "पुनर्निर्वाचन के लिए पात्रता।", desc: "कोई व्यक्ति जो राष्ट्रपति के रूप में पद धारण करता है या कर चुका है, पुनर्निर्वाचन का पात्र होगा।", icon: "fa-rotate-right", color: "icon-amber", link: "../articles/article-57.html" },
+    { num: 58, part: "Part V", title: "राष्ट्रपति निर्वाचित होने के लिए अर्हताएं।", desc: "भारत का नागरिक हो, 35 वर्ष की आयु पूरी कर चुका हो और लोकसभा सदस्य बनने की योग्यता रखता हो।", icon: "fa-id-card", color: "icon-blue", link: "../articles/article-58.html" },
+    { num: 59, part: "Part V", title: "राष्ट्रपति के पद के लिए शर्तें।", desc: "राष्ट्रपति संसद या किसी राज्य विधानमंडल के किसी सदन का सदस्य नहीं होगा।", icon: "fa-building-user", color: "icon-green", link: "../articles/article-59.html" },
+    { num: 60, part: "Part V", title: "राष्ट्रपति द्वारा शपथ या प्रतिज्ञान।", desc: "राष्ट्रपति को भारत के मुख्य न्यायाधीश द्वारा शपथ दिलाई जाएगी।", icon: "fa-file-signature", color: "icon-orange", link: "../articles/article-60.html" },
+    { num: 61, part: "Part V", title: "राष्ट्रपति पर महाभियोग चलाने की प्रक्रिया।", desc: "संविधान के अतिक्रमण के लिए राष्ट्रपति पर महाभियोग चलाने की प्रक्रिया।", icon: "fa-gavel", color: "icon-purple", link: "../articles/article-61.html" },
+    { num: 62, part: "Part V", title: "राष्ट्रपति के पद में रिक्ति को भरने के लिए निर्वाचन करने का समय।", desc: "पदावधि समाप्त होने से पहले या पद में रिक्ति को भरने के लिए निर्वाचन कराने की समय सीमा।", icon: "fa-clock", color: "icon-teal", link: "../articles/article-62.html" },
+    { num: 63, part: "Part V", title: "भारत के उपराष्ट्रपति।", desc: "भारत का एक उपराष्ट्रपति होगा।", icon: "fa-user-check", color: "icon-amber", link: "../articles/article-63.html" },
+    { num: 64, part: "Part V", title: "उपराष्ट्रपति का राज्यों की परिषद का पदेन सभापति होना।", desc: "उपराष्ट्रपति राज्यसभा का पदेन सभापति होगा।", icon: "fa-chair", color: "icon-blue", link: "../articles/article-64.html" },
+    { num: 65, part: "Part V", title: "राष्ट्रपति के पद में आकस्मिक रिक्ति के दौरान उपराष्ट्रपति का राष्ट्रपति के रूप में कार्य करना।", desc: "आकस्मिक रिक्ति या अनुपस्थिति के दौरान उपराष्ट्रपति राष्ट्रपति के रूप में कार्य करता है।", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-65.html" },
+    { num: 66, part: "Part V", title: "उपराष्ट्रपति का निर्वाचन।", desc: "संसद के दोनों सदनों के सदस्यों से मिलकर बनने वाले निर्वाचक मंडल द्वारा उपराष्ट्रपति का निर्वाचन।", icon: "fa-check-double", color: "icon-orange", link: "../articles/article-66.html" },
+    { num: 67, part: "Part V", title: "उपराष्ट्रपति की पदावधि।", desc: "उपराष्ट्रपति अपने पद ग्रहण की तारीख से पांच वर्ष की अवधि तक पद धारण करेगा।", icon: "fa-calendar-days", color: "icon-purple", link: "../articles/article-67.html" },
+    { num: 68, part: "Part V", title: "उपराष्ट्रपति के पद में रिक्ति को भरने के लिए निर्वाचन करने का समय।", desc: "पदावधि समाप्त होने या त्यागपत्र के कारण हुई रिक्ति को भरने के लिए निर्वाचन।", icon: "fa-hourglass-half", color: "icon-teal", link: "../articles/article-68.html" },
+    { num: 69, part: "Part V", title: "उपराष्ट्रपति द्वारा शपथ या प्रतिज्ञान।", desc: "राष्ट्रपति या उनके द्वारा नियुक्त व्यक्ति के समक्ष शपथ या प्रतिज्ञान।", icon: "fa-signature", color: "icon-amber", link: "../articles/article-69.html" },
+    { num: 70, part: "Part V", title: "अन्य आकस्मिकताओं में राष्ट्रपति के कृत्यों का निर्वहन।", desc: "संसद अन्य आकस्मिकताओं में राष्ट्रपति के कृत्यों के निर्वहन के लिए उपबंध कर सकती है।", icon: "fa-file-shield", color: "icon-blue", link: "../articles/article-70.html" },
+    { num: 71, part: "Part V", title: "राष्ट्रपति या उपराष्ट्रपति के निर्वाचन से संबंधित या संसक्त विषय।", desc: "उच्चतम न्यायालय राष्ट्रपति या उपराष्ट्रपति के निर्वाचन संबंधी विवादों की जांच और निर्णय करता है।", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-71.html" },
+    { num: 72, part: "Part V", title: "क्षमा आदि की और कुछ मामलों में दंडादेश के निलंबन, परिहार या लघुकरण की राष्ट्रपति की शक्ति।", desc: "राष्ट्रपति की दंड क्षमा करने, निलंबित करने या कम करने की शक्ति।", icon: "fa-hand-holding-hand", color: "icon-orange", link: "../articles/article-72.html" },
+    { num: 73, part: "Part V", title: "संघ की कार्यपालिका शक्ति का विस्तार।", desc: "कार्यपालिका शक्ति का विस्तार उन विषयों तक होगा जिन पर संसद को कानून बनाने की शक्ति है।", icon: "fa-layer-group", color: "icon-purple", link: "../articles/article-73.html" },
+    { num: 74, part: "Part V", title: "राष्ट्रपति को सहायता और सलाह देने के लिए मत्रिपरिषद।", desc: "राष्ट्रपति को सहायता और सलाह देने के लिए एक मंत्रिपरिषद होगी जिसका प्रधान प्रधानमंत्री होगा।", icon: "fa-people-group", color: "icon-teal", link: "../articles/article-74.html" },
+    { num: 75, part: "Part V", title: "मंत्रियों के बारे में अन्य उपबंध।", desc: "प्रधानमंत्री की नियुक्ति राष्ट्रपति करेगा; अन्य मंत्रियों की नियुक्ति प्रधानमंत्री की सलाह पर होगी।", icon: "fa-user-pen", color: "icon-amber", link: "../articles/article-75.html" },
+    { num: 76, part: "Part V", title: "भारत का महान्यायवादी (Attorney-General)।", desc: "राष्ट्रपति उच्चतम न्यायालय का न्यायाधीश नियुक्त होने की अर्हता रखने वाले व्यक्ति को महान्यायवादी नियुक्त करेगा।", icon: "fa-user-shield", color: "icon-blue", link: "../articles/article-76.html" },
+    { num: 77, part: "Part V", title: "भारत सरकार के कार्य का संचालन।", desc: "भारत सरकार की समस्त कार्यपालिका कार्यवाही राष्ट्रपति के नाम से की हुई कही जाएगी।", icon: "fa-folder-tree", color: "icon-green", link: "../articles/article-77.html" },
+    { num: 78, part: "Part V", title: "राष्ट्रपति को जानकारी देने आदि के संबंध में प्रधानमंत्री के कर्तव्य।", desc: "प्रशासन संबंधी मंत्रिपरिषद के सभी निर्णयों से राष्ट्रपति को सूचित करना प्रधानमंत्री का कर्तव्य है।", icon: "fa-envelope-open-text", color: "icon-orange", link: "../articles/article-78.html" },
+    { num: 79, part: "Part V", title: "संसद का गठन।", desc: "संघ के लिए एक संसद होगी जो राष्ट्रपति और दो सदनों से मिलकर बनेगी।", icon: "fa-landmark-flag", color: "icon-purple", link: "../articles/article-79.html" },
+    { num: 80, part: "Part V", title: "राज्यसभा (Council of States) की संरचना।", desc: "राज्यसभा में 12 नामनिर्देशित सदस्य और राज्यों/संघ राज्यक्षेत्रों के अधिकतम 238 प्रतिनिधि होंगे।", icon: "fa-users-between-lines", color: "icon-teal", link: "../articles/article-80.html" },
+    { num: 81, part: "Part V", title: "लोकसभा (House of the People) की संरचना।", desc: "लोकसभा में राज्यों से अधिकतम 530 और संघ राज्यक्षेत्रों से 20 सदस्य होंगे।", icon: "fa-users-line", color: "icon-amber", link: "../articles/article-81.html" },
+    { num: 82, part: "Part V", title: "प्रत्येक जनगणना के पश्चात् पुनः समायोजन।", desc: "जनगणना के बाद सीटों के आवंटन और प्रादेशिक निर्वाचन क्षेत्रों का पुनः समायोजन।", icon: "fa-chart-pie", color: "icon-blue", link: "../articles/article-82.html" },
+    { num: 83, part: "Part V", title: "संसद के सदनों की अवधि।", desc: "राज्यसभा एक स्थायी सदन है; लोकसभा की अवधि विघटित न होने पर 5 वर्ष है।", icon: "fa-timeline", color: "icon-green", link: "../articles/article-83.html" },
+    { num: 84, part: "Part V", title: "संसद की सदस्यता के लिए अर्हता।", desc: "भारत का नागरिक, निर्धारित आयु (राज्यसभा के लिए 30 वर्ष, लोकसभा के लिए 25 वर्ष)।", icon: "fa-user-graduate", color: "icon-orange", link: "../articles/article-84.html" },
+    { num: 85, part: "Part V", title: "संसद के सत्र, सत्रावसान और विघटन।", desc: "राष्ट्रपति समय-समय पर सदनों को आहूत करता है; दो सत्रों के बीच 6 माह से अधिक अंतर नहीं होगा।", icon: "fa-door-open", color: "icon-purple", link: "../articles/article-85.html" },
+    { num: 86, part: "Part V", title: "सदनों में अभिभाषण का और उनको संदेश भेजने का राष्ट्रपति का अधिकार।", desc: "राष्ट्रपति किसी एक सदन या एक साथ समवेत दोनों सदनों में अभिभाषण कर सकता है।", icon: "fa-bullhorn", color: "icon-teal", link: "../articles/article-86.html" },
+    { num: 87, part: "Part V", title: "राष्ट्रपति का विशेष अभिभाषण।", desc: "आम चुनाव के बाद प्रथम सत्र के प्रारंभ में और प्रत्येक वर्ष के प्रथम सत्र के प्रारंभ में विशेष अभिभाषण।", icon: "fa-scroll", color: "icon-amber", link: "../articles/article-87.html" },
+    { num: 88, part: "Part V", title: "सदनों के संबंध में मंत्रियों और महान्यायवादी के अधिकार।", desc: "बिना मत दिए किसी भी सदन की कार्यवाही में बोलने और भाग लेने का अधिकार।", icon: "fa-comments", color: "icon-blue", link: "../articles/article-88.html" },
+    { num: 89, part: "Part V", title: "राज्यसभा के सभापति और उपसभापति।", desc: "उपराष्ट्रपति पदेन सभापति होगा; राज्यसभा अपने सदस्यों में से उपसभापति चुनेगी।", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-89.html" },
+    { num: 90, part: "Part V", title: "उपसभापति का पद रिक्त होना, त्यागपत्र और पद से हटाया जाना।", desc: "राज्यसभा के उपसभापति का पद रिक्त होने, त्यागपत्र और हटाए जाने से संबंधित उपबंध।", icon: "fa-user-minus", color: "icon-orange", link: "../articles/article-90.html" },
+    { num: 91, part: "Part V", title: "सभापति के पद के कर्तव्यों का पालन करने की उपसभापति या अन्य व्यक्ति की शक्ति।", desc: "सभापति के पद की रिक्ति या अनुपस्थिति के दौरान उपसभापति कर्तव्यों का पालन करता है।", icon: "fa-user-clock", color: "icon-purple", link: "../articles/article-91.html" },
+    { num: 92, part: "Part V", title: "जब सभापति या उपसभापति को पद से हटाने का संकल्प विचारधीन हो तब उसका पीठासीन न होना।", desc: "पद से हटाने का संकल्प विचाराधीन होने पर अध्यक्षता करने पर रोक।", icon: "fa-ban", color: "icon-teal", link: "../articles/article-92.html" },
+    { num: 93, part: "Part V", title: "लोकसभा के अध्यक्ष और उपाध्यक्ष।", desc: "लोकसभा अपने दो सदस्यों को अध्यक्ष और उपाध्यक्ष चुनेगी।", icon: "fa-user-tie", color: "icon-amber", link: "../articles/article-93.html" },
+    { num: 94, part: "Part V", title: "अध्यक्ष और उपाध्यक्ष का पद रिक्त होना, त्यागपत्र और पद से हटाया जाना।", desc: "पद की रिक्ति, त्यागपत्र देने और लोकसभा के संकल्प द्वारा पद से हटाए जाने के उपबंध।", icon: "fa-arrow-right-from-bracket", color: "icon-blue", link: "../articles/article-94.html" },
+    { num: 95, part: "Part V", title: "अध्यक्ष के पद के कर्तव्यों का पालन करने की उपाध्यक्ष या अन्य व्यक्ति की शक्ति।", desc: "अध्यक्ष की रिक्ति या अनुपस्थिति में उपाध्यक्ष कर्तव्यों का निर्वहन करता है।", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-95.html" },
+    { num: 96, part: "Part V", title: "जब अध्यक्ष या उपाध्यक्ष को पद से हटाने का संकल्प विचारधीन हो तब उसका पीठासीन न होना।", desc: "हटाने का संकल्प विचाराधीन होने के दौरान पीठासीन न होने पर प्रतिबंध।", icon: "fa-shield-xmark", color: "icon-orange", link: "../articles/article-96.html" },
+    { num: 97, part: "Part V", title: "सभापति, उपसभापति तथा अध्यक्ष और उपाध्यक्ष के वेतन और भत्ते।", desc: "दोनों सदनों के पीठासीन अधिकारियों को दिए जाने वाले वेतन और भत्ते।", icon: "fa-money-bill-wave", color: "icon-purple", link: "../articles/article-97.html" },
+    { num: 98, part: "Part V", title: "संसद का सचिवालय।", desc: "संसद के प्रत्येक सदन का एक पृथक सचिवालीय कर्मचारीवृंद होगा।", icon: "fa-building-flag", color: "icon-teal", link: "../articles/article-98.html" },
+    { num: 99, part: "Part V", title: "सदस्यों द्वारा शपथ या प्रतिज्ञान।", desc: "संसद का प्रत्येक सदस्य राष्ट्रपति के समक्ष शपथ या प्रतिज्ञान करेगा।", icon: "fa-pen-clip", color: "icon-amber", link: "../articles/article-99.html" },
+    { num: 100, part: "Part V", title: "सदनों में मतदान, रिक्तियों के होते हुए भी सदनों की कार्य करने की शक्ति और गणपूर्ति।", desc: "बहुमत से निर्णय; टाई होने पर अध्यक्ष का निर्णायक मत; गणपूर्ति कुल सदस्यों का 1/10 होगी।", icon: "fa-check", color: "icon-blue", link: "../articles/article-100.html" },
+    { num: 101, part: "Part V", title: "स्थानों का रिक्त होना।", desc: "निरर्हता, दोहरी सदस्यता या बिना अनुमति 60 दिन अनुपस्थित रहने पर स्थान रिक्त हो जाता है।", icon: "fa-chair", color: "icon-green", link: "../articles/article-101.html" },
+    { num: 102, part: "Part V", title: "सदस्यता के लिए निरर्हताएं।", desc: "लाभ का पद धारण करना, विकृतचित्त होना, दिवालिया होना, गैर-नागरिक होना या वैधानिक अयोग्यता।", icon: "fa-user-xmark", color: "icon-orange", link: "../articles/article-102.html" },
+    { num: 103, part: "Part V", title: "सदस्यों की निरर्हताओं से संबंधित प्रश्नों पर निर्णय।", desc: "राष्ट्रपति निर्वाचन आयोग की राय प्राप्त करने के पश्चात् अयोग्यता संबंधी प्रश्नों पर निर्णय करता है।", icon: "fa-scale-balanced", color: "icon-purple", link: "../articles/article-103.html" },
+    { num: 104, part: "Part V", title: "अनुच्छेद 99 के अधीन शपथ लेने या प्रतिज्ञान करने से पहले या अर्हित न होते हुए बैठने और मत देने के लिए शास्ति।", desc: "अनाधिकृत रूप से बैठने या मत देने पर प्रति दिन 500 रुपये की शास्ति।", icon: "fa-file-invoice-dollar", color: "icon-teal", link: "../articles/article-104.html" },
+    { num: 105, part: "Part V", title: "संसद के सदनों की तथा उनके सदस्यों और समितियों की शक्तियां, विशेषाधिकार आदि।", desc: "संसद में वाक्-स्वातंत्र्य और संसदीय कार्यवाहियों के दौरान मुकदमों से उन्मुक्ति।", icon: "fa-shield-halved", color: "icon-amber", link: "../articles/article-105.html" },
+    { num: 106, part: "Part V", title: "सदस्यों के वेतन और भत्ते।", desc: "दोनों सदनों के सदस्य संसद द्वारा निर्धारित वेतन और भत्ते प्राप्त करने के हकदार हैं।", icon: "fa-wallet", color: "icon-blue", link: "../articles/article-106.html" },
+    { num: 107, part: "Part V", title: "विधेयकों के पुरःस्थापन और पारित किए जाने के संबंध में उपबंध।", desc: "विधेयक (धन विधेयकों को छोड़कर) किसी भी सदन में शुरू हो सकते हैं; दोनों की सहमति आवश्यक है।", icon: "fa-file-import", color: "icon-green", link: "../articles/article-107.html" },
+    { num: 108, part: "Part V", title: "कुछ दशाओं में दोनों सदनों की संयुक्त बैठक।", desc: "गतिरोध दूर करने के लिए राष्ट्रपति लोकसभा और राज्यसभा की संयुक्त बैठक बुला सकता है।", icon: "fa-people-roof", color: "icon-orange", link: "../articles/article-108.html" },
+    { num: 109, part: "Part V", title: "धन विधेयकों के संबंध में विशेष प्रक्रिया।", desc: "धन विधेयक राज्यसभा में पेश नहीं किए जाएंगे; राज्यसभा को सिफारिश के लिए 14 दिन का समय मिलता है।", icon: "fa-file-invoice", color: "icon-purple", link: "../articles/article-109.html" },
+    { num: 110, part: "Part V", title: "'धन विधेयक' की परिभाषा।", desc: "कराधान, उधार लेने, संचित निधि की अभिरक्षा से संबंधित प्रावधानों वाला विधेयक।", icon: "fa-sack-dollar", color: "icon-teal", link: "../articles/article-110.html" },
+    { num: 111, part: "Part V", title: "विधेयकों पर अनुमति।", desc: "राष्ट्रपति अनुमति देता है, अनुमति रोकता है या गैर-धन विधेयक को पुनर्विचार के लिए लौटाता है।", icon: "fa-stamp", color: "icon-amber", link: "../articles/article-111.html" },
+    { num: 112, part: "Part V", title: "वार्षिक वित्तीय विवरण (बजट)।", desc: "राष्ट्रपति संसद के समक्ष अनुमानित प्राप्तियों और व्यय का विवरण (बजट) रखवाता है।", icon: "fa-chart-line", color: "icon-blue", link: "../articles/article-112.html" },
+    { num: 113, part: "Part V", title: "संसद में प्राक्कलनों के संबंध में प्रक्रिया।", desc: "संचित निधि पर भारित व्यय से संबंधित प्राक्कलन मतदान के लिए नहीं रखे जाते।", icon: "fa-calculator", color: "icon-green", link: "../articles/article-113.html" },
+    { num: 114, part: "Part V", title: "विनियोग विधेयक।", desc: "भारत की संचित निधि में से धन निकालने का उपबंध करने के लिए लाया जाने वाला विधेयक।", icon: "fa-money-bill-transfer", color: "icon-orange", link: "../articles/article-114.html" },
+    { num: 115, part: "Part V", title: "अनुपूरक, अतिरिक्त या अधिक अनुदान।", desc: "अनुपूरक, अतिरिक्त या अधिक व्यय को मंजूरी देने की प्रक्रिया।", icon: "fa-file-circle-plus", color: "icon-purple", link: "../articles/article-115.html" },
+    { num: 116, part: "Part V", title: "लेखाअनुदान, प्रत्ययानुदान और अपवादानुदान।", desc: "बजट प्रक्रिया पूरी होने से पहले अग्रिम अनुदान देने की लोकसभा की शक्ति।", icon: "fa-receipt", color: "icon-teal", link: "../articles/article-116.html" },
+    { num: 117, part: "Part V", title: "वित्त विधेयकों के बारे में विशेष उपबंध।", desc: "वित्त विधेयकों को पुरःस्थापित और विचार करने के लिए विशेष आवश्यकताएं।", icon: "fa-file-signature", color: "icon-amber", link: "../articles/article-117.html" },
+    { num: 118, part: "Part V", title: "प्रक्रिया के नियम।", desc: "संसद का प्रत्येक सदन अपनी प्रक्रिया और कार्य संचालन के लिए नियम बना सकता है।", icon: "fa-book-bookmark", color: "icon-blue", link: "../articles/article-118.html" },
+    { num: 119, part: "Part V", title: "संसद में वित्तीय कार्य संबंधी प्रक्रिया का विधि द्वारा विनियमन।", desc: "वित्तीय प्रक्रिया का विनियमन करने वाला संसदीय कानून आंतरिक नियमों से ऊपर होगा।", icon: "fa-gavel", color: "icon-green", link: "../articles/article-119.html" },
+    { num: 120, part: "Part V", title: "संसद में प्रयोग की जाने वाली भाषा।", desc: "संसद में कार्य हिंदी या अंग्रेजी में (या अनुमति से मातृभाषा में) किया जाएगा।", icon: "fa-language", color: "icon-orange", link: "../articles/article-120.html" },
+    { num: 121, part: "Part V", title: "संसद में चर्चा पर निबंध।", desc: "उच्चतम न्यायालय या उच्च न्यायालय के किसी न्यायाधीश के आचरण पर संसद में चर्चा नहीं होगी।", icon: "fa-comment-slash", color: "icon-purple", link: "../articles/article-121.html" },
+    { num: 122, part: "Part V", title: "न्यायालयों द्वारा संसद की कार्यवाहियों की जांच न किया जाना।", desc: "संसद की कार्यवाहियों की विधिमान्यता पर प्रक्रियात्मक अनियमितता के आधार पर प्रश्न नहीं उठाया जा सकता।", icon: "fa-gavel", color: "icon-teal", link: "../articles/article-122.html" },
+    { num: 123, part: "Part V", title: "संसद के विश्रांतिकाल में अध्यादेश प्रख्यापित करने की राष्ट्रपति की शक्ति।", desc: "संसद के सत्र में न होने के दौरान आपातकालीन परिस्थितियों में राष्ट्रपति अध्यादेश जारी कर सकता है।", icon: "fa-scroll", color: "icon-amber", link: "../articles/article-123.html" },
+    { num: 124, part: "Part V", title: "उच्चतम न्यायालय की स्थापना और गठन।", desc: "भारत का एक उच्चतम न्यायालय होगा जिसमें एक मुख्य न्यायाधीश और अन्य न्यायाधीश होंगे।", icon: "fa-building-columns", color: "icon-blue", link: "../articles/article-124.html" },
+    { num: "124A", part: "Part V", title: "राष्ट्रीय न्यायिक नियुक्ति आयोग।", desc: "(उच्चतम न्यायालय द्वारा NJAC फैसले, 2015 में असंवैधानिक घोषित)।", icon: "fa-section", color: "icon-green", link: "../articles/article-124a.html" },
+    { num: "124B", part: "Part V", title: "आयोग के कृत्य।", desc: "(उच्चतम न्यायालय द्वारा असंवैधानिक घोषित)।", icon: "fa-section", color: "icon-orange", link: "../articles/article-124b.html" },
+    { num: "124C", part: "Part V", title: "विधि बनाने की संसद की शक्ति।", desc: "(उच्चतम न्यायालय द्वारा असंवैधानिक घोषित)।", icon: "fa-section", color: "icon-purple", link: "../articles/article-124c.html" },
+    { num: 125, part: "Part V", title: "न्यायाधीशों के वेतन आदि।", desc: "उच्चतम न्यायालय के न्यायाधीशों को कानून द्वारा निर्धारित वेतन और भत्ते दिए जाएंगे।", icon: "fa-money-bill", color: "icon-teal", link: "../articles/article-125.html" },
+    { num: 126, part: "Part V", title: "कार्यकारी मुख्य न्यायमूर्ति की नियुक्ति।", desc: "मुख्य न्यायाधीश का पद रिक्त या अनुपस्थित होने पर राष्ट्रपति कार्यकारी मुख्य न्यायाधीश नियुक्त करता है।", icon: "fa-user-plus", color: "icon-amber", link: "../articles/article-126.html" },
+    { num: 127, part: "Part V", title: "तदर्थ (ad hoc) न्यायाधीशों की नियुक्ति।", desc: "गणपूर्ति न होने पर CJI उच्च न्यायालय के न्यायाधीश को तदर्थ न्यायाधीश नियुक्त कर सकता है।", icon: "fa-user-doctor", color: "icon-blue", link: "../articles/article-127.html" },
+    { num: 128, part: "Part V", title: "उच्चतम न्यायालय की बैठकों में सेवानिवृत्त न्यायाधीशों की उपस्थिति।", desc: "CJI राष्ट्रपति की सहमति से सेवानिवृत्त न्यायाधीश से बैठने और कार्य करने का अनुरोध कर सकता है।", icon: "fa-user-clock", color: "icon-green", link: "../articles/article-128.html" },
+    { num: 129, part: "Part V", title: "उच्चतम न्यायालय का अभिलेख न्यायालय (Court of Record) होना।", desc: "उच्चतम न्यायालय अभिलेख न्यायालय होगा और उसे अपने अवमान के लिए दंड देने की शक्ति होगी।", icon: "fa-box-archive", color: "icon-orange", link: "../articles/article-129.html" },
+    { num: 130, part: "Part V", title: "उच्चतम न्यायालय का स्थान।", desc: "उच्चतम न्यायालय दिल्ली में या ऐसे अन्य स्थान पर बैठेगा जिसे CJI राष्ट्रपति के अनुमोदन से नियुक्त करे।", icon: "fa-location-dot", color: "icon-purple", link: "../articles/article-130.html" },
+    { num: 131, part: "Part V", title: "उच्चतम न्यायालय की आरंभिक अधिकारिता (Original Jurisdiction)।", desc: "केंद्र और राज्यों या अंतर-राज्यीय विवादों में अनन्य आरंभिक अधिकारिता।", icon: "fa-scale-balanced", color: "icon-teal", link: "../articles/article-131.html" },
+    { num: "131A", part: "Part V", title: "केंद्रीय विधियों की संवैधानिक वैधता से संबंधित प्रश्नों के बारे में उच्चतम न्यायालय की अनन्य अधिकारिता।", desc: "(43वें संशोधन अधिनियम, 1977 द्वारा निरसित)।", icon: "fa-ban", color: "icon-amber", link: "../articles/article-131a.html" },
+    { num: 132, part: "Part V", title: "कुछ मामलों में उच्च न्यायालयों से अपीलों में उच्चतम न्यायालय की अपीली अधिकारिता।", desc: "संवैधानिक कानून के व्याख्यात्मक प्रश्नों वाले मामलों में उच्च न्यायालय से अपील।", icon: "fa-diagram-successor", color: "icon-blue", link: "../articles/article-132.html" },
+    { num: 133, part: "Part V", title: "सिविल विषयों से संबंधित उच्च न्यायालयों से अपीलों में उच्चतम न्यायालय की अपीली अधिकारिता।", desc: "उच्च न्यायालय के निर्णयों से सिविल मामलों में अपील।", icon: "fa-folder-open", color: "icon-green", link: "../articles/article-133.html" },
+    { num: 134, part: "Part V", title: "दांडिक (क्रिमिनल) विषयों में उच्चतम न्यायालय की अपीली अधिकारिता।", desc: "आपराधिक मामलों में अपील जहां उच्च न्यायालय ने दोषमुक्ति को मृत्युदंड में बदल दिया हो।", icon: "fa-handcuffs", color: "icon-orange", link: "../articles/article-134.html" },
+    { num: "134A", part: "Part V", title: "उच्चतम न्यायालय में अपील के लिए प्रमाण-पत्र।", desc: "उच्चतम न्यायालय में अपील करने के लिए उच्च न्यायालय द्वारा प्रमाण-पत्र दिया जाना।", icon: "fa-certificate", color: "icon-purple", link: "../articles/article-134a.html" },
+    { num: 135, part: "Part V", title: "विद्यमान विधि के अधीन फेडरल न्यायालय के क्षेत्राधिकार और शक्तियों का उच्चतम न्यायालय द्वारा प्रयोक्तव्य होना।", desc: "फेडरल कोर्ट की शक्तियां उच्चतम न्यायालय को स्थानांतरित।", icon: "fa-repeat", color: "icon-teal", link: "../articles/article-135.html" },
+    { num: 136, part: "Part V", title: "अपील के लिए उच्चतम न्यायालय की विशेष अनुमति (SLP)।", desc: "उच्चतम न्यायालय किसी भी अदालत या न्यायाधिकरण के फैसले के खिलाफ विशेष अनुमति याचिका (SLP) मंजूर कर सकता है।", icon: "fa-star", color: "icon-amber", link: "../articles/article-136.html" },
+    { num: 137, part: "Part V", title: "निर्णयों या आदेशों का उच्चतम न्यायालय द्वारा पुनर्विलोकन (Review)।", desc: "उच्चतम न्यायालय को अपने द्वारा सुनाए गए किसी निर्णय या आदेश का पुनर्विलोकन करने की शक्ति है।", icon: "fa-arrows-rotate", color: "icon-blue", link: "../articles/article-137.html" },
+    { num: 138, part: "Part V", title: "उच्चतम न्यायालय की अधिकारिता का विस्तार।", desc: "संसद कानून द्वारा संघ सूची के विषयों के संबंध में उच्चतम न्यायालय के क्षेत्राधिकार का विस्तार कर सकती है।", icon: "fa-expand", color: "icon-green", link: "../articles/article-138.html" },
+    { num: 139, part: "Part V", title: "कुछ रिट निकालने की शक्तियों का उच्चतम न्यायालय को प्रदत्त किया जाना।", desc: "संसद मौलिक अधिकारों के अलावा अन्य प्रयोजनों के लिए रिट जारी करने की शक्ति प्रदान कर सकती है।", icon: "fa-file-shield", color: "icon-orange", link: "../articles/article-139.html" },
+    { num: "139A", part: "Part V", title: "कुछ मामलों का अंतरण।", desc: "उच्चतम न्यायालय समान कानूनी प्रश्नों वाले मामलों को उच्च न्यायालयों से अपने पास स्थानांतरित कर सकता है।", icon: "fa-arrow-right-arrow-left", color: "icon-purple", link: "../articles/article-139a.html" },
+    { num: 140, part: "Part V", title: "उच्चतम न्यायालय की आनुषंगिक शक्तियां।", desc: "संसद उच्चतम न्यायालय को पूरक शक्तियां प्रदान कर सकती है।", icon: "fa-gears", color: "icon-teal", link: "../articles/article-140.html" },
+    { num: 141, part: "Part V", title: "उच्चतम न्यायालय द्वारा घोषित विधि का सभी न्यायालयों पर आबद्धकर होना।", desc: "उच्चतम न्यायालय द्वारा घोषित कानून भारत के सभी न्यायालयों पर बाध्यकारी होगा।", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-141.html" },
+    { num: 142, part: "Part V", title: "उच्चतम न्यायालय की डिक्री और आदेशों का प्रवर्तन और प्रकटीकरण आदि के बारे में आदेश।", desc: "'पूर्ण न्याय' करने के लिए उच्चतम न्यायालय के आदेश पूरे भारत में लागू होंगे।", icon: "fa-shield-halved", color: "icon-blue", link: "../articles/article-142.html" },
+    { num: 143, part: "Part V", title: "उच्चतम न्यायालय से परामर्श करने की राष्ट्रपति की शक्ति।", desc: "सलाहकारी अधिकारिता: राष्ट्रपति कानून या तथ्य के प्रश्नों को उच्चतम न्यायालय के पास भेज सकता है।", icon: "fa-handshake", color: "icon-green", link: "../articles/article-143.html" },
+    { num: 144, part: "Part V", title: "सिविल और न्यायिक प्राधिकारियों द्वारा उच्चतम न्यायालय की सहायता में कार्य किया जाना।", desc: "भारत के सभी सिविल और न्यायिक प्राधिकारी उच्चतम न्यायालय की सहायता में कार्य करेंगे।", icon: "fa-building-shield", color: "icon-orange", link: "../articles/article-144.html" },
+    { num: "144A", part: "Part V", title: "विधियों की संवैधानिक वैधता से संबंधित प्रश्नों के निपटारे के लिए विशेष उपबंध।", desc: "(43वें संशोधन अधिनियम, 1977 द्वारा निरसित)।", icon: "fa-ban", color: "icon-purple", link: "../articles/article-144a.html" },
+    { num: 145, part: "Part V", title: "न्यायालय के नियम आदि।", desc: "उच्चतम न्यायालय अपनी प्रक्रिया और कार्य संचालन को विनियमित करने के लिए नियम बनाता है।", icon: "fa-book", color: "icon-teal", link: "../articles/article-145.html" },
+    { num: 146, part: "Part V", title: "उच्चतम न्यायालय के अधिकारी और सेवक तथा व्यय।", desc: "अधिकारियों और सेवकों की नियुक्तियां CJI द्वारा की जाएंगी; प्रशासनिक व्यय संचित निधि पर भारित होंगे।", icon: "fa-users-gear", color: "icon-amber", link: "../articles/article-146.html" },
+    { num: 147, part: "Part V", title: "निर्वचन।", desc: "संविधान के निर्वचन के संदर्भ में फेडरल कोर्ट/भारत सरकार अधिनियम 1935 के संदर्भ शामिल हैं।", icon: "fa-magnifying-glass", color: "icon-blue", link: "../articles/article-147.html" },
+    { num: 148, part: "Part V", title: "भारत के नियंत्रक-महालेखापरीक्षक (CAG)।", desc: "राष्ट्रपति द्वारा नियुक्त भारत का एक CAG होगा; जो सार्वजनिक धन का संरक्षक होता है।", icon: "fa-calculator", color: "icon-green", link: "../articles/article-148.html" },
+    { num: 149, part: "Part V", title: "नियंत्रक-महालेखापरीक्षक के कर्तव्य और शक्तियां।", desc: "CAG संघ और राज्यों के लेखाओं से संबंधित कर्तव्यों का पालन करता है।", icon: "fa-list-check", color: "icon-orange", link: "../articles/article-149.html" },
+    { num: 150, part: "Part V", title: "संघ के और राज्यों के लेखाओं का प्रारूप।", desc: "संघ और राज्यों के लेखे CAG की सलाह पर राष्ट्रपति द्वारा विहित प्रारूप में रखे जाएंगे।", icon: "fa-file-invoice", color: "icon-purple", link: "../articles/article-150.html" },
+    { num: 151, part: "Part V", title: "परीक्षा प्रतिवेदन (Audit Reports)।", desc: "CAG की लेखापरीक्षा रिपोर्ट राष्ट्रपति/राज्यपाल को सौंपी जाएगी जिसे संसद/विधानमंडल में रखा जाएगा।", icon: "fa-chart-column", color: "icon-teal", link: "../articles/article-151.html" },
+
+    // PART VI: THE STATES (152 - 237)
+    { num: 152, part: "Part VI", title: "भाग VI में राज्य की परिभाषा।", desc: "इस भाग में, जब तक कि संदर्भ से अन्यथा अपेक्षित न हो, 'राज्य' में जम्मू और कश्मीर शामिल नहीं था (ऐतिहासिक रूप से)।", icon: "fa-map-location-dot", color: "icon-amber", link: "../articles/article-152.html" },
+    { num: 153, part: "Part VI", title: "राज्यों के राज्यपाल।", desc: "प्रत्येक राज्य के लिए एक राज्यपाल होगा (एक ही व्यक्ति दो या अधिक राज्यों का राज्यपाल हो सकता है)।", icon: "fa-user-large", color: "icon-blue", link: "../articles/article-153.html" },
+    { num: 154, part: "Part VI", title: "राज्य की कार्यपालिका शक्ति।", desc: "राज्य की कार्यपालिका शक्ति राज्यपाल में निहित होगी जो इसका प्रयोग सीधे या अधीनस्थ अधिकारियों द्वारा करेगा।", icon: "fa-building-flag", color: "icon-green", link: "../articles/article-154.html" },
+    { num: 155, part: "Part VI", title: "राज्यपाल की नियुक्ति।", desc: "राज्य के राज्यपाल की नियुक्ति राष्ट्रपति अपने हस्ताक्षर और मुद्रा सहित अधिपत्र द्वारा करेगा।", icon: "fa-user-check", color: "icon-orange", link: "../articles/article-155.html" },
+    { num: 156, part: "Part VI", title: "राज्यपाल की पदावधि।", desc: "राज्यपाल राष्ट्रपति के प्रसादपर्यंत पद धारण करेगा; सामान्य पदावधि 5 वर्ष है।", icon: "fa-calendar", color: "icon-purple", link: "../articles/article-156.html" },
+    { num: 157, part: "Part VI", title: "राज्यपाल नियुक्त होने के लिए अर्हताएं।", desc: "भारत का नागरिक हो और 35 वर्ष की आयु पूरी कर चुका हो।", icon: "fa-id-card", color: "icon-teal", link: "../articles/article-157.html" },
+    { num: 158, part: "Part VI", title: "राज्यपाल के पद के लिए शर्तें।", desc: "राज्यपाल संसद या विधानमंडल का सदस्य नहीं होगा और न ही कोई लाभ का पद धारण करेगा।", icon: "fa-building-lock", color: "icon-amber", link: "../articles/article-158.html" },
+    { num: 159, part: "Part VI", title: "राज्यपाल द्वारा शपथ या प्रतिज्ञान।", desc: "राज्यपाल को उच्च न्यायालय के मुख्य न्यायाधीश द्वारा शपथ दिलाई जाएगी।", icon: "fa-signature", color: "icon-blue", link: "../articles/article-159.html" },
+    { num: 160, part: "Part VI", title: "कुछ आकस्मिकताओं में राज्यपाल के कृत्यों का निर्वहन।", desc: "राष्ट्रपति अकल्पित आकस्मिकताओं में राज्यपाल के कृत्यों के निर्वहन के लिए उपबंध करता है।", icon: "fa-user-gear", color: "icon-green", link: "../articles/article-160.html" },
+    { num: 161, part: "Part VI", title: "क्षमा आदि की और कुछ मामलों में दंडादेश के निलंबन, परिहार या लघुकरण की राज्यपाल की शक्ति।", desc: "राज्य की कार्यपालिका शक्ति के अंतर्गत आने वाले विषयों पर राज्यपाल की क्षमादान शक्ति।", icon: "fa-hand-holding-heart", color: "icon-orange", link: "../articles/article-161.html" },
+    { num: 162, part: "Part VI", title: "राज्य की कार्यपालिका शक्ति का विस्तार।", desc: "राज्य की कार्यपालिका शक्ति उन विषयों तक होगी जिन पर राज्य विधानमंडल को कानून बनाने की शक्ति है।", icon: "fa-layer-group", color: "icon-purple", link: "../articles/article-162.html" },
+    { num: 163, part: "Part VI", title: "राज्यपाल को सहायता और सलाह देने के लिए मत्रिपरिषद।", desc: "राज्यपाल को सलाह देने के लिए मुख्यमंत्री के नेतृत्व में मंत्रिपरिषद होगी (विवेकाधिकार वाले कार्यों को छोड़कर)।", icon: "fa-people-group", color: "icon-teal", link: "../articles/article-163.html" },
+    { num: 164, part: "Part VI", title: "मंत्रियों के बारे में अन्य उपबंध।", desc: "मुख्यमंत्री की नियुक्ति राज्यपाल करेगा; अन्य मंत्रियों की नियुक्ति मुख्यमंत्री की सलाह पर होगी।", icon: "fa-user-pen", color: "icon-amber", link: "../articles/article-164.html" },
+    { num: 165, part: "Part VI", title: "राज्य का महाधिवक्ता (Advocate-General)।", desc: "राज्यपाल उच्च न्यायालय का न्यायाधीश नियुक्त होने की योग्यता रखने वाले व्यक्ति को महाधिवक्ता नियुक्त करेगा।", icon: "fa-user-shield", color: "icon-blue", link: "../articles/article-165.html" },
+    { num: 166, part: "Part VI", title: "राज्य की सरकार के कार्य का संचालन।", desc: "राज्य सरकार की समस्त कार्यपालिका कार्यवाही राज्यपाल के नाम से की हुई कही जाएगी।", icon: "fa-folder-tree", color: "icon-green", link: "../articles/article-166.html" },
+    { num: 167, part: "Part VI", title: "राज्यपाल को जानकारी देने आदि के संबंध में मुख्यमंत्री के कर्तव्य।", desc: "प्रशासनिक और विधायी निर्णयों की जानकारी राज्यपाल को देना मुख्यमंत्री का कर्तव्य है।", icon: "fa-envelope-open-text", color: "icon-orange", link: "../articles/article-167.html" },
+    { num: 168, part: "Part VI", title: "राज्यों के विधानमंडलों का गठन।", desc: "प्रत्येक राज्य का विधानमंडल राज्यपाल और एक या दो सदनों से मिलकर बनेगा।", icon: "fa-landmark", color: "icon-purple", link: "../articles/article-168.html" },
+    { num: 169, part: "Part VI", title: "राज्यों में विधान परिषदों का उत्सादन या सृजन।", desc: "विधानसभा द्वारा संकल्प पारित करने पर संसद कानून द्वारा विधान परिषद का सृजन या समाप्त कर सकती है।", icon: "fa-building-circle-check", color: "icon-teal", link: "../articles/article-169.html" },
+    { num: 170, part: "Part VI", title: "विधानसभाओं (Vidhan Sabha) की संरचना।", desc: "विधानसभा में प्रत्यक्ष निर्वाचन द्वारा चुने गए 60 से 500 तक सदस्य होंगे।", icon: "fa-users", color: "icon-amber", link: "../articles/article-170.html" },
+    { num: 171, part: "Part VI", title: "विधान परिषदों (Vidhan Parishad) की संरचना।", desc: "विधान परिषद की कुल सदस्य संख्या विधानसभा के 1/3 से अधिक और 40 से कम नहीं होगी।", icon: "fa-users-between-lines", color: "icon-blue", link: "../articles/article-171.html" },
+    { num: 172, part: "Part VI", title: "राज्य के विधानमंडलों की अवधि।", desc: "विधानसभा की अवधि 5 वर्ष है; विधान परिषद स्थायी सदन है जिसके 1/3 सदस्य हर 2 साल में सेवानिवृत्त होते हैं।", icon: "fa-timeline", color: "icon-green", link: "../articles/article-172.html" },
+    { num: 173, part: "Part VI", title: "राज्य के विधानमंडल की सदस्यता के लिए अर्हता।", desc: "भारत का नागरिक, निर्धारित आयु (विधानसभा के लिए 25 वर्ष, विधान परिषद के लिए 30 वर्ष)।", icon: "fa-user-graduate", color: "icon-orange", link: "../articles/article-173.html" },
+    { num: 174, part: "Part VI", title: "राज्य के विधानमंडल के सत्र, सत्रावसान और विघटन।", desc: "राज्यपाल सत्र आहूत करता है, सत्रावसान करता है और विधानसभा का विघटन करता है।", icon: "fa-door-open", color: "icon-purple", link: "../articles/article-174.html" },
+    { num: 175, part: "Part VI", title: "सदन या सदनों में अभिभाषण का और उनको संदेश भेजने का राज्यपाल का अधिकार।", desc: "राज्यपाल विधानसभा या विधान परिषद में अभिभाषण कर सकता है और संदेश भेज सकता है।", icon: "fa-bullhorn", color: "icon-teal", link: "../articles/article-175.html" },
+    { num: 176, part: "Part VI", title: "राज्यपाल का विशेष अभिभाषण।", desc: "आम चुनाव के बाद प्रथम सत्र के प्रारंभ में और प्रत्येक वर्ष के प्रथम सत्र के प्रारंभ में राज्यपाल का विशेष अभिभाषण।", icon: "fa-scroll", color: "icon-amber", link: "../articles/article-176.html" },
+    { num: 177, part: "Part VI", title: "सदनों के संबंध में मंत्रियों और महाधिवक्ता के अधिकार।", desc: "बिना मत दिए राज्य विधानमंडल की कार्यवाहियों में बोलने और भाग लेने का अधिकार।", icon: "fa-comments", color: "icon-blue", link: "../articles/article-177.html" },
+    { num: 178, part: "Part VI", title: "विधानसभा के अध्यक्ष और उपाध्यक्ष।", desc: "विधानसभा अपने दो सदस्यों को अध्यक्ष और उपाध्यक्ष चुनेगी।", icon: "fa-user-tie", color: "icon-green", link: "../articles/article-178.html" },
+    { num: 179, part: "Part VI", title: "अध्यक्ष और उपाध्यक्ष का पद रिक्त होना, त्यागपत्र और पद से हटाया जाना।", desc: "स्थान रिक्त होने, त्यागपत्र देने और विधानसभा के संकल्प द्वारा हटाए जाने के उपबंध।", icon: "fa-arrow-right-from-bracket", color: "icon-orange", link: "../articles/article-179.html" },
+    { num: 180, part: "Part VI", title: "अध्यक्ष के पद के कर्तव्यों का पालन करने की उपाध्यक्ष या अन्य व्यक्ति की शक्ति।", desc: "अध्यक्ष की रिक्ति या अनुपस्थिति के दौरान उपाध्यक्ष अध्यक्ष के रूप में कार्य करता है।", icon: "fa-user-gear", color: "icon-purple", link: "../articles/article-180.html" },
+    { num: 181, part: "Part VI", title: "जब अध्यक्ष या उपाध्यक्ष को पद से हटाने का संकल्प विचारधीन हो तब उसका पीठासीन न होना।", desc: "हटाने का संकल्प विचाराधीन होने पर अध्यक्षता करने पर प्रतिबंध।", icon: "fa-shield-xmark", color: "icon-teal", link: "../articles/article-181.html" },
+    { num: 182, part: "Part VI", title: "विधान परिषद के सभापति और उपसभापति।", desc: "विधान परिषद अपने दो सदस्यों को सभापति और उपसभापति चुनेगी।", icon: "fa-user-gear", color: "icon-amber", link: "../articles/article-182.html" },
+    { num: 183, part: "Part VI", title: "सभापति और उपसभापति का पद रिक्त होना, त्यागपत्र और पद से हटाया जाना।", desc: "विधान परिषद के अधिकारियों का पद रिक्त होना, त्यागपत्र या पद से हटाया जाना।", icon: "fa-user-minus", color: "icon-blue", link: "../articles/article-183.html" },
+    { num: 184, part: "Part VI", title: "सभापति के पद के कर्तव्यों का पालन करने की उपसभापति या अन्य व्यक्ति की शक्ति।", desc: "सभापति की रिक्ति या अनुपस्थिति में उपसभापति कर्तव्यों का निर्वहन करता है।", icon: "fa-user-clock", color: "icon-green", link: "../articles/article-184.html" },
+    { num: 185, part: "Part VI", title: "जब सभापति या उपसभापति को पद से हटाने का संकल्प विचारधीन हो तब उसका पीठासीन न होना।", desc: "विधान परिषद में हटाने की कार्यवाही के दौरान पीठासीन न होना।", icon: "fa-ban", color: "icon-orange", link: "../articles/article-185.html" },
+    { num: 186, part: "Part VI", title: "अध्यक्ष और उपाध्यक्ष तथा सभापति और उपसभापति के वेतन और भत्ते।", desc: "राज्य विधानमंडल के पीठासीन अधिकारियों को दिए जाने वाले वेतन।", icon: "fa-money-bill-wave", color: "icon-purple", link: "../articles/article-186.html" },
+    { num: 187, part: "Part VI", title: "राज्य के विधानमंडल का सचिवालय।", desc: "राज्य विधानमंडल के सदनों के लिए पृथक सचिवालीय कर्मचारीवृंद।", icon: "fa-building-flag", color: "icon-teal", link: "../articles/article-187.html" },
+    { num: 188, part: "Part VI", title: "सदस्यों द्वारा शपथ या प्रतिज्ञान।", desc: "विधानमंडल सदस्य राज्यपाल या उनके द्वारा नियुक्त अधिकारी के समक्ष शपथ लेंगे।", icon: "fa-pen-clip", color: "icon-amber", link: "../articles/article-188.html" },
+    { num: 189, part: "Part VI", title: "सदनों में मतदान, रिक्तियों के होते हुए भी सदनों की कार्य करने की शक्ति और गणपूर्ति।", desc: "बहुमत से निर्णय; निर्णायक मत; गणपूर्ति 10 सदस्य या कुल सदस्य संख्या का 1/10 होगी।", icon: "fa-check", color: "icon-blue", link: "../articles/article-189.html" },
+    { num: 190, part: "Part VI", title: "स्थानों का रिक्त होना।", desc: "दोहरी सदस्यता, अयोग्यता या बिना अनुमति 60 दिन अनुपस्थित रहने पर स्थान रिक्त।", icon: "fa-chair", color: "icon-green", link: "../articles/article-190.html" },
+    { num: 191, part: "Part VI", title: "सदस्यता के लिए निरर्हताएं।", desc: "लाभ का पद, विकृतचित्त, दिवालियापन, या विदेशी नागरिकता प्राप्त करना।", icon: "fa-user-xmark", color: "icon-orange", link: "../articles/article-191.html" },
+    { num: 192, part: "Part VI", title: "सदस्यों की निरर्हताओं से संबंधित प्रश्नों पर निर्णय।", desc: "राज्यपाल निर्वाचन आयोग की राय प्राप्त करने के बाद अयोग्यता का निर्णय करता है।", icon: "fa-scale-balanced", color: "icon-purple", link: "../articles/article-192.html" },
+    { num: 193, part: "Part VI", title: "अनुच्छेद 188 के अधीन शपथ लेने या प्रतिज्ञान करने से पहले या अर्हित न होते हुए बैठने और मत देने के लिए शास्ति।", desc: "अनाधिकृत रूप से बैठने या मतदान करने पर प्रति दिन 500 रुपये का जुर्माना।", icon: "fa-file-invoice-dollar", color: "icon-teal", link: "../articles/article-193.html" },
+    { num: 194, part: "Part VI", title: "विधानमंडलों के सदनों की तथा उनके सदस्यों और समितियों की शक्तियां, विशेषाधिकार आदि।", desc: "वाक्-स्वातंत्र्य और वक्तव्यों/मतों के संबंध में अदालती कार्यवाही से उन्मुक्ति।", icon: "fa-shield-halved", color: "icon-amber", link: "../articles/article-194.html" },
+    { num: 195, part: "Part VI", title: "सदस्यों के वेतन और भत्ते।", desc: "राज्य विधानमंडल द्वारा निर्धारित वेतन और भत्ते पाने के हकदार सदस्य।", icon: "fa-wallet", color: "icon-blue", link: "../articles/article-195.html" },
+    { num: 196, part: "Part VI", title: "विधेयकों के पुरःस्थापन और पारित किए जाने के संबंध में उपबंध।", desc: "विधेयक किसी भी सदन में शुरू हो सकते हैं (धन विधेयकों को छोड़कर); सहमति अनिवार्य है।", icon: "fa-file-import", color: "icon-green", link: "../articles/article-196.html" },
+    { num: 197, part: "Part VI", title: "धन विधेयकों के भिन्न विधेयकों के बारे में विधान परिषद की शक्तियों पर निबंध।", desc: "विधान परिषद गैर-धन विधेयकों को अधिकतम 4 महीने के लिए रोक सकती है।", icon: "fa-hourglass-start", color: "icon-orange", link: "../articles/article-197.html" },
+    { num: 198, part: "Part VI", title: "धन विधेयकों के संबंध में विशेष प्रक्रिया।", desc: "धन विधेयक केवल विधानसभा में पेश होंगे; विधान परिषद के पास 14 दिन का समय होगा।", icon: "fa-file-invoice", color: "icon-purple", link: "../articles/article-198.html" },
+    { num: 199, part: "Part VI", title: "राज्य विधानमंडल में 'धन विधेयक' की परिभाषा।", desc: "विशेष रूप से राज्य कराधान, उधार लेने, संचित निधि से संबंधित विधेयक।", icon: "fa-sack-dollar", color: "icon-teal", link: "../articles/article-199.html" },
+    { num: 200, part: "Part VI", title: "विधेयकों पर अनुमति।", desc: "राज्यपाल अनुमति देता है, रोकता है, राष्ट्रपति के लिए आरक्षित करता है या लौटाता है।", icon: "fa-stamp", color: "icon-amber", link: "../articles/article-200.html" },
+    { num: 201, part: "Part VI", title: "राष्ट्रपति के विचार के लिए आरक्षित विधेयक।", desc: "राज्यपाल द्वारा आरक्षित विधेयकों पर राष्ट्रपति अनुमति देता है या रोकता है।", icon: "fa-file-signature", color: "icon-blue", link: "../articles/article-201.html" },
+    { num: 202, part: "Part VI", title: "वार्षिक वित्तीय विवरण (राज्य बजट)।", desc: "राज्यपाल विधानमंडल के समक्ष अनुमानित प्राप्तियों और व्यय का विवरण रखवाता है।", icon: "fa-chart-line", color: "icon-green", link: "../articles/article-202.html" },
+    { num: 203, part: "Part VI", title: "विधानमंडल में प्राक्कलनों के संबंध में प्रक्रिया।", desc: "भारित व्यय पर मतदान नहीं होता; विधानसभा अनुदान की मांगों पर मतदान करती है।", icon: "fa-calculator", color: "icon-orange", link: "../articles/article-203.html" },
+    { num: 204, part: "Part VI", title: "विनियोग विधेयक।", desc: "राज्य संचित निधि से धन निकालने के लिए विनियोग विधेयक आवश्यक है।", icon: "fa-money-bill-transfer", color: "icon-purple", link: "../articles/article-204.html" },
+    { num: 205, part: "Part VI", title: "अनुपूरक, अतिरिक्त या अधिक अनुदान।", desc: "राज्य में अनुपूरक या अतिरिक्त अनुदान की स्वीकृति की प्रक्रिया।", icon: "fa-file-circle-plus", color: "icon-teal", link: "../articles/article-205.html" },
+    { num: 206, part: "Part VI", title: "लेखाअनुदान, प्रत्ययानुदान और अपवादानुदान।", desc: "बजट पारित होने से पहले अग्रिम राशि स्वीकृत करने की विधानसभा की शक्ति।", icon: "fa-receipt", color: "icon-amber", link: "../articles/article-206.html" },
+    { num: 207, part: "Part VI", title: "वित्त विधेयकों के बारे में विशेष उपबंध।", desc: "वित्त विधेयक केवल राज्यपाल की सिफारिश पर ही पुरःस्थापित किए जाएंगे।", icon: "fa-file-pen", color: "icon-blue", link: "../articles/article-207.html" },
+    { num: 208, part: "Part VI", title: "प्रक्रिया के नियम।", desc: "राज्य विधानमंडल के सदन अपनी प्रक्रिया और कार्य संचालन के नियम बनाते हैं।", icon: "fa-book-bookmark", color: "icon-green", link: "../articles/article-208.html" },
+    { num: 209, part: "Part VI", title: "राज्य के विधानमंडल में वित्तीय कार्य संबंधी प्रक्रिया का विधि द्वारा विनियमन।", desc: "वित्तीय कार्य समय पर पूरा करने के लिए राज्य कानून द्वारा प्रक्रिया का नियमन।", icon: "fa-gavel", color: "icon-orange", link: "../articles/article-209.html" },
+    { num: 210, part: "Part VI", title: "विधानमंडल में प्रयोग की जाने वाली भाषा।", desc: "राज्य की राजभाषा, हिंदी या अंग्रेजी में कार्य संचालन।", icon: "fa-language", color: "icon-purple", link: "../articles/article-210.html" },
+    { num: 211, part: "Part VI", title: "विधानमंडल में चर्चा पर निबंध।", desc: "उच्चतम न्यायालय या उच्च न्यायालय के न्यायाधीशों के न्यायिक आचरण पर चर्चा नहीं होगी।", icon: "fa-comment-slash", color: "icon-teal", link: "../articles/article-211.html" },
+    { num: 212, part: "Part VI", title: "न्यायालयों द्वारा विधानमंडल की कार्यवाहियों की जांच न किया जाना।", desc: "प्रक्रियात्मक अनियमितता के आधार पर अदालतों द्वारा विधायी कार्यवाही की जांच पर रोक।", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-212.html" },
+    { num: 213, part: "Part VI", title: "विधानमंडल के विश्रांतिकाल में अध्यादेश प्रख्यापित करने की राज्यपाल की शक्ति।", desc: "सत्र न चलने के दौरान राज्यपाल अध्यादेश जारी कर सकता है।", icon: "fa-scroll", color: "icon-blue", link: "../articles/article-213.html" },
+    { num: 214, part: "Part VI", title: "राज्यों के लिए उच्च न्यायालय।", desc: "प्रत्येक राज्य के लिए एक उच्च न्यायालय होगा।", icon: "fa-building-columns", color: "icon-green", link: "../articles/article-214.html" },
+    { num: 215, part: "Part VI", title: "उच्च न्यायालयों का अभिलेख न्यायालय होना।", desc: "उच्च न्यायालय अभिलेख न्यायालय है जिसे अपने अवमान के लिए दंड देने की शक्ति है।", icon: "fa-box-archive", color: "icon-orange", link: "../articles/article-215.html" },
+    { num: 216, part: "Part VI", title: "उच्च न्यायालयों का गठन।", desc: "उच्च न्यायालय में मुख्य न्यायाधीश और राष्ट्रपति द्वारा नियुक्त अन्य न्यायाधीश होंगे।", icon: "fa-sitemap", color: "icon-purple", link: "../articles/article-216.html" },
+    { num: 217, part: "Part VI", title: "उच्च न्यायालय के न्यायाधीश के पद की नियुक्ति और उसकी शर्तें।", desc: "राष्ट्रपति द्वारा CJI, राज्यपाल और HC के मुख्य न्यायाधीश के परामर्श से नियुक्ति।", icon: "fa-user-check", color: "icon-teal", link: "../articles/article-217.html" },
+    { num: 218, part: "Part VI", title: "उच्चतम न्यायालय से संबंधित कुछ उपबंधों का उच्च न्यायालयों को लागू होना।", desc: "न्यायाधीशों को हटाने संबंधी नियम उच्च न्यायालयों के न्यायाधीशों पर भी लागू होंगे।", icon: "fa-repeat", color: "icon-amber", link: "../articles/article-218.html" },
+    { num: 219, part: "Part VI", title: "उच्च न्यायालयों के न्यायाधीशों द्वारा शपथ या प्रतिज्ञान।", desc: "राज्यपाल द्वारा उच्च न्यायालय के न्यायाधीशों को शपथ दिलाई जाएगी।", icon: "fa-signature", color: "icon-blue", link: "../articles/article-219.html" },
+    { num: 220, part: "Part VI", title: "स्थायी न्यायाधीश रहने के पश्चात् विधि व्यवसाय पर निबंध।", desc: "स्थायी HC न्यायाधीश सेवानिवृत्ति के बाद केवल SC और अन्य HCs में वकालत कर सकते हैं।", icon: "fa-user-lock", color: "icon-green", link: "../articles/article-220.html" },
+    { num: 221, part: "Part VI", title: "न्यायाधीशों के वेतन आदि।", desc: "उच्च न्यायालय के न्यायाधीशों को दिए जाने वाले वेतन और भत्ते।", icon: "fa-money-bill", color: "icon-orange", link: "../articles/article-221.html" },
+    { num: 222, part: "Part VI", title: "किसी न्यायाधीश का एक उच्च न्यायालय से दूसरे उच्च न्यायालय को अंतरण।", desc: "राष्ट्रपति CJI से परामर्श के बाद किसी न्यायाधीश का स्थानांतरण कर सकता है।", icon: "fa-right-left", color: "icon-purple", link: "../articles/article-222.html" },
+    { num: 223, part: "Part VI", title: "कार्यकारी मुख्य न्यायमूर्ति की नियुक्ति।", desc: "रिक्ति के दौरान राष्ट्रपति उच्च न्यायालय का कार्यकारी मुख्य न्यायाधीश नियुक्त करता है।", icon: "fa-user-plus", color: "icon-teal", link: "../articles/article-223.html" },
+    { num: 224, part: "Part VI", title: "अपर और कार्यकारी न्यायाधीशों की नियुक्ति।", desc: "लंबित मामलों को निपटाने के लिए राष्ट्रपति अपर न्यायाधीशों (अधिकतम 2 वर्ष) की नियुक्ति करता है।", icon: "fa-users-gear", color: "icon-amber", link: "../articles/article-224.html" },
+    { num: "224A", part: "Part VI", title: "उच्च न्यायालयों की बैठकों में सेवानिवृत्त न्यायाधीशों की नियुक्ति।", desc: "मुख्य न्यायाधीश राष्ट्रपति की अनुमति से सेवानिवृत्त न्यायाधीश से कार्य करने का अनुरोध कर सकता है।", icon: "fa-user-clock", color: "icon-blue", link: "../articles/article-224a.html" },
+    { num: 225, part: "Part VI", title: "विद्यमान उच्च न्यायालयों की अधिकारिता।", desc: "संविधान-पूर्व उच्च न्यायालयों की अधिकारिता और शक्तियों का संरक्षण।", icon: "fa-scale-balanced", color: "icon-green", link: "../articles/article-225.html" },
+    { num: 226, part: "Part VI", title: "कुछ रिट निकालने की उच्च न्यायालय की शक्ति।", desc: "मौलिक अधिकारों और अन्य कानूनी अधिकारों के लिए रिट (बंदी प्रत्यक्षीकरण, परमादेश आदि) जारी करने की शक्ति।", icon: "fa-file-shield", color: "icon-orange", link: "../articles/article-226.html" },
+    { num: "226A", part: "Part VI", title: "अनुच्छेद 226 के अधीन कार्यवाहियों में केंद्रीय विधियों की संवैधानिक वैधता पर विचार न किया जाना।", desc: "(43वें संशोधन अधिनियम, 1977 द्वारा निरसित)।", icon: "fa-ban", color: "icon-purple", link: "../articles/article-226a.html" },
+    { num: 227, part: "Part VI", title: "सभी न्यायालयों के अधीक्षक की उच्च न्यायालय की शक्ति।", desc: "उच्च न्यायालय को सभी अधीनस्थ न्यायालयों और न्यायाधिकरणों पर अधीक्षण की शक्ति प्राप्त है।", icon: "fa-eye", color: "icon-teal", link: "../articles/article-227.html" },
+    { num: 228, part: "Part VI", title: "कुछ मामलों का उच्च न्यायालय को अंतरण।", desc: "संवैधानिक प्रश्न शामिल होने पर HC निचले न्यायालय से मामला अपने पास मंगा सकता है।", icon: "fa-arrow-up-from-bracket", color: "icon-amber", link: "../articles/article-228.html" },
+    { num: "228A", part: "Part VI", title: "राज्य विधियों की वैधता से संबंधित प्रश्नों के निपटारे के लिए विशेष उपबंध।", desc: "(43वें संशोधन अधिनियम, 1977 द्वारा निरसित)।", icon: "fa-ban", color: "icon-blue", link: "../articles/article-228a.html" },
+    { num: 229, part: "Part VI", title: "उच्च न्यायालयों के अधिकारी और सेवक तथा व्यय।", desc: "नियुक्तियां मुख्य न्यायाधीश द्वारा की जाती हैं; व्यय राज्य संचित निधि पर भारित होते हैं।", icon: "fa-users-rectangle", color: "icon-green", link: "../articles/article-229.html" },
+    { num: 230, part: "Part VI", title: "उच्च न्यायालयों की अधिकारिता का संघ राज्यक्षेत्रों पर विस्तार।", desc: "संसद संघ राज्यक्षेत्रों पर उच्च न्यायालय के क्षेत्राधिकार का विस्तार कर सकती है।", icon: "fa-expand", color: "icon-orange", link: "../articles/article-230.html" },
+    { num: 231, part: "Part VI", title: "दो या अधिक राज्यों के लिए एक ही उच्च न्यायालय की स्थापना।", desc: "संसद कानून द्वारा दो या अधिक राज्यों के लिए एक साझा उच्च न्यायालय स्थापित कर सकती है।", icon: "fa-building-columns", color: "icon-purple", link: "../articles/article-231.html" },
+    { num: 232, part: "Part VI", title: "उच्च न्यायालयों से संबंधित निर्वचन।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-section", color: "icon-teal", link: "../articles/article-232.html" },
+    { num: 233, part: "Part VI", title: "जिला न्यायाधीशों की नियुक्ति।", desc: "उच्च न्यायालय के परामर्श से राज्यपाल द्वारा जिला न्यायाधीशों की नियुक्ति।", icon: "fa-user-nurse", color: "icon-amber", link: "../articles/article-233.html" },
+    { num: "233A", part: "Part VI", title: "कुछ जिला न्यायाधीशों की नियुक्तियों का और उनके द्वारा दिए गए निर्णयों का विधिमान्यकरण।", desc: "कुछ जिला न्यायाधीशों की नियुक्तियों और निर्णयों का विधिमान्यकरण।", icon: "fa-stamp", color: "icon-blue", link: "../articles/article-233a.html" },
+    { num: 234, part: "Part VI", title: "न्यायिक सेवा में जिला न्यायाधीशों से भिन्न व्यक्तियों की भर्ती।", desc: "राज्य लोक सेवा आयोग और उच्च न्यायालय के नियमों के अनुसार नियुक्तियां।", icon: "fa-user-pen", color: "icon-green", link: "../articles/article-234.html" },
+    { num: 235, part: "Part VI", title: "अधीनस्थ न्यायालयों पर नियंत्रण।", desc: "जिला न्यायालयों और अधीनस्थ न्यायालयों पर नियंत्रण उच्च न्यायालय में निहित होगा।", icon: "fa-sliders", color: "icon-orange", link: "../articles/article-235.html" },
+    { num: 236, part: "Part VI", title: "निर्वचन।", desc: "'जिला न्यायाधीश' और 'न्यायिक सेवा' पदों की परिभाषा।", icon: "fa-book-open", color: "icon-purple", link: "../articles/article-236.html" },
+    { num: 237, part: "Part VI", title: "कुछ वर्ग या वर्गों के मजिस्ट्रेटों पर इस अध्याय के उपबंधों का लागू होना।", desc: "राज्यपाल अधीनस्थ न्यायालय के नियमों को विशिष्ट मजिस्ट्रेटों पर लागू कर सकता है।", icon: "fa-gavel", color: "icon-teal", link: "../articles/article-237.html" },
+
+    // PART VII: THE STATES IN PART B OF THE FIRST SCHEDULE (238 - REPEALED)
+    { num: 238, part: "Part VII", title: "पहली अनुसूची के भाग ख के राज्यों पर भाग VI का लागू होना।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-amber", link: "../articles/article-238.html" },
+
+    // PART VIII: THE UNION TERRITORIES (239 - 242)
+    { num: 239, part: "Part VIII", title: "संघ राज्यक्षेत्रों का प्रशासन।", desc: "संघ राज्यक्षेत्रों का प्रशासन राष्ट्रपति द्वारा नियुक्त प्रशासक द्वारा किया जाता है।", icon: "fa-city", color: "icon-blue", link: "../articles/article-239.html" },
+    { num: "239A", part: "Part VIII", title: "कुछ संघ राज्यक्षेत्रों के लिए स्थानीय विधानमंडलों या मत्रिपरिषद का या दोनों का सृजन।", desc: "संसद पुडुचेरी के लिए विधानमंडल या मंत्रिपरिषद बना सकती है।", icon: "fa-building-user", color: "icon-green", link: "../articles/article-239a.html" },
+    { num: "239AA", part: "Part VIII", title: "दिल्ली के संबंध में विशेष उपबंध।", desc: "राष्ट्रीय राजधानी क्षेत्र दिल्ली में एक विधानसभा और मंत्रिपरिषद होगी।", icon: "fa-landmark-flag", color: "icon-orange", link: "../articles/article-239aa.html" },
+    { num: "239AB", part: "Part VIII", title: "संवैधानिक तंत्र के विफल हो जाने की दशा में उपबंध (दिल्ली)।", desc: "उपराज्यपाल की रिपोर्ट पर दिल्ली में राष्ट्रपति शासन लागू होना।", icon: "fa-triangle-exclamation", color: "icon-purple", link: "../articles/article-239ab.html" },
+    { num: "239B", part: "Part VIII", title: "विधानमंडल के विश्रांतिकाल में अध्यादेश प्रख्यापित करने की प्रशासक की शक्ति।", desc: "विधानसभा सत्र न चलने के दौरान प्रशासक द्वारा अध्यादेश जारी करना।", icon: "fa-scroll", color: "icon-teal", link: "../articles/article-239b.html" },
+    { num: 240, part: "Part VIII", title: "कुछ संघ राज्यक्षेत्रों के लिए नियम बनाने की राष्ट्रपति की शक्ति।", desc: "शांति और सुशासन के लिए नियम बनाने की राष्ट्रपति की शक्ति।", icon: "fa-file-shield", color: "icon-amber", link: "../articles/article-240.html" },
+    { num: 241, part: "Part VIII", title: "संघ राज्यक्षेत्रों के लिए उच्च न्यायालय।", desc: "संसद किसी संघ राज्यक्षेत्र के लिए उच्च न्यायालय गठित कर सकती है।", icon: "fa-building-columns", color: "icon-blue", link: "../articles/article-241.html" },
+    { num: 242, part: "Part VIII", title: "कुर्ग।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-green", link: "../articles/article-242.html" },
+
+    // PART IX: THE PANCHAYATS (243 - 243O)
+    { num: 243, part: "Part IX", title: "पंचायतों वाले भाग में परिभाषाएं।", desc: "ग्राम सभा, पंचायत, गांव, जिला, मध्यवर्ती स्तर की परिभाषाएं।", icon: "fa-tree", color: "icon-orange", link: "../articles/article-243.html" },
+    { num: "243A", part: "Part IX", title: "ग्राम सभा।", desc: "ग्राम सभा राज्य कानून द्वारा प्रदान की गई शक्तियों और कृत्यों का प्रयोग करती है।", icon: "fa-users-rectangle", color: "icon-purple", link: "../articles/article-243a.html" },
+    { num: "243B", part: "Part IX", title: "पंचायतों का गठन।", desc: "ग्राम, मध्यवर्ती और जिला स्तर पर त्रिस्तरीय पंचायत प्रणाली।", icon: "fa-sitemap", color: "icon-teal", link: "../articles/article-243b.html" },
+    { num: "243C", part: "Part IX", title: "पंचायतों की संरचना।", desc: "प्रादेशिक निर्वाचन क्षेत्रों से पंचायतों में सीटों का प्रत्यक्ष निर्वाचन।", icon: "fa-check-to-slot", color: "icon-amber", link: "../articles/article-243c.html" },
+    { num: "243D", part: "Part IX", title: "सीटों का आरक्षण।", desc: "SC, ST और महिलाओं के लिए कम से कम 1/3 सीटों का आरक्षण।", icon: "fa-scale-balanced", color: "icon-blue", link: "../articles/article-243d.html" },
+    { num: "243E", part: "Part IX", title: "पंचायतों की अवधि आदि।", desc: "प्रथम बैठक की तारीख से पंचायतों की अवधि 5 वर्ष होगी।", icon: "fa-calendar-days", color: "icon-green", link: "../articles/article-243e.html" },
+    { num: "243F", part: "Part IX", title: "सदस्यता के लिए निरर्हताएं।", desc: "राज्य कानून के तहत पंचायत की सदस्यता के लिए अयोग्यताएं।", icon: "fa-user-xmark", color: "icon-orange", link: "../articles/article-243f.html" },
+    { num: "243G", part: "Part IX", title: "पंचायतों की शक्तियां, प्राधिकार और उत्तरदायित्व।", desc: "आर्थिक विकास और सामाजिक न्याय के लिए योजनाएं तैयार करना (11वीं अनुसूची)।", icon: "fa-list-check", color: "icon-purple", link: "../articles/article-243g.html" },
+    { num: "243H", part: "Part IX", title: "पंचायतों द्वारा कर अधिरोपित करने की शक्तियां और उनकी निधियां।", desc: "पंचायतों को कर/शुल्क लगाने और एकत्र करने का अधिकार।", icon: "fa-coins", color: "icon-teal", link: "../articles/article-243h.html" },
+    { num: "243I", part: "Part IX", title: "वित्तीय स्थिति के पुनर्विलोकन के लिए वित्त आयोग का गठन।", desc: "वित्तीय स्थिति की समीक्षा के लिए प्रत्येक 5 वर्ष में राज्य वित्त आयोग का गठन।", icon: "fa-chart-pie", color: "icon-amber", link: "../articles/article-243i.html" },
+    { num: "243J", part: "Part IX", title: "पंचायतों के लेखाओं की परीक्षा।", desc: "पंचायत खातों के रखरखाव और लेखापरीक्षा के उपबंध।", icon: "fa-calculator", color: "icon-blue", link: "../articles/article-243j.html" },
+    { num: "243K", part: "Part IX", title: "पंचायतों के लिए निर्वाचन।", desc: "राज्य निर्वाचन आयोग में चुनावों का अधीक्षण, निर्देशन और नियंत्रण निहित होगा।", icon: "fa-box-archive", color: "icon-green", link: "../articles/article-243k.html" },
+    { num: "243L", part: "Part IX", title: "संघ राज्यक्षेत्रों को लागू होना।", desc: "भाग IX के प्रावधान राष्ट्रपति के संशोधनों के अधीन संघ राज्यक्षेत्रों पर लागू होते हैं।", icon: "fa-layer-group", color: "icon-orange", link: "../articles/article-243l.html" },
+    { num: "243M", part: "Part IX", title: "इस भाग का कुछ क्षेत्रों को लागू न होना।", desc: "अनुसूचित क्षेत्रों, जनजातीय क्षेत्रों, नागालैंड, मेघालय, मिजोरम को छूट।", icon: "fa-shield-xmark", color: "icon-purple", link: "../articles/article-243m.html" },
+    { num: "243N", part: "Part IX", title: "विद्यमान विधियों और पंचायतों का बने रहना।", desc: "मौजूदा कानून 1 वर्ष के लिए मान्य रहेंगे जब तक कि पहले निरस्त न किए जाएं।", icon: "fa-arrows-spin", color: "icon-teal", link: "../articles/article-243n.html" },
+    { num: "243O", part: "Part IX", title: "निर्वाचन संबंधी मामलों में न्यायालयों के हस्तक्षेप का वर्जन।", desc: "चुनावी सीमाओं और सीटों के आवंटन पर अदालती हस्तक्षेप पर रोक।", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-243o.html" },
+
+    // PART IXA: THE MUNICIPALITIES (243P - 243ZG)
+    { num: "243P", part: "Part IXA", title: "नगरपालिकाओं वाले भाग में परिभाषाएं।", desc: "नगर पंचायत, नगरपालिका परिषद, नगर निगम की परिभाषाएं।", icon: "fa-building", color: "icon-blue", link: "../articles/article-243p.html" },
+    { num: "243Q", part: "Part IXA", title: "नगरपालिकाओं का गठन।", desc: "संक्रमणशील क्षेत्रों के लिए नगर पंचायत, छोटे शहरी क्षेत्रों के लिए नगरपालिका परिषद, बड़े क्षेत्रों के लिए नगर निगम।", icon: "fa-city", color: "icon-green", link: "../articles/article-243q.html" },
+    { num: "243R", part: "Part IXA", title: "नगरपालिकाओं की संरचना।", desc: "प्रादेशिक वार्डों द्वारा नगरपालिकाओं में सीटों का प्रत्यक्ष चुनाव।", icon: "fa-users-rectangle", color: "icon-orange", link: "../articles/article-243r.html" },
+    { num: "243S", part: "Part IXA", title: "वार्ड समितियों आदि का गठन और संरचना।", desc: "3 लाख या अधिक जनसंख्या वाले क्षेत्रों के लिए वार्ड समितियों का गठन।", icon: "fa-people-group", color: "icon-purple", link: "../articles/article-243s.html" },
+    { num: "243T", part: "Part IXA", title: "सीटों का आरक्षण।", desc: "शहरी निकायों में SC, ST और महिलाओं के लिए 1/3 सीटों का आरक्षण।", icon: "fa-scale-balanced", color: "icon-teal", link: "../articles/article-243t.html" },
+    { num: "243U", part: "Part IXA", title: "नगरपालिकाओं की अवधि आदि।", desc: "प्रथम बैठक की तिथि से नगरपालिका की अवधि 5 वर्ष होगी।", icon: "fa-calendar", color: "icon-amber", link: "../articles/article-243u.html" },
+    { num: "243V", part: "Part IXA", title: "सदस्यता के लिए निरर्हताएं।", desc: "राज्य कानून द्वारा निर्धारित नगरपालिका सदस्यता के लिए अयोग्यताएं।", icon: "fa-user-xmark", color: "icon-blue", link: "../articles/article-243v.html" },
+    { num: "243W", part: "Part IXA", title: "नगरपालिकाओं आदि की शक्तियां, प्राधिकार और उत्तरदायित्व।", desc: "आर्थिक विकास के लिए योजनाएं बनाना (12वीं अनुसूची)।", icon: "fa-list-check", color: "icon-green", link: "../articles/article-243w.html" },
+    { num: "243X", part: "Part IXA", title: "नगरपालिकाओं द्वारा कर अधिरोपित करने की शक्ति और उनकी निधियां।", desc: "राज्य विधानमंडल नगरपालिकाओं को कर लगाने का अधिकार देता है।", icon: "fa-receipt", color: "icon-orange", link: "../articles/article-243x.html" },
+    { num: "243Y", part: "Part IXA", title: "वित्त आयोग।", desc: "राज्य वित्त आयोग नगरपालिकाओं की वित्तीय स्थिति की समीक्षा करता है।", icon: "fa-chart-column", color: "icon-purple", link: "../articles/article-243y.html" },
+    { num: "243Z", part: "Part IXA", title: "नगरपालिकाओं के लेखाओं की परीक्षा।", desc: "नगरपालिका खातों के रखरखाव और लेखापरीक्षा के उपबंध।", icon: "fa-calculator", color: "icon-teal", link: "../articles/article-243z.html" },
+    { num: "243ZA", part: "Part IXA", title: "नगरपालिकाओं के लिए निर्वाचन।", desc: "राज्य निर्वाचन आयोग नगरपालिका चुनाव संपन्न कराता है।", icon: "fa-check-to-slot", color: "icon-amber", link: "../articles/article-243za.html" },
+    { num: "243ZB", part: "Part IXA", title: "संघ राज्यक्षेत्रों को लागू होना।", desc: "संघ राज्यक्षेत्रों पर नगरपालिका उपबंधों का लागू होना।", icon: "fa-layer-group", color: "icon-blue", link: "../articles/article-243zb.html" },
+    { num: "243ZC", part: "Part IXA", title: "इस भाग का कुछ क्षेत्रों को लागू न होना।", desc: "अनुसूचित क्षेत्रों और जनजातीय क्षेत्रों को इससे छूट।", icon: "fa-shield-xmark", color: "icon-green", link: "../articles/article-243zc.html" },
+    { num: "243ZD", part: "Part IXA", title: "जिला योजना के लिए समिति।", desc: "जिला योजना समिति पंचायतों और नगरपालिकाओं की योजनाओं को समेकित करती है।", icon: "fa-sitemap", color: "icon-orange", link: "../articles/article-243zd.html" },
+    { num: "243ZE", part: "Part IXA", title: "महानगर योजना के लिए समिति।", desc: "महानगर योजना समिति विकास योजना का प्रारूप तैयार करती है।", icon: "fa-diagram-project", color: "icon-purple", link: "../articles/article-243ze.html" },
+    { num: "243ZF", part: "Part IXA", title: "विद्यमान विधियों और नगरपालिकाओं का बने रहना।", desc: "मौजूदा नगरपालिका कानून संशोधन से 1 वर्ष तक लागू रहेंगे।", icon: "fa-rotate", color: "icon-teal", link: "../articles/article-243zf.html" },
+    { num: "243ZG", part: "Part IXA", title: "निर्वाचन संबंधी मामलों में न्यायालयों के हस्तक्षेप का वर्जन।", desc: "परिसीमन और चुनावों में अदालतों के हस्तक्षेप पर रोक।", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-243zg.html" },
+
+    // PART IXB: THE CO-OPERATIVE SOCIETIES (243ZH - 243ZT)
+    { num: "243ZH", part: "Part IXB", title: "सहकारी समितियों वाले भाग में परिभाषाएं।", desc: "प्राधिकृत व्यक्ति, बोर्ड, सहकारी समिति, बहु-राज्य सहकारी समिति की परिभाषाएं।", icon: "fa-handshake", color: "icon-blue", link: "../articles/article-243zh.html" },
+    { num: "243ZI", part: "Part IXB", title: "सहकारी समितियों का निगमन।", desc: "सहकारी समितियों का स्वैच्छिक गठन और लोकतांत्रिक नियंत्रण।", icon: "fa-people-hands-together", color: "icon-green", link: "../articles/article-243zi.html" },
+    { num: "243ZJ", part: "Part IXB", title: "बोर्ड के सदस्यों और उसके पदाधिकारियों की संख्या और पदावधि।", desc: "बोर्ड सदस्यों की संख्या अधिकतम 21 होगी; पदावधि 5 वर्ष होगी; SC/ST और महिलाओं के लिए आरक्षण।", icon: "fa-id-card-clip", color: "icon-orange", link: "../articles/article-243zj.html" },
+    { num: "243ZK", part: "Part IXB", title: "बोर्ड के सदस्यों का निर्वाचन।", desc: "पदावधि समाप्त होने से पहले चुनाव संपन्न कराए जाएंगे।", icon: "fa-check-double", color: "icon-purple", link: "../articles/article-243zk.html" },
+    { num: "243ZL", part: "Part IXB", title: "बोर्ड का सुपरसिडेंस (अतिक्रमण) और निलंबन।", desc: "वे परिस्थितियां जिनमें बोर्ड को निलंबित किया जा सकता है।", icon: "fa-ban-bug", color: "icon-teal", link: "../articles/article-243zl.html" },
+    { num: "243ZM", part: "Part IXB", title: "सहकारी समितियों के लेखाओं की परीक्षा।", desc: "लेखापरीक्षा के लिए राज्य विधानमंडल योग्य लेखा परीक्षकों की नियुक्ति करता है।", icon: "fa-file-invoice", color: "icon-amber", link: "../articles/article-243zm.html" },
+    { num: "243ZN", part: "Part IXB", title: "साधारण निकाय की बैठकें बुलाना।", desc: "वित्तीय वर्ष की समाप्ति के 6 महीने के भीतर वार्षिक साधारण सभा की बैठक।", icon: "fa-users-viewfinder", color: "icon-blue", link: "../articles/article-243zn.html" },
+    { num: "243ZO", part: "Part IXB", title: "सूचना प्राप्त करने का सदस्य का अधिकार।", desc: "सदस्यों को दस्तावेज़ और खाते प्राप्त करने का अधिकार।", icon: "fa-circle-info", color: "icon-green", link: "../articles/article-243zo.html" },
+    { num: "243ZP", part: "Part IXB", title: "विवरणी (Returns)।", desc: "वित्तीय वर्ष की समाप्ति के 6 माह के भीतर वार्षिक विवरणी दाखिल करना।", icon: "fa-file-export", color: "icon-orange", link: "../articles/article-243zp.html" },
+    { num: "243ZQ", part: "Part IXB", title: "अपराध और शास्तियां।", desc: "गलत जानकारी देने पर दंड निर्धारित करने की राज्य विधानमंडल की शक्ति।", icon: "fa-triangle-exclamation", color: "icon-purple", link: "../articles/article-243zq.html" },
+    { num: "243ZR", part: "Part IXB", title: "बहु-राज्य सहकारी समितियों को लागू होना।", desc: "एक से अधिक राज्यों में फैली समितियों पर नियमों का लागू होना।", icon: "fa-globe-asia", color: "icon-teal", link: "../articles/article-243zr.html" },
+    { num: "243ZS", part: "Part IXB", title: "संघ राज्यक्षेत्रों को लागू होना।", desc: "राष्ट्रपति संघ राज्यक्षेत्रों पर नियम लागू करता है।", icon: "fa-layer-group", color: "icon-amber", link: "../articles/article-243zs.html" },
+    { num: "243ZT", part: "Part IXB", title: "विद्यमान विधियों का बने रहना।", desc: "मौजूदा कानून 1 वर्ष तक लागू रहेंगे।", icon: "fa-arrows-rotate", color: "icon-blue", link: "../articles/article-243zt.html" },
+
+    // PART X: THE SCHEDULED AND TRIBAL AREAS (244 - 244A)
+    { num: 244, part: "Part X", title: "अनुसूचित क्षेत्रों और जनजातीय क्षेत्रों का प्रशासन।", desc: "पांचवीं अनुसूची अनुसूचित क्षेत्रों पर; छठी अनुसूची असम, मेघालय, त्रिपुरा, मिजोरम पर लागू होती है।", icon: "fa-campground", color: "icon-green", link: "../articles/article-244.html" },
+    { num: "244A", part: "Part X", title: "असम के कुछ जनजातीय क्षेत्रों को समाविष्ट करने वाला स्वायत्त राज्य बनाना।", desc: "संसद असम के जनजातीय क्षेत्रों के लिए स्वायत्त राज्य बना सकती है।", icon: "fa-mountain-city", color: "icon-orange", link: "../articles/article-244a.html" },
+
+    // PART XI: RELATIONS BETWEEN THE UNION AND THE STATES (245 - 263)
+    { num: 245, part: "Part XI", title: "संसद द्वारा और राज्यों के विधानमंडलों द्वारा बनाई गई विधियों का विस्तार।", desc: "संसद पूरे भारत के लिए और राज्य विधानमंडल राज्य के लिए कानून बनाते हैं।", icon: "fa-map", color: "icon-purple", link: "../articles/article-245.html" },
+    { num: 246, part: "Part XI", title: "संसद द्वारा और राज्यों के विधानमंडलों द्वारा बनाई गई विधियों की विषय-वस्तु।", desc: "संघ सूची, राज्य सूची और समवर्ती सूची के बीच विधायी शक्तियों का विभाजन।", icon: "fa-list-ol", color: "icon-teal", link: "../articles/article-246.html" },
+    { num: "246A", part: "Part XI", title: "वस्तु और सेवा कर (GST) के संबंध में विशेष उपबंध।", desc: "संसद और राज्य विधानमंडलों को GST के संबंध में कानून बनाने की शक्ति।", icon: "fa-receipt", color: "icon-amber", link: "../articles/article-246a.html" },
+    { num: 247, part: "Part XI", title: "कुछ अतिरिक्त न्यायालयों की स्थापना का उपबंध करने की संसद की शक्ति।", desc: "केंद्रीय कानूनों के बेहतर प्रशासन के लिए अतिरिक्त न्यायालयों की स्थापना।", icon: "fa-gavel", color: "icon-blue", link: "../articles/article-247.html" },
+    { num: 248, part: "Part XI", title: "अवशिष्ट विधायी शक्तियां (Residuary Powers)।", desc: "सूची II या III में शामिल न किए गए किसी भी विषय पर कानून बनाने की संसद की अनन्य शक्ति।", icon: "fa-key", color: "icon-green", link: "../articles/article-248.html" },
+    { num: 249, part: "Part XI", title: "राष्ट्रहित में राज्य सूची के विषय के संबंध में विधि बनाने की संसद की शक्ति।", desc: "राज्यसभा का 2/3 बहुमत से पारित संकल्प संसद को राज्य सूची पर कानून बनाने की अनुमति देता है।", icon: "fa-flag", color: "icon-orange", link: "../articles/article-249.html" },
+    { num: 250, part: "Part XI", title: "यदि आपात की उद्घोषणा प्रवृत्त हो तो राज्य सूची के विषय के संबंध में विधि बनाने की संसद की शक्ति।", desc: "आपातकाल के दौरान संसद राज्य सूची के विषयों पर कानून बना सकती है।", icon: "fa-triangle-exclamation", color: "icon-purple", link: "../articles/article-250.html" },
+    { num: 251, part: "Part XI", title: "अनुच्छेद 249 और 250 के अधीन बनाई गई विधियों और राज्यों द्वारा बनाई गई विधियों में असंगति।", desc: "गतिरोध की स्थिति में संसदीय कानून राज्य के कानून पर हावी होगा।", icon: "fa-scale-unbalanced", color: "icon-teal", link: "../articles/article-251.html" },
+    { num: 252, part: "Part XI", title: "दो या अधिक राज्यों के लिए उनकी सहमति से विधि बनाने की संसद की शक्ति।", desc: "दो या अधिक राज्यों की सहमति से संसद राज्य सूची के विषयों पर कानून बनाती है।", icon: "fa-handshake", color: "icon-amber", link: "../articles/article-252.html" },
+    { num: 253, part: "Part XI", title: "अंतर्राष्ट्रीय करारों को प्रभावी करने के लिए विधान।", desc: "अंतर्राष्ट्रीय संधियों को लागू करने के लिए पूरे भारत के लिए कानून बनाने की संसद की शक्ति।", icon: "fa-earth-americas", color: "icon-blue", link: "../articles/article-253.html" },
+    { num: 254, part: "Part XI", title: "संसद द्वारा बनाई गई विधियों और राज्यों के विधानमंडलों द्वारा बनाई गई विधियों में असंगति।", desc: "समवर्ती सूची पर टकराव होने पर केंद्रीय कानून मान्य होगा।", icon: "fa-code-compare", color: "icon-green", link: "../articles/article-254.html" },
+    { num: 255, part: "Part XI", title: "सिफारिशों और पूर्व मंजूरियों के बारे में अपेक्षाओं को केवल प्रक्रिया के विषय मानना।", desc: "केवल सिफारिश न मिलने के आधार पर कानून अमान्य नहीं होगा।", icon: "fa-check-double", color: "icon-orange", link: "../articles/article-255.html" },
+    { num: 256, part: "Part XI", title: "राज्यों की और संघ की बाध्यता।", desc: "राज्य की कार्यपालिका शक्ति का प्रयोग संसदीय कानूनों का अनुपालन सुनिश्चित करने के लिए होगा।", icon: "fa-building-circle-check", color: "icon-purple", link: "../articles/article-256.html" },
+    { num: 257, part: "Part XI", title: "कुछ दशाओं में राज्यों पर संघ का नियंत्रण।", desc: "संचार साधनों के निर्माण/रखरखाव के संबंध में राज्यों को संघ के निर्देश।", icon: "fa-sliders", color: "icon-teal", link: "../articles/article-257.html" },
+    { num: "257A", part: "Part XI", title: "सशस्त्र बलों के परिनियोजन द्वारा राज्यों की सहायता।", desc: "(44वें संशोधन अधिनियम, 1978 द्वारा निरसित)।", icon: "fa-ban", color: "icon-amber", link: "../articles/article-257a.html" },
+    { num: 258, part: "Part XI", title: "कुछ दशाओं में राज्यों को शक्ति प्रदान करने आदि की संघ की शक्ति।", desc: "राष्ट्रपति राज्य सरकार की सहमति से उसे संघ के कार्य सौंप सकता है।", icon: "fa-user-gear", color: "icon-blue", link: "../articles/article-258.html" },
+    { num: "258A", part: "Part XI", title: "संघ को कृत्य सौंपने की राज्यों की शक्ति।", desc: "राज्यपाल संघ सरकार को राज्य के कार्य सौंप सकता है।", icon: "fa-hand-holding-hand", color: "icon-green", link: "../articles/article-258a.html" },
+    { num: 259, part: "Part XI", title: "पहली अनुसूची के भाग ख के राज्यों के सशस्त्र बल।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-section", color: "icon-orange", link: "../articles/article-259.html" },
+    { num: 260, part: "Part XI", title: "भारत के बाहर के राज्यक्षेत्रों के संबंध में संघ की अधिकारिता।", desc: "विदेशी क्षेत्रों में संघ द्वारा विधायी और कार्यपालिका कृत्यों का निर्वहन।", icon: "fa-globe", color: "icon-purple", link: "../articles/article-260.html" },
+    { num: 261, part: "Part XI", title: "सार्वजनिक कार्य, अभिलेख और न्यायिक कार्यवाहियां।", desc: "सार्वजनिक कार्यों, अभिलेखों और न्यायिक कार्यवाहियों को पूरे भारत में पूर्ण विश्वास दिया जाएगा।", icon: "fa-stamp", color: "icon-teal", link: "../articles/article-261.html" },
+    { num: 262, part: "Part XI", title: "अंतरराज्यिक नदियों या नदी-घाटियों के जल संबंधी विवादों का न्यायनिर्णयन।", desc: "संसद अंतर-राज्यीय नदी जल विवादों के निपटारे के लिए कानून बनाती है।", icon: "fa-water", color: "icon-amber", link: "../articles/article-262.html" },
+    { num: 263, part: "Part XI", title: "अंतरराज्यिक परिषद (Inter-State Council) के संबंध में उपबंध।", desc: "राष्ट्रपति अंतर-राज्यीय विवादों की जांच और चर्चा के लिए परिषद का गठन कर सकता है।", icon: "fa-people-arrows", color: "icon-blue", link: "../articles/article-263.html" },
+
+    // PART XII: FINANCE, PROPERTY, CONTRACTS AND SUITS (264 - 300A)
+    { num: 264, part: "Part XII", title: "वित्त वाले भाग का निर्वचन।", desc: "'वित्त आयोग' पद की परिभाषा।", icon: "fa-calculator", color: "icon-green", link: "../articles/article-264.html" },
+    { num: 265, part: "Part XII", title: "विधि के प्राधिकार के बिना करों का अधिरोपण न किया जाना।", desc: "विधि के प्राधिकार के बिना कोई कर न तो लगाया जाएगा और न ही एकत्र किया जाएगा।", icon: "fa-receipt", color: "icon-orange", link: "../articles/article-265.html" },
+    { num: 266, part: "Part XII", title: "भारत और राज्यों की संचित निधियां और लोक लेखे।", desc: "केंद्र और राज्यों के लिए संचित निधि और लोक लेखा की स्थापना।", icon: "fa-vault", color: "icon-purple", link: "../articles/article-266.html" },
+    { num: 267, part: "Part XII", title: "आकस्मिकता निधि (Contingency Fund)।", desc: "अप्रत्यक्ष व्यय के लिए भारत की आकस्मिकता निधि की स्थापना।", icon: "fa-piggy-bank", color: "icon-teal", link: "../articles/article-267.html" },
+    { num: 268, part: "Part XII", title: "संघ द्वारा अधिरोपित किंतु राज्यों द्वारा संगृहीत और विनियोजित किए जाने वाले शुल्क।", desc: "स्टाम्प शुल्क संघ द्वारा लगाया जाता है लेकिन राज्यों द्वारा एकत्र और रखा जाता है।", icon: "fa-file-invoice-dollar", color: "icon-amber", link: "../articles/article-268.html" },
+    { num: "268A", part: "Part XII", title: "सेवा कर संघ द्वारा अधिरोपित और संगृहीत।", desc: "(101वें संशोधन अधिनियम द्वारा निरसित)।", icon: "fa-ban", color: "icon-blue", link: "../articles/article-268a.html" },
+    { num: 269, part: "Part XII", title: "संघ द्वारा अधिरोपित और संगृहीत किंतु राज्यों को सौंपे जाने वाले कर।", desc: "अंतर-राज्यीय व्यापार में माल की बिक्री पर कर राज्यों को सौंपे जाते हैं।", icon: "fa-money-bill-transfer", color: "icon-green", link: "../articles/article-269.html" },
+    { num: "269A", part: "Part XII", title: "अंतरराज्यिक व्यापार या वाणिज्य के दौरान माल और सेवा कर का अधिरोपण और संग्रहण।", desc: "IGST संघ द्वारा संगृहीत और केंद्र एवं राज्यों के बीच विभाजित किया जाएगा।", icon: "fa-percent", color: "icon-orange", link: "../articles/article-269a.html" },
+    { num: 270, part: "Part XII", title: "अधिरोपित कर और उनका संघ तथा राज्यों के बीच वितरण।", desc: "वित्त आयोग की सिफारिश पर केंद्र और राज्यों के बीच करों का बंटवारा।", icon: "fa-chart-pie", color: "icon-purple", link: "../articles/article-270.html" },
+    { num: 271, part: "Part XII", title: "कुछ शुल्कों और करों पर संघ के प्रयोजनों के लिए अधिभार (Surcharge)।", desc: "संसद संघ के प्रयोजनों के लिए करों पर अधिभार लगा सकती है।", icon: "fa-coins", color: "icon-teal", link: "../articles/article-271.html" },
+    { num: 272, part: "Part XII", title: "कर जो संघ द्वारा अधिरोपित और संगृहीत किए जाते हैं तथा जो संघ और राज्यों के बीच बांटे जा सकेंगे।", desc: "(80वें संशोधन अधिनियम, 2000 द्वारा निरसित)।", icon: "fa-ban", color: "icon-amber", link: "../articles/article-272.html" },
+    { num: 273, part: "Part XII", title: "जूट और जूट-उत्पादों पर निर्यात शुल्क के बदले अनुदान।", desc: "असम, बिहार, ओडिशा, पश्चिम बंगाल के लिए संचित निधि पर भारित अनुदान।", icon: "fa-sack-dollar", color: "icon-blue", link: "../articles/article-273.html" },
+    { num: 274, part: "Part XII", title: "कराधान पर प्रभाव डालने वाले विधेयकों के लिए राष्ट्रपति की पूर्व सिफारिश।", desc: "राज्यों के हितों को प्रभावित करने वाले कर विधेयकों के लिए राष्ट्रपति की पूर्व सिफारिश आवश्यक है।", icon: "fa-file-signature", color: "icon-green", link: "../articles/article-274.html" },
+    { num: 275, part: "Part XII", title: "कुछ राज्यों को संघ से अनुदान।", desc: "जरूरतमंद राज्यों को संचित निधि से दिया जाने वाला सहायता अनुदान।", icon: "fa-hand-holding-dollar", color: "icon-orange", link: "../articles/article-275.html" },
+    { num: 276, part: "Part XII", title: "वृत्तियों, व्यापारों, आजीविकाओं और नियोजनों पर कर।", desc: "व्यावसायिक कर (Professional Tax) लगाने की राज्यों/स्थानीय निकायों की शक्ति।", icon: "fa-briefcase", color: "icon-purple", link: "../articles/article-276.html" },
+    { num: 277, part: "Part XII", title: "व्यावृत्ति।", desc: "संविधान-पूर्व कर/शुल्क संसद द्वारा कानून बनाने तक जारी रहेंगे।", icon: "fa-box-archive", color: "icon-teal", link: "../articles/article-277.html" },
+    { num: 278, part: "Part XII", title: "पहली अनुसूची के भाग ख के राज्यों के साथ करार।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-section", color: "icon-amber", link: "../articles/article-278.html" },
+    { num: 279, part: "Part XII", title: "'शुद्ध आगम' आदि की गणना।", desc: "करों के शुद्ध आगम की गणना CAG द्वारा प्रमाणित की जाती है (जो अंतिम होती है)।", icon: "fa-calculator", color: "icon-blue", link: "../articles/article-279.html" },
+    { num: "279A", part: "Part XII", title: "माल और सेवा कर परिषद (GST Council)।", desc: "GST दरों की सिफारिश के लिए केंद्रीय वित्त मंत्री की अध्यक्षता में GST परिषद का गठन।", icon: "fa-users-gear", color: "icon-green", link: "../articles/article-279a.html" },
+    { num: 280, part: "Part XII", title: "वित्त आयोग।", desc: "कर विभाजन की सिफारिश के लिए राष्ट्रपति प्रत्येक 5 वर्ष में वित्त आयोग का गठन करता है।", icon: "fa-building-columns", color: "icon-orange", link: "../articles/article-280.html" },
+    { num: 281, part: "Part XII", title: "वित्त आयोग की सिफारिशें।", desc: "राष्ट्रपति वित्त आयोग की सिफारिशों को संसद के समक्ष रखवाता है।", icon: "fa-file-contract", color: "icon-purple", link: "../articles/article-281.html" },
+    { num: 282, part: "Part XII", title: "संघ या राज्य द्वारा अपने राजस्व से किए जाने वाले व्यय।", desc: "लोक प्रयोजनों के लिए संघ या राज्य द्वारा किया जाने वाला विवेकाधीन अनुदान।", icon: "fa-money-bill-wave", color: "icon-teal", link: "../articles/article-282.html" },
+    { num: 283, part: "Part XII", title: "संचित निधियों, आकस्मिकता निधियों और लोक लेखाओं में जमा धनराशियों की अभिरक्षा।", desc: "सार्वजनिक धन की अभिरक्षा और निकासी का नियमन विधि द्वारा।", icon: "fa-vault", color: "icon-amber", link: "../articles/article-283.html" },
+    { num: 284, part: "Part XII", title: "वादकारियों की जमा राशियों और लोक सेवकों और न्यायालयों द्वारा प्राप्त अन्य धनराशियों की अभिरक्षा।", desc: "न्यायालयों या लोक सेवकों द्वारा प्राप्त धन लोक लेखे में जमा किया जाएगा।", icon: "fa-scale-balanced", color: "icon-blue", link: "../articles/article-284.html" },
+    { num: 285, part: "Part XII", title: "संघ की संपत्ति को राज्य के कराधान से छूट।", desc: "केंद्र सरकार की संपत्ति राज्य/स्थानीय करों से मुक्त होगी।", icon: "fa-shield-halved", color: "icon-green", link: "../articles/article-285.html" },
+    { num: 286, part: "Part XII", title: "माल के क्रय या विक्रय पर कर के अधिरोपण के बारे में निबंध।", desc: "राज्य के बाहर या आयात-निर्यात के दौरान बिक्री पर राज्य कर नहीं लगा सकते।", icon: "fa-ban", color: "icon-orange", link: "../articles/article-286.html" },
+    { num: 287, part: "Part XII", title: "विद्युत पर करों से छूट।", desc: "केंद्र सरकार या रेलवे द्वारा उपभोग की जाने वाली बिजली पर राज्य कर नहीं लगा सकते।", icon: "fa-bolt", color: "icon-purple", link: "../articles/article-287.html" },
+    { num: 288, part: "Part XII", title: "जल या विद्युत के संबंध में राज्यों द्वारा कराधान से कुछ दशाओं में छूट।", desc: "अंतर-राज्यीय नदी प्राधिकरणों की जल/विद्युत पर कर लगाने के लिए राष्ट्रपति की सहमति आवश्यक है।", icon: "fa-faucet-drip", color: "icon-teal", link: "../articles/article-288.html" },
+    { num: 289, part: "Part XII", title: "राज्य की संपत्ति और आय को संघ के कराधान से छूट।", desc: "राज्य की संपत्ति और आय संघ के करों से मुक्त होगी (व्यापार/कारोबार को छोड़कर)।", icon: "fa-building-shield", color: "icon-amber", link: "../articles/article-289.html" },
+    { num: 290, part: "Part XII", title: "कुछ व्ययों और पेंशनों के संबंध में समायोजन।", desc: "न्यायिक/पेंशन व्यय के संबंध में केंद्र और राज्यों के बीच वित्तीय समायोजन।", icon: "fa-right-left", color: "icon-blue", link: "../articles/article-290.html" },
+    { num: "290A", part: "Part XII", title: "कुछ देवस्वम निधियों को वार्षिक संदाय।", desc: "केरल और तमिलनाडु में देवस्वम मंदिरों के लिए संचित निधि से वार्षिक भुगतान।", icon: "fa-gopuram", color: "icon-green", link: "../articles/article-290a.html" },
+    { num: 291, part: "Part XII", title: "शासकों की निजी थैली (Privy Purse) की धनराशि।", desc: "(26वें संशोधन अधिनियम, 1971 द्वारा निरसित)।", icon: "fa-crown", color: "icon-orange", link: "../articles/article-291.html" },
+    { num: 292, part: "Part XII", title: "भारत सरकार द्वारा उधार लेना।", desc: "भारत की संचित निधि की प्रतिभूति पर संघ द्वारा धन उधार लेने की शक्ति।", icon: "fa-hand-holding-dollar", color: "icon-purple", link: "../articles/article-292.html" },
+    { num: 293, part: "Part XII", title: "राज्यों द्वारा उधार लेना।", desc: "भारत के भीतर राज्यों की उधार लेने की शक्ति; पुराना ऋण बकाया होने पर केंद्र की सहमति अनिवार्य।", icon: "fa-landmark-dome", color: "icon-teal", link: "../articles/article-293.html" },
+    { num: 294, part: "Part XII", title: "कुछ दशाओं में संपत्ति, आस्तियों, अधिकारों, दायित्वों और बाध्यताओं का उत्तराधिकार।", desc: "ब्रिटिश क्राउन से संघ और राज्यों को संपत्ति/दायित्वों का हस्तांतरण।", icon: "fa-arrows-left-right-to-line", color: "icon-amber", link: "../articles/article-294.html" },
+    { num: 295, part: "Part XII", title: "अन्य दशाओं में संपत्ति, आस्तियों, अधिकारों, दायित्वों और बाध्यताओं का उत्तराधिकार।", desc: "देसी रियासतों की संपत्ति का संघ/राज्यों में उत्तराधिकार।", icon: "fa-file-shield", color: "icon-blue", link: "../articles/article-295.html" },
+    { num: 296, part: "Part XII", title: "राजगामी या व्यपगत या स्वामीविहीन होने से राजगामी संपत्ति।", desc: "उत्तराधिकारी न होने पर संपत्ति का केंद्र या राज्य को मिलना।", icon: "fa-house-lock", color: "icon-green", link: "../articles/article-296.html" },
+    { num: 297, part: "Part XII", title: "राज्यक्षेत्रीय सागरखंड या महाद्वीपीय मग्नतट भूमि में स्थित मूल्यवान वस्तुओं का संघ में निहित होना।", desc: "समुद्री क्षेत्र/EEZ के खनिज, तेल और संसाधन संघ में निहित होंगे।", icon: "fa-water-lower", color: "icon-orange", link: "../articles/article-297.html" },
+    { num: 298, part: "Part XII", title: "व्यापार करने आदि की शक्ति।", desc: "संघ और राज्यों की कार्यपालिका शक्ति का विस्तार व्यापार या कारोबार करने तक होगा।", icon: "fa-store", color: "icon-purple", link: "../articles/article-298.html" },
+    { num: 299, part: "Part XII", title: "संविदाएं (Contracts)।", desc: "सरकारी संविदाएं राष्ट्रपति या राज्यपाल के नाम से की जाएंगी।", icon: "fa-file-contract", color: "icon-teal", link: "../articles/article-299.html" },
+    { num: 300, part: "Part XII", title: "वाद और कार्यवाहियां।", desc: "भारत सरकार 'भारत संघ' के नाम से और राज्य सरकार राज्य के नाम से मुकदमा दर्ज कर सकती है या उस पर किया जा सकता है।", icon: "fa-gavel", color: "icon-amber", link: "../articles/article-300.html" },
+    { num: "300A", part: "Part XII", title: "व्यक्तियों को संपत्ति से वंचित न किया जाना।", desc: "विधि के प्राधिकार के बिना किसी व्यक्ति को उसकी संपत्ति से वंचित नहीं किया जाएगा (संवैधानिक कानूनी अधिकार)।", icon: "fa-house-flag", color: "icon-blue", link: "../articles/article-300a.html" },
+
+    // PART XIII: TRADE, COMMERCE AND INTERCOURSE WITHIN TERRITORY OF INDIA (301 - 307)
+    { num: 301, part: "Part XIII", title: "व्यापार, वाणिज्य और समागम की स्वतंत्रता।", desc: "भारत के संपूर्ण राज्यक्षेत्र में व्यापार, वाणिज्य और समागम स्वतंत्र होगा।", icon: "fa-truck-fast", color: "icon-green", link: "../articles/article-301.html" },
+    { num: 302, part: "Part XIII", title: "व्यापार, वाणिज्य और समागम पर निर्बंधन अधिरोपित करने की संसद की शक्ति।", desc: "संसद लोकहित में व्यापार की स्वतंत्रता पर निबंध लगा सकती है।", icon: "fa-road-barrier", color: "icon-orange", link: "../articles/article-302.html" },
+    { num: 303, part: "Part XIII", title: "व्यापार और वाणिज्य के संबंध में संघ और राज्यों की विधायी शक्तियों पर निबंध।", desc: "व्यापार कानूनों के संबंध में राज्यों के बीच कोई भेदभाव नहीं होगा।", icon: "fa-scale-balanced", color: "icon-purple", link: "../articles/article-303.html" },
+    { num: 304, part: "Part XIII", title: "राज्यों के बीच व्यापार, वाणिज्य और समागम पर निर्बंधन।", desc: "अन्य राज्यों से आयातित माल पर गैर-भेदभावपूर्ण कर लगाने की राज्य विधानमंडल की शक्ति।", icon: "fa-border-top-left", color: "icon-teal", link: "../articles/article-304.html" },
+    { num: 305, part: "Part XIII", title: "विद्यमान विधियों और राज्य के एकाधिकार का उपबंध करने वाली विधियों की व्यावृत्ति।", desc: "पूर्व-विद्यमान व्यापार कानूनों और सरकारी एकाधिकार विधियों का संरक्षण।", icon: "fa-file-prescription", color: "icon-amber", link: "../articles/article-305.html" },
+    { num: 306, part: "Part XIII", title: "पहली अनुसूची के भाग ख के कुछ राज्यों की व्यापार और वाणिज्य पर निर्बंधन अधिरोपित करने की शक्ति।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-blue", link: "../articles/article-306.html" },
+    { num: 307, part: "Part XIII", title: "अनुच्छेद 301 से 304 के प्रयोजनों को कार्यान्वित करने के लिए प्राधिकारी की नियुक्ति।", desc: "मुक्त व्यापार के उद्देश्यों को पूरा करने के लिए संसद प्राधिकारी नियुक्त कर सकती है।", icon: "fa-user-check", color: "icon-green", link: "../articles/article-307.html" },
+
+    // PART XIV: SERVICES UNDER THE UNION AND THE STATES (308 - 323)
+    { num: 308, part: "Part XIV", title: "सेवाओं वाले भाग का निर्वचन।", desc: "इस भाग में 'राज्य' में जम्मू और कश्मीर शामिल नहीं था (ऐतिहासिक रूप से)।", icon: "fa-users-gear", color: "icon-orange", link: "../articles/article-308.html" },
+    { num: 309, part: "Part XIV", title: "संघ या राज्य की सेवा करने वाले व्यक्तियों की भर्ती और सेवा की शर्तें।", desc: "संसद और राज्य विधानमंडल सिविल सेवकों की भर्ती और सेवा शर्तों का नियमन करते हैं।", icon: "fa-user-plus", color: "icon-purple", link: "../articles/article-309.html" },
+    { num: 310, part: "Part XIV", title: "संघ या राज्य की सेवा करने वाले व्यक्तियों की पदावधि।", desc: "सिविल सेवक राष्ट्रपति या राज्यपाल के 'प्रसादपर्यंत' पद धारण करते हैं।", icon: "fa-user-clock", color: "icon-teal", link: "../articles/article-310.html" },
+    { num: 311, part: "Part XIV", title: "सिविल पदों पर नियोजित व्यक्तियों का पदच्युत किया जाना, पद से हटाया जाना या पंक्ति में अवनत किया जाना।", desc: "संवैधानिक संरक्षण: बर्खास्तगी से पहले जांच और सुनवाई का अवसर देना अनिवार्य।", icon: "fa-shield-halved", color: "icon-amber", link: "../articles/article-311.html" },
+    { num: 312, part: "Part XIV", title: "अखिल भारतीय सेवाएं (All-India Services)।", desc: "राज्यसभा के संकल्प द्वारा संसद नई अखिल भारतीय सेवाएं (जैसे IAS, IPS, IFS) बना सकती है।", icon: "fa-user-tie", color: "icon-blue", link: "../articles/article-312.html" },
+    { num: "312A", part: "Part XIV", title: "कुछ सेवाओं के अधिकारियों की सेवा की शर्तों में परिवर्तन करने या उन्हें समाप्त करने की संसद की शक्ति।", desc: "पूर्ववर्ती सेक्रेटरी ऑफ स्टेट सेवाओं की सेवा शर्तों में बदलाव की संसद की शक्ति।", icon: "fa-user-pen", color: "icon-green", link: "../articles/article-312a.html" },
+    { num: 313, part: "Part XIV", title: "संक्रमणकालीन उपबंध।", desc: "पूर्व-विद्यमान सिविल सेवा नियम लागू रहेंगे।", icon: "fa-arrows-rotate", color: "icon-orange", link: "../articles/article-313.html" },
+    { num: 314, part: "Part XIV", title: "कुछ सेवाओं के विद्यमान अधिकारियों के संरक्षण के लिए उपबंध।", desc: "(28वें संशोधन अधिनियम, 1972 द्वारा निरसित)।", icon: "fa-ban", color: "icon-purple", link: "../articles/article-314.html" },
+    { num: 315, part: "Part XIV", title: "संघ और राज्यों के लिए लोक सेवा आयोग।", desc: "संघ के लिए UPSC और प्रत्येक राज्य के लिए SPSC का गठन।", icon: "fa-building-columns", color: "icon-teal", link: "../articles/article-315.html" },
+    { num: 316, part: "Part XIV", title: "सदस्यों की नियुक्ति और पदावधि।", desc: "UPSC सदस्यों की नियुक्ति राष्ट्रपति द्वारा; SPSC की राज्यपाल द्वारा; पदावधि 6 वर्ष या 65/62 वर्ष आयु।", icon: "fa-user-check", color: "icon-amber", link: "../articles/article-316.html" },
+    { num: 317, part: "Part XIV", title: "लोक सेवा आयोग के किसी सदस्य का हटाया जाना और निलंबित किया जाना।", desc: "उच्चतम न्यायालय की जांच के बाद कदाचार के आधार पर राष्ट्रपति द्वारा हटाया जाना।", icon: "fa-user-minus", color: "icon-blue", link: "../articles/article-317.html" },
+    { num: 318, part: "Part XIV", title: "आयोग के सदस्यों और कर्मचारियों की सेवा की शर्तों के बारे में नियम बनाने की शक्ति।", desc: "राष्ट्रपति/राज्यपाल आयोग के कर्मचारियों और सेवा शर्तों के नियम बनाते हैं।", icon: "fa-sliders", color: "icon-green", link: "../articles/article-318.html" },
+    { num: 319, part: "Part XIV", title: "आयोग के सदस्यों द्वारा ऐसे सदस्य न रहने पर पद धारण करने पर प्रतिषेध।", desc: "सेवानिवृत्त सदस्यों पर भविष्य में सरकारी रोजगार पर रोक।", icon: "fa-user-slash", color: "icon-orange", link: "../articles/article-319.html" },
+    { num: 320, part: "Part XIV", title: "लोक सेवा आयोगों के कृत्य।", desc: "परीक्षाएं आयोजित करना, नियुक्तियों, पदोन्नतियों, अनुशासनात्मक मामलों में सलाह देना।", icon: "fa-list-check", color: "icon-purple", link: "../articles/article-320.html" },
+    { num: 321, part: "Part XIV", title: "लोक सेवा आयोगों के कृत्यों का विस्तार करने की शक्ति।", desc: "संसद या राज्य विधानमंडल लोक सेवा आयोग के कार्यों का विस्तार कर सकते हैं।", icon: "fa-expand", color: "icon-teal", link: "../articles/article-321.html" },
+    { num: 322, part: "Part XIV", title: "लोक सेवा आयोगों के व्यय।", desc: "UPSC के व्यय भारत की संचित निधि पर और SPSC के व्यय राज्य की संचित निधि पर भारित होंगे।", icon: "fa-money-bill-transfer", color: "icon-amber", link: "../articles/article-322.html" },
+    { num: 323, part: "Part XIV", title: "लोक सेवा आयोगों के प्रतिवेदन।", desc: "UPSC/SPSC की वार्षिक रिपोर्ट संसद/विधानमंडल में पेश की जाएगी।", icon: "fa-chart-line", color: "icon-blue", link: "../articles/article-323.html" },
+
+    // PART XIVA: TRIBUNALS (323A - 323B)
+    { num: "323A", part: "Part XIVA", title: "प्रशासनिक अधिकरण (Administrative Tribunals)।", desc: "सेवा विवादों के निपटारे के लिए संसद द्वारा प्रशासनिक अधिकरणों (CAT/SAT) की स्थापना।", icon: "fa-gavel", color: "icon-green", link: "../articles/article-323a.html" },
+    { num: "323B", part: "Part XIVA", title: "अन्य विषयों के लिए अधिकरण।", desc: "कराधान, विदेशी मुद्रा, श्रम, भूमि सुधार जैसे विषयों के लिए अधिकरणों का गठन।", icon: "fa-scale-balanced", color: "icon-orange", link: "../articles/article-323b.html" },
+
+    // PART XV: ELECTIONS (324 - 329A)
+    { num: 324, part: "Part XV", title: "निर्वाचनों के अधीक्षण, निर्देशन और नियंत्रण का निर्वाचन आयोग में निहित होना।", desc: "स्वतंत्र और निष्पक्ष चुनावों के लिए भारत निर्वाचन आयोग उत्तरदायी होगा।", icon: "fa-box-archive", color: "icon-purple", link: "../articles/article-324.html" },
+    { num: 325, part: "Part XV", title: "धर्म, मूलवंश, जाति या लिंग के आधार पर किसी व्यक्ति का मतदाता सूची में शामिल होने के लिए अयोग्य न होना।", desc: "प्रत्येक निर्वाचन क्षेत्र के लिए एक ही साधारण मतदाता सूची होगी; कोई भेदभाव नहीं।", icon: "fa-address-book", color: "icon-teal", link: "../articles/article-325.html" },
+    { num: 326, part: "Part XV", title: "लोकसभा और विधानसभाओं के लिए निर्वाचन वयस्क मताधिकार के आधार पर होना।", desc: "वयस्क मताधिकार: 18 वर्ष या उससे अधिक आयु के प्रत्येक नागरिक को वोट देने का अधिकार है।", icon: "fa-check-to-slot", color: "icon-amber", link: "../articles/article-326.html" },
+    { num: 327, part: "Part XV", title: "विधानमंडलों के लिए निर्वाचनों के संबंध में उपबंध करने की संसद की शक्ति।", desc: "निर्वाचक नामावली, निर्वाचन क्षेत्रों के परिसीमन पर कानून बनाने की संसद की शक्ति।", icon: "fa-landmark", color: "icon-blue", link: "../articles/article-327.html" },
+    { num: 328, part: "Part XV", title: "किसी राज्य के विधानमंडल के लिए निर्वाचनों के संबंध में उपबंध करने की उस विधानमंडल की शक्ति।", desc: "चुनावों से संबंधित शेष विषयों पर कानून बनाने की राज्य विधानमंडल की शक्ति।", icon: "fa-building-user", color: "icon-green", link: "../articles/article-328.html" },
+    { num: 329, part: "Part XV", title: "निर्वाचन संबंधी मामलों में न्यायालयों के हस्तक्षेप का वर्जन।", desc: "परिसीमन को अदालतों में चुनौती नहीं दी जा सकती; चुनाव केवल चुनाव याचिका द्वारा चुनौती दिए जाएंगे।", icon: "fa-gavel", color: "icon-orange", link: "../articles/article-329.html" },
+    { num: "329A", part: "Part XV", title: "प्रधानमंत्री और अध्यक्ष के मामले में संसद के निर्वाचनों के बारे में विशेष उपबंध।", desc: "(44वें संशोधन अधिनियम, 1978 द्वारा निरसित)।", icon: "fa-ban", color: "icon-purple", link: "../articles/article-329a.html" },
+
+    // PART XVI: SPECIAL PROVISIONS RELATING TO CERTAIN CLASSES (330 - 342A)
+    { num: 330, part: "Part XVI", title: "लोकसभा में अनुसूचित जातियों और अनुसूचित जनजातियों के लिए स्थानों का आरक्षण।", desc: "लोकसभा में SC और ST के लिए सीटों का आरक्षण।", icon: "fa-chair", color: "icon-teal", link: "../articles/article-330.html" },
+    { num: 331, part: "Part XVI", title: "लोकसभा में आंग्ल-भारतीय समुदाय का प्रतिनिधित्व।", desc: "(104वें संशोधन अधिनियम, 2019 द्वारा समाप्त)।", icon: "fa-user-group", color: "icon-amber", link: "../articles/article-331.html" },
+    { num: 332, part: "Part XVI", title: "राज्यों की विधानसभाओं में अनुसूचित जातियों और अनुसूचित जनजातियों के लिए स्थानों का आरक्षण।", desc: "राज्य विधानसभाओं में SC और ST के लिए सीटों का आरक्षण।", icon: "fa-users-between-lines", color: "icon-blue", link: "../articles/article-332.html" },
+    { num: 333, part: "Part XVI", title: "विधानसभाओं में आंग्ल-भारतीय समुदाय का प्रतिनिधित्व।", desc: "(104वें संशोधन अधिनियम, 2019 द्वारा समाप्त)।", icon: "fa-user-group", color: "icon-green", link: "../articles/article-333.html" },
+    { num: 334, part: "Part XVI", title: "स्थानों के आरक्षण और विशेष प्रतिनिधित्व का सत्तर वर्ष के पश्चात् न रहना।", desc: "आरक्षण की समय सीमा (समय-समय पर 2030 तक बढ़ाई गई)।", icon: "fa-clock", color: "icon-orange", link: "../articles/article-334.html" },
+    { num: 335, part: "Part XVI", title: "सेवाओं और पदों के लिए अनुसूचित जातियों और अनुसूचित जनजातियों के दावे।", desc: "प्रशासन की दक्षता बनाए रखने के साथ SC/ST के दावों पर विचार।", icon: "fa-briefcase", color: "icon-purple", link: "../articles/article-335.html" },
+    { num: 336, part: "Part XVI", title: "कुछ सेवाओं में आंग्ल-भारतीय समुदाय के लिए विशेष उपबंध।", desc: "आंग्ल-भारतीयों के लिए रेलवे, सीमा शुल्क में संक्रमणकालीन आरक्षण।", icon: "fa-building-columns", color: "icon-teal", link: "../articles/article-336.html" },
+    { num: 337, part: "Part XVI", title: "आंग्ल-भारतीय समुदाय के फायदे के लिए शैक्षणिक अनुदान के लिए विशेष उपबंध।", desc: "आंग्ल-भारतीय समुदाय की शैक्षणिक संस्थाओं के लिए विशेष अनुदान।", icon: "fa-graduation-cap", color: "icon-amber", link: "../articles/article-337.html" },
+    { num: 338, part: "Part XVI", title: "राष्ट्रीय अनुसूचित जाति आयोग (NCSC)।", desc: "अनुसूचित जातियों के संरक्षण की निगरानी के लिए संवैधानिक निकाय।", icon: "fa-shield-halved", color: "icon-blue", link: "../articles/article-338.html" },
+    { num: "338A", part: "Part XVI", title: "राष्ट्रीय अनुसूचित जनजाति आयोग (NCST)।", desc: "अनुसूचित जनजातियों के अधिकारों और कल्याण की सुरक्षा के लिए संवैधानिक निकाय।", icon: "fa-tree-city", color: "icon-green", link: "../articles/article-338a.html" },
+    { num: "338B", part: "Part XVI", title: "राष्ट्रीय पिछड़ा वर्ग आयोग (NCBC)।", desc: "102वें संशोधन अधिनियम, 2018 द्वारा NCBC को संवैधानिक दर्जा दिया गया।", icon: "fa-people-group", color: "icon-orange", link: "../articles/article-338b.html" },
+    { num: 339, part: "Part XVI", title: "अनुसूचित क्षेत्रों के प्रशासन और अनुसूचित जनजातियों के कल्याण के बारे में संघ का नियंत्रण।", desc: "अनुसूचित क्षेत्रों के प्रशासन पर रिपोर्ट देने के लिए आयोग का गठन।", icon: "fa-campground", color: "icon-purple", link: "../articles/article-339.html" },
+    { num: 340, part: "Part XVI", title: "पिछड़े वर्गों की दशाओं के अन्वेषण के लिए आयोग की नियुक्ति।", desc: "पिछड़े वर्गों की जांच के लिए आयोग (जैसे काका कालेलकर, मंडल आयोग)।", icon: "fa-magnifying-glass-chart", color: "icon-teal", link: "../articles/article-340.html" },
+    { num: 341, part: "Part XVI", title: "अनुसूचित जातियां।", desc: "राष्ट्रपति अनुसूचित जाति के रूप में मानी जाने वाली जातियों को विनिर्दिष्ट करता है।", icon: "fa-list-ol", color: "icon-amber", link: "../articles/article-341.html" },
+    { num: 342, part: "Part XVI", title: "अनुसूचित जनजातियां।", desc: "राष्ट्रपति अनुसूचित जनजाति के रूप में मानी जाने वाली जनजातियों को विनिर्दिष्ट करता है।", icon: "fa-list-check", color: "icon-blue", link: "../articles/article-342.html" },
+    { num: "342A", part: "Part XVI", title: "सामाजिक और शैक्षणिक दृष्टि से पिछड़े वर्ग (SEBCs)।", desc: "राष्ट्रपति केंद्रीय SEBC सूची तैयार करता है; 105वें संशोधन ने राज्यों की शक्ति बहाल की।", icon: "fa-users-line", color: "icon-green", link: "../articles/article-342a.html" },
+
+    // PART XVII: OFFICIAL LANGUAGE (343 - 351)
+    { num: 343, part: "Part XVII", title: "संघ की राजभाषा।", desc: "संघ की राजभाषा देवनागरी लिपि में हिंदी होगी; अंग्रेजी का प्रयोग भी जारी रहा।", icon: "fa-language", color: "icon-orange", link: "../articles/article-343.html" },
+    { num: 344, part: "Part XVII", title: "राजभाषा के संबंध में आयोग और संसद की समिति।", desc: "राष्ट्रपति 5 और 10 वर्ष के अंतराल पर राजभाषा आयोग का गठन करता है।", icon: "fa-comments", color: "icon-purple", link: "../articles/article-344.html" },
+    { num: 345, part: "Part XVII", title: "राज्य की राजभाषा या राजभाषाएं।", desc: "राज्य विधानमंडल एक या अधिक भाषाओं या हिंदी को राजभाषा के रूप में अपना सकता है।", icon: "fa-book", color: "icon-teal", link: "../articles/article-345.html" },
+    { num: 346, part: "Part XVII", title: "एक राज्य और दूसरे राज्य के बीच या राज्य और संघ के बीच पत्रादि की राजभाषा।", desc: "संघीय प्रयोजनों के लिए अधिकृत भाषा का उपयोग राज्यों के बीच संवाद में होगा।", icon: "fa-headset", color: "icon-amber", link: "../articles/article-346.html" },
+    { num: 347, part: "Part XVII", title: "किसी राज्य की जनसंख्या के किसी भाग द्वारा बोली जाने वाली भाषा के संबंध में विशेष उपबंध।", desc: "राष्ट्रपति किसी भाषा को राज्य में शासकीय मान्यता देने का निर्देश दे सकता है।", icon: "fa-bullhorn", color: "icon-blue", link: "../articles/article-347.html" },
+    { num: 348, part: "Part XVII", title: "उच्चतम न्यायालय और उच्च न्यायालयों में और अधिनियमों, विधेयकों आदि के लिए प्रयोग की जाने वाली भाषा।", desc: "उच्चतम न्यायालय, उच्च न्यायालयों और अधिनियमों/विधेयकों की भाषा अंग्रेजी होगी।", icon: "fa-gavel", color: "icon-green", link: "../articles/article-348.html" },
+    { num: 349, part: "Part XVII", title: "भाषा से संबंधित कुछ विधियां अधिनियमित करने के लिए विशेष प्रक्रिया।", desc: "प्रथम 15 वर्षों के दौरान भाषा संबंधी विधेयकों के लिए राष्ट्रपति की पूर्व मंजूरी आवश्यक।", icon: "fa-file-signature", color: "icon-orange", link: "../articles/article-349.html" },
+    { num: 350, part: "Part XVII", title: "व्यथा के निवारण के लिए अभ्यावेदन में प्रयोग की जाने वाली भाषा।", desc: "प्रत्येक व्यक्ति संघ या राज्य में प्रयुक्त किसी भी भाषा में शिकायत दर्ज करा सकता है।", icon: "fa-envelope-open-text", color: "icon-purple", link: "../articles/article-350.html" },
+    { num: "350A", part: "Part XVII", title: "प्राथमिक स्तर पर मातृभाषा में शिक्षा की सुविधाएं।", desc: "राज्य प्राथमिक स्तर पर मातृभाषा में शिक्षा की पर्याप्त सुविधाएं प्रदान करेगा।", icon: "fa-child-reaching", color: "icon-teal", link: "../articles/article-350a.html" },
+    { num: "350B", part: "Part XVII", title: "भाषाई अल्पसंख्यक-वर्गों के लिए विशेष अधिकारी।", desc: "राष्ट्रपति भाषाई अल्पसंख्यकों के लिए विशेष अधिकारी नियुक्त करता है।", icon: "fa-user-shield", color: "icon-amber", link: "../articles/article-350b.html" },
+    { num: 351, part: "Part XVII", title: "हिंदी भाषा के विकास के लिए निर्देश।", desc: "हिंदी भाषा का प्रसार और विकास करना संघ का कर्तव्य होगा।", icon: "fa-pen-nib", color: "icon-blue", link: "../articles/article-351.html" },
+
+    // PART XVIII: EMERGENCY PROVISIONS (352 - 360)
+    { num: 352, part: "Part XVIII", title: "आपात की उद्घोषणा (राष्ट्रीय आपातकाल)।", desc: "युद्ध, बाह्य आक्रमण या सशस्त्र विद्रोह के आधार पर राष्ट्रपति राष्ट्रीय आपातकाल की घोषणा करता है।", icon: "fa-triangle-exclamation", color: "icon-green", link: "../articles/article-352.html" },
+    { num: 353, part: "Part XVIII", title: "आपात की उद्घोषणा का प्रभाव।", desc: "संघ की कार्यपालिका शक्ति का विस्तार राज्यों को निर्देश देने तक होगा; संसद राज्य सूची पर कानून बना सकती है।", icon: "fa-sitemap", color: "icon-orange", link: "../articles/article-353.html" },
+    { num: 354, part: "Part XVIII", title: "जब आपात की उद्घोषणा प्रवृत्त है तब राजस्वों के वितरण से संबंधित उपबंधों का लागू होना।", desc: "राष्ट्रपति केंद्र और राज्यों के बीच वित्तीय राजस्व वितरण में संशोधन कर सकता है।", icon: "fa-coins", color: "icon-purple", link: "../articles/article-354.html" },
+    { num: 355, part: "Part XVIII", title: "बाह्य आक्रमण और आंतरिक अशांति से राज्य की रक्षा करने का संघ का कर्तव्य।", desc: "प्रत्येक राज्य की बाह्य आक्रमण से रक्षा करना संघ का कर्तव्य है।", icon: "fa-shield-cat", color: "icon-teal", link: "../articles/article-355.html" },
+    { num: 356, part: "Part XVIII", title: "राज्यों में संवैधानिक तंत्र के विफल हो जाने की दशा में उपबंध (राष्ट्रपति शासन)।", desc: "संवैधानिक तंत्र विफल होने पर राज्य में राष्ट्रपति शासन लागू होना।", icon: "fa-building-lock", color: "icon-amber", link: "../articles/article-356.html" },
+    { num: 357, part: "Part XVIII", title: "अनुच्छेद 356 के अधीन की गई उद्घोषणा के तहत विधायी शक्तियों का प्रयोग।", desc: "राष्ट्रपति शासन के दौरान संसद राज्य की विधायी शक्तियों का प्रयोग करती है।", icon: "fa-gavel", color: "icon-blue", link: "../articles/article-357.html" },
+    { num: 358, part: "Part XVIII", title: "आपात के दौरान अनुच्छेद 19 के उपबंधों का निलंबन।", desc: "युद्ध या बाह्य आक्रमण के समय अनुच्छेद 19 के तहत स्वतंत्रताएं स्वतः निलंबित हो जाती हैं।", icon: "fa-comment-slash", color: "icon-green", link: "../articles/article-358.html" },
+    { num: 359, part: "Part XVIII", title: "आपात के दौरान भाग III द्वारा प्रदत्त अधिकारों के प्रवर्तन का निलंबन।", desc: "आपातकाल में अदालत जाने के अधिकार का निलंबन (अनुच्छेद 20 और 21 को छोड़कर)।", icon: "fa-handcuffs", color: "icon-orange", link: "../articles/article-359.html" },
+    { num: "359A", part: "Part XVIII", title: "इस भाग का पंजाब राज्य को लागू होना।", desc: "(63वें संशोधन अधिनियम, 1990 द्वारा निरसित)।", icon: "fa-ban", color: "icon-purple", link: "../articles/article-359a.html" },
+    { num: 360, part: "Part XVIII", title: "वित्तीय आपातकाल के बारे में उपबंध।", desc: "भारत की वित्तीय स्थिरता को खतरा होने पर राष्ट्रपति वित्तीय आपातकाल घोषित करता है।", icon: "fa-sack-xmark", color: "icon-teal", link: "../articles/article-360.html" },
+
+    // PART XIX: MISCELLANEOUS (361 - 367)
+    { num: 361, part: "Part XIX", title: "राष्ट्रपति और राज्यपालों और राजप्रमुखों का संरक्षण।", desc: "सरकारी कार्यों के लिए न्यायालय में जवाबदेह नहीं; आपराधिक कार्यवाहियों से उन्मुक्ति।", icon: "fa-user-shield", color: "icon-amber", link: "../articles/article-361.html" },
+    { num: "361A", part: "Part XIX", title: "संसद और राज्यों के विधानमंडलों की कार्यवाहियों के प्रकाशन का संरक्षण।", desc: "संसदीय कार्यवाहियों की सत्य रिपोर्ट प्रकाशित करने पर दीवानी/फौजदारी दायित्व से संरक्षण।", icon: "fa-newspaper", color: "icon-blue", link: "../articles/article-361a.html" },
+    { num: "361B", part: "Part XIX", title: "लाभप्रद राजनीतिक पद पर नियुक्ति के लिए निरर्हता।", desc: "दल-बदल विरोधी कानून के तहत अयोग्य सदस्य लाभप्रद राजनीतिक पद धारण करने से अयोग्य।", icon: "fa-user-xmark", color: "icon-green", link: "../articles/article-361b.html" },
+    { num: 362, part: "Part XIX", title: "भारतीय राज्यों के शासकों के अधिकार और विशेषाधिकार।", desc: "(26वें संशोधन अधिनियम, 1971 द्वारा निरसित)।", icon: "fa-ban", color: "icon-orange", link: "../articles/article-362.html" },
+    { num: 363, part: "Part XIX", title: "कुछ संधियों, करारों आदि से उत्पन्न विवादों में न्यायालयों के हस्तक्षेप का वर्जन।", desc: "संविधान-पूर्व देसी रियासतों की संधियों से उत्पन्न विवादों पर अदालती हस्तक्षेप पर रोक।", icon: "fa-gavel", color: "icon-purple", link: "../articles/article-363.html" },
+    { num: "363A", part: "Part XIX", title: "भारतीय राज्यों के शासकों को दी गई मान्यता का की समाप्ति और प्रिवी पर्स का अंत।", desc: "प्रिवी पर्स को समाप्त किया गया और शासकों की मान्यता रद्द की गई।", icon: "fa-crown", color: "icon-teal", link: "../articles/article-363a.html" },
+    { num: 364, part: "Part XIX", title: "महापत्तनों और विमानक्षेत्रों के बारे में विशेष उपबंध।", desc: "राष्ट्रपति बंदरगाहों और हवाई अड्डों पर कानूनों के लागू होने में छूट या संशोधन कर सकता है।", icon: "fa-plane-departure", color: "icon-amber", link: "../articles/article-364.html" },
+    { num: 365, part: "Part XIX", title: "संघ द्वारा दिए गए निर्देशों का अनुपालन करने में या उनको प्रभावी करने में असफलता का प्रभाव।", desc: "संघ के निर्देशों का पालन न करने पर अनुच्छेद 356 के तहत राष्ट्रपति शासन का आधार।", icon: "fa-triangle-exclamation", color: "icon-blue", link: "../articles/article-365.html" },
+    { num: 366, part: "Part XIX", title: "प्रकीर्ण भाग में परिभाषाएं।", desc: "कृषि आय, माल, ऋण, संपदा, अनुसूची, GST आदि पदों की परिभाषाएं।", icon: "fa-book-open", color: "icon-green", link: "../articles/article-366.html" },
+    { num: 367, part: "Part XIX", title: "निर्वचन।", desc: "संविधान के निर्वचन के लिए साधारण खंड अधिनियम, 1897 लागू होता है।", icon: "fa-magnifying-glass", color: "icon-orange", link: "../articles/article-367.html" },
+
+    // PART XX: AMENDMENT OF THE CONSTITUTION (368)
+    { num: 368, part: "Part XX", title: "संविधान का संशोधन करने की संसद की शक्ति और उसकी प्रक्रिया।", desc: "विशेष बहुमत (और संघीय विषयों के लिए राज्यों के अनुमोदन) द्वारा संविधान में संशोधन करने की संसद की शक्ति।", icon: "fa-pen-to-square", color: "icon-purple", link: "../articles/article-368.html" },
+
+    // PART XXI: TEMPORARY, TRANSITIONAL AND SPECIAL PROVISIONS (369 - 392)
+    { num: 369, part: "Part XXI", title: "राज्य सूची के कुछ विषयों के संबंध में विधि बनाने की संसद की अस्थाई शक्ति।", desc: "समवर्ती व्यापार विषयों पर संसद की 5 वर्ष के लिए अस्थाई शक्ति।", icon: "fa-clock", color: "icon-teal", link: "../articles/article-369.html" },
+    { num: 370, part: "Part XXI", title: "जम्मू और कश्मीर राज्य के संबंध में अस्थाई उपबंध।", desc: "J&K का विशेष स्वायत्त दर्जा (5-6 अगस्त 2019 के राष्ट्रपति आदेशों द्वारा प्रभावहीन)।", icon: "fa-location-dot", color: "icon-amber", link: "../articles/article-370.html" },
+    { num: 371, part: "Part XXI", title: "महाराष्ट्र और गुजरात राज्यों के संबंध में विशेष उपबंध।", desc: "विदर्भ, मराठवाड़ा, सौराष्ट्र, कच्छ के लिए पृथक विकास बोर्डों की स्थापना।", icon: "fa-building-user", color: "icon-blue", link: "../articles/article-371.html" },
+    { num: "371A", part: "Part XXI", title: "नागालैंड राज्य के संबंध में विशेष उपबंध।", desc: "नागालैंड में धार्मिक, सामाजिक प्रथाओं, रूढ़िगत कानून, भूमि स्वामित्व का संरक्षण।", icon: "fa-mountain-city", color: "icon-green", link: "../articles/article-371a.html" },
+    { num: "371B", part: "Part XXI", title: "असम राज्य के संबंध में विशेष उपबंध।", desc: "असम के जनजातीय क्षेत्रों के लिए विधानसभा की समिति।", icon: "fa-people-roof", color: "icon-orange", link: "../articles/article-371b.html" },
+    { num: "371C", part: "Part XXI", title: "मणिपुर राज्य के संबंध में विशेष उपबंध।", desc: "मणिपुर के पहाड़ी क्षेत्रों के लिए विधानसभा की समिति।", icon: "fa-hill-rockslide", color: "icon-purple", link: "../articles/article-371c.html" },
+    { num: "371D", part: "Part XXI", title: "आंध्र प्रदेश या तेलंगाना राज्य के संबंध में विशेष उपबंध।", desc: "आंध्र प्रदेश और तेलंगाना में रोजगार और शिक्षा में समान अवसर।", icon: "fa-map-location", color: "icon-teal", link: "../articles/article-371d.html" },
+    { num: "371E", part: "Part XXI", title: "आंध्र प्रदेश में केंद्रीय विश्वविद्यालय की स्थापना।", desc: "संसद कानून द्वारा आंध्र प्रदेश में केंद्रीय विश्वविद्यालय स्थापित कर सकती है।", icon: "fa-graduation-cap", color: "icon-amber", link: "../articles/article-371e.html" },
+    { num: "371F", part: "Part XXI", title: "सिक्किम राज्य के संबंध में विशेष उपबंध।", desc: "1975 में सिक्किम के भारत में विलय के बाद विशेष व्यवस्थाएं।", icon: "fa-flag-usa", color: "icon-blue", link: "../articles/article-371f.html" },
+    { num: "371G", part: "Part XXI", title: "मिजोरम राज्य के संबंध में विशेष उपबंध।", desc: "मिजो रूढ़िगत कानून, धर्म और भूमि स्वामित्व का संरक्षण।", icon: "fa-shield-cat", color: "icon-green", link: "../articles/article-371g.html" },
+    { num: "371H", part: "Part XXI", title: "अरुणाचल प्रदेश राज्य के संबंध में विशेष उपबंध।", desc: "कानून व्यवस्था के संबंध में राज्यपाल का विशेष दायित्व।", icon: "fa-user-shield", color: "icon-orange", link: "../articles/article-371h.html" },
+    { num: "371I", part: "Part XXI", title: "गोवा राज्य के संबंध में विशेष उपबंध।", desc: "गोवा विधानसभा में सदस्यों की संख्या कम से कम 30 होगी।", icon: "fa-umbrella-beach", color: "icon-purple", link: "../articles/article-371i.html" },
+    { num: "371J", part: "Part XXI", title: "हैदराबाद-कर्नाटक क्षेत्र के लिए विशेष स्थिति।", desc: "कल्याण-कर्नाटक क्षेत्र के लिए विकास बोर्ड और नौकरियों में आरक्षण।", icon: "fa-city", color: "icon-teal", link: "../articles/article-371j.html" },
+    { num: 372, part: "Part XXI", title: "विद्यमान विधियों का बने रहना और उनका अनुकूलन।", desc: "सभी संविधान-पूर्व कानून तब तक लागू रहेंगे जब तक कि सक्षम विधानमंडल द्वारा बदले न जाएं।", icon: "fa-arrows-rotate", color: "icon-amber", link: "../articles/article-372.html" },
+    { num: "372A", part: "Part XXI", title: "विधियों का अनुकूलन करने की राष्ट्रपति की शक्ति।", desc: "कानूनों को संविधान के अनुकूल बनाने के लिए राष्ट्रपति की संशोधन शक्ति।", icon: "fa-sliders", color: "icon-blue", link: "../articles/article-372a.html" },
+    { num: 373, part: "Part XXI", title: "निवारक निरोध में रखे गए व्यक्तियों के संबंध में आदेश करने की राष्ट्रपति की शक्ति।", desc: "संक्रमणकाल में निवारक निरोध के संबंध में राष्ट्रपति के आदेश।", icon: "fa-person-military-rifle", color: "icon-green", link: "../articles/article-373.html" },
+    { num: 374, part: "Part XXI", title: "फेडरल न्यायालय के न्यायाधीशों और फेडरल न्यायालय में लंबित कार्यवाहियों के बारे में उपबंध।", desc: "फेडरल कोर्ट के न्यायाधीशों को उच्चतम न्यायालय में स्थानांतरित किया गया।", icon: "fa-repeat", color: "icon-orange", link: "../articles/article-374.html" },
+    { num: 375, part: "Part XXI", title: "संविधान के उपबंधों के अधीन रहते हुए न्यायालयों, प्राधिकारियों और अधिकारियों का कार्य करते रहना।", desc: "विद्यमान न्यायालय और अधिकारी संविधान के अधीन कार्य करते रहेंगे।", icon: "fa-building-columns", color: "icon-purple", link: "../articles/article-375.html" },
+    { num: 376, part: "Part XXI", title: "उच्च न्यायालयों के न्यायाधीशों के बारे में उपबंध।", desc: "संविधान लागू होने पर पूर्व उच्च न्यायालयों के न्यायाधीशों का बने रहना।", icon: "fa-user-tie", color: "icon-teal", link: "../articles/article-376.html" },
+    { num: 377, part: "Part XXI", title: "भारत के महालेखापरीक्षक के बारे में उपबंध।", desc: "विद्यमान महालेखापरीक्षक का पद पर बने रहना।", icon: "fa-calculator", color: "icon-amber", link: "../articles/article-377.html" },
+    { num: 378, part: "Part XXI", title: "लोक सेवा आयोगों के बारे में उपबंध।", desc: "फेडरल और प्रांतीय लोक सेवा आयोगों के सदस्यों का बने रहना।", icon: "fa-users-gear", color: "icon-blue", link: "../articles/article-378.html" },
+    { num: "378A", part: "Part XXI", title: "आंध्र प्रदेश विधानसभा की अवधि के बारे में विशेष उपबंध।", desc: "आंध्र प्रदेश विधानसभा की अवधि के लिए संक्रमणकालीन उपबंध।", icon: "fa-timeline", color: "icon-green", link: "../articles/article-378a.html" },
+    { num: 379, part: "Part XXI", title: "अस्थाई संसद और उसके अध्यक्ष के बारे में उपबंध।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-orange", link: "../articles/article-379.html" },
+    { num: 380, part: "Part XXI", title: "भारत के राष्ट्रपति के बारे में उपबंध।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-purple", link: "../articles/article-380.html" },
+    { num: 381, part: "Part XXI", title: "राष्ट्रपति की मंत्रिपरिषद।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-teal", link: "../articles/article-381.html" },
+    { num: 382, part: "Part XXI", title: "राज्यों के लिए अस्थाई विधानमंडलों के बारे में उपबंध।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-amber", link: "../articles/article-382.html" },
+    { num: 383, part: "Part XXI", title: "प्रांतों के राज्यपालों के बारे में उपबंध।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-blue", link: "../articles/article-383.html" },
+    { num: 384, part: "Part XXI", title: "राज्यपालों की मंत्रिपरिषद।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-green", link: "../articles/article-384.html" },
+    { num: 385, part: "Part XXI", title: "भाग ख के राज्यों में अस्थाई विधानमंडलों के बारे में उपबंध।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-orange", link: "../articles/article-385.html" },
+    { num: 386, part: "Part XXI", title: "भाग ख के राज्यों के लिए मंत्रिपरिषद।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-purple", link: "../articles/article-386.html" },
+    { num: 387, part: "Part XXI", title: "निर्वाचनों के लिए जनसंख्या के निर्धारण के बारे में विशेष उपबंध।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-teal", link: "../articles/article-387.html" },
+    { num: 388, part: "Part XXI", title: "अस्थाई संसद और अस्थाई विधानमंडलों में आकस्मिक रिक्तियां।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-amber", link: "../articles/article-388.html" },
+    { num: 389, part: "Part XXI", title: "डोमिनियन विधानमंडल और प्रांतों के विधानमंडलों में लंबित विधेयकों के बारे में उपबंध।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-blue", link: "../articles/article-389.html" },
+    { num: 390, part: "Part XXI", title: "26 जनवरी 1950 और संविधान के प्रारंभ के बीच प्राप्त या बढ़ाए गए धन।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-green", link: "../articles/article-390.html" },
+    { num: 391, part: "Part XXI", title: "कुछ आकस्मिकताओं में पहली और चौथी अनुसूची में संशोधन करने की राष्ट्रपति की शक्ति।", desc: "(7वें संशोधन अधिनियम, 1956 द्वारा निरसित)।", icon: "fa-ban", color: "icon-orange", link: "../articles/article-391.html" },
+    { num: 392, part: "Part XXI", title: "कठिनाइयों को दूर करने की राष्ट्रपति की शक्ति।", desc: "संविधान लागू होने पर संक्रमणकालीन कठिनाइयों को हल करने की राष्ट्रपति की शक्ति।", icon: "fa-wrench", color: "icon-purple", link: "../articles/article-392.html" },
+
+    // PART XXII: SHORT TITLE, COMMENCEMENT, AUTHORITATIVE TEXT IN HINDI AND REPEALS (393 - 395)
+    { num: 393, part: "Part XXII", title: "संक्षिप्त नाम।", desc: "इस संविधान का संक्षिप्त नाम 'भारत का संविधान' है।", icon: "fa-bookmark", color: "icon-teal", link: "../articles/article-393.html" },
+    { num: 394, part: "Part XXII", title: "प्रारंभ।", desc: "अनुच्छेद 5-9, 60, 324, 366, 367, 379, 380, 388, 391-393 दिनांक 26 नवंबर, 1949 को लागू हुए; शेष 26 जनवरी, 1950 को लागू हुए।", icon: "fa-calendar-check", color: "icon-amber", link: "../articles/article-394.html" },
+    { num: "394A", part: "Part XXII", title: "हिंदी भाषा में प्राधिकृत पाठ।", desc: "राष्ट्रपति हिंदी भाषा में संविधान का प्राधिकृत पाठ प्रकाशित करवाएगा।", icon: "fa-language", color: "icon-blue", link: "../articles/article-394a.html" },
+    { num: 395, part: "Part XXII", title: "निरसन (Repeals)।", desc: "भारतीय स्वतंत्रता अधिनियम, 1947 और भारत सरकार अधिनियम, 1935 को इसके द्वारा निरस्त किया जाता है।", icon: "fa-trash-can", color: "icon-green", link: "../articles/article-395.html" }
+];
+
+
+
+
+
+
+
+    // Part to Subject Mapping
+    const partSubjectMap = {
+      'Part I': 'The Union',
+      'Part II': 'Citizenship',
+      'Part III': 'Fundamental Rights',
+      'Part IV': 'Directive Principles of State Policy',
+      'Part IVA': 'Fundamental Duties',
+      'Part V': 'The Union'
+    };
+
+    // State Variables
+    let currentPage = 1;
+    const itemsPerPage = 10;
+    let currentSortOrder = "asc";
+    let filteredData = [...articlesData];
+
+    // DOM Elements
+    const container = document.getElementById('articles-list-container');
+    const sortSelect = document.getElementById('sortSelect');
+    const prevBtn = document.getElementById('prev-page-btn');
+    const nextBtn = document.getElementById('next-page-btn');
+    const pageInfo = document.getElementById('page-info-text');
+    const articlesCountText = document.getElementById('articlesCountText');
+
+    const searchInput = document.getElementById('filterSearchInput');
+    const partSelect = document.getElementById('filterPartSelect');
+    const subjectSelect = document.getElementById('filterSubjectSelect');
+    const keywordInput = document.getElementById('filterKeywordInput');
+    const applyBtn = document.getElementById('btnApplyFilters');
+    const resetBtn = document.getElementById('btnResetFilters');
+
+    // Filter Logic
+    function runFilters() {
+      const searchVal = searchInput.value.trim().toLowerCase();
+      const partVal = partSelect.value;
+      const subjectVal = subjectSelect.value;
+      const keywordVal = keywordInput.value.trim().toLowerCase();
+
+      filteredData = articlesData.filter(item => {
+        let match = true;
+
+        if (searchVal) {
+          const numMatch = String(item.num).toLowerCase().includes(searchVal) || ('article ' + item.num).toLowerCase().includes(searchVal) || ('अनुच्छेद ' + item.num).toLowerCase().includes(searchVal);
+          const textMatch = item.title.toLowerCase().includes(searchVal) || item.desc.toLowerCase().includes(searchVal);
+          if (!numMatch && !textMatch) match = false;
+        }
+
+        if (match && partVal !== 'All Parts') {
+          if (item.part !== partVal) match = false;
+        }
+
+        if (match && subjectVal !== 'All Subjects') {
+          const mappedSubject = partSubjectMap[item.part] || '';
+          if (mappedSubject !== subjectVal) match = false;
+        }
+
+        if (match && keywordVal) {
+          const kwMatch = item.title.toLowerCase().includes(keywordVal) || item.desc.toLowerCase().includes(keywordVal);
+          if (!kwMatch) match = false;
+        }
+
+        return match;
+      });
+
+      currentPage = 1;
+      renderArticles();
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      partSelect.selectedIndex = 0;
+      subjectSelect.selectedIndex = 0;
+      keywordInput.value = '';
+      sortSelect.selectedIndex = 0;
+      currentSortOrder = 'asc';
+      filteredData = [...articlesData];
+      currentPage = 1;
+      renderArticles();
+    }
+
+    // Render Function
+    function renderArticles() {
+      container.innerHTML = '';
+
+      // Sort
+      filteredData.sort((a, b) => {
+        const numA = parseInt(a.num) || 0;
+        const numB = parseInt(b.num) || 0;
+        return currentSortOrder === 'asc' ? numA - numB : numB - numA;
+      });
+
+      articlesCountText.textContent = `सभी अनुच्छेद (${filteredData.length})`;
+
+      if (filteredData.length === 0) {
+        container.innerHTML = `
+          <div style="padding: 30px 12px; text-align: center; color: #637381; font-size: 12px; font-weight: 500;">
+            आपकी फ़िल्टर शर्तों से मेल खाता हुआ कोई अनुच्छेद नहीं मिला।
+          </div>
+        `;
+        pageInfo.textContent = `पृष्ठ 0 / 0`;
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        return;
+      }
+
+      // Pagination
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, filteredData.length);
+      const paginatedItems = filteredData.slice(startIndex, endIndex);
+
+      paginatedItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'article-card';
+        card.innerHTML = `
+          <div class="article-icon ${item.color}">
+            <i class="fa-solid ${item.icon}"></i>
+          </div>
+          <div class="article-details">
+            <div class="article-header-line">
+              <span class="article-number">अनुच्छेद ${item.num}</span>
+              <span class="part-badge">${item.part}</span>
+            </div>
+            <div class="article-heading">${item.title}</div>
+            <div class="article-desc">${item.desc}</div>
+          </div>
+          <div class="article-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          const targetLink = item.link || `articles/article-${item.num}.html`;
+          window.location.href = targetLink;
+        });
+
+        container.appendChild(card);
+      });
+
+      pageInfo.textContent = `पृष्ठ ${currentPage} / ${totalPages}`;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+    }
+
+    // Event Listeners
+    applyBtn.addEventListener('click', runFilters);
+    resetBtn.addEventListener('click', resetFilters);
+    searchInput.addEventListener('input', runFilters);
+
+    sortSelect.addEventListener('change', (e) => {
+      currentSortOrder = e.target.value.includes('desc') ? 'desc' : 'asc';
+      renderArticles();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderArticles();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderArticles();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      }
+    });
+
+    // Popular Articles Sidebar Click
+    document.querySelectorAll('.popular-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const num = item.getAttribute('data-num');
+        resetFilters();
+        searchInput.value = num;
+        runFilters();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      });
+    });
+
+    // Browse by Part Sidebar Click
+    document.querySelectorAll('.part-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const partName = item.getAttribute('data-part');
+        resetFilters();
+        partSelect.value = partName;
+        runFilters();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      });
+    });
+
+    document.getElementById('viewAllPopular').addEventListener('click', (e) => {
+      e.preventDefault();
+      resetFilters();
+    });
+
+    
+
+    document.getElementById('btnBottomBrowse').addEventListener('click', () => {
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+      partSelect.focus();
+    });
+
+    // Initial Load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderArticles();
+    });
+
+    document.querySelectorAll(".part-item").forEach(item => {
+    item.addEventListener("click", function () {
+        const link = this.dataset.link;
+
+        if (link) {
+            window.location.href = link;
+        }
+    });
+});
+  </script>
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>
