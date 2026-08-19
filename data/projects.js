@@ -133,5 +133,32 @@ const projectsData = [
     technologies: ["JavaScript", "CSS", "API"],
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=80",
     liveUrl: "https://munendra5singh.github.io/smartCalcAi"
+  },
+  {
+    id: 160,
+    name: "Attendance Dashboard Sheet",
+    description: "Automated monthly attendance tracker with leave management and dynamic percentage calculation.",
+    category: "Tools",
+    technologies: ["Excel", "Formulas", "Macros"],
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=80",
+    liveUrl: "projects/p-12-excel/attendance_sheet.xlsx"
+  },
+  {
+    id: 17,
+    name: "Auto Payroll Sheet",
+    description: "Comprehensive salary and wage calculator with automated allowances and deduction breakdowns.",
+    category: "Tools",
+    technologies: ["Excel", "Formulas", "VLOOKUP"],
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&fit=crop&q=80",
+    liveUrl: "projects/p-12-excel/auto_pay_roll.xlsx"
+  },
+  {
+    id: 18,
+    name: "Money Break Calculator",
+    description: "Physical currency counter and denomination breakdown calculator for daily cash closing.",
+    category: "Tools",
+    technologies: ["Excel", "Formulas", "Data Validation"],
+    image: "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=600&auto=format&fit=crop&q=80",
+    liveUrl: "projects/p-12-excel/money_breck_calculater.xlsx"
   }
 ];
