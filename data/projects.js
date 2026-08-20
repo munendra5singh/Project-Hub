@@ -177,6 +177,6 @@ const projectsData = [
   category: "Audio & Tools",
   technologies: ["HTML", "CSS", "JavaScript", "Web Audio API"],
   image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&auto=format&fit=crop&q=80",
-  liveUrl: "projects/p-20-WaveformStudio/index.html"
+  liveUrl: "projects/p-20-waveform-studio/index.html"
 }
 ];
