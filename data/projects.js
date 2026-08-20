@@ -160,5 +160,15 @@ const projectsData = [
     technologies: ["Excel", "Formulas", "Data Validation"],
     image: "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=600&auto=format&fit=crop&q=80",
     liveUrl: "projects/p-12-excel/money_breck_calculater.xlsx"
-  }
+  },
+
+  {
+  id: 19,
+  name: "Morse Code Learning",
+  description: "Interactive Morse Code learning, practice & decoding web app.",
+  category: "Education",
+  technologies: ["HTML", "CSS", "JavaScript"],
+  image: "https://www.nationalworld.com/jpim-static/image/2023/04/26/15/NWLD-composite-morsecode-km.jpg?trim=0,0,0,0&crop=&width=640&quality=65",
+  liveUrl: "projects/p-19-morse-code/index.html"
+},
 ];
