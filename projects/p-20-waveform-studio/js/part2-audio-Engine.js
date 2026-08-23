@@ -87,53 +87,60 @@ const state = {
 };
 
 /* ---------------------------------------------------------------
-   4. Audio engine
+   4. Audio engine (Robust Mobile Connection Guard)
    --------------------------------------------------------------- */
 const Audio1 = {
   ctx: null,
   sourceNode: null,
   gainNode: null,
   analyser: null,
-  recordDest: null,       // MediaStreamAudioDestinationNode, always fed, used by exporter
-  speakerGainNode: null,  // Controls physical speaker monitor output
+  recordDest: null,       // MediaStreamAudioDestinationNode for export recorder
+  speakerGainNode: null,  // Physical speaker volume/mute
   freqData: null,
   timeData: null,
   bufferLength: 0,
   speakerMuted: false,
 
   init() {
-    if (this.ctx) return;
+    if (this.ctx && this.sourceNode) return;
     try {
       const AC = window.AudioContext || window.webkitAudioContext;
-      this.ctx = new AC();
+      if (!this.ctx) {
+        this.ctx = new AC();
+      }
 
-      // Ensure audio element has CORS enabled for Web Audio API node creation
-      if (typeof audioEl !== 'undefined' && audioEl) {
+      if (typeof audioEl !== 'undefined' && audioEl && !this.sourceNode) {
         audioEl.crossOrigin = 'anonymous';
         audioEl.preload = 'auto';
-        this.sourceNode = this.ctx.createMediaElementSource(audioEl);
+        try {
+          this.sourceNode = this.ctx.createMediaElementSource(audioEl);
+        } catch (sourceErr) {
+          console.warn('Source node already attached or failed:', sourceErr);
+        }
       }
 
-      this.gainNode = this.ctx.createGain();
-      this.analyser = this.ctx.createAnalyser();
-      this.analyser.fftSize = 2048;
-      this.analyser.smoothingTimeConstant = 0.75;
-      this.recordDest = this.ctx.createMediaStreamDestination();
-      this.speakerGainNode = this.ctx.createGain();
+      if (!this.gainNode) {
+        this.gainNode = this.ctx.createGain();
+        this.analyser = this.ctx.createAnalyser();
+        this.analyser.fftSize = 2048;
+        this.analyser.smoothingTimeConstant = 0.75;
+        this.recordDest = this.ctx.createMediaStreamDestination();
+        this.speakerGainNode = this.ctx.createGain();
 
-      if (this.sourceNode) {
-        this.sourceNode.connect(this.gainNode);
+        if (this.sourceNode) {
+          this.sourceNode.connect(this.gainNode);
+        }
+        this.gainNode.connect(this.analyser);
+        
+        // Feed both destination nodes
+        this.analyser.connect(this.recordDest);
+        this.analyser.connect(this.speakerGainNode);
+        this.speakerGainNode.connect(this.ctx.destination);
+
+        this.bufferLength = this.analyser.frequencyBinCount;
+        this.freqData = new Uint8Array(this.bufferLength);
+        this.timeData = new Uint8Array(this.bufferLength);
       }
-      this.gainNode.connect(this.analyser);
-      
-      // Full audio pipeline connections
-      this.analyser.connect(this.recordDest);
-      this.analyser.connect(this.speakerGainNode);
-      this.speakerGainNode.connect(this.ctx.destination);
-
-      this.bufferLength = this.analyser.frequencyBinCount;
-      this.freqData = new Uint8Array(this.bufferLength);
-      this.timeData = new Uint8Array(this.bufferLength);
     } catch (e) {
       console.error('Audio1 init error:', e);
     }
@@ -169,7 +176,7 @@ const Audio1 = {
    --------------------------------------------------------------- */
 const StudioDB = {
   dbName: 'WaveformStudioDB',
-  dbVersion: 2, // Upgraded version to automatically ensure object store creation
+  dbVersion: 2,
   db: null,
 
   async open() {
@@ -402,7 +409,6 @@ async function restoreSavedSession(sessionData) {
     speedSelect.value = sessionData.speed;
   }
 
-  // Restore track selection in paused state
   const targetIndex = (sessionData.currentIndex >= 0 && sessionData.currentIndex < state.playlist.length) 
     ? sessionData.currentIndex 
     : (state.playlist.length ? 0 : -1);
@@ -597,9 +603,7 @@ async function loadTrack(index, autoplay = true) {
   if (!track || typeof audioEl === 'undefined' || !audioEl) return;
   state.currentIndex = index;
 
-  // Initialize and attach crossOrigin before setting source
-  audioEl.crossOrigin = 'anonymous';
-  audioEl.preload = 'auto';
+  // Initialize Audio pipeline safely once
   Audio1.init();
 
   audioEl.src = track.url;
@@ -638,7 +642,7 @@ async function loadTrack(index, autoplay = true) {
         state.isPlaying = true;
       }
     } catch (e) {
-      console.warn('Playback autoplay promise prevented:', e);
+      console.warn('Playback autoplay prevented by mobile browser:', e);
       state.isPlaying = false;
     }
     if (typeof updatePlayIcon === 'function') updatePlayIcon();
@@ -752,8 +756,8 @@ function handleArtFile(file) {
    --------------------------------------------------------------- */
 const bands = {
   bass: 0, mid: 0, treble: 0, volume: 0,
-  bassS: 0, midS: 0, trebleS: 0, volumeS: 0, // smoothed
-  beat: 0,                                   // decays 1 -> 0 after a hit
+  bassS: 0, midS: 0, trebleS: 0, volumeS: 0,
+  beat: 0,
 };
 const bassHistory = [];
 let lastBeatTime = 0;
@@ -796,7 +800,7 @@ function analyse(nowMs) {
   bands.trebleS = lerpFn(bands.trebleS, bands.treble, alpha);
   bands.volumeS = lerpFn(bands.volumeS, bands.volume, alpha);
 
-  // Beat / energy-spike detection on the bass band
+  // Beat spike detection on the bass band
   bassHistory.push(bands.bass);
   if (bassHistory.length > 43) bassHistory.shift();
   const avg = bassHistory.reduce((a, b) => a + b, 0) / bassHistory.length;
