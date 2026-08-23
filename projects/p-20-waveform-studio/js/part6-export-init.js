@@ -1,6 +1,5 @@
 /* =====================================================================
    PART 6: Frame Pipeline, Universal Mobile/Desktop Export & Init
-   File Name Suggestion: 06-export-init.js (ya main.js)
    ===================================================================== */
 
 /* ---------------------------------------------------------------
@@ -85,12 +84,12 @@ function advanceMotion(tsMs) {
 }
 
 /* ---------------------------------------------------------------
-   22. Universal Mobile & Desktop Export Pipeline (Lag & Glitch Free)
+   22. Universal Mobile & Desktop Export Pipeline
    --------------------------------------------------------------- */
 const RES_DIMENSIONS = {
-  '16:9': { 2160: [2560, 1440], 1080: [1920, 1080], 720: [1280, 720] },
-  '1:1':  { 2160: [1440, 1440], 1080: [1080, 1080], 720: [720, 720] },
-  '9:16': { 2160: [1440, 2560], 1080: [1080, 1920], 720: [720, 1280] },
+  '16:9': { 2160: [3840, 2160], 1080: [1920, 1080], 720: [1280, 720] },
+  '1:1':  { 2160: [2160, 2160], 1080: [1080, 1080], 720: [720, 720] },
+  '9:16': { 2160: [2160, 3840], 1080: [1080, 1920], 720: [720, 1280] },
 };
 
 const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -123,7 +122,7 @@ const ExportPipeline = {
   autoDownloadTimerId: null,
   autoDownloadSec: 10,
   downloaded: false,
-  resolution: isMobile ? 720 : 1080,
+  resolution: 1080,
   fps: 30,
   format: 'webm',
   aspect: '16:9',
@@ -137,20 +136,19 @@ const ExportPipeline = {
   wakeLock: null,
 
   getSupportedMimeType() {
-    const codecs = [
-      'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
-      'video/mp4',
+    const candidates = [
       'video/webm;codecs=vp8,opus',
-      'video/webm;codecs=vp9,opus',
       'video/webm;codecs=h264,opus',
-      'video/webm'
+      'video/webm',
+      'video/mp4;codecs=avc1,mp4a.40.2',
+      'video/mp4'
     ];
     if (this.format === 'mp4') {
-      for (const c of codecs) {
+      for (const c of candidates) {
         if (c.startsWith('video/mp4') && MediaRecorder.isTypeSupported(c)) return c;
       }
     }
-    for (const c of codecs) {
+    for (const c of candidates) {
       if (MediaRecorder.isTypeSupported(c)) return c;
     }
     return '';
@@ -179,10 +177,7 @@ const ExportPipeline = {
     exportBackdrop.classList.add('show');
     exportBackdrop.setAttribute('aria-hidden', 'false');
 
-    const mp4Supported = MediaRecorder.isTypeSupported && (
-      MediaRecorder.isTypeSupported('video/mp4') || 
-      MediaRecorder.isTypeSupported('video/mp4;codecs=avc1.42E01E,mp4a.40.2')
-    );
+    const mp4Supported = MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported('video/mp4');
     mp4Chip.disabled = !mp4Supported;
     mp4Chip.style.opacity = mp4Supported ? '1' : '0.4';
     formatHint.textContent = mp4Supported
@@ -205,8 +200,7 @@ const ExportPipeline = {
   async start() {
     if (!window.MediaRecorder) { showToast('Your browser does not support video recording.', true); return; }
     const mime = this.getSupportedMimeType();
-    if (!mime) { showToast('No compatible video encoder found on this device.', true); return; }
-
+    
     this.cancelled = false;
     this.active = true;
     this.chunks = [];
@@ -214,32 +208,49 @@ const ExportPipeline = {
     updateExportMuteUi(false);
     await this.requestWakeLock();
 
+    // Resolution setup
     const dims = (RES_DIMENSIONS[this.aspect] || RES_DIMENSIONS['16:9'])[this.resolution] || [1920, 1080];
     const [w, h] = dims;
     this.exportCanvas = document.createElement('canvas');
     this.exportCanvas.width = w;
     this.exportCanvas.height = h;
-    this.exportCtx = this.exportCanvas.getContext('2d', { alpha: false, desynchronized: true });
+    this.exportCtx = this.exportCanvas.getContext('2d', { alpha: false });
 
+    // Ensure Audio Context is active on phone
     await Audio1.resume();
     this.wasPlayingBefore = !audioEl.paused;
+    
+    // Reset track position
     audioEl.currentTime = 0;
 
-    const videoStream = this.exportCanvas.captureStream(this.fps || 30);
-    const audioTrack = Audio1.recordDest.stream.getAudioTracks()[0];
-    const combined = new MediaStream([...videoStream.getVideoTracks(), ...(audioTrack ? [audioTrack] : [])]);
+    const fps = isMobile && this.resolution === 2160 ? 30 : (this.fps || 30);
+    const videoStream = this.exportCanvas.captureStream(fps);
+    
+    // Audio track verification
+    let combinedTracks = [...videoStream.getVideoTracks()];
+    if (Audio1.recordDest && Audio1.recordDest.stream) {
+      const audioTracks = Audio1.recordDest.stream.getAudioTracks();
+      if (audioTracks.length > 0) combinedTracks.push(audioTracks[0]);
+    }
+    const combined = new MediaStream(combinedTracks);
 
-    let bitrate = isMobile ? 3_500_000 : 7_000_000;
-    if (this.resolution === 2160) bitrate = 10_000_000;
-    else if (this.fps === 60 && !isMobile) bitrate = 9_500_000;
+    // Dynamic bitrate calculation for 4K / Mobile stability
+    let bitrate = 6_000_000;
+    if (this.resolution === 2160) {
+      bitrate = isMobile ? 12_000_000 : 25_000_000;
+    } else if (this.resolution === 1080) {
+      bitrate = isMobile ? 5_000_000 : 10_000_000;
+    }
+
+    const options = mime ? { mimeType: mime, videoBitsPerSecond: bitrate } : {};
 
     try {
-      this.recorder = new MediaRecorder(combined, { mimeType: mime, videoBitsPerSecond: bitrate });
+      this.recorder = new MediaRecorder(combined, options);
     } catch (e) {
       try {
         this.recorder = new MediaRecorder(combined);
       } catch (err) {
-        showToast('Could not initialize video recorder on this device.', true);
+        showToast('Video recorder setup failed on this device.', true);
         this.active = false;
         this.releaseWakeLock();
         return;
@@ -249,27 +260,40 @@ const ExportPipeline = {
     this.recorder.ondataavailable = (e) => {
       if (e.data && e.data.size > 0) this.chunks.push(e.data);
     };
+    
     this.recorder.onstop = () => this.finish(mime);
 
     exportSetup.style.display = 'none';
     exportProgress.style.display = '';
     exportDone.style.display = 'none';
-    progressStatus.textContent = `Rendering (${this.resolution}p ${this.fps} FPS) in real time…`;
+    progressStatus.textContent = `Rendering (${this.resolution}p @ ${fps} FPS)…`;
 
-    this.recorder.start(500);
-    try { await audioEl.play(); } catch (e) {}
+    // 1000ms timeslice phone ke buffer ko crash hone se bachata hai
+    this.recorder.start(1000);
 
+    try {
+      await audioEl.play();
+    } catch (e) {
+      console.warn('Audio play triggered with user interaction fallback');
+    }
+
+    // Export render loop start
     this.renderExportFrame();
   },
 
   renderExportFrame() {
     if (!this.active) return;
-    if (this.cancelled || audioEl.ended) {
+    
+    // Phone par early stop guard (minimum 0.5s check)
+    if (this.cancelled || (audioEl.ended && audioEl.currentTime > 0.5)) {
       this.stopRecording();
       return;
     }
-    const W = this.exportCanvas.width, H = this.exportCanvas.height;
+
+    const W = this.exportCanvas.width;
+    const H = this.exportCanvas.height;
     const tsMs = performance.now();
+    
     advanceMotion(tsMs);
     analyse(tsMs);
 
@@ -277,8 +301,10 @@ const ExportPipeline = {
     renderFrame(this.exportCtx, W, H, tsMs);
     this.exportCtx.restore();
 
-    const pct = audioEl.duration ? clamp((audioEl.currentTime / audioEl.duration) * 100, 0, 100) : 0;
-    this.updateProgress(pct);
+    if (audioEl.duration) {
+      const pct = clamp((audioEl.currentTime / audioEl.duration) * 100, 0, 100);
+      this.updateProgress(pct);
+    }
 
     requestAnimationFrame(() => this.renderExportFrame());
   },
@@ -290,11 +316,15 @@ const ExportPipeline = {
   },
 
   stopRecording() {
+    if (!this.active) return;
     this.active = false;
     this.releaseWakeLock();
     this.speakerMuted = false;
     updateExportMuteUi(false);
-    if (this.recorder && this.recorder.state !== 'inactive') this.recorder.stop();
+
+    if (this.recorder && this.recorder.state !== 'inactive') {
+      this.recorder.stop();
+    }
     if (!this.wasPlayingBefore) audioEl.pause();
   },
 
@@ -336,11 +366,9 @@ const ExportPipeline = {
 
     exportProgress.style.display = 'none';
     exportDone.style.display = '';
-
-    // Requirement 6 — Toast #1: Render complete
     showToast('✓ Render complete');
 
-    // Requirement 5 — 10-Second Auto-Download Timer & Manual Cancellation
+    // Auto download timer
     this.autoDownloadSec = 10;
     this.downloaded = false;
     if (this.autoDownloadTimerId) clearInterval(this.autoDownloadTimerId);
@@ -370,7 +398,6 @@ const ExportPipeline = {
         a.remove();
       }
 
-      // Requirement 6 — Toast #2: Video download completed (only when download completed)
       setTimeout(() => {
         showToast('✓ Video download completed');
       }, 400);
@@ -462,7 +489,6 @@ function init() {
   updatePlayIcon();
   setMuteIcon(false);
 
-  // Check for IndexedDB saved session and prompt restore choice if available
   if (typeof StudioDB !== 'undefined') {
     StudioDB.getSession().then((saved) => {
       if (saved && saved.playlist && saved.playlist.length > 0) {
