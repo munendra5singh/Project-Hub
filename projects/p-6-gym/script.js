@@ -1,27 +1,87 @@
 /**
- * FITLIFE GYM - Core Production Engine
- * Vanilla JavaScript (ES6+)
- * Performance-optimized with IntersectionObserver
+ * ==========================================================================
+ * APEX FORGE FITNESS - CORE JAVASCRIPT
+ * Features: Dark/Light Mode Engine, Interactive Schedule, Workout Split Modals,
+ *           BMI Calculator Gauge, Testimonial Swipe Slider, Lightbox & Validation
+ * ==========================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  /* ==========================================================================
-     1. Sticky Navbar & Active Section Highlighting
-     ========================================================================== */
+  // --------------------------------------------------------------------------
+  // 1. Dark Mode + Light Mode Theme Engine
+  // --------------------------------------------------------------------------
+  const themeToggle = document.getElementById('themeToggle');
+  const drawerThemeToggle = document.getElementById('drawerThemeToggle');
+  const themeStatusText = document.getElementById('themeStatusText');
+
+  function getPreferredTheme() {
+    const savedTheme = localStorage.getItem('apex_theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    const initialAttr = document.documentElement.getAttribute('data-theme');
+    if (initialAttr) {
+      return initialAttr;
+    }
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('apex_theme', theme);
+
+    if (themeStatusText) {
+      themeStatusText.textContent = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+    }
+
+    // Update Meta theme-color for mobile browsers
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', theme === 'dark' ? '#0a0b10' : '#f4f6f9');
+    }
+  }
+
+  // Initialize theme
+  const initialTheme = getPreferredTheme();
+  applyTheme(initialTheme);
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+
+  if (drawerThemeToggle) {
+    drawerThemeToggle.addEventListener('click', toggleTheme);
+  }
+
+  // Listen for OS theme changes if user hasn't explicitly set preference
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('apex_theme')) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
+  // --------------------------------------------------------------------------
+  // 2. Navigation, Sticky Header & Active Link Tracking
+  // --------------------------------------------------------------------------
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
-  const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
-  const sections = document.querySelectorAll('section[id], footer[id]');
+  const sections = document.querySelectorAll('section[id]');
   const backToTopBtn = document.getElementById('backToTop');
 
-  const handleScroll = () => {
+  function handleScroll() {
     const scrollY = window.scrollY;
 
-    // Desktop navbar shrink effect
+    // Sticky navbar shadow
     if (navbar) {
-      if (scrollY > 50) {
+      if (scrollY > 30) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
@@ -30,599 +90,689 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Back to top button visibility
     if (backToTopBtn) {
-      if (scrollY > 400) {
+      if (scrollY > 450) {
         backToTopBtn.classList.add('visible');
       } else {
         backToTopBtn.classList.remove('visible');
       }
     }
 
-    // Active Section Tracker (Syncs both Desktop nav & Mobile Bottom nav)
-    let currentSectionId = '';
+    // Active Section Tracking
+    let currentSection = '';
     sections.forEach((section) => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.offsetHeight;
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentSectionId = section.getAttribute('id');
+        currentSection = section.getAttribute('id');
       }
     });
 
-    if (currentSectionId) {
-      navLinks.forEach((link) => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSectionId}`) {
-          link.classList.add('active');
-        }
-      });
-
-      bottomNavItems.forEach((item) => {
-        item.classList.remove('active');
-        if (item.getAttribute('data-section') === currentSectionId) {
-          item.classList.add('active');
-        }
-      });
-    }
-  };
+    navLinks.forEach((link) => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+    });
+  }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
 
-  // Back to top action
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  /* ==========================================================================
-     2. Scroll Reveal Animations (IntersectionObserver)
-     ========================================================================== */
-  const revealElements = document.querySelectorAll('.reveal');
+  // --------------------------------------------------------------------------
+  // 3. Mobile Navigation Drawer
+  // --------------------------------------------------------------------------
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+  const drawerBackdrop = document.getElementById('drawerBackdrop');
+  const drawerLinks = document.querySelectorAll('.drawer-link, .drawer-action-btn');
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+  function openDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.add('active');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('drawer-open');
+  }
+
+  function closeDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.remove('active');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('drawer-open');
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', openDrawer);
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+  if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+  drawerLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (mobileDrawer && mobileDrawer.classList.contains('active')) closeDrawer();
+      closeModal();
+      closeLightbox();
+    }
+  });
+
+  // --------------------------------------------------------------------------
+  // 4. Scroll Reveal Animations (IntersectionObserver)
+  // --------------------------------------------------------------------------
+  const reveals = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
           observer.unobserve(entry.target);
         }
       });
-    },
-    { rootMargin: '0px 0px -60px 0px', threshold: 0.1 }
-  );
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.1
+    });
 
-  revealElements.forEach((el) => revealObserver.observe(el));
-
-  /* ==========================================================================
-     3. Animated Statistics Counter
-     ========================================================================== */
-  const statNumbers = document.querySelectorAll('.stat-number');
-  let statsCounted = false;
-
-  const countUp = (el) => {
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    const suffix = el.getAttribute('data-suffix') || '';
-    const duration = 1800; // ms
-    const frameRate = 1000 / 60;
-    const totalFrames = Math.round(duration / frameRate);
-    let frame = 0;
-
-    const counter = setInterval(() => {
-      frame++;
-      const progress = frame / totalFrames;
-      // Ease out quad formula
-      const currentVal = Math.round(target * (1 - (1 - progress) * (1 - progress)));
-
-      el.textContent = currentVal + suffix;
-
-      if (frame >= totalFrames) {
-        el.textContent = target + suffix;
-        clearInterval(counter);
-      }
-    }, frameRate);
-  };
-
-  const statsSection = document.getElementById('stats');
-  if (statsSection) {
-    const statsObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !statsCounted) {
-          statsCounted = true;
-          statNumbers.forEach((stat) => countUp(stat));
-        }
-      },
-      { threshold: 0.3 }
-    );
-    statsObserver.observe(statsSection);
+    reveals.forEach((el) => revealObserver.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('revealed'));
   }
 
-  /* ==========================================================================
-     4. Interactive BMI Calculator
-     ========================================================================== */
-  const bmiForm = document.getElementById('bmiForm');
-  const bmiHeightInput = document.getElementById('bmiHeight');
-  const bmiWeightInput = document.getElementById('bmiWeight');
-  const bmiHeightError = document.getElementById('bmiHeightError');
-  const bmiWeightError = document.getElementById('bmiWeightError');
-  const bmiEmpty = document.getElementById('bmiEmpty');
-  const bmiOutput = document.getElementById('bmiOutput');
-  const bmiNumber = document.getElementById('bmiNumber');
-  const bmiCategory = document.getElementById('bmiCategory');
-  const bmiGaugeBar = document.getElementById('bmiGaugeBar');
+  // --------------------------------------------------------------------------
+  // 5. Interactive Class Schedule (Day Filtering)
+  // --------------------------------------------------------------------------
+  const scheduleTabs = document.querySelectorAll('.schedule-day-tab');
+  const scheduleCards = document.querySelectorAll('.schedule-card');
 
-  if (bmiForm) {
-    bmiForm.addEventListener('submit', (e) => {
+  scheduleTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      scheduleTabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const selectedDay = tab.getAttribute('data-day');
+
+      scheduleCards.forEach((card) => {
+        if (selectedDay === 'all') {
+          card.style.display = 'flex';
+        } else {
+          const cardDays = card.getAttribute('data-day') || '';
+          if (cardDays.includes(selectedDay)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 6. Free Pass & Membership Signup Modal
+  // --------------------------------------------------------------------------
+  const passModal = document.getElementById('passModal');
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const modalClose = document.getElementById('modalClose');
+  const passForm = document.getElementById('passForm');
+  const passSuccess = document.getElementById('passSuccess');
+  const closeSuccessModalBtn = document.getElementById('closeSuccessModalBtn');
+  const passTierSelect = document.getElementById('passTier');
+  const modalTitle = document.getElementById('modalTitle');
+
+  // Trigger buttons
+  const topBannerBtn = document.getElementById('topBannerBtn');
+  const heroTrialBtn = document.getElementById('heroTrialBtn');
+  const finalCtaBtn = document.getElementById('finalCtaBtn');
+  const selectPlanBtns = document.querySelectorAll('.select-plan-btn');
+  const scheduleBookBtns = document.querySelectorAll('.schedule-book-btn');
+  const trainerBookBtns = document.querySelectorAll('.trainer-book-btn');
+
+  function openPassModal(tierValue, titleText) {
+    if (!passModal) return;
+    if (passForm) passForm.reset();
+    if (passSuccess) passSuccess.classList.add('hidden');
+    if (passForm) passForm.classList.remove('hidden');
+
+    // Clear error messages
+    const nameError = document.getElementById('passNameError');
+    const phoneError = document.getElementById('passPhoneError');
+    if (nameError) nameError.textContent = '';
+    if (phoneError) phoneError.textContent = '';
+
+    if (passTierSelect && tierValue) {
+      passTierSelect.value = tierValue;
+    }
+    if (modalTitle && titleText) {
+      modalTitle.textContent = titleText;
+    } else if (modalTitle) {
+      modalTitle.textContent = 'Claim Your 1-Day Pass';
+    }
+
+    passModal.classList.add('active');
+    passModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    if (!passModal) return;
+    passModal.classList.remove('active');
+    passModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  if (topBannerBtn) {
+    topBannerBtn.addEventListener('click', () => openPassModal('Free 1-Day Trial Pass', 'Claim 1-Day All-Access Pass'));
+  }
+  if (heroTrialBtn) {
+    heroTrialBtn.addEventListener('click', () => openPassModal('Free 1-Day Trial Pass', 'Claim 1-Day Free Trial'));
+  }
+  if (finalCtaBtn) {
+    finalCtaBtn.addEventListener('click', () => openPassModal('Free 1-Day Trial Pass', 'Claim 1-Day Free Trial'));
+  }
+
+  selectPlanBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const plan = btn.getAttribute('data-plan') || 'Pro Performance ($79/mo)';
+      openPassModal(plan, `Join on ${plan.split('(')[0].trim()}`);
+    });
+  });
+
+  scheduleBookBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const className = btn.getAttribute('data-class') || 'Group Class';
+      openPassModal('Free 1-Day Trial Pass', `Reserve: ${className}`);
+    });
+  });
+
+  trainerBookBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const trainerName = btn.getAttribute('data-trainer') || 'Coach';
+      openPassModal('Elite All-Access ($129/mo)', `Book Consult with ${trainerName}`);
+    });
+  });
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+  if (closeSuccessModalBtn) closeSuccessModalBtn.addEventListener('click', closeModal);
+
+  if (passForm) {
+    passForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const nameInput = document.getElementById('passName');
+      const phoneInput = document.getElementById('passPhone');
+      const nameError = document.getElementById('passNameError');
+      const phoneError = document.getElementById('passPhoneError');
 
       let isValid = true;
-      const height = parseFloat(bmiHeightInput.value);
-      const weight = parseFloat(bmiWeightInput.value);
 
-      // Height validation
-      if (!height || isNaN(height) || height < 50 || height > 250) {
-        bmiHeightError.textContent = 'Enter height between 50 and 250 cm.';
+      if (!nameInput || !nameInput.value.trim()) {
+        if (nameError) nameError.textContent = 'Please provide your full name.';
         isValid = false;
       } else {
-        bmiHeightError.textContent = '';
+        if (nameError) nameError.textContent = '';
       }
 
-      // Weight validation
-      if (!weight || isNaN(weight) || weight < 20 || weight > 300) {
-        bmiWeightError.textContent = 'Enter weight between 20 and 300 kg.';
+      if (!phoneInput || !phoneInput.value.trim() || phoneInput.value.trim().length < 7) {
+        if (phoneError) phoneError.textContent = 'Please provide a valid phone number.';
         isValid = false;
       } else {
-        bmiWeightError.textContent = '';
+        if (phoneError) phoneError.textContent = '';
       }
 
-      if (!isValid) return;
-
-      // BMI Formula = weight(kg) / (height(m))^2
-      const heightInMeters = height / 100;
-      const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
-
-      let category = '';
-      let barPercent = 0;
-
-      if (bmi < 18.5) {
-        category = 'Underweight';
-        barPercent = 25;
-      } else if (bmi >= 18.5 && bmi <= 24.9) {
-        category = 'Normal Weight';
-        barPercent = 50;
-      } else if (bmi >= 25 && bmi <= 29.9) {
-        category = 'Overweight';
-        barPercent = 75;
-      } else {
-        category = 'Obesity';
-        barPercent = 100;
+      if (isValid) {
+        passForm.classList.add('hidden');
+        if (passSuccess) passSuccess.classList.remove('hidden');
       }
-
-      bmiNumber.textContent = bmi;
-      bmiCategory.textContent = category;
-      bmiGaugeBar.style.width = `${barPercent}%`;
-
-      bmiEmpty.classList.add('hidden');
-      bmiOutput.classList.remove('hidden');
     });
   }
 
-  /* ==========================================================================
-     5. Workout Routines & Modal Database
-     ========================================================================== */
-  const workoutData = {
-    chest: {
-      title: 'Chest Hypertrophy Routine',
-      level: 'INTERMEDIATE',
-      duration: '⏱ 55 Minutes',
+  // --------------------------------------------------------------------------
+  // 7. Workout Routine Modal & Data
+  // --------------------------------------------------------------------------
+  const routineModal = document.getElementById('routineModal');
+  const routineModalClose = document.getElementById('routineModalClose');
+  const routineModalBackdrop = document.getElementById('routineModalBackdrop');
+  const routineBadge = document.getElementById('routineBadge');
+  const routineModalTitle = document.getElementById('routineModalTitle');
+  const routineModalDesc = document.getElementById('routineModalDesc');
+  const routineTableBody = document.getElementById('routineTableBody');
+  const viewRoutineBtns = document.querySelectorAll('.view-routine-btn');
+  const routineCtaBtn = document.getElementById('routineCtaBtn');
+
+  const routinesData = {
+    hypertrophy: {
+      badge: 'HYPERTROPHY & STRENGTH',
+      title: 'Upper / Lower Power Split',
+      desc: '4-Day periodized progression focusing on heavy compound barbell lifts and hypertrophy accessory volume.',
       exercises: [
-        { name: 'Barbell Incline Bench Press', sets: '4', reps: '8 - 10', rest: '90s' },
-        { name: 'Flat Dumbbell Press', sets: '4', reps: '10 - 12', rest: '75s' },
-        { name: 'Weighted Chest Dips', sets: '3', reps: '10 - 12', rest: '60s' },
-        { name: 'High-to-Low Cable Flyes', sets: '3', reps: '15', rest: '45s' },
-        { name: 'Push-Up Burnout Finisher', sets: '2', reps: 'To Failure', rest: '60s' }
+        { name: 'Barbell Back Squat', sets: '4', reps: '6-8', rest: '2-3 Min' },
+        { name: 'Romanian Deadlift (RDL)', sets: '3', reps: '8-10', rest: '2 Min' },
+        { name: 'Flat Barbell Bench Press', sets: '4', reps: '6-8', rest: '2 Min' },
+        { name: 'Chest-Supported T-Bar Row', sets: '4', reps: '10-12', rest: '90 Sec' },
+        { name: 'Standing Overhead Barbell Press', sets: '3', reps: '8-10', rest: '2 Min' },
+        { name: 'Incline Dumbbell Bicep Curls', sets: '3', reps: '12-15', rest: '60 Sec' },
+        { name: 'Overhead Rope Tricep Extension', sets: '3', reps: '12-15', rest: '60 Sec' }
       ]
     },
-    back: {
-      title: 'Back & Lat Power Routine',
-      level: 'ADVANCED',
-      duration: '⏱ 60 Minutes',
+    pushpull: {
+      badge: 'VOLUME & MUSCLE MASS',
+      title: 'Classic Push-Pull-Legs (PPL)',
+      desc: '5-6 Day high frequency split grouping antagonistic muscle groups for optimal recovery and continuous overload.',
       exercises: [
-        { name: 'Conventional Barbell Deadlifts', sets: '4', reps: '5 - 6', rest: '120s' },
-        { name: 'Neutral-Grip Weighted Pull-Ups', sets: '4', reps: '8', rest: '90s' },
-        { name: 'Single-Arm Dumbbell Rows', sets: '3', reps: '10 / side', rest: '60s' },
-        { name: 'Seated Cable Lat Pulldowns', sets: '3', reps: '12', rest: '60s' },
-        { name: 'Hyperextensions with Plate', sets: '3', reps: '15', rest: '45s' }
+        { name: 'Incline Barbell Bench Press', sets: '4', reps: '8-10', rest: '2 Min' },
+        { name: 'Seated Dumbbell Shoulder Press', sets: '3', reps: '10-12', rest: '90 Sec' },
+        { name: 'Weighted Dips / Chest Flys', sets: '3', reps: '12-15', rest: '90 Sec' },
+        { name: 'Conventional Barbell Deadlift', sets: '4', reps: '5', rest: '3 Min' },
+        { name: 'Weighted Pull-Ups / Lat Pulldown', sets: '4', reps: '8-10', rest: '2 Min' },
+        { name: 'Barbell Barbell Hip Thrust', sets: '4', reps: '10-12', rest: '2 Min' },
+        { name: 'Leg Press + Standing Calf Raise', sets: '4', reps: '12-15', rest: '90 Sec' }
       ]
     },
-    legs: {
-      title: 'Quad & Hamstring Blast',
-      level: 'HARDCORE',
-      duration: '⏱ 70 Minutes',
+    fatloss: {
+      badge: 'METABOLIC CONDITIONING',
+      title: 'Full Body Athletic Forge',
+      desc: '3-Day density conditioning combining barbell complexes, assault bike sprints, and kettlebell circuits.',
       exercises: [
-        { name: 'Barbell Back Squats', sets: '5', reps: '6 - 8', rest: '120s' },
-        { name: 'Romanian Dumbbell Deadlifts', sets: '4', reps: '10 - 12', rest: '90s' },
-        { name: 'Leg Press (Heavy)', sets: '4', reps: '12', rest: '75s' },
-        { name: 'Walking Dumbbell Lunges', sets: '3', reps: '20 steps', rest: '60s' },
-        { name: 'Seated Calf Raises', sets: '4', reps: '15 - 20', rest: '45s' }
+        { name: 'Trap Bar Deadlift', sets: '4', reps: '8', rest: '90 Sec' },
+        { name: 'Dumbbell Walking Lunges', sets: '3', reps: '12 / leg', rest: '60 Sec' },
+        { name: 'Dual Kettlebell Push Press', sets: '4', reps: '10', rest: '60 Sec' },
+        { name: 'Prowler Sled Push (40m)', sets: '5', reps: '40m Sprint', rest: '90 Sec' },
+        { name: 'Assault Bike Calorie Sprints', sets: '5', reps: '15 Kcal max', rest: '60 Sec' },
+        { name: 'Hanging Leg Raises', sets: '3', reps: '15', rest: '45 Sec' }
       ]
     },
-    shoulders: {
-      title: '3D Boulder Shoulders',
-      level: 'INTERMEDIATE',
-      duration: '⏱ 45 Minutes',
+    mobility: {
+      badge: 'JOINT HEALTH & REHAB',
+      title: 'Full Body Mobility & Core',
+      desc: 'Daily 20-minute movement routine targeting hip capsules, thoracic spine, and shoulder stability.',
       exercises: [
-        { name: 'Standing Overhead Barbell Press', sets: '4', reps: '8', rest: '90s' },
-        { name: 'Dumbbell Lateral Raises (Strict)', sets: '4', reps: '12 - 15', rest: '60s' },
-        { name: 'Rear Delt Face Pulls (Rope)', sets: '4', reps: '15', rest: '45s' },
-        { name: 'Seated Arnold Press', sets: '3', reps: '10', rest: '60s' }
-      ]
-    },
-    arms: {
-      title: 'Arms & Grip Specialization',
-      level: 'ALL LEVELS',
-      duration: '⏱ 45 Minutes',
-      exercises: [
-        { name: 'Barbell Preacher Curls', sets: '4', reps: '10', rest: '60s' },
-        { name: 'Close-Grip Triceps Bench Press', sets: '4', reps: '8 - 10', rest: '75s' },
-        { name: 'Incline Dumbbell Hammer Curls', sets: '3', reps: '12', rest: '45s' },
-        { name: 'Triceps Overhead Cable Extensions', sets: '3', reps: '12 - 15', rest: '45s' }
-      ]
-    },
-    fullbody: {
-      title: 'Full Body Athletic Burn',
-      level: 'CONDITIONING',
-      duration: '⏱ 50 Minutes',
-      exercises: [
-        { name: 'Kettlebell Clean & Press', sets: '4', reps: '10 / arm', rest: '60s' },
-        { name: 'Barbell Thrusters', sets: '4', reps: '12', rest: '75s' },
-        { name: 'Box Jumps (24/30 in)', sets: '3', reps: '12', rest: '45s' },
-        { name: 'Battle Rope Waves', sets: '4', reps: '30s on / 30s off', rest: '30s' }
+        { name: 'Cat-Cow to Thoracic Reach', sets: '3', reps: '10 / side', rest: '30 Sec' },
+        { name: '90/90 Hip Flow & Shin Box', sets: '3', reps: '8 / side', rest: '30 Sec' },
+        { name: 'World\'s Greatest Stretch', sets: '3', reps: '6 / side', rest: '30 Sec' },
+        { name: 'Banded Shoulder Dislocates', sets: '3', reps: '15', rest: '30 Sec' },
+        { name: 'Deadbugs & Bird Dogs', sets: '3', reps: '12 / side', rest: '30 Sec' },
+        { name: 'Passive Bar Hang', sets: '3', reps: '45-60 Sec', rest: '45 Sec' }
       ]
     }
   };
 
-  const workoutModal = document.getElementById('workoutModal');
-  const workoutModalTitle = document.getElementById('workoutModalTitle');
-  const workoutModalLevel = document.getElementById('workoutModalLevel');
-  const workoutModalDuration = document.getElementById('workoutModalDuration');
-  const workoutTableBody = document.getElementById('workoutTableBody');
-  const workoutModalClose = document.getElementById('workoutModalClose');
-  const workoutModalDone = document.getElementById('workoutModalDone');
-  const viewWorkoutBtns = document.querySelectorAll('.view-workout-btn');
+  function openRoutineModal(routineKey) {
+    const data = routinesData[routineKey] || routinesData.hypertrophy;
+    if (routineBadge) routineBadge.textContent = data.badge;
+    if (routineModalTitle) routineModalTitle.textContent = data.title;
+    if (routineModalDesc) routineModalDesc.textContent = data.desc;
 
-  const openWorkoutModal = (workoutKey) => {
-    const routine = workoutData[workoutKey];
-    if (!routine) return;
+    if (routineTableBody) {
+      routineTableBody.innerHTML = '';
+      data.exercises.forEach((ex) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${ex.name}</strong></td>
+          <td>${ex.sets}</td>
+          <td>${ex.reps}</td>
+          <td>${ex.rest}</td>
+        `;
+        routineTableBody.appendChild(tr);
+      });
+    }
 
-    workoutModalTitle.textContent = routine.title;
-    workoutModalLevel.textContent = routine.level;
-    workoutModalDuration.textContent = routine.duration;
+    if (routineModal) {
+      routineModal.classList.add('active');
+      routineModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+  }
 
-    workoutTableBody.innerHTML = '';
-    routine.exercises.forEach((item) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td><strong>${item.name}</strong></td>
-        <td>${item.sets}</td>
-        <td>${item.reps}</td>
-        <td>${item.rest}</td>
-      `;
-      workoutTableBody.appendChild(tr);
-    });
-
-    workoutModal.classList.add('active');
-    document.body.classList.add('modal-open');
-  };
-
-  const closeWorkoutModal = () => {
-    workoutModal.classList.remove('active');
+  function closeRoutineModal() {
+    if (!routineModal) return;
+    routineModal.classList.remove('active');
+    routineModal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
-  };
+  }
 
-  viewWorkoutBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const key = btn.getAttribute('data-workout');
-      openWorkoutModal(key);
+  viewRoutineBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const routine = btn.getAttribute('data-routine') || 'hypertrophy';
+      openRoutineModal(routine);
     });
   });
 
-  if (workoutModalClose) workoutModalClose.addEventListener('click', closeWorkoutModal);
-  if (workoutModalDone) workoutModalDone.addEventListener('click', closeWorkoutModal);
-  if (workoutModal) {
-    workoutModal.querySelector('.modal-backdrop').addEventListener('click', closeWorkoutModal);
-  }
+  if (routineModalClose) routineModalClose.addEventListener('click', closeRoutineModal);
+  if (routineModalBackdrop) routineModalBackdrop.addEventListener('click', closeRoutineModal);
 
-  /* ==========================================================================
-     6. Membership & Free Trial Modal
-     ========================================================================== */
-  const membershipModal = document.getElementById('membershipModal');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalPlanBadge = document.getElementById('modalPlanBadge');
-  const selectedPlanInput = document.getElementById('selectedPlanInput');
-  const membershipForm = document.getElementById('membershipForm');
-  const modalSuccess = document.getElementById('modalSuccess');
-  const modalSuccessClose = document.getElementById('modalSuccessClose');
-  const planButtons = document.querySelectorAll('.plan-btn');
-  const heroTrialBtn = document.getElementById('heroTrialBtn');
-
-  const openMembershipModal = (planName, price) => {
-    modalTitle.textContent = `${planName} Plan Sign-Up`;
-    modalPlanBadge.textContent = `${planName.toUpperCase()} PASS &bull; ${price}`;
-    selectedPlanInput.value = planName;
-
-    membershipForm.reset();
-    document.getElementById('modalNameError').textContent = '';
-    document.getElementById('modalEmailError').textContent = '';
-    document.getElementById('modalPhoneError').textContent = '';
-    membershipForm.classList.remove('hidden');
-    modalSuccess.classList.add('hidden');
-
-    membershipModal.classList.add('active');
-    document.body.classList.add('modal-open');
-  };
-
-  const closeMembershipModal = () => {
-    membershipModal.classList.remove('active');
-    document.body.classList.remove('modal-open');
-  };
-
-  planButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const plan = btn.getAttribute('data-plan');
-      const price = btn.getAttribute('data-price');
-      openMembershipModal(plan, price);
-    });
-  });
-
-  if (heroTrialBtn) {
-    heroTrialBtn.addEventListener('click', () => {
-      openMembershipModal('1-Day Free Trial', '$0 Free');
+  if (routineCtaBtn) {
+    routineCtaBtn.addEventListener('click', () => {
+      closeRoutineModal();
+      openPassModal('Free 1-Day Trial Pass', 'Claim 1-Day Pass to Try This Routine');
     });
   }
 
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeMembershipModal);
-  if (modalSuccessClose) modalSuccessClose.addEventListener('click', closeMembershipModal);
-  if (membershipModal) {
-    membershipModal.querySelector('.modal-backdrop').addEventListener('click', closeMembershipModal);
-  }
-
-  if (membershipForm) {
-    membershipForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('modalName').value.trim();
-      const email = document.getElementById('modalEmail').value.trim();
-      const phone = document.getElementById('modalPhone').value.trim();
-
-      let valid = true;
-
-      if (!name) {
-        document.getElementById('modalNameError').textContent = 'Name is required.';
-        valid = false;
-      } else {
-        document.getElementById('modalNameError').textContent = '';
-      }
-
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('modalEmailError').textContent = 'Valid email is required.';
-        valid = false;
-      } else {
-        document.getElementById('modalEmailError').textContent = '';
-      }
-
-      if (!phone || phone.length < 7) {
-        document.getElementById('modalPhoneError').textContent = 'Valid phone is required.';
-        valid = false;
-      } else {
-        document.getElementById('modalPhoneError').textContent = '';
-      }
-
-      if (valid) {
-        membershipForm.classList.add('hidden');
-        modalSuccess.classList.remove('hidden');
-      }
-    });
-  }
-
-  /* ==========================================================================
-     7. Fullscreen Gallery Lightbox
-     ========================================================================== */
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('galleryLightbox');
-  const lightboxImage = document.getElementById('lightboxImage');
+  // --------------------------------------------------------------------------
+  // 8. Fullscreen Lightbox Gallery
+  // --------------------------------------------------------------------------
+  const galleryLightbox = document.getElementById('galleryLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxBackdrop = document.getElementById('lightboxBackdrop');
   const lightboxPrev = document.getElementById('lightboxPrev');
   const lightboxNext = document.getElementById('lightboxNext');
+  const galleryItems = document.querySelectorAll('.gallery-item');
 
-  let currentImageIdx = 0;
-  const imageSources = Array.from(galleryItems).map((item) => item.getAttribute('data-src'));
+  let currentGalleryIndex = 0;
 
-  const showLightboxImage = (idx) => {
-    currentImageIdx = (idx + imageSources.length) % imageSources.length;
-    lightboxImage.src = imageSources[currentImageIdx];
-  };
+  function showLightboxImage(index) {
+    if (!galleryItems.length) return;
+    if (index < 0) index = galleryItems.length - 1;
+    if (index >= galleryItems.length) index = 0;
+    currentGalleryIndex = index;
 
-  const openLightbox = (idx) => {
-    showLightboxImage(idx);
-    lightbox.classList.add('active');
+    const item = galleryItems[currentGalleryIndex];
+    const src = item.getAttribute('data-src') || item.querySelector('img').src;
+    const caption = item.getAttribute('data-caption') || 'Apex Forge Fitness Facility';
+
+    if (lightboxImg) {
+      lightboxImg.src = src;
+      lightboxImg.alt = caption;
+    }
+  }
+
+  function openLightbox(index) {
+    if (!galleryLightbox) return;
+    showLightboxImage(index);
+    galleryLightbox.classList.add('active');
+    galleryLightbox.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
-  };
+  }
 
-  const closeLightbox = () => {
-    lightbox.classList.remove('active');
+  function closeLightbox() {
+    if (!galleryLightbox) return;
+    galleryLightbox.classList.remove('active');
+    galleryLightbox.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
-  };
+  }
 
   galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => openLightbox(index));
   });
 
   if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+
   if (lightboxPrev) {
-    lightboxPrev.addEventListener('click', () => showLightboxImage(currentImageIdx - 1));
-  }
-  if (lightboxNext) {
-    lightboxNext.addEventListener('click', () => showLightboxImage(currentImageIdx + 1));
-  }
-  if (lightbox) {
-    lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showLightboxImage(currentGalleryIndex - 1);
+    });
   }
 
-  /* ==========================================================================
-     8. Global Escape Key Listener (Closes Modals & Lightbox)
-     ========================================================================== */
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showLightboxImage(currentGalleryIndex + 1);
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (workoutModal && workoutModal.classList.contains('active')) closeWorkoutModal();
-      if (membershipModal && membershipModal.classList.contains('active')) closeMembershipModal();
-      if (lightbox && lightbox.classList.contains('active')) closeLightbox();
+    if (galleryLightbox && galleryLightbox.classList.contains('active')) {
+      if (e.key === 'ArrowLeft') showLightboxImage(currentGalleryIndex - 1);
+      if (e.key === 'ArrowRight') showLightboxImage(currentGalleryIndex + 1);
     }
   });
 
-  /* ==========================================================================
-     9. Testimonial Carousel / Slider
-     ========================================================================== */
-  const track = document.getElementById('testimonialTrack');
+  // --------------------------------------------------------------------------
+  // 9. Interactive BMI Calculator Gauge
+  // --------------------------------------------------------------------------
+  const bmiForm = document.getElementById('bmiForm');
+  const bmiEmptyState = document.getElementById('bmiEmptyState');
+  const bmiOutputData = document.getElementById('bmiOutputData');
+  const bmiScore = document.getElementById('bmiScore');
+  const bmiCategory = document.getElementById('bmiCategory');
+  const gaugeBar = document.getElementById('gaugeBar');
+  const bmiAdvice = document.getElementById('bmiAdvice');
+
+  if (bmiForm) {
+    bmiForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const heightInput = document.getElementById('bmiHeight');
+      const weightInput = document.getElementById('bmiWeight');
+      const heightError = document.getElementById('heightError');
+      const weightError = document.getElementById('weightError');
+
+      const h = parseFloat(heightInput.value);
+      const w = parseFloat(weightInput.value);
+
+      let isValid = true;
+
+      if (!h || h < 80 || h > 250) {
+        if (heightError) heightError.textContent = 'Please enter a height between 80 and 250 cm.';
+        isValid = false;
+      } else {
+        if (heightError) heightError.textContent = '';
+      }
+
+      if (!w || w < 30 || w > 300) {
+        if (weightError) weightError.textContent = 'Please enter a weight between 30 and 300 kg.';
+        isValid = false;
+      } else {
+        if (weightError) weightError.textContent = '';
+      }
+
+      if (!isValid) return;
+
+      // BMI Formula: weight(kg) / (height(m))^2
+      const heightMeters = h / 100;
+      const score = w / (heightMeters * heightMeters);
+      const scoreRounded = score.toFixed(1);
+
+      let catText = '';
+      let gaugePercent = 0;
+      let adviceText = '';
+
+      if (score < 18.5) {
+        catText = 'Underweight Range';
+        gaugePercent = Math.min(25, (score / 18.5) * 25);
+        adviceText = 'Your BMI indicates underweight. Focus on caloric surplus nutrition and progressive overload hypertrophy in our <strong>Hypertrophy & Strength</strong> program to build dense lean mass.';
+      } else if (score >= 18.5 && score < 24.9) {
+        catText = 'Normal / Healthy Range';
+        gaugePercent = 25 + ((score - 18.5) / (24.9 - 18.5)) * 25;
+        adviceText = 'You are in a healthy body weight range. Our <strong>Pro Performance Hypertrophy</strong> program is an ideal fit to optimize your power-to-weight ratio.';
+      } else if (score >= 25 && score < 29.9) {
+        catText = 'Overweight / Muscular Density';
+        gaugePercent = 50 + ((score - 25) / (29.9 - 25)) * 25;
+        adviceText = 'Note: Highly muscular lifters often register here. If fat reduction is your goal, our <strong>Metabolic Forge 45 HIIT</strong> and nutrition protocols will accelerate your recomposition.';
+      } else {
+        catText = 'Obese Range';
+        gaugePercent = Math.min(100, 75 + ((score - 30) / 10) * 25);
+        adviceText = 'We recommend combining our coach-guided <strong>Full Body Athletic Conditioning</strong> with a sustainable macro strategy to protect joint health while burning fat.';
+      }
+
+      if (bmiScore) bmiScore.textContent = scoreRounded;
+      if (bmiCategory) bmiCategory.textContent = catText;
+      if (gaugeBar) gaugeBar.style.width = `${gaugePercent}%`;
+      if (bmiAdvice) bmiAdvice.innerHTML = adviceText;
+
+      if (bmiEmptyState) bmiEmptyState.classList.add('hidden');
+      if (bmiOutputData) bmiOutputData.classList.remove('hidden');
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 10. Testimonial Carousel with Touch / Swipe
+  // --------------------------------------------------------------------------
+  const testimonialTrack = document.getElementById('testimonialTrack');
+  const prevTestimonialBtn = document.getElementById('prevTestimonial');
+  const nextTestimonialBtn = document.getElementById('nextTestimonial');
+  const dotsContainer = document.getElementById('carouselDots');
   const slides = document.querySelectorAll('.testimonial-slide');
-  const prevBtn = document.getElementById('prevTestimonial');
-  const nextBtn = document.getElementById('nextTestimonial');
-  const dotsContainer = document.getElementById('testimonialDots');
 
   let currentSlide = 0;
-  const slideCount = slides.length;
-  let autoplayTimer = null;
+  const totalSlides = slides.length;
 
-  // Build dots
-  if (dotsContainer) {
-    dotsContainer.innerHTML = '';
-    slides.forEach((_, idx) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (idx === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(idx));
-      dotsContainer.appendChild(dot);
-    });
-  }
+  function goToSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    currentSlide = index;
 
-  const updateSlider = () => {
-    if (track) {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    if (testimonialTrack) {
+      testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentSlide);
-    });
-  };
 
-  const goToSlide = (idx) => {
-    currentSlide = (idx + slideCount) % slideCount;
-    updateSlider();
-    resetAutoplay();
-  };
-
-  const nextSlide = () => goToSlide(currentSlide + 1);
-  const prevSlide = () => goToSlide(currentSlide - 1);
-
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-  const startAutoplay = () => {
-    autoplayTimer = setInterval(nextSlide, 5500);
-  };
-
-  const resetAutoplay = () => {
-    clearInterval(autoplayTimer);
-    startAutoplay();
-  };
-
-  if (track) {
-    startAutoplay();
-    track.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
-    track.addEventListener('mouseleave', startAutoplay);
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+    }
   }
 
-  /* ==========================================================================
-     10. FAQ Accordion
-     ========================================================================== */
+  if (prevTestimonialBtn) {
+    prevTestimonialBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  }
+
+  if (nextTestimonialBtn) {
+    nextTestimonialBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+  }
+
+  if (dotsContainer) {
+    const dots = dotsContainer.querySelectorAll('.dot');
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.getAttribute('data-index'), 10);
+        goToSlide(idx);
+      });
+    });
+  }
+
+  // Touch / Swipe Gestures for Mobile Testimonial Slider
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (testimonialTrack) {
+    testimonialTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    testimonialTrack.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const threshold = 40;
+    if (touchEndX < touchStartX - threshold) {
+      goToSlide(currentSlide + 1);
+    }
+    if (touchEndX > touchStartX + threshold) {
+      goToSlide(currentSlide - 1);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // 11. Accessible FAQ Accordion
+  // --------------------------------------------------------------------------
   const accordionTriggers = document.querySelectorAll('.accordion-trigger');
 
   accordionTriggers.forEach((trigger) => {
     trigger.addEventListener('click', () => {
-      const item = trigger.parentElement;
+      const item = trigger.closest('.accordion-item');
       const content = item.querySelector('.accordion-content');
       const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
 
-      // Toggle current
+      // Close all other accordion items
+      document.querySelectorAll('.accordion-item').forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          const otherTrigger = otherItem.querySelector('.accordion-trigger');
+          const otherContent = otherItem.querySelector('.accordion-content');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          if (otherContent) otherContent.style.maxHeight = null;
+        }
+      });
+
+      // Toggle current item
       if (isExpanded) {
-        trigger.setAttribute('aria-expanded', 'false');
         item.classList.remove('active');
-        content.style.maxHeight = null;
+        trigger.setAttribute('aria-expanded', 'false');
+        if (content) content.style.maxHeight = null;
       } else {
-        trigger.setAttribute('aria-expanded', 'true');
         item.classList.add('active');
-        content.style.maxHeight = `${content.scrollHeight}px`;
+        trigger.setAttribute('aria-expanded', 'true');
+        if (content) content.style.maxHeight = content.scrollHeight + 'px';
       }
     });
   });
 
-  /* ==========================================================================
-     11. Contact Form Validation
-     ========================================================================== */
+  // --------------------------------------------------------------------------
+  // 12. Contact Form Validation
+  // --------------------------------------------------------------------------
   const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
+  const contactSuccess = document.getElementById('contactSuccess');
   const resetContactFormBtn = document.getElementById('resetContactFormBtn');
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const nameInput = document.getElementById('contactName');
+      const emailInput = document.getElementById('contactEmail');
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
 
-      const name = document.getElementById('contactName').value.trim();
-      const email = document.getElementById('contactEmail').value.trim();
-      const phone = document.getElementById('contactPhone').value.trim();
-      const message = document.getElementById('contactMessage').value.trim();
+      let isValid = true;
 
-      let valid = true;
-
-      if (!name) {
-        document.getElementById('nameError').textContent = 'Please enter your full name.';
-        valid = false;
+      if (!nameInput || !nameInput.value.trim()) {
+        if (nameError) nameError.textContent = 'Please provide your name.';
+        isValid = false;
       } else {
-        document.getElementById('nameError').textContent = '';
+        if (nameError) nameError.textContent = '';
       }
 
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
-        valid = false;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput || !emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        if (emailError) emailError.textContent = 'Please provide a valid email address.';
+        isValid = false;
       } else {
-        document.getElementById('emailError').textContent = '';
+        if (emailError) emailError.textContent = '';
       }
 
-      if (!phone || phone.length < 7) {
-        document.getElementById('phoneError').textContent = 'Please enter a valid phone number.';
-        valid = false;
-      } else {
-        document.getElementById('phoneError').textContent = '';
-      }
-
-      if (!message || message.length < 5) {
-        document.getElementById('messageError').textContent = 'Message must be at least 5 characters.';
-        valid = false;
-      } else {
-        document.getElementById('messageError').textContent = '';
-      }
-
-      if (valid) {
+      if (isValid) {
         contactForm.classList.add('hidden');
-        formSuccess.classList.remove('hidden');
+        if (contactSuccess) contactSuccess.classList.remove('hidden');
       }
     });
   }
 
   if (resetContactFormBtn) {
     resetContactFormBtn.addEventListener('click', () => {
-      contactForm.reset();
-      formSuccess.classList.add('hidden');
-      contactForm.classList.remove('hidden');
+      if (contactForm) {
+        contactForm.reset();
+        contactForm.classList.remove('hidden');
+      }
+      if (contactSuccess) contactSuccess.classList.add('hidden');
     });
+  }
+
+  // --------------------------------------------------------------------------
+  // 13. Dynamic Copyright Year
+  // --------------------------------------------------------------------------
+  const currentYearEl = document.getElementById('currentYear');
+  if (currentYearEl) {
+    currentYearEl.textContent = new Date().getFullYear();
   }
 });
