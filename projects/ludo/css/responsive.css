@@ -1,0 +1,553 @@
+/* ==========================================================================
+   BOARD ARENA — RESPONSIVE BREAKPOINTS & ADAPTIVE STYLES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   SAFE AREA SUPPORT (iOS Home Indicator & Notches)
+   -------------------------------------------------------------------------- */
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  .mobile-only-header {
+    padding-top: env(safe-area-inset-top);
+    height: calc(56px + env(safe-area-inset-top));
+  }
+
+  .mobile-nav-tabs {
+    padding-bottom: max(6px, env(safe-area-inset-bottom));
+    height: calc(58px + max(6px, env(safe-area-inset-bottom)));
+  }
+
+  .toast-container {
+    bottom: calc(70px + max(6px, env(safe-area-inset-bottom)));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SMALL MOBILE (320px - 359px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 359px) {
+  :root {
+    --text-2xl: 1.25rem;
+    --text-xl: 1.125rem;
+  }
+
+  #main-content {
+    padding: var(--space-2);
+  }
+
+  .welcome-heading {
+    font-size: 1.25rem;
+  }
+
+  .featured-game-card {
+    padding: var(--space-4);
+  }
+
+  .featured-game-title {
+    font-size: 1.25rem;
+  }
+
+  .featured-artwork-box svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .quick-stats-grid {
+    gap: var(--space-2);
+  }
+
+  .stat-card {
+    padding: var(--space-2);
+  }
+
+  .stat-val {
+    font-size: 1.25rem;
+  }
+
+  .stat-lbl {
+    font-size: 10px;
+  }
+
+  /* Board sizing on tiny screens */
+  .board-wrapper {
+    width: min(100%, calc(100dvh - 270px), 280px);
+    border-radius: var(--radius-lg);
+  }
+
+  .dice-box {
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-roll-action {
+    min-width: 110px;
+    padding: 8px 12px;
+    font-size: var(--text-xs);
+  }
+
+  .token-selector-bar {
+    padding: var(--space-1) var(--space-2);
+    gap: var(--space-1);
+  }
+
+  .btn-token-choice {
+    padding: 4px 6px;
+    min-height: 32px;
+  }
+
+  .token-kbd-hint {
+    display: none;
+  }
+
+  .table-players-row {
+    min-height: 80px;
+  }
+
+  .player-corner-chip {
+    height: 36px;
+    padding: 2px 6px;
+    min-width: 80px;
+    max-width: 125px;
+    gap: 4px;
+  }
+
+  .player-avatar {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+  }
+
+  .player-name {
+    font-size: 10px;
+  }
+
+  .player-role-tag {
+    display: none;
+  }
+
+  .chip-stats-row {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   STANDARD MOBILE (360px - 479px)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 360px) and (max-width: 479px) {
+  .board-wrapper {
+    width: min(100%, calc(100dvh - 300px), 360px);
+  }
+
+  .table-players-row {
+    min-height: 86px;
+  }
+
+  .player-corner-chip {
+    height: 40px;
+    padding: 3px 8px;
+    min-width: 95px;
+    max-width: 145px;
+  }
+
+  .player-avatar {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .player-name {
+    font-size: 11px;
+  }
+
+  .player-role-tag {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LARGE MOBILE (480px - 767px)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .board-wrapper {
+    width: min(100%, calc(100dvh - 310px), 430px);
+  }
+
+  .table-players-row {
+    min-height: 90px;
+  }
+
+  .player-corner-chip {
+    height: 44px;
+    padding: 4px 10px;
+    min-width: 120px;
+    max-width: 170px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TABLET (768px - 1023px)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #main-content {
+    padding: var(--space-6);
+    max-width: 720px;
+  }
+
+  .board-wrapper {
+    width: min(100%, calc(100dvh - 320px), 480px);
+  }
+
+  .table-players-row {
+    min-height: 94px;
+    max-width: min(100%, calc(100dvh - 320px), 480px);
+  }
+
+  .player-corner-chip {
+    height: 48px;
+    padding: 6px 12px;
+    min-width: 140px;
+    max-width: 190px;
+  }
+
+  .games-selection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP (1024px+) — MAXIMUM HERO BOARD & ZERO ARBITRARY CAPS
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  /* In-game layout uses 100% of available game area without artificial width caps */
+  body.in-game #main-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 6px 16px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  body.in-game .game-arena-layout {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* Compact top controls to prioritize vertical height for board */
+  .arena-header-bar {
+    width: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px));
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    min-height: 32px;
+  }
+
+  .turn-status-container {
+    width: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px));
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 4px 16px;
+    min-height: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .turn-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .turn-sub-text {
+    font-size: var(--text-xs);
+  }
+
+  /* Ludo Table Container: Takes the dynamic board size as its reference width */
+  .ludo-table-container {
+    width: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px));
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Top and Bottom Player Rows span the exact width of the board */
+  .table-players-row {
+    width: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px)) !important;
+    max-width: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px)) !important;
+    min-height: 84px;
+    gap: var(--space-3);
+  }
+
+  .player-corner-chip {
+    height: 44px;
+    padding: 4px 10px;
+    min-width: 130px;
+    max-width: 180px;
+  }
+
+  /* Board Wrapper: perfectly square, dynamic, dominant */
+  .board-frame-outer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .board-wrapper {
+    width: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px)) !important;
+    height: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px)) !important;
+    max-width: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px)) !important;
+    max-height: var(--desktop-board-size, min(calc(100dvw - 320px), calc(100dvh - 250px), 860px)) !important;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 0 4px var(--bg-surface-raised);
+  }
+
+  .games-selection-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Desktop Sidebar Collapsible State */
+  .desktop-sidebar {
+    width: 240px;
+    transition: width var(--transition-fast), padding var(--transition-fast);
+  }
+
+  .desktop-sidebar.collapsed {
+    width: 72px;
+    padding: var(--space-4) var(--space-2);
+  }
+
+  .desktop-sidebar.collapsed .sidebar-titles,
+  .desktop-sidebar.collapsed .sidebar-nav-label,
+  .desktop-sidebar.collapsed .sidebar-mini-profile .s-profile-info,
+  .desktop-sidebar.collapsed .sidebar-mini-profile .s-profile-progress-wrap {
+    display: none !important;
+  }
+
+  .desktop-sidebar.collapsed .sidebar-brand-wrap {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .desktop-sidebar.collapsed .sidebar-nav-item {
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .desktop-sidebar.collapsed .sidebar-mini-profile {
+    justify-content: center;
+    padding: 8px 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LARGE DESKTOP (1440px+)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1440px) {
+  body:not(.in-game) #main-content {
+    max-width: 1100px;
+  }
+
+  .desktop-sidebar:not(.collapsed) {
+    width: 240px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE & TABLET LANDSCAPE ADAPTATION (Height <= 520px)
+   -------------------------------------------------------------------------- */
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .mobile-only-header {
+    display: none !important;
+  }
+
+  #main-content {
+    padding: 4px 12px !important;
+    max-width: 100% !important;
+  }
+
+  .game-arena-layout {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    height: calc(100dvh - 8px);
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .arena-header-bar {
+    position: fixed;
+    top: max(4px, env(safe-area-inset-top));
+    left: max(8px, env(safe-area-inset-left));
+    right: max(8px, env(safe-area-inset-right));
+    width: auto;
+    z-index: 20;
+    pointer-events: none;
+    padding: 0;
+  }
+  .arena-header-bar > * {
+    pointer-events: auto;
+  }
+  .arena-header-bar .arena-brand-info {
+    display: none;
+  }
+
+  /* Left Column: Turn Status & Dice Action Dock */
+  .game-action-dock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .dynamic-dice-unit {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .turn-status-container {
+    width: auto;
+    min-width: 120px;
+    padding: 4px 10px;
+  }
+  .turn-title-text {
+    font-size: 11px;
+  }
+  .turn-sub-text {
+    display: none;
+  }
+
+  .dice-box {
+    width: 42px;
+    height: 42px;
+  }
+
+  .btn-roll-action {
+    min-width: 96px;
+    padding: 6px 12px;
+    font-size: 11px;
+    min-height: 36px;
+  }
+
+  /* Center: Ludo Table Container in 3-Column Grid */
+  .ludo-table-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 12px;
+    width: auto;
+  }
+
+  .table-players-row {
+    display: contents;
+  }
+
+  .slot-tl {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
+  }
+
+  .slot-bl {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+    justify-self: end;
+  }
+
+  .board-frame-outer {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .slot-tr {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: start;
+    justify-self: start;
+  }
+
+  .slot-br {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: end;
+    justify-self: start;
+  }
+
+  .board-wrapper {
+    width: min(calc(100dvh - 36px), 360px);
+    border-radius: var(--radius-lg);
+  }
+
+  .player-corner-chip {
+    height: 38px;
+    min-width: 90px;
+    max-width: 130px;
+    padding: 2px 6px;
+  }
+
+  .player-avatar {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+  }
+
+  .player-name {
+    font-size: 10px;
+  }
+
+  .player-role-tag {
+    display: none;
+  }
+
+  .token-pips-row {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .dice-3d.rolling {
+    animation: none !important;
+  }
+
+  .btn-token-choice.valid-choice {
+    animation: none !important;
+  }
+}

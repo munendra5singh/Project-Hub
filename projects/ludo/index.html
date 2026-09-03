@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f19">
+  <meta name="description" content="Classic Board Arena - Play Ludo and Snakes & Ladders with 2-4 players, Human and AI bots, offline PWA support, and full keyboard/touch controls.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Board Arena | Ludo &amp; Snakes &amp; Ladders</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+<!-- SVG ICON SPRITE / SYMBOLS -->
+<svg style="display:none;" aria-hidden="true">
+  <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1V9.5z"/>
+  </symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+    <path d="M6 12h4m-2-2v4m7-1h.01m3-2h.01"/>
+  </symbol>
+  <symbol id="icon-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"></circle>
+    <polyline points="12 7 12 12 15 15"></polyline>
+  </symbol>
+  <symbol id="icon-profile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+    <circle cx="12" cy="7" r="4"></circle>
+  </symbol>
+  <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="3"></circle>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+  </symbol>
+  <symbol id="icon-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </symbol>
+  <symbol id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+    <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+  </symbol>
+  <symbol id="icon-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+    <path d="M4 22h16"></path>
+    <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"></path>
+    <path d="M6 4h12v7a6 6 0 0 1-12 0V4z"></path>
+  </symbol>
+</svg>
+
+<!-- MOBILE HEADER (Visible only on mobile/tablet < 1024px) -->
+<header class="main-app-header mobile-only-header">
+  <div class="header-brand-wrap" onclick="App.showView('home')" role="button" tabindex="0" aria-label="Go to Home">
+    <div class="brand-dice-cube-icon">
+      <svg viewBox="0 0 36 36" width="32" height="32">
+        <polygon points="18,5 30,12 18,19 6,12" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+        <polygon points="6,12 18,19 18,31 6,24" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.8"/>
+        <polygon points="18,19 30,12 30,24 18,31" fill="#cbd5e1" stroke="#94a3b8" stroke-width="0.8"/>
+        <circle cx="18" cy="12" r="1.6" fill="#4f46e5"/>
+        <circle cx="11" cy="18" r="1.4" fill="#4f46e5"/>
+        <circle cx="14" cy="24" r="1.4" fill="#4f46e5"/>
+        <circle cx="22" cy="24" r="1.4" fill="#4f46e5"/>
+        <circle cx="25" cy="18" r="1.4" fill="#4f46e5"/>
+      </svg>
+    </div>
+    <div class="header-titles">
+      <h1 class="header-title-main">Board Arena</h1>
+    </div>
+  </div>
+  <div class="header-actions">
+    <button id="btn-pwa-install" class="btn-icon" style="display:none;" title="Install Board Arena App" aria-label="Install App">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+    </button>
+    <button id="header-sound-toggle" class="btn-icon" title="Toggle Sound (M)" aria-label="Toggle Sound">
+      <span class="sound-icon-container" id="header-sound-icon"></span>
+    </button>
+    <button id="theme-toggle" class="btn-icon" title="Toggle Theme" aria-label="Toggle Dark/Light Theme">
+      <span class="theme-icon-container"></span>
+    </button>
+  </div>
+</header>
+
+<!-- DESKTOP APP LAYOUT (Sidebar + Main Column) -->
+<div class="desktop-app-layout">
+  
+  <!-- DESKTOP SIDEBAR (Visible >= 1024px) -->
+  <aside class="desktop-sidebar" id="desktop-sidebar" aria-label="Main Navigation">
+    <div class="sidebar-brand-wrap" onclick="App.showView('home')" role="button" tabindex="0" aria-label="Board Arena Home">
+      <div class="brand-dice-cube-icon">
+        <svg viewBox="0 0 36 36" width="36" height="36">
+          <polygon points="18,5 30,12 18,19 6,12" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+          <polygon points="6,12 18,19 18,31 6,24" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.8"/>
+          <polygon points="18,19 30,12 30,24 18,31" fill="#cbd5e1" stroke="#94a3b8" stroke-width="0.8"/>
+          <circle cx="18" cy="12" r="1.6" fill="#4f46e5"/>
+          <circle cx="11" cy="18" r="1.4" fill="#4f46e5"/>
+          <circle cx="14" cy="24" r="1.4" fill="#4f46e5"/>
+          <circle cx="22" cy="24" r="1.4" fill="#4f46e5"/>
+          <circle cx="25" cy="18" r="1.4" fill="#4f46e5"/>
+        </svg>
+      </div>
+      <div class="sidebar-titles">
+        <span class="sidebar-title-main">Board Arena</span>
+        <span class="sidebar-subtitle">Classic Gaming</span>
+      </div>
+    </div>
+
+    <!-- PRIMARY SIDEBAR NAVIGATION (Strictly HOME, PLAY, HISTORY, PROFILE, SETTINGS) -->
+    <nav class="sidebar-nav-menu" aria-label="Desktop Menu">
+      <button class="sidebar-nav-item active" data-view="home" onclick="App.showView('home')">
+        <span class="sidebar-nav-icon">
+          <svg width="20" height="20"><use href="#icon-home"/></svg>
+        </span>
+        <span class="sidebar-nav-label">Home</span>
+      </button>
+
+      <button class="sidebar-nav-item" data-view="play" onclick="App.showView('play')">
+        <span class="sidebar-nav-icon">
+          <svg width="20" height="20"><use href="#icon-play"/></svg>
+        </span>
+        <span class="sidebar-nav-label">Play</span>
+      </button>
+
+      <button class="sidebar-nav-item" data-view="history" onclick="App.showView('history')">
+        <span class="sidebar-nav-icon">
+          <svg width="20" height="20"><use href="#icon-history"/></svg>
+        </span>
+        <span class="sidebar-nav-label">History</span>
+      </button>
+
+      <button class="sidebar-nav-item" data-view="profile" onclick="App.showView('profile')">
+        <span class="sidebar-nav-icon">
+          <svg width="20" height="20"><use href="#icon-profile"/></svg>
+        </span>
+        <span class="sidebar-nav-label">Profile</span>
+      </button>
+
+      <button class="sidebar-nav-item" data-view="settings" onclick="App.showView('settings')">
+        <span class="sidebar-nav-icon">
+          <svg width="20" height="20"><use href="#icon-settings"/></svg>
+        </span>
+        <span class="sidebar-nav-label">Settings</span>
+      </button>
+    </nav>
+
+    <!-- SIDEBAR BOTTOM PROFILE WIDGET -->
+    <div class="sidebar-bottom-cards">
+      <div class="sidebar-mini-profile" onclick="App.showView('profile')" role="button" tabindex="0" title="View Profile">
+        <div class="s-profile-row">
+          <div class="s-profile-avatar">
+            <span id="sidebar-avatar-initials">P</span>
+          </div>
+          <div class="s-profile-meta">
+            <span class="s-profile-name" id="sidebar-profile-name">Player 1</span>
+            <span class="s-profile-lvl" id="sidebar-profile-level">Level 1</span>
+          </div>
+        </div>
+        <div class="s-profile-progress-wrap">
+          <div class="s-profile-progress-bar">
+            <div class="s-profile-progress-fill" id="sidebar-xp-fill" style="width: 0%;"></div>
+          </div>
+          <span class="s-profile-xp-text" id="sidebar-xp-text">0/500 XP</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- DESKTOP MAIN CONTENT WRAPPER -->
+  <div class="desktop-main-col">
+    <!-- DESKTOP TOP BAR -->
+    <header class="desktop-top-bar" aria-label="Desktop Top Bar">
+      <div class="desktop-top-left">
+        <button id="desktop-btn-sidebar-toggle" class="btn-icon" onclick="App.toggleSidebar()" title="Toggle Sidebar (Collapse/Expand)" aria-label="Toggle Sidebar">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+          </svg>
+        </button>
+        <button id="desktop-btn-back" class="btn btn-secondary btn-sm" onclick="App.showView('home')" style="display:none;" title="Back to Home">
+          <svg width="16" height="16"><use href="#icon-back"/></svg>
+          <span>Back</span>
+        </button>
+        <span class="desktop-breadcrumb-title" id="desktop-view-title">Home</span>
+      </div>
+
+      <div class="desktop-top-right">
+        <button id="desktop-sound-toggle" class="btn-icon" title="Toggle Sound (M)" aria-label="Toggle Sound">
+          <span class="sound-icon-container" id="desktop-sound-icon"></span>
+        </button>
+        <button id="desktop-theme-toggle" class="btn-icon" title="Toggle Theme" aria-label="Toggle Dark/Light Theme">
+          <span class="theme-icon-container"></span>
+        </button>
+        <div class="desktop-user-pill" onclick="App.showView('profile')" role="button" tabindex="0" title="Go to Profile">
+          <div class="desktop-user-avatar">
+            <span id="desktop-avatar-initials">P</span>
+          </div>
+          <div class="desktop-user-meta">
+            <span class="desktop-user-name" id="desktop-pill-name">Player 1</span>
+            <span class="desktop-user-lvl" id="desktop-pill-level">Level 1</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      
+      <!-- ============================================== -->
+      <!-- VIEW: HOME                                    -->
+      <!-- ============================================== -->
+      <section id="view-home" class="view active" aria-labelledby="home-hero-heading">
+        <div class="home-container">
+          
+          <!-- Continue Saved Match Banner (Rendered dynamically when match exists) -->
+          <div id="continue-banner" class="card banner-resume" style="display:none;">
+            <div class="banner-header">
+              <div class="banner-icon-disc">💾</div>
+              <div class="banner-text">
+                <span class="banner-badge">CONTINUE MATCH</span>
+                <h3 class="banner-title">Saved Game in Progress</h3>
+                <p id="continue-desc" class="text-muted"></p>
+              </div>
+            </div>
+            <div class="banner-actions">
+              <button id="btn-continue-game" class="btn btn-primary btn-sm">Resume Match</button>
+              <button id="btn-delete-saved" class="btn btn-secondary btn-sm">Discard</button>
+            </div>
+          </div>
+
+          <!-- Hero Greeting -->
+          <div class="home-hero-header">
+            <h1 class="welcome-heading" id="home-hero-heading">Welcome back, <span id="home-welcome-name">Player 1</span> 👋</h1>
+            <p class="welcome-subtext">Ready to roll the dice?</p>
+          </div>
+
+          <!-- Hidden Profile elements for JS compatibility -->
+          <div style="display:none;">
+            <span id="home-profile-name">Player 1</span>
+            <div id="home-profile-level"></div>
+            <span id="home-xp-val">0</span>
+            <span id="home-star-xp">0</span>
+            <div id="home-xp-fill"></div>
+          </div>
+
+          <!-- FEATURED LUDO CARD (Visually Dominant Primary CTA) -->
+          <div class="featured-game-card" onclick="App.openSetup('ludo')" role="button" tabindex="0" aria-label="Play Ludo Master">
+            <div class="featured-card-content">
+              <div class="featured-tag-row">
+                <span class="tag-pill tag-featured">FEATURED GAME</span>
+                <span class="tag-pill">2–4 Players</span>
+                <span class="tag-pill">Local &amp; Bots</span>
+              </div>
+              <h2 class="featured-game-title">Ludo Master</h2>
+              <p class="featured-game-desc">The timeless classic race game. Roll sixes, bring your pawns onto the track, capture opponents, and race home!</p>
+              
+              <div class="featured-cta-row">
+                <button class="btn btn-primary btn-lg" onclick="event.stopPropagation(); App.openSetup('ludo');">
+                  <span>PLAY NOW</span>
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+                <button class="btn btn-secondary" onclick="event.stopPropagation(); App.showView('play');">
+                  <span>All Games</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Crisp Clean SVG Illustration -->
+            <div class="featured-artwork-box">
+              <svg viewBox="0 0 160 160" width="140" height="140" class="featured-ludo-svg">
+                <rect x="10" y="10" width="140" height="140" rx="20" fill="rgba(79, 70, 229, 0.12)" stroke="rgba(79, 70, 229, 0.3)" stroke-width="2"/>
+                <!-- 4 quadrants -->
+                <rect x="20" y="20" width="50" height="50" rx="10" fill="#ef4444"/>
+                <rect x="90" y="20" width="50" height="50" rx="10" fill="#10b981"/>
+                <rect x="90" y="90" width="50" height="50" rx="10" fill="#f59e0b"/>
+                <rect x="20" y="90" width="50" height="50" rx="10" fill="#3b82f6"/>
+                <!-- Center diamond -->
+                <polygon points="80,55 105,80 80,105 55,80" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                <!-- Center Dice -->
+                <rect x="70" y="70" width="20" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                <circle cx="80" cy="80" r="2.2" fill="#ef4444"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- QUICK STATS ROW -->
+          <div class="quick-stats-section">
+            <h3 class="section-heading">Career Overview</h3>
+            <div class="quick-stats-grid">
+              <div class="stat-card">
+                <div class="stat-val" id="home-stat-games">0</div>
+                <div class="stat-lbl">Matches Played</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-val stat-val-won" id="home-stat-wins">0</div>
+                <div class="stat-lbl">Victories</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-val stat-val-rate" id="home-stat-winrate">0%</div>
+                <div class="stat-lbl">Win Rate</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW: PLAY / GAME SELECTION                   -->
+      <!-- ============================================== -->
+      <section id="view-play" class="view" aria-labelledby="play-heading">
+        <div class="play-container">
+          <div class="view-header-block">
+            <h2 class="view-heading-title" id="play-heading">Choose a Game</h2>
+            <p class="view-heading-sub">Select your board game and challenge bots or local friends</p>
+          </div>
+
+          <div class="games-selection-grid">
+            <!-- Game 1: Ludo Master -->
+            <div class="game-select-card" onclick="App.openSetup('ludo')" role="button" tabindex="0" aria-label="Play Ludo Master">
+              <div class="game-card-art art-ludo">
+                <div class="game-art-badge">👑 Classic</div>
+                <svg viewBox="0 0 100 100" width="70" height="70">
+                  <rect x="10" y="10" width="80" height="80" rx="14" fill="#ffffff" opacity="0.95"/>
+                  <rect x="16" y="16" width="30" height="30" rx="6" fill="#ef4444"/>
+                  <rect x="54" y="16" width="30" height="30" rx="6" fill="#10b981"/>
+                  <rect x="54" y="54" width="30" height="30" rx="6" fill="#f59e0b"/>
+                  <rect x="16" y="54" width="30" height="30" rx="6" fill="#3b82f6"/>
+                </svg>
+              </div>
+              <div class="game-card-details">
+                <div class="game-card-meta">
+                  <span class="game-tag">2–4 Players</span>
+                  <span class="game-tag">Turn-based</span>
+                </div>
+                <h3 class="game-card-title">Ludo Master</h3>
+                <p class="game-card-desc">Race 4 tokens across the board. Knock out opponents and reach home first.</p>
+                <div class="game-card-action">
+                  <button class="btn btn-primary btn-block" onclick="event.stopPropagation(); App.openSetup('ludo');">
+                    <span>Play Ludo</span>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Game 2: Snakes & Ladders -->
+            <div class="game-select-card" onclick="App.openSetup('ladder')" role="button" tabindex="0" aria-label="Play Snakes and Ladders">
+              <div class="game-card-art art-ladder">
+                <div class="game-art-badge">🪜 1–100 Board</div>
+                <svg viewBox="0 0 100 100" width="70" height="70">
+                  <rect x="10" y="10" width="80" height="80" rx="14" fill="#ffffff" opacity="0.95"/>
+                  <!-- Checkered grid -->
+                  <rect x="18" y="18" width="16" height="16" fill="#fef08a"/>
+                  <rect x="34" y="18" width="16" height="16" fill="#93c5fd"/>
+                  <rect x="50" y="18" width="16" height="16" fill="#fca5a5"/>
+                  <rect x="66" y="18" width="16" height="16" fill="#86efac"/>
+                  <line x1="30" y1="70" x2="50" y2="30" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="36" y1="72" x2="56" y2="32" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="game-card-details">
+                <div class="game-card-meta">
+                  <span class="game-tag">2–4 Players</span>
+                  <span class="game-tag">Race to 100</span>
+                </div>
+                <h3 class="game-card-title">Snakes &amp; Ladders</h3>
+                <p class="game-card-desc">Climb high golden ladders and dodge slippery snakes on an animated board.</p>
+                <div class="game-card-action">
+                  <button class="btn btn-primary btn-block" onclick="event.stopPropagation(); App.openSetup('ladder');">
+                    <span>Play Snakes &amp; Ladders</span>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Game 3: Coming Soon -->
+            <div class="game-select-card card-disabled" aria-disabled="true">
+              <div class="game-card-art art-soon">
+                <div class="game-art-badge">Coming Soon</div>
+                <div style="font-size:2.4rem;">♟️</div>
+              </div>
+              <div class="game-card-details">
+                <div class="game-card-meta">
+                  <span class="game-tag">2 Players</span>
+                  <span class="game-tag">Strategy</span>
+                </div>
+                <h3 class="game-card-title">Classic Chess</h3>
+                <p class="game-card-desc">The ultimate tactical duel. Coming in a future update.</p>
+                <div class="game-card-action">
+                  <button class="btn btn-secondary btn-block" disabled>Coming Soon</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW: GAME SETUP                              -->
+      <!-- ============================================== -->
+      <section id="view-setup" class="view" aria-labelledby="setup-title">
+        <div class="setup-container">
+          
+          <!-- Top Setup Navigation Row -->
+          <div class="setup-nav-row">
+            <button class="btn btn-secondary btn-sm" onclick="App.showView('play')" aria-label="Back to game selection">
+              <svg width="16" height="16"><use href="#icon-back"/></svg>
+              <span>Back</span>
+            </button>
+            <div class="setup-heading-col">
+              <h2 id="setup-title" class="setup-title-main">Ludo Master</h2>
+              <span id="setup-title-desc" class="setup-title-sub">Configure your match settings</span>
+            </div>
+          </div>
+
+          <!-- Hidden elements for JS compatibility -->
+          <div style="display:none;">
+            <span id="setup-title-sub"></span>
+            <div id="setup-art-ludo"></div>
+            <div id="setup-art-ladder"></div>
+            <span id="setup-badge1-title"></span>
+            <span id="setup-badge1-desc"></span>
+          </div>
+
+          <!-- STEP 1: PLAYER COUNT SELECTOR -->
+          <div class="setup-card">
+            <label class="setup-card-label" id="lbl-player-count">NUMBER OF PLAYERS</label>
+            <div class="preset-segmented-grid" role="group" aria-labelledby="lbl-player-count">
+              <button type="button" class="preset-btn" data-count="2" onclick="App.applyPreset(2)">
+                <span class="preset-num">2</span>
+                <span class="preset-lbl">Players</span>
+              </button>
+              <button type="button" class="preset-btn" data-count="3" onclick="App.applyPreset(3)">
+                <span class="preset-num">3</span>
+                <span class="preset-lbl">Players</span>
+              </button>
+              <button type="button" class="preset-btn active" data-count="4" onclick="App.applyPreset(4)">
+                <span class="preset-num">4</span>
+                <span class="preset-lbl">Players</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: PLAYER ASSIGNMENTS -->
+          <div class="setup-card">
+            <div class="setup-card-header-row">
+              <label class="setup-card-label">PLAYERS CONFIGURATION</label>
+              <span class="text-muted text-xs">Customize names and roles</span>
+            </div>
+            <div id="player-config-list" class="player-config-cards-list"></div>
+          </div>
+
+          <!-- STEP 3: ADVANCED SETTINGS -->
+          <div class="setup-card setup-card-compact">
+            <div class="setting-row">
+              <div>
+                <div class="setting-title">Bot Difficulty</div>
+                <div class="setting-desc">Strategic depth and aggressiveness of AI players</div>
+              </div>
+              <div class="custom-select-wrap">
+                <select id="setup-difficulty" onchange="App.updateSetting('difficulty', this.value)" class="form-select">
+                  <option value="easy">Easy (Casual)</option>
+                  <option value="normal" selected>Normal (Balanced)</option>
+                  <option value="hard">Hard (Positional Strategic)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRIMARY CTA: START MATCH -->
+          <div class="setup-action-bar">
+            <button class="btn btn-primary btn-block btn-lg" onclick="App.startGameFromSetup()">
+              <span>START GAME</span>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW: GAME ARENA (MOST IMPORTANT SCREEN)      -->
+      <!-- ============================================== -->
+      <section id="view-game" class="view" aria-label="Game Board Arena">
+        <div class="game-arena-layout">
+          
+          <!-- 1. TOP GAME CONTROL BAR -->
+          <header class="arena-header-bar">
+            <button class="btn btn-secondary btn-sm" onclick="App.togglePause()" title="Pause Game (Esc/P)" aria-label="Pause Menu">
+              <svg width="16" height="16"><use href="#icon-pause"/></svg>
+              <span>Pause</span>
+            </button>
+
+            <div class="arena-brand-info">
+              <span class="brand-title" id="game-arena-heading">
+                <span class="brand-ludo-txt">LUDO</span> <span class="brand-arena-txt">MASTER</span>
+              </span>
+            </div>
+
+            <div class="arena-header-right">
+              <button id="in-game-sound-toggle" class="btn-icon" title="Toggle Sound (M)" aria-label="Toggle Sound">
+                <span class="sound-icon-container" id="in-game-sound-icon"></span>
+              </button>
+            </div>
+          </header>
+
+          <!-- 2. CURRENT TURN STATE CAPSULE (Clear, obvious status) -->
+          <div class="turn-status-container" id="turn-banner">
+            <div class="turn-status-badge">
+              <span class="turn-indicator-dot" id="turn-dot">●</span>
+              <span class="turn-title-text" id="turn-main-text">YOUR TURN</span>
+            </div>
+            <div class="turn-sub-text" id="turn-instruction">Press Space or tap Roll Dice</div>
+          </div>
+
+          <!-- 3. LUDO TABLE CONTAINER (Responsive board with surrounding player ring & dynamic dice) -->
+          <div class="ludo-table-container" id="ludo-table">
+            
+            <!-- TOP PLAYER ROW (Red at TL, Green at TR) -->
+            <div class="table-players-row table-top-row" id="table-top-row">
+              <!-- TOP-LEFT: Red Player Station -->
+              <div class="table-player-slot slot-tl" id="slot-player-tl">
+                <div class="player-station station-tl" id="station-player-tl">
+                  <!-- Player 0 (Red) Chip -->
+                  <div class="player-corner-chip card-red" id="player-card-0" data-player-idx="0">
+                    <div class="chip-avatar-box">
+                      <div class="player-avatar" id="player-avatar-0"></div>
+                    </div>
+                    <div class="chip-meta-box">
+                      <div class="chip-name-row">
+                        <span class="player-name" id="player-card-name-0">Player 1</span>
+                        <span class="player-role-tag" id="player-role-0">YOU</span>
+                        <span class="player-turn-badge" id="player-turn-badge-0" style="display:none;">TURN</span>
+                      </div>
+                      <div class="chip-stats-row" id="player-stats-0"></div>
+                    </div>
+                    <span id="p0-base" style="display:none;">4</span>
+                    <span id="p0-active" style="display:none;">0</span>
+                    <span id="p0-finished" style="display:none;">0</span>
+                    <div id="dice-slot-0" style="display:none;"></div>
+                  </div>
+
+                  <!-- Dynamic Dice Action Dock Mount (Top-Left / Red) -->
+                  <div class="station-dock-mount" id="dock-mount-tl">
+                    <!-- PRIMARY GAME ACTION DOCK (Dynamically travels to the active player) -->
+                    <div class="game-action-dock" id="game-action-dock">
+                      <div id="dynamic-dice-unit" class="dynamic-dice-unit">
+                        <!-- Interactive 3D Dice Face (Themed to current player) -->
+                        <div class="dice-box" onclick="App.handleHumanRoll()" role="button" tabindex="0" aria-label="Roll Dice" title="Tap or Press Space to Roll">
+                          <div class="dice-shadow" id="dice-shadow"></div>
+                          <div id="dice-element" class="dice-3d">
+                            <div class="dice-face face-1"><span class="pip pip-center"></span></div>
+                          </div>
+                        </div>
+
+                        <!-- Primary Action Roll Button (Themed to current player) -->
+                        <button id="btn-roll" class="btn btn-primary btn-roll-action" onclick="App.handleHumanRoll()">
+                          ROLL DICE
+                        </button>
+                      </div>
+
+                      <!-- Token Quick Selector Bar (1, 2, 3, 4 with keyboard shortcuts) -->
+                      <div id="token-selector-bar" class="token-selector-bar" style="display:none;">
+                        <span class="token-bar-label">Token:</span>
+                        <div class="token-buttons-group">
+                          <button id="token-select-btn-0" class="btn-token-choice" onclick="App.handleTokenSelect(0)" aria-label="Move Token 1">
+                            <span class="token-btn-num">1</span>
+                            <span class="token-btn-state">Base</span>
+                            <kbd class="token-kbd-hint">1</kbd>
+                          </button>
+                          <button id="token-select-btn-1" class="btn-token-choice" onclick="App.handleTokenSelect(1)" aria-label="Move Token 2">
+                            <span class="token-btn-num">2</span>
+                            <span class="token-btn-state">Base</span>
+                            <kbd class="token-kbd-hint">2</kbd>
+                          </button>
+                          <button id="token-select-btn-2" class="btn-token-choice" onclick="App.handleTokenSelect(2)" aria-label="Move Token 3">
+                            <span class="token-btn-num">3</span>
+                            <span class="token-btn-state">Base</span>
+                            <kbd class="token-kbd-hint">3</kbd>
+                          </button>
+                          <button id="token-select-btn-3" class="btn-token-choice" onclick="App.handleTokenSelect(3)" aria-label="Move Token 4">
+                            <span class="token-btn-num">4</span>
+                            <span class="token-btn-state">Base</span>
+                            <kbd class="token-kbd-hint">4</kbd>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TOP-RIGHT: Green Player Station -->
+              <div class="table-player-slot slot-tr" id="slot-player-tr">
+                <div class="player-station station-tr" id="station-player-tr">
+                  <!-- Player 1 (Green) Chip -->
+                  <div class="player-corner-chip card-green" id="player-card-1" data-player-idx="1">
+                    <div class="chip-avatar-box">
+                      <div class="player-avatar" id="player-avatar-1"></div>
+                    </div>
+                    <div class="chip-meta-box">
+                      <div class="chip-name-row">
+                        <span class="player-name" id="player-card-name-1">Bot 1</span>
+                        <span class="player-role-tag" id="player-role-1">BOT</span>
+                        <span class="player-turn-badge" id="player-turn-badge-1" style="display:none;">TURN</span>
+                      </div>
+                      <div class="chip-stats-row" id="player-stats-1"></div>
+                    </div>
+                    <span id="p1-base" style="display:none;">4</span>
+                    <span id="p1-active" style="display:none;">0</span>
+                    <span id="p1-finished" style="display:none;">0</span>
+                    <div id="dice-slot-1" style="display:none;"></div>
+                  </div>
+
+                  <!-- Dynamic Dice Action Dock Mount (Top-Right / Green) -->
+                  <div class="station-dock-mount" id="dock-mount-tr"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CENTRAL BOARD FRAME -->
+            <div class="board-frame-outer">
+              <div class="board-wrapper" id="board-wrapper">
+                <canvas id="game-canvas" width="500" height="500" aria-label="Interactive Board Canvas" role="img"></canvas>
+              </div>
+            </div>
+
+            <!-- BOTTOM PLAYER ROW (Blue at BL, Yellow at BR) -->
+            <div class="table-players-row table-bottom-row" id="table-bottom-row">
+              <!-- BOTTOM-LEFT: Blue Player Station -->
+              <div class="table-player-slot slot-bl" id="slot-player-bl">
+                <div class="player-station station-bl" id="station-player-bl">
+                  <!-- Dynamic Dice Action Dock Mount (Bottom-Left / Blue) -->
+                  <div class="station-dock-mount" id="dock-mount-bl"></div>
+
+                  <!-- Player 3 (Blue) Chip -->
+                  <div class="player-corner-chip card-blue" id="player-card-3" data-player-idx="3">
+                    <div class="chip-avatar-box">
+                      <div class="player-avatar" id="player-avatar-3"></div>
+                    </div>
+                    <div class="chip-meta-box">
+                      <div class="chip-name-row">
+                        <span class="player-name" id="player-card-name-3">Bot 3</span>
+                        <span class="player-role-tag" id="player-role-3">BOT</span>
+                        <span class="player-turn-badge" id="player-turn-badge-3" style="display:none;">TURN</span>
+                      </div>
+                      <div class="chip-stats-row" id="player-stats-3"></div>
+                    </div>
+                    <span id="p3-base" style="display:none;">4</span>
+                    <span id="p3-active" style="display:none;">0</span>
+                    <span id="p3-finished" style="display:none;">0</span>
+                    <div id="dice-slot-3" style="display:none;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BOTTOM-RIGHT: Yellow Player Station -->
+              <div class="table-player-slot slot-br" id="slot-player-br">
+                <div class="player-station station-br" id="station-player-br">
+                  <!-- Dynamic Dice Action Dock Mount (Bottom-Right / Yellow) -->
+                  <div class="station-dock-mount" id="dock-mount-br"></div>
+
+                  <!-- Player 2 (Yellow) Chip -->
+                  <div class="player-corner-chip card-yellow" id="player-card-2" data-player-idx="2">
+                    <div class="chip-avatar-box">
+                      <div class="player-avatar" id="player-avatar-2"></div>
+                    </div>
+                    <div class="chip-meta-box">
+                      <div class="chip-name-row">
+                        <span class="player-name" id="player-card-name-2">Bot 2</span>
+                        <span class="player-role-tag" id="player-role-2">BOT</span>
+                        <span class="player-turn-badge" id="player-turn-badge-2" style="display:none;">TURN</span>
+                      </div>
+                      <div class="chip-stats-row" id="player-stats-2"></div>
+                    </div>
+                    <span id="p2-base" style="display:none;">4</span>
+                    <span id="p2-active" style="display:none;">0</span>
+                    <span id="p2-finished" style="display:none;">0</span>
+                    <div id="dice-slot-2" style="display:none;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- .ludo-table-container -->
+
+          <!-- Secondary dock hint (hidden by default) -->
+          <div id="dock-action-hint" style="display:none;"></div>
+          <div id="game-player-chips" style="display:none;"></div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW: PROFILE & PROGRESSION                   -->
+      <!-- ============================================== -->
+      <section id="view-profile" class="view" aria-labelledby="profile-heading">
+        <div class="profile-container">
+          
+          <!-- Progression Header Card -->
+          <div class="profile-header-card">
+            <div class="profile-avatar-large">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <div class="profile-user-info">
+              <div class="profile-name-edit-wrap">
+                <input id="profile-name-input" type="text" maxlength="20" aria-label="Player Name" title="Edit player name" class="profile-name-field" value="Player 1">
+              </div>
+              <div class="profile-level-badge-pill" id="profile-level">Level 1</div>
+            </div>
+            <div class="profile-xp-meter-wrap">
+              <div class="xp-bar-track">
+                <div id="profile-xp-fill" class="xp-bar-fill" style="width: 0%;"></div>
+              </div>
+              <div id="profile-xp-text" class="text-muted text-xs">0 / 500 XP to next level</div>
+            </div>
+          </div>
+
+          <!-- Overall Statistics -->
+          <div class="profile-stats-block">
+            <h3 class="section-heading">Match Statistics</h3>
+            
+            <div class="game-stat-group">
+              <h4 class="stat-group-title">Ludo Master</h4>
+              <div class="stat-grid">
+                <div class="stat-card"><div id="stat-ludo-played" class="val">0</div><div class="lbl">Played</div></div>
+                <div class="stat-card"><div id="stat-ludo-won" class="val">0</div><div class="lbl">Victories</div></div>
+                <div class="stat-card"><div id="stat-ludo-winrate" class="val">0%</div><div class="lbl">Win Rate</div></div>
+                <div class="stat-card"><div id="stat-ludo-captures" class="val">0</div><div class="lbl">Captures</div></div>
+                <div class="stat-card"><div id="stat-ludo-sixes" class="val">0</div><div class="lbl">Sixes Rolled</div></div>
+                <div class="stat-card"><div id="stat-ludo-finished" class="val">0</div><div class="lbl">Tokens Home</div></div>
+              </div>
+            </div>
+
+            <div class="game-stat-group" style="margin-top:16px;">
+              <h4 class="stat-group-title">Snakes &amp; Ladders</h4>
+              <div class="stat-grid">
+                <div class="stat-card"><div id="stat-ladder-played" class="val">0</div><div class="lbl">Played</div></div>
+                <div class="stat-card"><div id="stat-ladder-won" class="val">0</div><div class="lbl">Victories</div></div>
+                <div class="stat-card"><div id="stat-ladder-winrate" class="val">0%</div><div class="lbl">Win Rate</div></div>
+                <div class="stat-card"><div id="stat-ladder-ladders" class="val">0</div><div class="lbl">Ladders</div></div>
+                <div class="stat-card"><div id="stat-ladder-snakes" class="val">0</div><div class="lbl">Snakes</div></div>
+                <div class="stat-card"><div id="stat-ladder-rolls" class="val">0</div><div class="lbl">Total Rolls</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements Section -->
+          <div class="profile-achievements-block">
+            <h3 class="section-heading">Achievements</h3>
+            <div id="achievements-list" class="achievements-list"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW: MATCH HISTORY                           -->
+      <!-- ============================================== -->
+      <section id="view-history" class="view" aria-labelledby="history-heading">
+        <div class="history-container">
+          <div class="view-header-block">
+            <h2 class="view-heading-title" id="history-heading">Match History</h2>
+            <p class="view-heading-sub">Your previous match results and records</p>
+          </div>
+          <div id="game-history-list" class="history-list"></div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW: SETTINGS & CONTROLS                     -->
+      <!-- ============================================== -->
+      <section id="view-settings" class="view" aria-labelledby="settings-heading">
+        <div class="settings-container">
+          <div class="view-header-block">
+            <h2 class="view-heading-title" id="settings-heading">Settings</h2>
+            <p class="view-heading-sub">Preferences and gameplay options</p>
+          </div>
+
+          <!-- Appearance Settings -->
+          <div class="settings-card">
+            <h3 class="settings-group-title">Preferences</h3>
+            
+            <div class="setting-row">
+              <div>
+                <div class="setting-title">Sound Effects</div>
+                <div class="setting-desc">Procedural dice roll, pawn step, capture, and victory sounds</div>
+              </div>
+              <label class="switch-toggle" aria-label="Toggle Sound Effects">
+                <input type="checkbox" id="setting-sound" checked onchange="App.updateSetting('sound', this.checked)">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div>
+                <div class="setting-title">Tactile Vibration</div>
+                <div class="setting-desc">Subtle haptic feedback on rolls and captures (mobile)</div>
+              </div>
+              <label class="switch-toggle" aria-label="Toggle Vibration">
+                <input type="checkbox" id="setting-vibration" checked onchange="App.updateSetting('vibration', this.checked)">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Gameplay Settings -->
+          <div class="settings-card">
+            <h3 class="settings-group-title">Gameplay</h3>
+
+            <div class="setting-row">
+              <div>
+                <div class="setting-title">Token Step Animations</div>
+                <div class="setting-desc">Smooth cell-by-cell walking animations</div>
+              </div>
+              <label class="switch-toggle" aria-label="Toggle Step Animations">
+                <input type="checkbox" id="setting-animation" checked onchange="App.updateSetting('animation', this.checked)">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div>
+                <div class="setting-title">Reduced Motion</div>
+                <div class="setting-desc">Instant token movement with zero walking delay</div>
+              </div>
+              <label class="switch-toggle" aria-label="Toggle Reduced Motion">
+                <input type="checkbox" id="setting-reduced-motion" onchange="App.updateSetting('reducedMotion', this.checked)">
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div>
+                <div class="setting-title">Default Bot Difficulty</div>
+                <div class="setting-desc">Strategic evaluation depth for AI opponents</div>
+              </div>
+              <div class="custom-select-wrap">
+                <select id="setting-difficulty" class="form-select" onchange="App.updateSetting('difficulty', this.value)">
+                  <option value="easy">Easy (Random)</option>
+                  <option value="normal" selected>Normal (Heuristic)</option>
+                  <option value="hard">Hard (Positional Strategic)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Keyboard Controls Reference -->
+          <div class="settings-card">
+            <h3 class="settings-group-title">Keyboard Shortcuts</h3>
+            <div class="keyboard-reference-table">
+              <div class="kbd-row"><kbd>Space</kbd> / <kbd>Enter</kbd> <span>Roll Dice / Confirm Move</span></div>
+              <div class="kbd-row"><kbd>1</kbd> – <kbd>4</kbd> <span>Select Token 1, 2, 3, or 4</span></div>
+              <div class="kbd-row"><kbd>Tab</kbd> / <kbd>←</kbd> <kbd>→</kbd> <span>Cycle selectable tokens</span></div>
+              <div class="kbd-row"><kbd>P</kbd> / <kbd>Esc</kbd> <span>Pause / Resume game</span></div>
+              <div class="kbd-row"><kbd>M</kbd> <span>Toggle sound mute</span></div>
+              <div class="kbd-row"><kbd>R</kbd> <span>Rematch on victory screen</span></div>
+            </div>
+          </div>
+
+          <!-- Data Management (Destructive Action with Confirmation) -->
+          <div class="settings-card">
+            <h3 class="settings-group-title">Data Management</h3>
+            <p class="text-muted text-xs" style="margin-bottom:12px;">Resetting data clears all profiles, statistics, XP, and history permanently.</p>
+            <div class="settings-actions-stack">
+              <button id="btn-pwa-install-settings" class="btn btn-secondary btn-block" style="display:none;" onclick="App.triggerPwaInstall()">
+                Install to Device
+              </button>
+              <button class="btn btn-danger btn-block" onclick="App.resetAllData()">
+                Reset All Local Data
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div> <!-- .desktop-main-col -->
+</div> <!-- .desktop-app-layout -->
+
+<!-- MOBILE BOTTOM NAVIGATION (Strictly Home, Play, History, Profile, Settings) -->
+<nav class="nav-tabs mobile-nav-tabs" aria-label="Mobile Navigation">
+  <button class="nav-btn active" data-view="home" onclick="App.showView('home')" aria-label="Home">
+    <span class="icon"><svg width="22" height="22"><use href="#icon-home"/></svg></span>
+    <span class="nav-label">Home</span>
+  </button>
+  
+  <button class="nav-btn nav-btn-play-center" data-view="play" onclick="App.showView('play')" aria-label="Play Games">
+    <div class="nav-center-circle">
+      <svg width="24" height="24"><use href="#icon-play"/></svg>
+    </div>
+    <span class="nav-label play-label">Play</span>
+  </button>
+
+  <button class="nav-btn" data-view="history" onclick="App.showView('history')" aria-label="History">
+    <span class="icon"><svg width="22" height="22"><use href="#icon-history"/></svg></span>
+    <span class="nav-label">History</span>
+  </button>
+
+  <button class="nav-btn" data-view="profile" onclick="App.showView('profile')" aria-label="Profile">
+    <span class="icon"><svg width="22" height="22"><use href="#icon-profile"/></svg></span>
+    <span class="nav-label">Profile</span>
+  </button>
+
+  <button class="nav-btn" data-view="settings" onclick="App.showView('settings')" aria-label="Settings">
+    <span class="icon"><svg width="22" height="22"><use href="#icon-settings"/></svg></span>
+    <span class="nav-label">Settings</span>
+  </button>
+</nav>
+
+<!-- ============================================== -->
+<!-- MODALS                                         -->
+<!-- ============================================== -->
+
+<!-- 1. MODAL: PAUSE MENU -->
+<div id="modal-pause" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="pause-modal-title">
+  <div class="modal-box">
+    <div class="modal-icon-badge">⏸️</div>
+    <h2 id="pause-modal-title" class="modal-title">Game Paused</h2>
+    <p class="modal-desc">Match timers and bots are suspended.</p>
+    <div class="modal-btn-stack">
+      <button class="btn btn-primary btn-block" onclick="App.togglePause()">Resume Match</button>
+      <button class="btn btn-secondary btn-block" onclick="App.saveAndExit()">Save &amp; Exit to Home</button>
+      <button class="btn btn-secondary btn-block" onclick="App.restartCurrentGame()">Restart Match</button>
+      <button class="btn btn-danger btn-block" onclick="App.quitToHome()">Quit Game</button>
+    </div>
+  </div>
+</div>
+
+<!-- 2. UNIVERSAL ACCESSIBLE CONFIRMATION MODAL -->
+<div id="modal-confirm" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+  <div class="modal-box">
+    <div class="modal-icon-badge">⚠️</div>
+    <h2 id="confirm-title" class="modal-title">Are you sure?</h2>
+    <p id="confirm-message" class="modal-desc">Your current match progress will be lost.</p>
+    <div id="confirm-details" class="modal-details-callout" style="display:none;"></div>
+    <div class="modal-actions-row">
+      <button id="btn-confirm-cancel" class="btn btn-secondary btn-block" onclick="App.closeConfirmModal()">Keep Playing</button>
+      <button id="btn-confirm-action" class="btn btn-danger btn-block" onclick="App.executePendingConfirm()">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- 3. MODAL: VICTORY CELEBRATION -->
+<div id="modal-victory" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="winner-name">
+  <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+  <div class="modal-box victory-modal-box">
+    <div class="victory-trophy-badge">🏆</div>
+    <div class="victory-rank-pill">#1 WINNER</div>
+    <h2 id="winner-name" class="modal-title">Player 1 Won!</h2>
+    <p id="victory-subtext" class="modal-desc">Tokens successfully reached the home goal!</p>
+    
+    <div class="victory-xp-reward">
+      <span>XP Reward:</span>
+      <strong id="victory-xp-amount">+250 XP</strong>
+    </div>
+
+    <div id="victory-stats-summary" class="victory-stats-summary"></div>
+
+    <div class="modal-btn-stack" style="margin-top:20px;">
+      <button class="btn btn-primary btn-block btn-lg" onclick="App.rematch()">Play Again</button>
+      <button class="btn btn-secondary btn-block" onclick="App.showView('home'); App.closeVictoryModal();">Main Menu</button>
+    </div>
+  </div>
+</div>
+
+<!-- 4. DEVELOPER DEBUG OVERLAY (Accessible via F2 or ?debug=1) -->
+<div id="debug-overlay" class="debug-overlay" style="display:none;">
+  <div class="debug-header">
+    <strong>🛠️ Debug Console</strong>
+    <button class="debug-close-btn" onclick="App.toggleDebugMode()">✕</button>
+  </div>
+  <div id="debug-content" class="debug-content"></div>
+  <div class="debug-actions">
+    <button class="btn btn-secondary btn-sm" onclick="App.debugForceRoll(6)">Force Roll 6</button>
+    <button class="btn btn-secondary btn-sm" onclick="App.debugForceRoll(1)">Force Roll 1</button>
+    <button class="btn btn-secondary btn-sm" onclick="App.debugPassTurn()">Pass Turn</button>
+  </div>
+</div>
+
+<!-- ACCESSIBLE TOAST CONTAINER -->
+<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- ARIA LIVE ANNOUNCEMENTS REGION -->
+<div id="aria-announcements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<!-- SCRIPT MODULES (Preserved 100% in load order) -->
+<script src="./js/timer.js"></script>
+<script src="./js/storage.js"></script>
+<script src="./js/audio.js"></script>
+<script src="./js/achievements.js"></script>
+<script src="./js/ludo-engine.js"></script>
+<script src="./js/ludo-renderer.js"></script>
+<script src="./js/ladder-engine.js"></script>
+<script src="./js/ladder-renderer.js"></script>
+<script src="./js/ai.js"></script>
+<script src="./js/input.js"></script>
+<script src="./js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch((err) => {
+        console.warn('ServiceWorker registration error:', err);
+      });
+    });
+  }
+</script>
+</body>
+</html>
