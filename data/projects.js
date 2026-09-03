@@ -178,5 +178,14 @@ const projectsData = [
   technologies: ["HTML", "CSS", "JavaScript", "Web Audio API"],
   image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&auto=format&fit=crop&q=80",
   liveUrl: "projects/p-20-waveform-studio/index.html"
-}
+},
+    {
+    id: 21,
+    name: "Ludo",
+    description: "Roll the dice, move your tokens, and become the Ludo King",
+    category: "Websites",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMo2OAPaKfECzBkBHiauE2PM0H8ih-A2SoAFCi2YPmCQ&s=10",
+    liveUrl: "projects/ludo/index.html"
+  }
 ];
