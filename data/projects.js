@@ -187,7 +187,7 @@ const projectsData = [
     technologies: ["HTML", "CSS", "JavaScript"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMo2OAPaKfECzBkBHiauE2PM0H8ih-A2SoAFCi2YPmCQ&s=10",
     liveUrl: "projects/ludo/index.html"
-  },
   }
+  
 
 ];
