@@ -188,14 +188,6 @@ const projectsData = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMo2OAPaKfECzBkBHiauE2PM0H8ih-A2SoAFCi2YPmCQ&s=10",
     liveUrl: "projects/ludo/index.html"
   },
-  },
-    {
-    id: 22,
-    name: "ReelFlow",
-    description: "ReelFlow — Watch, scroll, download & share your favorite videos in one place.",
-    category: "Websites",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo_gtZdk-kfN_8U0RmC2FlpGQzml4OcYgUnnHtNShvOQ&s=10",
-    liveUrl: "projects/video-web/index.html"
   }
+
 ];
