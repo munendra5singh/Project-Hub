@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Ambient background glow elements -->
@@ -61,6 +61,9 @@
         <div class="brand-text">
           <h2>PROJECT <span>HUB</span></h2>
         </div>
+        <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Toggle Sidebar" aria-label="Toggle Sidebar">
+          <span>◧</span>
+        </button>
       </div>
 
       <nav class="nav-links">
@@ -88,10 +91,14 @@
           <span class="nav-icon">⚙️</span>
           <span class="nav-text">Settings</span>
         </button>
+        <button class="nav-item" data-view="profile">
+          <span class="nav-icon">🪪</span>
+          <span class="nav-text">Profile</span>
+        </button>
       </nav>
 
       <div class="sidebar-bottom">
-        <div class="user-card">
+        <div class="user-card" id="userCardBtn" role="button" tabindex="0" title="Open Profile" aria-label="Open Profile">
           <div class="avatar-ring">
             <img src="./assets/my_photo.png" alt="User Profile" class="avatar-img">
             <span class="status-dot"></span>
@@ -205,6 +212,390 @@
         </div>
       </section>
 
+      <!-- Profile Dashboard View -->
+      <section id="profileSection" class="profile-dashboard hidden">
+        <!-- Profile Header Card -->
+        <div class="profile-card profile-hero-card">
+          <div class="profile-hero-content">
+            <div class="profile-avatar-wrapper">
+              <img src="./assets/my_photo.png" alt="Munendra Singh" class="profile-avatar-img">
+              <span class="profile-status-badge" title="Available for Opportunities"></span>
+            </div>
+            <div class="profile-hero-info">
+              <div class="profile-name-row">
+                <h2 class="profile-name">Munendra Singh</h2>
+                <span class="profile-verified-badge" title="Verified Developer">✓ Developer</span>
+              </div>
+              <p class="profile-headline">Web Developer | UI/UX | AI-Assisted Development</p>
+              <div class="profile-location">
+                <span class="loc-pin">📍</span> Dehradun, Uttarakhand, India
+              </div>
+              <div class="profile-action-links">
+                <a href="mailto:singh2005munendra@gmail.com" class="profile-btn profile-btn-primary">
+                  <span>✉️</span> Email Me
+                </a>
+                <a href="https://github.com/munendra5singh" target="_blank" rel="noopener noreferrer" class="profile-btn profile-btn-secondary">
+                  <span>🐙</span> GitHub
+                </a>
+                <a href="tel:+919027523282" class="profile-btn profile-btn-secondary">
+                  <span>📞</span> Call
+                </a>
+                <a href="assets/MUNENDRA-SINGH-RESUME.pdf" target="_blank" class="profile-btn profile-btn-secondary" download>
+                  <span>📄</span> Download CV
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Column Layout: Profile Summary & Core Strengths -->
+        <div class="profile-grid-2col">
+          <!-- Professional Profile -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <span class="card-sec-icon">👤</span>
+              <h3>Professional Profile</h3>
+            </div>
+            <p class="profile-text">
+              Web Developer with hands-on experience building and deploying 20+ responsive websites and web projects. I independently plan website structure, UI/UX, visual design, usability, features and user flows, and use AI as a development tool—not as a replacement for decision-making—to assist with implementation, debugging and refinement.
+            </p>
+          </div>
+
+          <!-- Core Strengths -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <span class="card-sec-icon">⚡</span>
+              <h3>Core Strengths</h3>
+            </div>
+            <div class="strengths-grid">
+              <div class="strength-chip">
+                <span class="strength-icon">🎨</span>
+                <span>UI/UX judgement</span>
+              </div>
+              <div class="strength-chip">
+                <span class="strength-icon">📐</span>
+                <span>Website planning</span>
+              </div>
+              <div class="strength-chip">
+                <span class="strength-icon">🤖</span>
+                <span>AI-assisted development</span>
+              </div>
+              <div class="strength-chip">
+                <span class="strength-icon">🧩</span>
+                <span>Problem solving</span>
+              </div>
+              <div class="strength-chip">
+                <span class="strength-icon">📱</span>
+                <span>Responsive design</span>
+              </div>
+              <div class="strength-chip">
+                <span class="strength-icon">🚀</span>
+                <span>Project delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills (Categorized) -->
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <span class="card-sec-icon">🛠️</span>
+            <h3>Technical Skills</h3>
+          </div>
+          <div class="skills-category-grid">
+            <div class="skill-cat-box">
+              <h4><span class="skill-cat-icon">💻</span> Frontend</h4>
+              <div class="skill-tags">
+                <span class="profile-tag">HTML5</span>
+                <span class="profile-tag">CSS3</span>
+                <span class="profile-tag">JavaScript (Basic)</span>
+                <span class="profile-tag">Responsive Web Design</span>
+                <span class="profile-tag">CSS Animations & Effects</span>
+              </div>
+            </div>
+
+            <div class="skill-cat-box">
+              <h4><span class="skill-cat-icon">✨</span> UI/UX</h4>
+              <div class="skill-tags">
+                <span class="profile-tag">UI Design</span>
+                <span class="profile-tag">Layout & Visual Hierarchy</span>
+                <span class="profile-tag">Usability</span>
+                <span class="profile-tag">Responsive Interfaces</span>
+                <span class="profile-tag">Mobile Navigation</span>
+              </div>
+            </div>
+
+            <div class="skill-cat-box">
+              <h4><span class="skill-cat-icon">⚙️</span> Web Features</h4>
+              <div class="skill-tags">
+                <span class="profile-tag">Search & Filtering</span>
+                <span class="profile-tag">Forms</span>
+                <span class="profile-tag">Dark/Light Mode</span>
+                <span class="profile-tag">Interactive Components</span>
+                <span class="profile-tag">localStorage</span>
+              </div>
+            </div>
+
+            <div class="skill-cat-box">
+              <h4><span class="skill-cat-icon">🗄️</span> Data & Backend</h4>
+              <div class="skill-tags">
+                <span class="profile-tag">Firebase Firestore</span>
+                <span class="profile-tag">CRUD Operations</span>
+                <span class="profile-tag">Live Data Storage & Display</span>
+              </div>
+            </div>
+
+            <div class="skill-cat-box">
+              <h4><span class="skill-cat-icon">🧠</span> APIs & AI</h4>
+              <div class="skill-tags">
+                <span class="profile-tag">JavaScript API Integration</span>
+                <span class="profile-tag">Gemini/Grok API-based Features</span>
+                <span class="profile-tag">AI-assisted Implementation & Debugging</span>
+              </div>
+            </div>
+
+            <div class="skill-cat-box">
+              <h4><span class="skill-cat-icon">🚀</span> Tools & Deployment</h4>
+              <div class="skill-tags">
+                <span class="profile-tag">Git</span>
+                <span class="profile-tag">GitHub</span>
+                <span class="profile-tag">GitHub Pages</span>
+                <span class="profile-tag">Custom Domains</span>
+                <span class="profile-tag">Basic SEO</span>
+                <span class="profile-tag">Sitemap & robots.txt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Development Approach -->
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <span class="card-sec-icon">💡</span>
+            <h3>Development Approach</h3>
+          </div>
+          <div class="approach-box">
+            <p class="profile-text">
+              My development workflow combines independent product and design judgement with AI-assisted implementation. I first determine what the website should achieve, how users should navigate it, what the interface should look like and which features are required. I then use AI tools to help implement or modify the code, but I do not treat generated output as automatically correct. I review the result against the requirement, test the interface, identify issues and iterate until the expected behaviour and user experience are achieved.
+            </p>
+          </div>
+        </div>
+
+        <!-- Selected Projects (Styled like Project Hub cards) -->
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <span class="card-sec-icon">🌟</span>
+            <h3>Selected Projects</h3>
+          </div>
+          <div class="profile-projects-grid">
+            <!-- FreeCourseHub -->
+            <div class="profile-project-card">
+              <div class="profile-proj-top">
+                <span class="badge-category">Education Platform</span>
+                <h4>FreeCourseHub</h4>
+              </div>
+              <p class="profile-proj-desc">A purpose-built course discovery engine equipped with instantaneous search/filtering, theme toggling, and frictionless mobile navigation.</p>
+              <div class="card-tags">
+                <span class="tag-badge">HTML5</span>
+                <span class="tag-badge">CSS3</span>
+                <span class="tag-badge">JavaScript</span>
+                <span class="tag-badge">Live Filtering</span>
+                <span class="tag-badge">Theme Toggle</span>
+              </div>
+              <a href="https://freecoursehub.xyz" target="_blank" rel="noopener noreferrer" class="open-launch-btn">
+                Launch Live App ↗
+              </a>
+            </div>
+
+            <!-- MS Web Solution -->
+            <div class="profile-project-card">
+              <div class="profile-proj-top">
+                <span class="badge-category">Agency & Business</span>
+                <h4>MS Web Solution</h4>
+              </div>
+              <p class="profile-proj-desc">Interactive business web application showcasing high-conversion frontend UI, form handling, and optimized CSS component structures.</p>
+              <div class="card-tags">
+                <span class="tag-badge">Responsive UI</span>
+                <span class="tag-badge">Form Handling</span>
+                <span class="tag-badge">CSS Modules</span>
+                <span class="tag-badge">Custom Domain</span>
+              </div>
+              <a href="https://mswebsolutions.online" target="_blank" rel="noopener noreferrer" class="open-launch-btn">
+                Launch Live App ↗
+              </a>
+            </div>
+
+            <!-- Project Hub -->
+            <div class="profile-project-card">
+              <div class="profile-proj-top">
+                <span class="badge-category">Developer System</span>
+                <h4>Project Hub</h4>
+              </div>
+              <p class="profile-proj-desc">Unified central developer dashboard organizing and showcasing 20+ applications with direct preview access and categorized architecture.</p>
+              <div class="card-tags">
+                <span class="tag-badge">Project Hub</span>
+                <span class="tag-badge">20+ Projects</span>
+                <span class="tag-badge">Local Storage</span>
+                <span class="tag-badge">GitHub Pages</span>
+              </div>
+              <a href="https://munendra5singh.github.io/Project-Hub/" target="_blank" rel="noopener noreferrer" class="open-launch-btn">
+                Launch Hub ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project & Development Experience -->
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <span class="card-sec-icon">📈</span>
+            <h3>Project & Development Experience</h3>
+          </div>
+          <ul class="experience-list">
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Built and maintained <strong>20+ responsive web projects</strong>.</span>
+            </li>
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Designed page layouts, navigation, UI elements and user flows.</span>
+            </li>
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Used AI tools to accelerate implementation while independently deciding requirements, reviewing output and testing features.</span>
+            </li>
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Integrated <strong>Firebase Firestore</strong> for live data storage, retrieval and CRUD operations.</span>
+            </li>
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Integrated APIs and AI APIs such as <strong>Gemini/Grok</strong>.</span>
+            </li>
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Implemented search/filtering, forms, dark/light themes, mobile navigation and localStorage functionality.</span>
+            </li>
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Deployed websites using <strong>GitHub Pages</strong> and custom domains.</span>
+            </li>
+            <li>
+              <span class="exp-bullet">✔</span>
+              <span>Worked through development issues by testing, identifying errors/usability problems and iterating.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Education & Certifications & Languages Grid -->
+        <div class="profile-grid-3col">
+          <!-- Education -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <span class="card-sec-icon">🎓</span>
+              <h3>Education</h3>
+            </div>
+            <div class="profile-sub-item">
+              <h4>Bachelor of Arts (B.A.)</h4>
+              <p class="sub-lead">Geography & Economics</p>
+              <p class="sub-meta">D.A.V. P.G. College (HNBGU), Dehradun, Uttarakhand</p>
+              <span class="profile-badge-status">Final Year | Expected 2027</span>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <span class="card-sec-icon">📜</span>
+              <h3>Certifications</h3>
+            </div>
+            <div class="cert-list">
+              <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                  <h4>Full Stack Web Development</h4>
+                  <p class="sub-meta">Physics Wallah (PW) | Completed 2026</p>
+                </div>
+              </div>
+              <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                  <h4>Computer Application</h4>
+                  <p class="sub-meta">UGPV Samiti | 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <span class="card-sec-icon">🌐</span>
+              <h3>Languages</h3>
+            </div>
+            <div class="lang-list">
+              <div class="lang-item">
+                <span class="lang-name">Hindi</span>
+                <span class="lang-level">Native</span>
+              </div>
+              <div class="lang-item">
+                <span class="lang-name">English</span>
+                <span class="lang-level">Basic Communication</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career Objective -->
+        <div class="profile-card">
+          <div class="profile-card-header">
+            <span class="card-sec-icon">🎯</span>
+            <h3>Career Objective</h3>
+          </div>
+          <p class="profile-text">
+            Seeking a Web Development / Frontend Development internship where I can contribute to real-world website projects, apply my UI/UX and AI-assisted development workflow, improve my manual coding skills, and grow through practical development experience.
+          </p>
+        </div>
+
+        <!-- Contact / Links Card -->
+        <div class="profile-card profile-contact-card">
+          <div class="profile-card-header">
+            <span class="card-sec-icon">📫</span>
+            <h3>Contact & Connect</h3>
+          </div>
+          <div class="contact-links-grid">
+            <a href="mailto:singh2005munendra@gmail.com" class="contact-pill-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <small>Email</small>
+                <strong>singh2005munendra@gmail.com</strong>
+              </div>
+            </a>
+            <a href="tel:+919027523282" class="contact-pill-item">
+              <span class="contact-icon">📱</span>
+              <div>
+                <small>Phone</small>
+                <strong>+91 9027523282</strong>
+              </div>
+            </a>
+            <a href="https://github.com/munendra5singh" target="_blank" rel="noopener noreferrer" class="contact-pill-item">
+              <span class="contact-icon">🐙</span>
+              <div>
+                <small>GitHub</small>
+                <strong>github.com/munendra5singh</strong>
+              </div>
+            </a>
+            <a href="https://munendra5singh.github.io/Project-Hub/" target="_blank" rel="noopener noreferrer" class="contact-pill-item">
+              <span class="contact-icon">⚡</span>
+              <div>
+                <small>Project Hub</small>
+                <strong>munendra5singh.github.io/Project-Hub</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- Projects Grid/List -->
       <section id="projectsGallery" class="gallery-grid"></section>
 
@@ -216,50 +607,86 @@
       </div>
     </main>
 
-    <!-- YouTube-Style Fixed Mobile Bottom Navigation Bar -->
-    <nav class="mobile-youtube-nav">
-      <button class="yt-nav-btn active" data-view="all">
+    <!-- YouTube-Style Fixed Mobile Bottom Navigation Bar (5 Items: Home | Profile | Favorites | Search | More) -->
+    <nav class="mobile-youtube-nav" aria-label="Mobile Navigation">
+      <button class="yt-nav-btn active" data-view="all" aria-label="Home">
         <div class="yt-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
         </div>
         <span>Home</span>
       </button>
 
-      <button class="yt-nav-btn" data-view="favorites">
+      <button class="yt-nav-btn" data-view="profile" aria-label="Profile">
+        <div class="yt-icon-wrapper">
+          <span style="font-size: 1.1rem; line-height: 1;">🪪</span>
+        </div>
+        <span>Profile</span>
+      </button>
+
+      <button class="yt-nav-btn" data-view="favorites" aria-label="Favorites">
         <div class="yt-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <span>Favorites</span>
       </button>
 
-      <button class="yt-nav-btn" data-view="recent">
-        <div class="yt-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
-        </div>
-        <span>Recent</span>
-      </button>
-
-      <button class="yt-nav-btn" data-view="search">
+      <button class="yt-nav-btn" data-view="search" aria-label="Search">
         <div class="yt-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
         </div>
         <span>Search</span>
       </button>
 
-      <button class="yt-nav-btn" data-view="categories">
+      <button class="yt-nav-btn" id="mobileMoreBtn" aria-label="More Menu">
         <div class="yt-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
         </div>
-        <span>Categories</span>
-      </button>
-
-      <button class="yt-nav-btn" data-view="settings">
-        <div class="yt-icon-wrapper">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-        </div>
-        <span>Settings</span>
+        <span>More</span>
       </button>
     </nav>
+
+    <!-- Mobile More Bottom Sheet & Overlay -->
+    <div id="mobileMoreOverlay" class="mobile-more-overlay hidden" aria-hidden="true"></div>
+    <div id="mobileMoreSheet" class="mobile-more-sheet hidden" role="dialog" aria-modal="true" aria-label="More Navigation Options">
+      <div class="sheet-handle-bar">
+        <span class="sheet-handle"></span>
+      </div>
+      <div class="sheet-header">
+        <span class="sheet-title">More Options</span>
+        <button id="closeMoreSheetBtn" class="sheet-close-btn" aria-label="Close menu">&times;</button>
+      </div>
+      <div class="sheet-menu-list">
+        <button class="sheet-menu-item" data-view="recent">
+          <span class="sheet-item-icon">🕐</span>
+          <div class="sheet-item-text">
+            <strong>Recently Opened</strong>
+            <small>History of launched projects</small>
+          </div>
+        </button>
+        <button class="sheet-menu-item" data-view="categories">
+          <span class="sheet-item-icon">🏷️</span>
+          <div class="sheet-item-text">
+            <strong>Categories</strong>
+            <small>Filter projects by category</small>
+          </div>
+        </button>
+        <button class="sheet-menu-item" data-view="settings">
+          <span class="sheet-item-icon">⚙️</span>
+          <div class="sheet-item-text">
+            <strong>Settings</strong>
+            <small>Sorting, themes and layout density</small>
+          </div>
+        </button>
+        <button class="sheet-menu-item" id="sheetThemeToggleBtn" aria-label="Toggle Theme">
+          <span class="sheet-item-icon" id="sheetThemeIcon">🌓</span>
+          <div class="sheet-item-text">
+            <strong>Theme Appearance</strong>
+            <small id="sheetThemeDesc">Current: Dark Theme (tap to switch)</small>
+          </div>
+          <span class="sheet-theme-badge" id="sheetThemeBadge">Dark</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <script src="data/projects.js"></script>
