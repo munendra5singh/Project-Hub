@@ -31,25 +31,47 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySection: document.getElementById("categorySection"),
     categoryPills: document.querySelectorAll(".category-pill"),
     settingsSection: document.getElementById("settingsSection"),
+    profileSection: document.getElementById("profileSection"),
     projectsGallery: document.getElementById("projectsGallery"),
     gridToggleBtn: document.getElementById("gridToggleBtn"),
     listToggleBtn: document.getElementById("listToggleBtn"),
+    viewSwitchBox: document.querySelector(".view-switch-box"),
     quickSortSelect: document.getElementById("quickSortSelect"),
     noResultsState: document.getElementById("noResultsState"),
     emptyHeading: document.getElementById("emptyHeading"),
     emptySub: document.getElementById("emptySub"),
-    settingToggles: document.querySelectorAll(".setting-toggle")
+    settingToggles: document.querySelectorAll(".setting-toggle"),
+    sidebar: document.getElementById("sidebar"),
+    sidebarToggleBtn: document.getElementById("sidebarToggleBtn"),
+    userCardBtn: document.getElementById("userCardBtn"),
+    mobileMoreBtn: document.getElementById("mobileMoreBtn"),
+    mobileMoreOverlay: document.getElementById("mobileMoreOverlay"),
+    mobileMoreSheet: document.getElementById("mobileMoreSheet"),
+    closeMoreSheetBtn: document.getElementById("closeMoreSheetBtn"),
+    sheetMenuItems: document.querySelectorAll(".sheet-menu-item"),
+    sheetThemeToggleBtn: document.getElementById("sheetThemeToggleBtn"),
+    sheetThemeIcon: document.getElementById("sheetThemeIcon"),
+    sheetThemeDesc: document.getElementById("sheetThemeDesc"),
+    sheetThemeBadge: document.getElementById("sheetThemeBadge")
   };
 
   // Init
   function init() {
     applyTheme(state.settings.theme);
     applyLayout(state.settings.layout);
+    initSidebarState();
     el.quickSortSelect.value = state.settings.sort;
     syncSettingsControls();
     registerEvents();
     initScrollListener();
     handleViewSwitch(state.view);
+  }
+
+  function initSidebarState() {
+    const isCollapsed = localStorage.getItem("projecthub_sidebar_collapsed") === "true";
+    if (isCollapsed && el.sidebar) {
+      el.sidebar.classList.add("collapsed");
+    }
   }
 
   function registerEvents() {
@@ -58,8 +80,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     el.mobileNavs.forEach(btn => {
-      btn.addEventListener("click", () => handleViewSwitch(btn.dataset.view));
+      if (btn.dataset.view) {
+        btn.addEventListener("click", () => handleViewSwitch(btn.dataset.view));
+      }
     });
+
+    if (el.sidebarToggleBtn && el.sidebar) {
+      el.sidebarToggleBtn.addEventListener("click", () => {
+        el.sidebar.classList.toggle("collapsed");
+        localStorage.setItem("projecthub_sidebar_collapsed", el.sidebar.classList.contains("collapsed"));
+      });
+    }
+
+    if (el.userCardBtn) {
+      el.userCardBtn.addEventListener("click", () => handleViewSwitch("profile"));
+      el.userCardBtn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleViewSwitch("profile");
+        }
+      });
+    }
+
+    if (el.mobileMoreBtn) {
+      el.mobileMoreBtn.addEventListener("click", openMoreSheet);
+    }
+    if (el.closeMoreSheetBtn) {
+      el.closeMoreSheetBtn.addEventListener("click", closeMoreSheet);
+    }
+    if (el.mobileMoreOverlay) {
+      el.mobileMoreOverlay.addEventListener("click", closeMoreSheet);
+    }
+
+    el.sheetMenuItems.forEach(item => {
+      if (item.dataset.view) {
+        item.addEventListener("click", () => {
+          handleViewSwitch(item.dataset.view);
+          closeMoreSheet();
+        });
+      }
+    });
+
+    if (el.sheetThemeToggleBtn) {
+      el.sheetThemeToggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const nextTheme = state.settings.theme === "dark" ? "light" : "dark";
+        state.settings.theme = nextTheme;
+        applyTheme(nextTheme);
+        saveSettings();
+        syncSettingsControls();
+      });
+    }
 
     el.searchInput.addEventListener("input", (e) => {
       state.searchQuery = e.target.value.trim().toLowerCase();
@@ -121,6 +192,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function openMoreSheet() {
+    if (el.mobileMoreOverlay && el.mobileMoreSheet) {
+      el.mobileMoreOverlay.classList.remove("hidden");
+      el.mobileMoreSheet.classList.remove("hidden");
+    }
+  }
+
+  function closeMoreSheet() {
+    if (el.mobileMoreOverlay && el.mobileMoreSheet) {
+      el.mobileMoreOverlay.classList.add("hidden");
+      el.mobileMoreSheet.classList.add("hidden");
+    }
+  }
+
   // Auto Hide / Show on Scroll
   function initScrollListener() {
     let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
@@ -152,7 +237,22 @@ document.addEventListener("DOMContentLoaded", () => {
     state.view = targetView;
 
     el.desktopNavs.forEach(b => b.classList.toggle("active", b.dataset.view === targetView));
-    el.mobileNavs.forEach(b => b.classList.toggle("active", b.dataset.view === targetView));
+    el.mobileNavs.forEach(b => {
+      if (b.dataset.view) {
+        b.classList.toggle("active", b.dataset.view === targetView);
+      }
+    });
+
+    // If active view is in More menu (recent, categories, settings), highlight More button
+    if (el.mobileMoreBtn) {
+      const isMoreView = ["recent", "categories", "settings"].includes(targetView);
+      el.mobileMoreBtn.classList.toggle("active", isMoreView);
+    }
+
+    // Active item in More sheet
+    el.sheetMenuItems.forEach(item => {
+      item.classList.toggle("active", item.dataset.view === targetView);
+    });
 
     // Dynamic current section page titles
     const titles = {
@@ -161,7 +261,8 @@ document.addEventListener("DOMContentLoaded", () => {
       recent: { h: "Recent", d: "Projects you have launched recently." },
       search: { h: "Search", d: "Instantly query projects across names, tags, and categories." },
       categories: { h: "Categories", d: "Filter projects based on workspace stack and type." },
-      settings: { h: "Settings", d: "Customize sorting, theme mode, and density." }
+      settings: { h: "Settings", d: "Customize sorting, theme mode, and density." },
+      profile: { h: "Profile", d: "About me, my skills, experience and development journey." }
     };
 
     const currentMeta = titles[targetView] || { h: "All Projects", d: "" };
@@ -169,14 +270,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el.viewDesc) el.viewDesc.textContent = currentMeta.d;
 
     // Toggle panels
+    const isProjectGalleryView = !["settings", "profile"].includes(targetView);
+
     el.searchSection.classList.toggle("hidden", targetView !== "search");
     el.categorySection.classList.toggle("hidden", targetView !== "categories");
     el.settingsSection.classList.toggle("hidden", targetView !== "settings");
-    el.projectsGallery.classList.toggle("hidden", targetView === "settings");
+    if (el.profileSection) el.profileSection.classList.toggle("hidden", targetView !== "profile");
+    el.projectsGallery.classList.toggle("hidden", !isProjectGalleryView);
 
-    // Hide sort dropdown on settings view for a clean header
+    // Hide sort dropdown and layout switcher on settings and profile for a clean header
     if (el.quickSortSelect) {
-      el.quickSortSelect.style.display = targetView === "settings" ? "none" : "";
+      el.quickSortSelect.style.display = isProjectGalleryView ? "" : "none";
+    }
+    if (el.viewSwitchBox) {
+      el.viewSwitchBox.style.display = isProjectGalleryView ? "" : "none";
     }
 
     if (targetView === "search") el.searchInput.focus();
@@ -187,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderGallery() {
-    if (state.view === "settings") {
+    if (state.view === "settings" || state.view === "profile") {
       el.projectsGallery.innerHTML = "";
       el.noResultsState.classList.add("hidden");
       return;
@@ -304,6 +411,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
+    syncThemeInMoreSheet(theme);
+  }
+
+  function syncThemeInMoreSheet(theme) {
+    if (el.sheetThemeBadge && el.sheetThemeDesc && el.sheetThemeIcon) {
+      const isDark = theme === "dark";
+      el.sheetThemeIcon.textContent = isDark ? "🌙" : "☀️";
+      el.sheetThemeDesc.textContent = isDark ? "Current: Dark Theme (tap to switch)" : "Current: Light Theme (tap to switch)";
+      el.sheetThemeBadge.textContent = isDark ? "Dark" : "Light";
+    }
   }
 
   function applyLayout(layout) {
