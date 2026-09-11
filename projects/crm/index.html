@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2563eb">
+<title>Property Manager Pro</title>
+<style>
+:root{--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#697386;--line:#e7eaf0;--primary:#2563eb;--primary2:#1d4ed8;--success:#15803d;--warn:#b45309;--danger:#dc2626;--shadow:0 10px 30px rgba(15,23,42,.07);--radius:16px}
+*{box-sizing:border-box}html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}
+.sidebar{width:255px;background:#0f172a;color:#e5e7eb;padding:20px 14px;position:fixed;inset:0 auto 0 0;z-index:20;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 22px;font-weight:800;font-size:19px}.brand span{width:36px;height:36px;border-radius:11px;background:#2563eb;display:grid;place-items:center;color:white}
+.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#cbd5e1;text-align:left;padding:11px 12px;border-radius:10px;display:flex;gap:10px;align-items:center}.nav button:hover,.nav button.active{background:#1e293b;color:#fff}.side-foot{margin-top:auto;font-size:12px;color:#94a3b8;padding:12px}
+.main{margin-left:255px;width:calc(100% - 255px);padding:22px;min-width:0}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:20px}.top h1{margin:0;font-size:25px}.top p{margin:4px 0 0;color:var(--muted);font-size:13px}.top-actions{display:flex;gap:8px;align-items:center}.icon-btn,.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:9px 13px;border-radius:10px;font-weight:600}.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}.btn.primary:hover{background:var(--primary2)}.btn.danger{color:var(--danger)}.menu{display:none}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:17px;box-shadow:var(--shadow)}.stat .label{color:var(--muted);font-size:12px}.stat .num{font-size:26px;font-weight:800;margin-top:6px}.stat .small{font-size:11px;color:var(--muted);margin-top:4px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-head h2{font-size:16px;margin:0}.toolbar{padding:13px 16px;display:grid;grid-template-columns:2fr repeat(4,1fr) auto;gap:8px;border-bottom:1px solid var(--line)}.field{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 10px;outline:none;color:var(--text)}.field:focus{border-color:#93c5fd;box-shadow:0 0 0 3px #dbeafe}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:950px}.table th,.table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}.table th{font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.04em;background:#fafbfc;position:sticky;top:0;z-index:1}.property-name{font-weight:700}.muted{color:var(--muted);font-size:12px}.badge{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700}.available{background:#dcfce7;color:#166534}.hold{background:#fef3c7;color:#92400e}.sold{background:#fee2e2;color:#991b1b}.inactive{background:#e5e7eb;color:#4b5563}.actions{display:flex;gap:5px;white-space:nowrap}.mini{padding:6px 8px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:12px}.mini:hover{background:#f8fafc}.content-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:16px;margin-top:16px}.list{padding:0 16px 12px}.list-row{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.list-row:last-child{border-bottom:0}.empty{text-align:center;padding:40px;color:var(--muted)}.pagination{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;color:var(--muted);font-size:12px}.view-toggle{display:flex;gap:4px}.view-toggle button{border:1px solid var(--line);background:#fff;padding:7px 9px;border-radius:8px}.view-toggle button.active{background:#eff6ff;color:var(--primary);border-color:#bfdbfe}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:16px}.prop-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.prop-cover{height:125px;background:linear-gradient(135deg,#dbeafe,#eef2ff);display:grid;place-items:center;font-size:35px}.prop-body{padding:13px}.prop-body h3{font-size:15px;margin:0 0 5px}.prop-meta{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.prop-meta span{font-size:11px;padding:4px 7px;background:#f1f5f9;border-radius:7px;color:#475569}.prop-price{font-weight:800;font-size:17px;margin:8px 0}.prop-actions{display:flex;gap:6px}.prop-actions button{flex:1}
+.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal-bg.show{display:flex}.modal{width:min(900px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 70px rgba(0,0,0,.25)}.modal.small{width:min(560px,100%)}.modal-head{padding:17px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modal-head h2{margin:0;font-size:18px}.modal-body{padding:18px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-group label{display:block;font-size:12px;font-weight:700;margin:0 0 6px}.form-group.full{grid-column:1/-1}.modal-foot{padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px}.details{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.detail{background:#f8fafc;border-radius:10px;padding:11px}.detail label{display:block;font-size:10px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}.detail b{font-size:13px}.notes{white-space:pre-wrap;background:#f8fafc;border-radius:10px;padding:12px;font-size:13px;min-height:60px}.toast{position:fixed;right:18px;bottom:18px;background:#0f172a;color:#fff;padding:11px 15px;border-radius:10px;box-shadow:var(--shadow);display:none;z-index:100;font-size:13px}.toast.show{display:block}.drawer{display:none}
+@media(max-width:1050px){.cards{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:2fr repeat(2,1fr)}.content-grid{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.sidebar{transform:translateX(-100%);transition:.2s}.sidebar.open{transform:translateX(0)}.main{margin-left:0;width:100%;padding:14px}.menu{display:block}.top{align-items:flex-start}.top h1{font-size:21px}.top-actions .hide-sm{display:none}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.stat{padding:13px}.stat .num{font-size:22px}.toolbar{grid-template-columns:1fr 1fr}.toolbar .search{grid-column:1/-1}.grid{grid-template-columns:1fr;padding:12px}.form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}.details{grid-template-columns:repeat(2,1fr)}.panel-head{align-items:flex-start}.top-actions{gap:5px}}
+@media(max-width:430px){.cards{grid-template-columns:1fr 1fr}.cards .stat:nth-child(3),.cards .stat:nth-child(4){display:none}.toolbar{grid-template-columns:1fr}.toolbar .search{grid-column:auto}.details{grid-template-columns:1fr}.top-actions .btn.primary{padding:8px 9px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><span>🏠</span> Property Pro</div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard">📊 Dashboard</button>
+    <button data-page="properties">🏘️ Properties</button>
+    <button data-page="favorites">⭐ Favorites</button>
+    <button data-page="followups">📅 Follow-ups</button>
+  </nav>
+  <div class="side-foot">Offline • LocalStorage<br>All data stays in this browser.</div>
+</aside>
+<main class="main">
+  <header class="top">
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <button class="icon-btn menu" onclick="toggleSidebar()">☰</button>
+      <div><h1 id="pageTitle">Dashboard</h1><p id="pageSub">Manage your property inventory in one place.</p></div>
+    </div>
+    <div class="top-actions">
+      <button class="btn hide-sm" onclick="exportJSON()">⬇ Backup</button>
+      <button class="btn primary" onclick="openForm()">＋ Add Property</button>
+    </div>
+  </header>
+
+  <section id="dashboardPage">
+    <div class="cards">
+      <div class="stat"><div class="label">Total Properties</div><div class="num" id="sTotal">0</div><div class="small">All records</div></div>
+      <div class="stat"><div class="label">Available</div><div class="num" id="sAvailable">0</div><div class="small">Ready for sale</div></div>
+      <div class="stat"><div class="label">On Hold</div><div class="num" id="sHold">0</div><div class="small">Follow up soon</div></div>
+      <div class="stat"><div class="label">Favorites</div><div class="num" id="sFav">0</div><div class="small">Shortlisted</div></div>
+    </div>
+    <div class="content-grid">
+      <div class="panel">
+        <div class="panel-head"><h2>Recent Properties</h2><button class="btn" onclick="showPage('properties')">View all</button></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Property</th><th>Location</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody id="recentBody"></tbody></table></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h2>Quick Summary</h2></div>
+        <div class="list" id="summaryList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="propertiesPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head">
+        <div><h2>All Properties</h2><div class="muted" id="resultCount">0 results</div></div>
+        <div class="view-toggle"><button id="tableViewBtn" class="active" onclick="setView('table')">☷ Table</button><button id="cardViewBtn" onclick="setView('card')">▦ Cards</button></div>
+      </div>
+      <div class="toolbar">
+        <input class="field search" id="search" placeholder="🔎 Search name, location, owner, phone, BHK, notes..." oninput="renderProperties()">
+        <select class="field" id="filterLocation" onchange="renderProperties()"><option value="">All locations</option></select>
+        <select class="field" id="filterType" onchange="renderProperties()"><option value="">All types</option><option>Villa</option><option>Duplex</option><option>Plot</option><option>Apartment</option><option>House</option><option>Commercial</option></select>
+        <select class="field" id="filterStatus" onchange="renderProperties()"><option value="">All status</option><option>Available</option><option>Hold</option><option>Sold</option><option>Inactive</option></select>
+        <select class="field" id="sortBy" onchange="renderProperties()"><option value="new">Newest</option><option value="old">Oldest</option><option value="priceLow">Price low-high</option><option value="priceHigh">Price high-low</option><option value="areaHigh">Area high-low</option><option value="az">Name A-Z</option></select>
+        <button class="btn" onclick="clearFilters()">Clear</button>
+      </div>
+      <div id="propertyResults"></div>
+    </div>
+  </section>
+
+  <section id="favoritesPage" style="display:none"><div class="panel"><div class="panel-head"><h2>⭐ Favorites</h2></div><div id="favResults"></div></div></section>
+  <section id="followupsPage" style="display:none"><div class="panel"><div class="panel-head"><div><h2>📅 Follow-ups</h2><div class="muted">Properties with a next follow-up date</div></div></div><div id="followResults"></div></div></section>
+</main>
+</div>
+
+<div class="modal-bg" id="formModal">
+<div class="modal">
+  <div class="modal-head"><h2 id="formTitle">Add Property</h2><button class="icon-btn" onclick="closeModal('formModal')">✕</button></div>
+  <div class="modal-body">
+    <input type="hidden" id="fId">
+    <div class="form-grid">
+      <div class="form-group"><label>Property Name *</label><input class="field" id="fName" required></div>
+      <div class="form-group"><label>Location *</label><input class="field" id="fLocation" placeholder="Rajpur, Dehradun"></div>
+      <div class="form-group"><label>Type</label><select class="field" id="fType"><option>Villa</option><option>Duplex</option><option>Plot</option><option>Apartment</option><option>House</option><option>Commercial</option></select></div>
+      <div class="form-group"><label>BHK</label><input class="field" id="fBhk" placeholder="3 BHK"></div>
+      <div class="form-group"><label>Area (Sqyds)</label><input class="field" id="fArea" type="number" min="0"></div>
+      <div class="form-group"><label>Dimensions</label><input class="field" id="fDim" placeholder="30 × 60"></div>
+      <div class="form-group"><label>Facing</label><input class="field" id="fFacing" placeholder="East"></div>
+      <div class="form-group"><label>Road Width</label><input class="field" id="fRoad" placeholder="20 ft"></div>
+      <div class="form-group"><label>Price (₹)</label><input class="field" id="fPrice" type="number" min="0"></div>
+      <div class="form-group"><label>Status</label><select class="field" id="fStatus"><option>Available</option><option>Hold</option><option>Sold</option><option>Inactive</option></select></div>
+      <div class="form-group"><label>Owner / Broker</label><input class="field" id="fOwner"></div>
+      <div class="form-group"><label>Phone</label><input class="field" id="fPhone" inputmode="tel"></div>
+      <div class="form-group"><label>Follow-up Date</label><input class="field" id="fFollow" type="date"></div>
+      <div class="form-group"><label>Google Maps URL</label><input class="field" id="fMap" type="url" placeholder="https://maps.google.com/..."></div>
+      <div class="form-group"><label>Photo URL</label><input class="field" id="fPhoto" type="url" placeholder="https://..."></div>
+      <div class="form-group"><label>Video URL</label><input class="field" id="fVideo" type="url" placeholder="https://youtube.com/..."></div>
+      <div class="form-group full"><label>Notes</label><textarea class="field" id="fNotes" rows="4" placeholder="Site visit, negotiation, special details..."></textarea></div>
+    </div>
+  </div>
+  <div class="modal-foot"><button class="btn" onclick="closeModal('formModal')">Cancel</button><button class="btn primary" onclick="saveProperty()">Save Property</button></div>
+</div></div>
+
+<div class="modal-bg" id="detailModal"><div class="modal small"><div class="modal-head"><h2 id="dTitle">Property</h2><button class="icon-btn" onclick="closeModal('detailModal')">✕</button></div><div class="modal-body" id="detailBody"></div><div class="modal-foot" id="detailFoot"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY='property_manager_pro_v2';
+const initial=[
+{name:'Nature Crest - 3 BHK Duplex',location:'Rajpur',type:'Duplex',bhk:'3 BHK',area:220,dim:'35 × 55',facing:'East',road:'20 ft',price:18500000,status:'Available',owner:'Amit Sharma',phone:'9876543210',follow:'2026-09-12',map:'https://maps.google.com/?q=Rajpur+Dehradun',photo:'',video:'',notes:'Premium duplex near Rajpur Road. Ready to visit.',favorite:true,created:'2026-09-01'},
+{name:'Sinola Villa',location:'Rajpur',type:'Villa',bhk:'4 BHK',area:420,dim:'50 × 75',facing:'North',road:'30 ft',price:32000000,status:'Available',owner:'Neeraj Rawat',phone:'9812345678',follow:'2026-09-15',map:'https://maps.google.com/?q=Sinola+Dehradun',photo:'',video:'',notes:'Large plot, peaceful surroundings.',favorite:false,created:'2026-08-30'},
+{name:'5 BHK Villa Jakhan',location:'Jakhan',type:'Villa',bhk:'5 BHK',area:500,dim:'60 × 80',facing:'West',road:'30 ft',price:45000000,status:'Hold',owner:'Vikas Kapoor',phone:'9898989898',follow:'2026-09-10',map:'https://maps.google.com/?q=Jakhan+Dehradun',photo:'',video:'',notes:'Excellent residential location.',favorite:true,created:'2026-08-28'},
+{name:'4 BHK Villa Johri Gao',location:'Johri Gaon',type:'Villa',bhk:'4 BHK',area:350,dim:'45 × 70',facing:'East',road:'25 ft',price:27500000,status:'Available',owner:'Pankaj Negi',phone:'9765432109',follow:'2026-09-20',map:'https://maps.google.com/?q=Johri+Gaon+Dehradun',photo:'',video:'',notes:'Corner property with good access.',favorite:false,created:'2026-08-27'},
+{name:'Sarthak',location:'Rajpur Mussoorie Road',type:'Plot',bhk:'',area:300,dim:'40 × 67',facing:'North',road:'30 ft',price:15000000,status:'Available',owner:'Sarthak Properties',phone:'9876501234',follow:'2026-09-14',map:'https://maps.google.com/?q=Rajpur+Mussoorie+Road',photo:'',video:'',notes:'Clear title plot.',favorite:false,created:'2026-08-25'},
+{name:'Narula',location:'Rajpur Mussoorie Road',type:'Plot',bhk:'',area:500,dim:'50 × 90',facing:'South',road:'40 ft',price:26000000,status:'Sold',owner:'Narula Associates',phone:'9123456780',follow:'',map:'https://maps.google.com/?q=Rajpur+Mussoorie+Road',photo:'',video:'',notes:'Sold recently.',favorite:false,created:'2026-08-22'},
+{name:'Kochar Colony',location:'Rajpur Mussoorie Road',type:'Plot',bhk:'',area:250,dim:'30 × 75',facing:'East',road:'25 ft',price:12500000,status:'Available',owner:'Rohit Kochar',phone:'9988776655',follow:'2026-09-18',map:'https://maps.google.com/?q=Rajpur+Mussoorie+Road',photo:'',video:'',notes:'Good investment option.',favorite:false,created:'2026-08-20'},
+{name:'Pacific Hills',location:'Sahastradhara Road',type:'Apartment',bhk:'3 BHK',area:210,dim:'',facing:'North-East',road:'40 ft',price:9500000,status:'Available',owner:'Pacific Sales',phone:'9012345678',follow:'2026-09-11',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Gated community. Amenities available.',favorite:true,created:'2026-08-18'},
+{name:'6 BHK Duplex Near MB Homes',location:'Sahastradhara Road',type:'Duplex',bhk:'6 BHK',area:450,dim:'55 × 82',facing:'West',road:'30 ft',price:29500000,status:'Available',owner:'Manoj Bisht',phone:'9876123456',follow:'2026-09-09',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Spacious family home.',favorite:false,created:'2026-08-16'},
+{name:'R.N.P',location:'Sahastradhara Road',type:'Villa',bhk:'4 BHK',area:320,dim:'40 × 72',facing:'East',road:'30 ft',price:22000000,status:'Hold',owner:'RNP Realty',phone:'9800001122',follow:'2026-09-08',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Client negotiation ongoing.',favorite:false,created:'2026-08-14'},
+{name:'Orchid',location:'Sahastradhara Road',type:'Apartment',bhk:'2 BHK',area:140,dim:'',facing:'East',road:'40 ft',price:6500000,status:'Available',owner:'Orchid Sales',phone:'9877001100',follow:'2026-09-16',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Budget-friendly option.',favorite:false,created:'2026-08-12'},
+{name:'Kala Gao',location:'Sahastradhara Road',type:'House',bhk:'3 BHK',area:200,dim:'30 × 60',facing:'North',road:'20 ft',price:9800000,status:'Available',owner:'Rajeev',phone:'9899002233',follow:'2026-09-22',map:'https://maps.google.com/?q=Kala+Gaon+Dehradun',photo:'',video:'',notes:'Independent house.',favorite:false,created:'2026-08-10'},
+{name:'Drone Vatika',location:'Sahastradhara Road',type:'Villa',bhk:'4 BHK',area:300,dim:'40 × 67',facing:'West',road:'30 ft',price:18500000,status:'Available',owner:'Drone Vatika Sales',phone:'9755006677',follow:'2026-09-13',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Modern villa project.',favorite:true,created:'2026-08-08'},
+{name:'Vishwanath Enclave',location:'Sahastradhara Road',type:'Plot',bhk:'',area:180,dim:'30 × 54',facing:'South-East',road:'20 ft',price:7200000,status:'Available',owner:'Vishwanath Realty',phone:'9822113344',follow:'2026-09-19',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Affordable residential plot.',favorite:false,created:'2026-08-06'},
+{name:'Tanishq Vihar',location:'Sahastradhara Road',type:'House',bhk:'4 BHK',area:275,dim:'35 × 70',facing:'North',road:'25 ft',price:16000000,status:'Available',owner:'Tanishq Homes',phone:'9900112233',follow:'2026-09-21',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Good rental potential.',favorite:false,created:'2026-08-04'},
+{name:'Ghati Valley',location:'Sahastradhara Road',type:'Villa',bhk:'5 BHK',area:410,dim:'50 × 82',facing:'East',road:'30 ft',price:28500000,status:'Available',owner:'Ghati Valley Realty',phone:'9888112244',follow:'2026-09-17',map:'https://maps.google.com/?q=Sahastradhara+Road+Dehradun',photo:'',video:'',notes:'Valley view.',favorite:false,created:'2026-08-02'},
+{name:'Central Park',location:'Raipur Road',type:'Apartment',bhk:'3 BHK',area:175,dim:'',facing:'East',road:'40 ft',price:7800000,status:'Available',owner:'Central Park Sales',phone:'9811002200',follow:'2026-09-23',map:'https://maps.google.com/?q=Raipur+Road+Dehradun',photo:'',video:'',notes:'Family apartment with parking.',favorite:false,created:'2026-07-30'},
+{name:'Krishna Palm',location:'Raipur Road',type:'Villa',bhk:'4 BHK',area:280,dim:'35 × 72',facing:'North',road:'30 ft',price:17200000,status:'Hold',owner:'Krishna Palm',phone:'9871234500',follow:'2026-09-10',map:'https://maps.google.com/?q=Raipur+Road+Dehradun',photo:'',video:'',notes:'Hold for site visit.',favorite:false,created:'2026-07-28'},
+{name:'Mount Crest',location:'Raipur Road',type:'Duplex',bhk:'4 BHK',area:240,dim:'35 × 62',facing:'West',road:'25 ft',price:14500000,status:'Available',owner:'Mount Crest Realty',phone:'9898112233',follow:'2026-09-25',map:'https://maps.google.com/?q=Raipur+Road+Dehradun',photo:'',video:'',notes:'Newly constructed.',favorite:true,created:'2026-07-25'},
+{name:'Orchid Park',location:'Dehradun',type:'Apartment',bhk:'2 BHK',area:125,dim:'',facing:'East',road:'40 ft',price:5400000,status:'Sold',owner:'Orchid Park Sales',phone:'9800112299',follow:'',map:'https://maps.google.com/?q=Dehradun',photo:'',video:'',notes:'Sold.',favorite:false,created:'2026-07-22'},
+{name:'Supriya',location:'Dehradun',type:'House',bhk:'3 BHK',area:190,dim:'30 × 63',facing:'North',road:'20 ft',price:8900000,status:'Available',owner:'Supriya Homes',phone:'9777001188',follow:'2026-09-26',map:'https://maps.google.com/?q=Dehradun',photo:'',video:'',notes:'Quiet residential area.',favorite:false,created:'2026-07-20'},
+{name:'Aarunya',location:'Dehradun',type:'Villa',bhk:'4 BHK',area:310,dim:'40 × 70',facing:'South',road:'30 ft',price:21000000,status:'Available',owner:'Aarunya Realty',phone:'9911223344',follow:'2026-09-27',map:'https://maps.google.com/?q=Dehradun',photo:'',video:'',notes:'Premium finishing.',favorite:false,created:'2026-07-18'},
+{name:'Bima Vihar',location:'Dehradun',type:'Plot',bhk:'',area:220,dim:'33 × 60',facing:'East',road:'20 ft',price:9900000,status:'Available',owner:'Bima Vihar',phone:'9866001177',follow:'2026-09-28',map:'https://maps.google.com/?q=Dehradun',photo:'',video:'',notes:'Residential plot.',favorite:false,created:'2026-07-16'},
+{name:'Shipra Vihar',location:'Dehradun',type:'House',bhk:'3 BHK',area:205,dim:'32 × 64',facing:'West',road:'25 ft',price:11200000,status:'Available',owner:'Shipra Properties',phone:'9844005566',follow:'2026-09-29',map:'https://maps.google.com/?q=Dehradun',photo:'',video:'',notes:'Corner house.',favorite:false,created:'2026-07-14'},
+{name:'Doon Divine',location:'Dehradun',type:'Villa',bhk:'5 BHK',area:390,dim:'48 × 80',facing:'North-East',road:'30 ft',price:26500000,status:'Available',owner:'Doon Divine',phone:'9855006677',follow:'2026-09-30',map:'https://maps.google.com/?q=Dehradun',photo:'',video:'',notes:'Luxury villa.',favorite:true,created:'2026-07-12'},
+{name:'117 Gaj Raipur Road',location:'Raipur Road',type:'Plot',bhk:'',area:117,dim:'25 × 42',facing:'East',road:'20 ft',price:5200000,status:'Available',owner:'Mahesh',phone:'9876007788',follow:'2026-10-01',map:'https://maps.google.com/?q=Raipur+Road+Dehradun',photo:'',video:'',notes:'Small plot, good for house.',favorite:false,created:'2026-07-10'},
+{name:'199 Gaj Raipur Road',location:'Raipur Road',type:'Plot',bhk:'',area:199,dim:'30 × 60',facing:'North',road:'25 ft',price:8500000,status:'Available',owner:'Amit Realty',phone:'9822003344',follow:'2026-10-02',map:'https://maps.google.com/?q=Raipur+Road+Dehradun',photo:'',video:'',notes:'Good road access.',favorite:false,created:'2026-07-08'}
+];
+
+function load(){try{let x=JSON.parse(localStorage.getItem(KEY));return Array.isArray(x)?x:initial.map((p,i)=>({...p,id:'p'+(i+1)}))}catch(e){return initial.map((p,i)=>({...p,id:'p'+(i+1)}))}}
+let data=load(); if(!localStorage.getItem(KEY)) save();
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function money(n){n=Number(n)||0;if(n>=10000000)return '₹'+(n/10000000).toFixed(n%10000000?1:0)+' Cr';if(n>=100000)return '₹'+(n/100000).toFixed(n%100000?1:0)+' L';return n?'₹'+n.toLocaleString('en-IN'):'—'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open')}
+function showPage(page){
+ document.querySelectorAll('[id$="Page"]').forEach(x=>x.style.display='none');
+ document.getElementById(page+'Page').style.display='';
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+ let titles={dashboard:['Dashboard','Manage your property inventory in one place.'],properties:['Properties','Search, filter, update and manage every property.'],favorites:['Favorites','Your shortlisted properties.'],followups:['Follow-ups','Keep track of upcoming calls and visits.']};
+ document.getElementById('pageTitle').textContent=titles[page][0];document.getElementById('pageSub').textContent=titles[page][1];
+ if(innerWidth<761)document.getElementById('sidebar').classList.remove('open');
+ if(page==='properties')renderProperties();if(page==='favorites')renderFavorites();if(page==='followups')renderFollowups();if(page==='dashboard')renderDashboard()
+}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+
+function renderDashboard(){
+ let total=data.length,av=data.filter(p=>p.status==='Available').length,hold=data.filter(p=>p.status==='Hold').length,fav=data.filter(p=>p.favorite).length;
+ sTotal.textContent=total;sAvailable.textContent=av;sHold.textContent=hold;sFav.textContent=fav;
+ let recent=[...data].sort((a,b)=>String(b.created).localeCompare(String(a.created))).slice(0,7);
+ recentBody.innerHTML=recent.map(p=>`<tr><td><b>${esc(p.name)}</b><div class="muted">${esc(p.bhk||p.type)}</div></td><td>${esc(p.location)}</td><td><b>${money(p.price)}</b></td><td><span class="badge ${p.status.toLowerCase()}">${esc(p.status)}</span></td><td><button class="mini" onclick="view('${p.id}')">View</button></td></tr>`).join('');
+ let loc={};data.forEach(p=>loc[p.location]=(loc[p.location]||0)+1);
+ summaryList.innerHTML=Object.entries(loc).sort((a,b)=>b[1]-a[1]).slice(0,8).map(x=>`<div class="list-row"><span>${esc(x[0])}</span><b>${x[1]}</b></div>`).join('');
+}
+function fillLocations(){
+ let loc=[...new Set(data.map(p=>p.location).filter(Boolean))].sort(),sel=document.getElementById('filterLocation'),v=sel.value;
+ sel.innerHTML='<option value="">All locations</option>'+loc.map(x=>`<option>${esc(x)}</option>`).join('');sel.value=v;
+}
+let currentView='table';
+function setView(v){currentView=v;tableViewBtn.classList.toggle('active',v==='table');cardViewBtn.classList.toggle('active',v==='card');renderProperties()}
+function filtered(){
+ let q=(search.value||'').toLowerCase().trim(), loc=filterLocation.value,typ=filterType.value,st=filterStatus.value;
+ let a=data.filter(p=>!loc||p.location===loc).filter(p=>!typ||p.type===typ).filter(p=>!st||p.status===st).filter(p=>{
+  if(!q)return true;return [p.name,p.location,p.type,p.bhk,p.owner,p.phone,p.facing,p.road,p.notes,p.price,p.area].join(' ').toLowerCase().includes(q)
+ });
+ let s=sortBy.value;a.sort((x,y)=>s==='az'?x.name.localeCompare(y.name):s==='priceLow'?x.price-y.price:s==='priceHigh'?y.price-x.price:s==='areaHigh'?y.area-x.area:s==='old'?String(x.created).localeCompare(String(y.created)):String(y.created).localeCompare(String(x.created)));return a
+}
+function renderProperties(){
+ fillLocations();let a=filtered();resultCount.textContent=a.length+' result'+(a.length!==1?'s':'');
+ if(!a.length){propertyResults.innerHTML='<div class="empty">No properties found.<br><button class="btn" style="margin-top:10px" onclick="clearFilters()">Clear filters</button></div>';return}
+ if(currentView==='table'){
+  propertyResults.innerHTML=`<div class="table-wrap"><table class="table"><thead><tr><th>Property</th><th>Location</th><th>Type / BHK</th><th>Area</th><th>Price</th><th>Owner</th><th>Status</th><th>Actions</th></tr></thead><tbody>${a.map(p=>row(p)).join('')}</tbody></table></div><div class="pagination"><span>Showing ${a.length} properties</span><span>LocalStorage • Offline</span></div>`;
+ }else propertyResults.innerHTML='<div class="grid">'+a.map(card).join('')+'</div>';
+}
+function row(p){return `<tr><td><div class="property-name">${esc(p.name)}</div><div class="muted">${esc(p.facing||'')} ${p.road?'• '+esc(p.road):''}</div></td><td>${esc(p.location)}</td><td>${esc(p.type)}<div class="muted">${esc(p.bhk||'—')}</div></td><td>${p.area?esc(p.area)+' yd²':'—'}</td><td><b>${money(p.price)}</b></td><td>${esc(p.owner||'—')}<div class="muted">${esc(p.phone||'')}</div></td><td><span class="badge ${p.status.toLowerCase()}">${esc(p.status)}</span></td><td><div class="actions"><button class="mini" onclick="view('${p.id}')">View</button><button class="mini" onclick="openForm('${p.id}')">Edit</button><button class="mini" onclick="toggleFav('${p.id}')">${p.favorite?'★':'☆'}</button><button class="mini" onclick="removeProp('${p.id}')">Delete</button></div></td></tr>`}
+function card(p){return `<article class="prop-card"><div class="prop-cover">${p.photo?`<img src="${esc(p.photo)}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">`:'🏠'}</div><div class="prop-body"><div style="display:flex;justify-content:space-between;gap:5px"><h3>${esc(p.name)}</h3><button class="mini" onclick="toggleFav('${p.id}')">${p.favorite?'★':'☆'}</button></div><div class="muted">${esc(p.location)}</div><div class="prop-meta"><span>${esc(p.type)}</span>${p.bhk?`<span>${esc(p.bhk)}</span>`:''}${p.area?`<span>${esc(p.area)} yd²</span>`:''}<span>${esc(p.facing||'')}</span></div><div class="prop-price">${money(p.price)}</div><span class="badge ${p.status.toLowerCase()}">${esc(p.status)}</span><div class="prop-actions" style="margin-top:9px"><button class="mini" onclick="view('${p.id}')">View</button><button class="mini" onclick="openForm('${p.id}')">Edit</button></div></div></article>`}
+function renderFavorites(){let a=data.filter(p=>p.favorite);favResults.innerHTML=a.length?'<div class="grid">'+a.map(card).join('')+'</div>':'<div class="empty">No favorites yet. Tap ☆ on any property to shortlist it.</div>'}
+function renderFollowups(){let a=data.filter(p=>p.follow).sort((x,y)=>String(x.follow).localeCompare(String(y.follow)));followResults.innerHTML=a.length?'<div class="table-wrap"><table class="table"><thead><tr><th>Date</th><th>Property</th><th>Owner</th><th>Phone</th><th>Status</th><th>Action</th></tr></thead><tbody>'+a.map(p=>`<tr><td><b>${esc(p.follow)}</b></td><td>${esc(p.name)}<div class="muted">${esc(p.location)}</div></td><td>${esc(p.owner||'—')}</td><td>${p.phone?`<a href="tel:${esc(p.phone)}">${esc(p.phone)}</a>`:'—'}</td><td><span class="badge ${p.status.toLowerCase()}">${esc(p.status)}</span></td><td><button class="mini" onclick="view('${p.id}')">View</button></td></tr>`).join('')+'</tbody></table></div>':'<div class="empty">No follow-ups scheduled.</div>'}
+function clearFilters(){search.value='';filterLocation.value='';filterType.value='';filterStatus.value='';sortBy.value='new';renderProperties()}
+function openForm(id){
+ let p=id?data.find(x=>x.id===id):null;formTitle.textContent=p?'Edit Property':'Add Property';
+ let vals=p||{id:'',name:'',location:'',type:'Villa',bhk:'',area:'',dim:'',facing:'',road:'',price:'',status:'Available',owner:'',phone:'',follow:'',map:'',photo:'',video:'',notes:''};
+ Object.entries({fId:'id',fName:'name',fLocation:'location',fType:'type',fBhk:'bhk',fArea:'area',fDim:'dim',fFacing:'facing',fRoad:'road',fPrice:'price',fStatus:'status',fOwner:'owner',fPhone:'phone',fFollow:'follow',fMap:'map',fPhoto:'photo',fVideo:'video',fNotes:'notes'}).forEach(([el,k])=>document.getElementById(el).value=vals[k]??'');
+ formModal.classList.add('show')
+}
+function saveProperty(){
+ let id=fId.value||'p'+Date.now(),old=data.find(p=>p.id===id);
+ let p={id,name:fName.value.trim(),location:fLocation.value.trim(),type:fType.value,bhk:fBhk.value.trim(),area:Number(fArea.value)||0,dim:fDim.value.trim(),facing:fFacing.value.trim(),road:fRoad.value.trim(),price:Number(fPrice.value)||0,status:fStatus.value,owner:fOwner.value.trim(),phone:fPhone.value.trim(),follow:fFollow.value,map:fMap.value.trim(),photo:fPhoto.value.trim(),video:fVideo.value.trim(),notes:fNotes.value.trim(),favorite:old?.favorite||false,created:old?.created||new Date().toISOString().slice(0,10)};
+ if(!p.name||!p.location){toast('Property name and location are required');return}
+ let i=data.findIndex(x=>x.id===id);if(i>=0)data[i]=p;else data.unshift(p);save();closeModal('formModal');renderAll();toast(i>=0?'Property updated':'Property added')
+}
+function removeProp(id){let p=data.find(x=>x.id===id);if(!p)return;if(!confirm('Delete "'+p.name+'"?'))return;data=data.filter(x=>x.id!==id);save();renderAll();toast('Property deleted')}
+function toggleFav(id){let p=data.find(x=>x.id===id);if(p){p.favorite=!p.favorite;save();renderAll();toast(p.favorite?'Added to favorites':'Removed from favorites')}}
+function view(id){
+ let p=data.find(x=>x.id===id);if(!p)return;
+ dTitle.textContent=p.name;
+ detailBody.innerHTML=`<div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:12px"><div><div class="muted">${esc(p.location)}</div><div style="font-size:22px;font-weight:800;margin-top:4px">${money(p.price)}</div></div><span class="badge ${p.status.toLowerCase()}">${esc(p.status)}</span></div>
+ <div class="details">${[['Type',p.type],['BHK',p.bhk||'—'],['Area',p.area?p.area+' yd²':'—'],['Dimensions',p.dim||'—'],['Facing',p.facing||'—'],['Road',p.road||'—'],['Owner/Broker',p.owner||'—'],['Phone',p.phone||'—'],['Follow-up',p.follow||'—']].map(x=>`<div class="detail"><label>${esc(x[0])}</label><b>${esc(x[1])}</b></div>`).join('')}</div>
+ <h3 style="font-size:14px;margin:18px 0 8px">Notes</h3><div class="notes">${esc(p.notes||'No notes')}</div>`;
+ detailFoot.innerHTML=`${p.phone?`<a class="btn" href="tel:${esc(p.phone)}">📞 Call</a><a class="btn" href="https://wa.me/91${esc(p.phone.replace(/\\D/g,''))}" target="_blank">💬 WhatsApp</a>`:''}${p.map?`<a class="btn" href="${esc(p.map)}" target="_blank">📍 Maps</a>`:''}${p.video?`<a class="btn" href="${esc(p.video)}" target="_blank">▶ Video</a>`:''}<button class="btn" onclick="openForm('${p.id}');closeModal('detailModal')">Edit</button>`;
+ detailModal.classList.add('show')
+}
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+document.querySelectorAll('.modal-bg').forEach(x=>x.addEventListener('click',e=>{if(e.target===x)x.classList.remove('show')}));
+function renderAll(){renderDashboard();fillLocations();if(document.getElementById('propertiesPage').style.display!=='none')renderProperties();renderFavorites();renderFollowups()}
+function exportJSON(){let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='property-manager-backup.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported')}
+function importJSON(){let i=document.createElement('input');i.type='file';i.accept='.json';i.onchange=async()=>{try{let x=JSON.parse(await i.files[0].text());if(!Array.isArray(x))throw 0;data=x;save();renderAll();toast('Backup imported')}catch(e){toast('Invalid JSON backup')}};i.click()}
+function restoreDemo(){if(confirm('Restore the demo dataset? Your current local data will be replaced.')){data=initial.map((p,i)=>({...p,id:'p'+(i+1)}));save();renderAll();toast('Demo data restored')}}
+window.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-bg').forEach(x=>x.classList.remove('show'));if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();showPage('properties');setTimeout(()=>search.focus(),100)}})
+renderAll();
+</script>
+</body>
+</html>
