@@ -194,7 +194,7 @@ const projectsData = [
   description: "Track property inventory, sales status, and active client deals.",
   category: "Web Applications",
   technologies: ["HTML", "CSS", "JavaScript"],
-  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMo2OAPaKfECzBkBHiauE2PM0H8ih-A2SoAFCi2YPmCQ&s=10",
+  image: "https://lemonlearning.com/hubfs/Imported_Blog_Media/CRM-1-scaled-2.jpg",
   liveUrl: "projects/crm/index.html"
 }
 ];
