@@ -78,7 +78,7 @@ const projectsData = [
     category: "Web Apps",
     technologies: ["HTML", "CSS", "JavaScript"],
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80",
-    liveUrl: "projects/p-9-My-digital-book/index.html"
+    liveUrl: "projects/p-9-My-digital-book directory/index.html"
   },
   {
     id: 10,
