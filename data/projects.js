@@ -187,5 +187,14 @@ const projectsData = [
     technologies: ["HTML", "CSS", "JavaScript"],
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMo2OAPaKfECzBkBHiauE2PM0H8ih-A2SoAFCi2YPmCQ&s=10",
     liveUrl: "projects/ludo/index.html"
-  }
+  },
+    {
+  id: 22,
+  name: "Real Estate CRM",
+  description: "Track property inventory, sales status, and active client deals.",
+  category: "Web Applications",
+  technologies: ["HTML", "CSS", "JavaScript"],
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMo2OAPaKfECzBkBHiauE2PM0H8ih-A2SoAFCi2YPmCQ&s=10",
+  liveUrl: "projects/crm/index.html"
+}
 ];
