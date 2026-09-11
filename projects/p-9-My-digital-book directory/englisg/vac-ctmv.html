@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture, Traditions & Moral Values (CTMV) | B.A. 5th Semester College Textbook</title>
+    <meta name="description" content="B.A. 5th Semester Value Added Course (VAC CTMV): Culture vs Civilization, Truth, Non-violence, Compassion, Vasudhaiva Kutumbakam, Nishkama Karma, Constitutional Values (Article 51A) and Digital Ethics.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="vac">
+
+    <!-- Floating Exit Button for Content-Only Mode -->
+    <button class="content-only-exit-btn" id="content-only-exit-btn" aria-label="Return to Normal View" title="Return to Normal View">
+        <i class="fa-solid fa-compress"></i>
+        <span>Normal View</span>
+    </button>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-building-columns"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Value Added Course — VAC CTMV</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Library</a></li>
+            <li><a href="#ch1" class="nav-link">Chapter 1: Culture & Civilization</a></li>
+            <li><a href="#ch2" class="nav-link">Chapter 2: Indian Philosophy</a></li>
+            <li><a href="#ch3" class="nav-link">Chapter 3: Constitutional Values</a></li>
+            <li><a href="#ch4" class="nav-link">Chapter 4: Digital Ethics</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('hi')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> हिन्दी संस्करण</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSyllabusModal('vac-ctmv', 'VAC — CTMV')" title="Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="Decrease Font">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="Default Font">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="Increase Font">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('hi')" title="हिन्दी में पढ़ें (Switch to Hindi)" aria-label="Switch to Hindi">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">हिन्दी</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="Open Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Chapter Progress -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Table of Contents" aria-expanded="true" title="Toggle Table of Contents (Ctrl+B)">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span class="sidebar-toggle-text">Table of Contents</span>
+                </button>
+                <div class="breadcrumb-links">
+                    <a href="./index.html"><i class="fa-solid fa-house"></i> <span>Library</span></a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>Value Added Course</span>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="current-crumb">Culture, Traditions & Moral Values (CTMV)</span>
+                </div>
+            </div>
+            <div class="breadcrumb-right">
+                <span id="breadcrumb-active-topic" class="breadcrumb-active-topic"></span>
+                <span class="reading-progress-pill" id="reading-progress-pill"><i class="fa-solid fa-book-open"></i> Progress: 0%</span>
+                <button class="content-only-btn" id="content-only-btn" aria-label="Show Content Only" title="Show Content Only (Reading Mode)">
+                    <i class="fa-solid fa-expand"></i>
+                    <span class="content-only-text">Content Only</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Two-Column Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3>Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 1: Culture & Civilization</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch1" class="toc-link">1.0 Introduction</a></li>
+                    <li><a href="#sec1-1" class="toc-link">1.1 Culture vs. Civilization</a></li>
+                    <li><a href="#sec1-2" class="toc-link">1.2 Indian Cultural Heritage</a></li>
+                    <li><a href="#ch1-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 2: Moral Values & Philosophy</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch2" class="toc-link">2.0 Introduction</a></li>
+                    <li><a href="#sec2-1" class="toc-link">2.1 Truth, Non-Violence & Compassion</a></li>
+                    <li><a href="#sec2-2" class="toc-link">2.2 Vasudhaiva Kutumbakam & Gita</a></li>
+                    <li><a href="#ch2-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 3: Constitutional Values</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch3" class="toc-link">3.0 Introduction</a></li>
+                    <li><a href="#sec3-1" class="toc-link">3.1 Preamble to the Constitution</a></li>
+                    <li><a href="#sec3-2" class="toc-link">3.2 11 Duties under Article 51A</a></li>
+                    <li><a href="#ch3-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 4: Digital Ethics</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch4" class="toc-link">4.0 Introduction</a></li>
+                    <li><a href="#sec4-1" class="toc-link">4.1 Cyber Behavior & Privacy</a></li>
+                    <li><a href="#sec4-2" class="toc-link">4.2 Fake News & Digital Truth</a></li>
+                    <li><a href="#ch4-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Book Reading Column -->
+        <main class="content-area book-page">
+
+            <!-- Book Title Header -->
+            <header class="book-hero">
+                <div class="book-paper-meta"><i class="fa-solid fa-book"></i> B.A. 5th Semester • Value Added Course (VAC)</div>
+                <h1>Culture, Traditions & Moral Values (CTMV)</h1>
+                <p class="book-intro-lead">
+                    This textbook presents a clear, thought-provoking, and exam-oriented academic analysis of the sociological distinction between culture and civilization, the universal values of ancient Indian philosophy (Truth, Non-violence, Compassion, Vasudhaiva Kutumbakam, Nishkama Karma Yoga), the foundational ideals of the Indian Constitution with Article 51A Fundamental Duties, and digital ethics (Cyber Ethics) in the 21st-century internet era.
+                </p>
+                <div class="book-hero-badges">
+                    <span class="book-hero-badge"><i class="fa-solid fa-layer-group"></i> 4 Comprehensive Chapters</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-scale-balanced"></i> Values & Constitutional Duties</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-language"></i> Clear Standard English</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-circle-check"></i> University Approved</span>
+                </div>
+            </header>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 1: CULTURE AND CIVILIZATION                                        -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch1">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 1</div>
+                    <h2>Indian Culture and Civilization</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        In everyday conversation, people often use 'culture' and 'civilization' interchangeably, such as saying "this is our culture" or "the Indus Valley Civilization." However, in sociology and philosophy, there is a fundamental distinction between the two. In this chapter, we explore the famous distinction articulated by sociologists R.M. MacIver and Charles Page, and examine the core characteristics that have kept Indian cultural heritage vibrant for thousands of years.
+                    </p>
+                </div>
+
+                <!-- 1.1 Culture vs Civilization -->
+                <h3 class="topic-heading" id="sec1-1">1.1 Culture vs. Civilization</h3>
+
+                <p>
+                    Renowned sociologists <strong>R.M. MacIver and Charles Page</strong>, in their seminal work <em>'Society'</em>, established the most precise and definitive distinction between culture and civilization:
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">MacIver and Page's Definitive Formulation</div>
+                    <p>
+                        <strong>"Culture is what we are (values, moral codes, ideas, religion, music, art), whereas civilization is what we use (machines, vehicles, mobile phones, computers, buildings, technologies)."</strong>
+                    </p>
+                </div>
+
+                <p>
+                    The fundamental contrasts between the two are summarized in the comparative table below:
+                </p>
+
+                <div class="table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Culture</th>
+                                <th>Civilization</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nature</strong></td>
+                                <td>Internal, mental, spiritual, and intangible (mental conditioning and virtues).</td>
+                                <td>External, material, tangible, and technological (instruments of utility and comfort).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Purpose</strong></td>
+                                <td>Culture is an 'End' in itself—it teaches how to make life noble and purposeful.</td>
+                                <td>Civilization is merely a 'Means'—it provides physical instruments to satisfy material needs.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Speed of Diffusion</strong></td>
+                                <td>Slow; assimilating someone else's culture is deeply personal, internal, and complex.</td>
+                                <td>Extremely rapid; a Japanese automobile or American smartphone is adopted globally within days.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Measurability</strong></td>
+                                <td>Cannot be quantified with physical scales or standards (whether Tulsidas's Ramcharitmanas or Shakespeare's plays are superior cannot be resolved through mathematics).</td>
+                                <td>Easily measured and quantified (the speed advantage of an airplane over a bullock cart is instantly proven mathematically).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Perishability</strong></td>
+                                <td>Lives in the hearts, values, and memories of people; it cannot be annihilated by bombs.</td>
+                                <td>Physical monuments and infrastructure can be reduced to rubble in a single day by war or natural disasters.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 1.2 Characteristics of Indian Cultural Heritage -->
+                <h3 class="topic-heading" id="sec1-2">1.2 Key Characteristics of Indian Cultural Heritage</h3>
+
+                <p>
+                    While the ancient civilizations of Egypt, Greece, Babylon, and Rome faded into history, Indian culture has preserved its core identity across millennia of political and social upheaval. Its enduring vitality is rooted in the following distinctive traits:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. Antiquity and Continuity:</strong> Vedic mantras, the Gayatri mantra, Yoga, and reverence for rivers remain integral to Indian life today with the same devotion as they did 4,000 years ago.</li>
+                    <li><strong>2. Unity in Diversity:</strong> From Kashmir to Kanyakumari, despite differences in regional languages, cuisines, and attire, a shared philosophical outlook on life (the soul, karma, rebirth, tolerance) weaves through the diverse social fabric.</li>
+                    <li><strong>3. Synthesis and Openness:</strong> As expressed in the Rigvedic dictum—<em>"Aa no bhadrah kratavo yantu vishvatah"</em> ("May noble thoughts come to us from every direction")—India has historically welcomed and assimilated beneficial elements from diverse cultures.</li>
+                    <li><strong>4. Four Purusharthas (Balance of Material and Spiritual Life):</strong> Indian thought established four legitimate life pursuits—<strong>Dharma</strong> (righteousness and moral duty), <strong>Artha</strong> (wealth and material livelihood), <strong>Kama</strong> (aesthetic and emotional fulfillment), and <strong>Moksha</strong> (spiritual liberation). Earning wealth is encouraged, provided it remains governed by Dharma (ethical conduct).</li>
+                </ul>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch1-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            This chapter examined the distinction between culture and civilization. Civilization represents our external material apparatus (tools, infrastructure, technology), while culture embodies our internal spirit, values, and ethical ideals. Indian culture remains unique in world history due to its antiquity, continuity, tolerance, unity in diversity, and its harmonious balance of material and spiritual goals through the Purushartha framework.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Practice Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>Explain the key distinction between culture and civilization according to MacIver and Page.</li>
+                                <li>Discuss the salient features of Indian cultural heritage that explain its continuity.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 2: MORAL VALUES & ETHICAL PHILOSOPHY                               -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch2">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 2</div>
+                    <h2>Universal Moral Values & Indian Philosophy</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        Moral values are the internal beacons that elevate human existence above base instincts. They operate not through fear of external legal penalties, but through the inner voice of conscience. In this chapter, we explore three timeless values central to Mahatma Gandhi and Indian philosophy: Truth (Satya), Non-violence (Ahimsa), and Compassion (Karuna). We then examine the universal vision of 'Vasudhaiva Kutumbakam' from the Upanishads and the ideal of 'Nishkama Karma Yoga' from the Bhagavad Gita.
+                    </p>
+                </div>
+
+                <!-- 2.1 Truth, Non-violence, Compassion -->
+                <h3 class="topic-heading" id="sec2-1">2.1 Universal Moral Values: Satya, Ahimsa & Karuna</h3>
+
+                <p>
+                    <strong>1. Truth (Satya):</strong> Truth is not merely verbal accuracy; it requires absolute harmony among thought, word, and deed (what is in one's heart should be in one's speech and manifested in one's action). Mahatma Gandhi, reflecting on his life's experiments, stated: <em>"Earlier I used to say 'God is Truth', but through experience I discovered that <strong>'Truth is God'</strong>."</em>
+                </p>
+
+                <p>
+                    <strong>2. Non-violence (Ahimsa):</strong> A narrow definition confines non-violence to refraining from physical injury. In Jain philosophy and Gandhian thought, <em>causing no injury or grief to any living being in thought, speech, or action constitutes authentic Ahimsa</em>. Harboring malice, uttering abusive language, or deliberate humiliation constitutes mental violence. Ahimsa is not cowardice; it represents the highest culmination of moral courage and inner strength.
+                </p>
+
+                <p>
+                    <strong>3. Compassion (Karuna):</strong> In Buddhist philosophy, Karuna occupies the supreme position. Pity often looks down upon another from a position of superiority, whereas <strong>compassion involves experiencing another's suffering as one's own and acting selflessly to alleviate it</strong>.
+                </p>
+
+                <!-- 2.2 Vasudhaiva Kutumbakam & Nishkama Karma -->
+                <h3 class="topic-heading" id="sec2-2">2.2 Vasudhaiva Kutumbakam & Nishkama Karma Yoga</h3>
+
+                <div class="book-definition">
+                    <div class="def-term">'Vasudhaiva Kutumbakam' from the Maha Upanishad (Chapter 6, Verse 71)</div>
+                    <p>
+                        <strong>"Ayam nijah paro veti ganana laghuchetasam |<br>
+                        Udaracharitanam tu vasudhaiva kutumbakam ||"</strong><br><br>
+                        <strong>Simple Meaning:</strong> 'This person is mine and that one is an outsider'—such fractional calculations belong to small minds. For noble and magnanimous souls, the entire earth is indeed a single united family. (This universal ideal inspired the motto of India's G20 Presidency: 'One Earth, One Family, One Future').
+                    </p>
+                </div>
+
+                <h4 style="margin-top:2rem;">Nishkama Karma Yoga of the Bhagavad Gita</h4>
+                <p>
+                    On the battlefield of Kurukshetra, when Arjuna faced moral hesitation, Lord Krishna imparted one of humanity's most profound philosophical teachings in Chapter 2, Verse 47:
+                </p>
+
+                <div class="book-formula">
+                    <div class="formula-math">
+                        Karmanye vadhikaraste ma phaleshu kadachana |<br>
+                        Ma karmaphalaheturbhurma te sango'stvakarmany ||
+                    </div>
+                    <div class="formula-explain">
+                        <strong>Meaning and Application:</strong><br>
+                        1. You have a right only to <strong>perform your duty</strong>, but never a claim over the fruits (outcomes).<br>
+                        2. Therefore, do not make the anticipation of rewards your primary motive for action.<br>
+                        3. Nor should you ever succumb to inertia and abandon your duty out of fear of adverse outcomes.<br><br>
+                        <strong>Relevance for Students:</strong> A student's sole duty is to study with complete diligence and honesty. Rather than worrying about securing first rank or fearing failure, dedicating 100% focused attention to one's preparation is the essence of true 'Nishkama Karma'.
+                    </div>
+                </div>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch2-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            This chapter examined the triad of Truth, Non-violence, and Compassion. The Upanishadic ethos of 'Vasudhaiva Kutumbakam' transcends borders of caste, creed, and nationality to embrace all humanity as one family. The Gita's doctrine of Nishkama Karma teaches that dedicating oneself to righteous duty in the present without anxiety over future rewards is the true path to peace and enduring excellence.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Practice Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>From which classical text is the concept of 'Vasudhaiva Kutumbakam' derived? Discuss its significance in the contemporary globalized world.</li>
+                                <li>Explain the relevance of the Bhagavad Gita's doctrine of 'Nishkama Karma' in student life.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 3: CONSTITUTIONAL VALUES & ARTICLE 51A                            -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch3">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 3</div>
+                    <h2>Constitutional Values & Fundamental Duties (Article 51A)</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        The Constitution of India is not merely a legal document for courts and attorneys; it is the moral charter of free India. Just as the Constitution guarantees Fundamental Rights to every citizen, it also outlines civic duties essential for building a civilized and strong nation. In this chapter, we study the foundational ideals enshrined in the Preamble and the <strong>11 Fundamental Duties under Article 51A</strong>.
+                    </p>
+                </div>
+
+                <!-- 3.1 Preamble -->
+                <h3 class="topic-heading" id="sec3-1">3.1 Core Values Enshrined in the Preamble</h3>
+
+                <p>
+                    The Preamble is the soul of the Indian Constitution, establishing four supreme democratic ideals:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. Justice:</strong> Encompassing <em>social, economic, and political justice</em>. This ensures freedom from discrimination based on caste, gender, or religion, prevention of wealth concentration, and universal equal rights to vote and participate in governance.</li>
+                    <li><strong>2. Liberty:</strong> Liberty of thought, expression, belief, faith, and worship.</li>
+                    <li><strong>3. Equality:</strong> Equality of status and opportunity, ensuring all citizens stand equal before the law.</li>
+                    <li><strong>4. Fraternity:</strong> Promoting brotherhood across all communities, assuring the dignity of the individual and the unity and integrity of the Nation.</li>
+                </ul>
+
+                <!-- 3.2 Fundamental Duties -->
+                <h3 class="topic-heading" id="sec3-2">3.2 Article 51A: The 11 Fundamental Duties</h3>
+
+                <p>
+                    The original Constitution did not contain an explicit list of citizen duties. On the recommendations of the Sardar Swaran Singh Committee, the <strong>42nd Constitutional Amendment Act (1976)</strong> introduced Part IV-A with <strong>Article 51A</strong>, incorporating 10 Fundamental Duties. Later, the <strong>86th Amendment Act (2002)</strong> added the 11th duty.
+                </p>
+
+                <p>
+                    Key Fundamental Duties required of every citizen of India:
+                </p>
+
+                <ol class="book-list">
+                    <li>To abide by the Constitution and respect its ideals and institutions, the National Flag, and the National Anthem.</li>
+                    <li>To cherish and follow the noble ideals that inspired our national struggle for freedom.</li>
+                    <li>To uphold and protect the sovereignty, unity, and integrity of India.</li>
+                    <li>To defend the country and render national service when called upon to do so.</li>
+                    <li>To promote harmony and the spirit of common brotherhood amongst all the people of India transcending religious, linguistic, and regional diversities, and to renounce practices derogatory to the dignity of women.</li>
+                    <li>To value and preserve the rich heritage of our composite culture.</li>
+                    <li><strong>To protect and improve the natural environment (forests, lakes, rivers, and wildlife)</strong> and to have compassion for living creatures.</li>
+                    <li><strong>To develop the scientific temper, humanism, and the spirit of inquiry and reform.</strong></li>
+                    <li>To safeguard public property and to abjure violence.</li>
+                    <li>To strive towards excellence in all spheres of individual and collective activity.</li>
+                    <li><strong>11th Duty (added in 2002):</strong> Duty of parents or guardians to provide opportunities for education to their child or ward between the ages of 6 and 14 years.</li>
+                </ol>
+
+                <div class="book-note">
+                    <div class="note-title">What is meant by Scientific Temper?</div>
+                    <p>
+                        Under Article 51A(h), developing a scientific temper means rejecting superstition, dogma, and blind faith, and evaluating claims based on logic, rationality, and empirical evidence. It is a critical instrument for building an enlightened, progressive, and modern society.
+                    </p>
+                </div>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch3-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            This chapter highlighted how the Preamble rests on the four pillars of Justice, Liberty, Equality, and Fraternity. Rights and duties are two sides of the same civic coin. The 11 Fundamental Duties under Article 51A emphasize national integration, environmental preservation, the cultivation of a scientific temper, and universal basic education for children aged 6–14.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Practice Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>Which committee recommended the inclusion of Fundamental Duties, and through which constitutional amendment were they added?</li>
+                                <li>Explain the significance of the constitutional duties regarding 'scientific temper' and 'environmental protection' under Article 51A.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 4: DIGITAL ETHICS & CYBER BEHAVIOR                                -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch4">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 4</div>
+                    <h2>Digital Ethics & Cyber Conduct in the Modern Era</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        In the 21st century, human life is no longer confined to physical spaces; a substantial portion of daily interaction unfolds on the internet, smartphones, and social media platforms. While digital technology connects humanity seamlessly, it has also created new ethical challenges such as fake news, cyberbullying, data theft, trolling, and hate speech. This chapter examines how to conduct oneself as a responsible and ethical digital citizen.
+                    </p>
+                </div>
+
+                <!-- 4.1 Cyber Behavior & Privacy -->
+                <h3 class="topic-heading" id="sec4-1">4.1 Cyber Behavior, Privacy Protection & Digital Footprints</h3>
+
+                <p>
+                    Every click, search, share, like, or post online creates a permanent record known as a <strong>Digital Footprint</strong>. Irresponsible online conduct can lead to lasting consequences for future employment, personal reputation, and legal standing.
+                </p>
+
+                <p>
+                    Four fundamental rules of digital ethics:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. Respect for Others' Privacy:</strong> Never post personal photographs, phone numbers, private chat screenshots, or addresses of friends or acquaintances without explicit consent.</li>
+                    <li><strong>2. Freedom from Cyberbullying & Trolling:</strong> Creating anonymous or fake profiles to harass, intimidate, or defame individuals is not only deeply unethical, but also a punishable offence under the <em>Information Technology Act (IT Act)</em>.</li>
+                    <li><strong>3. Academic Integrity & Copyright Respect:</strong> Never plagiarize articles, research projects, photographs, or software from the internet without proper attribution. Always credit original creators.</li>
+                </ul>
+
+                <!-- 4.2 Fake News & Fact-Checking -->
+                <h3 class="topic-heading" id="sec4-2">4.2 Fake News, Misinformation & Fact-Checking</h3>
+
+                <p>
+                    Sensationalized falsehoods, unverified rumors, and AI-generated deepfakes spread rapidly on social media networks, posing risks of public panic, communal discord, and social fragmentation.
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">Code of Digital Conduct: Think Before You Forward</div>
+                    <p>
+                        When encountering provocative, unverified, or emotionally charged messages on messaging apps or social platforms, <strong>never forward them impulsively</strong>. Verify whether the report has been substantiated by authoritative news sources or verified fact-checking institutions. Preventing the spread of false information is a vital civic responsibility in the modern information age.
+                    </p>
+                </div>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch4-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            This chapter examined ethical challenges in the digital era. The virtual world requires the same moral principles as the physical world—empathy, integrity, respect for privacy, and restraint. An ethical digital citizen steers clear of sensationalized misinformation, rejects online harassment, and harnesses technology productively for human welfare and educational growth.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Practice Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>What is meant by a 'Digital Footprint'? What precautions should students observe when using social media?</li>
+                                <li>What are the civic and moral responsibilities of an informed citizen in preventing fake news and cyberbullying?</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Universal Academic Footer -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>B.A. 5th Semester Digital Library</span>
+                    </div>
+                    <p>
+                        Dedicated digital textbook platform for undergraduate (UG) Faculty of Arts students. Authentic study material, comprehensive theories, diagrams, case studies, and exam-oriented Q&amp;A available in simple, standard English.
+                    </p>
+                    <p style="font-size:0.85rem; color:var(--text-subtle);">
+                        <i class="fa-solid fa-shield-halved" style="color:var(--accent-color);"></i> Academic &amp; Non-Governmental Educational Resource
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Textbooks</h4>
+                    <ul class="footer-links">
+                        <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> Economic Geography (Theory-V)</a></li>
+                        <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> Geography Practical Manual</a></li>
+                        <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> Economic Development &amp; Policy in India-I</a></li>
+                        <li><a href="./eco-skill-course.html"><i class="fa-solid fa-industry"></i> Field Based Course</a></li>
+                        <li><a href="./socio-additional.html"><i class="fa-solid fa-users"></i> Sociological Theories &amp; Society</a></li>
+                        <li><a href="./vac-ctmv.html"><i class="fa-solid fa-building-columns"></i> Culture, Traditions &amp; Moral Values (VAC)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fa-solid fa-house"></i> Library Home</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i> Search Subject (Ctrl+K)</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSyllabusModal('vac-ctmv')"><i class="fa-solid fa-file-invoice"></i> Official Syllabus</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> Toggle Theme (Light/Dark)</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i> Back to Top</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div>
+                    &copy; 2026 B.A. 5th Semester College Digital Textbook. Culture, Traditions &amp; Moral Values (CTMV).
+                </div>
+                <div class="footer-bottom-links">
+                    <span>Standard English Medium</span>
+                    <span>&bull;</span>
+                    <span>100% Free Academic Reading</span>
+                    <span>&bull;</span>
+                    <a href="javascript:void(0)" onclick="scrollToTop()">Back to Top &uarr;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" onclick="scrollToTop()" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="vac-ctmv" selected>VAC — CTMV</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="eco-elective-1">Economics Elective 1 — Development &amp; Policy</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="socio-additional">Sociology (Additional Subject)</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">Official Syllabus Document • University Accredited</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#14532d; border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="Search moral values, constitution, or culture..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

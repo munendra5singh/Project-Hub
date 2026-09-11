@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पुस्तकालय</title>
+    <meta name="description" content="बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पुस्तकालय: भूगोल, अर्थशास्त्र, समाजशास्त्र और मूल्य वर्धित पाठ्यक्रम (VAC CTMV) की सरल हिंदी में कॉलेज पाठ्यपुस्तकें।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-book-bookmark"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">डिजिटल पाठ्यपुस्तक पुस्तकालय</span>
+            </div>
+        </a>
+
+        <!-- Desktop & Mobile Drawer Menu -->
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./geo-theory.html" class="nav-link"><i class="fa-solid fa-earth-americas"></i> आर्थिक भूगोल</a></li>
+            <li><a href="./geo-practical.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> भूगोल प्रायोगिक</a></li>
+            <li><a href="./eco-elective-1-policy.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> अर्थशास्त्र ऐच्छिक-1</a></li>
+            <li><a href="./eco-skill-course.html" class="nav-link"><i class="fa-solid fa-industry"></i> फील्ड कोर्स</a></li>
+            <li><a href="./socio-additional.html" class="nav-link"><i class="fa-solid fa-users"></i> समाजशास्त्र</a></li>
+            <li><a href="./vac-ctmv.html" class="nav-link"><i class="fa-solid fa-building-columns"></i> VAC (मूल्य)</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('en')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> English Version</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSearchModal()" title="विषय खोजें (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>खोजें</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="फॉन्ट छोटा करें">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="सामान्य फॉन्ट">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="फॉन्ट बड़ा करें">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('en')" title="Read in English (अंग्रेजी में पढ़ें)" aria-label="Switch to English">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">English</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="नेविगेशन मेन्यू खोलें">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Library Stats -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> <span>पुस्तकालय</span></a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current-crumb">मुखपृष्ठ (Digital Bookshelf)</span>
+            </div>
+            <div class="breadcrumb-right">
+                <span class="reading-progress-pill"><i class="fa-solid fa-graduation-cap"></i> 6 डिजिटल पाठ्यपुस्तकें</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="main-wrapper single-column">
+
+        <!-- Library Welcome Hero -->
+        <header class="library-hero">
+            <h1>कॉलेज डिजिटल पाठ्यपुस्तक पुस्तकालय</h1>
+            <p>
+                बी.ए. 5वें सेमेस्टर के विद्यार्थियों के लिए सरल, स्पष्ट और गंभीर शैक्षणिक हिंदी में तैयार की गई प्रामाणिक पाठ्य-पुस्तकें। बिना किसी भटकाव और बॉक्स-क्लटर के, सीधे शांत पठन का अनुभव।
+            </p>
+        </header>
+
+        <!-- Bookshelf Grid (4 Disciplines / 6 Textbooks) -->
+        <div class="bookshelf-grid">
+
+            <!-- Book 1: Geography (भूगोल) -->
+            <div class="book-card" style="--accent-color: var(--geo-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--geo-accent);">भूगोल (Theory-V)</span>
+                    <h2>आर्थिक भूगोल (Economic Geography)</h2>
+                    <p>उपागम, 16 मूल संकल्पनाएं, विकास प्रतिरूप, वॉन थ्यूनेन कृषि व वेबर औद्योगिक अवस्थिति मॉडल, प्राथमिक व द्वितीयक क्रियाएं, परिवहन, व्यापार एवं ICT उद्योग।</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट I: परिभाषा, उपागम, 16 संकल्पनाएं व HDI</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट II: अवस्थिति सिद्धांत (वॉन थ्यूनेन व अल्फ्रेड वेबर)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट III: कृषि, मत्स्य, खनन, कोयला, सूती वस्त्र व पेट्रोकेमिकल</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट IV: सेवा क्षेत्र, 5 परिवहन साधन, व्यापार व ICT उद्योग</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./geo-theory.html" class="btn-read-book" style="background-color:var(--geo-accent);">किताब पढ़ें</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('geo-theory', 'आर्थिक भूगोल')">सिलेबस</button>
+                </div>
+            </div>
+
+            <!-- Book 2: Geography Practical (भूगोल प्रायोगिक) -->
+            <div class="book-card" style="--accent-color: var(--geo-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--geo-accent);">भूगोल प्रायोगिक (Practical-V)</span>
+                    <h2>क्षेत्र सर्वेक्षण विधियां, फील्ड ट्रिप व रिपोर्ट लेखन</h2>
+                    <p>Field Survey Methods, Field Trip and Report Writing — आधिकारिक पाठ्यक्रम पर आधारित संपूर्ण 25-अध्यायी डिजिटल मैनुअल: क्षेत्र कार्य की भूमिका व 5 केस स्टडीज, प्रतिदर्शन विधियां, साक्षात्कार/FGD/क्वाड्रैट, आदर्श फील्ड रिपोर्ट, MS Word/Excel एवं 150+ वाइवा प्रश्नोत्तर।</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट I: क्षेत्र कार्य की भूमिका, मूल्य, नैतिकता व 5 केस स्टडीज (Ch 1-5)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट II: प्रतिदर्शन रूपरेखा - Random, Stratified, Systematic, Cluster (Ch 6-11)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट III: तकनीकें - Observation, Questionnaire, Interview, FGD, Transect, Quadrat (Ch 12-17)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट IV: रिपोर्ट प्रारूप, आदर्श रिपोर्ट, MS Word/Excel, 16 अभ्यास व 150+ वाइवा (Ch 18-25)</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./geo-practical.html" class="btn-read-book" style="background-color:var(--geo-accent);">किताब पढ़ें</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('geo-practical', 'भूगोल प्रायोगिक')">सिलेबस</button>
+                </div>
+            </div>
+
+            <!-- Book 3: Economics Elective 1 (अर्थशास्त्र ऐच्छिक-1) -->
+            <div class="book-card" style="--accent-color: var(--eco-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--eco-accent);">अर्थशास्त्र ऐच्छिक 1 (Economics)</span>
+                    <h2>भारत में आर्थिक विकास एवं नीतियां - I</h2>
+                    <p>Economic Development and Policy in India-I — आधिकारिक पाठ्यक्रम पर आधारित संपूर्ण 30-अध्यायी डिजिटल पाठ्य-पुस्तक: संवृद्धि व विकास, नियोजन व SDGs, संसाधन व पूंजी, FDI/FII, जनसांख्यिकी लाभांश, रोजगार, मनरेगा एवं समष्टिगत संकेतक।</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट I: संवृद्धि, विकास का मापन, आयाम, नियोजन के लक्ष्य व SDGs (Ch 1-7)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट II: विकास के कारक - संसाधन, पर्यावरण, पूंजी निर्माण, तकनीक व FDI/FII (Ch 8-15)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट III: जनसंख्या रूपरेखा, दशकीय वृद्धि, लाभांश, साक्षरता व प्रवासन (Ch 16-24)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> यूनिट IV: रोजगार सहभागिता, संगठित-असंगठित, बेरोजगारी व मनरेगा (Ch 25-30)</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./eco-elective-1-policy.html" class="btn-read-book" style="background-color:var(--eco-accent);">किताब पढ़ें</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('eco-elective-1', 'अर्थशास्त्र ऐच्छिक 1')">सिलेबस</button>
+                </div>
+            </div>
+
+            <!-- Book 4: Field Based Course (फील्ड आधारित पाठ्यक्रम) -->
+            <div class="book-card" style="--accent-color: var(--eco-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--eco-accent);">फील्ड आधारित पाठ्यक्रम (Field Based Course)</span>
+                    <h2>फील्ड आधारित पाठ्यक्रम : उद्योग, उद्यमशीलता एवं अनुभव रिपोर्ट</h2>
+                    <p>Field Based Course (Semesters V &amp; VI, 04 Credits) — आधिकारिक पाठ्यक्रम पर आधारित संपूर्ण 25-अध्यायी डिजिटल पाठ्य-पुस्तक: सूक्ष्म, लघु, मध्यम व वृहत उद्योग, उद्यमी/श्रमिक/प्रबंधक संवाद, कार्य-वातावरण, संचालन, विपणन, भंडार, वित्त, 30-बिंदु मॉडल रिपोर्ट, 15 अभ्यास एवं 40 वाइवा प्रश्नोत्तर।</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> खंड 1: फील्ड विजिट, आर्थिक गतिविधियाँ व लघु/मध्यम/वृहत उद्योग (Ch 1-4)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> खंड 2: उद्यमी, श्रमिक व प्रबंधक संवाद एवं कार्य-वातावरण (Ch 5-7)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> खंड 3: उद्यम के 7 स्तंभ - संचालन, विपणन, इन्वेंट्री, वित्त, मानव संसाधन (Ch 8-14)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> खंड 4-7: कार्यप्रणाली, डायरी, 30-बिंदु मॉडल रिपोर्ट, 15 अभ्यास व 40 वाइवा (Ch 15-25)</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./eco-skill-course.html" class="btn-read-book" style="background-color:var(--eco-accent);">किताब पढ़ें</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('eco-skill', 'फील्ड आधारित पाठ्यक्रम')">सिलेबस</button>
+                </div>
+            </div>
+
+            <!-- Book 5: Sociology (समाजशास्त्र) -->
+            <div class="book-card" style="--accent-color: var(--socio-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--socio-accent);">समाजशास्त्र अतिरिक्त (Sociology)</span>
+                    <h2>समाजशास्त्रीय सिद्धांत एवं भारतीय समाज</h2>
+                    <p>अगस्ट कॉम्ट (3 स्तरों का नियम), दुर्खीम (सामाजिक तथ्य व आत्महत्या), कार्ल मार्क्स (वर्ग संघर्ष), वेबर (नौकरशाही), श्रीनिवास (संस्कृतिकरण) एवं घुर्ये।</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 1: अगस्ट कॉम्ट एवं प्रत्यक्षवाद</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 2: इमैनुएल दुर्खीम के सिद्धांत</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 3: कार्ल मार्क्स एवं वर्ग संघर्ष</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 4: मैक्स वेबर — सामाजिक क्रिया व नौकरशाही</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 5: एम.एन. श्रीनिवास एवं जी.एस. घुर्ये</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./socio-additional.html" class="btn-read-book" style="background-color:var(--socio-accent);">किताब पढ़ें</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('socio-additional', 'समाजशास्त्र अतिरिक्त')">सिलेबस</button>
+                </div>
+            </div>
+
+            <!-- Book 6: VAC CTMV (मूल्य वर्धित पाठ्यक्रम) -->
+            <div class="book-card" style="--accent-color: var(--vac-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--vac-accent);">मूल्य वर्धित पाठ्यक्रम (VAC CTMV)</span>
+                    <h2>संस्कृति, परंपराएं एवं नैतिक मूल्य</h2>
+                    <p>संस्कृति बनाम सभ्यता, सत्य, अहिंसा, करुणा, उपनिषदों का वसुधैव कुटुंबकम, गीता का निष्काम कर्म, संविधान के मौलिक कर्तव्य (51A) एवं डिजिटल नैतिकता।</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 1: भारतीय संस्कृति एवं सभ्यता</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 2: सर्वभौमिक नैतिक मूल्य एवं दर्शन</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 3: संवैधानिक मूल्य एवं मौलिक कर्तव्य</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> अध्याय 4: डिजिटल नैतिकता एवं साइबर आचरण</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./vac-ctmv.html" class="btn-read-book" style="background-color:var(--vac-accent);">किताब पढ़ें</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('vac-ctmv', 'VAC CTMV')">सिलेबस</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>आधिकारिक पाठ्यक्रम (Syllabus)</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">आधिकारिक सिलेबस दस्तावेज़ • विश्वविद्यालय प्रमाणित</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#3b82f6; border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="किताब का विषय, अध्याय या सिद्धांत खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Universal Academic Footer -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>बी.ए. 5वां सेमेस्टर डिजिटल पुस्तकालय</span>
+                    </div>
+                    <p>
+                        विश्वविद्यालय स्नातक (UG) कला संकाय के विद्यार्थियों हेतु समर्पित डिजिटल पाठ्यपुस्तक मंच। प्रामाणिक अध्ययन सामग्री, विस्तृत सिद्धांत, आरेख, केस स्टडीज एवं परीक्षा उपयोगी प्रश्नोत्तर सरल हिंदी भाषा में उपलब्ध।
+                    </p>
+                    <p style="font-size:0.85rem; color:var(--text-subtle);">
+                        <i class="fa-solid fa-shield-halved" style="color:var(--accent-color);"></i> शैक्षणिक एवं अशासकीय अध्ययन संसाधन
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>पाठ्य-पुस्तकें (Textbooks)</h4>
+                    <ul class="footer-links">
+                        <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> आर्थिक भूगोल (Theory-V)</a></li>
+                        <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> भूगोल प्रायोगिक मैनुअल</a></li>
+                        <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> भारत में आर्थिक विकास एवं नीतियां-I</a></li>
+                        <li><a href="./eco-skill-course.html"><i class="fa-solid fa-industry"></i> फील्ड आधारित पाठ्यक्रम</a></li>
+                        <li><a href="./socio-additional.html"><i class="fa-solid fa-users"></i> समाजशास्त्रीय सिद्धांत एवं समाज</a></li>
+                        <li><a href="./vac-ctmv.html"><i class="fa-solid fa-building-columns"></i> संस्कृति, परंपराएं व नैतिक मूल्य (VAC)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>त्वरित साधन (Quick Tools)</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fa-solid fa-house"></i> पुस्तकालय मुखपृष्ठ</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i> विषय खोजें (Ctrl+K)</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSyllabusModal('eco-elective-1')"><i class="fa-solid fa-file-invoice"></i> आधिकारिक पाठ्यक्रम (Syllabus)</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> थीम बदलें (Light/Dark)</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i> पृष्ठ के शीर्ष पर जाएं</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div>
+                    © 2026 बी.ए. 5वां सेमेस्टर कॉलेज डिजिटल पाठ्यपुस्तक पुस्तकालय। सर्वाधिकार सुरक्षित।
+                </div>
+                <div class="footer-bottom-links">
+                    <span>सरल हिंदी माध्यम</span>
+                    <span>•</span>
+                    <span>100% निःशुल्क शैक्षणिक पठन</span>
+                    <span>•</span>
+                    <a href="javascript:void(0)" onclick="scrollToTop()">वापस ऊपर जाएं ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

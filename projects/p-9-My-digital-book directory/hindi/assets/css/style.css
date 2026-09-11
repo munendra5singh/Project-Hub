@@ -1,0 +1,2459 @@
+/* ==========================================================================
+   बी.ए. 5वां सेमेस्टर - कॉलेज डिजिटल पाठ्य-पुस्तक (College Digital Textbook)
+   DESIGN PHILOSOPHY: Authentic Printed Book on Screen, Pure Devanagari Flow,
+   Distraction-Free, Zero Box Clutter, Student-Friendly Academic Warmth.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. BOOK COLOR PALETTE & DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+    /* Paper & Background Colors (Calm Academic Warm White) */
+    --bg-body: #fbfbfa;           /* Authentic soft book paper */
+    --bg-page: #ffffff;           /* Pure paper white reading surface */
+    --bg-subtle: #f4f3f0;         /* Soft warm ivory for table headers & summaries */
+    --bg-nav: #1e293b;            /* Deep slate navy for book header */
+    --bg-sidebar: #faf9f6;        /* Warm sidebar paper */
+    --border-color: #e5e5e0;       /* Fine pencil-thin divider line */
+    --border-subtle: #eeece8;
+
+    /* Textbook Typography Colors (High-Contrast Rich Charcoal) */
+    --text-main: #181c24;         /* Rich charcoal for crisp Devanagari readability */
+    --text-muted: #384252;        /* Secondary paragraph text */
+    --text-subtle: #6b7280;       /* Metadata, footnotes, chapter numbers */
+    --text-on-dark: #ffffff;
+
+    /* Subject Academic Accent Colors (Classic Book Cloth Bindings) */
+    --accent-color: #1e3a8a;      /* Scholarly Navy */
+    --accent-light: #eff6ff;
+    --accent-border: #bfdbfe;
+
+    --eco-accent: #1e3a8a;        /* Economics: Deep Navy */
+    --eco-light: #eff6ff;
+    --geo-accent: #14532d;        /* Geography: Deep Forest Green */
+    --geo-light: #f0fdf4;
+    --socio-accent: #581c87;      /* Sociology: Deep Royal Purple */
+    --socio-light: #faf5ff;
+    --vac-accent: #854d0e;        /* VAC: Warm Ochre / Amber */
+    --vac-light: #fefce8;
+
+    /* Semantic Notes */
+    --note-bg: #fffbeb;
+    --note-border: #d97706;
+    --note-text: #92400e;
+
+    /* Layout Dimensions */
+    --header-height: 60px;
+    --sub-header-height: 48px;
+    --sidebar-width: 290px;
+
+    /* Typography Settings */
+    --font-family-body: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family-heading: 'Noto Sans Devanagari', 'Poppins', -apple-system, sans-serif;
+    --base-font-size: 17px;
+    --line-height-body: 1.85;
+}
+
+/* Dark Theme (Calm Night Reading / Midnight Paper) */
+[data-theme="dark"] {
+    --bg-body: #0f141c;
+    --bg-page: #151b26;
+    --bg-subtle: #1c2433;
+    --bg-nav: #0b0e14;
+    --bg-sidebar: #131923;
+    --border-color: #242d3d;
+    --border-subtle: #1d2533;
+
+    --text-main: #f1f5f9;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
+
+    --accent-color: #60a5fa;
+    --accent-light: rgba(30, 58, 138, 0.25);
+    --accent-border: rgba(96, 165, 250, 0.3);
+
+    --eco-accent: #60a5fa;
+    --eco-light: rgba(30, 58, 138, 0.25);
+    --geo-accent: #4ade80;
+    --geo-light: rgba(20, 83, 45, 0.25);
+    --socio-accent: #c084fc;
+    --socio-light: rgba(88, 28, 135, 0.25);
+    --vac-accent: #facc15;
+    --vac-light: rgba(133, 77, 14, 0.25);
+
+    --note-bg: rgba(217, 119, 6, 0.12);
+    --note-border: #f59e0b;
+    --note-text: #fef3c7;
+}
+
+/* Subject Specific Bindings */
+body[data-subject="geography"] {
+    --accent-color: var(--geo-accent);
+    --accent-light: var(--geo-light);
+}
+body[data-subject="economics"] {
+    --accent-color: var(--eco-accent);
+    --accent-light: var(--eco-light);
+}
+body[data-subject="sociology"] {
+    --accent-color: var(--socio-accent);
+    --accent-light: var(--socio-light);
+}
+body[data-subject="vac"] {
+    --accent-color: var(--vac-accent);
+    --accent-light: var(--vac-light);
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE BOOK TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--base-font-size);
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: var(--font-family-body);
+    line-height: var(--line-height-body);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+img, svg, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Heading Typography Scale (Classical Scholarly Weights, No Neon, No Clutter) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    color: var(--text-main);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.4rem;
+    margin-top: 2.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Standard Textbook Paragraphs */
+p {
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+strong, b {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   3. BOOK NAVIGATION BAR (UNOBTRUSIVE E-READER HEADER)
+   -------------------------------------------------------------------------- */
+#reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    width: 0%;
+    z-index: 2000;
+    transition: width 0.1s linear;
+}
+
+.top-navbar {
+    height: var(--header-height);
+    background-color: var(--bg-nav);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    max-width: 100%;
+    gap: 1rem;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.nav-brand:hover {
+    text-decoration: none;
+}
+
+.nav-brand-icon {
+    font-size: 1.35rem;
+    color: #60a5fa;
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand-text .title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    display: block;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.nav-brand-text .subtitle {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    display: block;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+}
+
+.nav-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-link {
+    color: #cbd5e1;
+    font-size: 0.86rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Language Switcher Button */
+.nav-btn.lang-switcher-btn {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    font-weight: 600;
+    gap: 6px;
+    padding: 6px 12px;
+}
+
+.nav-btn.lang-switcher-btn:hover {
+    background: rgba(255, 255, 255, 0.26);
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+}
+
+.nav-btn.lang-switcher-btn i {
+    color: #93c5fd;
+    font-size: 0.95rem;
+}
+
+.nav-btn.lang-switcher-btn .lang-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.nav-link.nav-link-lang {
+    color: #93c5fd;
+    font-weight: 600;
+    border: 1px dashed rgba(147, 197, 253, 0.4);
+    border-radius: 6px;
+    margin: 4px 0;
+}
+
+.nav-link.nav-link-lang:hover {
+    background: rgba(147, 197, 253, 0.15);
+    color: #ffffff;
+}
+
+.nav-hamburger {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 11px;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    min-width: 38px;
+    transition: background 0.15s ease;
+}
+
+.nav-hamburger:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.font-resizer-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+}
+
+.font-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    min-height: 34px;
+    transition: background 0.15s ease;
+}
+
+.font-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sub-Header: Breadcrumbs & Chapter Progress */
+.sub-header {
+    height: var(--sub-header-height);
+    background-color: var(--bg-subtle);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 1.25rem;
+    font-size: 0.84rem;
+    color: var(--text-subtle);
+    position: sticky;
+    top: var(--header-height);
+    z-index: 900;
+}
+
+.breadcrumb-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.breadcrumb-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    flex: 1;
+}
+
+/* Sidebar Quick Toggle Button */
+.sidebar-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--bg-page);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    flex-shrink: 0;
+    line-height: 1.4;
+    user-select: none;
+}
+
+.sidebar-toggle-btn:hover {
+    background: var(--bg-subtle);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.sidebar-toggle-btn:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.sidebar-toggle-btn i {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    transition: transform 0.2s ease;
+}
+
+body.sidebar-collapsed .sidebar-toggle-btn {
+    background: var(--accent-light);
+    border-color: var(--accent-border);
+    color: var(--accent-color);
+}
+
+.breadcrumb-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.breadcrumb-links::-webkit-scrollbar {
+    display: none;
+}
+
+.breadcrumb-links a {
+    color: var(--text-muted);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.breadcrumb-links a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: var(--text-subtle);
+    opacity: 0.6;
+    font-size: 0.75rem;
+}
+
+.current-crumb {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.breadcrumb-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.reading-progress-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-light);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-border);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Small, clean Content-Only / Reading Mode Toggle Button */
+.content-only-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-page);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    line-height: 1.4;
+    user-select: none;
+}
+
+.content-only-btn:hover {
+    background: var(--bg-subtle);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.content-only-btn i {
+    font-size: 0.82rem;
+    color: var(--accent-color);
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: var(--bg-page);
+    border: 1px solid var(--border-color);
+    padding: 5px 11px;
+    border-radius: 5px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+}
+
+.mobile-nav-toggle:hover {
+    background: var(--bg-subtle);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.breadcrumb-active-topic {
+    color: var(--accent-color);
+    font-weight: 600;
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   4. TWO-COLUMN BOOK LAYOUT (TABLE OF CONTENTS + READING COLUMN)
+   -------------------------------------------------------------------------- */
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.5rem 1.75rem 4rem 1.75rem;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.main-wrapper.single-column {
+    display: block;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2.25rem 1.75rem 5rem 1.75rem;
+}
+
+/* Fixed / Sticky Table of Contents Sidebar with Separate Vertical Scrollbar */
+.sidebar-toc {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--header-height) + var(--sub-header-height) + 1.25rem);
+    align-self: flex-start;
+    height: calc(100vh - var(--header-height) - var(--sub-header-height) - 2rem);
+    max-height: calc(100vh - var(--header-height) - var(--sub-header-height) - 2rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    background: transparent;
+    padding-right: 0.85rem;
+    border-right: 1px solid var(--border-subtle);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                margin-left 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.25s ease,
+                visibility 0.3s ease;
+}
+
+.sidebar-toc::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-toc::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-toc::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 4px;
+}
+
+.sidebar-toc::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-subtle);
+}
+
+/* Desktop Sidebar Toggle Collapse — Main content smoothly expands to full page width */
+body.sidebar-collapsed .sidebar-toc {
+    transform: translateX(-100%);
+    margin-left: calc(-1 * var(--sidebar-width) - 2rem);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+body.sidebar-collapsed .content-area,
+body.sidebar-collapsed .book-page,
+body.sidebar-collapsed .book-main-column {
+    width: 100%;
+    max-width: 100%;
+    flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   CONTENT-ONLY / READING MODE
+   -------------------------------------------------------------------------- */
+.content-only-exit-btn {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-page);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.14);
+    padding: 7px 15px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.content-only-exit-btn:hover {
+    background: var(--bg-subtle);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+}
+
+.content-only-exit-btn i {
+    font-size: 0.88rem;
+    color: var(--accent-color);
+}
+
+body.content-only-mode .content-only-exit-btn {
+    display: inline-flex !important;
+}
+
+body.content-only-mode .top-navbar,
+body.content-only-mode .sub-header,
+body.content-only-mode .sidebar-toc,
+body.content-only-mode .sidebar-backdrop,
+body.content-only-mode .reading-progress-bar,
+body.content-only-mode .site-footer {
+    display: none !important;
+}
+
+body.content-only-mode .main-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 5rem 2rem;
+    display: block;
+    width: 100%;
+}
+
+body.content-only-mode .content-area,
+body.content-only-mode .book-page,
+body.content-only-mode .book-main-column {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    border: none;
+    box-shadow: none;
+    padding: 2.5rem 3.5rem;
+}
+
+@media (max-width: 767px) {
+    body.content-only-mode .content-area,
+    body.content-only-mode .book-page,
+    body.content-only-mode .book-main-column {
+        padding: 1.5rem 1rem;
+    }
+}
+
+.toc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.toc-header h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.toc-group {
+    margin-bottom: 1.25rem;
+}
+
+.toc-group-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.toc-item-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.toc-link {
+    display: block;
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    border-radius: 4px;
+    line-height: 1.45;
+    transition: all 0.15s ease;
+}
+
+.toc-link:hover {
+    color: var(--accent-color);
+    background-color: var(--bg-subtle);
+    text-decoration: none;
+}
+
+.toc-link.active {
+    color: var(--accent-color);
+    font-weight: 700;
+    background-color: var(--accent-light);
+    border-left: 2px solid var(--accent-color);
+}
+
+/* --------------------------------------------------------------------------
+   5. AUTHENTIC BOOK READING COLUMN (.book-page)
+   -------------------------------------------------------------------------- */
+.content-area,
+.book-page,
+.book-main-column {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background-color: var(--bg-page);
+    padding: 2.25rem 2.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* Book Cover / Subject Hero */
+.book-hero {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 1.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.book-hero .book-paper-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.85rem;
+}
+
+.book-hero h1 {
+    font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+    font-weight: 800;
+    color: var(--text-main);
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+    line-height: 1.3;
+}
+
+.book-hero .book-intro-lead {
+    font-size: 1.08rem;
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.book-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1rem;
+}
+
+.book-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* Unit Divider (पाठ्यक्रम इकाई विभाजन) */
+.unit-divider {
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-color);
+    padding: 1.75rem 2rem;
+    margin: 3.5rem 0 2.5rem 0;
+    border-radius: 4px;
+    scroll-margin-top: calc(var(--header-height) + var(--sub-header-height) + 1.5rem);
+}
+
+.unit-badge {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+}
+
+.unit-divider h2 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0 0 0.4rem 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.unit-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.chapter-num {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.35rem;
+}
+
+/* Chapter Opening */
+.chapter-section,
+.book-chapter {
+    margin-bottom: 4.5rem;
+    scroll-margin-top: calc(var(--header-height) + var(--sub-header-height) + 1.5rem);
+}
+
+.chapter-header {
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.chapter-number-tag {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.35rem;
+}
+
+.chapter-header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-main);
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+/* Chapter Introduction (भूमिका) */
+.chapter-bhumika {
+    font-size: 1.08rem;
+    color: var(--text-main);
+    background-color: var(--bg-subtle);
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--accent-color);
+    margin-bottom: 2rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.chapter-bhumika h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.chapter-bhumika p {
+    margin-bottom: 0;
+    font-size: 1.02rem;
+}
+
+/* Topic Flow (No nested cards, continuous reading) */
+.topic-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: calc(var(--header-height) + var(--sub-header-height) + 1.5rem);
+}
+
+/* 📖 Textbook Definition (No shiny cards, just clean indented book definition) */
+.book-definition {
+    border-left: 3px solid var(--accent-color);
+    background-color: var(--bg-subtle);
+    padding: 1rem 1.35rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.book-definition .def-term {
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.book-definition p {
+    margin-bottom: 0;
+    color: var(--text-main);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+/* 💡 Highlighted Book Note (ध्यान दें - Simple blockquote) */
+.book-note {
+    border-left: 3px solid var(--note-border);
+    background-color: var(--note-bg);
+    color: var(--note-text);
+    padding: 0.9rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.98rem;
+}
+
+.book-note .note-title {
+    font-weight: 700;
+    color: var(--note-border);
+    margin-bottom: 0.25rem;
+}
+
+.book-note p {
+    margin-bottom: 0;
+    color: var(--note-text);
+    font-size: 0.98rem;
+}
+
+/* 📐 Worked Formula & Calculation Box (Scholarly display) */
+.book-formula {
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.book-formula .formula-math {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0.5rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.book-formula .formula-explain {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    text-align: left;
+    margin-top: 0.75rem;
+    line-height: 1.6;
+}
+
+/* 📊 Textbook Tables (High Readability, Responsive Horizontal Container) */
+.table-wrapper,
+.book-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.75rem 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-page);
+}
+
+.book-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.book-table th {
+    background-color: var(--bg-subtle);
+    color: var(--text-main);
+    font-weight: 700;
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.book-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.book-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 💻 Preformatted Code, Text Diagrams and ASCII Schemes */
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--bg-subtle);
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+}
+
+.book-diagram {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.book-diagram .diagram-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.book-diagram pre {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+/* Book Lists */
+.book-list {
+    margin: 0.85rem 0 1.25rem 1.5rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.book-list li {
+    margin-bottom: 0.45rem;
+}
+
+.book-list li strong {
+    color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   6. CHAPTER CLOSING (अध्याय-सार, मुख्य बातें, अभ्यास प्रश्न)
+   -------------------------------------------------------------------------- */
+.chapter-closing {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+/* अध्याय-सार (Summary) */
+.chapter-summary {
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+
+.chapter-summary h3 {
+    font-size: 1.15rem;
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.chapter-summary p {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 0;
+    line-height: 1.75;
+}
+
+/* मुख्य बातें (Key Points) */
+.chapter-key-points {
+    margin-bottom: 2.25rem;
+}
+
+.chapter-key-points h3 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.chapter-key-points ol {
+    padding-left: 1.35rem;
+    line-height: 1.8;
+}
+
+.chapter-key-points li {
+    margin-bottom: 0.45rem;
+    color: var(--text-muted);
+}
+
+.chapter-key-points li strong {
+    color: var(--text-main);
+}
+
+/* अभ्यास प्रश्न (Exercises) */
+.chapter-exercises {
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-color);
+    padding: 1.75rem 2rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+.chapter-exercises h3 {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+.exercise-group {
+    margin-bottom: 1.5rem;
+}
+
+.exercise-group h4 {
+    font-size: 1.02rem;
+    color: var(--accent-color);
+    margin-bottom: 0.6rem;
+}
+
+.exercise-group ol {
+    padding-left: 1.25rem;
+    line-height: 1.75;
+}
+
+.exercise-group li {
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+/* Book Style Practice MCQ Questions */
+.book-mcq-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.book-mcq-item:last-child {
+    border-bottom: none;
+}
+
+.book-mcq-q {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 0.6rem;
+}
+
+.book-mcq-options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.book-mcq-opt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.94rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.book-mcq-opt:hover {
+    background-color: var(--bg-subtle);
+    color: var(--text-main);
+}
+
+.book-mcq-opt input[type="radio"] {
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.book-mcq-answer {
+    display: none;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background-color: var(--bg-subtle);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.book-mcq-answer.visible {
+    display: block;
+}
+
+.answer-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 0;
+    text-decoration: underline;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. DIGITAL BOOKSHELF (HOME PAGE)
+   -------------------------------------------------------------------------- */
+.library-hero {
+    text-align: center;
+    max-width: 720px;
+    margin: 2rem auto 3rem auto;
+}
+
+.library-hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+}
+
+.library-hero p {
+    font-size: 1.08rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.bookshelf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.book-card {
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    border-top: 4px solid var(--accent-color);
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    border-color: var(--accent-color);
+}
+
+.book-card-header {
+    margin-bottom: 1.25rem;
+}
+
+.book-card-header .subject-tag {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.book-card-header h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-top: 0.25rem;
+    margin-bottom: 0.4rem;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.book-card-header p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.book-chapters-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.75rem 0;
+}
+
+.book-chapters-list li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.book-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 0.5rem;
+}
+
+.btn-read-book {
+    flex: 1;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    padding: 9px 16px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.btn-read-book:hover {
+    background-color: #0f172a;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-syllabus {
+    background-color: var(--bg-subtle);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 9px 14px;
+    border-radius: 4px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-syllabus:hover {
+    background-color: var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   9. MODALS (SYLLABUS & SEARCH)
+   -------------------------------------------------------------------------- */
+.syllabus-modal-overlay,
+.search-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.syllabus-modal-overlay.active,
+.search-modal-overlay.active {
+    display: flex;
+}
+
+.syllabus-modal-card {
+    background: #0f172a;
+    color: #ffffff;
+    width: 100%;
+    max-width: 950px;
+    height: 90vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.syllabus-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.syllabus-modal-title {
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.syllabus-select-dropdown {
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid #475569;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.84rem;
+}
+
+.syllabus-modal-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.syllabus-tool-btn {
+    background: #334155;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    cursor: pointer;
+}
+
+.syllabus-modal-close {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 5px;
+}
+
+.syllabus-viewer-body {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #020617;
+    padding: 1rem;
+}
+
+.syllabus-image-wrapper {
+    transition: transform 0.2s ease;
+    transform-origin: center center;
+    max-width: 100%;
+}
+
+.syllabus-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.syllabus-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 18px;
+    background: #1e293b;
+    border-top: 1px solid #334155;
+}
+
+/* Search Modal */
+.search-modal-card {
+    background: var(--bg-page);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+.search-input-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-input-header input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    font-family: inherit;
+}
+
+.search-results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 420px;
+}
+
+.search-result-item {
+    display: block;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.search-result-item:hover {
+    background-color: var(--bg-subtle);
+    text-decoration: none;
+}
+
+.search-result-item .title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.search-result-item .meta {
+    font-size: 0.8rem;
+    color: var(--text-subtle);
+}
+
+/* Back to top floating button */
+.floating-actions {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1500;
+}
+
+.float-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.25s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.float-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.float-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   9B. UNIVERSAL ACADEMIC FOOTER COMPONENT (.site-footer)
+   -------------------------------------------------------------------------- */
+.site-footer {
+    background-color: var(--bg-subtle);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 3.5rem 1.5rem 2rem;
+    margin-top: 4rem;
+}
+
+.site-footer-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.site-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-col h4 {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.35rem;
+    display: inline-block;
+}
+
+.footer-col p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    text-align: left;
+    margin-bottom: 0.85rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.85rem;
+    color: var(--text-main);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.footer-brand i {
+    color: var(--accent-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.55rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+    transform: translateX(3px);
+}
+
+.site-footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.84rem;
+    color: var(--text-subtle);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+    color: var(--text-subtle);
+    font-size: 0.82rem;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--accent-color);
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE BREAKPOINTS (MOBILE TO DESKTOP)
+   -------------------------------------------------------------------------- */
+
+/* Laptop & Compact Desktop: 992px to 1199px */
+@media (max-width: 1199px) {
+    :root {
+        --sidebar-width: 260px;
+    }
+    .main-wrapper {
+        gap: 1.75rem;
+        padding: 1.75rem 1rem 4rem;
+    }
+    .content-area, .book-page, .book-main-column {
+        padding: 2rem 2.25rem;
+    }
+    .nav-menu {
+        gap: 0.4rem;
+    }
+    .nav-link {
+        font-size: 0.82rem;
+        padding: 5px 9px;
+    }
+    .site-footer-grid {
+        gap: 2rem;
+    }
+}
+
+/* Compact Laptop / Landscape Tablet Navbar Protection */
+@media (max-width: 1250px) {
+    .nav-actions .nav-btn span {
+        display: none;
+    }
+    .nav-actions .nav-btn {
+        padding: 6px 10px;
+        min-width: 36px;
+        justify-content: center;
+    }
+}
+
+/* Tablet & Smaller Devices: <= 991px */
+@media (max-width: 991px) {
+    .nav-hamburger {
+        display: inline-flex;
+        min-height: 38px;
+        min-width: 38px;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background: var(--bg-nav);
+        border-bottom: 3px solid var(--accent-color);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+        flex-direction: column;
+        padding: 1.25rem 1.5rem;
+        gap: 0.5rem;
+        transform: translateY(-125%);
+        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1999;
+        visibility: hidden;
+        pointer-events: none;
+        max-height: calc(85vh - var(--header-height));
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+    }
+
+    .nav-menu.mobile-open {
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .nav-menu .nav-link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 11px 14px;
+        font-size: 0.95rem;
+        border-radius: 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .main-wrapper {
+        flex-direction: column;
+        padding: 1.25rem 1rem 3.5rem;
+        gap: 1.5rem;
+    }
+
+    /* Off-Canvas Sidebar Drawer */
+    .sidebar-toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 320px;
+        max-width: 85vw;
+        height: 100vh;
+        max-height: 100vh;
+        background: var(--bg-page);
+        z-index: 2200;
+        padding: 1.5rem 1.25rem;
+        border-right: 1px solid var(--border-color);
+        box-shadow: 8px 0 28px rgba(0, 0, 0, 0.25);
+        transform: translateX(-100%);
+        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        margin-left: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+
+    .sidebar-toc::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .sidebar-toc::-webkit-scrollbar-thumb {
+        background-color: var(--border-color);
+        border-radius: 4px;
+    }
+
+    .sidebar-toc.open,
+    body.mobile-sidebar-open .sidebar-toc {
+        transform: translateX(0);
+    }
+
+    /* Backdrop Overlay with Blur */
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        z-index: 2100;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .sidebar-backdrop.active,
+    body.mobile-sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Lock body scroll when mobile drawer is open */
+    body.mobile-sidebar-open {
+        overflow: hidden !important;
+    }
+
+    /* Sidebar Close Button */
+    #sidebar-close,
+    .mobile-nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 38px;
+        min-height: 38px;
+        padding: 6px 10px;
+        background: var(--bg-subtle);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-size: 1.3rem;
+        line-height: 1;
+        color: var(--text-main);
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+
+    #sidebar-close:hover,
+    .mobile-nav-toggle:hover {
+        background: var(--border-color);
+        color: var(--accent-color);
+    }
+
+    .sidebar-toggle-btn {
+        min-height: 40px;
+        min-width: 40px;
+        padding: 7px 12px;
+        font-size: 0.84rem;
+    }
+
+    .breadcrumb-active-topic {
+        display: none;
+    }
+
+    .content-area, .book-page, .book-main-column {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 2rem 1.75rem;
+    }
+
+    .toc-link {
+        padding: 9px 12px;
+        font-size: 0.88rem;
+    }
+
+    .site-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Mobile & Small Tablets: <= 767px */
+@media (max-width: 767px) {
+    html {
+        font-size: 15.5px;
+    }
+
+    .top-navbar {
+        padding: 0 0.85rem;
+    }
+
+    .breadcrumb-container {
+        gap: 0.5rem;
+    }
+
+    .content-only-text {
+        display: none;
+    }
+
+    .content-only-btn {
+        padding: 6px 9px;
+        min-width: 38px;
+        min-height: 38px;
+        justify-content: center;
+    }
+
+    .content-area, .book-page, .book-main-column {
+        padding: 1.5rem 1.15rem;
+        border-radius: 6px;
+    }
+
+    p {
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .book-hero {
+        padding-bottom: 1.25rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .book-hero h1 {
+        font-size: 1.55rem;
+    }
+
+    .bookshelf-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .book-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .site-footer {
+        padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .site-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .site-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .table-wrapper,
+    .book-table-wrapper {
+        margin: 1.25rem 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .book-table th, .book-table td {
+        padding: 8px 10px;
+        font-size: 0.88rem;
+    }
+
+    .chapter-bhumika,
+    .book-definition,
+    .book-note,
+    .chapter-summary,
+    .chapter-exercises {
+        padding: 1rem 1.15rem;
+    }
+}
+
+/* Phablets & Mobile Phones: <= 576px */
+@media (max-width: 576px) {
+    .font-resizer-group {
+        display: none;
+    }
+
+    .sidebar-toggle-text {
+        display: none;
+    }
+
+    .sidebar-toggle-btn {
+        padding: 6px 10px;
+        min-width: 40px;
+        min-height: 40px;
+        justify-content: center;
+    }
+
+    .content-area, .book-page, .book-main-column {
+        padding: 1.25rem 0.9rem;
+    }
+
+    .unit-divider {
+        padding: 1.25rem 1rem;
+        margin: 2.25rem 0 1.5rem 0;
+    }
+
+    .unit-divider h2 {
+        font-size: 1.35rem;
+    }
+
+    .book-hero h1 {
+        font-size: 1.45rem;
+    }
+
+    .chapter-header h2 {
+        font-size: 1.45rem;
+    }
+
+    .chapter-bhumika,
+    .book-definition,
+    .book-note,
+    .chapter-summary,
+    .chapter-exercises {
+        padding: 0.85rem 1rem;
+    }
+
+    .syllabus-modal-overlay,
+    .search-modal-overlay {
+        padding: 0.5rem;
+    }
+
+    .syllabus-modal-card {
+        height: 96vh;
+        border-radius: 6px;
+    }
+
+    .syllabus-modal-header {
+        padding: 8px 12px;
+        gap: 6px;
+    }
+
+    .syllabus-modal-title {
+        font-size: 0.88rem;
+    }
+
+    .syllabus-modal-footer {
+        padding: 8px 12px;
+    }
+
+    .search-modal-card {
+        max-height: 88vh;
+    }
+
+    .book-card-actions {
+        flex-direction: column;
+    }
+
+    .btn-read-book, .btn-syllabus {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Compact Mobile: <= 480px */
+@media (max-width: 480px) {
+    .nav-brand-text .title {
+        font-size: 0.9rem;
+    }
+
+    .nav-brand-text .subtitle {
+        display: none;
+    }
+
+    .nav-btn span {
+        display: none;
+    }
+
+    .nav-btn.lang-switcher-btn {
+        padding: 5px 8px;
+        min-width: unset;
+        gap: 4px;
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .nav-btn.lang-switcher-btn .lang-label {
+        display: inline-block !important;
+        font-size: 0.74rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .nav-btn {
+        padding: 6px 9px;
+        min-width: 34px;
+        justify-content: center;
+    }
+
+    .breadcrumb-links {
+        font-size: 0.78rem;
+    }
+
+    .reading-progress-pill {
+        font-size: 0.72rem;
+        padding: 3px 8px;
+    }
+
+    .bookshelf-grid {
+        gap: 1.25rem;
+    }
+}
+
+/* Micro Mobile (320px to 380px) Safety */
+@media (max-width: 380px) {
+    .nav-brand {
+        gap: 5px;
+        min-width: 0;
+        flex: 1 1 auto;
+    }
+
+    .nav-brand-icon {
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .nav-brand-text {
+        min-width: 0;
+    }
+
+    .nav-brand-text .title {
+        font-size: 0.78rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 130px;
+    }
+
+    .top-navbar {
+        padding: 0 0.35rem;
+        gap: 4px;
+    }
+
+    .nav-actions {
+        gap: 3px;
+        flex-shrink: 0;
+    }
+
+    .nav-actions .nav-btn {
+        padding: 5px 6px;
+        min-width: 30px;
+        min-height: 30px;
+        font-size: 0.75rem;
+    }
+
+    .nav-actions .nav-btn.lang-switcher-btn {
+        padding: 4px 6px;
+        min-width: unset;
+    }
+
+    .nav-actions .nav-btn.lang-switcher-btn .lang-label {
+        font-size: 0.68rem;
+    }
+
+    .nav-actions .nav-hamburger {
+        padding: 5px 7px;
+        min-width: 32px;
+        min-height: 32px;
+        font-size: 0.88rem;
+    }
+
+    .sidebar-toc {
+        width: 285px;
+        max-width: 88vw;
+    }
+
+    .content-area, .book-page, .book-main-column {
+        padding: 1rem 0.65rem;
+    }
+
+    .book-table th, .book-table td {
+        padding: 6px 8px;
+        font-size: 0.82rem;
+    }
+
+    .breadcrumb-container {
+        gap: 0.35rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   11. PRINT & PDF STYLESHEET (किताब जैसा प्रिंट आउटपुट)
+   -------------------------------------------------------------------------- */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-size: 11pt !important;
+        line-height: 1.6 !important;
+    }
+
+    .top-navbar,
+    .reading-progress-bar,
+    .sub-header,
+    .sidebar-toc,
+    .sidebar-backdrop,
+    .floating-actions,
+    .syllabus-modal-overlay,
+    .search-modal-overlay,
+    .answer-toggle-btn,
+    .btn-read-book,
+    .btn-syllabus {
+        display: none !important;
+    }
+
+    .main-wrapper {
+        display: block !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .content-area,
+    .book-page {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        background: transparent !important;
+    }
+
+    .book-chapter {
+        page-break-before: always;
+        break-before: page;
+        padding-top: 1.5rem;
+    }
+
+    .book-chapter:first-of-type {
+        page-break-before: avoid;
+        break-before: avoid;
+    }
+
+    .chapter-header {
+        border-bottom: 2px solid #333333 !important;
+        padding-bottom: 0.75rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .chapter-bhumika,
+    .book-definition,
+    .book-note,
+    .chapter-summary,
+    .chapter-exercises {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .book-definition,
+    .book-note {
+        border-left-color: #333333 !important;
+        background-color: #f8f9fa !important;
+    }
+
+    .chapter-summary {
+        border-color: #555555 !important;
+        background-color: #f8f9fa !important;
+    }
+
+    .chapter-exercises {
+        border-color: #555555 !important;
+        background-color: transparent !important;
+    }
+
+    .book-mcq-answer {
+        display: block !important;
+        background: none !important;
+        border-left: 2px solid #555 !important;
+        padding-left: 8px !important;
+    }
+
+    .book-table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .book-table th,
+    .book-table td {
+        border-color: #cccccc !important;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: #111111 !important;
+    }
+}
+

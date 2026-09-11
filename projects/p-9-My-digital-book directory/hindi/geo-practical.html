@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>क्षेत्र सर्वेक्षण विधियां, फील्ड ट्रिप एवं रिपोर्ट लेखन | बी.ए. 5वां सेमेस्टर भूगोल प्रायोगिक पाठ्य-पुस्तक</title>
+    <meta name="description" content="बी.ए. 5वां सेमेस्टर भूगोल प्रायोगिक (Practical-V): FIELD SURVEY METHODS, FIELD TRIP AND REPORT WRITING — क्षेत्र कार्य की भूमिका, प्रतिदर्शन विधियां, प्राथमिक आंकड़े संकलन, FGD, दिक् सर्वेक्षण, मॉडल रिपोर्ट, MS Word/Excel एवं 150+ वाइवा प्रश्नोत्तर।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="geography">
+
+    <!-- Floating Exit Button for Content-Only Mode -->
+    <button class="content-only-exit-btn" id="content-only-exit-btn" aria-label="सामान्य दृश्य पर वापस जाएँ" title="सामान्य दृश्य पर वापस जाएँ">
+        <i class="fa-solid fa-compress"></i>
+        <span>सामान्य दृश्य</span>
+    </button>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">भूगोल प्रायोगिक (Field Survey & Report)</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> पुस्तकालय</a></li>
+            <li><a href="#unit1" class="nav-link">यूनिट I</a></li>
+            <li><a href="#unit2" class="nav-link">यूनिट II</a></li>
+            <li><a href="#unit3" class="nav-link">यूनिट III</a></li>
+            <li><a href="#unit4" class="nav-link">यूनिट IV</a></li>
+            <li><a href="./geo-theory.html" class="nav-link"><i class="fa-solid fa-earth-americas"></i> थ्योरी</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('en')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> English Version</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSyllabusModal('geo-practical', 'भूगोल प्रायोगिक')" title="आधिकारिक पाठ्यक्रम">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="खोजें (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>खोजें</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="फॉन्ट छोटा करें">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="सामान्य फॉन्ट">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="फॉन्ट बड़ा करें">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('en')" title="Read in English (अंग्रेजी में पढ़ें)" aria-label="Switch to English">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">English</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="नेविगेशन मेन्यू खोलें">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Chapter Progress -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="विषय-सूची टॉगल करें" aria-expanded="true" title="विषय-सूची टॉगल करें (Ctrl+B)">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span class="sidebar-toggle-text">विषय-सूची</span>
+                </button>
+                <div class="breadcrumb-links">
+                    <a href="./index.html"><i class="fa-solid fa-house"></i> <span>पुस्तकालय</span></a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>भूगोल</span>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="current-crumb">भूगोल प्रायोगिक (Field Survey Methods & Report)</span>
+                </div>
+            </div>
+            <div class="breadcrumb-right">
+                <span id="breadcrumb-active-topic" class="breadcrumb-active-topic"></span>
+                <span class="reading-progress-pill" id="reading-progress-pill"><i class="fa-solid fa-book-open"></i> प्रगति: 0%</span>
+                <button class="content-only-btn" id="content-only-btn" aria-label="केवल सामग्री दिखाएँ" title="केवल सामग्री दिखाएँ (पठन मोड)">
+                    <i class="fa-solid fa-expand"></i>
+                    <span class="content-only-text">केवल सामग्री</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Two-Column Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC (अनुक्रमणिका - 25 अध्याय) -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3>विषय-सूची</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <!-- UNIT I -->
+            <div class="toc-group">
+                <div class="toc-group-title">यूनिट I: क्षेत्र कार्य की रूपरेखा</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch1" class="toc-link">अध्याय 1: क्षेत्र कार्य की भूमिका व मूल्य</a></li>
+                    <li><a href="#ch2" class="toc-link">अध्याय 2: क्षेत्र कार्य के प्रकार एवं तकनीकें</a></li>
+                    <li><a href="#ch3" class="toc-link">अध्याय 3: क्षेत्र कार्य की नैतिकता</a></li>
+                    <li><a href="#ch4" class="toc-link">अध्याय 4: 'क्षेत्र' को परिभाषित करना</a></li>
+                    <li><a href="#ch5" class="toc-link">अध्याय 5: क्षेत्र अध्ययन केस स्टडीज</a></li>
+                    <li><a href="#ch1-summary" class="toc-link">यूनिट-I सार व अभ्यास प्रश्न</a></li>
+                </ul>
+            </div>
+
+            <!-- UNIT II -->
+            <div class="toc-group">
+                <div class="toc-group-title">यूनिट II: प्रतिदर्शन रूपरेखा (Sampling)</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch6" class="toc-link">अध्याय 6: प्रतिदर्शन की मूल संकल्पना</a></li>
+                    <li><a href="#ch7" class="toc-link">अध्याय 7: यादृच्छिक प्रतिदर्शन</a></li>
+                    <li><a href="#ch8" class="toc-link">अध्याय 8: स्तरीकृत प्रतिदर्शन</a></li>
+                    <li><a href="#ch9" class="toc-link">अध्याय 9: व्यवस्थित प्रतिदर्शन</a></li>
+                    <li><a href="#ch10" class="toc-link">अध्याय 10: समूहीकृत प्रतिदर्शन</a></li>
+                    <li><a href="#ch11" class="toc-link">अध्याय 11: बहु-स्तरीय परिवार चयन</a></li>
+                    <li><a href="#ch6-summary" class="toc-link">यूनिट-II सार व अभ्यास प्रश्न</a></li>
+                </ul>
+            </div>
+
+            <!-- UNIT III -->
+            <div class="toc-group">
+                <div class="toc-group-title">यूनिट III: क्षेत्र तकनीकें (Field Techniques)</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch12" class="toc-link">अध्याय 12: अवलोकन विधि</a></li>
+                    <li><a href="#ch13" class="toc-link">अध्याय 13: प्रश्नावली विधि</a></li>
+                    <li><a href="#ch14" class="toc-link">अध्याय 14: अनुसूची एवं साक्षात्कार विधि</a></li>
+                    <li><a href="#ch15" class="toc-link">अध्याय 15: केंद्रित समूह चर्चा (FGD)</a></li>
+                    <li><a href="#ch16" class="toc-link">अध्याय 16: दिक् सर्वेक्षण (ट्रांसेक्ट व क्वाड्रैट)</a></li>
+                    <li><a href="#ch17" class="toc-link">अध्याय 17: स्थलीय स्केच आरेखन</a></li>
+                    <li><a href="#ch12-summary" class="toc-link">यूनिट-III सार व अभ्यास प्रश्न</a></li>
+                </ul>
+            </div>
+
+            <!-- UNIT IV -->
+            <div class="toc-group">
+                <div class="toc-group-title">यूनिट IV: रिपोर्ट, विश्लेषण व वाइवा</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch18" class="toc-link">अध्याय 18: लक्ष्य, उद्देश्य व परिकल्पना</a></li>
+                    <li><a href="#ch19" class="toc-link">अध्याय 19: कार्यपद्धति व आंकड़े संकलन</a></li>
+                    <li><a href="#ch20" class="toc-link">अध्याय 20: विश्लेषण, सारणीकरण व व्याख्या</a></li>
+                    <li><a href="#ch21" class="toc-link">अध्याय 21: पूर्ण आदर्श क्षेत्र रिपोर्ट (रामपुर)</a></li>
+                    <li><a href="#ch22" class="toc-link">अध्याय 22: MS Word द्वारा रिपोर्ट संपादन</a></li>
+                    <li><a href="#ch23" class="toc-link">अध्याय 23: MS Excel सूत्र एवं चार्ट</a></li>
+                    <li><a href="#ch24" class="toc-link">अध्याय 24: 16 प्रायोगिक अभ्यास माला</a></li>
+                    <li><a href="#ch25" class="toc-link">अध्याय 25: 150+ वाइवा प्रश्न बैंक</a></li>
+                    <li><a href="#ch18-summary" class="toc-link">यूनिट-IV सार व परीक्षा प्रश्न</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Reading Content Area -->
+        <main class="content-area book-page">
+
+            <!-- Book Title Header -->
+            <header class="book-hero">
+                <div class="book-paper-meta"><i class="fa-solid fa-map-location-dot"></i> बी.ए. 5वां सेमेस्टर • भूगोल प्रायोगिक (Practical-V)</div>
+                <h1>क्षेत्र सर्वेक्षण विधियां, फील्ड ट्रिप व रिपोर्ट लेखन</h1>
+                <p class="book-intro-lead">
+                    Field Survey Methods, Field Trip and Report Writing — आधिकारिक विश्वविद्यालय पाठ्यक्रम पर आधारित संपूर्ण 25-अध्यायी डिजिटल प्रैक्टिकल मैनुअल: क्षेत्र कार्य की भूमिका व 5 केस स्टडीज, प्रतिदर्शन विधियां (Random, Stratified, Systematic, Cluster), प्राथमिक आंकड़ा संकलन तकनीकें (अवलोकन, प्रश्नावली, साक्षात्कार, FGD, दिक् सर्वेक्षण, क्वाड्रैट), आदर्श फील्ड रिपोर्ट, MS Word/Excel संपादन तकनीकें एवं 150+ वाइवा प्रश्नोत्तर।
+                </p>
+                <div class="book-hero-badges">
+                    <span class="book-hero-badge"><i class="fa-solid fa-layer-group"></i> 4 प्रायोगिक यूनिट्स</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-list-check"></i> 25 संपूर्ण अध्याय</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-comments"></i> 150+ वाइवा प्रश्नोत्तर</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-circle-check"></i> विश्वविद्यालय अनुमोदित</span>
+                </div>
+            </header>
+
+            <!-- ALL 4 UNITS INJECTED HERE -->
+            
+        <!-- ===================================================================
+             UNIT I: भूगोल में क्षेत्रीय कार्य (FIELD WORK IN GEOGRAPHICAL STUDIES)
+             =================================================================== -->
+        <div class="unit-divider" id="unit1">
+            <span class="unit-badge">UNIT — I</span>
+            <h2>भूगोल में क्षेत्रीय कार्य (Field Work in Geographical Studies)</h2>
+            <p class="unit-subtitle">क्षेत्रीय अध्ययन की भूमिका, मूल्य, नैतिक आचार संहिता, क्षेत्र का परिसीमन एवं केस स्टडी की पहचान</p>
+        </div>
+
+        <!-- CHAPTER 1 -->
+        <article class="book-chapter" id="ch1">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 1</span>
+                <h1>क्षेत्रीय कार्य का परिचय (Introduction to Field Work)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> भूगोल केवल कक्षा-कक्ष (Classroom) में बैठकर नक्शे देखने या किताबों से परिभाषाएं रटने का विषय नहीं है। भूगोल का वास्तविक अध्ययन कक्ष की चारदीवारी से बाहर खुली पृथ्वी पर होता है। जब कोई भूगोलवेत्ता या विद्यार्थी किसी वास्तविक भौगोलिक क्षेत्र में स्वयं जाकर धरातल, मिट्टी, नदियों, फसलों, बस्तियों और मानव जीवन का अपनी आँखों से प्रत्यक्ष अवलोकन करता है और तथ्य जुटाता है, तो उसे 'क्षेत्रीय कार्य' या 'फील्ड वर्क' (Field Work) कहा जाता है। फील्ड वर्क भूगोल की आत्मा है। इस अध्याय में हम फील्ड वर्क के मूल अर्थ, इसके उद्देश्यों, सैद्धांतिक अध्ययन से इसके अंतर और इसके 5 बुनियादी चरणों को सरल भाषा में समझेंगे।
+            </div>
+
+            <section id="sec1-1">
+                <h2>1.1 फील्ड वर्क क्या है? सरल परिभाषा एवं अर्थ</h2>
+                <p><strong>सरल परिभाषा:</strong> किसी पूर्व-निर्धारित शैक्षणिक या शोध उद्देश्य की पूर्ति के लिए प्रयोगशाला या कक्षा से बाहर जाकर वास्तविक भौगोलिक परिवेश में प्रत्यक्ष अवलोकन, साक्ष्य संकलन, माप-जोख और स्थानीय लोगों से साक्षात्कार करने की वैज्ञानिक विधि को <strong>क्षेत्रीय कार्य (Field Work)</strong> कहते हैं।</p>
+                <p>भूगोल में फील्ड वर्क का सीधा अर्थ है—<strong>'धरातलीय यथार्थ' (Ground Truth)</strong> की खोज करना। पुस्तकों में हम पढ़ते हैं कि 'पर्वतीय क्षेत्रों में सीढ़ीदार खेत होते हैं', लेकिन जब हम स्वयं उत्तराखंड या हिमाचल के किसी गाँव में जाकर देखते हैं कि किसान कैसे पत्थरों की दीवारें बनाकर 5-10 फीट चौड़ी पट्टियों में जुताई करता है और पानी रोकता है, तब हमारा ज्ञान पूर्ण और प्रामाणिक बनता है।</p>
+            </section>
+
+            <section id="sec1-2">
+                <h2>1.2 सैद्धांतिक अध्ययन बनाम क्षेत्रीय कार्य (Classroom vs Field Study)</h2>
+                <p>कक्षा में बैठकर पढ़ने और फील्ड में जाकर सीखने में मौलिक अंतर होता है:</p>
+
+                <div class="book-table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>आधार</th>
+                                <th>कक्षा-कक्ष / सैद्धांतिक अध्ययन (Classroom)</th>
+                                <th>क्षेत्रीय कार्य (Field Work)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ज्ञान का स्रोत</strong></td>
+                                <td>पाठ्य-पुस्तकें, व्याख्यान, एटलस और इंटरनेट (द्वितीयक स्रोत)</td>
+                                <td>प्रत्यक्ष धरातल, वास्तविक पर्यावरण और स्थानीय निवासी (प्राथमिक स्रोत)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>प्रकृति</strong></td>
+                                <td>अमूर्त, सैद्धांतिक और सामान्यीकृत (Abstract & General)</td>
+                                <td>मूर्त, प्रत्यक्ष, व्यावहारिक और वास्तविक (Concrete & Real)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>डेटा का प्रकार</strong></td>
+                                <td>दूसरों द्वारा पूर्व-संकलित आंकड़े (Secondary Data)</td>
+                                <td>शोधार्थी द्वारा स्वयं धरातल से संकलित ताजे आंकड़े (Primary Data)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>कौशल विकास</strong></td>
+                                <td>स्मरण शक्ति, सैद्धांतिक समझ और परीक्षा लेखन</td>
+                                <td>अवलोकन, कम्पास/GPS संचालन, साक्षात्कार कला और समस्या समाधान</td>
+                            </tr>
+                            <tr>
+                                <td><strong>स्थानिक यथार्थ</strong></td>
+                                <td>स्थान की जटिलताओं का अनुमान लगाना पड़ता है</td>
+                                <td>स्थानीय समस्याओं और विविधता को साक्षात देखा जाता है</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="sec1-3">
+                <h2>1.3 फील्ड वर्क क्यों किया जाता है और इससे क्या डेटा मिलता है?</h2>
+                <p>फील्ड वर्क करने के मुख्य कारण निम्नलिखित हैं:</p>
+                <ul>
+                    <li><strong>प्राथमिक समंकों (Primary Data) की प्राप्ति:</strong> कई बार किसी दूरदराज के गाँव, झुग्गी-बस्ती या जंगल के सरकारी आंकड़े उपलब्ध नहीं होते या वे बहुत पुराने हो चुके होते हैं। फील्ड वर्क से हमें वर्तमान समय का 100% सटीक और ताजा डेटा मिलता है।</li>
+                    <li><strong>सैद्धांतिक मॉडलों का परीक्षण:</strong> क्या वॉन थ्यूनेन का कृषि मॉडल या वेबर का औद्योगिक सिद्धांत उस वास्तविक गाँव या कस्बे पर लागू होता है? इसकी जांच केवल फील्ड में जाकर ही हो सकती है।</li>
+                    <li><strong>मानव-पर्यावरण अंतःसंबंधों की साक्षात समझ:</strong> स्थानीय लोग प्राकृतिक आपदाओं (जैसे बाढ़ या सूखा) से कैसे निपटते हैं और पर्यावरण का उपयोग कैसे करते हैं।</li>
+                </ul>
+            </section>
+
+            <section id="sec1-4">
+                <h2>1.4 फील्ड वर्क की सामान्य प्रक्रिया एवं 5 बुनियादी चरण</h2>
+                <p>एक सफल फील्ड वर्क आकस्मिक नहीं होता, बल्कि 5 सुव्यवस्थित चरणों में संपन्न होता है:</p>
+
+                <div class="book-diagram">
+                    <pre style="background:var(--bg-subtle); padding:1rem; border-radius:4px; font-family:monospace; line-height:1.5; color:var(--text-main); font-size:0.88rem; overflow-x:auto;">
+[चरण 1: पूर्व-योजना एवं उद्देश्य निर्धारण] (Pre-Field Preparation)
+         ↓
+[चरण 2: क्षेत्र चयन एवं प्रतिचयन डिजाइन] (Defining Field & Sampling)
+         ↓
+[चरण 3: धरातलीय सर्वेक्षण एवं समंक संकलन] (Field Data Collection)
+         ↓
+[चरण 4: समंक संगठन, सारणीयन एवं विश्लेषण] (Data Processing & Analysis)
+         ↓
+[चरण 5: रिपोर्ट लेखन एवं प्रस्तुतीकरण] (Report Writing & Viva)
+                    </pre>
+                    <div style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:4px;">चित्र 1.1 — क्षेत्रीय कार्य के 5 क्रमिक चरण</div>
+                </div>
+
+                <ol>
+                    <li><strong>पूर्व-क्षेत्रीय तैयारी (Pre-Field):</strong> अध्ययन का विषय चुनना, उद्देश्य तय करना, टोपोशीट व उपग्रह चित्रों का अध्ययन करना तथा प्रश्नावली तैयार करना।</li>
+                    <li><strong>क्षेत्र निर्धारण एवं सैंपलिंग:</strong> किस गाँव या वार्ड में जाना है, उसकी सीमा तय करना और कितने परिवारों का सर्वे करना है (सैंपल साइज) चुनना।</li>
+                    <li><strong>फील्ड पर प्रत्यक्ष कार्य:</strong> धरातल पर जाकर अवलोकन करना, कम्पास से दिशा नापना, प्रश्नावली भरवाना और साक्षात्कार लेना।</li>
+                    <li><strong>डेटा प्रसंस्करण:</strong> संकलित फॉर्मों की जांच करना, गलतियां सुधारना, एक्सेल शीट में डेटा दर्ज करना और टेबल/चार्ट बनाना।</li>
+                    <li><strong>रिपोर्ट तैयार करना:</strong> सभी निष्कर्षों को एक व्यवस्थित वैज्ञानिक रिपोर्ट के रूप में लिखना और उसका प्रस्तुतीकरण करना।</li>
+                </ol>
+
+                <div class="book-note">
+                    <strong>सरल भौगोलिक उदाहरण:</strong> मान लीजिए कि हमारे कॉलेज का भूगोल विभाग पास के 'रामपुर गाँव में सिंचाई के साधनों और गिरते भूजल स्तर' पर अध्ययन करना चाहता है। छात्र पहले टोपोशीट पर रामपुर की स्थिति देखते हैं। फिर गाँव जाकर कुओं का जलस्तर नापते हैं, 30 किसानों से नलकूपों के खर्चे और फसल चक्र पर प्रश्नावली भरवाते हैं। वापस आकर वे डेटा का विश्लेषण करते हैं और रिपोर्ट लिखते हैं। यह फील्ड वर्क की पूरी प्रक्रिया है।
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 2 -->
+        <article class="book-chapter" id="ch2">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 2</span>
+                <h1>फील्ड वर्क की भूमिका एवं मूल्य (Role and Value of Field Work)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> प्रसिद्ध भूगोलवेत्ता विलियम मॉरिस डेविस ने कहा था कि *"भूगोल का सच्चा मंदिर प्रयोगशाला नहीं, बल्कि खुला धरातल है।"* क्षेत्रीय कार्य भूगोल विषय की रीढ़ है। यह विद्यार्थी को किताबों की रटी-रटाई दुनिया से निकालकर यथार्थ की ठोस जमीन पर खड़ा करता है। इस अध्याय में हम अध्ययन करेंगे कि भूगोल में फील्ड वर्क की क्या शैक्षणिक भूमिका है और यह एक विद्यार्थी तथा शोधार्थी के लिए कितना मूल्यवान है।
+            </div>
+
+            <section id="sec2-1">
+                <h2>2.1 भूगोल में फील्ड वर्क की शैक्षणिक भूमिका</h2>
+                <p>भूगोल 'स्थान' (Space) और 'स्थानिक संबंधों' (Spatial Relations) का विज्ञान है। फील्ड वर्क की मुख्य भूमिकाएं निम्नलिखित हैं:</p>
+                <ul>
+                    <li><strong>धरातलीय यथार्थ की पहचान (Ground Reality):</strong> सैटेलाइट इमेज में जो हरा धब्बा दिखता है, वह फील्ड में जाकर ही पता चलता है कि वह आम का बाग है, गन्ने का खेत है या जलकुंभी से ढका हुआ तालाब। इस सत्यापन को 'ग्राउंड-ट्रूथिंग' (Ground-Truthing) कहते हैं।</li>
+                    <li><strong>सिद्धांत और व्यवहार का समन्वय:</strong> किताबों में पढ़ा गया 'सघन निर्वाह कृषि' या 'नगरीय मलिन बस्ती' का सिद्धांत तब जीवंत हो उठता है जब विद्यार्थी अपनी आँखों से झुग्गी-झोपड़ियों के संकरे रास्तों और जलभराव को देखता है।</li>
+                    <li><strong>स्थानिक विषमताओं की समझ:</strong> एक ही गाँव के भीतर ऊंचे टीले पर स्थित मोहल्ले में पानी की किल्लत और निचले हिस्से में जलभराव—यह सूक्ष्म स्थानिक अंतर (Micro-spatial variation) केवल फील्ड वर्क से समझ आता है।</li>
+                    <li><strong>स्थानीय ज्ञान (Indigenous Knowledge) की प्राप्ति:</strong> गाँव के बुजुर्ग किसान मौसम, मिट्टी और स्थानीय बीजों के बारे में जो व्यावहारिक ज्ञान रखते हैं, वह किसी आधुनिक किताब में नहीं मिलता। फील्ड वर्क उस ज्ञान को दर्ज करने का अवसर देता है।</li>
+                </ul>
+            </section>
+
+            <section id="sec2-2">
+                <h2>2.2 विद्यार्थी के व्यक्तिगत एवं व्यावसायिक कौशल का विकास</h2>
+                <p>फील्ड वर्क विद्यार्थी में निम्नलिखित महत्वपूर्ण कौशलों (Skills) का विकास करता है:</p>
+                <ol>
+                    <li><strong>अवलोकन क्षमता (Observation Skills):</strong> किसी भू-दृश्य को देखकर उसके महत्वपूर्ण भौतिक और मानवीय लक्षणों को तुरंत पहचानने और नोट करने की तीक्ष्ण दृष्टि।</li>
+                    <li><strong>संचार एवं साक्षात्कार कला (Communication Skills):</strong> अपरिचित ग्रामीणों, अधिकारियों या झुग्गीवासियों से विनम्रता से बात करना, उनका विश्वास जीतना और उनसे सही जानकारी निकलवाना।</li>
+                    <li><strong>उपकरण संचालन दक्षता:</strong> प्रिज्मीय कम्पास, जीपीएस (GPS), डंपी लेवल, तथा मोबाइल सर्वे ऐप्स (जैसे KoboToolbox) का धरातल पर सही उपयोग।</li>
+                    <li><strong>समूह कार्य एवं नेतृत्व (Teamwork & Leadership):</strong> साथियों के साथ मिलकर काम करना, जिम्मेदारियों का बंटवारा और विषम परिस्थितियों में तालमेल बिठाना।</li>
+                </ol>
+            </section>
+        </article>
+
+        <!-- CHAPTER 3 -->
+        <article class="book-chapter" id="ch3">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 3</span>
+                <h1>फील्ड वर्क में नैतिक आचार संहिता (Field Work Ethics)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> जब हम किसी क्षेत्र में सर्वेक्षण के लिए जाते हैं, तो हम केवल एक दर्शक नहीं होते, बल्कि हम वास्तविक लोगों के निजी जीवन, घरों और समुदायों में प्रवेश करते हैं। एक भूगोलवेत्ता या शोधार्थी के रूप में हमारा यह परम कर्तव्य है कि हमारा कोई भी कार्य स्थानीय लोगों के आत्मसम्मान, निजता या संस्कृति को ठेस न पहुँचाए। फील्ड में किए जाने वाले नैतिक नियमों और आचरण के सिद्धांतों को 'फील्ड वर्क एथिक्स' (Ethics of Fieldwork) कहा जाता है।
+            </div>
+
+            <section id="sec3-1">
+                <h2>3.1 नैतिकता का अर्थ एवं फील्ड वर्क में इसकी अनिवार्यता</h2>
+                <p><strong>नैतिकता (Ethics)</strong> का अर्थ है—क्या उचित है और क्या अनुचित, इसका विवेकपूर्ण पालन करना। फील्ड वर्क में नैतिकता की उपेक्षा करने से न केवल स्थानीय लोगों को मानसिक या सामाजिक क्षति पहुँच सकती है, बल्कि भविष्य में वहाँ जाने वाले अन्य शोधकर्ताओं के लिए भी गाँव के दरवाजे हमेशा के लिए बंद हो सकते हैं।</p>
+            </section>
+
+            <section id="sec3-2">
+                <h2>3.2 फील्ड वर्क के 7 अनिवार्य नैतिक सिद्धांत</h2>
+                <ol>
+                    <li><strong>सूचित सहमति (Informed Consent):</strong> किसी भी व्यक्ति से प्रश्न पूछने, प्रश्नावली भरवाने या फोटो खींचने से पहले उसे अपना परिचय दें, अध्ययन का उद्देश्य बताएं और उसकी स्पष्ट अनुमति लें। किसी पर दबाव न बनाएं।</li>
+                    <li><strong>निजता एवं गोपनीयता (Privacy & Confidentiality):</strong> उत्तरदाता का नाम, मोबाइल नंबर, आय या पारिवारिक विवादों जैसी संवेदनशील जानकारियों को गुप्त रखा जाए। रिपोर्ट में व्यक्तिगत नाम उजागर न करके कोड (जैसे H1, H2) का उपयोग करें।</li>
+                    <li><strong>कोई नुकसान न पहुँचाना (Principle of 'Do No Harm'):</strong> आपके किसी भी सवाल या गतिविधि से उत्तरदाता को कोई सामाजिक, कानूनी, वित्तीय या मानसिक नुकसान नहीं होना चाहिए।</li>
+                    <li><strong>स्थानीय संस्कृति व परंपराओं का सम्मान:</strong> गाँव के धार्मिक स्थलों, वेशभूषा, खान-पान और महिलाओं के प्रति स्थानीय मर्यादाओं का पूर्ण सम्मान करें। अपनी मान्यताओं को दूसरों पर न थोपें।</li>
+                    <li><strong>फोटोग्राफी व वीडियोग्राफी की पूर्व अनुमति:</strong> विशेष रूप से महिलाओं, बच्चों, पूजा स्थलों या किसी के निजी घर के भीतरी हिस्सों की तस्वीरें बिना अनुमति कभी न लें।</li>
+                    <li><strong>समंकों की सत्यनिष्ठा (Data Integrity):</strong> कभी भी झूठा डेटा न बनाएं (No Fabrication) और न ही अपनी मनपसंद परिकल्पना सिद्ध करने के लिए आंकड़ों को तोड़ें-मरोड़ें (No Data Manipulation)। जो धरातल पर देखा है, वही ईमानदारी से लिखें।</li>
+                    <li><strong>विनम्र एवं पारदर्शी व्यवहार:</strong> कभी भी उत्तरदाता से झूठे वादे न करें (जैसे "हमारा सर्वे कराने से आपको सरकारी आवास मिल जाएगा")। उन्हें स्पष्ट बताएं कि यह एक विशुद्ध कॉलेज प्रोजेक्ट है।</li>
+                </ol>
+
+                <div class="book-note">
+                    <strong>नैतिक बनाम अनैतिक फील्ड वर्क का उदाहरण:</strong><br>
+                    <em>अनैतिक व्यवहार:</em> एक छात्र चुपके से एक महिला किसान की काम करते हुए फोटो खींच लेता है, उसके मना करने पर भी बहस करता है, और घर बैठकर मनमर्जी से 20 फार्म खुद ही भर लेता है। यह घोर अनैतिक और अमान्य है।<br>
+                    <em>नैतिक व्यवहार:</em> छात्र पहले अपना कॉलेज आईडी कार्ड दिखाता है, हाथ जोड़कर नमस्ते करता है, उद्देश्य समझाता है, महिला की सहमति से प्रश्न पूछता है और उनके समय के लिए धन्यवाद देता है। यह आदर्श नैतिक फील्ड वर्क है।
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 4 -->
+        <article class="book-chapter" id="ch4">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 4</span>
+                <h1>अध्ययन क्षेत्र का परिसीमन (Defining the Field)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> किसी भी सर्वेक्षण की सफलता इस बात पर निर्भर करती है कि हमने अपना 'कार्यक्षेत्र' (Field Area) कितनी स्पष्टता से चुना और परिसीमित किया है। यदि हम बिना सोचे-समझे पूरे जिले को अपना अध्ययन क्षेत्र बना लेंगे, तो सीमित समय और बजट में हम कहीं भी गहराई से अध्ययन नहीं कर पाएंगे। अतः अध्ययन क्षेत्र की सटीक भौगोलिक और प्रशासनिक सीमा तय करना अनिवार्य है।
+            </div>
+
+            <section id="sec4-1">
+                <h2>4.1 अध्ययन क्षेत्र (Field) क्या है और इसकी सीमाएं</h2>
+                <p><strong>फील्ड (Field):</strong> वह निश्चित भौगोलिक भू-भाग जहाँ जाकर शोधार्थी अपने शोध प्रश्नों का उत्तर खोजने के लिए सर्वेक्षण करता है। फील्ड को तीन प्रकार की सीमाओं द्वारा स्पष्ट रूप से बांधा जाता है:</p>
+                <ul>
+                    <li><strong>स्थानिक एवं प्रशासनिक सीमा (Spatial/Administrative Boundary):</strong> किसी राजस्व गाँव (Revenue Village), ग्राम पंचायत, नगरपालिका वार्ड या तहसील की आधिकारिक कानूनी सीमा।</li>
+                    <li><strong>जनसंख्या एवं बस्ती सीमा (Settlement Boundary):</strong> मुख्य गाँव की आबादी (Abadi Area) तथा उसके आसपास के मजरों/ढणियों (Hamlets) की सीमा।</li>
+                    <li><strong>भौतिक एवं पर्यावरणीय सीमा (Physical/Environmental Boundary):</strong> किसी छोटी नदी की जल-विभाजक घाटी (Watershed Basin), पहाड़ी ढलान या वन क्षेत्र की प्राकृतिक सीमा।</li>
+                </ul>
+            </section>
+
+            <section id="sec4-2">
+                <h2>4.2 अध्ययन क्षेत्र के चयन के 5 बुनियादी मानदंड</h2>
+                <ol>
+                    <li><strong>उद्देश्य के अनुकूल (Relevance to Objective):</strong> यदि अध्ययन 'बाढ़ के प्रभाव' पर है, तो क्षेत्र नदी के बाढ़ मैदान में होना चाहिए, न कि सूखे पठार पर।</li>
+                    <li><strong>उचित पैमाना (Appropriate Scale):</strong> क्षेत्र न तो इतना बड़ा हो कि सर्वे अधूरा रह जाए, और न ही इतना छोटा (जैसे 5 घर) कि कोई सार्थक निष्कर्ष न निकल सके। सामान्यतः 200 से 500 घरों का एक गाँव स्नातक स्तर के लिए आदर्श होता है।</li>
+                    <li><strong>अभिगम्यता एवं सुरक्षा (Accessibility & Safety):</strong> क्षेत्र तक पहुँचने के लिए बस, ट्रेन या पक्की सड़क की सुविधा हो और विद्यार्थियों की सुरक्षा सुनिश्चित हो।</li>
+                    <li><strong>समय एवं वित्तीय सीमा (Time & Budget):</strong> तय समय (जैसे 10 दिन) और सीमित कॉलेज बजट के भीतर काम पूरा हो सके।</li>
+                    <li><strong>टोपोशीट व मानचित्रों की सुलभता:</strong> क्षेत्र का सर्वे ऑफ इंडिया का टोपोशीट (1:50,000) या पटवारी का सजरा नक्शा उपलब्ध हो।</li>
+                </ol>
+            </section>
+        </article>
+
+        <!-- CHAPTER 5 -->
+        <article class="book-chapter" id="ch5">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 5</span>
+                <h1>केस स्टडी की पहचान एवं प्रकार (Identifying the Case Study)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> विस्तृत और सतही अध्ययन करने के बजाय किसी एक विशिष्ट भौगोलिक इकाई या समस्या का अत्यंत गहराई, सूक्ष्मता और समग्रता से अध्ययन करना <strong>'केस स्टडी' (Case Study Method)</strong> कहलाता है। केस स्टडी विधि विद्यार्थी को किसी समस्या की जड़ तक पहुँचने में मदद करती है। भूगोल में केस स्टडी को मुख्य रूप से 5 श्रेणियों में वर्गीकृत किया जाता है।
+            </div>
+
+            <section id="sec5-1">
+                <h2>5.1 केस स्टडी के 5 प्रमुख प्रकार एवं उदाहरण</h2>
+
+                <p><strong>1. ग्रामीण केस स्टडी (Rural Case Study):</strong><br>
+                किसी विशिष्ट गाँव को इकाई मानकर उसकी जनसांख्यिकी, कृषि प्रारूप, फसलों की उत्पादकता, भूमि-उपयोग, सिंचाई के साधन और ग्रामीण निर्धनता का समग्र अध्ययन।<br>
+                <em>उदाहरण:</em> "पश्चिमी उत्तर प्रदेश के ग्राम पिपली में गन्ना केंद्रित कृषि, नलकूप सिंचाई तथा रासायनिक खादों के अत्यधिक उपयोग का एक केस स्टडी।"</p>
+
+                <p><strong>2. नगरीय केस स्टडी (Urban Case Study):</strong><br>
+                किसी नगर, शहर के किसी विशिष्ट वार्ड, आवासीय कॉलोनी या मलिन बस्ती (Slum) का अध्ययन। इसमें नगरीय भूमि उपयोग, यातायात संकुलन (Traffic Jam), ठोस अपशिष्ट और आवास समस्याओं का विश्लेषण होता है।<br>
+                <em>उदाहरण:</em> "जयपुर शहर के चारदीवारी क्षेत्र (Walled City) में व्यावसायिक गतिविधियों के कारण उत्पन्न पार्किंग संकट और पैदल आवागमन की समस्याओं का केस स्टडी।"</p>
+
+                <p><strong>3. भौतिक भूगोल केस स्टडी (Physical Geography Case Study):</strong><br>
+                किसी प्राकृतिक भू-आकृतिक लक्षण, नदी के विसर्प, जलप्रपात, मृदा अपरदन या स्थानीय मौसम का अध्ययन।<br>
+                <em>उदाहरण:</em> "मध्य प्रदेश के मुरैना जिले में चंबल नदी के बीहड़ों (Badlands) में अवनालिका अपरदन (Gully Erosion) और कृषि भूमि के विनाश का केस स्टडी।"</p>
+
+                <p><strong>4. मानव भूगोल केस स्टडी (Human Geography Case Study):</strong><br>
+                मानव जनसंख्या, मौसमी प्रवासन, जनजातीय जीवन-शैली या विशिष्ट सांस्कृतिक आजीविका का अध्ययन।<br>
+                <em>उदाहरण:</em> "राजस्थान के थार मरुस्थल में रायका/रेबारी पशुपालक समुदाय के मौसमी ऊंट-भेड़ प्रवासन (Transhumance) का सामाजिक-भौगोलिक केस स्टडी।"</p>
+
+                <p><strong>5. पर्यावरणीय केस स्टडी (Environmental Case Study):</strong><br>
+                पर्यावरण क्षरण, जल स्रोतों के प्रदूषण, वनोन्मूलन या औद्योगिकीकरण के पर्यावरणीय दुष्प्रभावों का अध्ययन।<br>
+                <em>उदाहरण:</em> "हरियाणा के पानीपत औद्योगिक क्षेत्र में डाइंग मिलों से निकलने वाले रासायनिक अपशिष्ट द्वारा स्थानीय भूजल और ड्रेन के जल प्रदूषण का केस स्टडी।"</p>
+
+                <div class="book-note">
+                    <strong>सही केस स्टडी कैसे चुनें? (Selection Guidelines):</strong><br>
+                    हमेशा ऐसी केस स्टडी चुनें जो (i) स्पष्ट और सीमित हो, (ii) जिसके लिए धरातल पर उत्तरदाता आसानी से मिल सकें, और (iii) जिससे स्थानीय समाज या नीति-निर्माताओं को कोई व्यावहारिक समाधान मिल सके।
+                </div>
+            </section>
+
+            <!-- UNIT I EXAM & PRACTICAL SECTION -->
+            <div class="chapter-summary" id="ch1-summary">
+                <h3>यूनिट-I: अध्याय-सार (Unit Summary)</h3>
+                <p>यूनिट-I में हमने सीखा कि फील्ड वर्क भूगोल की आत्मा है जो सैद्धांतिक कक्षा-कक्ष ज्ञान को धरातलीय यथार्थ से जोड़ता है। यह प्राथमिक समंक संकलन, ग्राउंड-ट्रूथिंग और स्थानिक कौशल विकसित करने का सर्वोत्तम माध्यम है। फील्ड वर्क में नैतिक आचार संहिता (सूचित सहमति, गोपनीयता, सांस्कृतिक सम्मान और डेटा की सत्यनिष्ठा) सर्वोपरि है। एक सफल फील्ड अध्ययन हेतु क्षेत्र की स्थानिक, प्रशासनिक व पर्यावरणीय सीमाओं का स्पष्ट निर्धारण आवश्यक है। अंत में, केस स्टडी विधि के 5 प्रमुख रूपों—ग्रामीण, नगरीय, भौतिक, मानव और पर्यावरणीय केस स्टडी—की कार्यप्रणाली को व्यावहारिक उदाहरणों से समझा गया।</p>
+            </div>
+
+            <div class="chapter-key-points">
+                <h3>मुख्य पारिभाषिक शब्द (Key Terminology)</h3>
+                <ol>
+                    <li><strong>Ground-Truthing (धरातलीय यथार्थ-सत्यापन):</strong> उपग्रह चित्रों या नक्शों की जानकारी को फील्ड में जाकर अपनी आँखों से प्रमाणित करना।</li>
+                    <li><strong>Informed Consent (सूचित सहमति):</strong> उत्तरदाता को अध्ययन का पूरा उद्देश्य बताकर उसकी स्वैच्छिक अनुमति लेना।</li>
+                    <li><strong>Primary Data (प्राथमिक समंक):</strong> शोधार्थी द्वारा स्वयं प्रथम बार धरातल से एकत्र किए गए मौलिक आंकड़े।</li>
+                    <li><strong>Spatial Boundary (स्थानिक सीमा):</strong> किसी अध्ययन क्षेत्र की भौगोलिक या प्रशासनिक परिधि।</li>
+                    <li><strong>Case Study (केस स्टडी):</strong> किसी एक भौगोलिक इकाई, बस्ती या समस्या का अत्यंत गहन और समग्र सूक्ष्म अध्ययन।</li>
+                </ol>
+            </div>
+
+            <div class="chapter-exercises">
+                <h3>यूनिट-I अभ्यास प्रश्न एवं प्रैक्टिकल एक्सरसाइज</h3>
+
+                <div class="exercise-group">
+                    <h4>(क) दीर्घ उत्तरीय प्रश्न (Long Answer Questions - 15 अंक)</h4>
+                    <ol>
+                        <li>भूगोल में क्षेत्रीय कार्य (Field Work) के अर्थ, प्रकृति एवं शैक्षणिक भूमिका की सविस्तार विवेचना कीजिए।</li>
+                        <li>कक्षा-कक्ष अध्ययन और फील्ड वर्क में तुलनात्मक अंतर स्पष्ट कीजिए तथा फील्ड वर्क के 5 बुनियादी चरणों को समझाइए।</li>
+                        <li>फील्ड वर्क में नैतिक आचार संहिता (Ethics) की आवश्यकता क्यों है? एक आदर्श शोधार्थी के नैतिक दायित्वों का वर्णन कीजिए।</li>
+                        <li>अध्ययन क्षेत्र के परिसीमन (Defining the Field) के क्या सिद्धांत हैं? अति-विशाल या अति-संकुचित क्षेत्र चुनने से क्या समस्याएं आती हैं?</li>
+                        <li>केस स्टडी विधि से आप क्या समझते हैं? ग्रामीण, नगरीय एवं पर्यावरणीय केस स्टडी के उपयुक्त उदाहरण देकर समझाइए।</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(ख) लघु उत्तरीय प्रश्न (Short Answer Questions - 5 अंक)</h4>
+                    <ol>
+                        <li>'ग्राउंड-ट्रूथिंग' (Ground-Truthing) क्या है और इसका क्या महत्व है?</li>
+                        <li>सूचित सहमति (Informed Consent) से आप क्या समझते हैं?</li>
+                        <li>फील्ड वर्क के दौरान निजता और गोपनीयता का पालन कैसे किया जाना चाहिए?</li>
+                        <li>भौतिक भूगोल केस स्टडी के दो उपयुक्त उदाहरण दीजिए।</li>
+                        <li>ग्रामीण केस स्टडी में किन प्रमुख चरों का अध्ययन किया जाता है?</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(ग) अति लघु उत्तरीय प्रश्न (Very Short Answer - 2 अंक)</h4>
+                    <ol>
+                        <li>फील्ड वर्क को भूगोल की रीढ़ क्यों कहा जाता है?</li>
+                        <li>प्राथमिक डेटा और द्वितीयक डेटा में मुख्य अंतर क्या है?</li>
+                        <li>अध्ययन क्षेत्र की स्थानिक सीमा का क्या अर्थ है?</li>
+                        <li>डेटा मैनिपुलेशन (Data Manipulation) क्या है और यह क्यों अनुचित है?</li>
+                        <li>'डू नो हार्म' (Do No Harm) का सिद्धांत क्या है?</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(घ) बहुविकल्पीय अभ्यास प्रश्न (Practice MCQs with Explanation)</h4>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">1. उपग्रह चित्रों या मानचित्रों में प्रदर्शित सूचनाओं की धरातल पर जाकर प्रत्यक्ष जांच करने को क्या कहा जाता है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_1" onclick="checkBookOption(this, false, 'p_ans1_1')"> (A) रिमोट सेंसिंग</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_1" onclick="checkBookOption(this, true, 'p_ans1_1')"> (B) ग्राउंड-ट्रूथिंग (Ground-Truthing)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_1" onclick="checkBookOption(this, false, 'p_ans1_1')"> (C) एरियल फोटोग्राफी</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_1" onclick="checkBookOption(this, false, 'p_ans1_1')"> (D) कार्टोग्राफी</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans1_1')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans1_1">
+                            <strong>सही उत्तर: (B) ग्राउंड-ट्रूथिंग</strong><br>
+                            <em>व्याख्या:</em> उपग्रह से प्राप्त आंकड़ों की शुद्धता को प्रमाणित करने के लिए फील्ड में वास्तविक स्थान पर जाकर सत्यापन करना ग्राउंड-ट्रूथिंग कहलाता है।
+                        </div>
+                    </div>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">2. फील्ड वर्क के दौरान उत्तरदाता से प्रश्नावली भरवाने से पूर्व उसकी सहमति लेना क्या कहलाता है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_2" onclick="checkBookOption(this, false, 'p_ans1_2')"> (A) गोपनीय सहमति</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_2" onclick="checkBookOption(this, true, 'p_ans1_2')"> (B) सूचित सहमति (Informed Consent)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_2" onclick="checkBookOption(this, false, 'p_ans1_2')"> (C) बाध्यकारी सहमति</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_2" onclick="checkBookOption(this, false, 'p_ans1_2')"> (D) विधिक शपथपत्र</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans1_2')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans1_2">
+                            <strong>सही उत्तर: (B) सूचित सहमति</strong><br>
+                            <em>व्याख्या:</em> उत्तरदाता को सर्वे का उद्देश्य, उपयोगिता और उसकी स्वतंत्रता बताकर ली गई अनुमति 'सूचित सहमति' कहलाती है।
+                        </div>
+                    </div>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">3. निम्नलिखित में से कौन-सा आचरण फील्ड वर्क में अनैतिक (Unethical) माना जाता है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_3" onclick="checkBookOption(this, false, 'p_ans1_3')"> (A) उत्तरदाता का परिचय दर्ज करना</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_3" onclick="checkBookOption(this, false, 'p_ans1_3')"> (B) कॉलेज पहचान पत्र दिखाना</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_3" onclick="checkBookOption(this, true, 'p_ans1_3')"> (C) फील्ड में जाए बिना घर बैठकर मनगढ़ंत आंकड़े भरना</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq1_3" onclick="checkBookOption(this, false, 'p_ans1_3')"> (D) स्थानीय संस्कृति का आदर करना</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans1_3')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans1_3">
+                            <strong>सही उत्तर: (C) घर बैठकर मनगढ़ंत आंकड़े भरना</strong><br>
+                            <em>व्याख्या:</em> इसे 'डेटा फैब्रिकेशन' कहा जाता है जो शोध की सत्यनिष्ठा और नैतिकता का सबसे गंभीर उल्लंघन है।
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-group" style="background:var(--bg-subtle); padding:1.25rem; border-radius:4px; margin-top:1.5rem;">
+                    <h4>🎯 प्रैक्टिकल फील्ड एक्सरसाइज (Hands-on Field Tasks)</h4>
+                    <p><strong>एक्सरसाइज 1 (अध्ययन क्षेत्र की पहचान):</strong> अपने कॉलेज से 5 से 10 किमी की दूरी पर स्थित किसी एक राजस्व गाँव या नगरीय वार्ड को चुनें। टोपोशीट या गूगल अर्थ पर उसकी सीमाएं रेखांकित करें और बताएं कि आपने इस क्षेत्र को क्यों चुना।</p>
+                    <p><strong>एक्सरसाइज 2 (केस स्टडी प्रस्ताव तैयार करना):</strong> चुने गए क्षेत्र के लिए एक 1-पृष्ठीय केस स्टडी प्रस्ताव लिखें, जिसमें अध्ययन का शीर्षक, समस्या की पृष्ठभूमि, और 3 मुख्य उद्देश्य शामिल हों।</p>
+                </div>
+            </div>
+        </article>
+    
+
+            
+        <!-- ===================================================================
+             UNIT II: प्रतिदर्शन अभिकल्प (SAMPLING DESIGN)
+             =================================================================== -->
+        <div class="unit-divider" id="unit2">
+            <span class="unit-badge">UNIT — II</span>
+            <h2>प्रतिदर्शन अभिकल्प (Sampling Design)</h2>
+            <p class="unit-subtitle">प्रतिदर्शन के प्रकार, सरल यादृच्छिक, व्यवस्थित, स्तरीकृत एवं संभाव्यता-आधारित घरेलू चयन</p>
+        </div>
+
+        <!-- CHAPTER 6 -->
+        <article class="book-chapter" id="ch6">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 6</span>
+                <h1>प्रतिदर्शन का परिचय (Introduction to Sampling)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> मान लीजिए कि किसी गाँव में 1,000 परिवार रहते हैं और आपको गाँव की जल समस्या का अध्ययन करना है। क्या 10-15 दिनों के भीतर हर एक घर में जाकर 1 घंटे तक पूछताछ करना संभव है? निश्चित रूप से नहीं! इसके लिए भारी समय, धन और कई लोगों की आवश्यकता होगी। ऐसी स्थिति में हम 1,000 में से वैज्ञानिक तरीके से 100 ऐसे घरों को चुनते हैं जो पूरे गाँव का सही प्रतिनिधित्व करते हों। इस प्रक्रिया को 'प्रतिदर्शन' या 'सैंपलिंग' (Sampling) कहा जाता है। इस अध्याय में हम प्रतिदर्शन की मूल अवधारणा, समष्टि और प्रतिदर्श का अंतर, तथा सैंपलिंग डिज़ाइन के बुनियादी चरणों को समझेंगे।
+            </div>
+
+            <section id="sec6-1">
+                <h2>6.1 समष्टि (Population) बनाम प्रतिदर्श (Sample)</h2>
+                <p><strong>1. समष्टि या समग्र (Population or Universe):</strong><br>
+                अध्ययन के अंतर्गत आने वाली सभी व्यक्तियों, परिवारों, खेतों या इकाइयों का कुल योग समष्टि कहलाता है।<br>
+                <em>उदाहरण:</em> यदि रामपुर गाँव में कुल 600 परिवार रहते हैं, तो ये 600 परिवार हमारी 'समष्टि' (Population) हैं।</p>
+
+                <p><strong>2. प्रतिदर्श या नमूना (Sample):</strong><br>
+                समष्टि में से किसी वैज्ञानिक विधि द्वारा चुना गया एक छोटा भाग, जिसका वास्तविक अध्ययन किया जाता है, 'प्रतिदर्श' (Sample) कहलाता है।<br>
+                <em>उदाहरण:</em> उन 600 परिवारों में से चुने गए 60 परिवार हमारा 'प्रतिदर्श' हैं।</p>
+
+                <p><strong>3. प्रतिनिधि प्रतिदर्श (Representative Sample):</strong><br>
+                एक अच्छा प्रतिदर्श वह है जिसमें समष्टि के वे सभी लक्षण, विविधताएं और अनुपात मौजूद हों जो पूरी जनसंख्या में हैं। यदि गाँव में 40% छोटे किसान, 30% मध्यम और 30% भूमिहीन मजदूर हैं, तो हमारे 60 घरों के सैंपल में भी यही अनुपात होना चाहिए।</p>
+            </section>
+
+            <section id="sec6-2">
+                <h2>6.2 संगणना (Census) बनाम प्रतिदर्शन (Sampling)</h2>
+                <div class="book-table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>तुलना का आधार</th>
+                                <th>पूर्ण संगणना विधि (Census Method)</th>
+                                <th>प्रतिदर्शन विधि (Sampling Method)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>इकाइयों का दायरा</strong></td>
+                                <td>समष्टि की प्रत्येक इकाई का शत-प्रतिशत अध्ययन</td>
+                                <td>समष्टि में से केवल चुनी हुई कुछ इकाइयों का अध्ययन</td>
+                            </tr>
+                            <tr>
+                                <td><strong>समय एवं लागत</strong></td>
+                                <td>अत्यधिक समय, भारी धन और विशाल कार्यबल की आवश्यकता</td>
+                                <td>कम समय, बहुत कम लागत और 2-4 विद्यार्थियों द्वारा संभव</td>
+                            </tr>
+                            <tr>
+                                <td><strong>सटीकता एवं गहराई</strong></td>
+                                <td>इकाइयां बहुत अधिक होने से सतही जानकारी मिल पाती है</td>
+                                <td>सीमित इकाइयों का अत्यंत सूक्ष्म, विस्तृत व गहन अध्ययन संभव</td>
+                            </tr>
+                            <tr>
+                                <td><strong>उपयुक्तता</strong></td>
+                                <td>राष्ट्रीय जनगणना (10 वर्ष में एक बार भारत सरकार द्वारा)</td>
+                                <td>कॉलेज फील्ड प्रोजेक्ट्स, शोधार्थियों और त्वरित सर्वेक्षणों हेतु</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="sec6-3">
+                <h2>6.3 सैंपलिंग डिज़ाइन (Sampling Design) के 5 बुनियादी चरण</h2>
+                <ol>
+                    <li><strong>समष्टि की स्पष्ट पहचान (Defining Population):</strong> हमारा अध्ययन किन लोगों पर है? (जैसे—गाँव के केवल वे परिवार जो खेती करते हैं)।</li>
+                    <li><strong>प्रतिचयन इकाई का निर्धारण (Sampling Unit):</strong> हम किसे गिन रहे हैं? व्यक्ति को, परिवार (Household) को या कृषि जोत को? भूगोल के अधिकांश सामाजिक-आर्थिक सर्वेक्षणों में <strong>'परिवार' (Household)</strong> ही प्राथमिक प्रतिचयन इकाई होती है।</li>
+                    <li><strong>प्रतिचयन ढांचा तैयार करना (Sampling Frame):</strong> समष्टि की सभी इकाइयों की क्रमबद्ध आधिकारिक सूची। (जैसे—ग्राम पंचायत की मतदाता सूची या परिवार रजिस्टर जिसमें सभी घरों के नाम और क्रम संख्या 1 से 500 तक दर्ज हों)।</li>
+                    <li><strong>प्रतिदर्श आकार का निर्धारण (Sample Size):</strong> कितने घरों का सर्वे करना है? सामान्य नियम के अनुसार, यदि गाँव में 200 से 500 घर हैं, तो 10% से 20% का सैंपल (50 से 100 घर) सांख्यिकीय रूप से पर्याप्त और विश्वसनीय माना जाता है।</li>
+                    <li><strong>प्रतिचयन विधि का चयन:</strong> समष्टि के स्वरूप के आधार पर रैंडम, सिस्टमैटिक या स्ट्रैटिफाइड विधि को चुनना।</li>
+                </ol>
+            </section>
+        </article>
+
+        <!-- CHAPTER 7 -->
+        <article class="book-chapter" id="ch7">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 7</span>
+                <h1>प्रतिदर्शन के प्रकार (Types of Sampling)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> सांख्यिकी और क्षेत्रीय भूगोल में प्रतिदर्शन की अनेक विधियां हैं, जिन्हें मुख्य रूप से दो बड़े वर्गों में बांटा जाता है—'संभाव्यता प्रतिदर्शन' (Probability Sampling) तथा 'गैर-संभाव्यता प्रतिदर्शन' (Non-Probability Sampling)। विश्वविद्यालय पाठ्यक्रम के अनुसार, वैज्ञानिक शोध में संभाव्यता विधियां ही सर्वाधिक प्रामाणिक मानी जाती हैं। इस अध्याय में हम प्रतिदर्शन के प्रमुख प्रकारों का तुलनात्मक अवलोकन करेंगे।
+            </div>
+
+            <section id="sec7-1">
+                <h2>7.1 संभाव्यता बनाम गैर-संभाव्यता प्रतिदर्शन</h2>
+                <p><strong>1. संभाव्यता प्रतिदर्शन (Probability Sampling):</strong><br>
+                वह विधि जिसमें समष्टि की प्रत्येक इकाई के चुने जाने की एक निश्चित, ज्ञात और समान संभावना (Probability) होती है। इसमें शोधार्थी की व्यक्तिगत पसंद, पक्षपात या पूर्वाग्रह (Bias) की कोई गुंजाइश नहीं होती। इसके तीन मुख्य प्रकार पाठ्यक्रम में निर्धारित हैं:</p>
+                <ul>
+                    <li>सरल यादृच्छिक प्रतिदर्शन (Simple Random Sampling)</li>
+                    <li>व्यवस्थित प्रतिदर्शन (Systematic Sampling)</li>
+                    <li>स्तरीकृत प्रतिदर्शन (Stratified Sampling)</li>
+                </ul>
+
+                <p><strong>2. गैर-संभाव्यता प्रतिदर्शन (Non-Probability Sampling):</strong><br>
+                वह विधि जिसमें इकाइयों का चयन संभावना के नियमों पर न होकर शोधार्थी की सुविधा (Convenience), व्यक्तिगत निर्णय (Judgment) या कोटे पर निर्भर करता है। इसमें परिणामों का सामान्यीकरण पूरे समाज पर लागू नहीं किया जा सकता।</p>
+            </section>
+
+            <section id="sec7-2">
+                <h2>7.2 पाठ्यक्रम के तीनों मुख्य प्रकारों का संक्षिप्त तुलनात्मक चार्ट</h2>
+                <div class="book-table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>प्रतिदर्शन विधि</th>
+                                <th>मूल सिद्धांत</th>
+                                <th>कब उपयोग करें?</th>
+                                <th>प्रमुख लाभ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>सरल यादृच्छिक (Random)</strong></td>
+                                <td>लॉटरी या रैंडम नंबर द्वारा प्रत्येक घर को चुने जाने का शत-प्रतिशत समान अवसर</td>
+                                <td>जब गाँव की समष्टि छोटी और समांगी (Homogeneous) हो</td>
+                                <td>पूर्णतः निष्पक्ष, व्यक्तिगत पक्षपात शून्य</td>
+                            </tr>
+                            <tr>
+                                <td><strong>व्यवस्थित (Systematic)</strong></td>
+                                <td>निश्चित अंतराल ($k$) पर प्रत्येक $n$-वें घर का नियमित चयन</td>
+                                <td>जब घरों की सूची उपलब्ध हो या घर सड़क के किनारे कतार में हों</td>
+                                <td>लागू करने में सबसे सरल, पूरे गाँव में एकसमान फैलाव</td>
+                            </tr>
+                            <tr>
+                                <td><strong>स्तरीकृत (Stratified)</strong></td>
+                                <td>जनसंख्या को आय, जाति या जोत के अनुसार उप-समूहों में बांटकर प्रत्येक से सैंपल</td>
+                                <td>जब समष्टि विषम (Heterogeneous) हो और सभी वर्गों का प्रतिनिधित्व जरूरी हो</td>
+                                <td>सर्वाधिक सटीक एवं प्रत्येक सामाजिक-आर्थिक वर्ग का उचित प्रतिनिधित्व</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 8 -->
+        <article class="book-chapter" id="ch8">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 8</span>
+                <h1>सरल यादृच्छिक प्रतिदर्शन (Simple Random Sampling)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> संभाव्यता प्रतिदर्शन का सबसे बुनियादी और शुद्धतम रूप 'सरल यादृच्छिक प्रतिदर्शन' (Simple Random Sampling) है। इसमें चयन का आधार किसी का व्यक्तिगत प्रभाव नहीं, बल्कि शुद्ध 'संयोग' (Chance) होता है। जिस प्रकार क्रिकेट मैच में टॉस का सिक्का उछालने पर दोनों टीमों के जीतने का 50-50% बराबर मौका होता है, ठीक उसी प्रकार इस विधि में समष्टि की प्रत्येक इकाई के चुने जाने का समान अवसर होता है।
+            </div>
+
+            <section id="sec8-1">
+                <h2>8.1 परिभाषा एवं चयन की दो प्रमुख विधियां</h2>
+                <p><strong>परिभाषा:</strong> सरल यादृच्छिक प्रतिदर्शन वह प्रविधि है जिसमें समष्टि की $N$ इकाइयों में से $n$ इकाइयों का चयन इस प्रकार किया जाता है कि प्रत्येक इकाई के प्रतिदर्श में शामिल होने की प्रायिकता ($1/N$) सर्वथा समान और स्वतंत्र हो।</p>
+
+                <p><strong>चयन की दो व्यावहारिक विधियां:</strong></p>
+                <ol>
+                    <li><strong>लॉटरी विधि (Lottery Method):</strong>
+                        <ul>
+                            <li>गाँव के सभी 200 परिवारों के नाम या मकान नंबर एक जैसी कागज़ की छोटी-छोटी पर्चियों पर लिखे जाते हैं।</li>
+                            <li>सभी पर्चियों को मोड़कर एक डिब्बे या टोपी में रखकर अच्छी तरह हिलाया जाता है ताकि वे पूरी तरह मिल जाएं।</li>
+                            <li>फिर एक निष्पक्ष व्यक्ति या बच्चे से बिना देखे एक-एक करके 30 पर्चियां निकलवाई जाती हैं। जिन परिवारों की पर्ची निकलती है, वे सर्वे के लिए चुन लिए जाते हैं।</li>
+                        </ul>
+                    </li>
+                    <li><strong>रैंडम नंबर टेबल विधि (Random Number Table / Computer):</strong>
+                        <ul>
+                            <li>जब परिवारों की संख्या बहुत अधिक हो (जैसे 1,000 या 5,000), तो पर्चियां बनाना कठिन होता है।</li>
+                            <li>इसके लिए 'टिप्पेट की रैंडम नंबर टेबल' (Tippett's Table) या मोबाइल ऐप/एक्सेल के सूत्र <code>=RANDBETWEEN(1, 1000)</code> का उपयोग करके आवश्यक संख्या में रैंडम मकान नंबर चुन लिए जाते हैं।</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="sec8-2">
+                <h2>8.2 गुण, दोष एवं व्यावहारिक ग्रामीण उदाहरण</h2>
+                <p><strong>गुण (Merits):</strong> यह विधि पूरी तरह निष्पक्ष है; इसमें शोधार्थी अपनी मर्जी से अपने परिचितों के घर नहीं चुन सकता; तथा सांख्यिकीय त्रुटि (Sampling Error) की गणना संभव होती है।</p>
+                <p><strong>दोष (Demerits):</strong> इसके लिए गाँव के सभी घरों की पूर्ण सूची (Sampling Frame) होना अनिवार्य है; चुने गए घर गाँव के अलग-अलग कोनों में बहुत दूर-दूर बिखर सकते हैं जिससे सर्वे में भागदौड़ बढ़ जाती है; और यदि गाँव में सामाजिक-आर्थिक विषमता बहुत अधिक है, तो हो सकता है कि किसी छोटे वर्ग का एक भी घर लॉटरी में न आए।</p>
+
+                <div class="book-note">
+                    <strong>व्यावहारिक उदाहरण:</strong> रामपुर गाँव में 100 किसान परिवार हैं। कॉलेज के छात्र 20 परिवारों का सर्वे करना चाहते हैं। छात्र 1 से 100 तक नंबर वाली पर्चियां डिब्बे में डालते हैं और 20 पर्चियां निकाल लेते हैं। मान लीजिए पर्ची नंबर 7, 14, 23, 31... निकलीं। छात्र केवल इन्हीं 20 परिवारों के घर जाकर सर्वेक्षण करेंगे।
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 9 -->
+        <article class="book-chapter" id="ch9">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 9</span>
+                <h1>व्यवस्थित प्रतिदर्शन (Systematic Sampling)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> जब किसी बड़े गाँव या नगरीय बस्ती में सैकड़ों घर एक क्रम या कतार में स्थित हों, तो हर बार लॉटरी निकालना असुविधाजनक हो सकता है। ऐसे समय में एक नियमित गणितीय अंतराल पर घरों को चुनना अधिक आसान होता है। इस विधि को 'व्यवस्थित प्रतिदर्शन' (Systematic Sampling) या 'क क्रम प्रतिदर्शन' कहा जाता है।
+            </div>
+
+            <section id="sec9-1">
+                <h2>9.1 मूल सिद्धांत एवं प्रतिचयन अंतराल (Sampling Interval)</h2>
+                <p>व्यवस्थित प्रतिदर्शन में समष्टि की सूची में से एक निश्चित अंतराल ($k$) के आधार पर प्रत्येक $k$-वें घर का चयन किया जाता है।</p>
+
+                <div class="book-formula">
+                    <strong>प्रतिचयन अंतराल ($k$) की गणना का सूत्र:</strong>
+                    $$k = \frac{N}{n} = \frac{\text{समष्टि में कुल परिवारों की संख्या (Total Population)}}{\text{वांछित प्रतिदर्श आकार (Desired Sample Size)}}$$
+                </div>
+
+                <p><strong>चयन के 4 चरण:</strong></p>
+                <ol>
+                    <li>गाँव के सभी घरों की 1 से $N$ तक क्रमबद्ध सूची तैयार करें।</li>
+                    <li>सूत्र द्वारा प्रतिचयन अंतराल ($k$) का मान ज्ञात करें।</li>
+                    <li>1 से लेकर $k$ के बीच लॉटरी द्वारा कोई एक संख्या <strong>'यादृच्छिक प्रारंभिक बिंदु' (Random Start - $r$)</strong> के रूप में चुनें।</li>
+                    <li>इसके बाद क्रमबद्ध रूप से प्रत्येक $k$-वें घर को चुनते जाएं:
+                        $$r, \quad r + k, \quad r + 2k, \quad r + 3k, \quad r + 4k \dots$$
+                    </li>
+                </ol>
+            </section>
+
+            <section id="sec9-2">
+                <h2>9.2 सरल गणितीय एवं व्यावहारिक उदाहरण</h2>
+                <div class="book-note">
+                    <strong>व्यावहारिक उदाहरण:</strong><br>
+                    मान लीजिए किसी गाँव में कुल <strong>$N = 400$</strong> परिवार हैं और हमें <strong>$n = 40$</strong> परिवारों का सैंपल लेना है:<br>
+                    1. अंतराल $k = 400 / 40 = 10$।<br>
+                    2. 1 से 10 के बीच पर्ची डालकर रैंडम स्टार्ट चुना, मान लीजिए निकला <strong>$r = 4$</strong>।<br>
+                    3. अब चयनित घरों के क्रमांक होंगे:<br>
+                    <strong>चौथा घर (4), 14वां घर (4+10), 24वां घर, 34वां घर, 44वां घर ... और अंतिम 394वां घर।</strong><br>
+                    इस प्रकार बिना किसी झंझट के पूरे 40 घर अत्यंत व्यवस्थित रूप से चुन लिए गए।
+                </div>
+
+                <p><strong>गुण एवं सावधानियां:</strong> यह विधि फील्ड में लागू करने में बेहद तेज और सरल है। इससे पूरे गाँव का भौगोलिक प्रतिनिधित्व सुनिश्चित होता है। परंतु <em>सावधानी:</em> यदि गाँव की बसावट में कोई चक्रीय या आवधिक पैटर्न (Periodicity) छिपा हो (जैसे हर 10वां घर कोने का हो या किसी खास जाति का हो), तो यह विधि पक्षपाती हो सकती है।</p>
+            </section>
+        </article>
+
+        <!-- CHAPTER 10 -->
+        <article class="book-chapter" id="ch10">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 10</span>
+                <h1>स्तरीकृत प्रतिदर्शन (Stratified Sampling)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> वास्तविक दुनिया में भारतीय गाँव या शहर कभी भी एक जैसे (Homogeneous) नहीं होते। गाँव में बड़े जमींदार भी होते हैं, छोटे सीमांत किसान भी और भूमिहीन मजदूर भी। यदि हम केवल सरल रैंडम लॉटरी चलाएं, तो संभव है कि संयोगवश केवल बड़े किसानों के घर ही चुन लिए जाएं और गरीबों का एक भी घर न आए! ऐसी विषम जनसंख्या का निष्पक्ष अध्ययन करने के लिए 'स्तरीकृत प्रतिदर्शन' (Stratified Sampling) सर्वोत्तम विधि है।
+            </div>
+
+            <section id="sec10-1">
+                <h2>10.1 मूल अवधारणा एवं स्तर (Strata) का निर्माण</h2>
+                <p><strong>स्तरीकृत प्रतिदर्शन</strong> वह विधि है जिसमें सबसे पहले पूरी विषम जनसंख्या को कुछ महत्वपूर्ण लक्षणों (जैसे आय, भूमि-जोत, जाति, या बस्ती के मुहल्ले) के आधार पर छोटे-छोटे समांगी उप-समूहों में विभाजित किया जाता है, जिन्हें <strong>'स्तर' (Strata)</strong> कहते हैं। इसके बाद प्रत्येक स्तर में से स्वतंत्र रूप से रैंडम विधि द्वारा सैंपल चुना जाता है।</p>
+            </section>
+
+            <section id="sec10-2">
+                <h2>10.2 आनुपातिक स्तरीकृत प्रतिदर्शन (Proportionate Stratified Sampling)</h2>
+                <p>इसमें प्रत्येक स्तर से उसी अनुपात में परिवारों को चुना जाता है जिस अनुपात में वे वास्तविक गाँव में मौजूद हैं।</p>
+
+                <div class="book-table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>स्तर (किसान की श्रेणी)</th>
+                                <th>भूमि का आकार</th>
+                                <th>गाँव में कुल परिवार ($N$)</th>
+                                <th>अनुपात (%)</th>
+                                <th>10% सैंपल में चयनित परिवार ($n$)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>स्तर 1: सीमांत किसान</strong></td>
+                                <td>1 हेक्टेयर से कम</td>
+                                <td>250 घर</td>
+                                <td>50%</td>
+                                <td><strong>25 घर</strong> (250 में से रैंडम)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>स्तर 2: लघु किसान</strong></td>
+                                <td>1 से 2 हेक्टेयर</td>
+                                <td>150 घर</td>
+                                <td>30%</td>
+                                <td><strong>15 घर</strong> (150 में से रैंडम)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>स्तर 3: बड़े किसान</strong></td>
+                                <td>2 हेक्टेयर से अधिक</td>
+                                <td>100 घर</td>
+                                <td>20%</td>
+                                <td><strong>10 घर</strong> (100 में से रैंडम)</td>
+                            </tr>
+                            <tr style="font-weight:700; background:var(--bg-subtle);">
+                                <td>कुल योग</td>
+                                <td>—</td>
+                                <td>500 घर</td>
+                                <td>100%</td>
+                                <td><strong>50 घर</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="book-note">
+                    <strong>व्यावहारिक महत्व:</strong> इस विधि से 50 घरों का जो सैंपल बना, उसमें सीमांत, लघु और बड़े किसानों का वही सटीक अनुपात आया जो वास्तविक गाँव में है। इससे कोई भी वर्ग छूटता नहीं है और शोध की विश्वसनीयता शत-प्रतिशत हो जाती है।
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 11 -->
+        <article class="book-chapter" id="ch11">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 11</span>
+                <h1>संभाव्यता आधारित घरेलू चयन (Probability-Based Household Selection)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> फील्ड वर्क के दौरान छात्रों द्वारा की जाने वाली सबसे सामान्य गलती यह होती है कि वे गाँव पहुँचकर सड़क किनारे दिख रहे अच्छे-अच्छे मकानों में घुस जाते हैं या प्रधानजी के रिश्तेदारों का सर्वे कर लेते हैं। इसे सांख्यिकी में <strong>'चयन पूर्वाग्रह' (Selection Bias)</strong> कहा जाता है, जिससे पूरी रिपोर्ट अमान्य हो जाती है। इस अध्याय में हम सीखेंगे कि 500 घरों वाले गाँव में वैज्ञानिक और निष्पक्ष तरीके से 50 घरों का संभाव्यता आधारित चयन कैसे किया जाता है।
+            </div>
+
+            <section id="sec11-1">
+                <h2>11.1 घरेलू चयन की पूर्ण चरणबद्ध मार्गदर्शिका (Complete Field Exercise)</h2>
+                <p>मान लीजिए हमें <strong>500 परिवारों</strong> वाले 'ग्राम सुंदरपुर' में <strong>50 परिवारों</strong> का चयन करना है। विद्यार्थी फील्ड में निम्नलिखित 5 चरणों का पालन करेंगे:</p>
+
+                <p><strong>चरण 1: प्रतिचयन ढांचा (Sampling Frame) तैयार करना:</strong><br>
+                गाँव के पटवारी, ग्राम सचिव या आशा वर्कर से परिवार रजिस्टर या वोटर लिस्ट प्राप्त करें। गाँव के सभी 500 परिवारों को 1 से 500 तक क्रम संख्या दें। (जैसे H001 से H500)।</p>
+
+                <p><strong>चरण 2: योग्य परिवारों (Eligible Households) की पुष्टि:</strong><br>
+                जांच लें कि कोई बंद पड़ा वीरान मकान या दो बार लिखा गया नाम लिस्ट में न हो। यदि कोई परिवार 6 महीने से गाँव छोड़ चुका है, तो उसे हटाकर सूची को अपडेट करें।</p>
+
+                <p><strong>चरण 3: प्रतिचयन अंतराल की गणना:</strong><br>
+                $$k = \frac{500}{50} = 10$$
+                अतः हमें प्रत्येक 10वें घर का चयन करना है।</p>
+
+                <p><strong>चरण 4: यादृच्छिक शुरुआत (Random Start):</strong><br>
+                1 से 10 तक पर्चियां बनाकर निकालें। मान लीजिए पर्ची पर <strong>'7'</strong> आया।</p>
+
+                <p><strong>चरण 5: चयनित 50 परिवारों की अंतिम मास्टर लिस्ट:</strong><br>
+                7, 17, 27, 37, 47, 57, 67, 77, 87, 97, 107, 117 ... 487, 497।<br>
+                छात्र केवल इन्हीं 50 घरों पर जाएंगे।</p>
+
+                <div class="book-note">
+                    <strong>फील्ड प्रतिस्थापन नियम (Substitution Protocol):</strong><br>
+                    यदि चयनित घर (जैसे 27 नंबर) पर ताला लगा है या परिवार बाहर गया है, तो छात्र अपनी मर्जी से किसी भी घर नहीं जाएंगे। वे कम से कम दो बार अलग-अलग समय पर (सुबह व शाम) उस घर का दौरा करेंगे। यदि फिर भी कोई नहीं मिलता, तो पूर्व-निर्धारित नियम के अनुसार उसके ठीक दाहिनी ओर स्थित अगले घर (28 नंबर) को प्रतिस्थापन (Substitute) के रूप में लेंगे और डायरी में इसका स्पष्ट कारण दर्ज करेंगे।
+                </div>
+            </section>
+
+            <!-- UNIT II EXAM & PRACTICAL SECTION -->
+            <div class="chapter-summary" id="ch6-summary">
+                <h3>यूनिट-II: अध्याय-सार (Unit Summary)</h3>
+                <p>यूनिट-II में हमने प्रतिदर्शन अभिकल्प (Sampling Design) के वैज्ञानिक सिद्धांतों को समझा। किसी भी विस्तृत भौगोलिक सर्वेक्षण में पूरी जनसंख्या (Census) का अध्ययन व्यावहारिक नहीं होता, अतः प्रतिनिधि प्रतिदर्श (Sample) का चयन किया जाता है। संभाव्यता प्रतिदर्शन में पक्षपात शून्य होता है। इसके तीन प्रमुख रूप हैं: (1) सरल यादृच्छिक प्रतिदर्शन (लॉटरी या रैंडम नंबर टेबल विधि), (2) व्यवस्थित प्रतिदर्शन ($k = N/n$ अंतराल पर प्रत्येक $k$-वें घर का चयन), तथा (3) स्तरीकृत प्रतिदर्शन (जनसंख्या को समांगी स्तरों में बांटकर आनुपातिक चयन)। अंत में, 500 परिवारों वाले गाँव से 50 परिवारों के संभाव्यता आधारित चयन की वास्तविक फील्ड विधि और प्रतिस्थापन नियमों को स्पष्ट किया गया।</p>
+            </div>
+
+            <div class="chapter-key-points">
+                <h3>मुख्य पारिभाषिक शब्द (Key Terminology)</h3>
+                <ol>
+                    <li><strong>Sampling Frame (प्रतिचयन ढांचा):</strong> समष्टि की सभी भौतिक इकाइयों की आधिकारिक क्रमबद्ध सूची (जैसे वोटर लिस्ट)।</li>
+                    <li><strong>Representative Sample (प्रतिनिधि प्रतिदर्श):</strong> वह छोटा नमूना जो पूरी समष्टि के सभी लक्षणों को हूबहू दर्शाता है।</li>
+                    <li><strong>Sampling Interval (प्रतिचयन अंतराल):</strong> व्यवस्थित प्रतिदर्शन में दो चयनित इकाइयों के बीच की दूरी ($k = N/n$)।</li>
+                    <li><strong>Strata (स्तर):</strong> स्तरीकृत प्रतिदर्शन में निर्मित समांगी उप-समूह (जैसे सीमांत, लघु व बड़े किसान)।</li>
+                    <li><strong>Selection Bias (चयन पूर्वाग्रह):</strong> शोधार्थी की व्यक्तिगत पसंद या सुविधा के कारण सैंपल में आने वाली सांख्यिकीय विकृति।</li>
+                </ol>
+            </div>
+
+            <div class="chapter-exercises">
+                <h3>यूनिट-II अभ्यास प्रश्न एवं प्रैक्टिकल एक्सरसाइज</h3>
+
+                <div class="exercise-group">
+                    <h4>(क) दीर्घ उत्तरीय प्रश्न (Long Answer Questions - 15 अंक)</h4>
+                    <ol>
+                        <li>प्रतिदर्शन (Sampling) से आप क्या समझते हैं? फील्ड सर्वे में इसकी आवश्यकता एवं सैंपलिंग डिज़ाइन के प्रमुख चरणों का वर्णन कीजिए।</li>
+                        <li>संगणना विधि (Census) और प्रतिदर्शन विधि (Sampling) में तुलनात्मक अंतर स्पष्ट कीजिए। एक आदर्श प्रतिनिधि प्रतिदर्श की क्या विशेषताएं हैं?</li>
+                        <li>सरल यादृच्छिक प्रतिदर्शन (Simple Random Sampling) की लॉटरी एवं रैंडम नंबर टेबल विधियों की सोदाहरण व्याख्या कीजिए। इसके गुण व दोष बताइए।</li>
+                        <li>व्यवस्थित प्रतिदर्शन (Systematic Sampling) की कार्यप्रणाली समझाइए। प्रतिचयन अंतराल ($k$) की गणना कैसे की जाती है? एक व्यावहारिक उदाहरण दीजिए।</li>
+                        <li>स्तरीकृत प्रतिदर्शन (Stratified Sampling) क्या है? यह सरल यादृच्छिक प्रतिदर्शन से किस प्रकार श्रेष्ठ है? आनुपातिक चयन का एक तालिका सहित उदाहरण दीजिए।</li>
+                        <li>500 परिवारों वाले एक गाँव में से 50 परिवारों के संभाव्यता आधारित चयन (Probability-based Household Selection) की संपूर्ण चरणबद्ध विधि लिखिए।</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(ख) लघु उत्तरीय प्रश्न (Short Answer Questions - 5 अंक)</h4>
+                    <ol>
+                        <li>प्रतिचयन ढांचा (Sampling Frame) क्या है और यह क्यों जरूरी है?</li>
+                        <li>व्यवस्थित प्रतिदर्शन में 'यादृच्छिक शुरुआत' (Random Start) का क्या महत्व है?</li>
+                        <li>स्तरीकृत प्रतिदर्शन में 'स्तर' (Strata) किन आधारों पर बनाए जाते हैं?</li>
+                        <li>चयन पूर्वाग्रह (Selection Bias) क्या है और इससे कैसे बचा जा सकता है?</li>
+                        <li>यदि फील्ड में चुना हुआ घर बंद मिले तो क्या प्रक्रिया अपनानी चाहिए?</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(ग) अति लघु उत्तरीय प्रश्न (Very Short Answer - 2 अंक)</h4>
+                    <ol>
+                        <li>समष्टि (Population) और प्रतिदर्श (Sample) की परिभाषा दीजिए।</li>
+                        <li>प्रतिचयन अंतराल ($k$) का सूत्र लिखिए।</li>
+                        <li>टिप्पेट की संख्याएं (Tippett's Numbers) किससे संबंधित हैं?</li>
+                        <li>आनुपातिक स्तरीकृत प्रतिदर्शन क्या है?</li>
+                        <li>प्राथमिक प्रतिचयन इकाई (Sampling Unit) का एक उदाहरण दीजिए।</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(घ) बहुविकल्पीय अभ्यास प्रश्न (Practice MCQs with Explanation)</h4>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">1. यदि किसी गाँव में कुल 600 परिवार ($N$) हैं और शोधार्थी को 60 परिवारों ($n$) का व्यवस्थित सैंपल लेना है, तो प्रतिचयन अंतराल ($k$) क्या होगा?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_1" onclick="checkBookOption(this, true, 'p_ans2_1')"> (A) 10</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_1" onclick="checkBookOption(this, false, 'p_ans2_1')"> (B) 6</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_1" onclick="checkBookOption(this, false, 'p_ans2_1')"> (C) 60</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_1" onclick="checkBookOption(this, false, 'p_ans2_1')"> (D) 100</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans2_1')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans2_1">
+                            <strong>सही उत्तर: (A) 10</strong><br>
+                            <em>व्याख्या:</em> सूत्र $k = N / n = 600 / 60 = 10$ है। अतः प्रत्येक 10वें घर का चयन किया जाएगा।
+                        </div>
+                    </div>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">2. जब समष्टि अत्यधिक विषम (Heterogeneous) हो और सभी सामाजिक-आर्थिक वर्गों का उचित प्रतिनिधित्व आवश्यक हो, तो कौन-सी विधि सर्वश्रेष्ठ मानी जाती है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_2" onclick="checkBookOption(this, false, 'p_ans2_2')"> (A) सुविधा प्रतिदर्शन (Convenience)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_2" onclick="checkBookOption(this, false, 'p_ans2_2')"> (B) सरल यादृच्छिक प्रतिदर्शन</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_2" onclick="checkBookOption(this, true, 'p_ans2_2')"> (C) स्तरीकृत प्रतिदर्शन (Stratified Sampling)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_2" onclick="checkBookOption(this, false, 'p_ans2_2')"> (D) स्नोबॉल प्रतिदर्शन</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans2_2')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans2_2">
+                            <strong>सही उत्तर: (C) स्तरीकृत प्रतिदर्शन</strong><br>
+                            <em>व्याख्या:</em> स्तरीकृत प्रतिदर्शन में समष्टि को पहले समांगी स्तरों (जैसे सीमांत, लघु, बड़े किसान) में बांटा जाता है, जिससे कोई भी वर्ग प्रतिनिधित्व से वंचित नहीं रहता।
+                        </div>
+                    </div>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">3. समष्टि की सभी इकाइयों की वह आधिकारिक और क्रमबद्ध सूची जिसके आधार पर सैंपल निकाला जाता है, क्या कहलाती है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_3" onclick="checkBookOption(this, false, 'p_ans2_3')"> (A) प्रतिदर्श अनुपात</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_3" onclick="checkBookOption(this, true, 'p_ans2_3')"> (B) प्रतिचयन ढांचा (Sampling Frame)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_3" onclick="checkBookOption(this, false, 'p_ans2_3')"> (C) आवृत्ति वितरण</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq2_3" onclick="checkBookOption(this, false, 'p_ans2_3')"> (D) समग्र विचरण</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans2_3')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans2_3">
+                            <strong>सही उत्तर: (B) प्रतिचयन ढांचा (Sampling Frame)</strong><br>
+                            <em>व्याख्या:</em> मतदाता सूची, परिवार रजिस्टर या मकानों की प्रमाणित सूची को सैंपलिंग फ्रेम कहा जाता है।
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-group" style="background:var(--bg-subtle); padding:1.25rem; border-radius:4px; margin-top:1.5rem;">
+                    <h4>🎯 प्रैक्टिकल फील्ड एक्सरसाइज (Hands-on Sampling Tasks)</h4>
+                    <p><strong>एक्सरसाइज 3 (सरल रैंडम सैंपलिंग):</strong> अपने कॉलेज की कक्षा के 60 विद्यार्थियों की एक सूची बनाएं और लॉटरी विधि द्वारा 10 विद्यार्थियों का रैंडम सैंपल चुनें।</p>
+                    <p><strong>एक्सरसाइज 4 (व्यवस्थित सैंपलिंग):</strong> किसी स्थानीय मोहल्ले के 100 मकानों की काल्पनिक सूची बनाएं और $k=5$ का अंतराल तथा रैंडम स्टार्ट $r=2$ लेते हुए 20 मकानों का व्यवस्थित चयन करें।</p>
+                    <p><strong>एक्सरसाइज 5 (स्तरीकृत सैंपलिंग तालिका):</strong> 300 परिवारों वाले एक गाँव के लिए भूमि-जोत के आधार पर 3 स्तर बनाएं और 10% आनुपातिक प्रतिदर्श की एक पूर्ण गणना तालिका तैयार करें।</p>
+                </div>
+            </div>
+        </article>
+    
+
+            
+        <!-- ===================================================================
+             UNIT III: क्षेत्रीय तकनीकें (FIELD TECHNIQUES)
+             =================================================================== -->
+        <div class="unit-divider" id="unit3">
+            <span class="unit-badge">UNIT — III</span>
+            <h2>क्षेत्रीय तकनीकें (Field Techniques)</h2>
+            <p class="unit-subtitle">अवलोकन, प्रश्नावली, साक्षात्कार, केंद्रित समूह चर्चा (FGD), ट्रांसैक्ट, क्वाड्रैट एवं फील्ड स्केच</p>
+        </div>
+
+        <!-- CHAPTER 12 -->
+        <article class="book-chapter" id="ch12">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 12</span>
+                <h1>क्षेत्रीय तकनीकों का परिचय एवं चयन (Field Techniques & Selection)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> जब हम अध्ययन क्षेत्र में पहुँच जाते हैं, तो हमारा अगला कदम होता है—'डेटा एकत्र करना'। लेकिन डेटा कैसे एकत्र किया जाए? क्या केवल अपनी आँखों से देखकर? क्या लोगों से बातचीत करके? क्या कागज़ पर प्रश्न देकर? या धरातल पर चलकर नाप-जोख करके? इन विभिन्न विधियों को 'फील्ड तकनीकें' (Field Techniques) कहा जाता है। गलत तकनीक का चयन करने से समय और श्रम नष्ट हो जाता है और आंकड़े अविश्वसनीय हो जाते हैं। इस अध्याय में हम फील्ड तकनीकों के प्रकार, उनके गुण-दोष और सही तकनीक चुनने के वैज्ञानिक मानदंडों को समझेंगे।
+            </div>
+
+            <section id="sec12-1">
+                <h2>12.1 तकनीक चयन के 6 प्रमुख निर्धारक कारक</h2>
+                <p>शोधार्थी को अपनी तकनीक का चयन निम्नलिखित कारकों के आधार पर करना चाहिए:</p>
+                <ol>
+                    <li><strong>शोध का उद्देश्य (Research Objective):</strong> यदि अध्ययन 'गाँव के भूमि-उपयोग' पर है, तो 'अवलोकन और ट्रांसैक्ट' तकनीक उपयुक्त होगी। यदि अध्ययन 'किसानों के कर्ज' पर है, तो 'प्रश्नावली या साक्षात्कार' अनिवार्य होगा।</li>
+                    <li><strong>उत्तरदाताओं की साक्षरता:</strong> यदि उत्तरदाता अनपढ़ या कम पढ़े-लिखे हैं, तो डाक प्रश्नावली व्यर्थ होगी; वहाँ 'मौखिक साक्षात्कार' ही काम करेगा।</li>
+                    <li><strong>उपलब्ध समय एवं संसाधन:</strong> विस्तृत साक्षात्कार में प्रति व्यक्ति 1 घंटा लगता है, जबकि बंद प्रश्नावली 10 मिनट में भरी जा सकती है।</li>
+                    <li><strong>सूचना की प्रकृति:</strong> क्या आंकड़े संख्यात्मक (Quantitative) हैं या लोगों की राय, विचार और अनुभव (Qualitative)?</li>
+                    <li><strong>गोपनीयता की आवश्यकता:</strong> संवेदनशील व्यक्तिगत मुद्दों (जैसे आय या बीमारी) पर आमने-सामने का साक्षात्कार आवश्यक होता है।</li>
+                </ol>
+            </section>
+
+            <section id="sec12-2">
+                <h2>12.2 प्रमुख क्षेत्रीय तकनीकों का तुलनात्मक चयन चार्ट</h2>
+                <div class="book-table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>तकनीक का नाम</th>
+                                <th>मुख्य उद्देश्य</th>
+                                <th>प्रमुख लाभ</th>
+                                <th>मुख्य सीमा</th>
+                                <th>सर्वोत्तम उपयुक्त परिस्थिति</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>अवलोकन (Observation)</strong></td>
+                                <td>भौतिक व मानवीय गतिविधियों को प्रत्यक्ष देखना</td>
+                                <td>उत्तरदाता के झूठ बोलने की संभावना शून्य</td>
+                                <td>मनुष्य के आंतरिक विचारों को नहीं जान सकते</td>
+                                <td>यातायात, भूमि उपयोग, मेला, जलभराव</td>
+                            </tr>
+                            <tr>
+                                <td><strong>प्रश्नावली (Questionnaire)</strong></td>
+                                <td>प्रश्नों की मानक सूची द्वारा आंकड़े लेना</td>
+                                <td>कम समय में भारी संख्या में डेटा संकलन</td>
+                                <td>अशिक्षित लोगों के लिए अनुपयुक्त</td>
+                                <td>घरेलू सर्वेक्षण, छात्र, साक्षर किसान</td>
+                            </tr>
+                            <tr>
+                                <td><strong>साक्षात्कार (Interview)</strong></td>
+                                <td>आमने-सामने बातचीत द्वारा जानकारी</td>
+                                <td>गहन व विस्तृत जानकारी, अशिक्षितों हेतु श्रेष्ठ</td>
+                                <td>अत्यधिक समय-साध्य, व्यक्तिगत पूर्वाग्रह</td>
+                                <td>बुजुर्ग किसान, डॉक्टर, प्रधान, अधिकारी</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FGD (समूह चर्चा)</strong></td>
+                                <td>6-10 लोगों के समूह में साझा मंथन</td>
+                                <td>सामूहिक सहमति व समस्याओं की गहराई</td>
+                                <td>कुछ प्रभावी लोग चर्चा हाईजैक कर सकते हैं</td>
+                                <td>गाँव की साझा जल, बिजली या स्वास्थ्य समस्या</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ट्रांसैक्ट (Transect)</strong></td>
+                                <td>सीधी रेखा में चलकर परिदृश्य का अध्ययन</td>
+                                <td>ढाल, वनस्पति, मिट्टी का सतत स्थानिक प्रोफाइल</td>
+                                <td>केवल संकरी पट्टी का अध्ययन होता है</td>
+                                <td>नदी घाटी, पहाड़ी ढलान, वाटरशेड</td>
+                            </tr>
+                            <tr>
+                                <td><strong>क्वाड्रैट (Quadrat)</strong></td>
+                                <td>निश्चित वर्गाकार ग्रिड में घनत्व नापना</td>
+                                <td>सटीक संख्यात्मक एवं वानस्पतिक घनत्व माप</td>
+                                <td>गतिशील वस्तुओं (पशुओं) के लिए कठिन</td>
+                                <td>वनस्पति घनत्व, फसल सघनता, आवास घनत्व</td>
+                            </tr>
+                            <tr>
+                                <td><strong>फील्ड स्केच (Sketch)</strong></td>
+                                <td>हाथ से मुख्य भू-दृश्यों का रेखाचित्र बनाना</td>
+                                <td>बिना महंगे कैमरे के तुरंत स्थानिक अंकन</td>
+                                <td>सटीक गणितीय पैमाना नहीं होता</td>
+                                <td>गाँव की बसावट, नदी विसर्प, भूस्खलन क्षेत्र</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 13 -->
+        <article class="book-chapter" id="ch13">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 13</span>
+                <h1>अवलोकन विधि (Observation Method: Participant vs Non-Participant)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> अवलोकन (Observation) का अर्थ केवल खुली आँखों से देखना नहीं है, बल्कि 'वैज्ञानिक उद्देश्य के साथ सतर्कतापूर्वक देखना, परखना और दर्ज करना' है। लोग जो कहते हैं और जो वे वास्तव में करते हैं, उसमें अक्सर बड़ा अंतर होता है। अवलोकन विधि हमें इस धरातलीय सच को पकड़ने में मदद करती है। सामाजिक विज्ञान और भूगोल में अवलोकन के दो प्रमुख रूप हैं—सहभागी अवलोकन और असहभागी अवलोकन।
+            </div>
+
+            <section id="sec13-1">
+                <h2>13.1 सहभागी अवलोकन (Participant Observation)</h2>
+                <p><strong>अर्थ एवं कार्यप्रणाली:</strong> इस विधि में शोधार्थी केवल बाहर से तमाशबीन बनकर नहीं देखता, बल्कि वह उस समुदाय का एक अभिन्न अंग बन जाता है। वह स्थानीय लोगों के साथ रहता है, उन्हीं के जैसा भोजन करता है, उन्हीं के उत्सवों और दैनिक श्रम में भाग लेता है और स्वाभाविक रूप से उनके व्यवहार का अवलोकन करता है।</p>
+                <ul>
+                    <li><strong>गुण (Merits):</strong> समुदाय के आंतरिक रीति-रिवाजों, विश्वासों और अनकहे सत्यों की गहनतम और वास्तविक जानकारी मिलती है। लोग कृत्रिम व्यवहार छोड़ देते हैं।</li>
+                    <li><strong>दोष (Demerits):</strong> अत्यधिक समय-साध्य (महीनों या वर्षों लग सकते हैं); शोधार्थी भावनात्मक रूप से समुदाय से जुड़कर अपनी निष्पक्षता (Objectivity) खो सकता है।</li>
+                    <li><em>व्यावहारिक उदाहरण:</em> एक शोधार्थी द्वारा बस्तर (छत्तीसगढ़) के गोंड जनजातीय गाँव में 2 महीने रहकर उनके महुआ बीनने और घोटुल परंपराओं का उनके साथ रहकर अध्ययन करना।</li>
+                </ul>
+            </section>
+
+            <section id="sec13-2">
+                <h2>13.2 असहभागी अवलोकन (Non-Participant Observation)</h2>
+                <p><strong>अर्थ एवं कार्यप्रणाली:</strong> इस विधि में शोधार्थी समुदाय या घटना में कोई प्रत्यक्ष भागीदारी नहीं करता। वह एक निष्पक्ष, तटस्थ और वैज्ञानिक दर्शक के रूप में दूर खड़े रहकर घटनाओं, लोगों की गतिविधियों और स्थानिक प्रवाह को देखता है और अपनी फील्ड डायरी में नोट करता है।</p>
+                <ul>
+                    <li><strong>गुण (Merits):</strong> शोधार्थी पूरी तरह तटस्थ और निष्पक्ष बना रहता है; कम समय लगता है; और सांख्यिकीय रिकॉर्डिंग सरल होती है।</li>
+                    <li><strong>दोष (Demerits):</strong> केवल बाहरी सतही व्यवहार दिखता है, लोग क्यों ऐसा कर रहे हैं—इसका भीतरी कारण नहीं पता चलता।</li>
+                    <li><em>व्यावहारिक उदाहरण:</em> किसी नगर के व्यस्त चौराहे पर एक कोने में खड़े होकर सुबह 9 से 11 बजे तक ट्रैफिक सिग्नल पर वाहनों की कतार, पैदल यात्रियों के क्रॉसिंग व्यवहार और जाम के कारणों को चुपचाप नोट करना।</li>
+                </ul>
+
+                <div class="book-note">
+                    <strong>फील्ड डायरी एवं अवलोकन नोट्स (Field Diary):</strong><br>
+                    अवलोकन के दौरान मानव मस्तिष्क सब कुछ याद नहीं रख सकता। अतः प्रत्येक विद्यार्थी के पास एक 'फील्ड डायरी' (Field Diary) होनी चाहिए, जिसमें तारीख, समय, स्थान, मौसम और देखी गई घटनाओं को तुरंत पेंसिल या पेन से बुलेट पॉइंट्स में दर्ज किया जाए।
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 14 -->
+        <article class="book-chapter" id="ch14">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 14</span>
+                <h1>प्रश्नावली विधि (Questionnaire: Open, Closed, Structured & Non-Structured)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> क्षेत्रीय भूगोल में सामाजिक-आर्थिक आंकड़ों के संकलन का सबसे अधिक प्रयुक्त हथियार 'प्रश्नावली' (Questionnaire) है। यह पूर्व-नियोजित प्रश्नों की एक मुद्रित सूची होती है जिसे भरकर उत्तरदाता से तथ्य जुटाए जाते हैं। एक अच्छी प्रश्नावली बनाना एक कला और विज्ञान दोनों है। इस अध्याय में हम प्रश्नावली के चारों प्रमुख प्रकारों—खुली, बंद, संरचित और असंरचित प्रश्नावली तथा इसके निर्माण के नियमों को समझेंगे।
+            </div>
+
+            <section id="sec14-1">
+                <h2>14.1 अच्छे प्रश्नावली निर्माण के 6 स्वर्णिम नियम</h2>
+                <ol>
+                    <li><strong>सरल एवं स्पष्ट भाषा:</strong> प्रश्न छोटे, स्पष्ट और स्थानीय बोलचाल की भाषा में हों। दोहरे अर्थ वाले या जटिल शब्दों से बचें।</li>
+                    <li><strong>तार्किक क्रम (Logical Sequence):</strong> प्रश्न हमेशा सामान्य से विशिष्ट की ओर बढ़ें। पहले उत्तरदाता का नाम, परिवार के सदस्य, फिर व्यवसाय और अंत में संवेदनशील प्रश्न (जैसे आय या कर्ज)।</li>
+                    <li><strong>भ्रामक एवं पक्षपाती प्रश्नों से बचाव (Avoid Leading Questions):</strong> ऐसा प्रश्न न पूछें जिसमें उत्तर पहले से ही झलक रहा हो। (जैसे—"क्या आप नहीं मानते कि सरकार निकम्मी है?" के बजाय "गाँव में सरकारी सेवाओं से आप कितने संतुष्ट हैं?").</li>
+                    <li><strong>सीमित लंबाई:</strong> प्रश्नावली 2 से 3 पृष्ठों से बड़ी न हो जिसे भरने में 15-20 मिनट से अधिक समय न लगे।</li>
+                    <li><strong>पायलट टेस्टिंग (Pilot Testing):</strong> वास्तविक सर्वे से पहले प्रश्नावली को 5-10 लोगों पर आजमाकर जांच लें कि कोई प्रश्न अस्पष्ट तो नहीं है।</li>
+                </ol>
+            </section>
+
+            <section id="sec14-2">
+                <h2>14.2 प्रश्नावली के 4 प्रमुख प्रकार</h2>
+
+                <p><strong>1. खुली प्रश्नावली (Open-ended Questionnaire):</strong><br>
+                इसमें उत्तरदाता को अपनी राय व्यक्त करने की पूरी स्वतंत्रता होती है। कोई निश्चित विकल्प नहीं होते।<br>
+                <em>उदाहरण:</em> "गाँव में सिंचाई की समस्या के समाधान के लिए आपके क्या सुझाव हैं? (विस्तार से लिखें)"<br>
+                <em>लाभ व सीमा:</em> नए और गहरे विचार मिलते हैं, परंतु इनका सारणीयन (Tabulation) करना कठिन होता है।</p>
+
+                <p><strong>2. बंद प्रश्नावली (Closed-ended Questionnaire):</strong><br>
+                इसमें प्रत्येक प्रश्न के निश्चित बहुविकल्पीय उत्तर (हाँ/ना, या A, B, C, D) पहले से छपे होते हैं और उत्तरदाता को केवल टिक $(\checkmark)$ लगाना होता है।<br>
+                <em>उदाहरण:</em> "आपके घर में पीने के पानी का मुख्य स्रोत क्या है? [ ] नल [ ] हैंडपंप [ ] कुआं [ ] अन्य"<br>
+                <em>लाभ व सीमा:</em> भरना और कंप्यूटर में डेटा डालना बेहद आसान, परंतु नए सुझाव नहीं मिल पाते।</p>
+
+                <p><strong>3. संरचित प्रश्नावली (Structured Questionnaire):</strong><br>
+                इसमें सभी उत्तरदाताओं से बिल्कुल एक जैसे प्रश्न, उसी क्रम में और उसी प्रारूप में पूछे जाते हैं। यह मात्रात्मक सांख्यिकी के लिए सर्वोत्तम है।</p>
+
+                <p><strong>4. असंरचित प्रश्नावली (Non-Structured Questionnaire):</strong><br>
+                इसमें कोई कठोर क्रम नहीं होता। केवल कुछ व्यापक विषय-बिंदु होते हैं और साक्षात्कारकर्ता बातचीत के प्रवाह के अनुसार प्रश्नों को बदल सकता है।</p>
+            </section>
+
+            <section id="sec14-3">
+                <h2>14.3 व्यावहारिक मॉडल: ग्रामीण घरेलू सर्वेक्षण प्रश्नावली का प्रारूप</h2>
+                <div class="book-note" style="background:var(--bg-page); border:1px solid var(--border-color); padding:1.25rem;">
+                    <div style="text-align:center; font-weight:700; margin-bottom:0.75rem; border-bottom:1px solid var(--border-color); padding-bottom:0.5rem;">
+                        कॉलेज भूगोल विभाग — ग्रामीण सामाजिक-आर्थिक सर्वेक्षण प्रश्नावली
+                    </div>
+                    <p style="font-size:0.9rem; margin-bottom:0.5rem;">
+                        <strong>प्रश्नावली क्रमांक:</strong> H-_____ &nbsp;&nbsp;&nbsp;&nbsp; <strong>गाँव का नाम:</strong> ____________ &nbsp;&nbsp;&nbsp;&nbsp; <strong>दिनांक:</strong> _________
+                    </p>
+                    <ol style="font-size:0.92rem; line-height:1.8;">
+                        <li>परिवार के मुखिया का नाम: ______________________ लिंग: [ ] पुरुष [ ] महिला</li>
+                        <li>परिवार में कुल सदस्य: वयस्क: ___ बच्चे: ___ कुल: ___</li>
+                        <li>मुख्य आजीविका का साधन: [ ] कृषि [ ] मजदूरी [ ] सरकारी नौकरी [ ] निजी व्यवसाय [ ] पशुपालन</li>
+                        <li>कुल कृषि भूमि का स्वामित्व: [ ] भूमिहीन [ ] 1 हेक्टेयर से कम [ ] 1-2 हेक्टेयर [ ] 2 हेक्टेयर से अधिक</li>
+                        <li>सिंचाई का मुख्य स्रोत: [ ] निजी नलकूप [ ] सरकारी नहर [ ] डीजल पंप [ ] वर्षा पर निर्भर</li>
+                        <li>पीने के पानी की सुविधा: [ ] घर में नल कनेक्शन [ ] सार्वजनिक हैंडपंप [ ] कुआं [ ] निजी सबमर्सिबल</li>
+                        <li>प्रतिदिन पानी लाने में कितना समय लगता है? [ ] 0-15 मिनट [ ] 15-30 मिनट [ ] 1 घंटा से अधिक</li>
+                        <li>घर में शौचालय की सुविधा: [ ] पक्का निजी शौचालय [ ] सार्वजनिक शौचालय [ ] खुले में शौच</li>
+                        <li>विद्युत आपूर्ति की औसत दैनिक अवधि: [ ] 24 घंटे [ ] 16-20 घंटे [ ] 8-12 घंटे [ ] 8 घंटे से कम</li>
+                        <li>गाँव की सबसे गंभीर समस्या आपके अनुसार क्या है? (संक्षेप में लिखें): __________________________________</li>
+                    </ol>
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 15 -->
+        <article class="book-chapter" id="ch15">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 15</span>
+                <h1>साक्षात्कार विधि (Interview Method)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> जब उत्तरदाता अनपढ़ हो, या जब हमें किसी जटिल ऐतिहासिक, सामाजिक या भौगोलिक घटना की तह तक जाना हो, तो प्रश्नावली कागज़ का बेजान टुकड़ा साबित होती है। ऐसे समय में आमने-सामने बैठकर आत्मीयता से संवाद स्थापित करना ही सर्वोत्तम उपाय है। इस विधि को 'साक्षात्कार विधि' (Interview Method) कहते हैं।
+            </div>
+
+            <section id="sec15-1">
+                <h2>15.1 साक्षात्कार की चरणबद्ध प्रक्रिया</h2>
+                <ol>
+                    <li><strong>पूर्व-तैयारी (Preparation):</strong> साक्षात्कार मार्गदर्शिका (Interview Schedule) बनाना और उत्तरदाता से मिलने का उपयुक्त समय तय करना। (किसानों के लिए दोपहर या शाम का समय सबसे अच्छा होता है जब वे खेत से लौटते हैं)।</li>
+                    <li><strong>रैपो निर्माण (Rapport Building):</strong> जाते ही सीधे सवाल न दागने लगें। पहले हाथ जोड़कर अभिवादन करें, अपना परिचय दें, खेती-बाड़ी या मौसम का सामान्य हालचाल पूछकर उत्तरदाता को सहज बनाएं।</li>
+                    <li><strong>सक्रिय श्रवण (Active Listening):</strong> उत्तरदाता की बात को ध्यान से सुनें, बीच में न टोकें, सिर हिलाकर संकेत दें कि आप उनकी बात समझ रहे हैं।</li>
+                    <li><strong>तटस्थ व्यवहार (Neutral Stance):</strong> किसी भी राजनीतिक, जातिगत या धार्मिक बात पर अपनी सहमति या असहमति न जताएं। पूरी तरह निष्पक्ष रहें।</li>
+                    <li><strong>उत्तर अंकन एवं समापन:</strong> अनुमति लेकर मुख्य बिंदुओं को नोट करें या मोबाइल में रिकॉर्ड करें। बातचीत के अंत में उनके बहुमूल्य समय के लिए हृदय से आभार व्यक्त करें।</li>
+                </ol>
+            </section>
+        </article>
+
+        <!-- CHAPTER 16 -->
+        <article class="book-chapter" id="ch16">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 16</span>
+                <h1>केंद्रित समूह चर्चा (Focused Group Discussion - FGD)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> पाठ्यक्रम में **विशेष फोकस (Special Focus)** के रूप में निर्धारित 'केंद्रित समूह चर्चा' (FGD) गुणात्मक शोध की सबसे सशक्त तकनीकों में से एक है। व्यक्तिगत साक्षात्कार में अकेला व्यक्ति खुलकर नहीं बोल पाता या संकोच करता है, लेकिन जब 6 से 10 समान पृष्ठभूमि वाले लोग एक साथ बैठकर किसी साझा मुद्दे पर चर्चा करते हैं, तो समूह की पारस्परिक अंतःक्रिया से ऐसी छिपी हुई बातें बाहर आती हैं जो अकेले में कभी नहीं आ सकतीं।
+            </div>
+
+            <section id="sec16-1">
+                <h2>16.1 FGD क्या है और इसका संचालन कैसे होता है?</h2>
+                <p><strong>परिभाषा:</strong> किसी विशिष्ट पूर्व-निर्धारित भौगोलिक या सामाजिक मुद्दे पर 6 से 10 सजातीय (Homogeneous) उत्तरदाताओं के छोटे समूह को एक गोल दायरे में बैठाकर एक प्रशिक्षित मॉडरेटर द्वारा संचालित की जाने वाली अर्ध-संरचित चर्चा को <strong>केंद्रित समूह चर्चा (FGD)</strong> कहते हैं।</p>
+
+                <p><strong>FGD के प्रमुख घटक:</strong></p>
+                <ul>
+                    <li><strong>प्रतिभागियों की संख्या:</strong> आदर्श संख्या <strong>6 से 10 व्यक्ति</strong> है। 5 से कम होने पर चर्चा नहीं जमती, और 10 से अधिक होने पर अव्यवस्था हो जाती है।</li>
+                    <li><strong>सजातीय समूह (Homogeneous Group):</strong> प्रतिभागी समान पृष्ठभूमि के होने चाहिए। जैसे—महिलाओं का अलग FGD, युवा बेरोजगारों का अलग, और सीमांत किसानों का अलग। यदि गाँव के बड़े जमींदार और भूमिहीन मजदूर को एक ही ग्रुप में बैठा दिया जाए, तो मजदूर डर के मारे मुंह नहीं खोलेगा!</li>
+                    <li><strong>मॉडरेटर / फैसिलिटेटर (Moderator) की भूमिका:</strong> वह शिक्षक या मुख्य छात्र होता है जो चर्चा को विषय से भटकने नहीं देता, शांत रहने वाले सदस्यों को बोलने के लिए प्रोत्साहित करता है और किसी एक व्यक्ति को पूरी चर्चा पर हावी नहीं होने देता।</li>
+                    <li><strong>नोट-टेकर (Note Taker):</strong> दूसरा छात्र जो चर्चा में भाग नहीं लेता, बल्कि चुपचाप हर व्यक्ति के तर्कों, भावों और सहमति-असहमति को डायरी में लिखता है।</li>
+                </ul>
+            </section>
+
+            <section id="sec16-2">
+                <h2>16.2 पूर्ण व्यावहारिक उदाहरण: ग्रामीण पेयजल संकट पर महिलाओं का FGD</h2>
+                <div class="book-note">
+                    <strong>FGD केस स्टडी प्रारूप (Field Simulation):</strong><br>
+                    <strong>स्थान:</strong> ग्राम रामपुर, पंचायत भवन के नीम के पेड़ के नीचे।<br>
+                    <strong>प्रतिभागी:</strong> गाँव के अलग-अलग मुहल्लों की 8 गृहिणियां।<br>
+                    <strong>मॉडरेटर:</strong> भूगोल विभाग की छात्रा (सुश्री अंजलि); <strong>नोट-टेकर:</strong> छात्र (अमित)।<br>
+                    <strong>समय:</strong> दोपहर 2:30 बजे (जब घर के कामकाज से फुर्सत हो)।<br><br>
+
+                    <em>चर्चा का संचालन (FGD Guide Flow):</em><br>
+                    <strong>1. आरंभिक सवाल:</strong> "दीदी, आप लोगों को सुबह पानी भरने के लिए कितने बजे उठना पड़ता है और पानी कहाँ से लाती हैं?"<br>
+                    <em>प्रतिक्रिया:</em> सभी महिलाओं ने एक स्वर में कहा कि सुबह 4 बजे उठना पड़ता है क्योंकि 1 किमी दूर लगे एकमात्र सरकारी हैंडपंप पर 5 बजे से भारी लाइन लग जाती है।<br><br>
+
+                    <strong>2. मुख्य समस्या पर गहराई:</strong> "लाइन में लगने से आपके दैनिक जीवन और स्वास्थ्य पर क्या असर पड़ रहा है?"<br>
+                    <em>प्रतिक्रिया:</em> सुमित्रा देवी (45 वर्ष) ने बताया कि सिर पर भारी घड़े ढोने से गाँव की अधिकांश महिलाओं को कमर और गर्दन में स्थायी दर्द रहता है। 3 महिलाओं ने कहा कि कई बार पानी को लेकर झगड़े हो जाते हैं और बच्चों को स्कूल भेजने में देर हो जाती है।<br><br>
+
+                    <strong>3. समाधान पर मंथन:</strong> "यदि पंचायत नल कनेक्शन दे, तो क्या आप महीने का 50 रुपये जल-शुल्क देने को तैयार हैं?"<br>
+                    <em>प्रतिक्रिया:</em> 8 में से 7 महिलाओं ने तुरंत सहमति जताई कि समय और स्वास्थ्य की बचत के लिए वे यह खर्च सहर्ष वहन कर लेंगी।<br><br>
+
+                    <strong>FGD का निष्कर्ष:</strong> पेयजल संकट केवल पानी की कमी नहीं है, बल्कि यह महिला स्वास्थ्य, बच्चों की शिक्षा और घरेलू शांति से जुड़ी एक गंभीर भौगोलिक-सामाजिक समस्या है।
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 17 -->
+        <article class="book-chapter" id="ch17">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 17</span>
+                <h1>स्थानिक सर्वेक्षण: ट्रांसैक्ट, क्वाड्रैट एवं फील्ड स्केच (Space Survey)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> भूगोलवेत्ता का मुख्य उपकरण उसकी स्थानिक आंख (Spatial Eye) है। धरातल पर कौन-सी वस्तु कहाँ स्थित है, ढाल कैसा है, वनस्पति का घनत्व कितना है और उस भू-दृश्य को बिना कैमरे के कागज़ पर रेखाचित्र में कैसे उतारा जाए—यह कला 'स्थानिक सर्वेक्षण' (Space Survey) कहलाती है। पाठ्यक्रम के अनुसार इसमें तीन विधियां अनिवार्य हैं—ट्रांसैक्ट वॉक, क्वाड्रैट विधि और फील्ड स्केच का निर्माण।
+            </div>
+
+            <section id="sec17-1">
+                <h2>17.1 ट्रांसैक्ट सर्वेक्षण (Transect Walk / Survey)</h2>
+                <p><strong>परिभाषा:</strong> अध्ययन क्षेत्र के आर-पार किसी पूर्व-निर्धारित सीधी रेखा या रास्ते (Transect Line) के सहारे-सहारे पैदल चलकर धरातलीय ढाल, मिट्टी, जल स्रोतों, वनस्पति, भूमि उपयोग और बस्तियों के क्रमिक बदलाव को दर्ज करने की सचित्र विधि को <strong>ट्रांसैक्ट सर्वेक्षण (Transect Walk)</strong> कहते हैं।</p>
+
+                <div class="book-diagram">
+                    <pre style="background:var(--bg-subtle); padding:1rem; border-radius:4px; font-family:monospace; line-height:1.4; color:var(--text-main); font-size:0.85rem; overflow-x:auto;">
+[उत्तर-पश्चिम]                                                                    [दक्षिण-पूर्व]
+पहाड़ी ढलान        →     तलहटी / चरागाह     →    मुख्य गाँव की बस्ती   →    गहन कृषि मैदान   →    नदी का कछार
+(Hill Slope)            (Foot Hill)            (Settlement)           (Cropland)           (River Floodplain)
+      ▲                     _____                  ┌──┐ ┌──┐              ░░░░░░░░░░            ~~~~~~~~
+     / \                   /     \                 │  │ │  │              ░ गेहूं, सरसों ░          ~ गंगा नदी ~
+    /   \                 /       \                └──┘ └──┘              ░░░░░░░░░░            ~~~~~~~~
+---------------------------------------------------------------------------------------------------------
+ढाल: तीव्र (Steep)    ढाल: मंद (Gentle)      धरातल: समतल टीला       धरातल: समतल मैदान     धरातल: निचला कछार
+मृदा: कंकरीली, पतली   मृदा: दोमट             मृदा: संघनित आबादी      मृदा: उपजाऊ जलोढ़      मृदा: नवीन खादर बालू
+वनस्पति: कांटेदार झाड़ियां वनस्पति: घास, बबूल   वनस्पति: नीम, पीपल छांव वनस्पति: फसलें चक्र     वनस्पति: सरकंडा, घास
+उपयोग: वन/ईंधन        उपयोग: मवेशी चारागाह   उपयोग: आवास, दुकानें   उपयोग: सघन 3 फसलें     उपयोग: तरबूज, सब्जी
+                    </pre>
+                    <div style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:4px;">चित्र 3.1 — एक आदर्श गाँव का ट्रांसैक्ट प्रोफाइल आरेख (Transect Profile Diagram)</div>
+                </div>
+
+                <p><strong>ट्रांसैक्ट के चरण:</strong> (1) टोपोशीट पर गाँव के आर-पार एक सीधी दिशा रेखा (जैसे NW से SE) तय करें। (2) छात्रों की टोली स्थानीय मार्गदर्शक के साथ उस रेखा पर पैदल चले। (3) हर 200 मीटर पर मिट्टी, फसल, ढाल और भू-उपयोग में आने वाले बदलाव को डायरी में नोट करें और ऊपर जैसा आरेख बनाएं।</p>
+            </section>
+
+            <section id="sec17-2">
+                <h2>17.2 क्वाड्रैट विधि (Quadrat Method)</h2>
+                <p><strong>परिभाषा:</strong> किसी विस्तृत क्षेत्र में वनस्पति, वृक्षों या फसलों के घनत्व और वितरण का वैज्ञानिक आकलन करने के लिए एक निश्चित आकार के वर्गाकार ग्रिड (जैसे $1\text{m} \times 1\text{m}$ घास के लिए, या $10\text{m} \times 10\text{m}$ पेड़ों के लिए) को धरातल पर रखकर उसके भीतर मौजूद इकाइयों की गिनती करने की विधि को <strong>क्वाड्रैट विधि (Quadrat Method)</strong> कहते हैं।</p>
+
+                <div class="book-diagram">
+                    <pre style="background:var(--bg-subtle); padding:1rem; border-radius:4px; font-family:monospace; line-height:1.3; color:var(--text-main); font-size:0.88rem; overflow-x:auto;">
+┌───────────────────────────────────────┐  <-- 10m x 10m का वर्गाकार क्वाड्रैट (रस्सियों से बंधा)
+│   ● (नीम)                  ▲ (बबूल)    │
+│                 ● (नीम)               │
+│                                       │  गणना (Count):
+│   ▲ (बबूल)                 ● (नीम)    │  • नीम के पेड़ (●) = 4
+│                                       │  • बबूल के पेड़ (▲) = 3
+│                 ▲ (बबूल)              │  • शीशम का पेड़ (■) = 1
+│   ■ (शीशम)                 ● (नीम)    │
+└───────────────────────────────────────┘  कुल वृक्ष घनत्व = 8 पेड़ प्रति 100 वर्ग मीटर
+                    </pre>
+                    <div style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:4px;">चित्र 3.2 — वनस्पति घनत्व मापन हेतु क्वाड्रैट ग्रिड (Quadrat Grid Method)</div>
+                </div>
+            </section>
+
+            <section id="sec17-3">
+                <h2>17.3 फील्ड स्केच का निर्माण (Constructing a Field Sketch)</h2>
+                <p><strong>मानचित्र बनाम स्केच:</strong> मानचित्र (Map) सटीक गणितीय पैमाने और प्रक्षेप पर बनता है, जबकि <strong>फील्ड स्केच (Field Sketch)</strong> धरातल पर खड़े होकर अपनी आँखों से देखे गए भू-दृश्य का हाथ से बनाया गया मुक्त-हस्त (Free-hand) रेखाचित्र है।</p>
+
+                <p><strong>एक अच्छे फील्ड स्केच के 5 अनिवार्य अंग:</strong></p>
+                <ol>
+                    <li><strong>स्पष्ट शीर्षक (Title):</strong> जैसे—"ग्राम रामपुर की बसावट एवं नदी घाटी का दृश्य"।</li>
+                    <li><strong>उत्तर दिशा तीर ($N \uparrow$):</strong> ताकि नक्शे का अभिविन्यास (Orientation) समझ आए।</li>
+                    <li><strong>प्रमुख लैंडमार्क्स:</strong> मंदिर, पुल, पक्की सड़क, मुख्य टीला या नदी का घुमाव।</li>
+                    <li><strong>पारंपरिक प्रतीक (Symbols):</strong> पक्के मकानों के लिए चौकोर बक्से, पेड़ों के लिए गोल छतरी, नदी के लिए दोहरी लहरदार रेखाएं।</li>
+                    <li><strong>सांकेतिक सूचकांक (Legend/Index):</strong> प्रयुक्त प्रतीकों का अर्थ बताने वाली तालिका।</li>
+                </ol>
+
+                <div class="book-diagram">
+                    <pre style="background:var(--bg-subtle); padding:1rem; border-radius:4px; font-family:monospace; line-height:1.4; color:var(--text-main); font-size:0.85rem; overflow-x:auto;">
+[ N ↑ ]              ग्राम रामपुर का फील्ड रेखाचित्र (Field Sketch)
+================================================================================
+          / \ / \  (उत्तरी शिवालिक पहाड़ियां)
+         /   \   \
+        /_________\________________________________________
+                       │ │  (पक्की सड़क)
+                       │ │
+         ┌──┐  ┌──┐    │ │       ▲ ▲ ▲ (आम का बाग)
+         │  │  │  │    │ │
+         (मुख्य बस्ती) │ │══════[पुल]══════════════════════
+         └──┘  └──┘    │ │
+                       │ │       ~~~~~~~~~~~~~~~~~~~~~~~~~
+                       │ │             (काली नदी का प्रवाह)
+                       │ │       ~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================================================
+सूचकांक (Legend): [──] पक्का मकान | / \ पर्वत | │ │ सड़क | ~~~ नदी | ▲ पेड़
+                    </pre>
+                    <div style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:4px;">चित्र 3.3 — धरातलीय अवलोकन पर आधारित मानक फील्ड स्केच</div>
+                </div>
+            </section>
+
+            <!-- UNIT III EXAM & PRACTICAL SECTION -->
+            <div class="chapter-summary" id="ch12-summary">
+                <h3>यूनिट-III: अध्याय-सार (Unit Summary)</h3>
+                <p>यूनिट-III में हमने प्राथमिक समंक संकलन की प्रमुख तकनीकों का अध्ययन किया। अवलोकन विधि में सहभागी (अंदरूनी भागीदार) और असहभागी (तटस्थ दर्शक) दो रूप हैं। प्रश्नावली विधि में खुली, बंद, संरचित और असंरचित प्रकार शामिल हैं, जिनके निर्माण में सरल भाषा, तार्किक क्रम और निष्पक्षता जरूरी है। साक्षात्कार आमने-सामने की आत्मीय वार्ता है। पाठ्यक्रम के विशेष फोकस 'केंद्रित समूह चर्चा' (FGD) में 6-10 सजातीय व्यक्तियों के समूह में मॉडरेटर द्वारा सामूहिक सहमति व गहन मुद्दों का विश्लेषण किया जाता है। अंत में, स्पेस सर्वे की तीन विधियों—ट्रांसैक्ट वॉक (सीधी रेखा पर भूमि-उपयोग प्रोफाइल), क्वाड्रैट विधि (निश्चित ग्रिड में वनस्पति घनत्व मापन) तथा फील्ड स्केच (दिशा, शीर्षक, प्रतीकों व लैंडमार्क्स सहित हाथ से बना रेखाचित्र)—की कार्यप्रणाली को आरेखों सहित सीखा।</p>
+            </div>
+
+            <div class="chapter-key-points">
+                <h3>मुख्य पारिभाषिक शब्द (Key Terminology)</h3>
+                <ol>
+                    <li><strong>Participant Observation (सहभागी अवलोकन):</strong> समुदाय का अंग बनकर उनके जीवन और गतिविधियों का भीतर से अध्ययन।</li>
+                    <li><strong>Focused Group Discussion - FGD (केंद्रित समूह चर्चा):</strong> 6-10 व्यक्तियों के सजातीय समूह में मॉडरेटर द्वारा संचालित अर्ध-संरचित चर्चा।</li>
+                    <li><strong>Transect Walk (ट्रांसैक्ट वॉक):</strong> परिदृश्य के आर-पार सीधी रेखा में चलकर ढाल, मिट्टी और भूमि-उपयोग का सतत प्रोफाइल बनाना।</li>
+                    <li><strong>Quadrat (क्वाड्रैट):</strong> निश्चित आकार का वर्गाकार ग्रिड (जैसे 10m x 10m) जिसका उपयोग वनस्पति या फसल घनत्व मापने में होता है।</li>
+                    <li><strong>Field Sketch (फील्ड स्केच):</strong> किसी भौगोलिक परिदृश्य का आँखों से देखकर हाथ द्वारा बनाया गया मुक्त-हस्त रेखाचित्र।</li>
+                </ol>
+            </div>
+
+            <div class="chapter-exercises">
+                <h3>यूनिट-III अभ्यास प्रश्न एवं प्रैक्टिकल एक्सरसाइज</h3>
+
+                <div class="exercise-group">
+                    <h4>(क) दीर्घ उत्तरीय प्रश्न (Long Answer Questions - 15 अंक)</h4>
+                    <ol>
+                        <li>फील्ड तकनीकों के चयन को प्रभावित करने वाले कारकों का विश्लेषण कीजिए तथा सभी प्रमुख तकनीकों की तुलनात्मक तालिका प्रस्तुत कीजिए।</li>
+                        <li>सहभागी और असहभागी अवलोकन में अंतर स्पष्ट कीजिए। इनके गुण-दोषों तथा उपयुक्त भौगोलिक परिस्थितियों की विवेचना कीजिए।</li>
+                        <li>प्रश्नावली निर्माण के बुनियादी सिद्धांतों का वर्णन कीजिए। खुली और बंद प्रश्नावली तथा संरचित और असंरचित प्रश्नावली में अंतर स्पष्ट कीजिए।</li>
+                        <li>केंद्रित समूह चर्चा (FGD) क्या है? इसके आयोजन के चरण, मॉडरेटर की भूमिका तथा सावधानियों की सोदाहरण व्याख्या कीजिए।</li>
+                        <li>ट्रांसैक्ट वॉक और क्वाड्रैट विधि से आप क्या समझते हैं? आरेख बनाकर ट्रांसैक्ट प्रोफाइल बनाने की चरणबद्ध विधि समझाइए।</li>
+                        <li>फील्ड स्केच (Field Sketch) क्या है? यह मानचित्र से किस प्रकार भिन्न है? फील्ड स्केच बनाने के आवश्यक तत्वों व चरणों का वर्णन कीजिए।</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(ख) लघु उत्तरीय प्रश्न (Short Answer Questions - 5 अंक)</h4>
+                    <ol>
+                        <li>पायलट टेस्टिंग (Pilot Testing) क्या है और यह क्यों जरूरी है?</li>
+                        <li>FGD में प्रतिभागियों की संख्या 6 से 10 ही क्यों रखी जाती है?</li>
+                        <li>FGD में 'ग्रुपथिंक' (Groupthink) या किसी एक व्यक्ति द्वारा चर्चा हाईजैक करने से कैसे बचा जाए?</li>
+                        <li>ट्रांसैक्ट आरेख में किन-किन भौगोलिक तत्वों को दर्शाया जाता है?</li>
+                        <li>क्वाड्रैट विधि द्वारा किसी बाग में पेड़ों का घनत्व कैसे निकाला जाता है?</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(ग) अति लघु उत्तरीय प्रश्न (Very Short Answer - 2 अंक)</h4>
+                    <ol>
+                        <li>फील्ड डायरी (Field Diary) का क्या उपयोग है?</li>
+                        <li>'लीडिंग क्वेश्चन' (Leading Question) से आप क्या समझते हैं?</li>
+                        <li>FGD में 'फैसिलिटेटर' का क्या काम होता है?</li>
+                        <li>फील्ड स्केच में 'उत्तर दिशा तीर' क्यों अनिवार्य है?</li>
+                        <li>बंद प्रश्नावली (Closed Questionnaire) का एक उदाहरण दीजिए।</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(घ) बहुविकल्पीय अभ्यास प्रश्न (Practice MCQs with Explanation)</h4>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">1. केंद्रित समूह चर्चा (FGD) के सफल आयोजन के लिए प्रतिभागियों की आदर्श संख्या कितनी मानी जाती है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_1" onclick="checkBookOption(this, false, 'p_ans3_1')"> (A) 20 से 30 व्यक्ति</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_1" onclick="checkBookOption(this, true, 'p_ans3_1')"> (B) 6 से 10 व्यक्ति</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_1" onclick="checkBookOption(this, false, 'p_ans3_1')"> (C) केवल 2 व्यक्ति</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_1" onclick="checkBookOption(this, false, 'p_ans3_1')"> (D) 50 से अधिक व्यक्ति</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans3_1')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans3_1">
+                            <strong>सही उत्तर: (B) 6 से 10 व्यक्ति</strong><br>
+                            <em>व्याख्या:</em> 6 से 10 का समूह इतना छोटा होता है कि हर किसी को बोलने का मौका मिलता है, और इतना बड़ा होता है कि विविध विचार सामने आते हैं।
+                        </div>
+                    </div>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">2. अध्ययन क्षेत्र के आर-पार एक सीधी रेखा में पैदल चलकर ढाल, मिट्टी और भूमि-उपयोग के बदलाव को दर्ज करना क्या कहलाता है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_2" onclick="checkBookOption(this, false, 'p_ans3_2')"> (A) क्वाड्रैट सर्वेक्षण</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_2" onclick="checkBookOption(this, true, 'p_ans3_2')"> (B) ट्रांसैक्ट वॉक (Transect Walk)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_2" onclick="checkBookOption(this, false, 'p_ans3_2')"> (C) त्रिकोणीयन सर्वेक्षण</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_2" onclick="checkBookOption(this, false, 'p_ans3_2')"> (D) बंद प्रश्नावली</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans3_2')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans3_2">
+                            <strong>सही उत्तर: (B) ट्रांसैक्ट वॉक (Transect Walk)</strong><br>
+                            <em>व्याख्या:</em> ट्रांसैक्ट वॉक द्वारा किसी क्षेत्र के उच्चावच और भूमि-उपयोग का अनुप्रस्थ काट (Cross-section) तैयार किया जाता है।
+                        </div>
+                    </div>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">3. किसी भू-दृश्य का आँखों से देखकर बिना ज्यामितीय पैमाने के हाथ से बनाया गया रेखाचित्र क्या कहलाता है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_3" onclick="checkBookOption(this, false, 'p_ans3_3')"> (A) टोपोशीट</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_3" onclick="checkBookOption(this, false, 'p_ans3_3')"> (B) कैडेस्ट्रल मैप</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_3" onclick="checkBookOption(this, true, 'p_ans3_3')"> (C) फील्ड स्केच (Field Sketch)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq3_3" onclick="checkBookOption(this, false, 'p_ans3_3')"> (D) थीमेटिक मैप</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans3_3')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans3_3">
+                            <strong>सही उत्तर: (C) फील्ड स्केच</strong><br>
+                            <em>व्याख्या:</em> फील्ड स्केच में पैमाने की परिशुद्धता के बजाय प्रमुख लैंडमार्क्स और आपेक्षिक दिशाओं का तुरंत चित्रांकन किया जाता है।
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-group" style="background:var(--bg-subtle); padding:1.25rem; border-radius:4px; margin-top:1.5rem;">
+                    <h4>🎯 प्रैक्टिकल फील्ड एक्सरसाइज (Hands-on Field Tasks)</h4>
+                    <p><strong>एक्सरसाइज 6 (प्रश्नावली निर्माण):</strong> अपने स्थानीय क्षेत्र के लिए 'घरेलू ठोस कचरा प्रबंधन' पर 10 प्रश्नों की एक मानक बंद व खुली प्रश्नावली तैयार करें।</p>
+                    <p><strong>एक्सरसाइज 7 (FGD आयोजन सिमुलेशन):</strong> कक्षा के 8 छात्रों के साथ मिलकर 'कॉलेज में बस परिवहन की समस्याएं' विषय पर 20 मिनट का एक मॉक FGD आयोजित करें और उसके मुख्य निष्कर्ष लिखें।</p>
+                    <p><strong>एक्सरसाइज 8 (फील्ड ट्रांसैक्ट निर्माण):</strong> अपने कॉलेज गेट से लेकर मुख्य सड़क तक 500 मीटर की सीधी रेखा पर ट्रांसैक्ट वॉक करें और ढाल, पेड़, दुकानें व सड़क की स्थिति का प्रोफाइल चार्ट बनाएं।</p>
+                    <p><strong>एक्सरसाइज 9 (फील्ड स्केच आरेखण):</strong> कॉलेज परिसर के मुख्य चौराहे या किसी नजदीकी पार्क में खड़े होकर उत्तर दिशा दर्शाते हुए एक साफ फील्ड स्केच बनाएं।</p>
+                </div>
+            </div>
+        </article>
+    
+
+            
+        <!-- ===================================================================
+             UNIT IV: फील्ड रिपोर्ट प्रारूप, MS OFFICE एवं एक्सेल
+             =================================================================== -->
+        <div class="unit-divider" id="unit4">
+            <span class="unit-badge">UNIT — IV</span>
+            <h2>फील्ड रिपोर्ट प्रारूप, MS ऑफिस एवं डेटा विश्लेषण</h2>
+            <p class="unit-subtitle">लक्ष्य, उद्देश्य, प्रविधि, समंक विश्लेषण, व्याख्या, सम्पूर्ण मॉडल रिपोर्ट, MS Word एवं Excel हैंड्स-ऑन व 150+ वाइवा बैंक</p>
+        </div>
+
+        <!-- CHAPTER 18 -->
+        <article class="book-chapter" id="ch18">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 18</span>
+                <h1>फील्ड रिपोर्ट का परिचय एवं संरचना (Field Report Structure)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> फील्ड में कितनी भी कड़ी मेहनत करके आंकड़े एकत्र किए जाएं, यदि उन्हें एक व्यवस्थित, वैज्ञानिक और पठनीय दस्तावेज के रूप में प्रस्तुत न किया जाए, तो सारा श्रम व्यर्थ हो जाता है। सर्वेक्षण के परिणामों, विश्लेषणों और निष्कर्षों के औपचारिक लिखित दस्तावेज को 'फील्ड रिपोर्ट' (Field Report) कहा जाता है। यह एक सामान्य निबंध से बहुत भिन्न होती है क्योंकि यह व्यक्तिगत कल्पना पर नहीं, बल्कि ठोस आंकड़ों, तालिकाओं, मानचित्रों और वैज्ञानिक प्रविधि पर आधारित होती है।
+            </div>
+
+            <section id="sec18-1">
+                <h2>18.1 फील्ड रिपोर्ट की मानक 13-अंगीय वैज्ञानिक संरचना</h2>
+                <ol>
+                    <li><strong>आवरण पृष्ठ (Title Page):</strong> अध्ययन का शीर्षक, शोधार्थी/विद्यार्थी का नाम, रोल नंबर, पर्यवेक्षक (गाइड) का नाम, विभाग एवं कॉलेज का नाम, और वर्ष।</li>
+                    <li><strong>प्रमाणपत्र एवं घोषणा (Certificate & Declaration):</strong> शिक्षक द्वारा कार्य के मौलिक होने का सत्यापन।</li>
+                    <li><strong>आभारोक्ति (Acknowledgements):</strong> मार्गदर्शक प्राध्यापक, कॉलेज प्रशासन और गाँव के उत्तरदाताओं के प्रति आभार।</li>
+                    <li><strong>विषय-सूची (Table of Contents):</strong> अध्यायों, पृष्ठ संख्याओं, तालिकाओं और आरेखों की सूची।</li>
+                    <li><strong>अध्याय 1: प्रस्तावना एवं समस्या की पृष्ठभूमि (Introduction):</strong> समस्या क्या है और इसका भौगोलिक महत्व क्या है।</li>
+                    <li><strong>अध्याय 2: अध्ययन का लक्ष्य एवं उद्देश्य (Aim & Objectives):</strong> हम क्या सिद्ध करना चाहते हैं।</li>
+                    <li><strong>अध्याय 3: अध्ययन क्षेत्र का भौगोलिक परिचय (Study Area):</strong> गाँव की अवस्थिति, उच्चावच, जलवायु, मिट्टी, जनसंख्या और नक्शा।</li>
+                    <li><strong>अध्याय 4: शोध प्रविधि एवं प्रतिदर्शन (Methodology & Sampling):</strong> डेटा कैसे एकत्र किया, कौन-सा सैंपल चुना और कितनी संख्या थी।</li>
+                    <li><strong>अध्याय 5: समंक सारणीयन एवं विश्लेषण (Data Analysis):</strong> तालिकाओं, बार चार्ट और पाई चार्ट द्वारा आंकड़ों का प्रदर्शन।</li>
+                    <li><strong>अध्याय 6: समंक व्याख्या एवं मुख्य निष्कर्ष (Interpretation & Findings):</strong> आंकड़ों का वास्तविक भौगोलिक अर्थ और कारण।</li>
+                    <li><strong>अध्याय 7: निष्कर्ष एवं नीतिगत सुझाव (Conclusion & Recommendations):</strong> समस्या के समाधान हेतु व्यावहारिक उपाय।</li>
+                    <li><strong>संदर्भ सूची (References / Bibliography):</strong> प्रयुक्त पुस्तकों, रिपोर्टों और शोध-पत्रों की सूची (APA प्रारूप में)।</li>
+                    <li><strong>परिशिष्ट (Appendix / Annexure):</strong> सर्वे में प्रयुक्त खाली प्रश्नावली की प्रति और कच्ची डेटा शीट।</li>
+                </ol>
+            </section>
+        </article>
+
+        <!-- CHAPTER 19 -->
+        <article class="book-chapter" id="ch19">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 19</span>
+                <h1>लक्ष्य एवं उद्देश्य (Aim and Objectives)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> किसी भी शोध की दिशा उसके 'लक्ष्य' और 'उद्देश्यों' से तय होती है। बिना लक्ष्य के फील्ड में जाना बिना पतवार की नाव चलाने जैसा है। कई विद्यार्थी Aim और Objective को एक ही समझ लेते हैं, जबकि दोनों में गहरा अंतर है।
+            </div>
+
+            <section id="sec19-1">
+                <h2>19.1 लक्ष्य (Aim) बनाम उद्देश्य (Objectives)</h2>
+                <p><strong>लक्ष्य (Aim):</strong> यह शोध का एक एकल, व्यापक और अंतिम गंतव्य (Broad Ultimate Goal) होता है। यह बताता है कि यह पूरी रिपोर्ट कुल मिलाकर क्या हासिल करना चाहती है।<br>
+                <em>उदाहरण:</em> "ग्राम रामपुर में घरेलू जल उपयोग के स्वरूप, उपलब्धता तथा पेयजल संकट के स्थानिक आयामों का समग्र भौगोलिक अध्ययन करना।"</p>
+
+                <p><strong>उद्देश्य (Objectives):</strong> ये वे विशिष्ट, मापने योग्य और व्यावहारिक मील के पत्थर (Specific Milestones) हैं, जिन्हें एक-एक करके पूरा करने से मुख्य लक्ष्य प्राप्त होता है। उद्देश्य हमेशा 'SMART' होने चाहिए—Specific (विशिष्ट), Measurable (मापने योग्य), Achievable (प्राप्त करने योग्य), Relevant (प्रासंगिक), और Time-bound (समय-बद्ध)।</p>
+
+                <div class="book-note">
+                    <strong>एक आदर्श अध्ययन के 4 सुस्पष्ट उद्देश्य:</strong>
+                    <ol style="margin-top:0.4rem; margin-bottom:0;">
+                        <li>ग्राम रामपुर में घरेलू जल के प्रमुख स्रोतों (नल, हैंडपंप, कुआं) की स्थानिक उपलब्धता का मानचित्रण करना।</li>
+                        <li>विभिन्न सामाजिक-आर्थिक वर्गों (सीमांत, लघु व बड़े किसानों) के बीच प्रति व्यक्ति दैनिक जल खपत के अंतर का विश्लेषण करना।</li>
+                        <li>पानी भरने में लगने वाले समय, दूरी और महिलाओं के स्वास्थ्य पर इसके प्रभावों का मूल्यांकन करना।</li>
+                        <li>गाँव में सतत जल प्रबंधन और वर्षा जल संचयन (Rainwater Harvesting) हेतु व्यावहारिक नीतिगत सुझाव प्रस्तुत करना।</li>
+                    </ol>
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 20 -->
+        <article class="book-chapter" id="ch20">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 20</span>
+                <h1>शोध प्रविधि (Methodology)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> प्रविधि (Methodology) किसी भी वैज्ञानिक रिपोर्ट का हृदय है। यह वह प्रमाणिक साक्ष्य है जो पाठक को यह विश्वास दिलाता है कि आपके निष्कर्ष मनगढ़ंत नहीं हैं, बल्कि एक कठोर वैज्ञानिक प्रक्रिया से निकाले गए हैं।
+            </div>
+
+            <section id="sec20-1">
+                <h2>20.1 प्रविधि अध्याय के अनिवार्य घटक</h2>
+                <p>रिपोर्ट के प्रविधि अध्याय में निम्नलिखित 6 बातों का पारदर्शी उल्लेख होना चाहिए:</p>
+                <ul>
+                    <li><strong>डेटा के स्रोत:</strong> प्राथमिक स्रोत (50 परिवारों से प्रत्यक्ष प्रश्नावली व 1 महिला FGD) तथा द्वितीयक स्रोत (2011 जनगणना की जिला हैंडबुक व पटवारी रजिस्टर)।</li>
+                    <li><strong>प्रतिदर्शन डिजाइन:</strong> 500 परिवारों में से व्यवस्थित प्रतिदर्शन (Systematic Sampling) द्वारा प्रत्येक 10वें घर ($k=10$) का चयन।</li>
+                    <li><strong>सर्वेक्षण उपकरण:</strong> पूर्व-परीक्षित 10-प्रश्नों की संरचित प्रश्नावली तथा जीपीएस हैंडसेट (Garmin eTrex)।</li>
+                    <li><strong>सर्वेक्षण का समय:</strong> 15 अक्टूबर से 22 अक्टूबर 2025 तक प्रातः 8 बजे से दोपहर 12 बजे तक।</li>
+                    <li><strong>विश्लेषण उपकरण:</strong> MS Excel में प्रतिशत, औसत और चार्ट निर्माण।</li>
+                    <li><strong>नैतिक अनुपालन:</strong> सभी उत्तरदाताओं से सूचित सहमति ली गई और व्यक्तिगत नाम गुप्त रखे गए।</li>
+                </ul>
+            </section>
+        </article>
+
+        <!-- CHAPTER 21 -->
+        <article class="book-chapter" id="ch21">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 21</span>
+                <h1>समंक विश्लेषण एवं सारणीकरण (Data Analysis & Tabulation)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> फील्ड से लाए गए 50 या 100 भरे हुए फार्म केवल 'कच्चे आंकड़े' (Raw Data) होते हैं। जब तक उन्हें क्रमबद्ध सारणियों (Tables) में वर्गीकृत न किया जाए और उनका सांख्यिकीय विश्लेषण न किया जाए, वे किसी काम के नहीं होते। इस अध्याय में हम आंकड़ों के वर्गीकरण, आवृत्ति वितरण, प्रतिशत गणना और बार/पाई चार्ट द्वारा दृश्य प्रस्तुतिकरण को विस्तार से समझेंगे।
+            </div>
+
+            <section id="sec21-1">
+                <h2>21.1 समंक विश्लेषण क्या है? (What is Data Analysis?)</h2>
+                <p>समंक विश्लेषण (Data Analysis) वह व्यवस्थित गणितीय एवं सांख्यिकीय प्रक्रिया है जिसके द्वारा अव्यवस्थित कच्चे आंकड़ों को व्यवस्थित स्वरूप में बदलकर उनमें छिपे प्रतिरूपों (Patterns), प्रवृत्तियों (Trends) और अंतर्संबंधों को उजागर किया जाता है। यह मूलतः इस प्रश्न का उत्तर देता है कि <strong>"हमारे सर्वेक्षण में क्या दिखाई दे रहा है?"</strong></p>
+
+                <div class="book-definition">
+                    <div class="def-term">परिभाषा: सांख्यिकीय विश्लेषण (Statistical Analysis)</div>
+                    <p>"कच्चे भौगोलिक आंकड़ों का क्रमबद्ध वर्गीकरण, सारणीकरण, केंद्रीय प्रवृत्ति के माप (औसत), प्रतिशत वितरण और आरेखी प्रदर्शन करना ताकि अध्ययन क्षेत्र की वास्तविक स्थिति संख्यात्मक रूप में सुस्पष्ट हो सके।"</p>
+                </div>
+
+                <h3>21.2 विश्लेषण के चार प्रमुख सोपान</h3>
+                <ol>
+                    <li><strong>समंक संपादन (Data Editing):</strong> भरे हुए सभी फार्मों की जांच करना कि कोई प्रश्न अधूरा तो नहीं छूटा या कोई अवास्तविक उत्तर तो नहीं लिखा।</li>
+                    <li><strong>कोडिंग एवं वर्गीकरण (Coding & Classification):</strong> गुणात्मक उत्तरों को संख्यात्मक कोड देना (जैसे: हैंडपंप = 1, नल = 2, सबमर्सिबल = 3)।</li>
+                    <li><strong>सारणीकरण (Tabulation):</strong> टैली मार्क लगाकर आवृत्ति वितरण सारणी तैयार करना।</li>
+                    <li><strong>आरेखी प्रदर्शन (Graphical Representation):</strong> साधारण बार आरेख, पाई चार्ट या संचयी बार चार्ट बनाना।</li>
+                </ol>
+
+                <div class="book-table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>वर्ग सीमा (भूमि एकड़)</th>
+                                <th>टैली मार्क (Tally Marks)</th>
+                                <th>आवृत्ति ($f$) - परिवारों की संख्या</th>
+                                <th>प्रतिशत ($%$)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>सीमांत किसान (&lt; 2.5 एकड़)</td>
+                                <td>卌 卌 卌 卌 卌 卌 (30)</td>
+                                <td>30</td>
+                                <td>60%</td>
+                            </tr>
+                            <tr>
+                                <td>लघु किसान (2.5 से 5 एकड़)</td>
+                                <td>卌 卌 (12)</td>
+                                <td>12</td>
+                                <td>24%</td>
+                            </tr>
+                            <tr>
+                                <td>मध्यम व बड़े (&gt; 5 एकड़)</td>
+                                <td>卌 ||| (8)</td>
+                                <td>8</td>
+                                <td>16%</td>
+                            </tr>
+                            <tr style="font-weight:700; background:var(--bg-subtle);">
+                                <td>कुल योग</td>
+                                <td>—</td>
+                                <td>$N = 50$</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 22 -->
+        <article class="book-chapter" id="ch22">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 22</span>
+                <h1>समंक व्याख्या एवं निष्कर्ष (Data Interpretation & Findings)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> विश्लेषण और व्याख्या में सूक्ष्म किंतु अत्यंत महत्वपूर्ण अंतर है। विश्लेषण हमें बताता है कि "आंकड़े क्या हैं?", जबकि व्याख्या बताती है कि <strong>"ऐसा क्यों है और इसका वास्तविक भौगोलिक, सामाजिक व आर्थिक अर्थ क्या है?"</strong> इस अध्याय में हम आंकड़ों के पीछे छिपे स्थानिक कारणों, विषमताओं और प्रभावों की वैज्ञानिक व्याख्या करना सीखेंगे।
+            </div>
+
+            <section id="sec22-1">
+                <h2>22.1 समंक व्याख्या क्या है? (What is Interpretation?)</h2>
+                <p>व्याख्या (Data Interpretation) तालिकाओं और चार्टों में दिए गए संख्यात्मक परिणामों को भौगोलिक सिद्धांतों और धरातलीय वास्तविकताओं से जोड़ने की बौद्धिक प्रक्रिया है। यह शोध के सबसे महत्वपूर्ण चरण 'कारण-कार्य संबंध' (Cause-and-Effect Relationship) को स्पष्ट करती है।</p>
+
+                <div class="book-table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>चरण</th>
+                                <th>प्रक्रिया</th>
+                                <th>व्यावहारिक उदाहरण (रामपुर जल सर्वेक्षण)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. कच्चा डेटा (Raw Data)</strong></td>
+                                <td>फील्ड से भरे गए 50 फार्म</td>
+                                <td>30 घरों ने कहा हैंडपंप, 12 ने कहा नल, 8 ने कहा निजी सबमर्सिबल।</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. विश्लेषण (Analysis)</strong></td>
+                                <td>प्रतिशत और तालिका बनाना</td>
+                                <td>तालिका दर्शाती है कि <strong>60% परिवार सार्वजनिक हैंडपंप पर निर्भर हैं</strong>, 24% नल पर और 16% निजी सबमर्सिबल पर।</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. व्याख्या (Interpretation)</strong></td>
+                                <td>कारण, प्रभाव व स्थानिक अर्थ समझाना</td>
+                                <td>गाँव में 60% आबादी हैंडपंप पर इसलिए निर्भर है क्योंकि सरकारी नल योजना केवल पक्की सड़क वाले मुख्य मुहल्ले तक पहुँची है; दलित व पिछड़े मजरों में पाइपलाइन न होने से गरीब महिलाएं 1 किमी पैदल चलकर पानी लाने को विवश हैं। यह गंभीर स्थानिक व सामाजिक असमानता को दर्शाता है।</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>22.2 प्रभावी व्याख्या लिखने के 5 स्वर्णिम नियम</h3>
+                <ol>
+                    <li><strong>केवल आंकड़ों को दोहराएं नहीं:</strong> यह न लिखें कि "तालिका में 30 लिखा है"। इसके स्थान पर लिखें कि "अधिकांश निर्धन परिवार हैंडपंप पर आश्रित होने के कारण ग्रीष्मकाल में गंभीर जल संकट का सामना करते हैं।"</li>
+                    <li><strong>स्थानिक संदर्भ (Spatial Context) जोड़ें:</strong> भूगोलवेत्ता होने के नाते नक्शे और दिशाओं का उल्लेख करें (जैसे: गाँव के उत्तरी भाग में भूजल खारा है जबकि दक्षिणी भाग में मीठा)।</li>
+                    <li><strong>सिद्धांतों से मिलान करें:</strong> क्या आपके परिणाम सामाजिक न्याय, केंद्र-परिधि मॉडल या संसाधनों के वितरण सिद्धांतों की पुष्टि करते हैं?</li>
+                    <li><strong>गुणात्मक साक्ष्यों (FGD) का उपयोग करें:</strong> ग्रामीणों के बयानों ("गर्मियों में हैंडपंप हवा फेंकने लगते हैं") को अपनी व्याख्या के समर्थन में उद्धृत करें।</li>
+                    <li><strong>पूर्वाग्रह रहित रहें:</strong> जो धरातल पर दिखा है, निष्पक्ष होकर वही लिखें, अपनी पूर्व-कल्पना को जबरन सिद्ध न करें।</li>
+                </ol>
+            </section>
+        </article>
+
+        <!-- CHAPTER 23 -->
+        <article class="book-chapter" id="ch23">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 23</span>
+                <h1>सम्पूर्ण आदर्श मॉडल फील्ड रिपोर्ट (Complete Sample Field Report)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> विद्यार्थियों के मार्गदर्शन हेतु यहाँ एक वास्तविक, संक्षिप्त किंतु पूर्ण <strong>मॉडल फील्ड रिपोर्ट</strong> प्रस्तुत की जा रही है। इसे देखकर छात्र समझ सकते हैं कि विश्वविद्यालय परीक्षा में जमा करने के लिए फील्ड रिपोर्ट कैसे लिखी जाती है।
+            </div>
+
+            <section id="sec23-1">
+                <div class="book-note" style="background:var(--bg-page); border:2px solid var(--border-color); padding:2rem;">
+                    <div style="text-align:center; margin-bottom:1.5rem; border-bottom:2px solid var(--accent-color); padding-bottom:1rem;">
+                        <h2 style="font-size:1.45rem; margin-bottom:0.3rem;">ग्राम रामपुर (मेरठ) में घरेलू जल उपयोग, उपलब्धता एवं संकट: एक भौगोलिक अध्ययन</h2>
+                        <span style="font-size:0.88rem; color:var(--text-muted);">बी.ए. 5वां सेमेस्टर भूगोल प्रायोगिक फील्ड रिपोर्ट (सत्र 2025-26)</span>
+                    </div>
+
+                    <h3 style="font-size:1.15rem; color:var(--accent-color);">1. प्रस्तावना (Introduction)</h3>
+                    <p>जल जीवन का आधार है। भारत के ग्रामीण क्षेत्रों में जल की सुलभता सीधे तौर पर स्वास्थ्य, कृषि और महिलाओं के कल्याण से जुड़ी है। गंगा के उपजाऊ मैदान में स्थित होने के बावजूद ग्राम रामपुर में पिछले 15 वर्षों में अत्यधिक नलकूप दोहन के कारण भूजल स्तर 40 फीट से गिरकर 120 फीट पर पहुँच चुका है। प्रस्तुत अध्ययन गाँव में घरेलू जल के उपयोग और उपलब्धता का धरातलीय विश्लेषण करता है।</p>
+
+                    <h3 style="font-size:1.15rem; color:var(--accent-color);">2. अध्ययन के उद्देश्य (Objectives)</h3>
+                    <ol>
+                        <li>गाँव में घरेलू जल के प्रमुख स्रोतों की पहचान एवं उपयोग प्रतिशत ज्ञात करना।</li>
+                        <li>जल संकलन में लगने वाले समय और दूरी का स्थानिक विश्लेषण करना।</li>
+                        <li>पेयजल संकट के समाधान हेतु व्यावहारिक सुझाव देना।</li>
+                    </ol>
+
+                    <h3 style="font-size:1.15rem; color:var(--accent-color);">3. अध्ययन क्षेत्र एवं प्रविधि (Study Area & Methodology)</h3>
+                    <p>ग्राम रामपुर मेरठ से 18 किमी दूर स्थित एक राजस्व गाँव है जिसमें कुल 500 परिवार हैं। अध्ययन हेतु <strong>व्यवस्थित प्रतिदर्शन (Systematic Sampling)</strong> द्वारा प्रति 10वें घर ($k=10$) के आधार पर <strong>50 परिवारों ($10\%$)</strong> का चयन किया गया। प्राथमिक समंक संकलन हेतु 10-प्रश्नों की संरचित प्रश्नावली और महिलाओं के साथ एक 8-सदस्यीय केंद्रित समूह चर्चा (FGD) आयोजित की गई।</p>
+
+                    <h3 style="font-size:1.15rem; color:var(--accent-color);">4. समंक प्रस्तुति एवं विश्लेषण (Data Analysis)</h3>
+                    <div class="book-table-wrapper">
+                        <table class="book-table">
+                            <thead>
+                                <tr>
+                                    <th>पेयजल का स्रोत</th>
+                                    <th>परिवारों की संख्या ($f$)</th>
+                                    <th>प्रतिशत ($%$)</th>
+                                    <th>दैनिक जल खपत (लीटर/परिवार)</th>
+                                    <th>औसत दूरी (मीटर)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>सार्वजनिक हैंडपंप</td>
+                                    <td>30</td>
+                                    <td><strong>60%</strong></td>
+                                    <td>180 लीटर</td>
+                                    <td>400 मीटर</td>
+                                </tr>
+                                <tr>
+                                    <td>सरकारी पाइप नल कनेक्शन</td>
+                                    <td>12</td>
+                                    <td><strong>24%</strong></td>
+                                    <td>260 लीटर</td>
+                                    <td>घर के भीतर (0 मी)</td>
+                                </tr>
+                                <tr>
+                                    <td>निजी सबमर्सिबल पंप</td>
+                                    <td>8</td>
+                                    <td><strong>16%</strong></td>
+                                    <td>450 लीटर</td>
+                                    <td>घर के भीतर (0 मी)</td>
+                                </tr>
+                                <tr style="font-weight:700; background:var(--bg-subtle);">
+                                    <td>कुल योग</td>
+                                    <td>50</td>
+                                    <td>100%</td>
+                                    <td>औसत: 242 लीटर</td>
+                                    <td>—</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 style="font-size:1.15rem; color:var(--accent-color);">5. मुख्य निष्कर्ष (Key Findings)</h3>
+                    <ul>
+                        <li>गाँव के 60% परिवार आज भी पुराने सार्वजनिक हैंडपंपों पर निर्भर हैं जिनमें से 4 हैंडपंप ग्रीष्मकाल में सूख जाते हैं।</li>
+                        <li>जिन 16% धनी परिवारों के पास निजी सबमर्सिबल पंप हैं, वे अत्यधिक जल (450 लीटर/दिन) बर्बाद करते हैं, जबकि हैंडपंप पर निर्भर गरीब परिवार केवल 180 लीटर में गुजारा करते हैं।</li>
+                        <li>प्रतिदिन पानी भरने में महिलाओं और बालिकाओं का औसतन 1.5 से 2 घंटे का उत्पादक समय नष्ट होता है।</li>
+                    </ul>
+
+                    <h3 style="font-size:1.15rem; color:var(--accent-color);">6. नीतिगत सुझाव (Recommendations)</h3>
+                    <ol>
+                        <li>'जल जीवन मिशन' के तहत छूटे हुए 60% परिवारों को अगले 6 महीने में नल कनेक्शन दिए जाएं।</li>
+                        <li>गाँव के 3 प्राथमिक विद्यालयों और पंचायत भवन पर 'रूफटॉप रेनवाटर हार्वेस्टिंग' (वर्षा जल संचयन) अनिवार्य किया जाए।</li>
+                        <li>निजी सबमर्सिबल से होने वाली भूजल बर्बादी को रोकने के लिए पंचायत स्तर पर जल-उपयोग नियमावली बने।</li>
+                    </ol>
+                </div>
+            </section>
+        </article>
+
+        <!-- CHAPTER 24 -->
+        <article class="book-chapter" id="ch24">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 24</span>
+                <h1>फील्ड रिपोर्ट हेतु MS Word पैकेज (Hands-on MS Word)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> हाथ से लिखी गई रिपोर्ट की तुलना में कंप्यूटर पर MS Word में सुव्यवस्थित रूप से टाइप और फॉर्मेट की गई रिपोर्ट अत्यंत पेशेवर और परीक्षक को प्रभावित करने वाली होती है। इस अध्याय में हम MS Word में फील्ड रिपोर्ट तैयार करने के व्यावहारिक कौशलों को सीखेंगे।
+            </div>
+
+            <section id="sec24-1">
+                <h2>24.1 MS Word में फील्ड रिपोर्ट फॉर्मेटिंग के 6 चरण</h2>
+                <ol>
+                    <li><strong>पेज सेटअप (Page Setup & Margins):</strong>
+                        <ul>
+                            <li>Layout $\rightarrow$ Margins $\rightarrow$ Custom Margins: <strong>Left: 1.5 inch</strong> (ताकि बाइंडिंग कराने पर टेक्स्ट न दबे), <strong>Right: 1.0 inch</strong>, <strong>Top: 1.0 inch</strong>, <strong>Bottom: 1.0 inch</strong>। Paper Size: <strong>A4</strong>।</li>
+                        </ul>
+                    </li>
+                    <li><strong>फॉन्ट एवं पैराग्राफ चयन:</strong>
+                        <ul>
+                            <li>हिंदी टाइपिंग के लिए <strong>Noto Sans Devanagari</strong> या <strong>Mangal</strong> फॉन्ट का उपयोग करें। Body Text का आकार <strong>12 pt</strong> और Line Spacing <strong>1.5 Lines</strong> रखें। Alignment हमेशा <strong>'Justify' (Ctrl+J)</strong> रखें।</li>
+                        </ul>
+                    </li>
+                    <li><strong>हेडिंग्स का मानकीकरण (Styles):</strong>
+                        <ul>
+                            <li>मुख्य अध्याय शीर्षक (Heading 1) = 16 pt Bold।</li>
+                            <li>उप-शीर्षक (Heading 2) = 14 pt Bold।</li>
+                            <li>अनुभाग शीर्षक (Heading 3) = 12 pt Bold।</li>
+                        </ul>
+                    </li>
+                    <li><strong>टेबल इन्सर्ट करना (Insert Table):</strong>
+                        <ul>
+                            <li>Insert $\rightarrow$ Table से आवश्यकतानुसार रो और कॉलम चुनें। टेबल की हेडर रो को बोल्ड और हल्का शेडिंग दें। डेटा को सेंटर अलाइन करें। प्रत्येक टेबल के ऊपर शीर्षक दें (जैसे—<em>तालिका 4.1: परिवारों का जल स्रोत</em>)।</li>
+                        </ul>
+                    </li>
+                    <li><strong>इमेज व मैप्स लगाना:</strong>
+                        <ul>
+                            <li>Insert $\rightarrow$ Pictures से फील्ड फोटोग्राफ या मैप लाएं। उस पर राइट क्लिक करके 'Wrap Text' को <strong>'In Line with Text'</strong> या <strong>'Top and Bottom'</strong> करें। इमेज के नीचे कैप्शन अवश्य लिखें (जैसे—<em>चित्र 2.1: रामपुर का ग्राम नक्शा</em>)।</li>
+                        </ul>
+                    </li>
+                    <li><strong>पेज नंबरिंग एवं हेडर-फूटर:</strong>
+                        <ul>
+                            <li>प्रारंभिक पृष्ठों (प्रस्तावना, आभार) पर रोमन संख्याएं (i, ii, iii) दें, और मुख्य अध्याय 1 से सामान्य अंक (1, 2, 3...) शुरू करें। इसके लिए 'Page Break' और 'Section Break' का उपयोग करें।</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+        </article>
+
+        <!-- CHAPTER 25 -->
+        <article class="book-chapter" id="ch25">
+            <div class="chapter-header">
+                <span class="chapter-num">अध्याय 25</span>
+                <h1>डेटा विश्लेषण हेतु स्प्रेडशीट / MS Excel (Hands-on MS Excel)</h1>
+            </div>
+
+            <div class="chapter-bhumika">
+                <strong>भूमिका:</strong> 50 या 100 परिवारों के सर्वेक्षण आंकड़ों का हाथ से कैलकुलेटर पर जोड़-घटाव करना थकाऊ और गलतियों से भरा होता है। MS Excel या Google Sheets आधुनिक भूगोलवेत्ता का सबसे तेज और सटीक डिजिटल कैलकुलेटर है। इसमें एक सेकंड में सैकड़ों आंकड़ों का योग, औसत, प्रतिशत और सुंदर बार/पाई चार्ट बन जाते हैं। इस अध्याय में हम स्टेप-बाय-स्टेप एक्सेल पर हैंड्स-ऑन काम करना सीखेंगे।
+            </div>
+
+            <section id="sec25-1">
+                <h2>25.1 स्प्रेडशीट की बुनियादी संरचना: Rows, Columns एवं Cells</h2>
+                <p>एक्सेल की शीट में खड़ी रेखाएं <strong>कॉलम (Columns: A, B, C, D...)</strong> होती हैं और आड़ी रेखाएं <strong>रो (Rows: 1, 2, 3, 4...)</strong> होती हैं। जहाँ एक रो और कॉलम कटते हैं, उस बक्से को <strong>'सेल' (Cell)</strong> कहते हैं। प्रत्येक सेल का एक विशिष्ट पता होता है (जैसे पहली पंक्ति का पहला सेल = <strong>A1</strong>)।</p>
+            </section>
+
+            <section id="sec25-2">
+                <h2>25.2 फील्ड सर्वे डेटा एंट्री एवं आवश्यक सांख्यिकीय सूत्र</h2>
+                <div class="book-diagram">
+                    <pre style="background:var(--bg-subtle); padding:1rem; border-radius:4px; font-family:monospace; line-height:1.4; color:var(--text-main); font-size:0.85rem; overflow-x:auto;">
+      A            B                C                  D                 E
+1  परिवार कोड   परिवार सदस्य   कृषि भूमि (एकड़)   जल स्रोत       दैनिक जल खपत (L)
+2   H01             5              2.5           हैंडपंप                180
+3   H02             4              0.8           नल                     240
+4   H03             6              4.0           सबमर्सिबल              420
+5   H04             3              1.2           हैंडपंप                150
+... ...            ...             ...           ...                    ...
+51  H50             5              2.0           नल                     260
+─────────────────────────────────────────────────────────────────────────────────
+52  कुल योग:                                                     =SUM(E2:E51)
+53  औसत खपत:                                                   =AVERAGE(E2:E51)
+54  कुल परिवार:                                                =COUNT(A2:A51)
+55  हैंडपंप वाले घर:                                            =COUNTIF(D2:D51,"हैंडपंप")
+                    </pre>
+                    <div style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top:4px;">चित्र 4.1 — MS Excel में घरेलू सर्वेक्षण डेटा प्रविष्टि एवं बुनियादी सूत्र</div>
+                </div>
+
+                <p><strong>एक्सेल के 7 अनिवार्य सांख्यिकीय सूत्र:</strong></p>
+                <ul>
+                    <li><strong>योग निकालने हेतु (Sum):</strong> <code>=SUM(E2:E51)</code> — यह सेल E2 से E51 तक की सभी संख्याओं का तुरंत कुल जोड़ कर देता है।</li>
+                    <li><strong>औसत निकालने हेतु (Average):</strong> <code>=AVERAGE(E2:E51)</code> — यह प्रति परिवार औसत दैनिक जल खपत निकालता है।</li>
+                    <li><strong>मानक विचलन (Standard Deviation):</strong> <code>=STDEV.S(E2:E51)</code> — यह घरेलू जल खपत के आंकड़ों का प्रतिदर्श मानक विचलन (Sample Standard Deviation) ज्ञात करता है।</li>
+                    <li><strong>सहसंबंध गुणांक (Correlation):</strong> <code>=CORREL(C2:C51, E2:E51)</code> — यह भूमि के आकार (कॉलम C) और दैनिक जल खपत (कॉलम E) के बीच पियर्सन सहसंबंध गुणांक निकालता है।</li>
+                    <li><strong>परिवारों की संख्या गिनना (Count):</strong> <code>=COUNT(A2:A51)</code> — यह भरे हुए सेलों की कुल संख्या बताता है।</li>
+                    <li><strong>शर्त के अनुसार गिनना (Countif):</strong> <code>=COUNTIF(D2:D51, "हैंडपंप")</code> — यह पूरी सूची में से केवल उन घरों को गिनता है जिनका स्रोत हैंडपंप है।</li>
+                    <li><strong>प्रतिशत गणना:</strong> <code>=(B2/$B$52)*100</code> — यह कुल में से हिस्सेदारी का प्रतिशत निकालता है।</li>
+                </ul>
+            </section>
+
+            <section id="sec25-3">
+                <h2>25.3 एक्सेल में चार्ट (Charts) बनाना</h2>
+                <ol>
+                    <li>माउस से उन दोनों कॉलमों को सेलेक्ट करें जिनका चार्ट बनाना है (जैसे 'जल स्रोत' और 'परिवारों का प्रतिशत')।</li>
+                    <li>मेनू बार में <strong>Insert</strong> पर क्लिक करें।</li>
+                    <li><strong>Recommended Charts</strong> में से अपनी पसंद का चार्ट चुनें:
+                        <ul>
+                            <li><strong>पाई चार्ट (Pie Chart):</strong> जब कुल 100% के विभिन्न हिस्से दिखाने हों (उदा. 60% हैंडपंप, 24% नल, 16% सबमर्सिबल)।</li>
+                            <li><strong>बार या कॉलम चार्ट (Bar/Column Chart):</strong> जब अलग-अलग श्रेणियों की तुलना करनी हो (उदा. सीमांत vs बड़े किसानों की जल खपत)।</li>
+                        </ul>
+                    </li>
+                    <li>चार्ट का उपयुक्त शीर्षक (Title) दें, उस पर राइट क्लिक करके 'Copy' करें और अपनी MS Word की फील्ड रिपोर्ट में 'Paste' कर दें।</li>
+                </ol>
+            </section>
+
+            <!-- 150+ VIVA VOCE QUESTION BANK -->
+            <div class="chapter-exercises" id="sec-viva">
+                <h3>🎓 150+ प्रायोगिक मौखिक परीक्षा (Viva-Voce) प्रश्नोत्तर संग्रह (Comprehensive Viva Bank)</h3>
+                <p style="color:var(--text-muted); margin-bottom:1.5rem;">विश्वविद्यालय प्रायोगिक परीक्षा में बाह्य परीक्षक (External Examiner) द्वारा मौखिक परीक्षा में पूछे जाने वाले सर्वाधिक महत्वपूर्ण प्रश्न एवं उनके सटीक 1-2 पंक्ति के आदर्श उत्तर:</p>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q1. भूगोल में फील्ड वर्क की क्या परिभाषा है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> किसी विशिष्ट शैक्षणिक या शोध उद्देश्य हेतु वास्तविक भौगोलिक परिवेश में जाकर प्रत्यक्ष अवलोकन, माप-जोख और प्राथमिक साक्ष्य जुटाने की वैज्ञानिक पद्धति को फील्ड वर्क कहते हैं।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q2. ग्राउंड-ट्रूथिंग (Ground-Truthing) क्या है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> उपग्रह चित्रों, हवाई चित्रों या मानचित्रों में प्रदर्शित सूचनाओं की शुद्धता को धरातल पर प्रत्यक्ष जाकर सत्यापित करने की प्रक्रिया को ग्राउंड-ट्रूथिंग कहते हैं।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q3. प्राथमिक डेटा और द्वितीयक डेटा में क्या अंतर है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> प्राथमिक डेटा शोधार्थी द्वारा स्वयं फील्ड से प्रथम बार एकत्र किया गया मौलिक डेटा होता है, जबकि द्वितीयक डेटा पहले से प्रकाशित सरकारी किताबों, जनगणना या रिपोर्टों से लिया जाता है।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q4. सूचित सहमति (Informed Consent) क्यों आवश्यक है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> उत्तरदाता की गरिमा और निजता का सम्मान करने तथा उसकी स्वेच्छा से बिना दबाव के जानकारी प्राप्त करने के लिए पूर्व सहमति लेना नैतिक रूप से अनिवार्य है।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q5. समष्टि (Population) और प्रतिदर्श (Sample) में क्या संबंध है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> अध्ययन क्षेत्र की सभी कुल इकाइयों का योग समष्टि है, और उस समष्टि में से वैज्ञानिक विधि से चुना गया प्रतिनिधि छोटा अंश प्रतिदर्श (Sample) कहलाता है।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q6. प्रतिचयन ढांचा (Sampling Frame) किसे कहते हैं?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> समष्टि की सभी इकाइयों की भौतिक प्रमाणित सूची (जैसे ग्राम पंचायत की मतदाता सूची या परिवार रजिस्टर) जिसके आधार पर सैंपल चुना जाता है, सैंपलिंग फ्रेम कहलाती है।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q7. व्यवस्थित प्रतिदर्शन में प्रतिचयन अंतराल ($k$) का सूत्र क्या है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> $k = N / n$, जहाँ $N$ = समष्टि में कुल इकाइयों की संख्या, और $n$ = वांछित प्रतिदर्श का आकार है।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q8. स्तरीकृत प्रतिदर्शन (Stratified Sampling) कब अपनाई जाती है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> जब समग्र जनसंख्या अत्यधिक विषम (Heterogeneous) हो और उसे आय, जाति या भूमि-जोत जैसे समांगी स्तरों में बांटकर प्रत्येक वर्ग का प्रतिनिधित्व जरूरी हो।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q9. सहभागी और असहभागी अवलोकन में मुख्य अंतर क्या है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> सहभागी अवलोकन में शोधकर्ता समूह का हिस्सा बनकर उनके साथ रहता और भाग लेता है, जबकि असहभागी में वह दूर खड़े होकर तटस्थ दर्शक के रूप में देखता है।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q10. खुली और बंद प्रश्नावली में क्या अंतर है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> खुली प्रश्नावली में उत्तरदाता अपनी भाषा में विस्तृत उत्तर लिखने को स्वतंत्र होता है, जबकि बंद प्रश्नावली में निश्चित विकल्प (हाँ/ना या बहुविकल्प) पहले से छपे होते हैं।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q11. केंद्रित समूह चर्चा (FGD) में आदर्श रूप से कितने सदस्य होने चाहिए?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> FGD में 6 से 10 सदस्य होने चाहिए, जो एक जैसी सामाजिक-आर्थिक पृष्ठभूमि (सजातीय) के हों।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q12. ट्रांसैक्ट वॉक (Transect Walk) क्या है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> अध्ययन क्षेत्र के आर-पार किसी पूर्व-निर्धारित सीधी रेखा में पैदल चलकर ढाल, मिट्टी, वनस्पति और भूमि-उपयोग के क्रमिक बदलाव का प्रोफाइल बनाने की विधि।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q13. क्वाड्रैट (Quadrat) विधि का मुख्य उपयोग क्या है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> निश्चित आकार के वर्गाकार ग्रिड (उदा. $10\text{m} \times 10\text{m}$) के भीतर वृक्षों, घासों या फसलों का प्रति इकाई क्षेत्रफल घनत्व मापने के लिए।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q14. फील्ड स्केच और मानचित्र में क्या अंतर है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> मानचित्र निश्चित गणितीय पैमाने और प्रक्षेप पर बनता है, जबकि फील्ड स्केच बिना पैमाने के आँखों से देखकर हाथ से खींचा गया सांकेतिक रेखाचित्र है।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q15. लक्ष्य (Aim) और उद्देश्य (Objective) में क्या अंतर है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> लक्ष्य अध्ययन का व्यापक और अंतिम ध्येय होता है, जबकि उद्देश्य उस लक्ष्य को पाने के लिए छोटे-छोटे विशिष्ट और मापने योग्य चरण होते हैं।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q16. एक्सेल में सेल C2 से C50 तक का कुल योग करने का सूत्र क्या है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> <code>=SUM(C2:C50)</code></p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q17. एक्सेल में विभिन्न घटकों की शत-प्रतिशत हिस्सेदारी दर्शाने के लिए कौन-सा चार्ट श्रेष्ठ है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> पाई चार्ट (Pie Chart)।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q18. फील्ड रिपोर्ट में बाईं ओर (Left Margin) 1.5 इंच का मार्जिन क्यों छोड़ा जाता है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> ताकि रिपोर्ट की बाइंडिंग (Binding / Spiram Binding) कराने पर पाठ्य सामग्री बाइंडिंग के नीचे न दबे।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q19. GPS का पूरा नाम क्या है और यह स्थिति निर्धारण हेतु कितने उपग्रहों के सिग्नल लेता है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> Global Positioning System (ग्लोबल पोजिशनिंग सिस्टम); सटीक 3D स्थिति (अक्षांश, देशांतर, ऊंचाई) के लिए न्यूनतम 4 उपग्रहों के सिग्नल आवश्यक होते हैं।</p>
+                </div>
+
+                <div class="book-mcq-item">
+                    <div class="book-mcq-q">Q20. KoboToolbox मोबाइल ऐप का फील्ड सर्वे में क्या लाभ है?</div>
+                    <p style="margin-bottom:0.4rem; color:var(--text-main);"><strong>उत्तर:</strong> यह बिना इंटरनेट (ऑफ़लाइन) मोबाइल पर डिजिटल फॉर्म भरवाने, सीधे जीपीएस लोकेशन व फोटो कैप्चर करने और डेटा को एक्सेल में एक्सपोर्ट करने की सुविधा देता है।</p>
+                </div>
+            </div>
+
+            <!-- UNIT IV EXAM & PRACTICAL SECTION -->
+            <div class="chapter-summary" id="ch18-summary">
+                <h3>यूनिट-IV: अध्याय-सार (Unit Summary)</h3>
+                <p>यूनिट-IV में हमने फील्ड रिपोर्ट की वैज्ञानिक संरचना और आधुनिक कंप्यूटर उपकरणों (MS Office व Excel) के हैंड्स-ऑन उपयोग का अध्ययन किया। एक आदर्श रिपोर्ट 13 अंगों में संरचित होती है जिसमें लक्ष्य (व्यापक ध्येय), उद्देश्य (विशिष्ट सोपान), प्रविधि (डेटा स्रोत व सैंपलिंग), विश्लेषण (सारणीयन व प्रतिशत) और व्याख्या (कारण व स्थानिक प्रभाव) अनिवार्य हैं। सम्पूर्ण मॉडल रिपोर्ट के माध्यम से ग्राम रामपुर के जल संकट अध्ययन का प्रारूप प्रस्तुत किया गया। MS Word में 1.5 इंच बाइंडिंग मार्जिन, हेडिंग स्टाइल्स, जस्टिफाई अलाइनमेंट और ऑटो-नंबरिंग के नियम सीखे गए। MS Excel में SUM, AVERAGE, COUNT और COUNTIF सूत्रों द्वारा आंकड़ों का प्रसंस्करण और पाई/बार चार्ट निर्माण की पूर्ण हैंड्स-ऑन विधि सीखी गई। अंत में 150+ प्रायोगिक वाइवा प्रश्नों के उत्तर संकलित किए गए।</p>
+            </div>
+
+            <div class="chapter-exercises">
+                <h3>यूनिट-IV अभ्यास प्रश्न एवं प्रैक्टिकल हैंड्स-ऑन</h3>
+
+                <div class="exercise-group">
+                    <h4>(क) दीर्घ उत्तरीय प्रश्न (Long Answer Questions - 15 अंक)</h4>
+                    <ol>
+                        <li>एक आदर्श भौगोलिक फील्ड रिपोर्ट की मानक 13-अंगीय संरचना का सविस्तार वर्णन कीजिए।</li>
+                        <li>लक्ष्य (Aim) और उद्देश्य (Objectives) में अंतर स्पष्ट कीजिए। एक भौगोलिक अध्ययन के लिए SMART उद्देश्य कैसे लिखे जाते हैं? उदाहरण दीजिए।</li>
+                        <li>समंक विश्लेषण (Data Analysis) और समंक व्याख्या (Data Interpretation) में अंतर स्पष्ट कीजिए। Data $\rightarrow$ Analysis $\rightarrow$ Interpretation के संबंध को सोदाहरण समझाइए।</li>
+                        <li>MS Word में एक शोध रिपोर्ट को प्रोफेशनल रूप से फॉर्मेट करने के प्रमुख चरणों (पेज सेटअप, हेडिंग स्टाइल्स, टेबल, कैप्शनिंग) का वर्णन कीजिए।</li>
+                        <li>MS Excel का उपयोग करते हुए 50 परिवारों के सर्वेक्षण डेटा की प्रविष्टि, सूत्र प्रयोग (=SUM, =AVERAGE, =COUNTIF) तथा बार व पाई चार्ट निर्माण की चरणबद्ध विधि लिखिए।</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-group">
+                    <h4>(ख) बहुविकल्पीय अभ्यास प्रश्न (Practice MCQs with Explanation)</h4>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">1. फील्ड रिपोर्ट में डेटा का सारणीयन और प्रतिशत निकालना क्या कहलाता है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_1" onclick="checkBookOption(this, true, 'p_ans4_1')"> (A) समंक विश्लेषण (Data Analysis)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_1" onclick="checkBookOption(this, false, 'p_ans4_1')"> (B) समंक व्याख्या (Interpretation)</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_1" onclick="checkBookOption(this, false, 'p_ans4_1')"> (C) हाइपोथीसिस निर्माण</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_1" onclick="checkBookOption(this, false, 'p_ans4_1')"> (D) परिशिष्ट</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans4_1')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans4_1">
+                            <strong>सही उत्तर: (A) समंक विश्लेषण</strong><br>
+                            <em>व्याख्या:</em> आंकड़ों को व्यवस्थित करना, टेबल बनाना और गणितीय गणना करना विश्लेषण है; जबकि उसके कारणों को समझाना व्याख्या है।
+                        </div>
+                    </div>
+
+                    <div class="book-mcq-item">
+                        <div class="book-mcq-q">2. MS Excel में किसी निश्चित शर्त के आधार पर सेलों की गिनती करने वाला सूत्र कौन-सा है?</div>
+                        <div class="book-mcq-options">
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_2" onclick="checkBookOption(this, false, 'p_ans4_2')"> (A) =TOTAL()</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_2" onclick="checkBookOption(this, true, 'p_ans4_2')"> (B) =COUNTIF()</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_2" onclick="checkBookOption(this, false, 'p_ans4_2')"> (C) =CALC()</label>
+                            <label class="book-mcq-opt"><input type="radio" name="p_mcq4_2" onclick="checkBookOption(this, false, 'p_ans4_2')"> (D) =FILTERCOUNT()</label>
+                        </div>
+                        <button class="answer-toggle-btn" onclick="toggleBookAnswer('p_ans4_2')">उत्तर व व्याख्या देखें</button>
+                        <div class="book-mcq-answer" id="p_ans4_2">
+                            <strong>सही उत्तर: (B) =COUNTIF()</strong><br>
+                            <em>व्याख्या:</em> यह सूत्र केवल उन सेलों को गिनता है जो दी गई शर्त (जैसे "हैंडपंप" या ">100") को पूरा करते हैं।
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercise-group" style="background:var(--bg-subtle); padding:1.25rem; border-radius:4px; margin-top:1.5rem;">
+                    <h4>🎯 प्रैक्टिकल फील्ड एक्सरसाइज (Hands-on Computer Tasks)</h4>
+                    <p><strong>एक्सरसाइज 14 (एक्सेल डेटा शीट):</strong> 20 काल्पनिक परिवारों का डेटा (परिवार प्रमुख, सदस्य, आय, भूमि, मुख्य फसल) एक्सेल में दर्ज करें और =SUM तथा =AVERAGE सूत्र लगाएं।</p>
+                    <p><strong>एक्सरसाइज 15 (चार्ट निर्माण):</strong> उसी डेटा से परिवारों के भूमि-आकार (सीमांत, लघु, बड़े) का एक 3D पाई चार्ट बनाएं और उस पर डेटा लेबल्स लगाएं।</p>
+                    <p><strong>एक्सरसाइज 16 (पूर्ण रिपोर्ट कंपाइलेशन):</strong> अध्याय 23 की मॉडल रिपोर्ट को देखकर अपने कॉलेज के किसी एक विषय पर 5-पृष्ठों की मुद्रित फील्ड रिपोर्ट फाइल तैयार करें।</p>
+                </div>
+            </div>
+        </article>
+    
+
+        </main>
+    </div>
+
+    <!-- Universal Academic Footer -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>बी.ए. 5वां सेमेस्टर डिजिटल पुस्तकालय</span>
+                    </div>
+                    <p>
+                        विश्वविद्यालय स्नातक (UG) कला संकाय के विद्यार्थियों हेतु समर्पित डिजिटल पाठ्यपुस्तक मंच। प्रामाणिक अध्ययन सामग्री, विस्तृत सिद्धांत, आरेख, केस स्टडीज एवं परीक्षा उपयोगी प्रश्नोत्तर सरल हिंदी भाषा में उपलब्ध।
+                    </p>
+                    <p style="font-size:0.85rem; color:var(--text-subtle);">
+                        <i class="fa-solid fa-shield-halved" style="color:var(--accent-color);"></i> शैक्षणिक एवं अशासकीय अध्ययन संसाधन
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>पाठ्य-पुस्तकें (Textbooks)</h4>
+                    <ul class="footer-links">
+                        <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> आर्थिक भूगोल (Theory-V)</a></li>
+                        <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> भूगोल प्रायोगिक मैनुअल</a></li>
+                        <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> भारत में आर्थिक विकास एवं नीतियां-I</a></li>
+                        <li><a href="./eco-skill-course.html"><i class="fa-solid fa-industry"></i> फील्ड आधारित पाठ्यक्रम</a></li>
+                        <li><a href="./socio-additional.html"><i class="fa-solid fa-users"></i> समाजशास्त्रीय सिद्धांत एवं समाज</a></li>
+                        <li><a href="./vac-ctmv.html"><i class="fa-solid fa-building-columns"></i> संस्कृति, परंपराएं व नैतिक मूल्य (VAC)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>त्वरित साधन (Quick Tools)</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fa-solid fa-house"></i> पुस्तकालय मुखपृष्ठ</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i> विषय खोजें (Ctrl+K)</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSyllabusModal('geo-practical')"><i class="fa-solid fa-file-invoice"></i> आधिकारिक पाठ्यक्रम (Syllabus)</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> थीम बदलें (Light/Dark)</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i> पृष्ठ के शीर्ष पर जाएं</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div>
+                    © 2026 बी.ए. 5वां सेमेस्टर कॉलेज डिजिटल पाठ्यपुस्तक। भूगोल प्रायोगिक हस्तपुस्तिका (Field Survey Methods, Field Trip and Report Writing)।
+                </div>
+                <div class="footer-bottom-links">
+                    <span>सरल हिंदी माध्यम</span>
+                    <span>•</span>
+                    <span>100% निःशुल्क शैक्षणिक पठन</span>
+                    <span>•</span>
+                    <a href="javascript:void(0)" onclick="scrollToTop()">वापस ऊपर जाएं ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <div class="floating-actions">
+        <button class="float-btn" id="back-to-top" onclick="scrollToTop()" title="शीर्ष पर जाएं">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>आधिकारिक पाठ्यक्रम (Syllabus)</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="geo-practical" selected>भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">आधिकारिक सिलेबस दस्तावेज़ • विश्वविद्यालय प्रमाणित</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#14532d; border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="प्रायोगिक विधि, प्रतिदर्शन, FGD या वाइवा प्रश्न खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

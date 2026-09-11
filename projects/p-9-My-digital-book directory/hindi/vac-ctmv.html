@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>संस्कृति, परंपराएं एवं नैतिक मूल्य (CTMV) | बी.ए. 5वां सेमेस्टर कॉलेज पाठ्य-पुस्तक</title>
+    <meta name="description" content="बी.ए. 5वें सेमेस्टर मूल्य वर्धित पाठ्यक्रम (VAC CTMV): संस्कृति बनाम सभ्यता, सत्य, अहिंसा, करुणा, वसुधैव कुटुंबकम, निष्काम कर्म, संवैधानिक मूल्य (अनुच्छेद 51A) एवं डिजिटल नैतिकता।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="vac">
+
+    <!-- Floating Exit Button for Content-Only Mode -->
+    <button class="content-only-exit-btn" id="content-only-exit-btn" aria-label="सामान्य दृश्य पर वापस जाएँ" title="सामान्य दृश्य पर वापस जाएँ">
+        <i class="fa-solid fa-compress"></i>
+        <span>सामान्य दृश्य</span>
+    </button>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-building-columns"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">मूल्य वर्धित पाठ्यक्रम — VAC CTMV</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> पुस्तकालय</a></li>
+            <li><a href="#ch1" class="nav-link">अध्याय 1: संस्कृति व सभ्यता</a></li>
+            <li><a href="#ch2" class="nav-link">अध्याय 2: भारतीय दर्शन</a></li>
+            <li><a href="#ch3" class="nav-link">अध्याय 3: संवैधानिक मूल्य</a></li>
+            <li><a href="#ch4" class="nav-link">अध्याय 4: डिजिटल नैतिकता</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('en')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> English Version</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSyllabusModal('vac-ctmv', 'VAC — CTMV')" title="आधिकारिक पाठ्यक्रम">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="खोजें (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>खोजें</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="फॉन्ट छोटा करें">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="सामान्य फॉन्ट">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="फॉन्ट बड़ा करें">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('en')" title="Read in English (अंग्रेजी में पढ़ें)" aria-label="Switch to English">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">English</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="नेविगेशन मेन्यू खोलें">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Chapter Progress -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="विषय-सूची टॉगल करें" aria-expanded="true" title="विषय-सूची टॉगल करें (Ctrl+B)">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span class="sidebar-toggle-text">विषय-सूची</span>
+                </button>
+                <div class="breadcrumb-links">
+                    <a href="./index.html"><i class="fa-solid fa-house"></i> <span>पुस्तकालय</span></a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>मूल्य वर्धित पाठ्यक्रम</span>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="current-crumb">संस्कृति, परंपराएं एवं नैतिक मूल्य (CTMV)</span>
+                </div>
+            </div>
+            <div class="breadcrumb-right">
+                <span id="breadcrumb-active-topic" class="breadcrumb-active-topic"></span>
+                <span class="reading-progress-pill" id="reading-progress-pill"><i class="fa-solid fa-book-open"></i> प्रगति: 0%</span>
+                <button class="content-only-btn" id="content-only-btn" aria-label="केवल सामग्री दिखाएँ" title="केवल सामग्री दिखाएँ (पठन मोड)">
+                    <i class="fa-solid fa-expand"></i>
+                    <span class="content-only-text">केवल सामग्री</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Two-Column Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC (अनुक्रमणिका) -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3>विषय-सूची</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">अध्याय 1: संस्कृति व सभ्यता</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch1" class="toc-link">1.0 भूमिका</a></li>
+                    <li><a href="#sec1-1" class="toc-link">1.1 संस्कृति बनाम सभ्यता</a></li>
+                    <li><a href="#sec1-2" class="toc-link">1.2 भारतीय सांस्कृतिक विरासत</a></li>
+                    <li><a href="#ch1-summary" class="toc-link">अध्याय-सार एवं अभ्यास</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">अध्याय 2: नैतिक मूल्य व दर्शन</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch2" class="toc-link">2.0 भूमिका</a></li>
+                    <li><a href="#sec2-1" class="toc-link">2.1 सत्य, अहिंसा एवं करुणा</a></li>
+                    <li><a href="#sec2-2" class="toc-link">2.2 वसुधैव कुटुंबकम व गीता</a></li>
+                    <li><a href="#ch2-summary" class="toc-link">अध्याय-सार एवं अभ्यास</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">अध्याय 3: संवैधानिक मूल्य</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch3" class="toc-link">3.0 भूमिका</a></li>
+                    <li><a href="#sec3-1" class="toc-link">3.1 संविधान की प्रस्तावना</a></li>
+                    <li><a href="#sec3-2" class="toc-link">3.2 अनुच्छेद 51A के 11 कर्तव्य</a></li>
+                    <li><a href="#ch3-summary" class="toc-link">अध्याय-सार एवं अभ्यास</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">अध्याय 4: डिजिटल नैतिकता</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch4" class="toc-link">4.0 भूमिका</a></li>
+                    <li><a href="#sec4-1" class="toc-link">4.1 साइबर व्यवहार व निजता</a></li>
+                    <li><a href="#sec4-2" class="toc-link">4.2 फेक न्यूज व डिजिटल सत्य</a></li>
+                    <li><a href="#ch4-summary" class="toc-link">अध्याय-सार एवं अभ्यास</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Book Reading Column -->
+        <main class="content-area book-page">
+
+            <!-- Book Title Header -->
+            <header class="book-hero">
+                <div class="book-paper-meta"><i class="fa-solid fa-book"></i> बी.ए. 5वां सेमेस्टर • मूल्य वर्धित पाठ्यक्रम (VAC)</div>
+                <h1>संस्कृति, परंपराएं एवं नैतिक मूल्य (CTMV)</h1>
+                <p class="book-intro-lead">
+                    यह पाठ्य-पुस्तक भारतीय संस्कृति और सभ्यता के समाजशास्त्रीय अंतर, प्राचीन भारतीय दर्शन के सर्वभौमिक मूल्यों (सत्य, अहिंसा, करुणा, वसुधैव कुटुंबकम, निष्काम कर्म योग), भारतीय संविधान की प्रस्तावना व अनुच्छेद 51A के मौलिक कर्तव्यों, तथा 21वीं सदी के इंटरनेट युग में डिजिटल नैतिकता (Cyber Ethics) का सरल, विचारोत्तेजक और परीक्षा-उन्मुख विश्लेषण प्रस्तुत करती है।
+                </p>
+                <div class="book-hero-badges">
+                    <span class="book-hero-badge"><i class="fa-solid fa-layer-group"></i> 4 विस्तृत अध्याय</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-scale-balanced"></i> मूल्य व संवैधानिक कर्तव्य</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-language"></i> सरल व मानक हिंदी</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-circle-check"></i> विश्वविद्यालय अनुमोदित</span>
+                </div>
+            </header>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 1: CULTURE AND CIVILIZATION                                        -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch1">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">अध्याय 1</div>
+                    <h2>भारतीय संस्कृति एवं सभ्यता</h2>
+                </div>
+
+                <!-- भूमिका -->
+                <div class="chapter-bhumika">
+                    <h4>भूमिका</h4>
+                    <p>
+                        दैनिक बोलचाल में हम अक्सर 'संस्कृति' और 'सभ्यता' को एक ही अर्थ में बोल देते हैं। जैसे हम कहते हैं कि "यह हमारी संस्कृति है" या "सिंधु घाटी की सभ्यता"। लेकिन समाजशास्त्र और दर्शनशास्त्र में इन दोनों में जमीन-आसमान का अंतर है। इस अध्याय में हम समाजशास्त्री मैकाइवर और पेज के प्रसिद्ध सिद्धांत के अनुसार संस्कृति और सभ्यता के अंतर को समझेंगे, और भारतीय सांस्कृतिक विरासत की उन विशेषताओं को जानेंगे जिन्होंने इसे हजारों वर्षों तक जीवित रखा।
+                    </p>
+                </div>
+
+                <!-- 1.1 संस्कृति बनाम सभ्यता -->
+                <h3 class="topic-heading" id="sec1-1">1.1 संस्कृति बनाम सभ्यता (Culture vs. Civilization)</h3>
+
+                <p>
+                    प्रसिद्ध समाजशास्त्री <strong>आर.एम. मैकाइवर और चार्ल्स पेज</strong> ने अपनी पुस्तक <em>'Society'</em> में संस्कृति और सभ्यता के बीच का सबसे सटीक और सरल अंतर स्पष्ट किया:
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">मैकाइवर एवं पेज का अमर कथन</div>
+                    <p>
+                        <strong>"संस्कृति वह है जो हम हैं (मूल्य, संस्कार, विचार, धर्म, संगीत, कला), जबकि सभ्यता वह है जिसका हम उपयोग करते हैं (मशीनें, गाड़ियां, मोबाइल, कंप्यूटर, इमारतें, तकनीक)।"</strong>
+                    </p>
+                </div>
+
+                <p>
+                    दोनों के बीच के प्रमुख अंतरों को निम्नलिखित तालिका द्वारा आसानी से समझा जा सकता है:
+                </p>
+
+                <div class="table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>मापदंड</th>
+                                <th>संस्कृति (Culture)</th>
+                                <th>सभ्यता (Civilization)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>प्रकृति</strong></td>
+                                <td>आंतरिक, मानसिक, आध्यात्मिक और अमूर्त (मन के संस्कार)।</td>
+                                <td>बाह्य, भौतिक, दृश्यमान और तकनीकी (सुख-सुविधा के साधन)।</td>
+                            </tr>
+                            <tr>
+                                <td><strong>उद्देश्य</strong></td>
+                                <td>संस्कृति स्वयं में 'साध्य' (End) है—यह सिखाती है कि जीवन को श्रेष्ठ कैसे बनाएं।</td>
+                                <td>सभ्यता केवल 'साधन' (Means) है—यह भौतिक जरूरतों को पूरा करने के उपकरण देती है।</td>
+                            </tr>
+                            <tr>
+                                <td><strong>प्रसार की गति</strong></td>
+                                <td>धीमी; दूसरे की संस्कृति को अपनाना बहुत मुश्किल और आंतरिक होता है।</td>
+                                <td>अत्यंत तीव्र; जापानी कार या अमेरिकी आईफोन भारत में कुछ ही दिनों में लोकप्रिय हो जाते हैं।</td>
+                            </tr>
+                            <tr>
+                                <td><strong>मापनीयता</strong></td>
+                                <td>संस्कृति को किसी तराजू या मीटर से नहीं नापा जा सकता (तुलसीदास के रामचरितमानस और शेक्सपियर के नाटकों में कौन ज्यादा श्रेष्ठ है, यह गणित से तय नहीं हो सकता)।</td>
+                                <td>सभ्यता को आसानी से नापा जा सकता है (बैलगाड़ी की तुलना में हवाई जहाज कितना तेज है, यह गति से तुरंत सिद्ध हो जाता है)।</td>
+                            </tr>
+                            <tr>
+                                <td><strong>विनाशशीलता</strong></td>
+                                <td>संस्कृति लोगों के दिलों, संस्कारों और यादों में जीवित रहती है; इसे बम से नष्ट नहीं किया जा सकता।</td>
+                                <td>सभ्यता युद्ध, भूकंप या बमबारी में एक ही दिन में खंडहर बन सकती है।</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 1.2 भारतीय विरासत की विशेषताएं -->
+                <h3 class="topic-heading" id="sec1-2">1.2 भारतीय सांस्कृतिक विरासत की मुख्य विशेषताएं</h3>
+
+                <p>
+                    मिस्र, यूनान, बेबीलोन और रोम की प्राचीन सभ्यताएं समय की आंधी में लुप्त हो गईं, लेकिन भारतीय संस्कृति हजारों वर्षों की उथल-पुथल के बाद भी अपनी पहचान बनाए हुए है। इसके अमर रहने के पीछे निम्नलिखित विशेषताएं हैं:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. प्राचीनता एवं निरंतरता:</strong> वैदिक काल के मंत्र, गायत्री मंत्र, योग और नदियां आज भी उसी श्रद्धा से भारतीय जीवन का हिस्सा हैं जैसी वे 4000 वर्ष पूर्व थीं।</li>
+                    <li><strong>2. विविधता में एकता (Unity in Diversity):</strong> कश्मीर से कन्याकुमारी तक भाषा, खान-पान और वेशभूषा भले ही अलग हो, लेकिन जीवन के प्रति दार्शनिक दृष्टिकोण (आत्मा, पुनर्जन्म, कर्म, सहिष्णुता) एक ही धागे में पिरोया हुआ है।</li>
+                    <li><strong>3. समन्वयवादिता एवं खुलापन:</strong> ऋग्वेद का प्रसिद्ध श्लोक है—<em>"आ नो भद्राः क्रतवो यन्तु विश्वतः"</em> (हमारे पास चारों दिशाओं से कल्याणकारी विचार आएं)। भारत ने शक, हूण, कुषाण और मुगलों की संस्कृतियों के अच्छे तत्वों को हमेशा अपने भीतर समाहित किया।</li>
+                    <li><strong>4. चार पुरुषार्थ (भौतिक और आध्यात्मिक संतुलन):</strong> भारतीय मनीषा ने जीवन के चार लक्ष्य बताए—<strong>धर्म</strong> (नैतिक कर्तव्य), <strong>अर्थ</strong> (धन और आजीविका), <strong>काम</strong> (इच्छाओं की पूर्ति) और <strong>मोक्ष</strong> (आत्मिक मुक्ति)। धन कमाना गलत नहीं है, बशर्ते वह धर्म (नैतिकता) के दायरे में हो।</li>
+                </ul>
+
+                <!-- अध्याय-सार एवं अभ्यास -->
+                <section class="chapter-closing" id="ch1-summary">
+                    <div class="chapter-summary">
+                        <h3>अध्याय-सार</h3>
+                        <p>
+                            इस अध्याय में हमने संस्कृति और सभ्यता के अंतर को समझा। सभ्यता हमारे बाह्य भौतिक साधन (तकनीक, उपकरण) हैं, जबकि संस्कृति हमारी आंतरिक आत्मा और नैतिक मूल्य हैं। भारतीय संस्कृति अपनी प्राचीन निरंतरता, सहिष्णुता, विविधता में एकता और पुरुषार्थ के संतुलित दृष्टिकोण के कारण विश्व में अद्वितीय है।
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>अभ्यास प्रश्न</h3>
+                        <div class="exercise-group">
+                            <h4>लघु एवं दीर्घ उत्तरीय प्रश्न</h4>
+                            <ol>
+                                <li>मैकाइवर एवं पेज के अनुसार संस्कृति और सभ्यता के बीच मुख्य अंतर स्पष्ट कीजिए।</li>
+                                <li>भारतीय सांस्कृतिक विरासत की प्रमुख विशेषताओं की विवेचना कीजिए।</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 2: MORAL VALUES & ETHICAL PHILOSOPHY                               -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch2">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">अध्याय 2</div>
+                    <h2>सर्वभौमिक नैतिक मूल्य एवं भारतीय दर्शन</h2>
+                </div>
+
+                <!-- भूमिका -->
+                <div class="chapter-bhumika">
+                    <h4>भूमिका</h4>
+                    <p>
+                        नैतिक मूल्य वे आंतरिक प्रकाशस्तंभ हैं जो मनुष्य को पशु बनने से रोकते हैं। यह कानून का डर नहीं, बल्कि अंतरात्मा की आवाज है। इस अध्याय में हम महात्मा गांधी और भारतीय दर्शन के तीन शाश्वत मूल्यों—सत्य, अहिंसा और करुणा का अर्थ समझेंगे। इसके बाद हम उपनिषदों की अमर दृष्टि 'वसुधैव कुटुंबकम' और श्रीमद्भगवद्गीता के 'निष्काम कर्म योग' का अध्ययन करेंगे।
+                    </p>
+                </div>
+
+                <!-- 2.1 सत्य, अहिंसा, करुणा -->
+                <h3 class="topic-heading" id="sec2-1">2.1 सर्वभौमिक नैतिक मूल्य: सत्य, अहिंसा एवं करुणा</h3>
+
+                <p>
+                    <strong>1. सत्य (Satya):</strong> सत्य केवल मुंह से सच बोलना नहीं है, बल्कि मन, वचन और कर्म की एकरूपता है (जो मन में हो, वही वाणी पर हो और वही आचरण में दिखे)। महात्मा गांधी ने अपने संपूर्ण जीवन के प्रयोगों के बाद कहा था—<em>"पहले मैं कहता था कि 'ईश्वर ही सत्य है', लेकिन अपने अनुभवों के बाद मैंने पाया कि <strong>'सत्य ही ईश्वर है' (Truth is God)</strong>।"</em>
+                </p>
+
+                <p>
+                    <strong>2. अहिंसा (Ahimsa):</strong> अहिंसा की संकीर्ण परिभाषा है किसी को न मारना। लेकिन जैन दर्शन और गांधीजी के अनुसार, <em>मन, वाणी या कर्म से किसी भी प्राणी को लेशमात्र भी दुःख न पहुंचाना ही सच्ची अहिंसा है</em>। किसी के प्रति ईर्ष्या करना, गाली देना या कटु वचन बोलना भी मानसिक हिंसा है। अहिंसा कायरता नहीं, बल्कि आत्मबल और साहस की पराकाष्ठा है।
+                </p>
+
+                <p>
+                    <strong>3. करुणा (Karuna / Compassion):</strong> बौद्ध दर्शन में करुणा को सर्वोच्च स्थान दिया गया है। दया में हम दूसरों को अपने से छोटा समझकर उस पर तरस खाते हैं, लेकिन <strong>करुणा में हम दूसरे के दुःख को अपना दुःख मानकर उसे दूर करने के लिए निःस्वार्थ भाव से जुट जाते हैं</strong>।
+                </p>
+
+                <!-- 2.2 वसुधैव कुटुंबकम एवं निष्काम कर्म -->
+                <h3 class="topic-heading" id="sec2-2">2.2 वसुधैव कुटुंबकम एवं निष्काम कर्म योग</h3>
+
+                <div class="book-definition">
+                    <div class="def-term">महाउपनिषद (षष्ठ अध्याय, श्लोक 71) से 'वसुधैव कुटुंबकम'</div>
+                    <p>
+                        <strong>"अयं निजः परो वेति गणना लघुचेतसाम्।<br>
+                        उदारचरितानां तु वसुधैव कुटुम्बकम्॥"</strong><br><br>
+                        <strong>सरल भावार्थ:</strong> 'यह मेरा अपना है और वह पराया है'—ऐसी संकीर्ण सोच क्षुद्र (छोटे) मन वालों की होती है। लेकिन जिनका हृदय उदार और विशाल होता है, उनके लिए तो यह पूरी पृथ्वी ही एक संयुक्त परिवार है। (भारत की विदेश नीति और हालिया G20 सम्मेलन का मूल ध्येय 'One Earth, One Family, One Future' इसी श्लोक से प्रेरित था)।
+                    </p>
+                </div>
+
+                <h4 style="margin-top:2rem;">श्रीमद्भगवद्गीता का निष्काम कर्म योग (Karma Yoga)</h4>
+                <p>
+                    कुरुक्षेत्र के मैदान में जब अर्जुन कर्तव्य से विमुख हो रहे थे, तब भगवान श्रीकृष्ण ने गीता के द्वितीय अध्याय (श्लोक 47) में मानव जाति को सबसे बड़ा जीवन दर्शन दिया:
+                </p>
+
+                <div class="book-formula">
+                    <div class="formula-math">
+                        कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>
+                        मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥
+                    </div>
+                    <div class="formula-explain">
+                        <strong>सरल अर्थ:</strong><br>
+                        1. तुम्हारा अधिकार केवल <strong>अपने कर्तव्य कर्म करने में है</strong>, उसके फलों (परिणामों) में कभी नहीं।<br>
+                        2. इसलिए फल की चिंता या लालच को अपना उद्देश्य बनाकर कर्म मत करो।<br>
+                        3. और ऐसा भी कभी न हो कि फल नहीं मिलेगा, यह सोचकर तुम कर्म करना ही छोड़ दो (अकर्मण्यता में आसक्ति न हो)।<br><br>
+                        <strong>विद्यार्थी जीवन में उपयोग:</strong> एक छात्र का कर्तव्य केवल पूरी लगन और ईमानदारी से पढ़ाई करना है। परीक्षा में पहला स्थान आएगा या नहीं—इसकी चिंता करके तनावग्रस्त होने के बजाय केवल अपनी तैयारी पर 100% ध्यान लगाना ही सच्चा 'निष्काम कर्म' है।
+                    </div>
+                </div>
+
+                <!-- अध्याय-सार एवं अभ्यास -->
+                <section class="chapter-closing" id="ch2-summary">
+                    <div class="chapter-summary">
+                        <h3>अध्याय-सार</h3>
+                        <p>
+                            इस अध्याय में हमने सत्य, अहिंसा और करुणा की त्रिवेणी को समझा। उपनिषदों की 'वसुधैव कुटुंबकम' की भावना जाति, धर्म और देश की सीमाओं से ऊपर उठकर पूरी मानवता को एक परिवार मानती है। गीता का निष्काम कर्म सिद्धांत सिखाता है कि फल की वासना और चिंता छोड़कर केवल वर्तमान में अपने कर्तव्य का सर्वोत्तम निर्वहन करना ही सच्ची सफलता और शांति का मार्ग है।
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>अभ्यास प्रश्न</h3>
+                        <div class="exercise-group">
+                            <h4>लघु एवं दीर्घ उत्तरीय प्रश्न</h4>
+                            <ol>
+                                <li>'वसुधैव कुटुंबकम' का विचार किस प्राचीन ग्रंथ से लिया गया है? इसका समकालीन विश्व में क्या महत्व है?</li>
+                                <li>श्रीमद्भगवद्गीता के 'निष्काम कर्म' सिद्धांत की वर्तमान विद्यार्थी जीवन के संदर्भ में प्रासंगिकता स्पष्ट कीजिए।</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 3: CONSTITUTIONAL VALUES & ARTICLE 51A                            -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch3">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">अध्याय 3</div>
+                    <h2>संवैधानिक मूल्य एवं मौलिक कर्तव्य (अनुच्छेद 51A)</h2>
+                </div>
+
+                <!-- भूमिका -->
+                <div class="chapter-bhumika">
+                    <h4>भूमिका</h4>
+                    <p>
+                        भारतीय संविधान केवल वकीलों और अदालतों के लिए नहीं है, यह आजाद भारत का नैतिक घोषणापत्र है। जिस प्रकार संविधान नागरिकों को मौलिक अधिकार देता है, उसी प्रकार एक सभ्य और सशक्त राष्ट्र के निर्माण के लिए नागरिकों के कुछ कर्तव्य भी तय करता है। इस अध्याय में हम संविधान की प्रस्तावना में निहित आदर्शों और <strong>अनुच्छेद 51A के 11 मौलिक कर्तव्यों</strong> का अध्ययन करेंगे।
+                    </p>
+                </div>
+
+                <!-- 3.1 प्रस्तावना -->
+                <h3 class="topic-heading" id="sec3-1">3.1 भारतीय संविधान की प्रस्तावना में निहित आधारभूत मूल्य</h3>
+
+                <p>
+                    संविधान की प्रस्तावना (Preamble) संविधान की आत्मा है। इसमें भारत के चार सर्वोच्च नैतिक मूल्यों को स्थापित किया गया है:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. न्याय (Justice):</strong> केवल अदालती न्याय नहीं, बल्कि <em>सामाजिक, आर्थिक और राजनीतिक न्याय</em>। इसका अर्थ है कि किसी के साथ जाति, लिंग या धर्म के आधार पर भेदभाव न हो, धन का संकेंद्रण रुके और हर नागरिक को वोट देने तथा चुनाव लड़ने का समान अधिकार मिले।</li>
+                    <li><strong>2. स्वतंत्रता (Liberty):</strong> विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की स्वतंत्रता।</li>
+                    <li><strong>3. समता (Equality):</strong> प्रतिष्ठा और अवसर की समानता। कानून के सामने सभी बराबर हैं।</li>
+                    <li><strong>4. बंधुता (Fraternity):</strong> व्यक्ति की गरिमा और राष्ट्र की एकता तथा अखंडता को सुनिश्चित करने वाला सच्चा भाईचारा।</li>
+                </ul>
+
+                <!-- 3.2 मौलिक कर्तव्य -->
+                <h3 class="topic-heading" id="sec3-2">3.2 अनुच्छेद 51A: 11 मौलिक कर्तव्य (Fundamental Duties)</h3>
+
+                <p>
+                    मूल संविधान में केवल अधिकारों का उल्लेख था, कर्तव्यों का नहीं। सरदार स्वर्ण सिंह समिति की सिफारिश पर <strong>42वें संविधान संशोधन (1976)</strong> द्वारा संविधान के भाग IV-A में नया <strong>अनुच्छेद 51A</strong> जोड़कर 10 मौलिक कर्तव्य शामिल किए गए। बाद में <strong>86वें संशोधन (2002)</strong> द्वारा 11वां कर्तव्य जोड़ा गया।
+                </p>
+
+                <p>
+                    प्रत्येक भारतीय नागरिक के प्रमुख परीक्षा-उपयोगी कर्तव्य:
+                </p>
+
+                <ol class="book-list">
+                    <li>संविधान का पालन करना और उसके आदर्शों, संस्थाओं, राष्ट्रध्वज और राष्ट्रगान का आदर करना।</li>
+                    <li>स्वतंत्रता के लिए हमारे राष्ट्रीय आंदोलन को प्रेरित करने वाले उच्च आदर्शों को दिल में संजोए रखना।</li>
+                    <li>भारत की संप्रभुता, एकता और अखंडता की रक्षा करना।</li>
+                    <li>देश की रक्षा करना और आह्वान किए जाने पर राष्ट्र की सेवा के लिए तत्पर रहना।</li>
+                    <li>धर्म, भाषा और प्रदेश से परे सभी नागरिकों में समरसता और समान भ्रातृत्व की भावना का निर्माण करना, तथा ऐसी प्रथाओं का त्याग करना जो स्त्रियों के सम्मान के विरुद्ध हों।</li>
+                    <li>हमारी सामासिक संस्कृति (Composite Culture) की गौरवशाली परंपरा का महत्व समझना और उसका संरक्षण करना।</li>
+                    <li><strong>प्राकृतिक पर्यावरण (वन, झील, नदी और वन्यजीव) की रक्षा और संवर्धन करना</strong> तथा प्राणिमात्र के प्रति दयाभाव रखना।</li>
+                    <li><strong>वैज्ञानिक दृष्टिकोण (Scientific Temper), मानववाद और ज्ञानार्जन तथा सुधार की भावना का विकास करना।</strong></li>
+                    <li>सार्वजनिक संपत्ति को सुरक्षित रखना और हिंसा से दूर रहना।</li>
+                    <li>व्यक्तिगत और सामूहिक गतिविधियों के सभी क्षेत्रों में उत्कर्ष की ओर बढ़ने का सतत प्रयास करना।</li>
+                    <li><strong>11वां कर्तव्य (2002):</strong> 6 से 14 वर्ष की आयु के बच्चों के माता-पिता या संरक्षक का यह कर्तव्य होगा कि वे अपने बच्चे को शिक्षा के अवसर उपलब्ध कराएं।</li>
+                </ol>
+
+                <div class="book-note">
+                    <div class="note-title">वैज्ञानिक दृष्टिकोण (Scientific Temper) का क्या अर्थ है?</div>
+                    <p>
+                        अनुच्छेद 51A(h) के अनुसार नागरिक का कर्तव्य है कि वह अंधविश्वास, रूढ़िवादिता और पाखंड को छोड़कर हर बात को तर्क, विवेक और वैज्ञानिक प्रमाण की कसौटी पर परखे। यह भारत को एक आधुनिक और प्रगतिशील समाज बनाने का सबसे बड़ा माध्यम है।
+                    </p>
+                </div>
+
+                <!-- अध्याय-सार एवं अभ्यास -->
+                <section class="chapter-closing" id="ch3-summary">
+                    <div class="chapter-summary">
+                        <h3>अध्याय-सार</h3>
+                        <p>
+                            इस अध्याय में हमने समझा कि संविधान की प्रस्तावना न्याय, स्वतंत्रता, समता और बंधुता के चार स्तंभों पर खड़ी है। अधिकार और कर्तव्य एक ही सिक्के के दो पहलू हैं। अनुच्छेद 51A के तहत नागरिकों के 11 मौलिक कर्तव्य देश की एकता, पर्यावरण की रक्षा, वैज्ञानिक दृष्टिकोण के विकास और 6-14 वर्ष के बच्चों की अनिवार्य शिक्षा पर बल देते हैं।
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>अभ्यास प्रश्न</h3>
+                        <div class="exercise-group">
+                            <h4>लघु एवं दीर्घ उत्तरीय प्रश्न</h4>
+                            <ol>
+                                <li>भारतीय संविधान में मौलिक कर्तव्यों को किस समिति की सिफारिश पर और किस संविधान संशोधन द्वारा जोड़ा गया था?</li>
+                                <li>अनुच्छेद 51A में 'वैज्ञानिक दृष्टिकोण के विकास' और 'पर्यावरण संरक्षण' से संबंधित कर्तव्यों का महत्व स्पष्ट कीजिए।</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 4: DIGITAL ETHICS & CYBER BEHAVIOR                                -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch4">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">अध्याय 4</div>
+                    <h2>आधुनिक युग में डिजिटल नैतिकता (Cyber Ethics)</h2>
+                </div>
+
+                <!-- भूमिका -->
+                <div class="chapter-bhumika">
+                    <h4>भूमिका</h4>
+                    <p>
+                        21वीं सदी में मनुष्य केवल अपने मोहल्ले या शहर में नहीं रहता, बल्कि उसका एक बड़ा जीवन इंटरनेट, स्मार्टफोन और सोशल मीडिया पर बीत रहा है। तकनीक ने जहाँ दुनिया को एक मुट्ठी में ला दिया है, वहीं फेक न्यूज, अश्लीलता, साइबर बुलिंग, डेटा चोरी और ऑनलाइन गाली-गलौज जैसी नई नैतिक बीमारियां भी पैदा की हैं। इस अध्याय में हम समझेंगे कि डिजिटल दुनिया में एक जिम्मेदार और नैतिक नागरिक (Good Digital Citizen) कैसे बना जाए।
+                    </p>
+                </div>
+
+                <!-- 4.1 साइबर व्यवहार व निजता -->
+                <h3 class="topic-heading" id="sec4-1">4.1 साइबर व्यवहार, निजता सुरक्षा एवं डिजिटल पदचिह्न</h3>
+
+                <p>
+                    इंटरनेट पर हम जो कुछ भी लाइक, शेयर, सर्च या पोस्ट करते हैं, उसका एक स्थायी रिकॉर्ड बन जाता है, जिसे <strong>'डिजिटल पदचिह्न' (Digital Footprints)</strong> कहते हैं। आपकी एक गैर-जिम्मेदाराना पोस्ट भविष्य में आपकी नौकरी, प्रतिष्ठा और जीवन को बर्बाद कर सकती है।
+                </p>
+
+                <p>
+                    डिजिटल नैतिकता के 4 आधारभूत नियम:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. दूसरों की निजता (Privacy) का सम्मान:</strong> किसी भी मित्र या परिचित की अनुमति के बिना उसकी निजी तस्वीरें, मोबाइल नंबर, चैट के स्क्रीनशॉट या पता सोशल मीडिया पर वायरल न करें।</li>
+                    <li><strong>2. साइबर बुलिंग एवं ट्रोलिंग से मुक्ति:</strong> सोशल मीडिया पर फेक आईडी बनाकर अनाम (Anonymous) होकर किसी को गालियां देना, डराना या अपमानित करना न केवल अनैतिक है, बल्कि <em>सूचना प्रौद्योगिकी अधिनियम (IT Act)</em> के तहत एक गैर-जमानती अपराध भी है।</li>
+                    <li><strong>3. साहित्यिक चोरी (Plagiarism) एवं कॉपीराइट का सम्मान:</strong> इंटरनेट से किसी दूसरे का लेख, प्रोजेक्ट, फोटो या संगीत चुराकर अपना नाम न दें। हमेशा मूल रचयिता को श्रेय (Credit) दें।</li>
+                </ul>
+
+                <!-- 4.2 फेक न्यूज -->
+                <h3 class="topic-heading" id="sec4-2">4.2 फेक न्यूज एवं गलत सूचना (Fake News & Fact-Checking)</h3>
+
+                <p>
+                    सोशल मीडिया पर आजकल भड़काऊ संदेश, फर्जी खबरें और एआई द्वारा बनाई गई डीपफेक (Deepfake) वीडियो तेजी से फैलाई जाती हैं, जिससे समाज में दंगे, हिंसा और तनाव फैल जाता है।
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">डिजिटल नागरिक की आचार संहिता: फॉरवर्ड करने से पहले सोचें</div>
+                    <p>
+                        व्हाट्सएप या फेसबुक पर कोई भी सनसनीखेज या धार्मिक-जातीय तनाव फैलाने वाला संदेश मिलने पर उसे <strong>बिना सोचे-समझे कभी फॉरवर्ड न करें</strong>। पहले यह जांचें कि क्या यह खबर किसी आधिकारिक और विश्वसनीय समाचार एजेंसी पर आई है? असत्य का प्रसार रोकने में सहायता करना ही आज के युग की सबसे बड़ी देशभक्ति और नैतिक कर्तव्य है।
+                    </p>
+                </div>
+
+                <!-- अध्याय-सार एवं अभ्यास -->
+                <section class="chapter-closing" id="ch4-summary">
+                    <div class="chapter-summary">
+                        <h3>अध्याय-सार</h3>
+                        <p>
+                            इस अध्याय में हमने आधुनिक डिजिटल युग की नैतिक चुनौतियों को समझा। इंटरनेट की आभासी दुनिया में भी वही नैतिक नियम लागू होते हैं जो वास्तविक समाज में होते हैं—सहानुभूति, सत्यनिष्ठा, दूसरों की निजता का सम्मान और संयम। एक अच्छा डिजिटल नागरिक वह है जो फेक न्यूज से दूर रहे और तकनीक का उपयोग विनाश के लिए नहीं, बल्कि मानव कल्याण और ज्ञानार्जन के लिए करे।
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>अभ्यास प्रश्न</h3>
+                        <div class="exercise-group">
+                            <h4>लघु एवं दीर्घ उत्तरीय प्रश्न</h4>
+                            <ol>
+                                <li>'डिजिटल पदचिह्न' (Digital Footprints) से क्या आशय है? सोशल मीडिया का उपयोग करते समय किन सावधानियों की आवश्यकता होती है?</li>
+                                <li>फेक न्यूज और साइबर बुलिंग को रोकने में एक जागरूक नागरिक की क्या नैतिक जिम्मेदारियां हैं?</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Universal Academic Footer -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>बी.ए. 5वां सेमेस्टर डिजिटल पुस्तकालय</span>
+                    </div>
+                    <p>
+                        विश्वविद्यालय स्नातक (UG) कला संकाय के विद्यार्थियों हेतु समर्पित डिजिटल पाठ्यपुस्तक मंच। प्रामाणिक अध्ययन सामग्री, विस्तृत सिद्धांत, आरेख, केस स्टडीज एवं परीक्षा उपयोगी प्रश्नोत्तर सरल हिंदी भाषा में उपलब्ध।
+                    </p>
+                    <p style="font-size:0.85rem; color:var(--text-subtle);">
+                        <i class="fa-solid fa-shield-halved" style="color:var(--accent-color);"></i> शैक्षणिक एवं अशासकीय अध्ययन संसाधन
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>पाठ्य-पुस्तकें (Textbooks)</h4>
+                    <ul class="footer-links">
+                        <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> आर्थिक भूगोल (Theory-V)</a></li>
+                        <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> भूगोल प्रायोगिक मैनुअल</a></li>
+                        <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> भारत में आर्थिक विकास एवं नीतियां-I</a></li>
+                        <li><a href="./eco-skill-course.html"><i class="fa-solid fa-industry"></i> फील्ड आधारित पाठ्यक्रम</a></li>
+                        <li><a href="./socio-additional.html"><i class="fa-solid fa-users"></i> समाजशास्त्रीय सिद्धांत एवं समाज</a></li>
+                        <li><a href="./vac-ctmv.html"><i class="fa-solid fa-building-columns"></i> संस्कृति, परंपराएं व नैतिक मूल्य (VAC)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>त्वरित साधन (Quick Tools)</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fa-solid fa-house"></i> पुस्तकालय मुखपृष्ठ</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i> विषय खोजें (Ctrl+K)</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSyllabusModal('vac-ctmv')"><i class="fa-solid fa-file-invoice"></i> आधिकारिक पाठ्यक्रम (Syllabus)</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> थीम बदलें (Light/Dark)</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i> पृष्ठ के शीर्ष पर जाएं</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div>
+                    © 2026 बी.ए. 5वां सेमेस्टर कॉलेज डिजिटल पाठ्यपुस्तक। संस्कृति, परंपराएं एवं नैतिक मूल्य (CTMV)।
+                </div>
+                <div class="footer-bottom-links">
+                    <span>सरल हिंदी माध्यम</span>
+                    <span>•</span>
+                    <span>100% निःशुल्क शैक्षणिक पठन</span>
+                    <span>•</span>
+                    <a href="javascript:void(0)" onclick="scrollToTop()">वापस ऊपर जाएं ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" onclick="scrollToTop()" title="शीर्ष पर जाएं"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>आधिकारिक पाठ्यक्रम (Syllabus)</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="vac-ctmv" selected>VAC — CTMV</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="socio-additional">समाजशास्त्र (अतिरिक्त विषय)</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="ज़ूम बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i> ज़ूम +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="ज़ूम छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i> ज़ूम -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="रीसेट">रीसेट</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="बंद करें">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">आधिकारिक सिलेबस दस्तावेज़ • विश्वविद्यालय प्रमाणित</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#14532d; border:none;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="नैतिक मूल्य, संविधान या संस्कृति खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

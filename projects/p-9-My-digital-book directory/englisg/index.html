@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.A. 5th Semester Digital Textbook Library</title>
+    <meta name="description" content="B.A. 5th Semester Digital Textbook Library: Comprehensive college textbooks for Geography, Economics, Sociology, and Value Added Course (VAC CTMV) in clear, standard English.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-book-bookmark"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Digital Textbook Library</span>
+            </div>
+        </a>
+
+        <!-- Desktop & Mobile Drawer Menu -->
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./geo-theory.html" class="nav-link"><i class="fa-solid fa-earth-americas"></i> Economic Geography</a></li>
+            <li><a href="./geo-practical.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Geography Practical</a></li>
+            <li><a href="./eco-elective-1-policy.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Economics Elective-1</a></li>
+            <li><a href="./eco-skill-course.html" class="nav-link"><i class="fa-solid fa-industry"></i> Field Course</a></li>
+            <li><a href="./socio-additional.html" class="nav-link"><i class="fa-solid fa-users"></i> Sociology</a></li>
+            <li><a href="./vac-ctmv.html" class="nav-link"><i class="fa-solid fa-building-columns"></i> VAC (Values)</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('hi')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> हिन्दी संस्करण</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Subject (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="Decrease Font">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="Default Font">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="Increase Font">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('hi')" title="हिन्दी में पढ़ें (Switch to Hindi)" aria-label="Switch to Hindi">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">हिन्दी</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="Open Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Library Stats -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> <span>Library</span></a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current-crumb">Home (Digital Bookshelf)</span>
+            </div>
+            <div class="breadcrumb-right">
+                <span class="reading-progress-pill"><i class="fa-solid fa-graduation-cap"></i> 6 Digital Textbooks</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="main-wrapper single-column">
+
+        <!-- Library Welcome Hero -->
+        <header class="library-hero">
+            <h1>College Digital Textbook Library</h1>
+            <p>
+                Authentic college textbooks prepared for B.A. 5th Semester students in simple, clear, and rigorous academic English. Distraction-free, box-clutter-free, providing a calm and focused reading experience.
+            </p>
+        </header>
+
+        <!-- Bookshelf Grid (4 Disciplines / 6 Textbooks) -->
+        <div class="bookshelf-grid">
+
+            <!-- Book 1: Geography (Theory) -->
+            <div class="book-card" style="--accent-color: var(--geo-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--geo-accent);">Geography (Theory-V)</span>
+                    <h2>Economic Geography</h2>
+                    <p>Approaches, 16 fundamental concepts, development patterns, Von Thünen agricultural and Weber industrial location models, primary &amp; secondary activities, transport, trade, and the ICT industry.</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit I: Definition, Approaches, 16 Concepts &amp; HDI</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit II: Locational Theories (Von Thünen &amp; Alfred Weber)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit III: Agriculture, Fishing, Mining, Coal, Cotton Textiles &amp; Petrochemicals</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit IV: Service Sector, 5 Transport Modes, Trade &amp; ICT Industry</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./geo-theory.html" class="btn-read-book" style="background-color:var(--geo-accent);">Read Book</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('geo-theory', 'Economic Geography')">Syllabus</button>
+                </div>
+            </div>
+
+            <!-- Book 2: Geography Practical -->
+            <div class="book-card" style="--accent-color: var(--geo-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--geo-accent);">Geography Practical (Practical-V)</span>
+                    <h2>Field Survey Methods, Field Trip and Report Writing</h2>
+                    <p>Field Survey Methods, Field Trip and Report Writing — Complete 25-chapter digital manual based on the official curriculum: Role &amp; value of field work, 5 case studies, sampling designs, interviews/FGD/quadrats, model field report, MS Word/Excel formatting, and 150+ viva voce questions.</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit I: Role, Value, Ethics &amp; 5 Case Studies of Field Work (Ch 1-5)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit II: Sampling Design - Random, Stratified, Systematic, Cluster (Ch 6-11)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit III: Techniques - Observation, Questionnaire, Interview, FGD, Transect, Quadrat (Ch 12-17)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit IV: Report Format, Model Report, MS Word/Excel, 16 Exercises &amp; 150+ Viva Questions (Ch 18-25)</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./geo-practical.html" class="btn-read-book" style="background-color:var(--geo-accent);">Read Book</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('geo-practical', 'Geography Practical')">Syllabus</button>
+                </div>
+            </div>
+
+            <!-- Book 3: Economics Elective 1 -->
+            <div class="book-card" style="--accent-color: var(--eco-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--eco-accent);">Economics Elective 1 (Economics)</span>
+                    <h2>Economic Development and Policy in India - I</h2>
+                    <p>Economic Development and Policy in India-I — Complete 30-chapter digital textbook based on the official curriculum: Growth vs. development, planning &amp; SDGs, resources &amp; capital, FDI/FII, demographic dividend, employment, MGNREGA, and macroeconomic indicators.</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit I: Growth, Measuring Development, Dimensions, Planning Goals &amp; SDGs (Ch 1-7)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit II: Factors of Development - Resources, Environment, Capital Formation, Technology &amp; FDI/FII (Ch 8-15)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit III: Demographic Trends, Decadal Growth, Dividend, Literacy &amp; Migration (Ch 16-24)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Unit IV: Workforce Participation, Organized-Unorganized Sectors, Unemployment &amp; MGNREGA (Ch 25-30)</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./eco-elective-1-policy.html" class="btn-read-book" style="background-color:var(--eco-accent);">Read Book</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('eco-elective-1', 'Economics Elective 1')">Syllabus</button>
+                </div>
+            </div>
+
+            <!-- Book 4: Field Based Course -->
+            <div class="book-card" style="--accent-color: var(--eco-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--eco-accent);">Field Based Course (Economics Skill)</span>
+                    <h2>Field Based Course: Industry, Entrepreneurship and Field Report</h2>
+                    <p>Field Based Course (Semesters V &amp; VI, 04 Credits) — Complete 25-chapter digital textbook based on the official curriculum: Micro, small, medium, and large-scale industries, entrepreneur/worker/manager dialogues, workplace environment, operations, marketing, inventory, finance, 30-point model report, 15 exercises, and 40 viva voce questions.</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> Section 1: Field Visits, Economic Activities &amp; Small/Medium/Large Industries (Ch 1-4)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Section 2: Entrepreneur, Worker &amp; Manager Dialogue and Workplace Environment (Ch 5-7)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Section 3: 7 Pillars of Enterprise - Operations, Marketing, Inventory, Finance, HR (Ch 8-14)</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Sections 4-7: Methodology, Diary, 30-Point Model Report, 15 Exercises &amp; 40 Viva Questions (Ch 15-25)</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./eco-skill-course.html" class="btn-read-book" style="background-color:var(--eco-accent);">Read Book</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('eco-skill', 'Field Based Course')">Syllabus</button>
+                </div>
+            </div>
+
+            <!-- Book 5: Sociology -->
+            <div class="book-card" style="--accent-color: var(--socio-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--socio-accent);">Sociology Additional (Sociology)</span>
+                    <h2>Sociological Theories and Indian Society</h2>
+                    <p>Auguste Comte (Law of Three Stages), Émile Durkheim (Social Facts &amp; Suicide), Karl Marx (Class Struggle), Max Weber (Bureaucracy &amp; Social Action), M.N. Srinivas (Sanskritization), and G.S. Ghurye (Caste System).</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 1: Auguste Comte &amp; Positivism</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 2: Theories of Émile Durkheim</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 3: Karl Marx &amp; Class Struggle</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 4: Max Weber — Social Action &amp; Bureaucracy</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 5: M.N. Srinivas &amp; G.S. Ghurye</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./socio-additional.html" class="btn-read-book" style="background-color:var(--socio-accent);">Read Book</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('socio-additional', 'Sociology Additional')">Syllabus</button>
+                </div>
+            </div>
+
+            <!-- Book 6: VAC CTMV -->
+            <div class="book-card" style="--accent-color: var(--vac-accent);">
+                <div class="book-card-header">
+                    <span class="subject-tag" style="color:var(--vac-accent);">Value Added Course (VAC CTMV)</span>
+                    <h2>Culture, Traditions and Moral Values</h2>
+                    <p>Culture vs civilization, Satya, Ahimsa, Karuna, Upanishadic Vasudhaiva Kutumbakam, Gita's Nishkama Karma, constitutional fundamental duties (Article 51A), and digital ethics.</p>
+                </div>
+                <ul class="book-chapters-list">
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 1: Indian Culture and Civilization</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 2: Universal Moral Values &amp; Philosophy</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 3: Constitutional Values &amp; Fundamental Duties</li>
+                    <li><i class="fa-solid fa-check text-xs"></i> Chapter 4: Digital Ethics and Cyber Conduct</li>
+                </ul>
+                <div class="book-card-actions">
+                    <a href="./vac-ctmv.html" class="btn-read-book" style="background-color:var(--vac-accent);">Read Book</a>
+                    <button class="btn-syllabus" onclick="openSyllabusModal('vac-ctmv', 'VAC CTMV')">Syllabus</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Development &amp; Policy</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="socio-additional">Sociology (Additional Subject)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">Official Syllabus Document • University Accredited</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#3b82f6; border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="Search subject, chapter, or theory..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Universal Academic Footer -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>B.A. 5th Semester Digital Library</span>
+                    </div>
+                    <p>
+                        Dedicated digital textbook platform for undergraduate (UG) Faculty of Arts students. Authentic study material, comprehensive theories, diagrams, case studies, and exam-oriented Q&amp;A available in simple, standard English.
+                    </p>
+                    <p style="font-size:0.85rem; color:var(--text-subtle);">
+                        <i class="fa-solid fa-shield-halved" style="color:var(--accent-color);"></i> Academic &amp; Non-Governmental Educational Resource
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Textbooks</h4>
+                    <ul class="footer-links">
+                        <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> Economic Geography (Theory-V)</a></li>
+                        <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> Geography Practical Manual</a></li>
+                        <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> Economic Development &amp; Policy in India-I</a></li>
+                        <li><a href="./eco-skill-course.html"><i class="fa-solid fa-industry"></i> Field Based Course</a></li>
+                        <li><a href="./socio-additional.html"><i class="fa-solid fa-users"></i> Sociological Theories &amp; Society</a></li>
+                        <li><a href="./vac-ctmv.html"><i class="fa-solid fa-building-columns"></i> Culture, Traditions &amp; Moral Values (VAC)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fa-solid fa-house"></i> Library Home</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i> Search Subject (Ctrl+K)</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSyllabusModal('eco-elective-1')"><i class="fa-solid fa-file-invoice"></i> Official Syllabus</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> Toggle Theme (Light/Dark)</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i> Back to Top</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div>
+                    &copy; 2026 B.A. 5th Semester College Digital Textbook Library. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <span>Standard English Medium</span>
+                    <span>&bull;</span>
+                    <span>100% Free Academic Reading</span>
+                    <span>&bull;</span>
+                    <a href="javascript:void(0)" onclick="scrollToTop()">Back to Top &uarr;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

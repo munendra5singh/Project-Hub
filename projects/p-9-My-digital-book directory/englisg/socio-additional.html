@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociological Theories & Indian Society | B.A. 5th Semester College Textbook</title>
+    <meta name="description" content="B.A. 5th Semester Sociology (Additional Subject): Auguste Comte, Émile Durkheim, Karl Marx, Max Weber, M.N. Srinivas (Sanskritization), and G.S. Ghurye (Caste System).">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body data-subject="sociology">
+
+    <!-- Floating Exit Button for Content-Only Mode -->
+    <button class="content-only-exit-btn" id="content-only-exit-btn" aria-label="Return to Normal View" title="Return to Normal View">
+        <i class="fa-solid fa-compress"></i>
+        <span>Normal View</span>
+    </button>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-users"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Sociology Textbook</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> Library</a></li>
+            <li><a href="#ch1" class="nav-link">Chapter 1: Comte</a></li>
+            <li><a href="#ch2" class="nav-link">Chapter 2: Durkheim</a></li>
+            <li><a href="#ch3" class="nav-link">Chapter 3: Marx</a></li>
+            <li><a href="#ch4" class="nav-link">Chapter 4: Weber</a></li>
+            <li><a href="#ch5" class="nav-link">Chapter 5: Indian Society</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('hi')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> हिन्दी संस्करण</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSyllabusModal('socio-additional', 'Sociology Additional')" title="Official Syllabus">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Syllabus</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="Search (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="Decrease font size">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="Normal font size">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="Increase font size">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('hi')" title="हिन्दी में पढ़ें (Switch to Hindi)" aria-label="Switch to Hindi">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">हिन्दी</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="Open Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Chapter Progress -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Table of Contents" aria-expanded="true" title="Toggle Table of Contents (Ctrl+B)">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span class="sidebar-toggle-text">Table of Contents</span>
+                </button>
+                <div class="breadcrumb-links">
+                    <a href="./index.html"><i class="fa-solid fa-house"></i> <span>Library</span></a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>Sociology</span>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="current-crumb">Sociological Theories & Indian Society</span>
+                </div>
+            </div>
+            <div class="breadcrumb-right">
+                <span id="breadcrumb-active-topic" class="breadcrumb-active-topic"></span>
+                <span class="reading-progress-pill" id="reading-progress-pill"><i class="fa-solid fa-book-open"></i> Progress: 0%</span>
+                <button class="content-only-btn" id="content-only-btn" aria-label="Show Content Only" title="Show Content Only (Reading Mode)">
+                    <i class="fa-solid fa-expand"></i>
+                    <span class="content-only-text">Content Only</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Two-Column Layout -->
+    <div class="main-wrapper">
+
+        <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- Sidebar TOC -->
+        <aside class="sidebar-toc" id="sidebar-toc">
+            <div class="toc-header">
+                <h3>Table of Contents</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close">&times;</button>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 1: Auguste Comte</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch1" class="toc-link">1.0 Introduction</a></li>
+                    <li><a href="#sec1-1" class="toc-link">1.1 Emergence of Sociology</a></li>
+                    <li><a href="#sec1-2" class="toc-link">1.2 Law of Three Stages</a></li>
+                    <li><a href="#ch1-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 2: Émile Durkheim</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch2" class="toc-link">2.0 Introduction</a></li>
+                    <li><a href="#sec2-1" class="toc-link">2.1 Rules of Social Facts</a></li>
+                    <li><a href="#sec2-2" class="toc-link">2.2 Four Types of Suicide</a></li>
+                    <li><a href="#ch2-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 3: Karl Marx</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch3" class="toc-link">3.0 Introduction</a></li>
+                    <li><a href="#sec3-1" class="toc-link">3.1 Historical Materialism</a></li>
+                    <li><a href="#sec3-2" class="toc-link">3.2 Class Struggle & Alienation</a></li>
+                    <li><a href="#ch3-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 4: Max Weber</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch4" class="toc-link">4.0 Introduction</a></li>
+                    <li><a href="#sec4-1" class="toc-link">4.1 Science of Social Action</a></li>
+                    <li><a href="#sec4-2" class="toc-link">4.2 Ideal Type Bureaucracy</a></li>
+                    <li><a href="#sec4-3" class="toc-link">4.3 Three Types of Authority</a></li>
+                    <li><a href="#ch4-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-group">
+                <div class="toc-group-title">Chapter 5: Indian Sociology</div>
+                <ul class="toc-item-list">
+                    <li><a href="#ch5" class="toc-link">5.0 Introduction</a></li>
+                    <li><a href="#sec5-1" class="toc-link">5.1 M.N. Srinivas: Sanskritization</a></li>
+                    <li><a href="#sec5-2" class="toc-link">5.2 Dominant Caste Characteristics</a></li>
+                    <li><a href="#sec5-3" class="toc-link">5.3 G.S. Ghurye: 6 Features of Caste</a></li>
+                    <li><a href="#ch5-summary" class="toc-link">Chapter Summary & Exercises</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Book Reading Column -->
+        <main class="content-area book-page">
+
+            <!-- Book Title Header -->
+            <header class="book-hero">
+                <div class="book-paper-meta"><i class="fa-solid fa-book"></i> B.A. 5th Semester • Sociology Additional Paper</div>
+                <h1>Sociological Theories & Indian Society</h1>
+                <p class="book-intro-lead">
+                    This textbook presents the foundational theories of classical sociological thinkers—Auguste Comte, Émile Durkheim, Karl Marx, and Max Weber—as well as the analysis of the caste system and social mobility by pioneers of Indian sociology, M.N. Srinivas and G.S. Ghurye, in clear, accessible, and student-friendly academic English.
+                </p>
+                <div class="book-hero-badges">
+                    <span class="book-hero-badge"><i class="fa-solid fa-layer-group"></i> 5 Comprehensive Chapters</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-users"></i> Classical & Indian Thinkers</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-language"></i> Standard Academic English</span>
+                    <span class="book-hero-badge"><i class="fa-solid fa-circle-check"></i> University Approved</span>
+                </div>
+            </header>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 1: AUGUSTE COMTE & POSITIVISM                                      -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch1">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 1</div>
+                    <h2>Auguste Comte: The Emergence of Sociology & The Law of Three Stages</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        At the end of the 18th century, with the advent of the Industrial Revolution and the French Revolution of 1789 in Europe, the centuries-old feudal order collapsed. Anarchy, class conflict, and profound social upheaval ensued. Observing this disorder, the French thinker Auguste Comte realized that just as the laws of physics explain nature, there should be a scientific discipline to understand and reform human society. In this chapter, we explore the emergence of sociology and Comte's famous 'Law of Three Stages' in clear, accessible language.
+                    </p>
+                </div>
+
+                <!-- 1.1 Emergence of Sociology -->
+                <h3 class="topic-heading" id="sec1-1">1.1 The Emergence of Sociology & Positivism</h3>
+
+                <p>
+                    The French philosopher <strong>Auguste Comte (1798–1857) is regarded as the 'Father of Sociology'</strong>. In the year 1838, he coined the term 'Sociology' by combining the Latin word <em>'Socius'</em> (society/companion) and the Greek word <em>'Logos'</em> (science/study). Prior to this, he referred to it as 'Social Physics'.
+                </p>
+
+                <p>
+                    Comte's greatest contribution was the concept of <strong>Positivism</strong>. Positivism directly means: <em>"Setting aside speculative fantasies and religious superstitions to study society through direct observation, experimentation, comparison, and scientific laws, just like the physical sciences."</em>
+                </p>
+
+                <!-- 1.2 Law of Three Stages -->
+                <h3 class="topic-heading" id="sec1-2">1.2 The Law of Three Stages of Human Thought</h3>
+
+                <p>
+                    Comte maintained that human society and human modes of thinking have developed through three successive historical stages:
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">1. Theological Stage</div>
+                    <p>
+                        This was the initial phase of human civilization. In this stage, humans attributed every natural and social phenomenon (such as illness, drought, floods, birth, and death) to supernatural powers, spirits, or divine will. It unfolded through three sub-stages: first Fetishism (worship of inanimate spirits), followed by Polytheism (worship of multiple gods and deities), and ultimately Monotheism (belief in one supreme God). Society during this stage was dominated by priests and military rulers.
+                    </p>
+                </div>
+
+                <div class="book-definition">
+                    <div class="def-term">2. Metaphysical Stage</div>
+                    <p>
+                        This was a transitional era (roughly from 1300 to 1800 CE). During this period, direct divine intervention was set aside, but phenomena were explained through abstract philosophical concepts and 'invisible forces of nature'. The authority of theologians gave way to the influence of lawyers, jurists, and philosophers.
+                    </p>
+                </div>
+
+                <div class="book-definition">
+                    <div class="def-term">3. Positive / Scientific Stage</div>
+                    <p>
+                        This represents the era of modern industrial society (post-1800 CE). Humans ceased asking "What is the ultimate purpose of the universe?" Instead, they focused on <strong>how things actually occur</strong>. This stage is grounded entirely in empirical observation, classification of facts, and scientific experimentation. Society in this era is guided by scientists, industrialists, and engineers.
+                    </p>
+                </div>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch1-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            In this chapter, we examined how Auguste Comte laid the foundation of sociology in 1838. His positivism emphasizes studying society using empirical scientific methods. According to his 'Law of Three Stages', human knowledge has evolved from a theological (supernatural) stage, passed through a metaphysical (abstract) stage, and finally reached the modern scientific (positive) stage.
+                        </p>
+                    </div>
+
+                    <div class="chapter-key-points">
+                        <h3>Key Takeaways</h3>
+                        <ol>
+                            <li><strong>Auguste Comte:</strong> Father of Sociology (coined the term in 1838).</li>
+                            <li><strong>Positivism:</strong> Studying society through empirical observation, comparison, and scientific methods.</li>
+                            <li><strong>Theological Stage:</strong> Explanations based on supernatural forces and divine will.</li>
+                            <li><strong>Metaphysical Stage:</strong> Explanations based on abstract concepts and philosophical notions.</li>
+                            <li><strong>Scientific Stage:</strong> Modern thought rooted in empirical facts, natural laws, and systematic observation.</li>
+                        </ol>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Review Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>What is meant by Auguste Comte's 'Positivism'?</li>
+                                <li>Provide a detailed critical review of Auguste Comte's 'Law of Three Stages'.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 2: ÉMILE DURKHEIM                                                  -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch2">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 2</div>
+                    <h2>Émile Durkheim: Social Facts & The Theory of Suicide</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        French sociologist Émile Durkheim transformed sociology from mere philosophical reflection into an established academic university discipline. Durkheim argued that sociology must have its own distinct, independent subject matter, completely separate from psychology and biology. He designated this subject matter as <strong>'Social Facts'</strong>, and through his landmark empirical study <em>'Le Suicide' (1897)</em>, he demonstrated that even a deeply personal act like suicide is determined by the underlying structure of society.
+                    </p>
+                </div>
+
+                <!-- 2.1 Social Facts -->
+                <h3 class="topic-heading" id="sec2-1">2.1 Rules of Social Facts</h3>
+
+                <p>
+                    According to Durkheim, social facts are ways of acting, thinking, and feeling that exert external constraints upon the individual. Durkheim identified two essential characteristics of social facts:
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">1. Exteriority</div>
+                    <p>
+                        Social facts do not originate inside an individual's mind or body; rather, they <strong>exist external to the individual in society beforehand</strong>. When a child is born, language, currency, legal codes, marriage institutions, and religious customs are already established in society. They continue to exist even after the individual passes away.
+                    </p>
+                </div>
+
+                <div class="book-definition">
+                    <div class="def-term">2. Coercion / Constraint</div>
+                    <p>
+                        Social facts exercise <strong>moral and social pressure</strong> on individuals to conform. If you drive on the wrong side of the road, the law penalizes you. If you wear mourning attire to a festive wedding, people ridicule you. In this way, society regulates individual conduct.
+                    </p>
+                </div>
+
+                <div class="book-note">
+                    <div class="note-title">Durkheim's Golden Rule</div>
+                    <p>
+                        In his book <em>The Rules of Sociological Method (1895)</em>, Durkheim stated his primary rule: <strong>"Treat social facts as things."</strong> That is, the researcher must cast aside personal biases and study social phenomena with the detachment of an objective scientist.
+                    </p>
+                </div>
+
+                <!-- 2.2 Theory of Suicide -->
+                <h3 class="topic-heading" id="sec2-2">2.2 Durkheim's Theory of Suicide (1897)</h3>
+
+                <p>
+                    Common belief suggests that suicide is solely the result of personal despair, emotional distress, or mental illness. However, Durkheim conducted an extensive statistical analysis of police and hospital records across various European countries to demonstrate that suicide is fundamentally a <strong>'social phenomenon'</strong>.
+                </p>
+
+                <p>
+                    According to Durkheim, society operates on two key dynamics: <strong>Social Integration (connectedness)</strong> and <strong>Social Regulation (normative control)</strong>. When the equilibrium between these forces is disrupted, suicide rates surge. Durkheim classified suicide into four distinct types:
+                </p>
+
+                <div class="table-wrapper">
+                    <table class="book-table">
+                        <thead>
+                            <tr>
+                                <th>Type of Suicide</th>
+                                <th>Social Cause (Lack of Equilibrium)</th>
+                                <th>Real-World Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Egoistic</strong></td>
+                                <td>When an individual's ties to society, family, or community become extremely weak, leaving them feeling isolated and alienated.</td>
+                                <td>Unmarried individuals or elderly persons completely detached from social networks. Durkheim found higher suicide rates among unmarried individuals compared to married ones.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Altruistic</strong></td>
+                                <td>When social integration is excessively high and an individual sacrifices their life for the group, cause, or collective honor.</td>
+                                <td>A soldier taking a bullet on the battlefield for the nation, the historical practice of Sati, or Japanese Kamikaze pilots.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Anomic</strong></td>
+                                <td>When societal norms, moral guidance, or economic stability suddenly collapse, leaving individuals in a state of normlessness (anomie) and disorientation.</td>
+                                <td>Sudden severe economic depressions, financial ruin in stock market crashes, or drastic sudden windfalls like winning a massive lottery that disrupt life balance.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Fatalistic</strong></td>
+                                <td>When social regulation and oppression are so excessively rigid that an individual feels entirely hopeless and devoid of personal freedom.</td>
+                                <td>Slaves under brutal masters in antiquity, or lifelong prisoners enduring inhumane conditions in solitary confinement.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch2-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            In this chapter, we examined Durkheim's two groundbreaking theories. Social facts exist external to individuals and exert coercive constraint upon them. In his study of suicide, Durkheim demonstrated that insufficient integration leads to egoistic suicide, excessive integration leads to altruistic suicide, and sudden breakdown of normative regulation leads to anomic suicide.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Review Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>What are the two primary characteristics of 'Social Facts' according to Durkheim? Explain with examples.</li>
+                                <li>Critically analyze the four types of suicide formulated by Émile Durkheim.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 3: KARL MARX                                                       -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch3">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 3</div>
+                    <h2>Karl Marx: Class Struggle & Historical Materialism</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        German philosopher Karl Marx (1818–1883) fundamentally reshaped how we understand human history. Marx did not view history merely as a chronicle of kings, wars, or religious doctrines; rather, he argued that history is fundamentally the story of material survival, production, and control over economic resources. In this chapter, we examine Marx's 'Historical Materialism', the 'Class Struggle' between the bourgeoisie and the proletariat in capitalist society, and the 'Alienation' engendered by mechanized industrial labor.
+                    </p>
+                </div>
+
+                <!-- 3.1 Historical Materialism -->
+                <h3 class="topic-heading" id="sec3-1">3.1 Historical Materialism: Base and Superstructure</h3>
+
+                <p>
+                    Marx maintained that before human beings can pursue philosophy, art, or politics, they must first satisfy basic survival needs: food, clothing, and shelter. Therefore, <strong>the economic system forms the foundational base of society</strong>:
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">Base vs. Superstructure</div>
+                    <p>
+                        • <strong>Economic Base (Substructure):</strong> The forces of production (land, factories, tools, technology) and relations of production (owners and wage laborers). This forms the real foundation of society.<br>
+                        • <strong>Superstructure:</strong> Built upon this economic base are the legal, political, religious, educational, familial, and cultural institutions.<br>
+                        Marx's foundational premise was: <em>"The class which has the means of material production at its disposal has control at the same time over the means of mental production, and its ideas dominate the entire society."</em>
+                    </p>
+                </div>
+
+                <!-- 3.2 Class Struggle -->
+                <h3 class="topic-heading" id="sec3-2">3.2 The Theory of Class Struggle</h3>
+
+                <p>
+                    In the opening line of <em>The Communist Manifesto (1848)</em>, Marx and his collaborator Friedrich Engels proclaimed:
+                </p>
+
+                <div class="book-note">
+                    <div class="note-title">Timeless Maxim of the Communist Manifesto (1848)</div>
+                    <p>
+                        "The history of all hitherto existing society is the history of class struggles. Freeman and slave, patrician and plebeian, lord and serf, guild-master and journeyman, in a word, oppressor and oppressed, stood in constant opposition to one another."
+                    </p>
+                </div>
+
+                <p>
+                    According to Marx, modern capitalist society is polarized into two primary opposing classes:
+                </p>
+                <ul class="book-list">
+                    <li><strong>1. Bourgeoisie (Capitalist Class):</strong> The owners of the means of production—factories, land, machinery, and capital. They do not perform manual labor themselves; instead, they extract profit from the labor of others.</li>
+                    <li><strong>2. Proletariat (Working Class):</strong> Those who own no property or means of production other than their own capacity to labor. To survive, they are compelled to sell their labor power to the capitalists.</li>
+                </ul>
+
+                <p>
+                    <strong>Extraction of Surplus Value:</strong> A laborer works an 8-hour shift and produces goods worth $1,000, yet the capitalist pays them only $300 in wages. The remaining $700 of 'surplus value' is appropriated by the capitalist. Marx argued that this extraction is the core engine of capitalist profit and the root cause of inevitable class struggle.
+                </p>
+
+                <!-- 3.3 Alienation -->
+                <h3 class="topic-heading" id="sec3-3">3.3 The Theory of Alienation</h3>
+
+                <p>
+                    Laboring under repetitive, mechanized factory conditions day and night causes workers to lose their human dignity, experiencing 'alienation' (estrangement) across four dimensions:
+                </p>
+                <ol class="book-list">
+                    <li><strong>Alienation from the product:</strong> The worker who produces parts of an automobile all day can never afford to purchase it. The object becomes an alien, hostile entity.</li>
+                    <li><strong>Alienation from the act of production:</strong> Labor is no longer a source of creative satisfaction; it becomes an oppressive, exhausting chore merely endured for basic sustenance.</li>
+                    <li><strong>Alienation from fellow workers:</strong> Under capitalism, workers are pitted against each other as competitors for scarce jobs rather than united comrades.</li>
+                    <li><strong>Alienation from species-being (human nature):</strong> Human beings are stripped of their spontaneous, creative human potential, reduced to mere cogs in an industrial machine.</li>
+                </ol>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch3-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            In this chapter, we explored Karl Marx's materialist framework. The economic foundation determines social ideas, legal institutions, and politics. Under capitalism, owners of capital (bourgeoisie) exploit the surplus value produced by wage laborers (proletariat). The dehumanizing conditions of industrial production alienate workers from their products, the labor process, their peers, and their own humanity. Marx believed that this contradiction would culminate in a proletarian revolution establishing a classless communist society.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Review Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>What is the fundamental distinction between the 'Bourgeoisie' and the 'Proletariat' according to Karl Marx?</li>
+                                <li>Explain the four dimensions of Marx's 'Theory of Alienation'.</li>
+                                <li>"The history of all hitherto existing society is the history of class struggles." Discuss this statement in light of Marxian theory.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 4: MAX WEBER                                                       -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch4">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 4</div>
+                    <h2>Max Weber: Social Action & Ideal Type Bureaucracy</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        German sociologist Max Weber (1864–1920) challenged economic determinism. Weber argued that economic factors alone do not dictate everything; rather, human ideas, religious values, and meaningful social conduct profoundly shape history and society. Weber established sociology as the interpretive science of 'social action' and formulated the renowned <strong>'Ideal Type of Bureaucracy'</strong> to analyze the administrative machinery of large-scale modern institutions.
+                    </p>
+                </div>
+
+                <!-- 4.1 Social Action -->
+                <h3 class="topic-heading" id="sec4-1">4.1 Social Action & Interpretive Understanding (Verstehen)</h3>
+
+                <p>
+                    According to Weber, not every human behavior constitutes social action. An action is designated as <strong>'Social Action'</strong> only when:
+                </p>
+                <ul class="book-list">
+                    <li>The acting individual attaches a <strong>subjective meaning</strong> to their conduct.</li>
+                    <li>The action is <strong>oriented toward the past, present, or expected future behavior of other individuals</strong>.</li>
+                </ul>
+
+                <p>
+                    <strong>Weber's Classic Example:</strong> If 50 people on a street open umbrellas simultaneously when it starts raining, this is not a social action; each person acts independently in response to a natural event, not in orientation to others. However, if two cyclists collide and begin arguing, apologizing, or exchanging blows, it is a social action because each participant's behavior is meaningful and directly oriented toward the other.
+                </p>
+
+                <!-- 4.2 Ideal Type Bureaucracy -->
+                <h3 class="topic-heading" id="sec4-2">4.2 Max Weber's Ideal Type Bureaucracy</h3>
+
+                <p>
+                    Weber recognized that managing modern capitalist enterprises, state administrations, and armed forces cannot rely on arbitrary monarchical whim or nepotism. For this purpose, he delineated 6 fundamental features of <strong>rational-legal bureaucracy</strong>:
+                </p>
+
+                <ol class="book-list">
+                    <li><strong>Clear Division of Labor:</strong> Every official and worker has clearly demarcated duties, jurisdictions, and responsibilities defined by written rules.</li>
+                    <li><strong>Hierarchy of Authority:</strong> Offices are organized in a pyramid-like structure where each lower level is supervised and directed by a superior office.</li>
+                    <li><strong>Written Rules and Files:</strong> Decisions are not based on verbal whim. Administrative acts, rules, and procedures are systematically recorded and preserved in official files.</li>
+                    <li><strong>Impersonality:</strong> Officials perform duties impartially, without personal hatred, passion, or favoritism, applying rules equally to all individuals.</li>
+                    <li><strong>Merit-Based Recruitment:</strong> Candidates are recruited based on technical qualifications, formal examinations, and demonstrable competence rather than personal patronage.</li>
+                    <li><strong>Fixed Salaries and Career Security:</strong> Officials receive regular graded compensation, prospects for merit-based promotion, and retirement pensions, making administration a full-time vocation.</li>
+                </ol>
+
+                <!-- 4.3 Three Types of Authority -->
+                <h3 class="topic-heading" id="sec4-3">4.3 Three Types of Authority</h3>
+
+                <p>
+                    When power is accepted as legitimate by those subject to it, it becomes 'authority'. Weber classified legitimate authority into three ideal types:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. Traditional Authority:</strong> Grounded in an established belief in the sanctity of ancient traditions and the legitimacy of those exercising power under them. Examples: Monarchs, feudal lords, or the patriarchal head of a family.</li>
+                    <li><strong>2. Charismatic Authority:</strong> Based on devotion to the exceptional heroism, exemplary character, or extraordinary sanctity of an individual leader. Examples: Mahatma Gandhi, Napoleon Bonaparte, or religious prophets.</li>
+                    <li><strong>3. Rational-Legal Authority:</strong> Grounded in a commitment to legally enacted rules and the right of those elevated to authority under such rules to issue commands. Examples: Modern constitutional democracies, judiciaries, and civil services.</li>
+                </ul>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch4-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            In this chapter, we studied the core contributions of Max Weber. Social action is meaningful conduct oriented toward the behavior of others. Weber's ideal-type bureaucracy is anchored in written regulations, hierarchical authority, specialization, and impersonal fairness. In modern institutional life, rational-legal authority supersedes traditional and charismatic systems as the bedrock of governance.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Review Exercises</h3>
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>What criteria define 'Social Action' according to Max Weber?</li>
+                                <li>Discuss the key characteristics of Max Weber's 'Ideal Type Bureaucracy'.</li>
+                                <li>Provide a comparative analysis of the three types of authority conceptualized by Weber.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- CHAPTER 5: INDIAN SOCIOLOGY (SRINIVAS & GHURYE)                            -->
+            <!-- ========================================================================== -->
+            <article class="chapter-section" id="ch5">
+                
+                <div class="chapter-header">
+                    <div class="chapter-number-tag">Chapter 5</div>
+                    <h2>Indian Sociology: M.N. Srinivas & G.S. Ghurye</h2>
+                </div>
+
+                <!-- Introduction -->
+                <div class="chapter-bhumika">
+                    <h4>Introduction</h4>
+                    <p>
+                        Early Western sociologists often viewed the Indian caste system as a rigid, static institution etched in stone with zero potential for mobility. However, pioneers of Indian sociology—Professor M.N. Srinivas and Dr. G.S. Ghurye—combined grassroots empirical fieldwork (the 'field view') with textual scholarship (the 'book view') to demonstrate that the caste system has experienced continuous dynamics and internal mobility throughout history. In this chapter, we explore Srinivas's concepts of 'Sanskritization' and 'Dominant Caste', along with Ghurye's 6 classical characteristics of the caste system.
+                    </p>
+                </div>
+
+                <!-- 5.1 Sanskritization -->
+                <h3 class="topic-heading" id="sec5-1">5.1 M.N. Srinivas: Sanskritization</h3>
+
+                <p>
+                    Based on his field study of the Coorg community in South India (1952), Professor M.N. Srinivas (1916–1999) formulated the influential concept of <strong>'Sanskritization'</strong>:
+                </p>
+
+                <div class="book-definition">
+                    <div class="def-term">Definition of Sanskritization</div>
+                    <p>
+                        "Sanskritization is the process by which a low or middle Hindu caste, or tribal group, changes its customs, ritual, ideology, and way of life in the direction of a high, frequently 'twice-born' (Dvija—Brahmin or Kshatriya) caste to claim a higher position in the local caste hierarchy."
+                    </p>
+                </div>
+
+                <p>
+                    Lower castes may abandon meat-eating and alcohol consumption, adopt vegetarianism, don the sacred thread, and perform marriages and religious rituals in accordance with Vedic traditions.
+                </p>
+
+                <div class="book-note">
+                    <div class="note-title">Crucial Distinction: Positional Change vs. Structural Change</div>
+                    <p>
+                        Srinivas explicitly emphasized that Sanskritization brings about only <strong>positional change</strong>, <strong>not structural change</strong>! This means that a particular caste may elevate its rank within a local ranking order, but the overall structural hierarchy of the caste system itself remains intact.
+                    </p>
+                </div>
+
+                <!-- 5.2 Dominant Caste -->
+                <h3 class="topic-heading" id="sec5-2">5.2 The Concept of Dominant Caste</h3>
+
+                <p>
+                    Drawing on his detailed ethnography of Rampura village in Karnataka, Srinivas revealed that local rural power does not always reside with Brahmins. Often, intermediate agrarian castes wield supreme power in village affairs. A caste is recognized as a <strong>'Dominant Caste'</strong> when it possesses four key attributes:
+                </p>
+                <ol class="book-list">
+                    <li><strong>Numerical Preponderance:</strong> Constituting a substantial or decisive share of the local village population.</li>
+                    <li><strong>Economic Power:</strong> Holding ownership of a major portion of fertile agricultural land in the village.</li>
+                    <li><strong>Political Influence:</strong> Dominating the village council (panchayat) and local political decision-making.</li>
+                    <li><strong>Ritual Status:</strong> Occupying a reputable, non-untouchable status in the local ritual hierarchy (e.g., Jats and Yadavs in North India, Patidars in Gujarat, Vokkaligas and Lingayats in Karnataka, Reddys and Kammas in Andhra Pradesh).</li>
+                </ol>
+
+                <!-- 5.3 G.S. Ghurye -->
+                <h3 class="topic-heading" id="sec5-3">5.3 G.S. Ghurye: 6 Features of the Indian Caste System</h3>
+
+                <p>
+                    Widely regarded as the 'Father of Indian Sociology', Dr. Govind Sadashiv Ghurye (1893–1983), in his classic work <em>Caste and Race in India (1932)</em>, detailed 6 foundational institutional features of the caste system:
+                </p>
+
+                <ul class="book-list">
+                    <li><strong>1. Segmental Division of Society:</strong> Society is divided into distinct, closed segments (castes). Membership is determined exclusively by birth and cannot be altered by individual achievement.</li>
+                    <li><strong>2. Hierarchical Organization:</strong> Castes are arranged in a definite order of social precedence, with Brahmins at the summit and untouchable castes historically placed at the bottom.</li>
+                    <li><strong>3. Restrictions on Feeding and Social Intercourse:</strong> Strict rules govern commensality; 'Kachcha' food (cooked with water) is accepted only within one's caste, while 'Pakka' food (fried in ghee) has comparatively relaxed guidelines.</li>
+                    <li><strong>4. Civil and Religious Disabilities and Privileges:</strong> Traditional norms imposed severe civic and ritual disabilities on lower castes, such as denial of access to public wells, fine attire, or temple entry, while conferring privileges upon higher castes.</li>
+                    <li><strong>5. Lack of Unrestricted Choice of Occupation:</strong> Each caste was traditionally assigned a hereditary ancestral occupation (carpenter, ironsmith, washerman), and occupational mobility was strictly circumscribed.</li>
+                    <li><strong>6. Endogamy:</strong> The most critical and immutable rule of the caste system; individuals are strictly required to marry within their own caste or sub-caste.</li>
+                </ul>
+
+                <!-- Chapter Summary & Exercises -->
+                <section class="chapter-closing" id="ch5-summary">
+                    <div class="chapter-summary">
+                        <h3>Chapter Summary</h3>
+                        <p>
+                            In this chapter, we examined the foundational contributions of two pillars of Indian sociology. M.N. Srinivas demonstrated through empirical fieldwork that castes negotiate their position through Sanskritization and that dominant castes control rural power dynamics. G.S. Ghurye documented the 6 institutional features of the caste system, highlighting endogamy and hierarchical segmentation as its most defining attributes.
+                        </p>
+                    </div>
+
+                    <div class="chapter-exercises">
+                        <h3>Review Exercises</h3>
+                        
+                        <div class="exercise-group">
+                            <h4>Short & Long Answer Questions</h4>
+                            <ol>
+                                <li>What are the key defining criteria of a 'Dominant Caste' according to M.N. Srinivas?</li>
+                                <li>Does Sanskritization lead to positional change or structural change in the caste system? Explain with reasons.</li>
+                                <li>Provide an extensive discussion of the six primary features of the caste system as formulated by G.S. Ghurye.</li>
+                            </ol>
+                        </div>
+
+                        <div class="exercise-group">
+                            <h4>Self-Check Objective Questions (MCQs)</h4>
+                            
+                            <div class="book-mcq-item">
+                                <div class="book-mcq-q">Question 1. Which Indian sociologist formulated the concept of 'Sanskritization'?</div>
+                                <div class="book-mcq-options">
+                                    <label class="book-mcq-opt"><input type="radio" name="soc-q1" onclick="checkBookOption(this, true, 'sc1-ans1')"> (A) Prof. M.N. Srinivas</label>
+                                    <label class="book-mcq-opt"><input type="radio" name="soc-q1" onclick="checkBookOption(this, false, 'sc1-ans1')"> (B) Dr. G.S. Ghurye</label>
+                                    <label class="book-mcq-opt"><input type="radio" name="soc-q1" onclick="checkBookOption(this, false, 'sc1-ans1')"> (C) Radhakamal Mukerjee</label>
+                                    <label class="book-mcq-opt"><input type="radio" name="soc-q1" onclick="checkBookOption(this, false, 'sc1-ans1')"> (D) Yogendra Singh</label>
+                                </div>
+                                <button class="answer-toggle-btn" onclick="toggleBookAnswer(this, 'sc1-ans1')">View Answer & Explanation</button>
+                                <div class="book-mcq-answer" id="sc1-ans1">
+                                    <strong>Correct Answer: (A) Prof. M.N. Srinivas</strong><br>
+                                    M.N. Srinivas introduced the theory of Sanskritization in his 1952 publication 'Religion and Society among the Coorgs of South India'.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Universal Academic Footer -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>B.A. 5th Semester Digital Library</span>
+                    </div>
+                    <p>
+                        A dedicated digital textbook platform for undergraduate (UG) Arts faculty students. Providing authentic study material, comprehensive theories, diagrams, case studies, and exam-oriented questions in clear, simple language.
+                    </p>
+                    <p style="font-size:0.85rem; color:var(--text-subtle);">
+                        <i class="fa-solid fa-shield-halved" style="color:var(--accent-color);"></i> Academic & Non-Governmental Educational Resource
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Textbooks</h4>
+                    <ul class="footer-links">
+                        <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> Economic Geography (Theory-V)</a></li>
+                        <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> Geography Practical Manual</a></li>
+                        <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> Economic Development & Policy in India-I</a></li>
+                        <li><a href="./eco-skill-course.html"><i class="fa-solid fa-industry"></i> Field Based Course</a></li>
+                        <li><a href="./socio-additional.html"><i class="fa-solid fa-users"></i> Sociological Theories & Society</a></li>
+                        <li><a href="./vac-ctmv.html"><i class="fa-solid fa-building-columns"></i> Culture, Traditions & Moral Values (VAC)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fa-solid fa-house"></i> Library Home</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i> Search Topics (Ctrl+K)</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSyllabusModal('socio-additional')"><i class="fa-solid fa-file-invoice"></i> Official Syllabus</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> Switch Theme (Light/Dark)</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i> Go to Top of Page</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div>
+                    © 2026 B.A. 5th Semester College Digital Textbook. Sociological Theories & Indian Society.
+                </div>
+                <div class="footer-bottom-links">
+                    <span>English Medium</span>
+                    <span>•</span>
+                    <span>100% Free Academic Reading</span>
+                    <span>•</span>
+                    <a href="javascript:void(0)" onclick="scrollToTop()">Back to Top ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <div class="floating-actions">
+        <button id="back-to-top" class="float-btn" onclick="scrollToTop()" title="Go to Top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="socio-additional" selected>Sociology (Additional Subject)</option>
+                    <option value="eco-elective-1">Economics Elective 1 — Development & Policy</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">Official Syllabus Document • University Certified</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#14532d; border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="Search sociology thinkers or concepts..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
