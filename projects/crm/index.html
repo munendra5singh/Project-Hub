@@ -1,0 +1,1746 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Property Manager Pro | CRM</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Property Manager Pro - Real Estate Made Simple. Manage properties, tenants, and CRM workflows efficiently.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Munendra Singh">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://munendra5singh.github.io/Project-Hub/projects/crm/index.html">
+
+  <!-- Open Graph / WhatsApp / Facebook Share Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://munendra5singh.github.io/Project-Hub/projects/crm/index.html">
+  <meta property="og:title" content="Property Manager Pro | Real Estate CRM">
+  <meta property="og:description" content="Manage your properties, tenants, and sales pipeline seamlessly.">
+  <meta property="og:image" content="https://munendra5singh.github.io/Project-Hub/projects/crm/card.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://munendra5singh.github.io/Project-Hub/projects/crm/index.html">
+  <meta name="twitter:title" content="Property Manager Pro | Real Estate CRM">
+  <meta name="twitter:description" content="Manage your properties, tenants, and sales pipeline seamlessly.">
+  <meta name="twitter:image" content="https://munendra5singh.github.io/Project-Hub/projects/crm/card.png">
+
+  <!-- Mobile & PWA Theme -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Property Manager Pro">
+
+  <!-- Standard Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon.png">
+
+  <!-- Android Chrome Home Screen Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon.png">
+
+  <!-- Apple Touch Icon (iOS Home Screen) -->
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Web App Manifest (For full Android install/PWA experience) -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Stylesheet & External Script -->
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-main">
+      <span class="brand-logo">🏠</span>
+      <span class="brand-text">Property Pro</span>
+    </div>
+    <button type="button" class="sidebar-toggle-btn" id="sidebarToggleBtn" onclick="toggleSidebarCollapse()" title="Collapse sidebar" aria-label="Collapse / expand sidebar">▣</button>
+    <button class="sidebar-close" onclick="toggleSidebar(false)" aria-label="Close sidebar">✕</button>
+  </div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard" title="Dashboard" data-tooltip="Dashboard"><span class="nav-icon">📊</span><span class="nav-text">Dashboard</span></button>
+    <button data-page="properties" title="Properties" data-tooltip="Properties"><span class="nav-icon">🏘️</span><span class="nav-text">Properties</span></button>
+    <button data-page="directProperty" title="Direct Property" data-tooltip="Direct Property"><span class="nav-icon">🔑</span><span class="nav-text">Direct Property</span></button>
+    <button data-page="upcoming" title="Upcoming Projects" data-tooltip="Upcoming Projects"><span class="nav-icon">🏗️</span><span class="nav-text">Upcoming Projects</span></button>
+    <button data-page="favorites" title="Favorites" data-tooltip="Favorites"><span class="nav-icon">⭐</span><span class="nav-text">Favorites</span></button>
+    <button data-page="followups" title="Follow-ups" data-tooltip="Follow-ups"><span class="nav-icon">📅</span><span class="nav-text">Follow-ups</span></button>
+    <button data-page="search" title="Master Search" data-tooltip="Master Search"><span class="nav-icon">🔍</span><span class="nav-text">Master Search</span></button>
+    <button data-page="profile" title="Profile" data-tooltip="Profile"><span class="nav-icon">👤</span><span class="nav-text">Profile</span></button>
+    <button data-page="settings" title="Settings" data-tooltip="Settings"><span class="nav-icon">⚙️</span><span class="nav-text">Settings</span></button>
+    <button data-page="history" title="History" data-tooltip="History"><span class="nav-icon">📜</span><span class="nav-text">History</span></button>
+    <button type="button" class="nav-theme-btn" id="sidebarThemeBtn" onclick="toggleTheme()" title="Theme" data-tooltip="Theme"><span class="nav-icon" id="sidebarThemeIcon">🎨</span><span class="nav-text" id="sidebarThemeText">Theme</span></button>
+    <button data-page="about" title="How to Use" data-tooltip="How to Use"><span class="nav-icon">📖</span><span class="nav-text">How to Use</span></button>
+  </nav>
+  <div class="side-foot">Offline • LocalStorage<br>All data stays in this browser.</div>
+</aside>
+<div id="sidebarBackdrop" class="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
+<main class="main">
+  <header class="top">
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <button class="icon-btn menu" onclick="toggleSidebar()">☰</button>
+      <div><h1 id="pageTitle">Dashboard</h1><p id="pageSub">Manage your property inventory in one place.</p></div>
+    </div>
+    <div class="top-actions">
+      <button class="btn hide-sm" onclick="exportBackup()" title="Download complete CRM backup in Excel (.xlsx) with photos">⬇ Backup</button>
+      <button class="btn hide-sm" onclick="importData()" title="Import Excel (.xlsx) or JSON backup">⬆ Import</button>
+      <button class="btn primary" id="topAddBtn" onclick="handleTopAdd()">＋ Add Property</button>
+      <div class="top-profile-avatar" id="topProfileAvatar" onclick="showPage('profile')" title="View / Edit Profile">👤</div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD PAGE (Property Manager Dashboard) -->
+  <section id="dashboardPage">
+    <!-- 1. APPLICATION IDENTITY & PURPOSE HERO -->
+    <div class="dash-hero">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
+        <div class="dash-hero-content">
+          <span class="dash-hero-badge">🏠 REAL ESTATE INVENTORY & CRM</span>
+          <h1 class="dash-hero-title">Property Manager</h1>
+          <p class="dash-hero-subtitle">Manage your properties, projects & follow-ups</p>
+          <p class="dash-hero-desc">Everything you need to manage your real-estate inventory in one place.</p>
+        </div>
+        <div class="dash-profile-wrap" onclick="showPage('profile')" title="View / Edit Profile">
+          <div class="dash-profile-avatar" id="dashProfileAvatar">👤</div>
+        </div>
+      </div>
+
+      <!-- 2. PRIMARY QUICK ACTIONS -->
+      <div class="dash-quick-actions">
+        <button type="button" class="dash-action-btn primary" onclick="openForm()" title="Add a new property to inventory">
+          <span class="act-icon">＋</span>
+          <span class="act-label">Add Property</span>
+        </button>
+        <button type="button" class="dash-action-btn secondary" onclick="openProjectForm()" title="Add a new upcoming project">
+          <span class="act-icon">＋</span>
+          <span class="act-label">Add Project</span>
+        </button>
+        <button type="button" class="dash-action-btn tertiary" onclick="navigateTo('search')" title="Search across all properties, projects & contacts">
+          <span class="act-icon">🔍</span>
+          <span class="act-label">Master Search</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- EMPTY / FIRST-TIME ONBOARDING STATE -->
+    <div id="dashEmptyState" class="panel" style="display:none;text-align:center;padding:40px 20px;margin-bottom:20px">
+      <div style="font-size:42px;margin-bottom:12px">🏠</div>
+      <h2 style="margin:0 0 8px;font-size:20px">Welcome to Property Manager</h2>
+      <p style="color:var(--muted);max-width:420px;margin:0 auto 20px;font-size:14px;line-height:1.5">
+        Start by adding your first property or upcoming project to manage your inventory, clients, and follow-ups.
+      </p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button type="button" class="btn primary" onclick="openForm()">＋ Add Property</button>
+        <button type="button" class="btn" onclick="openProjectForm()">＋ Add Project</button>
+      </div>
+    </div>
+
+    <!-- MAIN DASHBOARD CONTENT (When records exist) -->
+    <div id="dashContent">
+      <!-- 3. NEEDS YOUR ATTENTION SECTION -->
+      <div class="panel dash-attention-panel" style="margin-bottom:20px">
+        <div class="panel-head">
+          <div>
+            <h2 style="display:flex;align-items:center;gap:8px">
+              <span>⚡</span> Needs Your Attention
+            </h2>
+            <div class="muted">Scheduled follow-ups and properties requiring client contact</div>
+          </div>
+          <button class="btn" onclick="showPage('followups')">View All Follow-ups →</button>
+        </div>
+        <div id="dashAttentionContainer" class="dash-attention-grid">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- 4. OVERVIEW STATISTICS -->
+      <div style="margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">
+        <h2 style="font-size:16px;margin:0;font-weight:700">Inventory Overview</h2>
+        <span class="muted" style="font-size:12px">Live inventory metrics</span>
+      </div>
+      <div class="cards dash-overview-cards">
+        <div class="stat" onclick="showPage('properties')" style="cursor:pointer" title="View all properties">
+          <div class="label">Total Properties</div>
+          <div class="num" id="sTotal">0</div>
+          <div class="small">Total inventory</div>
+        </div>
+        <div class="stat" onclick="showPage('properties')" style="cursor:pointer" title="View available properties">
+          <div class="label">Available</div>
+          <div class="num stat-num-avail" id="sAvailable">0</div>
+          <div class="small">Ready for sale</div>
+        </div>
+        <div class="stat" onclick="showPage('properties')" style="cursor:pointer" title="View properties on hold">
+          <div class="label">On Hold</div>
+          <div class="num stat-num-hold" id="sHold">0</div>
+          <div class="small">Needs attention</div>
+        </div>
+        <div class="stat" onclick="showPage('upcoming')" style="cursor:pointer" title="View upcoming projects">
+          <div class="label">Projects</div>
+          <div class="num stat-num-proj" id="uTotal">0</div>
+          <div class="small">Pipeline launches</div>
+        </div>
+        <div class="stat" onclick="showPage('favorites')" style="cursor:pointer" title="View shortlisted items">
+          <div class="label">Favorites</div>
+          <div class="num stat-num-fav" id="sFav">0</div>
+          <div class="small" id="sFavBreakdown">Shortlisted items</div>
+        </div>
+        <div class="stat" onclick="showPage('followups')" style="cursor:pointer" title="View scheduled follow-ups">
+          <div class="label">Follow-ups</div>
+          <div class="num stat-num-follow" id="sFollow">0</div>
+          <div class="small">Scheduled visits</div>
+        </div>
+      </div>
+
+      <!-- 5 & 6. RECENT ACTIVITY & INVENTORY BY LOCATION -->
+      <div class="content-grid" style="margin-top:20px">
+        <!-- RECENT PROPERTIES -->
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Recent Properties</h2>
+              <div class="muted">Recently added or updated inventory</div>
+            </div>
+            <button class="btn" onclick="showPage('properties')">View all →</button>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Location</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="recentBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- INVENTORY BY LOCATION -->
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Inventory by Location</h2>
+              <div class="muted">Property distribution by locality & area</div>
+            </div>
+          </div>
+          <div class="list" id="summaryList"></div>
+        </div>
+      </div>
+
+      <!-- UPCOMING PROJECTS DASHBOARD SUMMARY -->
+      <div style="margin-top:28px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div>
+          <h2 style="font-size:17px;margin:0;display:flex;align-items:center;gap:8px"><span>🏗️</span> Upcoming Projects Overview</h2>
+          <p style="margin:4px 0 0;font-size:13px;color:var(--muted)">Future launches, luxury estates & pipeline developments</p>
+        </div>
+        <button class="btn" onclick="showPage('upcoming')">View All Projects →</button>
+      </div>
+      <div class="cards">
+        <div class="stat"><div class="label">Total Upcoming</div><div class="num" id="uTotal2">0</div><div class="small">Pipeline projects</div></div>
+        <div class="stat"><div class="label">Economical</div><div class="num stat-num-econ" id="uEconomical">0</div><div class="small">₹1 Cr – ₹2.5 Cr</div></div>
+        <div class="stat"><div class="label">Mid-Premium</div><div class="num stat-num-mid" id="uMidPremium">0</div><div class="small">₹2.5 Cr – ₹5 Cr</div></div>
+        <div class="stat"><div class="label">Luxury</div><div class="num stat-num-lux" id="uLuxury">0</div><div class="small">₹5 Cr+</div></div>
+      </div>
+      <div class="panel" style="margin-top:16px">
+        <div class="panel-head">
+          <div>
+            <h2>Recent Upcoming Projects</h2>
+            <div class="muted">Pipeline launches and developments</div>
+          </div>
+          <button class="btn" onclick="showPage('upcoming')">View all →</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Project & Developer</th>
+                <th>Location</th>
+                <th>Starting Price</th>
+                <th>Category & Slab</th>
+                <th>Status</th>
+                <th>Launch / Possession</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="recentUpcomingBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES PAGE (Upgraded with consistent advanced filters) -->
+  <section id="propertiesPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head">
+        <div><h2>All Properties</h2><div class="muted" id="resultCount">0 results</div></div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn primary" onclick="openForm()">＋ Add Property</button>
+          <div class="view-toggle"><button id="tableViewBtn" class="active" onclick="setView('table')">☷ Table</button><button id="cardViewBtn" onclick="setView('card')">▦ Cards</button></div>
+        </div>
+      </div>
+      <!-- PROPERTIES FILTER TOOLBAR: Search | Location | Property Type | BHK | Price Category | Budget Slab | Status | Sort | Clear Filters -->
+      <div class="toolbar">
+        <div class="toolbar-top">
+          <input class="field search" id="search" placeholder="🔎 Search name, location, developer, BHK, contact, notes..." oninput="renderProperties()">
+          <button type="button" class="btn filter-toggle-btn" id="propFilterToggle" onclick="toggleFilterCollapse('propFilterGroup', 'propFilterToggle')">⚡ Filter ▼</button>
+        </div>
+        <div class="filter-collapse-group" id="propFilterGroup">
+          <select class="field" id="filterLocation" onchange="renderProperties()"><option value="">All locations</option></select>
+        <select class="field" id="filterType" onchange="renderProperties()"><option value="">All types</option></select>
+        <select class="field" id="filterBhk" onchange="renderProperties()">
+          <option value="">All BHK</option>
+          <option value="1 BHK">1 BHK</option>
+          <option value="2 BHK">2 BHK</option>
+          <option value="3 BHK">3 BHK</option>
+          <option value="4 BHK">4 BHK</option>
+          <option value="5 BHK+">5 BHK+</option>
+          <option value="non-bhk">Plot / Other</option>
+        </select>
+        <select class="field" id="filterCategory" onchange="renderProperties()">
+          <option value="">All price categories</option>
+          <option value="Below ₹1 Cr">Below ₹1 Cr (&lt; ₹1 Cr)</option>
+          <option value="Economical">Economical (₹1 Cr – ₹2.5 Cr)</option>
+          <option value="Mid-Premium">Mid-Premium (₹2.5 Cr – ₹5 Cr)</option>
+          <option value="Luxury">Luxury (₹5 Cr+)</option>
+        </select>
+        <select class="field" id="filterSlab" onchange="renderProperties()">
+          <option value="">All budget slabs</option>
+          <option value="Below ₹1 Cr">Below ₹1 Cr (&lt; ₹1 Cr)</option>
+          <option value="₹1 Cr">₹1 Cr Slab (₹1 Cr – ₹2 Cr)</option>
+          <option value="₹2 Cr">₹2 Cr Slab (₹2 Cr – ₹3 Cr)</option>
+          <option value="₹3 Cr">₹3 Cr Slab (₹3 Cr – ₹5 Cr)</option>
+          <option value="₹5 Cr+">₹5 Cr+ Slab</option>
+        </select>
+        <select class="field" id="filterStatus" onchange="renderProperties()">
+          <option value="">All status</option>
+          <option>Available</option>
+          <option>Hold</option>
+          <option>Sold</option>
+          <option>Inactive</option>
+        </select>
+        <select class="field" id="sortBy" onchange="renderProperties()">
+          <option value="new">Newest</option>
+          <option value="old">Oldest</option>
+          <option value="priceLow">Price: Low to High</option>
+          <option value="priceHigh">Price: High to Low</option>
+          <option value="areaHigh">Area: High to Low</option>
+          <option value="az">Name A-Z</option>
+        </select>
+        <button class="btn" onclick="clearFilters()">Clear</button>
+        </div>
+      </div>
+      <div id="propertyResults"></div>
+    </div>
+  </section>
+
+  <!-- DIRECT PROPERTY PAGE (Personally Sourced Direct Inventory) -->
+  <section id="directPropertyPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>🔑 Direct Property</h2>
+          <div class="muted" id="directResultCount">0 results</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn primary" onclick="openDirectPropertyForm()">＋ Add Direct Property</button>
+          <div class="view-toggle">
+            <button id="directTableViewBtn" class="active" onclick="setDirectView('table')">☷ Table</button>
+            <button id="directCardViewBtn" onclick="setDirectView('card')">▦ Cards</button>
+          </div>
+        </div>
+      </div>
+      <!-- DIRECT PROPERTY FILTER TOOLBAR: Search | Location | Property Type | BHK | Price Category | Budget Slab | Status | Sort | Clear Filters -->
+      <div class="toolbar">
+        <div class="toolbar-top">
+          <input class="field search" id="directSearch" placeholder="🔎 Search direct property, owner, contact, location, BHK, notes..." oninput="renderDirectProperties()">
+          <button type="button" class="btn filter-toggle-btn" id="directFilterToggle" onclick="toggleFilterCollapse('directFilterGroup', 'directFilterToggle')">⚡ Filter ▼</button>
+        </div>
+        <div class="filter-collapse-group" id="directFilterGroup">
+          <select class="field" id="directFilterLocation" onchange="renderDirectProperties()"><option value="">All locations</option></select>
+          <select class="field" id="directFilterType" onchange="renderDirectProperties()"><option value="">All types</option></select>
+          <select class="field" id="directFilterBhk" onchange="renderDirectProperties()">
+            <option value="">All BHK</option>
+            <option value="1 BHK">1 BHK</option>
+            <option value="2 BHK">2 BHK</option>
+            <option value="3 BHK">3 BHK</option>
+            <option value="4 BHK">4 BHK</option>
+            <option value="5 BHK+">5 BHK+</option>
+            <option value="non-bhk">Plot / Other</option>
+          </select>
+          <select class="field" id="directFilterCategory" onchange="renderDirectProperties()">
+            <option value="">All price categories</option>
+            <option value="Below ₹1 Cr">Below ₹1 Cr (&lt; ₹1 Cr)</option>
+            <option value="Economical">Economical (₹1 Cr – ₹2.5 Cr)</option>
+            <option value="Mid-Premium">Mid-Premium (₹2.5 Cr – ₹5 Cr)</option>
+            <option value="Luxury">Luxury (₹5 Cr+)</option>
+          </select>
+          <select class="field" id="directFilterSlab" onchange="renderDirectProperties()">
+            <option value="">All budget slabs</option>
+            <option value="Below ₹1 Cr">Below ₹1 Cr (&lt; ₹1 Cr)</option>
+            <option value="₹1 Cr">₹1 Cr Slab (₹1 Cr – ₹2 Cr)</option>
+            <option value="₹2 Cr">₹2 Cr Slab (₹2 Cr – ₹3 Cr)</option>
+            <option value="₹3 Cr">₹3 Cr Slab (₹3 Cr – ₹5 Cr)</option>
+            <option value="₹5 Cr+">₹5 Cr+ Slab</option>
+          </select>
+          <select class="field" id="directFilterStatus" onchange="renderDirectProperties()">
+            <option value="">All status</option>
+            <option>Available</option>
+            <option>Hold</option>
+            <option>Sold</option>
+            <option>Inactive</option>
+          </select>
+          <select class="field" id="directSortBy" onchange="renderDirectProperties()">
+            <option value="new">Newest</option>
+            <option value="old">Oldest</option>
+            <option value="priceLow">Price: Low to High</option>
+            <option value="priceHigh">Price: High to Low</option>
+            <option value="areaHigh">Area: High to Low</option>
+            <option value="az">Name A-Z</option>
+          </select>
+          <button class="btn" onclick="clearDirectFilters()">Clear</button>
+        </div>
+      </div>
+      <div id="directPropertyResults"></div>
+    </div>
+  </section>
+
+  <!-- UPCOMING PROJECTS PAGE (Independent filter system) -->
+  <section id="upcomingPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>🏗️ Upcoming Projects</h2>
+          <div class="muted" id="upResultCount">0 results</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn primary" onclick="openProjectForm()">＋ Add Project</button>
+          <div class="view-toggle">
+            <button id="upTableViewBtn" class="active" onclick="setUpView('table')">☷ Table</button>
+            <button id="upCardViewBtn" onclick="setUpView('card')">▦ Cards</button>
+          </div>
+        </div>
+      </div>
+      <!-- UPCOMING PROJECTS FILTER TOOLBAR: Search | Location | Project Type | Price Category | Budget Slab | Project Status | Sort | Clear Filters -->
+      <div class="up-toolbar">
+        <div class="toolbar-top">
+          <input class="field search" id="upSearch" placeholder="🔎 Search project, location, builder, BHK, contact, notes..." oninput="renderUpcoming()">
+          <button type="button" class="btn filter-toggle-btn" id="upFilterToggle" onclick="toggleFilterCollapse('upFilterGroup', 'upFilterToggle')">⚡ Filter ▼</button>
+        </div>
+        <div class="filter-collapse-group" id="upFilterGroup">
+          <select class="field" id="upFilterLocation" onchange="renderUpcoming()"><option value="">All locations</option></select>
+        <select class="field" id="upFilterType" onchange="renderUpcoming()">
+          <option value="">All types</option>
+          <option>Apartment</option>
+          <option>Villa</option>
+          <option>Plot / Plotted</option>
+          <option>Township</option>
+          <option>Duplex</option>
+          <option>Commercial</option>
+          <option>Penthouse</option>
+        </select>
+        <select class="field" id="upFilterCategory" onchange="renderUpcoming()">
+          <option value="">All price categories</option>
+          <option value="Economical">Economical (₹1 Cr – ₹2.5 Cr)</option>
+          <option value="Mid-Premium">Mid-Premium (₹2.5 Cr – ₹5 Cr)</option>
+          <option value="Luxury">Luxury (₹5 Cr+)</option>
+        </select>
+        <select class="field" id="upFilterSlab" onchange="renderUpcoming()">
+          <option value="">All budget slabs</option>
+          <option value="₹1 Cr">₹1 Cr Slab</option>
+          <option value="₹2 Cr">₹2 Cr Slab</option>
+          <option value="₹3 Cr">₹3 Cr Slab</option>
+          <option value="₹5 Cr+">₹5 Cr+ Slab</option>
+        </select>
+        <select class="field" id="upFilterStatus" onchange="renderUpcoming()">
+          <option value="">All status</option>
+          <option value="Upcoming">Upcoming</option>
+          <option value="Pre-Launch">Pre-Launch</option>
+          <option value="Launched">Launched</option>
+          <option value="Ready">Ready</option>
+        </select>
+        <select class="field" id="upSortBy" onchange="renderUpcoming()">
+          <option value="new">Newest</option>
+          <option value="old">Oldest</option>
+          <option value="priceLow">Price: Low to High</option>
+          <option value="priceHigh">Price: High to Low</option>
+          <option value="az">Project Name A-Z</option>
+        </select>
+        <button class="btn" onclick="clearProjectFilters()">Clear</button>
+        </div>
+      </div>
+      <div id="upcomingResults"></div>
+    </div>
+  </section>
+
+  <!-- FAVORITES PAGE (Combined Properties + Upcoming Projects with Source Filter) -->
+  <section id="favoritesPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>⭐ Favorites</h2>
+          <div class="muted">Combined shortlisted Properties & Upcoming Projects</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <div class="view-toggle" id="favSourceFilter">
+            <button class="active" onclick="setFavFilter('all')">All (<span id="favCountAll">0</span>)</button>
+            <button onclick="setFavFilter('property')">🏠 Properties (<span id="favCountProp">0</span>)</button>
+            <button onclick="setFavFilter('upcoming')">🏗️ Upcoming (<span id="favCountUp">0</span>)</button>
+          </div>
+          <div class="view-toggle">
+            <button id="favTableViewBtn" class="active" onclick="setFavView('table')">☷ Table</button>
+            <button id="favCardViewBtn" onclick="setFavView('card')">▦ Cards</button>
+          </div>
+        </div>
+      </div>
+      <div id="favResults"></div>
+    </div>
+  </section>
+  
+  <!-- FOLLOW-UPS PAGE -->
+  <section id="followupsPage" style="display:none"><div class="panel"><div class="panel-head"><div><h2>📅 Follow-ups</h2><div class="muted">Properties with a next follow-up date</div></div></div><div id="followResults"></div></div></section>
+
+  <!-- PROFILE PAGE -->
+  <section id="profilePage" style="display:none">
+    <!-- Profile Card / Header -->
+    <div class="panel" style="margin-bottom:16px">
+      <div class="profile-header">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar" id="profileAvatar">👤</div>
+        </div>
+        <h2 class="profile-name" id="profileDisplayName">Munendra Singh</h2>
+        <div class="profile-role" id="profileDisplayRole">Property Manager</div>
+        <div style="margin-top:14px">
+          <button class="btn primary" onclick="openProfileModal()">✏️ Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal Information Section -->
+    <div class="panel" style="margin-bottom:16px">
+      <div class="panel-head">
+        <h2>Personal Information</h2>
+      </div>
+      <div class="profile-info-grid">
+        <div class="info-card">
+          <div class="info-label">Name</div>
+          <div class="info-val" id="infoName">Munendra Singh</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Phone</div>
+          <div class="info-val" id="infoPhone">+91 98765 43210</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Email</div>
+          <div class="info-val" id="infoEmail">munendra.singh@propertypro.com</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Company</div>
+          <div class="info-val" id="infoCompany">Property Pro Real Estate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Activity Section -->
+    <div class="panel">
+      <div class="panel-head">
+        <h2>My Activity</h2>
+        <div class="muted">Real-time counts across your inventory</div>
+      </div>
+      <div class="profile-activity-grid">
+        <div class="activity-stat" onclick="showPage('properties')" style="cursor:pointer" title="View Properties">
+          <div class="act-icon">🏠</div>
+          <div class="act-body">
+            <div class="act-label">Properties</div>
+            <div class="act-num" id="actProps">0</div>
+          </div>
+        </div>
+        <div class="activity-stat" onclick="showPage('upcoming')" style="cursor:pointer" title="View Upcoming Projects">
+          <div class="act-icon">🏗️</div>
+          <div class="act-body">
+            <div class="act-label">Projects</div>
+            <div class="act-num" id="actProjects">0</div>
+          </div>
+        </div>
+        <div class="activity-stat" onclick="showPage('favorites')" style="cursor:pointer" title="View Favorites">
+          <div class="act-icon">⭐</div>
+          <div class="act-body">
+            <div class="act-label">Favorites</div>
+            <div class="act-num" id="actFavs">0</div>
+          </div>
+        </div>
+        <div class="activity-stat" onclick="showPage('followups')" style="cursor:pointer" title="View Follow-ups">
+          <div class="act-icon">📅</div>
+          <div class="act-body">
+            <div class="act-label">Follow-ups</div>
+            <div class="act-num" id="actFollows">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASTER SEARCH PAGE (Global Unified Search across Properties & Upcoming Projects) -->
+  <section id="searchPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>🔍 Master Search</h2>
+          <div class="muted" id="masterSearchResultCount">Search across all properties, projects, locations & contacts</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div class="view-toggle">
+            <button id="msCardViewBtn" class="active" onclick="setMasterView('card')">▦ Cards</button>
+            <button id="msTableViewBtn" onclick="setMasterView('table')">☷ Table</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MASTER SEARCH TOOLBAR: Search Input | Clear | Filter Button -->
+      <div class="toolbar">
+        <div class="toolbar-top">
+          <div class="master-search-input-wrap" style="position:relative;flex:1;display:flex;align-items:center">
+            <input class="field search" id="masterSearchInput" placeholder="🔎 Search properties, projects, locations, owners, contacts, BHK..." oninput="renderMasterSearch()" style="width:100%;padding-right:36px">
+            <button type="button" id="masterClearBtn" class="master-search-clear" onclick="clearMasterSearchQuery()" title="Clear search" style="position:absolute;right:8px;background:none;border:none;cursor:pointer;font-size:16px;color:var(--muted);display:none">✕</button>
+          </div>
+          <button type="button" class="btn filter-toggle-btn" id="masterFilterToggle" onclick="toggleFilterCollapse('masterFilterGroup', 'masterFilterToggle')">⚡ Filters ▼</button>
+        </div>
+
+        <!-- COLLAPSIBLE FILTERS GROUP -->
+        <div class="filter-collapse-group" id="masterFilterGroup">
+          <select class="field" id="masterFilterType" onchange="renderMasterSearch()">
+            <option value="">All Record Types</option>
+            <option value="property">🏠 Properties Only</option>
+            <option value="direct">🔑 Direct Property Only</option>
+            <option value="project">🏗️ Upcoming Projects Only</option>
+            <option value="contact">👤 Contacts & Owners</option>
+          </select>
+          <select class="field" id="masterFilterLocation" onchange="renderMasterSearch()">
+            <option value="">All Locations / Cities</option>
+          </select>
+          <select class="field" id="masterFilterCategory" onchange="renderMasterSearch()">
+            <option value="">All Price Categories</option>
+            <option value="Below ₹1 Cr">Below ₹1 Cr (&lt; ₹1 Cr)</option>
+            <option value="Economical">Economical (₹1 Cr – ₹2.5 Cr)</option>
+            <option value="Mid-Premium">Mid-Premium (₹2.5 Cr – ₹5 Cr)</option>
+            <option value="Luxury">Luxury (₹5 Cr+)</option>
+          </select>
+          <select class="field" id="masterFilterStatus" onchange="renderMasterSearch()">
+            <option value="">All Statuses</option>
+            <option value="Available">Available</option>
+            <option value="Upcoming">Upcoming</option>
+            <option value="Pre-Launch">Pre-Launch</option>
+            <option value="Launched">Launched</option>
+            <option value="Hold">Hold</option>
+            <option value="Sold">Sold</option>
+          </select>
+          <select class="field" id="masterSortBy" onchange="renderMasterSearch()">
+            <option value="relevance">Sort: Relevance / Newest</option>
+            <option value="priceLow">Price: Low to High</option>
+            <option value="priceHigh">Price: High to Low</option>
+            <option value="az">Name A-Z</option>
+          </select>
+          <button type="button" class="btn" onclick="clearMasterFilters()">Clear Filters</button>
+        </div>
+      </div>
+
+      <!-- ACTIVE FILTER SUMMARY BAR -->
+      <div id="masterFilterSummaryBar" style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;margin-bottom:12px;font-size:13px;color:var(--muted);flex-wrap:wrap;gap:8px">
+        <div id="masterStatsLine"><b>35 Results</b> across Properties & Projects</div>
+        <div id="masterActiveFilterChips" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+      </div>
+
+      <!-- RESULTS CONTAINER -->
+      <div id="masterSearchResults"></div>
+    </div>
+  </section>
+
+  <!-- SETTINGS PAGE: CATEGORIES & FILTERS SYSTEM -->
+  <section id="settingsPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head settings-panel-head">
+        <div>
+          <h2>⚙️ Settings → Categories & Filters</h2>
+          <div class="muted">Centrally manage property & project types, sub-categories, locations, statuses, price categories, budget slabs, and sort options.</div>
+        </div>
+      </div>
+
+      <!-- MOBILE DATA MANAGEMENT (Import Data & Backup / Export Data) -->
+      <div class="settings-mobile-data-card" id="settingsMobileDataCard">
+        <div class="settings-mobile-data-head">
+          <span class="settings-mobile-data-badge">💾 DATA MANAGEMENT</span>
+          <span class="settings-mobile-data-sub">Offline Backup & Restore</span>
+        </div>
+        <div class="settings-mobile-data-btns">
+          <button type="button" class="settings-data-action-btn" onclick="importData()" title="Import Excel (.xlsx) or JSON backup">
+            <span class="sdb-icon">📥</span>
+            <div class="sdb-content">
+              <span class="sdb-title">Import Data</span>
+              <span class="sdb-desc">Restore database from Excel or JSON</span>
+            </div>
+            <span class="sdb-arrow">➔</span>
+          </button>
+          <button type="button" class="settings-data-action-btn" onclick="exportBackup()" title="Download complete CRM backup in Excel (.xlsx) with photos">
+            <span class="sdb-icon">💾</span>
+            <div class="sdb-content">
+              <span class="sdb-title">Backup / Export Data</span>
+              <span class="sdb-desc">Download full database with photos (.xlsx)</span>
+            </div>
+            <span class="sdb-arrow">➔</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SETTINGS TABS -->
+      <div class="settings-tabs-bar">
+        <button type="button" class="settings-tab-btn active" data-cfg-tab="types" onclick="setSettingsTab('types')">🏘️ Types & Sub-categories</button>
+        <button type="button" class="settings-tab-btn" data-cfg-tab="locations" onclick="setSettingsTab('locations')">📍 Locations</button>
+        <button type="button" class="settings-tab-btn" data-cfg-tab="statuses" onclick="setSettingsTab('statuses')">🏷️ Statuses</button>
+        <button type="button" class="settings-tab-btn" data-cfg-tab="priceCategories" onclick="setSettingsTab('priceCategories')">💰 Price Categories</button>
+        <button type="button" class="settings-tab-btn" data-cfg-tab="budgetSlabs" onclick="setSettingsTab('budgetSlabs')">📊 Budget Slabs</button>
+        <button type="button" class="settings-tab-btn" data-cfg-tab="sortOptions" onclick="setSettingsTab('sortOptions')">🔃 Sort Options</button>
+        <button type="button" class="settings-tab-btn" data-cfg-tab="customFilters" onclick="setSettingsTab('customFilters')">⚡ Custom Filters</button>
+      </div>
+
+      <!-- ACTIVE TAB SUBHEAD & STATS -->
+      <div class="settings-subhead" id="settingsSubhead">
+        <div id="settingsTabDesc" class="settings-tab-desc">Property and project types used across inventory, forms, and search filters.</div>
+        <div class="settings-subhead-actions">
+          <div id="settingsTabCount" class="settings-tab-count">5 entries</div>
+          <button type="button" class="btn primary" id="settingsAddBtn" onclick="openConfigModal()">＋ Add New Entry</button>
+        </div>
+      </div>
+
+      <!-- ENTRIES LIST CONTAINER -->
+      <div id="settingsItemsContainer" class="settings-items-container">
+        <!-- Dynamically populated by renderSettingsPage() -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / HOW TO USE PAGE -->
+  <section id="aboutPage" style="display:none">
+    <!-- Hero Banner -->
+    <div class="panel about-hero">
+      <div class="about-hero-content">
+        <span class="about-hero-badge">📖 USER GUIDE & DOCUMENTATION</span>
+        <h1 class="about-hero-title">About Us & How to Use</h1>
+        <p class="about-hero-subtitle">Complete guide, workflows, and practical instructions for Property Manager Pro.</p>
+        <p class="about-hero-desc">
+          Property Manager Pro is a professional property-management and real-estate inventory application designed to keep your listings organized, simplify client follow-ups, and streamline everyday real-estate workflows in one clean, reliable workspace.
+        </p>
+      </div>
+      <!-- Quick Navigation Jump Chips -->
+      <div class="about-jump-chips">
+        <a href="#aboutOverview" class="about-jump-chip">🏠 About Us</a>
+        <a href="#aboutQuickStart" class="about-jump-chip">📖 How to Use</a>
+        <a href="#aboutWorkflow" class="about-jump-chip">⚡ Daily Workflow</a>
+        <a href="#aboutDashboard" class="about-jump-chip">📊 Dashboard</a>
+        <a href="#aboutProperties" class="about-jump-chip">🏘️ Properties</a>
+        <a href="#aboutUpcoming" class="about-jump-chip">🏗️ Projects</a>
+        <a href="#aboutSearch" class="about-jump-chip">🔍 Master Search</a>
+        <a href="#aboutFavorites" class="about-jump-chip">⭐ Favorites</a>
+        <a href="#aboutFollowups" class="about-jump-chip">📅 Follow-ups</a>
+        <a href="#aboutProfile" class="about-jump-chip">👤 Profile</a>
+        <a href="#aboutSettings" class="about-jump-chip highlight">⚙️ Categories & Filters</a>
+        <a href="#aboutBackup" class="about-jump-chip">💾 Backup & Import</a>
+        <a href="#aboutTheme" class="about-jump-chip">🌓 Theme</a>
+        <a href="#aboutTips" class="about-jump-chip">💡 Tips & Tricks</a>
+      </div>
+    </div>
+
+    <!-- 1. HOW TO USE (Step-by-Step Guide) -->
+    <div class="panel about-panel" id="aboutQuickStart">
+      <div class="panel-head">
+        <div>
+          <h2>📖 How to Use — Step-by-Step Guide</h2>
+          <div class="muted">Follow these 10 practical steps to manage your property inventory and daily operations smoothly</div>
+        </div>
+      </div>
+      <div class="about-steps-grid">
+        <div class="about-step-card">
+          <div class="about-step-num">1</div>
+          <div class="about-step-body">
+            <h3>Start from Dashboard</h3>
+            <p>Begin on the centralized Dashboard for an instant high-level overview of total properties, available inventory, upcoming projects, and pending follow-ups.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">2</div>
+          <div class="about-step-body">
+            <h3>Add Property in Properties</h3>
+            <p>Navigate to the Properties section and click <b>＋ Add Property</b> to create a new residential or commercial inventory record.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">3</div>
+          <div class="about-step-body">
+            <h3>Save Complete Details & Photos</h3>
+            <p>Fill in and save comprehensive details including title, type, location, BHK, dimensions, pricing, photos, owner/contact details, and internal notes.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">4</div>
+          <div class="about-step-body">
+            <h3>Find via Search & Filters</h3>
+            <p>Use search and multi-filters (Location, Type, BHK, Price Category, Budget Slab, Status) or Master Search to quickly find matching listings for client inquiries.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">5</div>
+          <div class="about-step-body">
+            <h3>Save to Favorites</h3>
+            <p>Star (⭐) important or high-interest properties to keep priority options readily accessible in the dedicated Favorites section for client presentations.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">6</div>
+          <div class="about-step-body">
+            <h3>Manage Upcoming Projects</h3>
+            <p>Go to the Upcoming section to record and track developer projects, builder launches, brochures, configurations, and expected possession schedules.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">7</div>
+          <div class="about-step-body">
+            <h3>Track Follow-ups</h3>
+            <p>Use the Follow Up section to track critical buyer calls, site inspection schedules, and seller negotiations with automatic urgency status badges.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">8</div>
+          <div class="about-step-body">
+            <h3>Review Full Property Details</h3>
+            <p>Click any property card or table row to open the complete detail view, inspect high-resolution photos, review dimensions, and access owner contact numbers.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">9</div>
+          <div class="about-step-body">
+            <h3>Update Records as Info Changes</h3>
+            <p>Keep your inventory accurate and trustworthy by updating pricing, modifying status badges (Available, Hold, Sold), or adjusting notes as deals progress.</p>
+          </div>
+        </div>
+        <div class="about-step-card">
+          <div class="about-step-num">10</div>
+          <div class="about-step-body">
+            <h3>Use Theme & Settings Options</h3>
+            <p>Switch between Light and Dark themes to suit your working environment, and customize categories, locations, price slabs, and filters in Settings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. RECOMMENDED DAILY WORKFLOW -->
+    <div class="panel about-panel" id="aboutWorkflow">
+      <div class="panel-head">
+        <div>
+          <h2>⚡ Recommended Daily Workflow</h2>
+          <div class="muted">Follow this structured routine to keep your real estate operations organized and up to date</div>
+        </div>
+      </div>
+      <div class="about-workflow-container">
+        <div class="about-flow-item">
+          <div class="about-flow-icon">➕</div>
+          <div class="about-flow-title">Add Property</div>
+          <div class="about-flow-desc">Create a new listing</div>
+        </div>
+        <div class="about-flow-arrow">➔</div>
+        <div class="about-flow-item">
+          <div class="about-flow-icon">📝</div>
+          <div class="about-flow-title">Complete Details</div>
+          <div class="about-flow-desc">Specs, price & contacts</div>
+        </div>
+        <div class="about-flow-arrow">➔</div>
+        <div class="about-flow-item">
+          <div class="about-flow-icon">📸</div>
+          <div class="about-flow-title">Add Photos</div>
+          <div class="about-flow-desc">Upload photos or URLs</div>
+        </div>
+        <div class="about-flow-arrow">➔</div>
+        <div class="about-flow-item">
+          <div class="about-flow-icon">🏷️</div>
+          <div class="about-flow-title">Set Status</div>
+          <div class="about-flow-desc">Available, Hold or Sold</div>
+        </div>
+        <div class="about-flow-arrow">➔</div>
+        <div class="about-flow-item">
+          <div class="about-flow-icon">📅</div>
+          <div class="about-flow-title">Add Follow-Up</div>
+          <div class="about-flow-desc">Schedule calls & visits</div>
+        </div>
+        <div class="about-flow-arrow">➔</div>
+        <div class="about-flow-item">
+          <div class="about-flow-icon">⭐</div>
+          <div class="about-flow-title">Favorite Important Properties</div>
+          <div class="about-flow-desc">Shortlist key listings</div>
+        </div>
+        <div class="about-flow-arrow">➔</div>
+        <div class="about-flow-item">
+          <div class="about-flow-icon">🔍</div>
+          <div class="about-flow-title">Search / Filter</div>
+          <div class="about-flow-desc">Match client requests</div>
+        </div>
+        <div class="about-flow-arrow">➔</div>
+        <div class="about-flow-item highlight">
+          <div class="about-flow-icon">🔄</div>
+          <div class="about-flow-title">Keep Information Updated</div>
+          <div class="about-flow-desc">Review & update records</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;padding:10px 14px;background:var(--bg);border:1px solid var(--line);border-radius:10px;font-size:13px;color:var(--text);font-weight:600;display:flex;align-items:center;gap:6px;flex-wrap:wrap;line-height:1.5;">
+        <span style="color:var(--primary);font-weight:700">Daily Flow:</span>
+        <span>Add Property</span> ➔ <span>Complete Details</span> ➔ <span>Add Photos</span> ➔ <span>Set Status</span> ➔ <span>Add Follow-Up</span> ➔ <span>Favorite Important Properties</span> ➔ <span>Search/Filter</span> ➔ <span>Keep Information Updated</span>
+      </div>
+    </div>
+
+    <!-- 3. ABOUT US -->
+    <div class="panel about-panel" id="aboutOverview">
+      <div class="panel-head">
+        <div>
+          <h2>🏠 About Us — Property Manager Pro</h2>
+          <div class="muted">A professional, dependable property management and real-estate inventory platform</div>
+        </div>
+      </div>
+      <div class="about-text-content">
+        <p style="font-size:14px;line-height:1.6;color:var(--text);margin-top:0">
+          <b>Property Manager Pro</b> is a professional real-estate and property-management application created to help real-estate agents, brokers, and property managers keep their listings organized, structured, and instantly accessible. It simplifies daily operations by bringing property inventories, upcoming projects, client follow-ups, and custom filters into one streamlined, reliable workspace.
+        </p>
+        <p style="font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:8px">
+          Engineered to make the daily workflow of real-estate professionals clean and organized, Property Manager Pro eliminates scattered notes and chaotic spreadsheets. With fast search, clear status tracking, responsive design across mobile and desktop, and customizable themes, it provides the solid foundation you need to manage properties and serve clients efficiently.
+        </p>
+        <div class="about-features-row">
+          <div class="about-feature-box">
+            <div class="about-feature-icon">📁</div>
+            <div>
+              <b>Organized Property Information</b>
+              <p>Keep your entire inventory cleanly organized in a central system. Maintain accurate, structured records without messy paperwork or conflicting files.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">➕</div>
+            <div>
+              <b>Easy Property Addition & Management</b>
+              <p>Quickly add and manage properties with comprehensive data — including property details, photos, pricing, location, owner/contact information, and private notes.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">🔍</div>
+            <div>
+              <b>Quick Search & Smart Filters</b>
+              <p>Instantly find properties matching buyer criteria using multi-criteria filters for location, type, BHK, price category, and budget slab, alongside Master Search.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">⭐</div>
+            <div>
+              <b>Favorites & Shortlisting</b>
+              <p>Save important and high-priority properties to Favorites for fast retrieval during client meetings, site visits, and calls.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">🏗️</div>
+            <div>
+              <b>Upcoming Projects Pipeline</b>
+              <p>Record and manage upcoming builder launches, developer projects, configurations, brochures, and expected possession schedules.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">📅</div>
+            <div>
+              <b>Track Client Follow-ups</b>
+              <p>Stay on top of critical client calls, buyer inspections, and seller negotiations with structured follow-up tracking and due alerts on your Dashboard.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">🌓</div>
+            <div>
+              <b>Light & Dark Theme Support</b>
+              <p>Work comfortably in any lighting environment with built-in Light and Dark themes, switchable at any time with a single tap.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">📱</div>
+            <div>
+              <b>Responsive Usage & Workflow Focus</b>
+              <p>Enjoy a responsive experience whether on an office desktop or on a smartphone in the field, designed to make real-estate professionals' daily workflow simple and organized.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CORE MODULES WALKTHROUGH -->
+    <div class="panel about-panel">
+      <div class="panel-head">
+        <div>
+          <h2>🧩 Core Modules & Section Guide</h2>
+          <div class="muted">How each section of the application operates</div>
+        </div>
+      </div>
+
+      <div class="about-modules-grid">
+        <!-- Dashboard -->
+        <div class="about-module-card" id="aboutDashboard">
+          <div class="about-mod-head">
+            <span class="about-mod-icon">📊</span>
+            <h3>Dashboard</h3>
+          </div>
+          <p>Your central command center showing inventory health and scheduled activities:</p>
+          <ul>
+            <li><b>Real-time Metrics</b>: Live counter cards for Total Properties, Available, On-Hold, Upcoming Projects, Favorites, and Follow-ups.</li>
+            <li><b>Primary Quick Actions</b>: Rapid <code>＋ Add Property</code>, <code>＋ Add Project</code>, and <code>🔍 Master Search</code> buttons.</li>
+            <li><b>Needs Your Attention</b>: Proactive alert feed displaying client follow-ups due today, upcoming calls, and properties under active negotiation.</li>
+            <li><b>Inventory Distribution</b>: Progress bars illustrating property concentration across your registered locations.</li>
+          </ul>
+        </div>
+
+        <!-- Properties -->
+        <div class="about-module-card" id="aboutProperties">
+          <div class="about-mod-head">
+            <span class="about-mod-icon">🏘️</span>
+            <h3>Properties</h3>
+          </div>
+          <p>Complete property inventory management with advanced multi-filter controls:</p>
+          <ul>
+            <li><b>Add & Edit Listings</b>: Capture Name, Location, Type, BHK, Area (sqyds), Dimensions, Facing, Road Width, Price (₹), Status, Owner/Broker contact, Follow-up date, Map link, Video URL, and Notes.</li>
+            <li><b>Auto-Determined Badges</b>: Dynamically calculates Price Categories (Below ₹1 Cr, Economical, Mid-Premium, Luxury) and Budget Slabs.</li>
+            <li><b>Photo Support</b>: Choose local JPG/PNG photos (saved in IndexedDB) or paste external photo URLs with full lightbox viewer.</li>
+            <li><b>Dual View Modes</b>: Switch between structured <b>☷ Table</b> view and visual <b>▦ Cards</b> view.</li>
+            <li><b>Multi-Criteria Filtering</b>: Filter by Location, Type, BHK, Price Category, Budget Slab, and Status with multi-option sorting.</li>
+          </ul>
+        </div>
+
+        <!-- Upcoming Projects -->
+        <div class="about-module-card" id="aboutUpcoming">
+          <div class="about-mod-head">
+            <span class="about-mod-icon">🏗️</span>
+            <h3>Upcoming Projects</h3>
+          </div>
+          <p>Dedicated pipeline tracking for developer projects, builder launches, and future developments:</p>
+          <ul>
+            <li><b>Project Records</b>: Project Name, Location, Developer / Builder, Project Type, Configuration, Starting and Maximum Price, Expected Launch, Expected Possession, and Status (Upcoming, Pre-Launch, Launched, Ready).</li>
+            <li><b>Independent Project Filters</b>: Dedicated filter bar for project locations, types, price categories, budget slabs, and launch statuses.</li>
+            <li><b>Brochures & Elevations</b>: Upload project renders or floor plans to showcase upcoming developments to buyers.</li>
+          </ul>
+        </div>
+
+        <!-- Master Search -->
+        <div class="about-module-card" id="aboutSearch">
+          <div class="about-mod-head">
+            <span class="about-mod-icon">🔍</span>
+            <h3>Master Search</h3>
+          </div>
+          <p>Unified global search engine accessible via the bottom navigation <b>Search</b> button:</p>
+          <ul>
+            <li><b>App-Wide Search</b>: Searches across properties, projects, locations, localities, cities, owners, developers, phone numbers, and notes simultaneously.</li>
+            <li><b>Clear Source Badges</b>: Every search result card clearly highlights whether the record is a <code>🏠 PROPERTY</code> or <code>🏗️ PROJECT</code>.</li>
+            <li><b>Multi-Token Search</b>: Type multiple keywords (e.g. <i>"Duplex Rajpur"</i> or <i>"Villa Jakhan"</i>) to filter records accurately.</li>
+            <li><b>Unified Filtering</b>: Combine freeform search queries with Type, Location, Price Category, and Status dropdowns.</li>
+          </ul>
+        </div>
+
+        <!-- Favorites -->
+        <div class="about-module-card" id="aboutFavorites">
+          <div class="about-mod-head">
+            <span class="about-mod-icon">⭐</span>
+            <h3>Favorites</h3>
+          </div>
+          <p>Quick shortlisting for high-interest properties and client recommendations:</p>
+          <ul>
+            <li><b>One-Click Bookmark</b>: Tap the star icon (⭐) on any property or project card/detail modal to bookmark immediately.</li>
+            <li><b>Combined Shortlist</b>: Open Favorites to view all shortlisted properties and upcoming projects side-by-side.</li>
+          </ul>
+        </div>
+
+        <!-- Follow-ups -->
+        <div class="about-module-card" id="aboutFollowups">
+          <div class="about-mod-head">
+            <span class="about-mod-icon">📅</span>
+            <h3>Follow-ups</h3>
+          </div>
+          <p>Stay on top of scheduled client calls, buyer site visits, and seller negotiations:</p>
+          <ul>
+            <li><b>Scheduled Dates</b>: Assign a follow-up date when creating or editing any property record.</li>
+            <li><b>Categorized Statuses</b>: Automatically groups follow-ups into <i>Overdue</i>, <i>Due Today</i>, and <i>Upcoming</i>.</li>
+            <li><b>Direct Communication</b>: Click telephone links directly to initiate calls or messages to property owners and buyers.</li>
+          </ul>
+        </div>
+
+        <!-- Profile -->
+        <div class="about-module-card" id="aboutProfile">
+          <div class="about-mod-head">
+            <span class="about-mod-icon">👤</span>
+            <h3>Profile</h3>
+          </div>
+          <p>Personal profile branding and live agent activity metrics:</p>
+          <ul>
+            <li><b>Agent Details</b>: Manage Full Name, Role / Designation (e.g. Property Manager, Broker, Sales Director), Phone, Email, and Company.</li>
+            <li><b>Profile Photo</b>: Upload a custom profile picture with instant preview across headers and avatar badges.</li>
+            <li><b>Live Summary</b>: Shows real-time counts of managed properties, upcoming projects, and scheduled follow-ups.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. SETTINGS: CATEGORIES & FILTERS (VERY IMPORTANT HIGHLIGHT) -->
+    <div class="panel about-panel about-settings-highlight-panel" id="aboutSettings">
+      <div class="panel-head">
+        <div>
+          <span class="badge" style="background:#dbeafe;color:#1e40af;margin-bottom:6px;display:inline-block">CENTRAL CONFIGURATION SYSTEM</span>
+          <h2>⚙️ Settings → Categories & Filters</h2>
+          <div class="muted">The single source of truth for all dropdowns, types, locations, ranges, and filters</div>
+        </div>
+        <button type="button" class="btn primary" onclick="navigateTo('settings')">Open Settings →</button>
+      </div>
+
+      <div class="about-callout-box">
+        <div class="about-callout-icon">💡</div>
+        <div>
+          <b>CRITICAL PRINCIPLE: Settings is the ONLY place where categories & filters are managed!</b>
+          <p style="margin:4px 0 0;font-size:13px;color:var(--muted)">
+            Normal application pages (Properties, Upcoming, Forms, Search) are strictly for <b>USING</b> options in clean dropdowns. When you want to add, edit, reorder, or disable a category or filter, do it exclusively inside <b>Settings → Categories & Filters</b>. Changes automatically become available in the relevant dropdowns and filters throughout the app!
+          </p>
+        </div>
+      </div>
+
+      <div class="about-settings-details">
+        <h3 style="margin-top:0;font-size:15px">What you can configure in Settings:</h3>
+        <div class="about-settings-grid">
+          <div class="about-setting-item">
+            <b>🏘️ Types & Sub-categories</b>
+            <p>Property & project types (Villa, Duplex, Apartment, Plot, Commercial). Add sub-categories as comma-separated tags (e.g. <i>Independent Villa, Luxury Penthouse</i>).</p>
+          </div>
+          <div class="about-setting-item">
+            <b>📍 Locations</b>
+            <p>Prime areas, localities, and cities (e.g. <i>Rajpur, Jakhan, Sahastradhara Road</i>). Autocompletes location inputs across property and project forms.</p>
+          </div>
+          <div class="about-setting-item">
+            <b>🏷️ Statuses</b>
+            <p>Inventory lifecycle states (Available, Hold, Sold, Pre-Launch, Ready) with customizable badge color themes (Green, Amber, Red, Purple).</p>
+          </div>
+          <div class="about-setting-item">
+            <b>💰 Price Categories</b>
+            <p>Define price brackets (Below ₹1 Cr, Economical, Mid-Premium, Luxury) with exact minimum and maximum amounts in ₹.</p>
+          </div>
+          <div class="about-setting-item">
+            <b>📊 Budget Slabs</b>
+            <p>Configure budget slabs (₹1 Cr, ₹2 Cr, ₹5 Cr+) used for rapid financial filtering during client inquiries.</p>
+          </div>
+          <div class="about-setting-item">
+            <b>🔃 Sort Options</b>
+            <p>Configure sort behaviors (Newest First, Oldest First, Price: Low to High, Price: High to Low, Name: A to Z).</p>
+          </div>
+          <div class="about-setting-item full">
+            <b>⚡ Custom Filters</b>
+            <p>Custom dimensions such as Facing (East, North, West, South), BHK Configuration, Road Width (20 ft, 30 ft), and Furnishing.</p>
+          </div>
+        </div>
+
+        <div class="about-rules-grid">
+          <div class="about-rule-card">
+            <b>🎯 "Applies To" Scoping</b>
+            <p>Each entry can be set to <b>🌐 Both</b>, <b>🏠 Property Only</b>, or <b>🏗️ Project Only</b>. A project-only type will appear in Project forms & filters, but never clutter property dropdowns.</p>
+          </div>
+          <div class="about-rule-card">
+            <b>🔃 Reorder & Enable / Disable</b>
+            <p>Use <b>[ ▲ ]</b> and <b>[ ▼ ]</b> to reorder entries in dropdowns. Use the <b>Active / Disabled</b> toggle switch to temporarily hide seasonal or discontinued options without deleting data.</p>
+          </div>
+          <div class="about-rule-card">
+            <b>🏷️ "Example" Sample Badges</b>
+            <p>The app comes with 5 demo entries in each category marked <i>"Example — You can edit or delete this"</i>. Editing an example or creating a new entry turns it into normal user data and removes the badge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. BACKUP & IMPORT -->
+    <div class="panel about-panel" id="aboutBackup">
+      <div class="panel-head">
+        <div>
+          <h2>💾 Backup, Import & Data Safety</h2>
+          <div class="muted">Safeguarding and transferring your inventory database</div>
+        </div>
+      </div>
+      <div class="about-text-content">
+        <div class="about-features-row">
+          <div class="about-feature-box">
+            <div class="about-feature-icon">⬇️</div>
+            <div>
+              <b>⬇ Backup (Export to Excel .xlsx)</b>
+              <p>Click the <b>⬇ Backup</b> button in the top header to download your entire database into an Excel spreadsheet (.xlsx), complete with photos, specs, notes, and category configuration.</p>
+            </div>
+          </div>
+          <div class="about-feature-box">
+            <div class="about-feature-icon">⬆️</div>
+            <div>
+              <b>⬆ Import (Restore Data)</b>
+              <p>Click <b>⬆ Import</b> to upload an Excel (.xlsx) or JSON backup file. This allows you to migrate data between computers or restore your inventory if you switch browsers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. LIGHT / DARK THEME -->
+    <div class="panel about-panel" id="aboutTheme">
+      <div class="panel-head">
+        <div>
+          <h2>🌓 Light & Dark Themes</h2>
+          <div class="muted">Comfortable viewing in any lighting environment</div>
+        </div>
+      </div>
+      <div class="about-text-content">
+        <p style="font-size:13.5px;color:var(--text);margin-top:0">
+          Property Manager Pro supports both high-contrast <b>Light Mode</b> and glare-free <b>Dark Mode</b>.
+        </p>
+        <p style="font-size:13.5px;color:var(--muted)">
+          To toggle themes on desktop or mobile, open the bottom menu (☰) and click <b>Theme (🌓)</b>. Your preference is preserved across browser sessions.
+        </p>
+      </div>
+    </div>
+
+    <!-- 8. PRACTICAL TIPS -->
+    <div class="panel about-panel" id="aboutTips">
+      <div class="panel-head">
+        <div>
+          <h2>💡 Practical Tips for Real Estate Success</h2>
+          <div class="muted">Best practices from experienced property managers and brokers</div>
+        </div>
+      </div>
+      <div class="about-tips-grid">
+        <div class="about-tip-card">
+          <div class="about-tip-icon">🎯</div>
+          <div>
+            <b>Keep Follow-up Dates Current</b>
+            <p>Always log a next contact date whenever a buyer visits a property. Your Dashboard will automatically alert you when it's time to call.</p>
+          </div>
+        </div>
+        <div class="about-tip-card">
+          <div class="about-tip-icon">⚡</div>
+          <div>
+            <b>Combine Filters on Site Visits</b>
+            <p>When with a client, filter by Locality + BHK + Budget Slab to instantly present matching inventory without manual searching.</p>
+          </div>
+        </div>
+        <div class="about-tip-card">
+          <div class="about-tip-icon">⭐</div>
+          <div>
+            <b>Use Favorites for Active Clients</b>
+            <p>Star candidate properties for a particular client inquiry to quickly review shortlisted options during follow-up meetings.</p>
+          </div>
+        </div>
+        <div class="about-tip-card">
+          <div class="about-tip-icon">⚙️</div>
+          <div>
+            <b>Manage Categories from Settings Only</b>
+            <p>Keep your everyday inventory screens fast and uncluttered by doing all category and filter configuration inside Settings.</p>
+          </div>
+        </div>
+        <div class="about-tip-card">
+          <div class="about-tip-icon">💾</div>
+          <div>
+            <b>Export Regular Backups</b>
+            <p>Download an Excel backup once a week so you always have an offline copy of your client contacts and property inventory.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY PAGE -->
+  <section id="historyPage" style="display:none">
+    <div class="panel">
+      <div class="panel-head history-panel-head">
+        <div>
+          <h2>📜 History</h2>
+          <div class="muted">Review system import logs and recover recently deleted items within 5 days.</div>
+        </div>
+      </div>
+
+      <!-- HISTORY TABS (2 TABS ONLY) -->
+      <div class="settings-tabs-bar history-tabs-bar">
+        <button type="button" class="settings-tab-btn active" id="histTabImportBtn" data-hist-tab="import" onclick="setHistoryTab('import')">📥 Import History</button>
+        <button type="button" class="settings-tab-btn" id="histTabDeletedBtn" data-hist-tab="deleted" onclick="setHistoryTab('deleted')">🗑️ Recently Deleted</button>
+      </div>
+
+      <!-- HISTORY SUBHEAD WITH SEARCH & COUNT -->
+      <div class="settings-subhead history-subhead">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex:1;">
+          <input type="text" id="historySearchInput" placeholder="Search file name, date, status..." oninput="renderCurrentHistoryTab()" style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font-size:13px;min-width:240px;max-width:340px;" />
+          <button type="button" class="btn sm" id="clearHistorySearchBtn" onclick="clearHistorySearch()" style="display:none;padding:6px 10px;font-size:12px;">✕ Clear</button>
+        </div>
+        <div id="historyTabCount" class="settings-tab-count">0 entries</div>
+      </div>
+
+      <!-- TAB CONTAINERS -->
+      <div id="importHistoryContainer" class="history-tab-content">
+        <!-- Dynamically rendered by renderImportHistory() -->
+      </div>
+      <div id="recentlyDeletedContainer" class="history-tab-content" style="display:none">
+        <!-- Dynamically rendered by renderRecentlyDeleted() -->
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- MOBILE BOTTOM NAVIGATION -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+  <button class="mb-nav-btn active" id="mbNavDashboard" data-mb-page="dashboard" onclick="navigateTo('dashboard')">
+    <span class="mb-nav-icon">📊</span>
+    <span class="mb-nav-text">Dashboard</span>
+  </button>
+  <button class="mb-nav-btn" id="mbNavProperties" data-mb-page="properties" onclick="navigateTo('properties')">
+    <span class="mb-nav-icon">🏘️</span>
+    <span class="mb-nav-text">Properties</span>
+  </button>
+  <button class="mb-nav-btn" id="mbNavSearch" data-mb-page="search" onclick="navigateTo('search')">
+    <span class="mb-nav-icon">🔍</span>
+    <span class="mb-nav-text">Search</span>
+  </button>
+  <button class="mb-nav-btn" id="mbNavFavorites" data-mb-page="favorites" onclick="navigateTo('favorites')">
+    <span class="mb-nav-icon">⭐</span>
+    <span class="mb-nav-text">Favorites</span>
+  </button>
+  <button class="mb-nav-btn" id="mbNavMenu" onclick="toggleBottomMenu()">
+    <span class="mb-nav-icon">☰</span>
+    <span class="mb-nav-text">Menu</span>
+  </button>
+</nav>
+
+<!-- BOTTOM NAV ☰ MENU POPUP -->
+<div id="bottomMenuBackdrop" class="bottom-menu-backdrop" onclick="closeBottomMenu()"></div>
+<div id="bottomMenuPopup" class="bottom-menu-popup">
+  <div class="bottom-menu-header">
+    <div class="bottom-menu-title">☰ Menu</div>
+    <button type="button" class="bottom-menu-close" onclick="closeBottomMenu()">✕</button>
+  </div>
+  <div class="bottom-menu-items">
+    <button type="button" class="bottom-menu-item" onclick="navigateTo('directProperty')">
+      <span class="bmi-icon">🔑</span>
+      <span class="bmi-label">Direct Property</span>
+    </button>
+    <button type="button" class="bottom-menu-item" onclick="navigateTo('upcoming')">
+      <span class="bmi-icon">🏗️</span>
+      <span class="bmi-label">Upcoming</span>
+    </button>
+    <button type="button" class="bottom-menu-item" onclick="navigateTo('followups')">
+      <span class="bmi-icon">📅</span>
+      <span class="bmi-label">Follow Up</span>
+    </button>
+    <button type="button" class="bottom-menu-item" onclick="navigateTo('profile')">
+      <span class="bmi-icon">👤</span>
+      <span class="bmi-label">Profile</span>
+    </button>
+    <button type="button" class="bottom-menu-item" onclick="navigateTo('settings')">
+      <span class="bmi-icon">⚙️</span>
+      <span class="bmi-label">Settings</span>
+    </button>
+    <button type="button" class="bottom-menu-item" onclick="navigateTo('history')">
+      <span class="bmi-icon">📜</span>
+      <span class="bmi-label">History</span>
+    </button>
+    <button type="button" class="bottom-menu-item" onclick="navigateTo('about')">
+      <span class="bmi-icon">📖</span>
+      <span class="bmi-label">How to Use</span>
+    </button>
+    <button type="button" class="bottom-menu-item" onclick="toggleTheme()">
+      <span class="bmi-icon" id="themeMenuIcon">🌓</span>
+      <span class="bmi-label" id="themeMenuLabel">Theme</span>
+    </button>
+  </div>
+</div>
+
+<!-- CENTRAL CONFIG LOCATIONS AUTOCOMPLETE DATALIST -->
+<datalist id="configLocationsList"></datalist>
+
+<!-- PROPERTY ADD / EDIT MODAL -->
+<div class="modal-bg" id="formModal">
+<div class="modal">
+  <div class="modal-head">
+    <div style="display:flex;align-items:center;gap:10px">
+      <h2 id="formTitle">Add Property</h2>
+      <span id="formSourceBadge" class="badge badge-source-direct" style="display:none">🔑 DIRECT PROPERTY</span>
+    </div>
+    <button class="icon-btn" onclick="closeModal('formModal')">✕</button>
+  </div>
+  <div class="modal-body">
+    <input type="hidden" id="fId">
+    <input type="hidden" id="fSource" value="company">
+    <div class="form-grid">
+      <div class="form-group"><label>Property Name *</label><input class="field" id="fName" required></div>
+      <div class="form-group"><label>Location *</label><input class="field" id="fLocation" list="configLocationsList" placeholder="Rajpur, Dehradun"></div>
+      <div class="form-group"><label>Type</label><select class="field" id="fType"><option>Villa</option><option>Duplex</option><option>Plot</option><option>Apartment</option><option>House</option><option>Commercial</option></select></div>
+      <div class="form-group"><label>BHK</label><input class="field" id="fBhk" placeholder="3 BHK"></div>
+      <div class="form-group"><label>Area (Sqyds)</label><input class="field" id="fArea" type="number" min="0"></div>
+      <div class="form-group"><label>Dimensions</label><input class="field" id="fDim" placeholder="30 × 60"></div>
+      <div class="form-group"><label>Facing</label><input class="field" id="fFacing" placeholder="East"></div>
+      <div class="form-group"><label>Road Width</label><input class="field" id="fRoad" placeholder="20 ft"></div>
+      <div class="form-group"><label>Price (₹)</label><input class="field" id="fPrice" type="number" min="0" oninput="updatePropertyCategoryPreview()"></div>
+      
+      <!-- Auto Determined Badges Preview for Property -->
+      <div class="form-group full" style="background:#f8fafc;padding:12px 14px;border-radius:10px;border:1px dashed #cbd5e1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600">⚡ Auto-Determined based on Price:</span>
+        <div style="display:flex;gap:10px;align-items:center">
+          <span style="font-size:12px">Price Category: <b id="fCatPreview" class="badge cat-economical">Economical</b></span>
+          <span style="font-size:12px">Budget Slab: <b id="fSlabPreview" class="badge slab">₹1 Cr</b></span>
+        </div>
+      </div>
+
+      <!-- Property Image Upload & URL (Optional) -->
+      <div class="form-group full">
+        <label>Property Image (Optional)</label>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <input type="file" id="fPhotoFile" accept="image/png, image/jpeg, image/webp" style="display:none" onchange="handleImageUpload(this, 'property')">
+          <button type="button" class="btn" onclick="document.getElementById('fPhotoFile').click()">📷 Upload Image</button>
+          <span style="font-size:12px;color:var(--muted)">or enter photo URL below (optional)</span>
+        </div>
+        <div id="fPhotoPreviewWrap" style="display:none;margin-top:10px;align-items:center;gap:12px">
+          <img id="fPhotoPreview" src="" alt="Property Preview" style="width:110px;height:75px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:pointer" onclick="openLightbox(this.src, 'Property Preview')" title="Click to view large preview">
+          <button type="button" class="mini btn-danger" onclick="removeUploadedImage('property')">✕ Remove Image</button>
+        </div>
+        <input class="field" id="fPhoto" type="url" placeholder="https://... (or click Upload Image above)" style="margin-top:8px" oninput="onPhotoUrlChange('property')">
+      </div>
+
+      <div class="form-group"><label>Status</label><select class="field" id="fStatus"><option>Available</option><option>Hold</option><option>Sold</option><option>Inactive</option></select></div>
+      <div class="form-group"><label>Owner / Broker</label><input class="field" id="fOwner"></div>
+      <div class="form-group"><label>Phone</label><input class="field" id="fPhone" inputmode="tel"></div>
+      <div class="form-group"><label>Follow-up Date</label><input class="field" id="fFollow" type="date"></div>
+      <div class="form-group"><label>Google Maps URL</label><input class="field" id="fMap" type="url" placeholder="https://maps.google.com/..."></div>
+      <div class="form-group"><label>Video URL</label><input class="field" id="fVideo" type="url" placeholder="https://youtube.com/..."></div>
+      <div class="form-group full"><label>Notes</label><textarea class="field" id="fNotes" rows="4" placeholder="Site visit, negotiation, special details..."></textarea></div>
+    </div>
+  </div>
+  <div class="modal-foot"><button class="btn" onclick="closeModal('formModal')">Cancel</button><button class="btn primary" onclick="saveProperty()">Save Property</button></div>
+</div></div>
+
+<!-- PROPERTY DETAIL MODAL -->
+<div class="modal-bg" id="detailModal"><div class="modal small"><div class="modal-head"><h2 id="dTitle">Property</h2><button class="icon-btn" onclick="closeModal('detailModal')">✕</button></div><div class="modal-body" id="detailBody"></div><div class="modal-foot" id="detailFoot"></div></div></div>
+
+<!-- UPCOMING PROJECT ADD / EDIT MODAL -->
+<div class="modal-bg" id="projectFormModal">
+<div class="modal">
+  <div class="modal-head"><h2 id="pFormTitle">Add Upcoming Project</h2><button class="icon-btn" onclick="closeModal('projectFormModal')">✕</button></div>
+  <div class="modal-body">
+    <input type="hidden" id="pId">
+    <div class="form-grid">
+      <div class="form-group"><label>Project Name *</label><input class="field" id="pName" placeholder="e.g. Grand Imperial Pines" required></div>
+      <div class="form-group"><label>Location *</label><input class="field" id="pLocation" list="configLocationsList" placeholder="e.g. Sahastradhara Road, Dehradun" required></div>
+      <div class="form-group"><label>Developer / Builder</label><input class="field" id="pDeveloper" placeholder="e.g. Imperial Infra Group"></div>
+      <div class="form-group"><label>Project Type</label>
+        <select class="field" id="pType">
+          <option>Apartment</option>
+          <option>Villa</option>
+          <option>Plot / Plotted</option>
+          <option>Township</option>
+          <option>Duplex</option>
+          <option>Commercial</option>
+          <option>Penthouse</option>
+        </select>
+      </div>
+      <div class="form-group"><label>BHK / Configuration</label><input class="field" id="pBhk" placeholder="e.g. 3 & 4 BHK Luxury, 5 BHK Villas"></div>
+      <div class="form-group"><label>Area / Plot Size</label><input class="field" id="pArea" placeholder="e.g. 2400 - 3500 sq.ft or 300 yd²"></div>
+      
+      <div class="form-group"><label>Starting Price (₹) *</label><input class="field" id="pPrice" type="number" min="0" placeholder="e.g. 18000000" oninput="updateProjectCategoryPreview()"></div>
+      <div class="form-group"><label>Maximum Price (₹)</label><input class="field" id="pMaxPrice" type="number" min="0" placeholder="e.g. 25000000"></div>
+      
+      <!-- Auto Determined Badges Preview for Project -->
+      <div class="form-group full" style="background:#f8fafc;padding:12px 14px;border-radius:10px;border:1px dashed #cbd5e1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <span style="font-size:12px;color:var(--muted);font-weight:600">⚡ Auto-Determined based on Starting Price:</span>
+        <div style="display:flex;gap:10px;align-items:center">
+          <span style="font-size:12px">Price Category: <b id="pCatPreview" class="badge cat-economical">Economical</b></span>
+          <span style="font-size:12px">Budget Slab: <b id="pSlabPreview" class="badge slab">₹1 Cr</b></span>
+        </div>
+      </div>
+
+      <!-- Project Image Upload & URL (Optional) -->
+      <div class="form-group full">
+        <label>Project Image (Optional)</label>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <input type="file" id="pPhotoFile" accept="image/png, image/jpeg, image/webp" style="display:none" onchange="handleImageUpload(this, 'upcoming')">
+          <button type="button" class="btn" onclick="document.getElementById('pPhotoFile').click()">📷 Upload Image</button>
+          <span style="font-size:12px;color:var(--muted)">or enter photo URL below (optional)</span>
+        </div>
+        <div id="pPhotoPreviewWrap" style="display:none;margin-top:10px;align-items:center;gap:12px">
+          <img id="pPhotoPreview" src="" alt="Project Preview" style="width:110px;height:75px;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:pointer" onclick="openLightbox(this.src, 'Project Preview')" title="Click to view large preview">
+          <button type="button" class="mini btn-danger" onclick="removeUploadedImage('upcoming')">✕ Remove Image</button>
+        </div>
+        <input class="field" id="pPhoto" type="url" placeholder="https://... (or click Upload Image above)" style="margin-top:8px" oninput="onPhotoUrlChange('upcoming')">
+      </div>
+
+      <div class="form-group"><label>Expected Launch</label><input class="field" id="pLaunch" placeholder="e.g. Q4 2026 or Nov 2026"></div>
+      <div class="form-group"><label>Expected Possession</label><input class="field" id="pPossession" placeholder="e.g. Dec 2028 or Ready"></div>
+      
+      <div class="form-group"><label>Project Status</label>
+        <select class="field" id="pStatus">
+          <option value="Upcoming">Upcoming</option>
+          <option value="Pre-Launch">Pre-Launch</option>
+          <option value="Launched">Launched</option>
+          <option value="Ready">Ready</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Owner / Contact Person</label><input class="field" id="pOwner" placeholder="Contact person or sales manager"></div>
+      <div class="form-group"><label>Phone</label><input class="field" id="pPhone" inputmode="tel" placeholder="e.g. 9876543210"></div>
+      <div class="form-group"><label>Google Maps URL</label><input class="field" id="pMap" type="url" placeholder="https://maps.google.com/..."></div>
+      <div class="form-group"><label>Video URL</label><input class="field" id="pVideo" type="url" placeholder="https://youtube.com/..."></div>
+      <div class="form-group full"><label>Brochure URL</label><input class="field" id="pBrochure" type="url" placeholder="https://example.com/brochure.pdf"></div>
+      <div class="form-group full"><label>Notes / Specifications</label><textarea class="field" id="pNotes" rows="4" placeholder="Clubhouse, amenities, approvals, payment plan, site visit notes..."></textarea></div>
+    </div>
+  </div>
+  <div class="modal-foot"><button class="btn" onclick="closeModal('projectFormModal')">Cancel</button><button class="btn primary" onclick="saveProject()">Save Upcoming Project</button></div>
+</div></div>
+
+<!-- UPCOMING PROJECT DETAIL MODAL -->
+<div class="modal-bg" id="projectDetailModal"><div class="modal small"><div class="modal-head"><h2 id="pdTitle">Upcoming Project</h2><button class="icon-btn" onclick="closeModal('projectDetailModal')">✕</button></div><div class="modal-body" id="pdBody"></div><div class="modal-foot" id="pdFoot"></div></div></div>
+
+<!-- ACTION NOTICE MODAL (For missing Phone, WhatsApp, Maps, Image) -->
+<div class="modal-bg" id="actionNoticeModal" style="z-index:65" onclick="if(event.target===this)closeModal('actionNoticeModal')">
+  <div class="modal small" style="max-width:390px;text-align:center;padding:26px 22px;position:relative">
+    <button class="icon-btn" style="position:absolute;top:14px;right:14px" onclick="closeModal('actionNoticeModal')">✕</button>
+    <div id="noticeIcon" style="font-size:42px;margin:4px 0 10px">📞</div>
+    <h3 id="noticeTitle" style="margin:0 0 8px;font-size:18px;font-weight:700">Phone Number Available नहीं है</h3>
+    <p id="noticeSubtext" style="color:var(--muted);font-size:13px;margin:0 0 22px;line-height:1.5">इस Property में कोई Phone Number दर्ज नहीं किया गया है।</p>
+    <div id="noticeActions" style="display:flex;gap:10px;justify-content:center">
+      <button class="btn primary" onclick="closeModal('actionNoticeModal')">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- IMAGE LIGHTBOX / VIEWER MODAL -->
+<div class="lightbox" id="lightboxModal" onclick="closeLightbox(event)">
+  <div class="lightbox-content">
+    <button class="lightbox-close" onclick="closeLightbox()" title="Close viewer">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged View">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<!-- EDIT PROFILE MODAL -->
+<div class="modal-bg" id="editProfileModal">
+  <div class="modal small">
+    <div class="modal-head">
+      <h2>Edit Profile</h2>
+      <button class="icon-btn" onclick="closeModal('editProfileModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>Profile Photo</label>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <input type="file" id="editProfilePhotoFile" accept="image/jpeg,image/jpg,image/png,image/webp,image/*" class="field" style="flex:1" onchange="handleProfilePhotoUpload(this)">
+          </div>
+          <input type="url" id="editProfilePhotoUrl" class="field" style="margin-top:6px" placeholder="Or enter Photo URL (optional)" oninput="handleProfileUrlInput(this.value)">
+          <div id="editProfilePhotoPreviewWrap" style="display:none;align-items:center;gap:10px;margin-top:8px">
+            <img id="editProfilePhotoPreview" alt="Profile Preview" style="width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--primary)">
+            <button type="button" class="btn danger mini" onclick="removeProfilePhoto()">✕ Remove Photo</button>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Full Name *</label>
+          <input type="text" id="editProfileName" class="field" placeholder="e.g. Munendra Singh" required>
+        </div>
+        <div class="form-group full">
+          <label>Role / Designation</label>
+          <input type="text" id="editProfileRole" class="field" placeholder="e.g. Property Manager">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="editProfilePhone" class="field" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="editProfileEmail" class="field" placeholder="munendra.singh@propertypro.com">
+        </div>
+        <div class="form-group full">
+          <label>Company / Agency</label>
+          <input type="text" id="editProfileCompany" class="field" placeholder="e.g. Property Pro Real Estate">
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('editProfileModal')">Cancel</button>
+      <button class="btn primary" onclick="saveProfileForm()">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- FIRST-TIME PROFILE SETUP / ONBOARDING MODAL -->
+<div class="modal-bg onboarding-modal-bg" id="profileSetupModal">
+  <div class="modal small setup-modal">
+    <div class="modal-head setup-modal-head">
+      <div>
+        <span class="setup-welcome-badge">👋 Welcome!</span>
+        <h2 style="margin-top:6px;font-size:20px">Set Up Your Profile</h2>
+        <p class="muted" style="margin:4px 0 0;font-size:13px">Set up your profile to get started with Property Manager Pro.</p>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <!-- Profile Photo -->
+        <div class="form-group full">
+          <label>Profile Photo <span style="font-weight:400;color:var(--muted)">(Optional)</span></label>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <input type="file" id="setupProfilePhotoFile" accept="image/jpeg,image/jpg,image/png,image/webp,image/*" class="field" style="flex:1" onchange="handleSetupPhotoUpload(this)">
+          </div>
+          <input type="url" id="setupProfilePhotoUrl" class="field" style="margin-top:6px" placeholder="Or enter Photo URL (optional)" oninput="handleSetupPhotoUrlInput(this.value)">
+          <div id="setupProfilePhotoPreviewWrap" style="display:none;align-items:center;gap:10px;margin-top:8px">
+            <img id="setupProfilePhotoPreview" alt="Profile Preview" style="width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--primary)">
+            <button type="button" class="btn danger mini" onclick="removeSetupPhoto()">✕ Remove Photo</button>
+          </div>
+        </div>
+
+        <!-- Full Name (Required) -->
+        <div class="form-group full">
+          <label>Full Name *</label>
+          <input type="text" id="setupProfileName" class="field" placeholder="e.g. Munendra Singh" required>
+        </div>
+
+        <!-- Role / Designation (Editable, default Property Manager) -->
+        <div class="form-group full">
+          <label>Role / Designation</label>
+          <input type="text" id="setupProfileRole" class="field" placeholder="e.g. Property Manager" value="Property Manager">
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="setupProfilePhone" class="field" placeholder="+91 98765 43210">
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="setupProfileEmail" class="field" placeholder="munendra.singh@propertypro.com">
+        </div>
+
+        <!-- Company / Agency -->
+        <div class="form-group full">
+          <label>Company / Agency</label>
+          <input type="text" id="setupProfileCompany" class="field" placeholder="e.g. Property Pro Real Estate">
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot setup-modal-foot" style="display:flex;flex-direction:column;gap:10px;align-items:center">
+      <button type="button" class="btn primary" id="setupProfileSubmitBtn" onclick="saveFirstTimeProfile()" style="width:100%;padding:11px 16px;font-size:14px;font-weight:700">Save & Continue →</button>
+      <button type="button" class="setup-later-btn" id="setupLaterBtn" onclick="skipProfileSetup()">Set Up Later</button>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY & FILTER CONFIGURATION MODAL -->
+<div class="modal-bg" id="configItemModal">
+  <div class="modal small">
+    <div class="modal-head">
+      <h2 id="configModalTitle">Add New Entry</h2>
+      <button type="button" class="icon-btn" onclick="closeModal('configItemModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="cfgItemId">
+      <input type="hidden" id="cfgItemTab">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label id="cfgNameLabel">Name / Label *</label>
+          <input type="text" id="cfgName" class="field" placeholder="e.g. Penthouse, GMS Road, Luxury..." required>
+        </div>
+
+        <div class="form-group" id="cfgAppliesToGroup">
+          <label>Applies To</label>
+          <select class="field" id="cfgAppliesTo">
+            <option value="both">🌐 Both (Property & Project)</option>
+            <option value="property">🏠 Property Only</option>
+            <option value="project">🏗️ Project Only</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="cfgStatusBadgeGroup" style="display:none">
+          <label>Badge Style</label>
+          <select class="field" id="cfgBadgeClass">
+            <option value="available">Green (Available / Ready)</option>
+            <option value="hold">Amber (Hold / Pre-Launch)</option>
+            <option value="sold">Red (Sold / Inactive)</option>
+            <option value="upcoming">Purple (Upcoming)</option>
+          </select>
+        </div>
+
+        <div class="form-group full" id="cfgSubcategoriesGroup" style="display:none">
+          <label>Sub-categories <span style="font-weight:400;color:var(--muted)">(Optional, comma-separated)</span></label>
+          <input type="text" id="cfgSubcategories" class="field" placeholder="e.g. Penthouse, Studio, Duplex Apartment">
+          <span style="font-size:11px;color:var(--muted)">Separate multiple sub-categories with commas</span>
+        </div>
+
+        <!-- Range / Pricing for Price Categories & Budget Slabs -->
+        <div class="form-group" id="cfgMinPriceGroup" style="display:none">
+          <label>Minimum Price (₹)</label>
+          <input type="number" id="cfgMinPrice" class="field" placeholder="0" min="0">
+        </div>
+        <div class="form-group" id="cfgMaxPriceGroup" style="display:none">
+          <label>Maximum Price (₹)</label>
+          <input type="number" id="cfgMaxPrice" class="field" placeholder="Leave blank for no upper limit" min="0">
+        </div>
+
+        <!-- Sort option value/key -->
+        <div class="form-group full" id="cfgSortValGroup" style="display:none">
+          <label>Sort Logic / Behavior</label>
+          <select class="field" id="cfgSortVal">
+            <option value="newest">Newest First (Creation Date)</option>
+            <option value="oldest">Oldest First (Creation Date)</option>
+            <option value="priceLow">Price: Low to High</option>
+            <option value="priceHigh">Price: High to Low</option>
+            <option value="az">Name: A to Z</option>
+          </select>
+        </div>
+
+        <!-- Custom Filter Options -->
+        <div class="form-group full" id="cfgFilterOptionsGroup" style="display:none">
+          <label>Filter Options <span style="font-weight:400;color:var(--muted)">(Comma-separated)</span></label>
+          <input type="text" id="cfgFilterOptions" class="field" placeholder="e.g. Option 1, Option 2, Option 3">
+        </div>
+
+        <div class="form-group full" style="display:flex;align-items:center;gap:10px;margin-top:6px">
+          <input type="checkbox" id="cfgEnabled" style="width:18px;height:18px;accent-color:var(--primary)" checked>
+          <label for="cfgEnabled" style="margin:0;cursor:pointer;font-weight:600">Active / Enabled (Show in app dropdowns & filters)</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button type="button" class="btn" onclick="closeModal('configItemModal')">Cancel</button>
+      <button type="button" class="btn primary" onclick="saveConfigItem()">Save Entry</button>
+    </div>
+  </div>
+</div>
+
+<!-- PERMANENT DELETE CONFIRMATION MODAL -->
+<div class="modal-bg" id="permanentDeleteModal" style="z-index:70;">
+  <div class="modal small" style="max-width:440px;text-align:center;padding:26px 22px;">
+    <div class="modal-head" style="justify-content:center;border-bottom:none;padding-bottom:6px;">
+      <h2 style="color:var(--danger, #dc2626);font-size:18px;">⚠️ Delete Permanently</h2>
+    </div>
+    <div class="modal-body" style="padding:12px 0 20px;">
+      <p style="font-size:15px;color:var(--text);margin-bottom:8px;line-height:1.5;">Are you sure you want to permanently delete this data?</p>
+      <p style="font-size:13px;color:var(--muted);font-weight:600;margin:0;">This action cannot be undone.</p>
+      <div id="permanentDeleteTargetName" style="margin-top:12px;font-weight:700;font-size:14px;color:var(--text);overflow-wrap:anywhere;"></div>
+    </div>
+    <div class="modal-foot" style="justify-content:center;gap:12px;border-top:none;padding-top:0;">
+      <button type="button" class="btn" onclick="closeModal('permanentDeleteModal')">Cancel</button>
+      <button type="button" class="btn danger" id="confirmPermanentDeleteBtn" onclick="confirmPermanentDelete()">Delete Permanently</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
