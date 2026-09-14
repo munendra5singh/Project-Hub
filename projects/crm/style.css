@@ -1,0 +1,13 @@
+/* ==========================================================================
+   PROPERTY MANAGER PRO — MAIN STYLESHEET (MODULAR ENTRY POINT)
+   Imports all modular stylesheets in exact cascade and specificity order.
+   ========================================================================== */
+
+@import url('css/variables.css');
+@import url('css/base.css');
+@import url('css/layout.css');
+@import url('css/components.css');
+@import url('css/forms.css');
+@import url('css/modals.css');
+@import url('css/pages.css');
+@import url('css/responsive.css');

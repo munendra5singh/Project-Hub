@@ -1,0 +1,24 @@
+{
+  "name": "Property Manager Pro | Real Estate CRM",
+  "short_name": "PropertyPro",
+  "description": "Production-ready Real Estate CRM to manage properties, projects, direct listings, and pipeline workflows.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
