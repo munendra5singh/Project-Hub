@@ -104,7 +104,7 @@ const projectsData = [
     description: "Curated repository for free developer tutorials and online courses.",
     category: "Web Apps",
     technologies: ["HTML", "CSS", "JavaScript"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
+    image: "https://raw.githubusercontent.com/munendra5singh/Free-Course-Hub/main/image/logo2.png",
     liveUrl: "https://freecoursehub.xyz"
   },
   {
@@ -113,7 +113,7 @@ const projectsData = [
     description: "Full-stack web services, client agency portfolio & business solutions.",
     category: "Websites",
     technologies: ["HTML", "CSS", "JavaScript"],
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&auto=format&fit=crop&q=80",
+    image: "https://raw.githubusercontent.com/munendra5singh/web_solutions/main/language/assets/card.png",
     liveUrl: "https://mswebsolutions.online"
   },
   {
