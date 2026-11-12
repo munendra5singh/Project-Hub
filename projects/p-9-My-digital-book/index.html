@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Language | B.A. 5th Semester Digital Textbook Library</title>
+    <meta name="description" content="Select your preferred medium of instruction for B.A. 5th Semester Digital Textbook Library - English or हिन्दी.">
+    
+    <!-- Instant Head Script: Zero-Flicker Router for Returning Visitors -->
+    <script>
+        (function() {
+            try {
+                var savedLang = localStorage.getItem('ba5_language');
+                var urlParams = new URLSearchParams(window.location.search);
+                var forceSelection = urlParams.get('select') === 'true';
+                
+                if (savedLang && !forceSelection) {
+                    var targetDir = (savedLang === 'hi') ? './hindi/' : './englisg/';
+                    var returnTarget = urlParams.get('return');
+                    if (returnTarget) {
+                        var cleanTarget = decodeURIComponent(returnTarget).replace(/^(englisg|hindi)\//, '');
+                        window.location.replace(targetDir + cleanTarget);
+                    } else {
+                        window.location.replace(targetDir + 'index.html' + window.location.hash);
+                    }
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        })();
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body: #f7f6f2;
+            --bg-card: #ffffff;
+            --bg-subtle: #f0eee6;
+            --text-main: #181c24;
+            --text-muted: #4b5563;
+            --text-subtle: #6b7280;
+            --primary: #1e3a8a;
+            --primary-hover: #172554;
+            --accent: #2563eb;
+            --border-color: #e2dfd7;
+            --border-active: #2563eb;
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+            --font-family: 'Poppins', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0d121c;
+            --bg-card: #151b27;
+            --bg-subtle: #1e2638;
+            --text-main: #f3f4f6;
+            --text-muted: #cbd5e1;
+            --text-subtle: #94a3b8;
+            --primary: #3b82f6;
+            --primary-hover: #60a5fa;
+            --accent: #60a5fa;
+            --border-color: #242f44;
+            --border-active: #60a5fa;
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 1rem;
+            line-height: 1.6;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .landing-container {
+            width: 100%;
+            max-width: 680px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            padding: 2.25rem 2rem;
+            position: relative;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .top-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faculty-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--bg-subtle);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-btn {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .theme-btn:hover {
+            color: var(--text-main);
+            border-color: var(--primary);
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .library-crest {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+        }
+
+        .main-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.3;
+            margin-bottom: 0.35rem;
+        }
+
+        .hindi-sub {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .prompt-text {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* Language Choice Cards */
+        .language-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.15rem;
+            margin-bottom: 1.75rem;
+        }
+
+        @media (max-width: 580px) {
+            .language-options {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .landing-container {
+                padding: 1.75rem 1.25rem;
+            }
+            .main-title {
+                font-size: 1.35rem;
+            }
+        }
+
+        .lang-card {
+            border: 2px solid var(--border-color);
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.25rem 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            user-select: none;
+            text-align: left;
+        }
+
+        .lang-card:hover {
+            border-color: var(--border-active);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .lang-card.selected {
+            border-color: var(--border-active);
+            background: var(--bg-subtle);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.85rem;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            color: var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        .lang-card.selected .card-icon {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .radio-indicator {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .lang-card.selected .radio-indicator {
+            border-color: var(--border-active);
+            background: var(--border-active);
+        }
+
+        .radio-indicator i {
+            color: #ffffff;
+            font-size: 0.7rem;
+            display: none;
+        }
+
+        .lang-card.selected .radio-indicator i {
+            display: block;
+        }
+
+        .card-name {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.81rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-top: auto;
+        }
+
+        /* Action Button */
+        .action-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.02rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+        }
+
+        .continue-btn:active {
+            transform: translateY(0);
+        }
+
+        .reassurance-note {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.78rem;
+            color: var(--text-subtle);
+            text-align: center;
+        }
+
+        .reassurance-note i {
+            color: #10b981;
+            font-size: 0.9rem;
+        }
+
+        .site-info-footer {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--text-subtle);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="landing-container">
+        <!-- Top Toolbar -->
+        <div class="top-toolbar">
+            <span class="faculty-badge">
+                <i class="fa-solid fa-graduation-cap"></i> B.A. 5th Semester
+            </span>
+            <button class="theme-btn" id="theme-toggle-btn" onclick="togglePageTheme()" aria-label="Toggle Dark/Light Mode">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+        </div>
+
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="library-crest">
+                <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <h1 class="main-title">Digital Textbook Library</h1>
+            <div class="hindi-sub">डिजिटल पाठ्यपुस्तक पुस्तकालय</div>
+            <p class="prompt-text">
+                Please select your preferred language medium to continue reading the textbooks.<br>
+                अध्ययन शुरू करने के लिए अपनी पसंदीदा भाषा का चयन करें।
+            </p>
+        </div>
+
+        <!-- Language Choice Cards -->
+        <div class="language-options" role="radiogroup" aria-label="Select Language Medium">
+            <!-- English Card -->
+            <div class="lang-card" id="card-en" onclick="selectLanguage('en')" role="radio" aria-checked="false" tabindex="0">
+                <div class="card-top">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <div class="radio-indicator">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
+                <div class="card-name">English Medium</div>
+                <div class="card-subtitle">अंग्रेजी माध्यम</div>
+                <div class="card-desc">
+                    6 comprehensive college textbooks in standard academic English with diagrams, syllabus breakdown, chapter summaries & model Q&A.
+                </div>
+            </div>
+
+            <!-- Hindi Card -->
+            <div class="lang-card selected" id="card-hi" onclick="selectLanguage('hi')" role="radio" aria-checked="true" tabindex="0">
+                <div class="card-top">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <div class="radio-indicator">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
+                <div class="card-name">हिन्दी माध्यम</div>
+                <div class="card-subtitle">Hindi Medium</div>
+                <div class="card-desc">
+                    सरल, स्पष्ट एवं प्रामाणिक हिंदी में 6 कॉलेज पाठ्यपुस्तकें। संपूर्ण पाठ्यक्रम, रेखाचित्र, अध्याय-वार सार और मॉडल प्रश्नोत्तर।
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="action-container">
+            <button class="continue-btn" id="continue-btn" onclick="submitLanguage()">
+                <span id="continue-label">पुस्तकालय में प्रवेश करें (Continue)</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <div class="reassurance-note">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Language is saved permanently. You can change it anytime on any page.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-info-footer">
+        &copy; 2026 B.A. 5th Semester Digital Textbook Library &bull; Faculty of Arts
+    </div>
+
+    <script>
+        // Track currently selected language (default to 'hi')
+        var selectedLanguage = 'hi';
+
+        // Check if there was any saved lang or preference
+        try {
+            var existing = localStorage.getItem('ba5_language');
+            if (existing === 'en' || existing === 'hi') {
+                selectedLanguage = existing;
+            }
+        } catch (e) {}
+
+        function updateCardUI() {
+            var cardEn = document.getElementById('card-en');
+            var cardHi = document.getElementById('card-hi');
+            var continueLabel = document.getElementById('continue-label');
+
+            if (selectedLanguage === 'en') {
+                cardEn.classList.add('selected');
+                cardEn.setAttribute('aria-checked', 'true');
+                cardHi.classList.remove('selected');
+                cardHi.setAttribute('aria-checked', 'false');
+                if (continueLabel) continueLabel.textContent = 'Continue to Textbooks (आगे बढ़ें)';
+            } else {
+                cardHi.classList.add('selected');
+                cardHi.setAttribute('aria-checked', 'true');
+                cardEn.classList.remove('selected');
+                cardEn.setAttribute('aria-checked', 'false');
+                if (continueLabel) continueLabel.textContent = 'पुस्तकालय में प्रवेश करें (Continue)';
+            }
+        }
+
+        function selectLanguage(lang) {
+            selectedLanguage = lang;
+            updateCardUI();
+        }
+
+        // Support keyboard selection (Enter/Space)
+        document.getElementById('card-en').addEventListener('keydown', function(e) {
+            if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); selectLanguage('en'); }
+        });
+        document.getElementById('card-hi').addEventListener('keydown', function(e) {
+            if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); selectLanguage('hi'); }
+        });
+
+        function submitLanguage() {
+            try {
+                // Permanently save to localStorage (Requirement 2 & 5)
+                localStorage.setItem('ba5_language', selectedLanguage);
+
+                // Check for return parameter if user entered via a deep link
+                var urlParams = new URLSearchParams(window.location.search);
+                var returnTarget = urlParams.get('return');
+                var targetDir = (selectedLanguage === 'hi') ? './hindi/' : './englisg/';
+
+                if (returnTarget) {
+                    var cleanTarget = decodeURIComponent(returnTarget).replace(/^(englisg|hindi)\//, '');
+                    window.location.href = targetDir + cleanTarget;
+                } else {
+                    window.location.href = targetDir + 'index.html';
+                }
+            } catch (e) {
+                // Fallback
+                window.location.href = (selectedLanguage === 'hi') ? './hindi/index.html' : './englisg/index.html';
+            }
+        }
+
+        // Theme Toggle for Landing Page
+        function initPageTheme() {
+            var savedTheme = localStorage.getItem('ba5_theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                updateThemeButton('dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                updateThemeButton('light');
+            }
+        }
+
+        function togglePageTheme() {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('ba5_theme', 'light');
+                updateThemeButton('light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('ba5_theme', 'dark');
+                updateThemeButton('dark');
+            }
+        }
+
+        function updateThemeButton(theme) {
+            var icon = document.getElementById('theme-icon');
+            var text = document.getElementById('theme-text');
+            if (icon) icon.className = (theme === 'dark') ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            if (text) text.textContent = (theme === 'dark') ? 'Light' : 'Dark';
+        }
+
+        // Initialize on load
+        initPageTheme();
+        updateCardUI();
+    </script>
+</body>
+</html>

@@ -1,0 +1,762 @@
+/* ==========================================================================
+   ADVANCED DIGITAL E-BOOK – SMART AUDIO & EDUCATIONAL VISUAL SYSTEM
+   STYLESHEET: Controls, Highlights, Audio Bar, Infographics, Mobile Responsive
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SECTION & UNIT LISTENING BUTTONS
+   -------------------------------------------------------------------------- */
+.tts-section-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color, #e2dfd7);
+    background-color: var(--bg-subtle, #f0eee6);
+    color: var(--text-muted, #4b5563);
+    font-size: 0.82rem;
+    cursor: pointer;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.tts-section-btn:hover {
+    background-color: var(--accent-light, #eff6ff);
+    color: var(--accent-color, #1e3a8a);
+    border-color: var(--accent-color, #1e3a8a);
+    transform: scale(1.08);
+}
+
+.tts-section-btn:active {
+    transform: scale(0.96);
+}
+
+.tts-section-btn.tts-btn-inline {
+    float: right;
+    margin: 0.2rem 0 0.5rem 0.5rem;
+}
+
+.tts-section-btn.tts-btn-sm {
+    width: 24px;
+    height: 24px;
+    font-size: 0.72rem;
+    margin-left: 0.4rem;
+}
+
+.tts-section-btn.tts-btn-playing {
+    background-color: var(--accent-color, #1e3a8a);
+    color: #ffffff !important;
+    border-color: var(--accent-color, #1e3a8a);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+    animation: tts-pulse-ring 1.8s infinite;
+}
+
+.tts-section-btn.tts-btn-paused {
+    background-color: #d97706;
+    color: #ffffff !important;
+    border-color: #b45309;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.25);
+}
+
+.tts-unit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+    padding: 0.48rem 1.15rem;
+    background: var(--accent-color, #1e3a8a);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tts-unit-btn:hover {
+    background: var(--primary-hover, #172554);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.tts-unit-btn:active {
+    transform: translateY(0);
+}
+
+.tts-unit-btn.tts-unit-playing {
+    background: #15803d;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.3);
+    animation: tts-pulse-ring 2s infinite;
+}
+
+.tts-unit-btn.tts-unit-paused {
+    background: #d97706;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.3);
+}
+
+@keyframes tts-pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+    70% { box-shadow: 0 0 0 7px rgba(37, 99, 235, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   2. SMART READING HIGHLIGHT (ACTIVE SECTION & PARAGRAPH)
+   -------------------------------------------------------------------------- */
+.tts-reading-active {
+    position: relative;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.02) 100%) !important;
+    border-left: 4px solid var(--accent-color, #1e3a8a) !important;
+    border-radius: 6px;
+    padding-left: 1rem !important;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .tts-reading-active {
+    background: linear-gradient(90deg, rgba(96, 165, 250, 0.14) 0%, rgba(96, 165, 250, 0.03) 100%) !important;
+    border-left: 4px solid var(--accent-color, #60a5fa) !important;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   3. COMPACT GLOBAL AUDIO CONTROL BAR
+   -------------------------------------------------------------------------- */
+.global-audio-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: var(--bg-card, #ffffff);
+    border-top: 1px solid var(--border-color, #e2dfd7);
+    box-shadow: 0 -4px 22px rgba(0, 0, 0, 0.09);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
+    user-select: none;
+}
+
+[data-theme="dark"] .global-audio-bar {
+    background: #111723;
+    border-top-color: #242f44;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.55);
+}
+
+.audio-bar-progress {
+    width: 100%;
+    height: 3px;
+    background: var(--bg-subtle, #f0eee6);
+    position: relative;
+    overflow: hidden;
+}
+
+.audio-bar-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-color, #1e3a8a), #2563eb);
+    transition: width 0.3s ease;
+}
+
+[data-theme="dark"] .audio-bar-progress-fill {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.audio-bar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.55rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 56px;
+    box-sizing: border-box;
+}
+
+.audio-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 220px;
+    max-width: 380px;
+    overflow: hidden;
+}
+
+.audio-sound-wave {
+    display: flex;
+    align-items: flex-end;
+    gap: 2.5px;
+    height: 18px;
+    width: 16px;
+}
+
+.audio-sound-wave span {
+    width: 2.5px;
+    height: 4px;
+    background-color: var(--accent-color, #1e3a8a);
+    border-radius: 2px;
+    transition: height 0.2s ease;
+}
+
+.bar-playing .audio-sound-wave span:nth-child(1) { animation: wave 1s infinite ease-in-out; }
+.bar-playing .audio-sound-wave span:nth-child(2) { animation: wave 1s 0.2s infinite ease-in-out; }
+.bar-playing .audio-sound-wave span:nth-child(3) { animation: wave 1s 0.4s infinite ease-in-out; }
+.bar-playing .audio-sound-wave span:nth-child(4) { animation: wave 1s 0.6s infinite ease-in-out; }
+
+@keyframes wave {
+    0%, 100% { height: 4px; }
+    50% { height: 16px; }
+}
+
+.audio-info {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.audio-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-main, #181c24);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.audio-meta {
+    font-size: 0.74rem;
+    color: var(--text-subtle, #6b7280);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.audio-bar-center {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.audio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color, #e2dfd7);
+    background: var(--bg-subtle, #f0eee6);
+    color: var(--text-main, #181c24);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.audio-btn:hover {
+    background: var(--accent-light, #eff6ff);
+    color: var(--accent-color, #1e3a8a);
+    border-color: var(--accent-color, #1e3a8a);
+    transform: scale(1.05);
+}
+
+.audio-btn:active {
+    transform: scale(0.95);
+}
+
+.audio-btn.audio-btn-play {
+    width: 42px;
+    height: 42px;
+    background: var(--accent-color, #1e3a8a);
+    color: #ffffff;
+    border: none;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.audio-btn.audio-btn-play:hover {
+    background: var(--primary-hover, #172554);
+    transform: scale(1.08);
+}
+
+.audio-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.audio-speed-group {
+    display: flex;
+    background: var(--bg-subtle, #f0eee6);
+    border-radius: 20px;
+    padding: 2px;
+    border: 1px solid var(--border-color, #e2dfd7);
+}
+
+.audio-speed-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-muted, #4b5563);
+    padding: 0.2rem 0.48rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.audio-speed-btn.active {
+    background: var(--accent-color, #1e3a8a);
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.audio-tool-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    height: 32px;
+    padding: 0 0.65rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color, #e2dfd7);
+    background: var(--bg-subtle, #f0eee6);
+    color: var(--text-muted, #4b5563);
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.audio-tool-btn:hover {
+    color: var(--accent-color, #1e3a8a);
+    border-color: var(--accent-color, #1e3a8a);
+}
+
+.audio-tool-btn.active {
+    background: var(--accent-light, #eff6ff);
+    color: var(--accent-color, #1e3a8a);
+    border-color: var(--accent-border, #bfdbfe);
+}
+
+/* Minimized mode */
+@media (min-width: 769px) {
+    .global-audio-bar.bar-minimized {
+        transform: translateY(calc(100% - 12px));
+    }
+
+    .global-audio-bar.bar-minimized:hover {
+        transform: translateY(0);
+    }
+}
+
+.tts-voice-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 11000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.tts-voice-modal-overlay.show {
+    display: flex;
+}
+
+.tts-voice-modal-card {
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #e2dfd7);
+    border-radius: 12px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+    animation: ttsModalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes ttsModalPop {
+    0% { transform: scale(0.94); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.tts-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color, #e2dfd7);
+    background: var(--bg-subtle, #f0eee6);
+}
+
+.tts-modal-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tts-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text-subtle, #6b7280);
+}
+
+.tts-modal-body {
+    padding: 1.25rem;
+}
+
+.tts-form-group {
+    margin-bottom: 1.1rem;
+}
+
+.tts-form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.88rem;
+    color: var(--text-main, #181c24);
+}
+
+.tts-select {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #e2dfd7);
+    background: var(--bg-card, #ffffff);
+    color: var(--text-main, #181c24);
+    font-size: 0.88rem;
+    font-family: inherit;
+}
+
+.tts-modal-tip {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.65rem 0.85rem;
+    background: var(--bg-subtle, #f0eee6);
+    border-left: 3px solid #f59e0b;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text-muted, #4b5563);
+}
+
+.tts-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.85rem 1.25rem;
+    border-top: 1px solid var(--border-color, #e2dfd7);
+    background: var(--bg-subtle, #f0eee6);
+}
+
+.tts-notice-banner {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 10001;
+    background: #1e293b;
+    color: #ffffff;
+    border-left: 4px solid #3b82f6;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 440px;
+    font-size: 0.84rem;
+    transform: translateX(110%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tts-notice-banner.show {
+    transform: translateX(0);
+}
+
+.tts-notice-content {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.tts-notice-close {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.25rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.tts-toast {
+    position: fixed;
+    bottom: 74px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(15, 23, 42, 0.92);
+    color: #ffffff;
+    padding: 0.55rem 1.1rem;
+    border-radius: 24px;
+    font-size: 0.84rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    opacity: 0;
+    transition: all 0.25s ease;
+    z-index: 10002;
+    pointer-events: none;
+}
+
+.tts-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.educational-infographic {
+    margin: 2rem 0;
+    padding: 1.25rem;
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #e2dfd7);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow, 0 4px 16px rgba(0,0,0,0.04));
+    box-sizing: border-box;
+}
+
+.educational-infographic .infographic-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+}
+
+.educational-infographic svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.educational-infographic figcaption {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-subtle, #eeece8);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-muted, #4b5563);
+}
+
+.educational-infographic .fig-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    background: var(--accent-light, #eff6ff);
+    color: var(--accent-color, #1e3a8a);
+    border: 1px solid var(--accent-border, #bfdbfe);
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+[data-theme="dark"] .educational-infographic {
+    background: #141b27;
+    border-color: #242f44;
+}
+
+[data-theme="dark"] .educational-infographic figcaption {
+    border-top-color: #1e2638;
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVENESS & MOBILE LAYOUT
+   -------------------------------------------------------------------------- */
+
+/* Content bottom clearance when audio bar is present */
+body:has(#global-audio-bar) .main-wrapper,
+body:has(.global-audio-bar) .main-wrapper {
+    padding-bottom: calc(105px + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 900px) {
+    .audio-bar-left {
+        max-width: 260px;
+    }
+    .audio-tool-btn .tool-label {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .global-audio-bar {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .audio-bar-container {
+        height: auto;
+        min-height: 82px;
+        padding: 0.5rem 0.85rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.4rem 0.5rem;
+    }
+
+    /* Row 1: Left info and tools (Speed & Minimize) */
+    .audio-bar-left {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: calc(100% - 95px);
+        gap: 0.5rem;
+    }
+
+    .audio-sound-wave {
+        flex-shrink: 0;
+    }
+
+    .audio-info {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .audio-title {
+        font-size: 0.82rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .audio-meta {
+        font-size: 0.7rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .audio-bar-right {
+        flex: 0 0 auto;
+        gap: 0.35rem;
+    }
+
+    .audio-speed-group .audio-speed-btn:nth-child(1),
+    .audio-speed-group .audio-speed-btn:nth-child(5) {
+        display: none; /* Hide 0.75x and 2x on mobile for clean fit */
+    }
+
+    .audio-speed-btn {
+        padding: 0.2rem 0.42rem;
+        font-size: 0.72rem;
+    }
+
+    .audio-tool-btn {
+        height: 32px;
+        width: 32px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .audio-tool-btn .tool-label {
+        display: none;
+    }
+
+    /* Row 2: Centered touch-friendly playback buttons */
+    .audio-bar-center {
+        order: 3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.85rem;
+        padding-top: 0.35rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] .audio-bar-center {
+        border-top-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .audio-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+    }
+
+    .audio-btn.audio-btn-play {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    /* Mobile Minimized State: Sleek 44px Bottom Dock */
+    .global-audio-bar.bar-minimized {
+        transform: none !important;
+        height: auto;
+    }
+
+    .global-audio-bar.bar-minimized .audio-bar-container {
+        min-height: 44px;
+        height: 44px;
+        padding: 0.25rem 0.75rem;
+        flex-wrap: nowrap;
+    }
+
+    .global-audio-bar.bar-minimized .audio-bar-center {
+        display: none;
+    }
+
+    .global-audio-bar.bar-minimized .audio-bar-left {
+        max-width: calc(100% - 50px);
+    }
+
+    .global-audio-bar.bar-minimized .audio-speed-group,
+    .global-audio-bar.bar-minimized #audio-bar-autoscroll,
+    .global-audio-bar.bar-minimized #audio-bar-voices-btn {
+        display: none;
+    }
+
+    .tts-notice-banner {
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        top: 60px;
+    }
+}
+
+/* Small Phones: 320px–374px */
+@media (max-width: 374px) {
+    .audio-bar-container {
+        padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .audio-bar-center {
+        gap: 0.6rem;
+    }
+
+    .audio-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .audio-btn.audio-btn-play {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    .audio-bar-left {
+        max-width: calc(100% - 80px);
+    }
+
+    .audio-title {
+        font-size: 0.78rem;
+    }
+}

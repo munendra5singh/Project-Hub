@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="auto" style="font-family: 'Poppins', -apple-system, sans-serif;">
+    <defs>
+        <linearGradient id="treeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7f1d1d" />
+            <stop offset="100%" stop-color="#991b1b" />
+        </linearGradient>
+        <linearGradient id="boxGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="100%" stop-color="#fff5f5" />
+        </linearGradient>
+        <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#7f1d1d" flood-opacity="0.12" />
+        </filter>
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#b91c1c" />
+        </marker>
+    </defs>
+
+    <rect width="900" height="520" rx="16" fill="#fffdfa" stroke="#fecaca" stroke-width="2" />
+
+    <rect x="25" y="20" width="850" height="60" rx="10" fill="url(#treeGrad)" />
+    <text x="450" y="45" fill="#ffffff" font-size="18" font-weight="700" text-anchor="middle">Historical Evolution of Indo-Aryan Languages &amp; Rise of Khari Boli</text>
+    <text x="450" y="66" fill="#fecaca" font-size="12" font-weight="500" text-anchor="middle">From Old Indo-Aryan (1500 BCE) through Middle Indo-Aryan to Modern Standard Hindi</text>
+
+    <!-- Step 1: Sanskrit -->
+    <g transform="translate(40, 105)" filter="url(#cardShadow)">
+        <rect width="180" height="110" rx="10" fill="url(#boxGrad1)" stroke="#b91c1c" stroke-width="2" />
+        <rect x="0" y="0" width="180" height="26" rx="10" fill="#b91c1c" />
+        <rect x="0" y="16" width="180" height="10" fill="#b91c1c" />
+        <text x="90" y="18" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">1. Old Indo-Aryan</text>
+        <text x="90" y="48" fill="#7f1d1d" font-size="13" font-weight="700" text-anchor="middle">Vedic &amp; Classical Sanskrit</text>
+        <text x="90" y="66" fill="#4b5563" font-size="10" text-anchor="middle">Period: 1500 BCE – 500 BCE</text>
+        <text x="90" y="82" fill="#6b7280" font-size="9.5" text-anchor="middle">• Vedas, Upanishads, Epics</text>
+        <text x="90" y="98" fill="#6b7280" font-size="9.5" text-anchor="middle">• Panini's Astadhyayi grammar</text>
+    </g>
+
+    <line x1="220" y1="160" x2="255" y2="160" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Step 2: Pali -->
+    <g transform="translate(260, 105)" filter="url(#cardShadow)">
+        <rect width="180" height="110" rx="10" fill="url(#boxGrad1)" stroke="#d97706" stroke-width="2" />
+        <rect x="0" y="0" width="180" height="26" rx="10" fill="#d97706" />
+        <rect x="0" y="16" width="180" height="10" fill="#d97706" />
+        <text x="90" y="18" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">2. Early Middle Indo-Aryan</text>
+        <text x="90" y="48" fill="#b45309" font-size="13" font-weight="700" text-anchor="middle">Pali (First Prakrit)</text>
+        <text x="90" y="66" fill="#4b5563" font-size="10" text-anchor="middle">Period: 500 BCE – 1 CE</text>
+        <text x="90" y="82" fill="#6b7280" font-size="9.5" text-anchor="middle">• Teachings of Gautama Buddha</text>
+        <text x="90" y="98" fill="#6b7280" font-size="9.5" text-anchor="middle">• Tipitaka canons, Ashokan edicts</text>
+    </g>
+
+    <line x1="440" y1="160" x2="475" y2="160" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Step 3: Prakrit -->
+    <g transform="translate(480, 105)" filter="url(#cardShadow)">
+        <rect width="180" height="110" rx="10" fill="url(#boxGrad1)" stroke="#b91c1c" stroke-width="2" />
+        <rect x="0" y="0" width="180" height="26" rx="10" fill="#b91c1c" />
+        <rect x="0" y="16" width="180" height="10" fill="#b91c1c" />
+        <text x="90" y="18" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">3. Mid Middle Indo-Aryan</text>
+        <text x="90" y="48" fill="#7f1d1d" font-size="13" font-weight="700" text-anchor="middle">Prakrit (Second Prakrit)</text>
+        <text x="90" y="66" fill="#4b5563" font-size="10" text-anchor="middle">Period: 1 CE – 500 CE</text>
+        <text x="90" y="82" fill="#6b7280" font-size="9.5" text-anchor="middle">• Teachings of Lord Mahavira</text>
+        <text x="90" y="98" fill="#6b7280" font-size="9.5" text-anchor="middle">• Gaha Sattasai, dramatic Prakrits</text>
+    </g>
+
+    <line x1="660" y1="160" x2="695" y2="160" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Step 4: Apabhramsha -->
+    <g transform="translate(700, 105)" filter="url(#cardShadow)">
+        <rect width="160" height="110" rx="10" fill="url(#boxGrad1)" stroke="#047857" stroke-width="2" />
+        <rect x="0" y="0" width="160" height="26" rx="10" fill="#047857" />
+        <rect x="0" y="16" width="160" height="10" fill="#047857" />
+        <text x="80" y="18" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">4. Late Middle Indo-Aryan</text>
+        <text x="80" y="48" fill="#065f46" font-size="13" font-weight="700" text-anchor="middle">Apabhramsha / Avahatta</text>
+        <text x="80" y="66" fill="#4b5563" font-size="10" text-anchor="middle">Period: 500 CE – 1000 CE</text>
+        <text x="80" y="82" fill="#6b7280" font-size="9.5" text-anchor="middle">• Bridge to modern vernaculars</text>
+        <text x="80" y="98" fill="#6b7280" font-size="9.5" text-anchor="middle">• Svayambhu, Puspadanta poetry</text>
+    </g>
+
+    <path d="M 780 215 L 780 255 L 500 255" fill="none" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Sauraseni Apabhramsha -->
+    <g transform="translate(250, 235)" filter="url(#cardShadow)">
+        <rect width="240" height="42" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.8" />
+        <text x="120" y="26" fill="#991b1b" font-size="12" font-weight="700" text-anchor="middle">Sauraseni Apabhramsha (Central Core)</text>
+    </g>
+
+    <line x1="370" y1="277" x2="370" y2="310" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#arrow)" />
+
+    <!-- Western Hindi Dialects -->
+    <g transform="translate(40, 320)" filter="url(#cardShadow)">
+        <rect width="360" height="175" rx="10" fill="#ffffff" stroke="#b91c1c" stroke-width="2" />
+        <rect x="0" y="0" width="360" height="28" rx="10" fill="#991b1b" />
+        <rect x="0" y="18" width="360" height="10" fill="#991b1b" />
+        <text x="180" y="19" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">Western Hindi Sub-Group (5 Primary Dialects)</text>
+
+        <g transform="translate(15, 38)">
+            <rect x="0" y="0" width="155" height="36" rx="6" fill="#fef2f2" stroke="#fca5a5" />
+            <text x="77" y="18" fill="#991b1b" font-size="11" font-weight="700" text-anchor="middle">1. Khari Boli (Kauravi)</text>
+            <text x="77" y="30" fill="#6b7280" font-size="8.5" text-anchor="middle">Delhi, Meerut, Saharanpur</text>
+
+            <rect x="175" y="0" width="155" height="36" rx="6" fill="#fffbeb" stroke="#fde68a" />
+            <text x="252" y="18" fill="#b45309" font-size="11" font-weight="700" text-anchor="middle">2. Braj Bhasha</text>
+            <text x="252" y="30" fill="#6b7280" font-size="8.5" text-anchor="middle">Mathura, Agra, Aligarh (Surdas)</text>
+
+            <rect x="0" y="44" width="155" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+            <text x="77" y="62" fill="#334155" font-size="11" font-weight="700" text-anchor="middle">3. Haryanvi (Bangru)</text>
+            <text x="77" y="74" fill="#6b7280" font-size="8.5" text-anchor="middle">Rohtak, Karnal, Ambala</text>
+
+            <rect x="175" y="44" width="155" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+            <text x="252" y="62" fill="#334155" font-size="11" font-weight="700" text-anchor="middle">4. Bundeli</text>
+            <text x="252" y="74" fill="#6b7280" font-size="8.5" text-anchor="middle">Jhansi, Gwalior, Sagar</text>
+
+            <rect x="88" y="88" width="155" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+            <text x="165" y="106" fill="#334155" font-size="11" font-weight="700" text-anchor="middle">5. Kannauji</text>
+            <text x="165" y="118" fill="#6b7280" font-size="8.5" text-anchor="middle">Kannauj, Farrukhabad, Etawah</text>
+        </g>
+    </g>
+
+    <path d="M 400 405 L 470 405" fill="none" stroke="#b91c1c" stroke-width="3" marker-end="url(#arrow)" />
+
+    <!-- Modern Standard Hindi -->
+    <g transform="translate(480, 320)" filter="url(#cardShadow)">
+        <rect width="380" height="175" rx="10" fill="url(#boxGrad1)" stroke="#b91c1c" stroke-width="2.5" />
+        <rect x="0" y="0" width="380" height="32" rx="10" fill="url(#treeGrad)" />
+        <rect x="0" y="20" width="380" height="12" fill="url(#treeGrad)" />
+        <text x="190" y="22" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Modern Standard Hindi (Manak Hindi)</text>
+
+        <g transform="translate(16, 42)">
+            <text x="0" y="16" fill="#991b1b" font-size="11.5" font-weight="700">• Dialect Base:</text>
+            <text x="95" y="16" fill="#374151" font-size="11">Kauravi / Khari Boli (Delhi-Meerut tract)</text>
+
+            <text x="0" y="38" fill="#991b1b" font-size="11.5" font-weight="700">• Script:</text>
+            <text x="50" y="38" fill="#374151" font-size="11">Devanagari (Article 343(1) Union Official Language)</text>
+
+            <text x="0" y="60" fill="#991b1b" font-size="11.5" font-weight="700">• Standardization:</text>
+            <text x="110" y="60" fill="#374151" font-size="11">Mahavir Prasad Dwivedi ('Saraswati' journal)</text>
+
+            <text x="0" y="82" fill="#991b1b" font-size="11.5" font-weight="700">• Modern Scope:</text>
+            <text x="98" y="82" fill="#374151" font-size="11">Academia, Governance, Judiciary, Media &amp; Lingua Franca</text>
+
+            <rect x="20" y="96" width="310" height="26" rx="13" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.2" />
+            <text x="175" y="113" fill="#b91c1c" font-size="10.5" font-weight="700" text-anchor="middle">✓ Official Language of the Indian Union &amp; National Link</text>
+        </g>
+    </g>
+</svg>

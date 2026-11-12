@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sdgSocietyEn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="sdgEconomyEn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="sdgEnvironmentEn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="sdgShadowEn" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="440" fill="#f8fafc" rx="12"/>
+
+  <text x="410" y="34" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    The 3 Pillars of Sustainable Development Goals (SDGs 2030)
+  </text>
+  <text x="410" y="56" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="12" fill="#64748b">
+    Brundtland Report (1987) 'Our Common Future' &amp; NITI Aayog SDG India Index Framework
+  </text>
+
+  <!-- 1. Social Pillar -->
+  <g transform="translate(40, 85)" filter="url(#sdgShadowEn)">
+    <rect width="226" height="255" rx="10" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5"/>
+    <rect width="226" height="48" rx="10" fill="url(#sdgSocietyEn)"/>
+    <rect y="38" width="226" height="10" fill="url(#sdgSocietyEn)"/>
+    <text x="113" y="30" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="15" font-weight="700" fill="#ffffff">
+      1. Social Pillar
+    </text>
+    <text x="113" y="70" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="11" font-weight="600" fill="#ea580c">PEOPLE</text>
+
+    <g transform="translate(16, 85)" font-family="'Poppins', sans-serif" font-size="11.5" fill="#334155">
+      <text y="15">• SDG 1: No Poverty</text>
+      <text y="38">• SDG 2: Zero Hunger</text>
+      <text y="61">• SDG 3: Good Health &amp; Well-being</text>
+      <text y="84">• SDG 4: Quality Education</text>
+      <text y="107">• SDG 5: Gender Equality</text>
+      <text y="130">• SDG 6: Clean Water &amp; Sanitation</text>
+      <text y="153">• SDG 10: Reduced Inequalities</text>
+    </g>
+  </g>
+
+  <!-- 2. Economic Pillar -->
+  <g transform="translate(296, 85)" filter="url(#sdgShadowEn)">
+    <rect width="228" height="255" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect width="228" height="48" rx="10" fill="url(#sdgEconomyEn)"/>
+    <rect y="38" width="228" height="10" fill="url(#sdgEconomyEn)"/>
+    <text x="114" y="30" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="15" font-weight="700" fill="#ffffff">
+      2. Economic Pillar
+    </text>
+    <text x="114" y="70" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="11" font-weight="600" fill="#2563eb">PROSPERITY</text>
+
+    <g transform="translate(16, 85)" font-family="'Poppins', sans-serif" font-size="11.5" fill="#334155">
+      <text y="15">• SDG 7: Affordable &amp; Clean Energy</text>
+      <text y="38">• SDG 8: Decent Work &amp; Economic Growth</text>
+      <text y="61">• SDG 9: Industry, Innovation &amp; Infra</text>
+      <text y="84">• SDG 11: Sustainable Cities</text>
+      <text y="107">• SDG 12: Responsible Consumption</text>
+      <text y="130">• Financial Inclusion (Jan Dhan)</text>
+      <text y="153">• Circular Economy Models</text>
+    </g>
+  </g>
+
+  <!-- 3. Environmental Pillar -->
+  <g transform="translate(554, 85)" filter="url(#sdgShadowEn)">
+    <rect width="226" height="255" rx="10" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+    <rect width="226" height="48" rx="10" fill="url(#sdgEnvironmentEn)"/>
+    <rect y="38" width="226" height="10" fill="url(#sdgEnvironmentEn)"/>
+    <text x="113" y="30" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="15" font-weight="700" fill="#ffffff">
+      3. Environmental Pillar
+    </text>
+    <text x="113" y="70" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="11" font-weight="600" fill="#059669">PLANET</text>
+
+    <g transform="translate(16, 85)" font-family="'Poppins', sans-serif" font-size="11.5" fill="#334155">
+      <text y="15">• SDG 13: Climate Action</text>
+      <text y="38">• SDG 14: Life Below Water</text>
+      <text y="61">• SDG 15: Life on Land</text>
+      <text y="84">• International Solar Alliance (ISA)</text>
+      <text y="107">• Mission LiFE (Lifestyle for Env.)</text>
+      <text y="130">• Afforestation &amp; Carbon Sinks</text>
+      <text y="153">• Green Growth Policy Implementation</text>
+    </g>
+  </g>
+
+  <!-- Cross-Cutting Footer -->
+  <g transform="translate(40, 360)">
+    <rect width="740" height="56" rx="8" fill="#1e293b"/>
+    <text x="370" y="24" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="13" font-weight="700" fill="#38bdf8">
+      Institutional Enablers: SDG 16 (Peace, Justice &amp; Strong Institutions) + SDG 17 (Partnerships)
+    </text>
+    <text x="370" y="44" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="11.5" fill="#cbd5e1">
+      India's Commitment: Panchamrit targets aiming for Net-Zero carbon emissions by 2070
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="planGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="nitiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="planShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="420" fill="#f8fafc" rx="12"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    भारतीय नियोजन का विकास: योजना आयोग से नीति आयोग तक
+  </text>
+  <text x="410" y="56" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="12" fill="#64748b">
+    केंद्रीकृत कमान ढांचे (Top-Down) से सहभागी सहकारी संघवाद (Bottom-Up) की ऐतिहासिक यात्रा
+  </text>
+
+  <!-- Left Card: Planning Commission -->
+  <g transform="translate(40, 85)" filter="url(#planShadow)">
+    <rect width="345" height="260" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="345" height="46" rx="10" fill="url(#planGrad)"/>
+    <rect y="36" width="345" height="10" fill="url(#planGrad)"/>
+    <text x="172" y="28" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="15" font-weight="700" fill="#ffffff">
+      योजना आयोग (1950 – 2014)
+    </text>
+
+    <g transform="translate(18, 65)" font-family="'Noto Sans Devanagari', sans-serif" font-size="12" fill="#334155">
+      <text y="15" font-weight="700" fill="#1e293b">• दृष्टिकोण:</text>
+      <text y="33" fill="#64748b">शीर्ष से नीचे (Top-Down) केंद्रीकृत नियोजन</text>
+
+      <text y="60" font-weight="700" fill="#1e293b">• रूपरेखा:</text>
+      <text y="78" fill="#64748b">5-वर्षीय योजनाएं (कुल 12 पंचवर्षीय योजनाएं पूरी हुईं)</text>
+
+      <text y="105" font-weight="700" fill="#1e293b">• राज्यों की स्थिति:</text>
+      <text y="123" fill="#64748b">'एक ही आकार सबके लिए' (One Size Fits All)</text>
+
+      <text y="150" font-weight="700" fill="#1e293b">• वित्तीय अधिकार:</text>
+      <text y="168" fill="#64748b">राज्यों को मंत्रालयों व योजनाओं हेतु धन आवंटित करने की शक्ति</text>
+    </g>
+  </g>
+
+  <!-- Transition Arrow -->
+  <g transform="translate(390, 200)">
+    <circle cx="20" cy="10" r="20" fill="#2563eb"/>
+    <path d="M12 10 L26 10 M20 4 L26 10 L20 16" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="20" y="44" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="10" font-weight="700" fill="#2563eb">1 जन. 2015</text>
+  </g>
+
+  <!-- Right Card: NITI Aayog -->
+  <g transform="translate(435, 85)" filter="url(#planShadow)">
+    <rect width="345" height="260" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect width="345" height="46" rx="10" fill="url(#nitiGrad)"/>
+    <rect y="36" width="345" height="10" fill="url(#nitiGrad)"/>
+    <text x="172" y="28" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="15" font-weight="700" fill="#ffffff">
+      नीति आयोग (1 जनवरी 2015 से वर्तमान)
+    </text>
+
+    <g transform="translate(18, 65)" font-family="'Noto Sans Devanagari', sans-serif" font-size="12" fill="#334155">
+      <text y="15" font-weight="700" fill="#1e3a8a">• दृष्टिकोण:</text>
+      <text y="33" fill="#475569">नीचे से ऊपर (Bottom-Up) सहकारी संघवाद (Team India)</text>
+
+      <text y="60" font-weight="700" fill="#1e3a8a">• रूपरेखा:</text>
+      <text y="78" fill="#475569">15-वर्षीय विजन, 7-वर्षीय रणनीति, 3-वर्षीय कार्य एजेंडा</text>
+
+      <text y="105" font-weight="700" fill="#1e3a8a">• राज्यों की स्थिति:</text>
+      <text y="123" fill="#475569">गवर्निंग काउंसिल में सभी मुख्यमंत्री व उपराज्यपाल बराबर के साझेदार</text>
+
+      <text y="150" font-weight="700" fill="#1e3a8a">• प्रमुख भूमिका:</text>
+      <text y="168" fill="#475569">थिंक टैंक: साक्ष्य आधारित नीति, सूचकांक रैंकिंग (SDG, नवाचार)</text>
+    </g>
+  </g>
+
+  <!-- Bottom Synthesis Banner -->
+  <g transform="translate(40, 360)">
+    <rect width="740" height="46" rx="8" fill="#1e293b"/>
+    <text x="370" y="28" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="12.5" font-weight="600" fill="#f8fafc">
+      मूल मंत्र: 'सहकारी एवं प्रतिस्पर्धी संघवाद' (Cooperative &amp; Competitive Federalism) — आकांक्षी जिला कार्यक्रम (ADP) इसका प्रत्यक्ष प्रमाण
+    </text>
+  </g>
+</svg>
