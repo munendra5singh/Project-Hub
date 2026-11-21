@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fdiGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="fiiGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="invShadowEn" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="430" fill="#f8fafc" rx="12"/>
+
+  <text x="410" y="34" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    Foreign Capital Flows: FDI vs FII (Hot Money) Compared
+  </text>
+  <text x="410" y="56" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="12" fill="#64748b">
+    Comparative Evaluation of Direct Foreign Investment versus Portfolio Inflows in the Indian Economy
+  </text>
+
+  <!-- Left Card: FDI -->
+  <g transform="translate(40, 85)" filter="url(#invShadowEn)">
+    <rect width="345" height="265" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect width="345" height="48" rx="10" fill="url(#fdiGradEn)"/>
+    <rect y="38" width="345" height="10" fill="url(#fdiGradEn)"/>
+    <text x="172" y="30" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="16" font-weight="700" fill="#ffffff">
+      Foreign Direct Investment (FDI)
+    </text>
+
+    <g transform="translate(20, 75)" font-family="'Poppins', sans-serif" font-size="12.5" fill="#1e293b">
+      <text y="14" font-weight="700" fill="#1e3a8a">1. Investment Nature:</text>
+      <text y="34" fill="#475569">Long-term &amp; physical assets (Plants, tech transfer)</text>
+
+      <text y="64" font-weight="700" fill="#1e3a8a">2. Management Control:</text>
+      <text y="84" fill="#475569">Direct managerial involvement (&gt;10% equity stake)</text>
+
+      <text y="114" font-weight="700" fill="#1e3a8a">3. Macro Impact:</text>
+      <text y="134" fill="#475569">Real GDP expansion, job creation, R&amp;D adoption</text>
+
+      <text y="164" font-weight="700" fill="#1e3a8a">4. Volatility &amp; Reversal:</text>
+      <text y="184" fill="#475569">Illiquid &amp; resilient; cannot exit overnight</text>
+    </g>
+
+    <rect x="20" y="220" width="305" height="30" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="172" y="240" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="11.5" font-weight="700" fill="#1e3a8a">
+      ✓ Real Asset Expansion &amp; Stable Capital
+    </text>
+  </g>
+
+  <!-- VS Badge -->
+  <g transform="translate(390, 205)">
+    <circle cx="20" cy="10" r="22" fill="#0f172a"/>
+    <text x="20" y="16" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="13" font-weight="700" fill="#ffffff">VS</text>
+  </g>
+
+  <!-- Right Card: FII / FPI -->
+  <g transform="translate(435, 85)" filter="url(#invShadowEn)">
+    <rect width="345" height="265" rx="10" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5"/>
+    <rect width="345" height="48" rx="10" fill="url(#fiiGradEn)"/>
+    <rect y="38" width="345" height="10" fill="url(#fiiGradEn)"/>
+    <text x="172" y="30" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="16" font-weight="700" fill="#ffffff">
+      Foreign Portfolio Investment (FII / FPI)
+    </text>
+
+    <g transform="translate(20, 75)" font-family="'Poppins', sans-serif" font-size="12.5" fill="#1e293b">
+      <text y="14" font-weight="700" fill="#b45309">1. Investment Nature:</text>
+      <text y="34" fill="#475569">Short-term financial securities (Equities, debt, bonds)</text>
+
+      <text y="64" font-weight="700" fill="#b45309">2. Management Control:</text>
+      <text y="84" fill="#475569">No active managerial control (&lt;10% holding)</text>
+
+      <text y="114" font-weight="700" fill="#b45309">3. Macro Impact:</text>
+      <text y="134" fill="#475569">Deepens liquidity in capital markets</text>
+
+      <text y="164" font-weight="700" fill="#b45309">4. Volatility &amp; Reversal:</text>
+      <text y="184" fill="#475569">Highly flighty: rapid sudden outflow on global rate shifts</text>
+    </g>
+
+    <rect x="20" y="220" width="305" height="30" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+    <text x="172" y="240" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="11.5" font-weight="700" fill="#b45309">
+      ⚠ 'Hot Money' — High Currency Volatility Risk
+    </text>
+  </g>
+
+  <!-- Bottom Synthesis Banner -->
+  <g transform="translate(40, 368)">
+    <rect width="740" height="46" rx="8" fill="#1e293b"/>
+    <text x="370" y="28" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="12.5" font-weight="600" fill="#f8fafc">
+      National Policy Priority: Attract stable FDI under 'Make in India' to anchor domestic production &amp; supply chains
+    </text>
+  </g>
+</svg>

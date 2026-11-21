@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="100%" height="100%">
+  <defs>
+    <linearGradient id="workforceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="depGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="demoShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="440" fill="#f8fafc" rx="12"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    भारत का जनसांख्यिकीय लाभांश (India's Demographic Dividend)
+  </text>
+  <text x="410" y="56" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="12" fill="#64748b">
+    कार्यशील आयु संरचना (15-59 वर्ष) एवं गिरता निर्भरता अनुपात — 'अवसर की खिड़की' (2020-2055)
+  </text>
+
+  <!-- Left: Demographic Structure Breakdown -->
+  <g transform="translate(40, 85)" filter="url(#demoShadow)">
+    <rect width="360" height="260" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect width="360" height="42" rx="10" fill="#1e293b"/>
+    <text x="180" y="27" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="14" font-weight="700" fill="#ffffff">
+      आयु वर्ग संरचना एवं जनसंख्या वितरण
+    </text>
+
+    <!-- 60+ Elderly -->
+    <g transform="translate(20, 60)">
+      <rect width="320" height="45" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+      <text x="15" y="28" font-family="'Noto Sans Devanagari', sans-serif" font-size="13" font-weight="700" fill="#dc2626">वृद्ध आबादी (60+ वर्ष): ~10%</text>
+      <text x="305" y="28" text-anchor="end" font-family="'Noto Sans Devanagari', sans-serif" font-size="11" fill="#7f1d1d">आश्रित (Dependents)</text>
+    </g>
+
+    <!-- 15-59 Working Class (Highlight) -->
+    <g transform="translate(20, 115)">
+      <rect width="320" height="75" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2"/>
+      <text x="15" y="30" font-family="'Noto Sans Devanagari', sans-serif" font-size="15" font-weight="800" fill="#047857">कार्यशील आयु वर्ग (15-59 वर्ष): ~65-68%</text>
+      <text x="15" y="52" font-family="'Noto Sans Devanagari', sans-serif" font-size="12" font-weight="600" fill="#065f46">★ जनसांख्यिकीय लाभांश का मुख्य आधार (उत्पादक शक्ति)</text>
+      <text x="305" y="68" text-anchor="end" font-family="'Poppins', sans-serif" font-size="11" font-weight="700" fill="#047857">Median Age: ~28.5 yrs</text>
+    </g>
+
+    <!-- 0-14 Children -->
+    <g transform="translate(20, 200)">
+      <rect width="320" height="45" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+      <text x="15" y="28" font-family="'Noto Sans Devanagari', sans-serif" font-size="13" font-weight="700" fill="#c2410c">बाल आबादी (0-14 वर्ष): ~24%</text>
+      <text x="305" y="28" text-anchor="end" font-family="'Noto Sans Devanagari', sans-serif" font-size="11" fill="#9a3412">भविष्य का कार्यबल</text>
+    </g>
+  </g>
+
+  <!-- Right: 4 Policy Pillars to Realize Dividend -->
+  <g transform="translate(425, 85)" filter="url(#demoShadow)">
+    <rect width="355" height="260" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect width="355" height="42" rx="10" fill="#1e3a8a"/>
+    <text x="177" y="27" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="14" font-weight="700" fill="#ffffff">
+      लाभांश को समृद्धि में बदलने के 4 नीतिगत स्तंभ
+    </text>
+
+    <g transform="translate(20, 60)" font-family="'Noto Sans Devanagari', sans-serif" font-size="12.5" fill="#1e293b">
+      <!-- Pillar 1 -->
+      <circle cx="8" cy="12" r="5" fill="#2563eb"/>
+      <text x="24" y="16" font-weight="700">1. गुणवत्तापूर्ण शिक्षा एवं व्यावसायिक कौशल:</text>
+      <text x="24" y="34" fill="#64748b">स्किल इंडिया, राष्ट्रीय शिक्षा नीति (NEP 2020), AI/ICT दक्षता</text>
+
+      <!-- Pillar 2 -->
+      <circle cx="8" cy="62" r="5" fill="#2563eb"/>
+      <text x="24" y="66" font-weight="700">2. उत्पादक रोजगार सृजन:</text>
+      <text x="24" y="84" fill="#64748b">विनिर्माण (PLI योजनाएं), स्टार्टअप इकोसिस्टम, MSMEs का विस्तार</text>
+
+      <!-- Pillar 3 -->
+      <circle cx="8" cy="112" r="5" fill="#2563eb"/>
+      <text x="24" y="116" font-weight="700">3. स्वास्थ्य एवं पोषण सुरक्षा:</text>
+      <text x="24" y="134" fill="#64748b">आयुष्मान भारत, कुपोषण निवारण (पोषण अभियान), प्राथमिक स्वास्थ्य</text>
+
+      <!-- Pillar 4 -->
+      <circle cx="8" cy="162" r="5" fill="#2563eb"/>
+      <text x="24" y="166" font-weight="700">4. महिला श्रम बल सहभागिता (FLFP) में वृद्धि:</text>
+      <text x="24" y="184" fill="#64748b">समान वेतन, मातृत्व सुरक्षा, कार्यस्थल सुरक्षा व वित्तीय स्वावलंबन</text>
+    </g>
+  </g>
+
+  <!-- Bottom Synthesis Banner -->
+  <g transform="translate(40, 365)">
+    <rect width="740" height="50" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="370" y="24" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="13" font-weight="700" fill="#0f172a">
+      ⚠ जनसांख्यिकीय लाभांश बनाम जनसांख्यिकीय आपदा (Demographic Disaster):
+    </text>
+    <text x="370" y="42" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="11.5" fill="#475569">
+      यदि युवाओं को गुणवत्तापूर्ण कौशल व रोजगार न मिले, तो यह ऐतिहासिक अवसर बेरोजगारी, असंतोष और संकट में तब्दील हो सकता है।
+    </text>
+  </g>
+</svg>

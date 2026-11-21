@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="growthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="devGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="420" fill="#f8fafc" rx="12"/>
+
+  <!-- Title Banner -->
+  <text x="400" y="38" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    आर्थिक संवृद्धि बनाम आर्थिक विकास (Economic Growth vs Economic Development)
+  </text>
+  <text x="400" y="60" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="12" fill="#64748b">
+    सैद्धांतिक एवं व्यावहारिक अंतर: साधन (Means) से साध्य (End Goal) की यात्रा
+  </text>
+
+  <!-- Left Card: Economic Growth -->
+  <g transform="translate(40, 85)" filter="url(#cardShadow)">
+    <rect width="330" height="260" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect width="330" height="48" rx="10" fill="url(#growthGrad)"/>
+    <rect y="38" width="330" height="10" fill="url(#growthGrad)"/>
+    <text x="165" y="30" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="16" font-weight="700" fill="#ffffff">
+      आर्थिक संवृद्धि (Economic Growth)
+    </text>
+
+    <!-- Content Items -->
+    <g transform="translate(20, 75)" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="13" fill="#1e293b">
+      <circle cx="6" cy="6" r="4" fill="#3b82f6"/>
+      <text x="20" y="10" font-weight="600">प्रकृति: <tspan font-weight="400" fill="#475569">मात्रात्मक एवं संख्यात्मक (Quantitative)</tspan></text>
+      
+      <circle cx="6" cy="36" r="4" fill="#3b82f6"/>
+      <text x="20" y="40" font-weight="600">मापन: <tspan font-weight="400" fill="#475569">Real GDP, राष्ट्रीय आय, प्रति व्यक्ति आय</tspan></text>
+
+      <circle cx="6" cy="66" r="4" fill="#3b82f6"/>
+      <text x="20" y="70" font-weight="600">दायरा: <tspan font-weight="400" fill="#475569">संकीर्ण (वस्तुओं व सेवाओं का भौतिक उत्पादन)</tspan></text>
+
+      <circle cx="6" cy="96" r="4" fill="#3b82f6"/>
+      <text x="20" y="100" font-weight="600">भूमिका: <tspan font-weight="400" fill="#475569">यह विकास प्राप्ति का एक </tspan><tspan font-weight="700" fill="#1e3a8a">साधन (Means)</tspan><tspan font-weight="400" fill="#475569"> है</tspan></text>
+
+      <circle cx="6" cy="126" r="4" fill="#3b82f6"/>
+      <text x="20" y="130" font-weight="600">उदाहरण: <tspan font-weight="400" fill="#475569">भारत की GDP में 7.2% की वार्षिक वृद्धि</tspan></text>
+    </g>
+
+    <!-- Status Badge -->
+    <rect x="20" y="215" width="290" height="30" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="165" y="235" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="12" font-weight="600" fill="#1e3a8a">
+      केवल उत्पादन व आय का विस्तार (Production Focus)
+    </text>
+  </g>
+
+  <!-- Central Bridge Arrow -->
+  <g transform="translate(378, 200)">
+    <circle cx="22" cy="10" r="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M12 10 L28 10 M22 4 L28 10 L22 16" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="22" y="48" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="11" font-weight="600" fill="#64748b">रूपांतरण</text>
+  </g>
+
+  <!-- Right Card: Economic Development -->
+  <g transform="translate(430, 85)" filter="url(#cardShadow)">
+    <rect width="330" height="260" rx="10" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+    <rect width="330" height="48" rx="10" fill="url(#devGrad)"/>
+    <rect y="38" width="330" height="10" fill="url(#devGrad)"/>
+    <text x="165" y="30" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="16" font-weight="700" fill="#ffffff">
+      आर्थिक विकास (Economic Development)
+    </text>
+
+    <!-- Content Items -->
+    <g transform="translate(20, 75)" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="13" fill="#1e293b">
+      <circle cx="6" cy="6" r="4" fill="#10b981"/>
+      <text x="20" y="10" font-weight="600">प्रकृति: <tspan font-weight="400" fill="#475569">गुणात्मक, संरचनात्मक व संस्थागत (Qualitative)</tspan></text>
+      
+      <circle cx="6" cy="36" r="4" fill="#10b981"/>
+      <text x="20" y="40" font-weight="600">मापन: <tspan font-weight="400" fill="#475569">मानव विकास सूचकांक (HDI), MPI, PQLI</tspan></text>
+
+      <circle cx="6" cy="66" r="4" fill="#10b981"/>
+      <text x="20" y="70" font-weight="600">दायरा: <tspan font-weight="400" fill="#475569">व्यापक (शिक्षा, स्वास्थ्य, खुशहाली व समानता)</tspan></text>
+
+      <circle cx="6" cy="96" r="4" fill="#10b981"/>
+      <text x="20" y="100" font-weight="600">भूमिका: <tspan font-weight="400" fill="#475569">यह मानव कल्याण का अंतिम </tspan><tspan font-weight="700" fill="#047857">साध्य (End Goal)</tspan><tspan font-weight="400" fill="#475569"> है</tspan></text>
+
+      <circle cx="6" cy="126" r="4" fill="#10b981"/>
+      <text x="20" y="130" font-weight="600">उदाहरण: <tspan font-weight="400" fill="#475569">गरीबी उन्मूलन, मातृ मृत्यु दर में कमी, साक्षरता</tspan></text>
+    </g>
+
+    <!-- Status Badge -->
+    <rect x="20" y="215" width="290" height="30" rx="6" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="165" y="235" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="12" font-weight="600" fill="#047857">
+      नागरिकों की वास्तविक क्षमताओं का विस्तार (Wellbeing)
+    </text>
+  </g>
+
+  <!-- Bottom Synthesis Bar -->
+  <g transform="translate(40, 360)">
+    <rect width="720" height="42" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="360" y="26" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="13" font-weight="600" fill="#334155">
+      💡 प्रो. अमर्त्य सेन: <tspan font-weight="400" fill="#475569">"संवृद्धि के बिना विकास असंभव है, किंतु केवल संवृद्धि अपने आप में विकास की गारंटी नहीं है।"</tspan>
+    </text>
+  </g>
+</svg>

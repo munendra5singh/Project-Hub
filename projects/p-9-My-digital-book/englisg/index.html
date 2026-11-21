@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.A. 5th Semester Digital Textbook Library</title>
+    <meta name="description" content="B.A. 5th Semester Digital Textbook Library: Comprehensive college textbooks for Geography, Economics, Hindi, and Value Added Course (VAC CTMV) in clear, standard English.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-book-bookmark"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">B.A. 5th Semester</span>
+                <span class="subtitle">Digital Textbook Library</span>
+            </div>
+        </a>
+
+        <!-- Desktop & Mobile Drawer Menu -->
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./geo-theory.html" class="nav-link"><i class="fa-solid fa-earth-americas"></i> Economic Geography</a></li>
+            <li><a href="./geo-practical.html" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Geography Practical</a></li>
+            <li><a href="./eco-elective-1-policy.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Economics Elective-1</a></li>
+            <li><a href="./eco-skill-course.html" class="nav-link"><i class="fa-solid fa-industry"></i> Field Course</a></li>
+            <li><a href="./hindi-bhasha-1.html" class="nav-link"><i class="fa-solid fa-feather-pointed"></i> Hindi</a></li>
+            <li><a href="./vac-ctmv.html" class="nav-link"><i class="fa-solid fa-building-columns"></i> VAC (Values)</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('hi')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> हिन्दी संस्करण</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSearchModal()" title="Search Subject (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="Decrease Font">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="Default Font">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="Increase Font">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('hi')" title="हिन्दी में पढ़ें (Switch to Hindi)" aria-label="Switch to Hindi">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">हिन्दी</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="Open Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Library Stats -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-links">
+                <a href="./index.html"><i class="fa-solid fa-house"></i> <span>Library</span></a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current-crumb">Home (Digital Bookshelf)</span>
+            </div>
+            <div class="breadcrumb-right">
+                <span class="reading-progress-pill"><i class="fa-solid fa-graduation-cap"></i> 6 Digital Textbooks</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="main-wrapper single-column">
+
+        <!-- Library Welcome Hero (Academic Bookshelf) -->
+        <header class="bookshelf-hero">
+            <div class="library-plaque">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>H.N.B. GARHWAL UNIVERSITY • B.A. 5TH SEMESTER • NEP-CBCS</span>
+            </div>
+            <h1>MY DIGITAL BOOKSHELF</h1>
+            <p class="bookshelf-subtitle">
+                Authentic academic digital textbooks prepared for B.A. 5th Semester students in simple, clear, and rigorous academic English. Distraction-free, realistic 3D hardcover design, 140+ comprehensive chapters, 600+ exam MCQs, and official university syllabi.
+            </p>
+            <div class="library-stats-strip">
+                <div class="stat-chip">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span><strong>6</strong> Digital Textbooks</span>
+                </div>
+                <div class="stat-chip">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span><strong>140+</strong> Detailed Chapters</span>
+                </div>
+                <div class="stat-chip">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span><strong>600+</strong> Exam MCQs</span>
+                </div>
+                <div class="stat-chip">
+                    <i class="fa-solid fa-headphones"></i>
+                    <span><strong>Smart</strong> Audio Reader</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Shelf Filter Tabs -->
+        <nav class="shelf-filter-bar" aria-label="Library Categories">
+            <button type="button" class="shelf-filter-btn active" onclick="filterBookshelf('all', this)">
+                <i class="fa-solid fa-layer-group"></i> All Books (6)
+            </button>
+            <button type="button" class="shelf-filter-btn" onclick="filterBookshelf('core', this)">
+                <i class="fa-solid fa-landmark"></i> Core Disciplines
+            </button>
+            <button type="button" class="shelf-filter-btn" onclick="filterBookshelf('practical', this)">
+                <i class="fa-solid fa-compass-drafting"></i> Practical &amp; Fieldwork
+            </button>
+            <button type="button" class="shelf-filter-btn" onclick="filterBookshelf('language-vac', this)">
+                <i class="fa-solid fa-feather-pointed"></i> Language &amp; Values
+            </button>
+        </nav>
+
+        <!-- Bookshelf Grid (6 Hardcover Digital Textbooks) -->
+        <div class="bookshelf-grid">
+
+            <!-- Book 1: Geography Theory (Theory-V) -->
+            <article class="digital-book-card book-geo-theory" data-category="core">
+                <a href="./geo-theory.html" class="book-cover-link" aria-label="Open Economic Geography Textbook">
+                    <div class="book-hardcover">
+                        <div class="book-spine">
+                            <div class="book-spine-ribs">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="book-ribbon"></div>
+                        <div class="book-foil-frame">
+                            <div class="book-cover-header">
+                                <span class="book-univ-tag">HNB GARHWAL UNIVERSITY</span>
+                                <span class="book-code-badge">THEORY-V</span>
+                            </div>
+                            <div class="book-cover-art">
+                                <svg class="book-art-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <circle cx="80" cy="80" r="68" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                                    <ellipse cx="80" cy="80" rx="68" ry="26" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                                    <ellipse cx="80" cy="80" rx="30" ry="68" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                                    <line x1="12" y1="80" x2="148" y2="80" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                                    <line x1="80" y1="12" x2="80" y2="148" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                                    <path d="M40 95 C55 70, 75 110, 95 65 C105 45, 120 50, 130 35" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <circle cx="40" cy="95" r="4" fill="#34d399"/>
+                                    <circle cx="70" cy="88" r="4.5" fill="#6ee7b7"/>
+                                    <circle cx="95" cy="65" r="5" fill="#fbbf24"/>
+                                    <circle cx="130" cy="35" r="4.5" fill="#fde68a"/>
+                                    <polygon points="130,30 134,39 125,37" fill="#fbbf24"/>
+                                </svg>
+                            </div>
+                            <div class="book-cover-footer">
+                                <span class="book-category-label">GEOGRAPHY • THEORY-V</span>
+                                <h2 class="book-title">Economic Geography</h2>
+                                <span class="book-subtitle-tag">Economic Geography • 4 Units</span>
+                            </div>
+                        </div>
+                        <div class="book-page-edges"></div>
+                    </div>
+                </a>
+                <div class="book-info-body">
+                    <p class="book-description-text">
+                        Approaches, 16 fundamental concepts, development patterns, Von Thünen agricultural and Weber industrial location models, primary &amp; secondary activities, transport, trade, and the ICT industry.
+                    </p>
+                    <div class="book-meta-chips">
+                        <span class="meta-chip"><i class="fa-solid fa-layer-group"></i> 4 Units</span>
+                        <span class="meta-chip"><i class="fa-solid fa-file-lines"></i> 25 Chapters</span>
+                        <span class="meta-chip"><i class="fa-solid fa-award"></i> 4 Credits</span>
+                        <span class="meta-chip"><i class="fa-solid fa-square-poll-vertical"></i> 100 Marks</span>
+                    </div>
+                    <div class="book-unit-preview-wrap">
+                        <span class="unit-pill"><i class="fa-solid fa-globe"></i> I: Concepts &amp; HDI</span>
+                        <span class="unit-pill"><i class="fa-solid fa-industry"></i> II: Locational Models</span>
+                        <span class="unit-pill"><i class="fa-solid fa-wheat-awn"></i> III: Agri &amp; Industry</span>
+                        <span class="unit-pill"><i class="fa-solid fa-network-wired"></i> IV: Transport &amp; Trade</span>
+                    </div>
+                    <div class="book-card-actions">
+                        <a href="./geo-theory.html" class="btn-open-book"><i class="fa-solid fa-book-open"></i> Open Book</a>
+                        <button type="button" class="btn-syllabus-book" onclick="openSyllabusModal('geo-theory', 'Economic Geography')"><i class="fa-solid fa-file-invoice"></i> Syllabus</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Book 2: Geography Practical (Practical-V) -->
+            <article class="digital-book-card book-geo-practical" data-category="practical">
+                <a href="./geo-practical.html" class="book-cover-link" aria-label="Open Geography Practical Manual">
+                    <div class="book-hardcover">
+                        <div class="book-spine">
+                            <div class="book-spine-ribs">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="book-ribbon"></div>
+                        <div class="book-foil-frame">
+                            <div class="book-cover-header">
+                                <span class="book-univ-tag">HNB GARHWAL UNIVERSITY</span>
+                                <span class="book-code-badge">PRACTICAL-V</span>
+                            </div>
+                            <div class="book-cover-art">
+                                <svg class="book-art-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M20 130 C45 100, 70 120, 100 85 C125 55, 140 70, 150 40" stroke="rgba(34,211,238,0.3)" stroke-width="2" fill="none"/>
+                                    <path d="M10 145 C35 115, 60 135, 90 100 C115 70, 130 85, 155 55" stroke="rgba(34,211,238,0.2)" stroke-width="1.5" fill="none"/>
+                                    <circle cx="80" cy="80" r="55" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                                    <circle cx="80" cy="80" r="45" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+                                    <line x1="80" y1="18" x2="80" y2="142" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                    <line x1="18" y1="80" x2="142" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                    <polygon points="80,32 87,73 128,80 87,87 80,128 73,87 32,80 73,73" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+                                    <polygon points="80,32 87,73 80,80" fill="#f59e0b"/>
+                                    <polygon points="128,80 87,87 80,80" fill="#d97706"/>
+                                    <polygon points="80,128 73,87 80,80" fill="#f59e0b"/>
+                                    <polygon points="32,80 73,73 80,80" fill="#d97706"/>
+                                    <circle cx="80" cy="80" r="5" fill="#22d3ee"/>
+                                </svg>
+                            </div>
+                            <div class="book-cover-footer">
+                                <span class="book-category-label">GEOGRAPHY • PRACTICAL-V</span>
+                                <h2 class="book-title">Field Survey Methods</h2>
+                                <span class="book-subtitle-tag">Field Survey &amp; Report Writing</span>
+                            </div>
+                        </div>
+                        <div class="book-page-edges"></div>
+                    </div>
+                </a>
+                <div class="book-info-body">
+                    <p class="book-description-text">
+                        Complete 25-chapter digital manual based on the official curriculum: Role &amp; value of field work, 5 case studies, sampling designs, interviews/FGD/quadrats, model report, MS Word/Excel formatting, and 150+ viva questions.
+                    </p>
+                    <div class="book-meta-chips">
+                        <span class="meta-chip"><i class="fa-solid fa-layer-group"></i> 4 Units</span>
+                        <span class="meta-chip"><i class="fa-solid fa-file-lines"></i> 25 Chapters</span>
+                        <span class="meta-chip"><i class="fa-solid fa-award"></i> 2 Credits</span>
+                        <span class="meta-chip"><i class="fa-solid fa-square-poll-vertical"></i> 100 Marks</span>
+                    </div>
+                    <div class="book-unit-preview-wrap">
+                        <span class="unit-pill"><i class="fa-solid fa-mountain"></i> I: Role &amp; 5 Case Studies</span>
+                        <span class="unit-pill"><i class="fa-solid fa-chart-pie"></i> II: Sampling Design</span>
+                        <span class="unit-pill"><i class="fa-solid fa-clipboard-question"></i> III: Survey Techniques</span>
+                        <span class="unit-pill"><i class="fa-solid fa-file-waveform"></i> IV: Report, Excel &amp; Viva</span>
+                    </div>
+                    <div class="book-card-actions">
+                        <a href="./geo-practical.html" class="btn-open-book"><i class="fa-solid fa-book-open"></i> Open Book</a>
+                        <button type="button" class="btn-syllabus-book" onclick="openSyllabusModal('geo-practical', 'Geography Practical')"><i class="fa-solid fa-file-invoice"></i> Syllabus</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Book 3: Economics Elective 1 -->
+            <article class="digital-book-card book-economics" data-category="core">
+                <a href="./eco-elective-1-policy.html" class="book-cover-link" aria-label="Open Economics Elective 1 Textbook">
+                    <div class="book-hardcover">
+                        <div class="book-spine">
+                            <div class="book-spine-ribs">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="book-ribbon"></div>
+                        <div class="book-foil-frame">
+                            <div class="book-cover-header">
+                                <span class="book-univ-tag">HNB GARHWAL UNIVERSITY</span>
+                                <span class="book-code-badge">ELECTIVE-1</span>
+                            </div>
+                            <div class="book-cover-art">
+                                <svg class="book-art-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <line x1="25" y1="135" x2="140" y2="135" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                    <line x1="25" y1="25" x2="25" y2="135" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                    <line x1="25" y1="100" x2="140" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="2 2"/>
+                                    <line x1="25" y1="65" x2="140" y2="65" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="2 2"/>
+                                    <rect x="36" y="95" width="16" height="40" rx="3" fill="rgba(59,130,246,0.4)" stroke="#60a5fa" stroke-width="1.5"/>
+                                    <rect x="60" y="75" width="16" height="60" rx="3" fill="rgba(59,130,246,0.6)" stroke="#60a5fa" stroke-width="1.5"/>
+                                    <rect x="84" y="50" width="16" height="85" rx="3" fill="rgba(59,130,246,0.8)" stroke="#93c5fd" stroke-width="1.5"/>
+                                    <rect x="108" y="32" width="16" height="103" rx="3" fill="rgba(251,191,36,0.85)" stroke="#fde68a" stroke-width="1.5"/>
+                                    <path d="M30 115 Q 65 95, 90 60 T 136 28" stroke="#fcd34d" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                    <polygon points="136,22 142,32 130,30" fill="#fcd34d"/>
+                                    <circle cx="90" cy="60" r="4" fill="#fbbf24"/>
+                                    <circle cx="50" cy="103" r="3.5" fill="#93c5fd"/>
+                                </svg>
+                            </div>
+                            <div class="book-cover-footer">
+                                <span class="book-category-label">ECONOMICS • ELECTIVE-1</span>
+                                <h2 class="book-title">Economic Development &amp; Policy-I</h2>
+                                <span class="book-subtitle-tag">Development &amp; Policy in India</span>
+                            </div>
+                        </div>
+                        <div class="book-page-edges"></div>
+                    </div>
+                </a>
+                <div class="book-info-body">
+                    <p class="book-description-text">
+                        Complete 30-chapter digital textbook based on the official curriculum: Growth vs. development, planning &amp; SDGs, resources &amp; capital, FDI/FII, demographic dividend, employment, MGNREGA, and macroeconomic indicators.
+                    </p>
+                    <div class="book-meta-chips">
+                        <span class="meta-chip"><i class="fa-solid fa-layer-group"></i> 4 Units</span>
+                        <span class="meta-chip"><i class="fa-solid fa-file-lines"></i> 30 Chapters</span>
+                        <span class="meta-chip"><i class="fa-solid fa-award"></i> 4 Credits</span>
+                        <span class="meta-chip"><i class="fa-solid fa-square-poll-vertical"></i> 100 Marks</span>
+                    </div>
+                    <div class="book-unit-preview-wrap">
+                        <span class="unit-pill"><i class="fa-solid fa-arrow-trend-up"></i> I: Growth, Planning &amp; SDGs</span>
+                        <span class="unit-pill"><i class="fa-solid fa-coins"></i> II: Resources, Capital &amp; FDI</span>
+                        <span class="unit-pill"><i class="fa-solid fa-users"></i> III: Demographic Dividend</span>
+                        <span class="unit-pill"><i class="fa-solid fa-briefcase"></i> IV: Employment &amp; MGNREGA</span>
+                    </div>
+                    <div class="book-card-actions">
+                        <a href="./eco-elective-1-policy.html" class="btn-open-book"><i class="fa-solid fa-book-open"></i> Open Book</a>
+                        <button type="button" class="btn-syllabus-book" onclick="openSyllabusModal('eco-elective-1', 'Economics Elective 1')"><i class="fa-solid fa-file-invoice"></i> Syllabus</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Book 4: Field Based Course -->
+            <article class="digital-book-card book-field-course" data-category="practical">
+                <a href="./eco-skill-course.html" class="book-cover-link" aria-label="Open Field Based Course Textbook">
+                    <div class="book-hardcover">
+                        <div class="book-spine">
+                            <div class="book-spine-ribs">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="book-ribbon"></div>
+                        <div class="book-foil-frame">
+                            <div class="book-cover-header">
+                                <span class="book-univ-tag">HNB GARHWAL UNIVERSITY</span>
+                                <span class="book-code-badge">FIELD COURSE</span>
+                            </div>
+                            <div class="book-cover-art">
+                                <svg class="book-art-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M20 135 L20 90 L40 105 L40 80 L60 95 L60 135 Z" fill="rgba(245,158,11,0.25)" stroke="#f59e0b" stroke-width="1.5"/>
+                                    <rect x="80" y="35" width="55" height="75" rx="5" fill="rgba(254,243,199,0.15)" stroke="#fbbf24" stroke-width="1.5"/>
+                                    <rect x="95" y="28" width="25" height="12" rx="3" fill="#d97706"/>
+                                    <line x1="90" y1="52" x2="125" y2="52" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="90" y1="65" x2="125" y2="65" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="90" y1="78" x2="115" y2="78" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="58" cy="72" r="18" stroke="#fbbf24" stroke-width="3" fill="none"/>
+                                    <circle cx="58" cy="72" r="7" fill="#fbbf24"/>
+                                    <line x1="58" y1="48" x2="58" y2="96" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                                    <line x1="34" y1="72" x2="82" y2="72" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                                    <line x1="41" y1="55" x2="75" y2="89" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                                    <line x1="41" y1="89" x2="75" y2="55" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="book-cover-footer">
+                                <span class="book-category-label">FIELD WORK • 04 CREDITS</span>
+                                <h2 class="book-title">Industry &amp; Enterprise</h2>
+                                <span class="book-subtitle-tag">Field Report &amp; Entrepreneurship</span>
+                            </div>
+                        </div>
+                        <div class="book-page-edges"></div>
+                    </div>
+                </a>
+                <div class="book-info-body">
+                    <p class="book-description-text">
+                        Complete 25-chapter digital textbook based on the official curriculum: Micro, small, medium, and large-scale industries, entrepreneur/worker dialogues, workplace environment, operations, marketing, finance, 30-point model report, and 40 viva questions.
+                    </p>
+                    <div class="book-meta-chips">
+                        <span class="meta-chip"><i class="fa-solid fa-layer-group"></i> 7 Sections</span>
+                        <span class="meta-chip"><i class="fa-solid fa-file-lines"></i> 25 Chapters</span>
+                        <span class="meta-chip"><i class="fa-solid fa-award"></i> 4 Credits</span>
+                        <span class="meta-chip"><i class="fa-solid fa-square-poll-vertical"></i> 100 Marks</span>
+                    </div>
+                    <div class="book-unit-preview-wrap">
+                        <span class="unit-pill"><i class="fa-solid fa-building-user"></i> 1: MSME &amp; Field Visits</span>
+                        <span class="unit-pill"><i class="fa-solid fa-comments"></i> 2: Stakeholder Dialogues</span>
+                        <span class="unit-pill"><i class="fa-solid fa-diagram-project"></i> 3: 7 Pillars of Enterprise</span>
+                        <span class="unit-pill"><i class="fa-solid fa-file-circle-check"></i> 4-7: 30-Point Model Report</span>
+                    </div>
+                    <div class="book-card-actions">
+                        <a href="./eco-skill-course.html" class="btn-open-book"><i class="fa-solid fa-book-open"></i> Open Book</a>
+                        <button type="button" class="btn-syllabus-book" onclick="openSyllabusModal('eco-skill', 'Field Based Course')"><i class="fa-solid fa-file-invoice"></i> Syllabus</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Book 5: Hindi (Language Based Course-1) -->
+            <article class="digital-book-card book-hindi" data-category="language-vac">
+                <a href="./hindi-bhasha-1.html" class="book-cover-link" aria-label="Open Hindi Language Based Course-1 Textbook">
+                    <div class="book-hardcover">
+                        <div class="book-spine">
+                            <div class="book-spine-ribs">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="book-ribbon"></div>
+                        <div class="book-foil-frame">
+                            <div class="book-cover-header">
+                                <span class="book-univ-tag">HNB GARHWAL UNIVERSITY</span>
+                                <span class="book-code-badge">PAPER-755131</span>
+                            </div>
+                            <div class="book-cover-art">
+                                <svg class="book-art-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="25" y="25" width="110" height="110" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(251,191,36,0.35)" stroke-width="1.5"/>
+                                    <text x="80" y="102" font-family="'Noto Sans Devanagari', 'Yatra One', Georgia, serif" font-size="76" font-weight="700" fill="#fbbf24" text-anchor="middle" opacity="0.92">अ</text>
+                                    <path d="M125 30 C110 50, 95 85, 82 118 L86 122 C100 100, 120 70, 135 42 C138 35, 132 25, 125 30 Z" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+                                    <line x1="82" y1="118" x2="76" y2="132" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="75" cy="135" r="2.5" fill="#f43f5e"/>
+                                </svg>
+                            </div>
+                            <div class="book-cover-footer">
+                                <span class="book-category-label">HINDI LITERATURE • HINDI</span>
+                                <h2 class="book-title">Language Based Course – 1</h2>
+                                <span class="book-subtitle-tag">Hindi Bhasha &amp; Sahitya</span>
+                            </div>
+                        </div>
+                        <div class="book-page-edges"></div>
+                    </div>
+                </a>
+                <div class="book-info-body">
+                    <p class="book-description-text">
+                        HNB Garhwal University Official Curriculum: Hindi language definition &amp; scope, evolution of Khari Boli, Amir Khusro's Mukariyān, Prasad, Bachchan, Dinkar, Nirala, Nagarjun, Premchand, Ganga Prasad Vimal, Shukla, Dwivedi, Parsai, and Mishra.
+                    </p>
+                    <div class="book-meta-chips">
+                        <span class="meta-chip"><i class="fa-solid fa-layer-group"></i> 3 Core Units</span>
+                        <span class="meta-chip"><i class="fa-solid fa-file-lines"></i> 27 Chapters</span>
+                        <span class="meta-chip"><i class="fa-solid fa-award"></i> 4 Credits</span>
+                        <span class="meta-chip"><i class="fa-solid fa-square-poll-vertical"></i> 100 Marks</span>
+                    </div>
+                    <div class="book-unit-preview-wrap">
+                        <span class="unit-pill"><i class="fa-solid fa-spell-check"></i> I: Language &amp; Khari Boli</span>
+                        <span class="unit-pill"><i class="fa-solid fa-feather"></i> II: Poetry (Khusro, Prasad, Nirala)</span>
+                        <span class="unit-pill"><i class="fa-solid fa-book-bookmark"></i> III(A): Stories (Premchand, Vimal)</span>
+                        <span class="unit-pill"><i class="fa-solid fa-pen-nib"></i> III(B): Essays (Shukla, Dwivedi, Parsai)</span>
+                    </div>
+                    <div class="book-card-actions">
+                        <a href="./hindi-bhasha-1.html" class="btn-open-book"><i class="fa-solid fa-book-open"></i> Open Book</a>
+                        <button type="button" class="btn-syllabus-book" onclick="openSyllabusModal('hindi-bhasha-1', 'Hindi Language Based Course-1')"><i class="fa-solid fa-file-invoice"></i> Syllabus</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Book 6: VAC CTMV -->
+            <article class="digital-book-card book-vac" data-category="language-vac">
+                <a href="./vac-ctmv.html" class="book-cover-link" aria-label="Open Culture, Traditions and Moral Values Textbook">
+                    <div class="book-hardcover">
+                        <div class="book-spine">
+                            <div class="book-spine-ribs">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="book-ribbon"></div>
+                        <div class="book-foil-frame">
+                            <div class="book-cover-header">
+                                <span class="book-univ-tag">HNB GARHWAL UNIVERSITY</span>
+                                <span class="book-code-badge">VAC CTMV</span>
+                            </div>
+                            <div class="book-cover-art">
+                                <svg class="book-art-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="25" y="45" width="12" height="90" rx="2" fill="rgba(250,204,21,0.2)" stroke="#facc15" stroke-width="1.5"/>
+                                    <rect x="123" y="45" width="12" height="90" rx="2" fill="rgba(250,204,21,0.2)" stroke="#facc15" stroke-width="1.5"/>
+                                    <path d="M18 45 L80 20 L142 45 Z" fill="rgba(250,204,21,0.15)" stroke="#facc15" stroke-width="1.5"/>
+                                    <line x1="15" y1="135" x2="145" y2="135" stroke="#facc15" stroke-width="2"/>
+                                    <circle cx="80" cy="85" r="32" stroke="#facc15" stroke-width="2.5" fill="rgba(88,28,135,0.4)"/>
+                                    <circle cx="80" cy="85" r="8" fill="#facc15"/>
+                                    <line x1="80" y1="53" x2="80" y2="117" stroke="#fde047" stroke-width="1.5"/>
+                                    <line x1="48" y1="85" x2="112" y2="85" stroke="#fde047" stroke-width="1.5"/>
+                                    <line x1="57" y1="62" x2="103" y2="108" stroke="#fde047" stroke-width="1.5"/>
+                                    <line x1="57" y1="108" x2="103" y2="62" stroke="#fde047" stroke-width="1.5"/>
+                                    <line x1="68" y1="55" x2="92" y2="115" stroke="rgba(250,204,21,0.6)" stroke-width="1"/>
+                                    <line x1="92" y1="55" x2="68" y2="115" stroke="rgba(250,204,21,0.6)" stroke-width="1"/>
+                                    <line x1="50" y1="73" x2="110" y2="97" stroke="rgba(250,204,21,0.6)" stroke-width="1"/>
+                                    <line x1="50" y1="97" x2="110" y2="73" stroke="rgba(250,204,21,0.6)" stroke-width="1"/>
+                                </svg>
+                            </div>
+                            <div class="book-cover-footer">
+                                <span class="book-category-label">VALUE ADDED • VAC CTMV</span>
+                                <h2 class="book-title">Culture &amp; Moral Values</h2>
+                                <span class="book-subtitle-tag">Culture, Traditions &amp; Values</span>
+                            </div>
+                        </div>
+                        <div class="book-page-edges"></div>
+                    </div>
+                </a>
+                <div class="book-info-body">
+                    <p class="book-description-text">
+                        Culture vs civilization, Satya, Ahimsa, Karuna, Upanishadic Vasudhaiva Kutumbakam, Gita's Nishkama Karma, constitutional fundamental duties (Article 51A), and digital ethics.
+                    </p>
+                    <div class="book-meta-chips">
+                        <span class="meta-chip"><i class="fa-solid fa-layer-group"></i> 4 Modules</span>
+                        <span class="meta-chip"><i class="fa-solid fa-file-lines"></i> 14 Chapters</span>
+                        <span class="meta-chip"><i class="fa-solid fa-award"></i> 2 Credits</span>
+                        <span class="meta-chip"><i class="fa-solid fa-square-poll-vertical"></i> 50 Marks</span>
+                    </div>
+                    <div class="book-unit-preview-wrap">
+                        <span class="unit-pill"><i class="fa-solid fa-om"></i> Ch 1: Culture &amp; Civilization</span>
+                        <span class="unit-pill"><i class="fa-solid fa-hand-holding-heart"></i> Ch 2: Moral Values &amp; Philosophy</span>
+                        <span class="unit-pill"><i class="fa-solid fa-scale-balanced"></i> Ch 3: Constitutional Duties</span>
+                        <span class="unit-pill"><i class="fa-solid fa-shield-halved"></i> Ch 4: Digital Cyber Ethics</span>
+                    </div>
+                    <div class="book-card-actions">
+                        <a href="./vac-ctmv.html" class="btn-open-book"><i class="fa-solid fa-book-open"></i> Open Book</a>
+                        <button type="button" class="btn-syllabus-book" onclick="openSyllabusModal('vac-ctmv', 'VAC CTMV')"><i class="fa-solid fa-file-invoice"></i> Syllabus</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Library Wooden Shelf Base Accent -->
+            <div class="wooden-shelf-ledge"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Official Syllabus</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="eco-elective-1">Economics Elective 1 — Development &amp; Policy</option>
+                    <option value="eco-skill">Economics Skill Course</option>
+                    <option value="geo-theory">Geography Theory</option>
+                    <option value="geo-practical">Geography Practical</option>
+                    <option value="hindi-bhasha-1">Hindi — Language Based Course-1</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(0.25)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button class="syllabus-tool-btn" onclick="zoomSyllabus(-0.25)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button class="syllabus-tool-btn" onclick="resetSyllabusZoom()" title="Reset">Reset</button>
+                    <button class="syllabus-modal-close" onclick="closeSyllabusModal()" title="Close">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-viewer-body">
+                <div id="syllabus-image-wrapper" class="syllabus-image-wrapper"></div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">Official Syllabus Document • University Accredited</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#3b82f6; border:none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="Search subject, chapter, or theory..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">Type at least 2 characters to search...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Universal Academic Footer -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <span>B.A. 5th Semester Digital Library</span>
+                    </div>
+                    <p>
+                        Dedicated digital textbook platform for undergraduate (UG) Faculty of Arts students. Authentic study material, comprehensive theories, diagrams, case studies, and exam-oriented Q&amp;A available in simple, standard English.
+                    </p>
+                    <p style="font-size:0.85rem; color:var(--text-subtle);">
+                        <i class="fa-solid fa-shield-halved" style="color:var(--accent-color);"></i> Academic &amp; Non-Governmental Educational Resource
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Textbooks</h4>
+                    <ul class="footer-links">
+                        <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> Economic Geography (Theory-V)</a></li>
+                        <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> Geography Practical Manual</a></li>
+                        <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> Economic Development &amp; Policy in India-I</a></li>
+                        <li><a href="./eco-skill-course.html"><i class="fa-solid fa-industry"></i> Field Based Course</a></li>
+                        <li><a href="./hindi-bhasha-1.html"><i class="fa-solid fa-feather-pointed"></i> Hindi: Language Based Course-1</a></li>
+                        <li><a href="./vac-ctmv.html"><i class="fa-solid fa-building-columns"></i> Culture, Traditions &amp; Moral Values (VAC)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fa-solid fa-house"></i> Library Home</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSearchModal()"><i class="fa-solid fa-magnifying-glass"></i> Search Subject (Ctrl+K)</a></li>
+                        <li><a href="javascript:void(0)" onclick="openSyllabusModal('eco-elective-1')"><i class="fa-solid fa-file-invoice"></i> Official Syllabus</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> Toggle Theme (Light/Dark)</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i> Back to Top</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div>
+                    &copy; 2026 B.A. 5th Semester College Digital Textbook Library. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <span>Standard English Medium</span>
+                    <span>&bull;</span>
+                    <span>100% Free Academic Reading</span>
+                    <span>&bull;</span>
+                    <a href="javascript:void(0)" onclick="scrollToTop()">Back to Top &uarr;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

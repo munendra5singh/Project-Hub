@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stage1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="stage2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="stage3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <filter id="capShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="820" height="420" fill="#f8fafc" rx="12"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    पूंजी निर्माण की त्रि-चरणीय प्रक्रिया (Process of Capital Formation)
+  </text>
+  <text x="410" y="56" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="12" fill="#64748b">
+    प्रो. आर्थर लुईस एवं प्रो. नर्कसे के अनुसार आर्थिक विकास का मुख्य इंजन: बचत $\to$ संग्रहण $\to$ उत्पादक निवेश
+  </text>
+
+  <!-- Stage 1 -->
+  <g transform="translate(40, 85)" filter="url(#capShadow)">
+    <rect width="216" height="230" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <rect width="216" height="46" rx="10" fill="url(#stage1Grad)"/>
+    <rect y="36" width="216" height="10" fill="url(#stage1Grad)"/>
+    <text x="108" y="28" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="14" font-weight="700" fill="#ffffff">
+      चरण 1: बचतों का सृजन
+    </text>
+
+    <g transform="translate(14, 65)" font-family="'Noto Sans Devanagari', sans-serif" font-size="12" fill="#334155">
+      <text y="15" font-weight="700" fill="#1e40af">स्रोतः</text>
+      <text y="35">• पारिवारिक घरेलू बचत</text>
+      <text y="55">• कॉरपोरेट लाभ का पुनर्निवेश</text>
+      <text y="75">• सरकारी बजटीय बचत</text>
+      <text y="105" font-weight="700" fill="#1e40af">प्रमुख निर्धारक:</text>
+      <text y="125">• बचत करने की क्षमता (आय स्तर)</text>
+      <text y="145">• बचत करने की इच्छा (सुरक्षा, ब्याज)</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <g transform="translate(262, 185)">
+    <circle cx="16" cy="15" r="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <path d="M8 15 L24 15 M18 9 L24 15 L18 21" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Stage 2 -->
+  <g transform="translate(300, 85)" filter="url(#capShadow)">
+    <rect width="220" height="230" rx="10" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <rect width="220" height="46" rx="10" fill="url(#stage2Grad)"/>
+    <rect y="36" width="220" height="10" fill="url(#stage2Grad)"/>
+    <text x="110" y="28" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="14" font-weight="700" fill="#ffffff">
+      चरण 2: बचतों का संग्रहण
+    </text>
+
+    <g transform="translate(14, 65)" font-family="'Noto Sans Devanagari', sans-serif" font-size="12" fill="#334155">
+      <text y="15" font-weight="700" fill="#6d28d9">वित्तीय मध्यस्थ:</text>
+      <text y="35">• वाणिज्यिक बैंक एवं डाकघर</text>
+      <text y="55">• पूंजी बाजार (शेयर, डिबेंचर)</text>
+      <text y="75">• म्यूचुअल फंड व पेंशन फंड</text>
+      <text y="105" font-weight="700" fill="#6d28d9">भूमिका:</text>
+      <text y="125">• निष्क्रिय बचतों को सक्रिय प्रवाह में बदलना</text>
+      <text y="145">• वित्तीय समावेशन (जन धन योजना)</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <g transform="translate(526, 185)">
+    <circle cx="16" cy="15" r="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <path d="M8 15 L24 15 M18 9 L24 15 L18 21" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Stage 3 -->
+  <g transform="translate(564, 85)" filter="url(#capShadow)">
+    <rect width="216" height="230" rx="10" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+    <rect width="216" height="46" rx="10" fill="url(#stage3Grad)"/>
+    <rect y="36" width="216" height="10" fill="url(#stage3Grad)"/>
+    <text x="108" y="28" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="14" font-weight="700" fill="#ffffff">
+      चरण 3: वास्तविक विनियोग
+    </text>
+
+    <g transform="translate(14, 65)" font-family="'Noto Sans Devanagari', sans-serif" font-size="12" fill="#334155">
+      <text y="15" font-weight="700" fill="#047857">पूंजी परिसंपत्तियां:</text>
+      <text y="35">• भौतिक पूंजी: कारखाने, मशीनें</text>
+      <text y="55">• बुनियादी ढांचा: रेलवे, सड़कें, बंदरगाह</text>
+      <text y="75">• मानव पूंजी: शिक्षा, स्वास्थ्य, कौशल</text>
+      <text y="105" font-weight="700" fill="#047857">प्रतिफल:</text>
+      <text y="125">• उत्पादन क्षमता में वृद्धि</text>
+      <text y="145">• रोजगार अवसरों का विस्तार</text>
+    </g>
+  </g>
+
+  <!-- Bottom Expansion Loop Banner -->
+  <g transform="translate(40, 335)">
+    <rect width="740" height="60" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="370" y="26" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="13" font-weight="700" fill="#0f172a">
+      संवृद्धि का चक्रीय प्रतिफल (Virtuous Growth Cycle):
+    </text>
+    <text x="370" y="47" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="12" fill="#475569">
+      पूंजी निर्माण $\to$ उच्च उत्पादकता $\to$ GDP एवं रोजगार में वृद्धि $\to$ प्रति व्यक्ति आय में वृद्धि $\to$ पुनः उच्चतर बचत व निवेश
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हिंदी: भाषा आधारित पाठ्यक्रम – 1 | बी.ए. 5वां सेमेस्टर कॉलेज पाठ्य-पुस्तक</title>
+    <meta name="description" content="हेमवती नंदन बहुगुणा गढ़वाल विश्वविद्यालय बी.ए. तृतीय वर्ष पंचम सेमेस्टर हिंदी (पेपर कोड: 755131) भाषा आधारित पाठ्यक्रम-1: हिंदी भाषा, खड़ी बोली विकास, अमीर खुसरो मुकरियाँ, जयशंकर प्रसाद आँसू, बच्चन मधुशाला, दिनकर, निराला, नागार्जुन, प्रेमचंद मंत्र, गंगा प्रसाद विमल, रामचंद्र शुक्ल, महावीर प्रसाद द्विवेदी, परसाई एवं प्रताप नारायण मिश्र।">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Central Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Smart Audio Reader Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/audio-reader.css">
+</head>
+<body data-subject="hindi" class="book-page-layout">
+
+    <!-- Floating Exit Button for Content-Only Mode -->
+    <button class="content-only-exit-btn" id="content-only-exit-btn" aria-label="सामान्य दृश्य पर वापस जाएँ" title="सामान्य दृश्य पर वापस जाएँ">
+        <i class="fa-solid fa-compress"></i>
+        <span>सामान्य दृश्य</span>
+    </button>
+
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress-bar"></div>
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <a href="./index.html" class="nav-brand">
+            <span class="nav-brand-icon"><i class="fa-solid fa-feather-pointed"></i></span>
+            <div class="nav-brand-text">
+                <span class="title">बी.ए. 5वां सेमेस्टर</span>
+                <span class="subtitle">हिंदी : भाषा आधारित पाठ्यक्रम – 1</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="./index.html" class="nav-link"><i class="fa-solid fa-house"></i> पुस्तकालय</a></li>
+            <li><a href="#unit1" class="nav-link">इकाई I: हिंदी भाषा</a></li>
+            <li><a href="#unit2" class="nav-link">इकाई II: पद्य पाठ्यांश</a></li>
+            <li><a href="#unit3" class="nav-link">इकाई III: गद्य पाठ्यांश</a></li>
+            <li class="mobile-lang-item"><a href="javascript:void(0)" onclick="switchLanguage('en')" class="nav-link nav-link-lang"><i class="fa-solid fa-language"></i> English Version</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="openSyllabusModal('hindi-bhasha-1', 'हिंदी भाषा आधारित पाठ्यक्रम-1')" title="आधिकारिक पाठ्यक्रम">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>सिलेबस</span>
+            </button>
+            <button class="nav-btn" onclick="openSearchModal()" title="खोजें (Ctrl+K)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>खोजें</span>
+            </button>
+            <div class="font-resizer-group">
+                <button class="font-btn" onclick="adjustFontSize(-1)" title="फॉन्ट छोटा करें">A-</button>
+                <button class="font-btn" onclick="resetFontSize()" title="सामान्य फॉन्ट">A</button>
+                <button class="font-btn" onclick="adjustFontSize(1)" title="फॉन्ट बड़ा करें">A+</button>
+            </div>
+            <button class="nav-btn lang-switcher-btn" onclick="switchLanguage('en')" title="Read in English (अंग्रेजी में पढ़ें)" aria-label="Switch to English">
+                <i class="fa-solid fa-language"></i>
+                <span class="lang-label">English</span>
+            </button>
+            <button class="nav-btn" id="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+                <span id="theme-text">डार्क</span>
+            </button>
+            <button class="nav-hamburger" id="nav-menu-toggle" aria-label="नेविगेशन मेन्यू खोलें">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sub-Header: Breadcrumbs & Chapter Progress -->
+    <div class="sub-header">
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="विषय-सूची टॉगल करें" aria-expanded="true" title="विषय-सूची टॉगल करें (Ctrl+B)">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                    <span class="sidebar-toggle-text">विषय-सूची</span>
+                </button>
+                <div class="breadcrumb-links">
+                    <a href="./index.html"><i class="fa-solid fa-house"></i> <span>पुस्तकालय</span></a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>हिंदी</span>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="current-crumb">भाषा आधारित पाठ्यक्रम – 1</span>
+                </div>
+            </div>
+            <div class="breadcrumb-right">
+                <span id="breadcrumb-active-topic" class="breadcrumb-active-topic"></span>
+                <span class="reading-progress-pill" id="reading-progress-pill"><i class="fa-solid fa-book-open"></i> प्रगति: 0%</span>
+                <button class="content-only-btn" id="content-only-btn" aria-label="केवल सामग्री दिखाएँ" title="केवल सामग्री दिखाएँ (पठन मोड)">
+                    <i class="fa-solid fa-expand"></i>
+                    <span class="content-only-text">केवल सामग्री</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Wrapper with Sidebar and Content Area -->
+    <div class="main-wrapper">
+
+        <!-- Sidebar Navigation -->
+                <!-- Mobile Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <aside class="sidebar-toc book-sidebar" id="book-sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-feather-pointed"></i> पाठ्यक्रम अनुक्रमणिका</h3>
+                <button class="mobile-nav-toggle" id="sidebar-close" aria-label="विषय-सूची बंद करें">&times;</button>
+            </div>
+
+            <nav class="sidebar-toc toc-scroll-area">
+                <!-- Unit 1 -->
+                <div class="toc-unit">
+                    <div class="toc-unit-title"><i class="fa-solid fa-layer-group"></i> इकाई 1 : हिंदी भाषा</div>
+                    <ul>
+                        <li><a href="#ch1" class="toc-link"><span class="toc-num">अध्याय 1</span> भाषा की परिभाषा, अर्थ एवं क्षेत्र</a></li>
+                        <li><a href="#ch2" class="toc-link"><span class="toc-num">अध्याय 2</span> खड़ी बोली के साहित्यिक रूप का विकास</a></li>
+                    </ul>
+                </div>
+
+                <!-- Unit 2 -->
+                <div class="toc-unit">
+                    <div class="toc-unit-title"><i class="fa-solid fa-lines-leaning"></i> इकाई 2 : पद्य पाठ्यांश</div>
+                    <ul>
+                        <li><a href="#ch3" class="toc-link"><span class="toc-num">अध्याय 3</span> अमीर खुसरो – मुकरियाँ (4 निर्धारित)</a></li>
+                        <li><a href="#ch4" class="toc-link"><span class="toc-num">अध्याय 4</span> जयशंकर प्रसाद – आँसू (05 छंद)</a></li>
+                        <li><a href="#ch5" class="toc-link"><span class="toc-num">अध्याय 5</span> हरिवंशराय बच्चन – मधुशाला (05 छंद)</a></li>
+                        <li><a href="#ch6" class="toc-link"><span class="toc-num">अध्याय 6</span> रामधारी सिंह दिनकर – मेरे नगपति मेरे विशाल</a></li>
+                        <li><a href="#ch7" class="toc-link"><span class="toc-num">अध्याय 7</span> सूर्यकांत त्रिपाठी 'निराला' – बाँधो न नाव</a></li>
+                        <li><a href="#ch8" class="toc-link"><span class="toc-num">अध्याय 8</span> नागार्जुन – बहुत दिनों तक चूल्हा रोया</a></li>
+                    </ul>
+                </div>
+
+                <!-- Unit 3 -->
+                <div class="toc-unit">
+                    <div class="toc-unit-title"><i class="fa-solid fa-book-open"></i> इकाई 3 : गद्य पाठ्यांश</div>
+                    <div class="toc-sub-title">खंड (क) कहानियाँ</div>
+                    <ul>
+                        <li><a href="#ch9" class="toc-link"><span class="toc-num">अध्याय 9</span> प्रेमचंद – मंत्र</a></li>
+                        <li><a href="#ch10" class="toc-link"><span class="toc-num">अध्याय 10</span> गंगा प्रसाद विमल – सिद्धार्थ का लौटना</a></li>
+                    </ul>
+                    <div class="toc-sub-title">खंड (ख) निबंध</div>
+                    <ul>
+                        <li><a href="#ch11" class="toc-link"><span class="toc-num">अध्याय 11</span> रामचंद्र शुक्ल – श्रद्धा और भक्ति</a></li>
+                        <li><a href="#ch12" class="toc-link"><span class="toc-num">अध्याय 12</span> महावीर प्रसाद द्विवेदी – उर्मिला विषयक उदासीनता</a></li>
+                        <li><a href="#ch13" class="toc-link"><span class="toc-num">अध्याय 13</span> हरिशंकर परसाई – सदाचार का ताबीज</a></li>
+                        <li><a href="#ch14" class="toc-link"><span class="toc-num">अध्याय 14</span> प्रताप नारायण मिश्र – मनोयोग</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Subject Banner -->
+            <div class="book-intro-card" style="border-left: 5px solid var(--hindi-accent); background: linear-gradient(to right, var(--hindi-light), var(--bg-card)); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                <span class="subject-tag" style="background: var(--hindi-accent); color:#ffffff; padding:4px 10px; border-radius:4px; font-size:0.8rem; font-weight:700;">आधिकारिक पाठ्यक्रम आधारित</span>
+                <h1 style="color: var(--hindi-accent); margin-top:0.6rem; font-size:1.85rem;">हिंदी : भाषा आधारित पाठ्यक्रम – 1 (Bhasha Aadharit Pathyakram – 1)</h1>
+                <p style="margin: 0.5rem 0 1rem 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                    <strong>हेमवती नंदन बहुगुणा गढ़वाल विश्वविद्यालय (H.N.B. Garhwal University)</strong> • बी.ए. तृतीय वर्ष – पंचम सेमेस्टर | पेपर कोड: <strong>755131</strong> | क्रेडिट: <strong>02</strong> | पूर्णांक: <strong>100 (70 बाह्य + 30 आंतरिक)</strong> | परीक्षा तिथि: <strong>25-11-2026</strong>
+                </p>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="nav-btn" onclick="openSyllabusModal('hindi-bhasha-1', 'हिंदी पाठ्यक्रम')" style="background:var(--hindi-accent); color:#fff; border:none; padding:8px 16px; border-radius:6px; cursor:pointer;">
+                        <i class="fa-solid fa-file-invoice"></i> आधिकारिक सिलेबस देखें
+                    </button>
+                    <a href="#unit1" style="display:inline-flex; align-items:center; gap:6px; background:var(--bg-subtle); color:var(--text-main); padding:8px 16px; border-radius:6px; text-decoration:none; border:1px solid var(--border-color); font-weight:600;">
+                        <i class="fa-solid fa-arrow-down"></i> पढ़ना प्रारंभ करें
+                    </a>
+                </div>
+            </div>
+
+            <!-- ==========================================================================
+                 UNIT 1: HINDI BHASHA (हिंदी भाषा)
+                 ========================================================================== -->
+            <div class="unit-divider" id="unit1">
+                <div class="unit-divider-badge">इकाई – 1</div>
+                <h2>हिंदी भाषा (Hindi Bhasha)</h2>
+                <p>भाषा की परिभाषा, अर्थ, विभिन्न क्षेत्र एवं खड़ी बोली के साहित्यिक रूप का ऐतिहासिक विकास</p>
+            </div>
+
+            <!-- CHAPTER 1 -->
+            <article class="book-chapter" id="ch1">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 1</span>
+                    <h1>भाषा की परिभाषा : अर्थ एवं विभिन्न क्षेत्र</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>भूमिका:</strong> मनुष्य एक सामाजिक प्राणी है और उसके सामाजिक जीवन का मूल आधार भाषा है। भावों, विचारों, अनुभूतियों और ज्ञान के आदान-प्रदान का सबसे समर्थ, सूक्ष्म और प्रामाणिक माध्यम भाषा है। प्रस्तुत अध्याय में हम भाषा की व्युत्पत्ति, प्रमुख भारतीय व पाश्चात्य विद्वानों की परिभाषाएं, भाषा की विशेषताएं, तथा इसके विभिन्न रूपों (बोली, विभाषा, मानक भाषा, राष्ट्रभाषा व राजभाषा) का वैज्ञानिक अध्ययन करेंगे।
+                </div>
+
+                <section id="sec1-1">
+                    <h2>1.1 भाषा का अर्थ एवं व्युत्पत्ति (Meaning and Etymology)</h2>
+                    <p>
+                        'भाषा' शब्द की व्युत्पत्ति संस्कृत की <strong>'भाष्'</strong> धातु से हुई है, जिसका शाब्दिक अर्थ है — <em>'बोलना'</em>, <em>'कहना'</em> अथवा <em>'वाणी व्यक्त करना'</em>। अर्थात् मनुष्य के वागिंद्रियों (स्वर-यंत्रों) से उच्चरित होने वाली वह सार्थक ध्वनियां जिसके माध्यम से वह अपने मन के भावों और विचारों को दूसरों तक पहुंचाता है, भाषा कहलाती है।
+                    </p>
+                    <div class="book-definition">
+                        <div class="def-term">संस्कृत आचार्यों का कथन: पतंजलि के अनुसार</div>
+                        <p>"व्यक्ता वाचि वर्णा येषां त इमे व्यक्तवाचः।"<br>अर्थात् जो वाणी वर्णों में व्यक्त होती है, उसे ही भाषा कहा जाता है। केवल अव्यक्त ध्वनि (जैसे पशु-पक्षियों की आवाज) भाषा नहीं कहलाती।</p>
+                    </div>
+                </section>
+
+                <section id="sec1-2">
+                    <h2>1.2 भाषा की प्रमुख परिभाषाएं (Definitions by Scholars)</h2>
+                    <div class="book-definition">
+                        <div class="def-term">1. डॉ. भोलानाथ तिवारी के अनुसार (सर्वाधिक प्रामाणिक परिभाषा)</div>
+                        <p>"भाषा उच्चारण अवयवों से उच्चरित यादृच्छिक (यादृच्छिक = Arbitrary / मानी हुई) ध्वनि-प्रतीकों की वह सुगठित व्यवस्था है, जिसके द्वारा समाज के लोग आपस में विचारों का आदान-प्रदान करते हैं।"</p>
+                    </div>
+
+                    <div class="book-definition">
+                        <div class="def-term">2. डॉ. बाबूराम सक्सेना के अनुसार</div>
+                        <p>"जिन ध्वनि-चिह्नों द्वारा मनुष्य परस्पर विचार-विनिमय करता है, उनको समष्टि रूप से भाषा कहते हैं।"</p>
+                    </div>
+
+                    <div class="book-definition">
+                        <div class="def-term">3. हेनरी स्वीट (Henry Sweet) के अनुसार</div>
+                        <p>"ध्वन्यात्मक शब्दों द्वारा विचारों को प्रकट करना ही भाषा है (Language may be defined as the expression of thought by means of speech-sounds)."</p>
+                    </div>
+                </section>
+
+                <section id="sec1-3">
+                    <h2>1.3 भाषा की प्रमुख विशेषताएं एवं प्रकृति (Characteristics of Language)</h2>
+                    <ul class="book-list">
+                        <li><strong>1. भाषा सामाजिक संपत्ति है:</strong> भाषा किसी व्यक्ति विशेष की पैतृक संपत्ति नहीं है; यह पूरे समाज की साझी धरोहर है। मनुष्य इसे समाज में रहकर ही सीखता है।</li>
+                        <li><strong>2. भाषा अर्जित संपत्ति है:</strong> कोई भी बच्चा जन्म से भाषा लेकर पैदा नहीं होता, बल्कि अपने परिवेश और समाज से उसका अर्जन करता है।</li>
+                        <li><strong>3. भाषा परिवर्तनशील है:</strong> भाषा एक बहते नीर (नदी) के समान है — <em>"कोस-कोस पर बदले पानी, चार कोस पर बानी।"</em> समय और भूगोल के साथ इसका रूप बदलता रहता है।</li>
+                        <li><strong>4. भाषा यादृच्छिक (Arbitrary) प्रतीकों की व्यवस्था है:</strong> किसी वस्तु और उसके नाम में कोई स्वाभाविक या जन्मजात संबंध नहीं होता। उदाहरणार्थ, जिसे हिंदी में 'जल' या 'पानी' कहते हैं, उसे अंग्रेजी में 'Water' और अरबी में 'आब' कहा जाता है। यह समाज द्वारा स्वीकारा गया प्रतीक मात्र है।</li>
+                        <li><strong>5. भाषा का कोई अंतिम रूप नहीं होता:</strong> जीवित भाषाएं निरंतर नए शब्दों और भावों को समाहित करती हैं।</li>
+                        <li><strong>6. भाषा कठिनता से सरलता की ओर अग्रसर होती है:</strong> उच्चारण की सुविधा और संप्रेषणीयता के कारण भाषा का ऐतिहासिक प्रवाह जटिलता से सहजता की ओर होता है।</li>
+                    </ul>
+                </section>
+
+                <section id="sec1-4">
+                    <h2>1.4 भाषा के विभिन्न रूप एवं क्षेत्र (Varieties and Functional Fields)</h2>
+                    <p>प्रयोजन और भौगोलिक क्षेत्र के आधार पर भाषा के निम्नलिखित प्रमुख स्तर होते हैं:</p>
+                    <div class="book-table-wrapper">
+                        <table class="book-table">
+                            <thead>
+                                <tr>
+                                    <th>भाषा का रूप</th>
+                                    <th>भौगोलिक व सामाजिक क्षेत्र</th>
+                                    <th>प्रमुख लक्षण एवं कार्य</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. बोली (Dialect)</strong></td>
+                                    <td>सीमित स्थानीय क्षेत्र (जैसे भोजपुरी, अवधी, गढ़वाली, कुमाऊँनी)।</td>
+                                    <td>घरेलू एवं बोलचाल का माध्यम; इसमें व्याकरणिक कठोरता नहीं होती तथा लिखित साहित्य अपेक्षाकृत सीमित होता है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. विभाषा / उपभाषा (Sub-Language)</strong></td>
+                                    <td>विस्तृत अंचल (जैसे ब्रजभाषा, अवधी का मध्यकाल में रूप)।</td>
+                                    <td>जब किसी बोली में प्रचुर उत्कृष्ट साहित्य रचा जाने लगता है, तो वह विभाषा बन जाती है (उदा. सूरदास की ब्रजभाषा व तुलसीदास की अवधी)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. मानक भाषा (Standard Language)</strong></td>
+                                    <td>सर्वमान्य राष्ट्रीय एवं शैक्षणिक क्षेत्र।</td>
+                                    <td>व्याकरण-सम्मत, परिष्कृत, एकरूपता युक्त भाषा जो शिक्षा, प्रशासन, समाचार-पत्रों और उच्च साहित्य में प्रयुक्त होती है। आज की मानक हिंदी खड़ी बोली पर आधारित है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4. राजभाषा (Official Language)</strong></td>
+                                    <td>सरकारी कामकाज, संविधान, संसद व न्यायालय।</td>
+                                    <td>भारतीय संविधान के <strong>अनुच्छेद 343(1)</strong> के अनुसार: <em>"संघ की राजभाषा हिंदी और लिपि देवनागरी होगी।"</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5. राष्ट्रभाषा (National Language)</strong></td>
+                                    <td>संपूर्ण राष्ट्र का सांस्कृतिक व जन-मानस।</td>
+                                    <td>किसी देश के बहुसंख्यक नागरिकों द्वारा बोली जाने वाली और सांस्कृतिक एकता का प्रतिनिधित्व करने वाली भाषा।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6. संपर्क भाषा (Lingua Franca)</strong></td>
+                                    <td>विभिन्न भाषा-भाषियों के बीच सेतु।</td>
+                                    <td>अलग-अलग मातृभाषा बोलने वाले लोग जब परस्पर संवाद करते हैं (भारत में हिंदी देशव्यापी संपर्क भाषा का कार्य करती है)।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <figure class="educational-infographic" style="margin: 28px 0; text-align: center;">
+                        <img src="./assets/images/illustrations/hindi-language-evolution-tree.svg" alt="भारतीय आर्य भाषाओं का ऐतिहासिक विकास एवं खड़ी बोली की उत्पत्ति" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                        <figcaption style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary, #666); font-weight: 500;">चित्र 1.1: प्राचीन भारतीय आर्य भाषाओं (संस्कृत, पालि, प्राकृत, अपभ्रंश) से आधुनिक मानक हिंदी तक का ऐतिहासिक भाषा-वृक्ष</figcaption>
+                    </figure>
+                </section>
+            </article>
+
+            <!-- CHAPTER 2 -->
+            <article class="book-chapter" id="ch2">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 2</span>
+                    <h1>खड़ी बोली के साहित्यिक रूप का विकास</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>भूमिका:</strong> आज हम जिस हिंदी में समाचार पत्र पढ़ते हैं, विश्वविद्यालय में शिक्षण प्राप्त करते हैं और संसद में भाषण सुनते हैं, वह वस्तुतः <strong>'खड़ी बोली' (कौरवी)</strong> का परिष्कृत एवं मानक रूप है। मध्यकाल में जहाँ काव्य-साहित्य की मुख्य भाषा ब्रजभाषा और अवधी थी, वहीं 19वीं शताब्दी के प्रारंभ से खड़ी बोली गद्य और पद्य दोनों की एकमात्र अधिष्ठात्री भाषा बनकर उभरी। इस अध्याय में हम खड़ी बोली के उद्भव, फोर्ट विलियम कॉलेज के चार प्रारंभिक स्तंभों, भारतेंदु युग, तथा आचार्य महावीर प्रसाद द्विवेदी के ऐतिहासिक योगदान का क्रमबद्ध अध्ययन करेंगे।
+                </div>
+
+                <section id="sec2-1">
+                    <h2>2.1 खड़ी बोली का नामकरण एवं उद्भव</h2>
+                    <p>
+                        'खड़ी बोली' पश्चिमी हिंदी उपभाषा वर्ग की प्रमुख बोली है, जिसका मूल भौगोलिक क्षेत्र दिल्ली, मेरठ, सहारनपुर, बिजनौर, मुरादाबाद और मुजफ्फरनगर के आसपास का भूभाग है। ग्रियर्सन एवं राहुल सांकृत्यायन ने इसे <strong>'कौरवी'</strong> (कुरु जनपद की बोली) नाम दिया।<br>
+                        <strong>'खड़ी' शब्द के अर्थ:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>खरापन / शुद्धता:</strong> खरी (विशुद्ध) और टकसाली होने के कारण इसे 'खड़ी बोली' कहा गया।</li>
+                        <li><strong>खड़ा स्वर:</strong> इसमें अकारांत शब्दों (जैसे- आया, गया, बैठा) का प्राचुर्य है, जबकि ब्रजभाषा में ओकारांत (आयो, गयो, बैठो) का प्रयोग होता है।</li>
+                        <li><strong>मानक स्वरूप:</strong> सीधी, सुस्पष्ट और सुदृढ़ होने के कारण यह खड़ी बोली कहलाई।</li>
+                    </ul>
+                </section>
+
+                <section id="sec2-2">
+                    <h2>2.2 प्रारंभिक गद्य के चार प्रमुख स्तंभ (1800 ई. के आसपास)</h2>
+                    <p>आधुनिक खड़ी बोली गद्य के प्रवर्तन में 1800 ईस्वी में स्थापित फोर्ट विलियम कॉलेज (कोलकाता) और उसके समकालीन चार विद्वानों का योगदान अविस्मरणीय है:</p>
+
+                    <div class="book-table-wrapper">
+                        <table class="book-table">
+                            <thead>
+                                <tr>
+                                    <th>विद्वान / लेखक</th>
+                                    <th>प्रमुख कृति</th>
+                                    <th>गद्य-शैली की प्रमुख विशेषताएँ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. मुंशी इंशा अल्ला खाँ</strong></td>
+                                    <td><em>रानी केतकी की कहानी</em> (उदयभान चरित)</td>
+                                    <td>इन्होंने अरबी-फारसी और संस्कृत के कठिन शब्दों से बचकर विशुद्ध 'ठेठ हिंदुस्तानी' मुहावरेदार भाषा लिखी।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. लल्लू लाल जी</strong></td>
+                                    <td><em>प्रेम सागर</em> (श्रीमद्भागवत के दशम स्कंध पर आधारित)</td>
+                                    <td>फोर्ट विलियम कॉलेज के भाषा मुंशी; इनकी खड़ी बोली पर ब्रजभाषा का गहरा प्रभाव था (ब्रजरंजित गद्य)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. सदल मिश्र</strong></td>
+                                    <td><em>नासिकेतोपाख्यान</em> (कठोपनिषद की नचिकेता कथा)</td>
+                                    <td>इनकी गद्य शैली व्यावहारिक थी, यद्यपि इसमें पूर्वी हिंदी का हल्का पुट देखने को मिलता है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4. मुंशी सदासुखलाल 'नियाज़'</strong></td>
+                                    <td><em>सुखसागर</em> (विष्णु पुराण की कथा)</td>
+                                    <td>इनकी भाषा पंडिताऊ एवं संस्कृतनिष्ठ थी, जिसने खड़ी बोली को शास्त्रीय गरिमा प्रदान की।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="sec2-3">
+                    <h2>2.3 भारतेंदु युग (1857-1900) : गद्य का नवजागरण</h2>
+                    <p>
+                        आधुनिक हिंदी साहित्य के जनक <strong>भारतेंदु हरिश्चंद्र</strong> ने खड़ी बोली को जन-चेतना और राष्ट्रीय जागरण का सशक्त माध्यम बनाया। उन्होंने नाटकों (<em>'भारत दुर्दशा'</em>, <em>'अंधेर नगरी'</em>), निबंधों और पत्रिकाओं (<em>'कविवचन सुधा'</em>, <em>'हरिश्चंद्र मैगजीन'</em>) के माध्यम से खड़ी बोली गद्य को सर्वमान्य प्रतिष्ठा दिलाई।<br>
+                        <strong>भारतेंदु युगीन भाषायी द्वैध:</strong> इस युग में गद्य के लिए तो खड़ी बोली पूरी तरह स्वीकृत हो गई, किंतु कविता (पद्य) के लिए अभी भी ब्रजभाषा का ही प्रयोग होता रहा।
+                    </p>
+                </section>
+
+                <section id="sec2-4">
+                    <h2>2.4 द्विवेदी युग (1900-1920) : व्याकरणिक मानकीकरण एवं पद्य में प्रतिष्ठा</h2>
+                    <p>
+                        खड़ी बोली के इतिहास में <strong>आचार्य महावीर प्रसाद द्विवेदी</strong> का आगमन युगांतरकारी घटना थी। उन्होंने 1903 ई. में प्रसिद्ध साहित्यिक पत्रिका <strong>'सरस्वती'</strong> का संपादन संभाला और निम्नलिखित युगांतकारी कार्य किए:
+                    </p>
+                    <ol class="book-list">
+                        <li><strong>व्याकरणिक शुद्धि एवं वर्तनी परिष्कार:</strong> द्विवेदी जी ने लेखकों की रचनाओं की वर्तनी और व्याकरण को स्वयं सुधारकर प्रकाशित किया, जिससे खड़ी बोली में मानक एकरूपता आई।</li>
+                        <li><strong>पद्य में खड़ी बोली की स्थापना:</strong> उन्होंने कवियों को ब्रजभाषा का मोह छोड़कर खड़ी बोली में काव्य-रचना का कड़ा निर्देश दिया।</li>
+                        <li><strong>युगीन महाकाव्य:</strong> मैथिलीशरण गुप्त ने <em>'भारत-भारती'</em> और <em>'साकेत'</em> लिखकर तथा अयोध्या सिंह उपाध्याय 'हरिऔध' ने <em>'प्रियप्रवास'</em> (खड़ी बोली का प्रथम महाकाव्य, 1914) लिखकर यह सिद्ध कर दिया कि खड़ी बोली में कोमलकांत पदावली और गंभीर रस-सृष्टि की पूर्ण सामर्थ्य है।</li>
+                    </ol>
+
+                    <figure class="educational-infographic" style="margin: 28px 0; text-align: center;">
+                        <img src="./assets/images/illustrations/khari-boli-literary-timeline.svg" alt="साहित्यिक खड़ी बोली के विकास की ऐतिहासिक विकास-यात्रा" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                        <figcaption style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary, #666); font-weight: 500;">चित्र 2.1: फोर्ट विलियम कॉलेज से लेकर आधुनिक मानक खड़ी बोली तक के विकास-चरणों का कालक्रम</figcaption>
+                    </figure>
+                </section>
+            </article>
+
+            <!-- ==========================================================================
+                 UNIT 2: PADYA PATHYANSH (पद्य पाठ्यांश)
+                 ========================================================================== -->
+            <div class="unit-divider" id="unit2">
+                <div class="unit-divider-badge">इकाई – 2</div>
+                <h2>पद्य पाठ्यांश (Padya Pathyansh)</h2>
+                <p>अमीर खुसरो, जयशंकर प्रसाद, हरिवंशराय बच्चन, दिनकर, निराला एवं नागार्जुन की निर्धारित कालजयी काव्य-रचनाएं</p>
+            </div>
+
+            <figure class="educational-infographic" style="margin: 24px 0; text-align: center;">
+                <img src="./assets/images/illustrations/padya-sahitya-six-poets.svg" alt="इकाई-2: निर्धारित 6 प्रमुख कवियों एवं काव्य-धाराओं का तुलनात्मक मानचित्र" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary, #666); font-weight: 500;">चित्र 3.1: आदिकाल से लेकर छायावाद, हालावाद, राष्ट्रीय-काव्य व प्रगतिवाद के प्रतिनिधि कवियों का तुलनात्मक ढांचा</figcaption>
+            </figure>
+
+            <!-- CHAPTER 3: AMIR KHUSRO -->
+            <article class="book-chapter" id="ch3">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 3</span>
+                    <h1>अमीर खुसरो – मुकरियाँ (संपादक : सैयद गुलाम समनानी)</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कवि परिचय एवं विधा:</strong> अबुल हसन यमीनुद्दीन 'अमीर खुसरो' (1253-1325 ई.) आदिकाल के अत्यंत विलक्षण कवि, संगीतज्ञ और सूफी संत हजरत निजामुद्दीन औलिया के प्रिय शिष्य थे। वे खड़ी बोली हिंदी के प्रथम कवि माने जाते हैं। उन्होंने पहेलियाँ, मुकरियाँ, दोसखुने और गजलें रचकर जन-मन का अपूर्व मनोरंजन किया।<br>
+                    <strong>मुकरी का स्वरूप:</strong> 'मुकरी' शब्द 'मुकरना' (अपनी बात कहकर पलट जाना) से बना है। इसमें चार पंक्तियाँ होती हैं। प्रथम तीन पंक्तियों में किसी वस्तु के ऐसे गुण बताए जाते हैं जिससे श्रोता को 'साजन' (प्रियतम/पति) का भ्रम होता है, किंतु चौथी पंक्ति में नायिका सखी के प्रश्न को नकार कर किसी सामान्य वस्तु का नाम लेती है (उदा. <em>'ऐ सखि साजन? ना सखि तारा।'</em>)।
+                </div>
+
+                <section id="sec3-1">
+                    <h2>3.1 पाठ्यक्रम में निर्धारित चारों मुकरियाँ : मूल पाठ एवं विस्तृत व्याख्या</h2>
+
+                    <!-- Mukari 1 -->
+                    <div class="book-definition" style="border-left-color: #9d174d; background: #fff5f7;">
+                        <div class="def-term" style="color: #831843;">(क) प्रथम मुकरी : तारा (Star)</div>
+                        <p style="font-size:1.1rem; line-height:1.9; font-weight:600; color:#1f2937;">
+                            रात समय वह मेरे आवे।<br>
+                            भोर भये वह घर उठि जावे।<br>
+                            यह अचरज मोहि लागत भारी।<br>
+                            ऐ सखि साजन? ना सखि तारा॥
+                        </p>
+                    </div>
+                    <p>
+                        <strong>शब्दार्थ:</strong> आवे = आता है; भोर भये = सुबह होने पर; जावे = चला जाता है; अचरज = आश्चर्य; भारी = बहुत बड़ा; साजन = पति/प्रियतम।<br>
+                        <strong>सप्रसंग व्याख्या:</strong> नायिका अपनी सहेली से कहती है कि हे सखी! रात होते ही वह मेरे पास आ जाता है और जैसे ही सुबह का उजाला फूटता है, वह उठकर अपने घर चला जाता है। मुझे इस बात का बड़ा भारी आश्चर्य होता है। सखी तुरंत कौतूहलवश पूछती है — <em>"क्या वह तुम्हारा साजन है?"</em> नायिका तुरंत मुकरते हुए हंसकर उत्तर देती है — <em>"नहीं सखी, वह तो आकाश का तारा है!"</em>
+                    </p>
+
+                    <!-- Mukari 2 -->
+                    <div class="book-definition" style="border-left-color: #9d174d; background: #fff5f7; margin-top:1.5rem;">
+                        <div class="def-term" style="color: #831843;">(ख) द्वितीय मुकरी : जूता / पनही (Shoe)</div>
+                        <p style="font-size:1.1rem; line-height:1.9; font-weight:600; color:#1f2937;">
+                            नंगे पाँव फिरन नहीं देत।<br>
+                            पाँव का कीचड़ लगन नहीं देत।<br>
+                            पाँव का काँटा काढन हारा।<br>
+                            ऐ सखि साजन? ना सखि जूता॥
+                        </p>
+                    </div>
+                    <p>
+                        <strong>शब्दार्थ:</strong> फिरन = घूमना; काढन हारा = निकालने वाला; पाँव = पैर।<br>
+                        <strong>सप्रसंग व्याख्या:</strong> नायिका कहती है कि वह मुझे कभी नंगे पैर नहीं घूमने देता, मेरे पैरों में कीचड़ और धूल नहीं लगने देता, और यदि रास्ते में कोई काँटा आ जाए तो वह स्वयं झेलकर पैर की रक्षा करता है। सखी पूछती है — <em>"क्या वह इतना ध्यान रखने वाला तुम्हारा साजन है?"</em> नायिका मुकरते हुए कहती है — <em>"नहीं सखी, वह तो मेरा जूता (पनही) है!"</em>
+                    </p>
+
+                    <!-- Mukari 3 -->
+                    <div class="book-definition" style="border-left-color: #9d174d; background: #fff5f7; margin-top:1.5rem;">
+                        <div class="def-term" style="color: #831843;">(ग) तृतीय मुकरी : ढोल (Drum)</div>
+                        <p style="font-size:1.1rem; line-height:1.9; font-weight:600; color:#1f2937;">
+                            वह आवे तब सादी होय।<br>
+                            उस बिन दूजा और न कोय।<br>
+                            मीठे लागें वाके बोल।<br>
+                            ऐ सखि साजन? ना सखि ढोल॥
+                        </p>
+                    </div>
+                    <p>
+                        <strong>शब्दार्थ:</strong> सादी = शादी / विवाह; वाके = उसके; बोल = ध्वनि / बोल।<br>
+                        <strong>सप्रसंग व्याख्या:</strong> नायिका कहती है कि जब वह आता है तभी शादी संपन्न होती है। उसके बिना विवाह उत्सव में कोई दूसरा महत्वपूर्ण नहीं होता और उसके बोल कानों को बहुत मीठे और मंगलकारी लगते हैं। सखी पूछती है — <em>"क्या वह तुम्हारा साजन है जिसके आने से ब्याह होता है?"</em> नायिका उत्तर देती है — <em>"नहीं सखी, वह तो ढोल (वाद्य यंत्र) है!"</em>
+                    </p>
+
+                    <!-- Mukari 4 -->
+                    <div class="book-definition" style="border-left-color: #9d174d; background: #fff5f7; margin-top:1.5rem;">
+                        <div class="def-term" style="color: #831843;">(घ) चतुर्थ मुकरी : बिच्छू (Scorpion)</div>
+                        <p style="font-size:1.1rem; line-height:1.9; font-weight:600; color:#1f2937;">
+                            अरध निशा आया वह मौन।<br>
+                            मूँछ पकड़ कै उठावे कौन।<br>
+                            जाग पड़ी तो चकित भई भारी।<br>
+                            ऐ सखि साजन? ना सखि बिच्छू॥
+                        </p>
+                    </div>
+                    <p>
+                        <strong>शब्दार्थ:</strong> अरध निशा = आधी रात; मौन = चुपचाप; चकित = हैरान; मूँछ पकड़ कै = डंक/अंग स्पर्श।<br>
+                        <strong>सप्रसंग व्याख्या:</strong> नायिका कहती है कि आधी रात के घोर सन्नाटे में वह दबे पाँव चुपचाप आया। उसने आकर मुझे इस प्रकार स्पर्श किया कि मैं घबराकर जाग पड़ी। अचानक जागने पर मैं बहुत चकित हो गई। सखी पूछती है — <em>"क्या आधी रात में आने वाला वह तुम्हारा साजन था?"</em> नायिका भय मिश्रित विनोद से कहती है — <em>"नहीं सखी, वह तो बिच्छू था!"</em>
+                    </p>
+                </section>
+            </article>
+
+            <!-- CHAPTER 4: PRASAD - AANSU -->
+            <article class="book-chapter" id="ch4">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 4</span>
+                    <h1>जयशंकर प्रसाद – आँसू (प्रारंभ के 05 छंद)</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कवि एवं काव्य परिचय:</strong> छायावाद के प्रवर्तक महाकवि जयशंकर प्रसाद (1889-1937 ई.) द्वारा रचित <strong>'आँसू' (1925 ई.)</strong> हिंदी साहित्य का अप्रतिम स्मृति-काव्य और विरह-काव्य है। यह केवल एक प्रियतम के वियोग का विलाप नहीं है, बल्कि वैयक्तिक वेदना का धीरे-धीरे समूची मानवता के कल्याण एवं करुणा में उदात्तीकरण (Sublimation) है। इसमें 14-14 मात्राओं के सवैया छंद का लालित्य विद्यमान है।
+                </div>
+
+                <section id="sec4-1">
+                    <h2>4.1 'आँसू' के प्रारंभिक 5 छंद : मूल पाठ एवं सप्रसंग व्याख्या</h2>
+
+                    <!-- Stanza 1 -->
+                    <div class="book-definition">
+                        <div class="def-term">छंद 1 : विकल रागिनी का गुंजन</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            इस करुणा-कलित हृदय में<br>
+                            अब विकल रागिनी बजती,<br>
+                            क्यों हाहाकार स्वरों में<br>
+                            वेदना असीम गरजती?
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> कवि प्रसाद जी कहते हैं कि वियोग की वेदना से दग्ध मेरे इस दया और करुणा से परिपूर्ण हृदय में अब व्याकुलता भरी रागिनी बजने लगी है। मेरे अंतःकरण से उठने वाले हाहाकारमय स्वरों में यह असीम वेदना मेघों के समान क्यों गरज रही है? कवि अपने आंतरिक अवसाद और तीव्र विरह-पीड़ा की अभिव्यक्ति कर रहे हैं।
+                    </p>
+
+                    <!-- Stanza 2 -->
+                    <div class="book-definition">
+                        <div class="def-term">छंद 2 : मानस की लहरें</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            ध्वनि मानस की लहरों में<br>
+                            क्या टकराती पागल-सी?<br>
+                            आ-आकर जो टकराती<br>
+                            इस प्रलय-सिंधु से हिल-सी!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> मेरे मन रूपी मानसरोवर की लहरों में यह कैसी चीत्कार पागल के समान बार-बार आकर टकरा रही है? ऐसा प्रतीत होता है मानो प्रलयंकारी सागर में भयानक तूफानी लहरें तटों को हिला-हिलाकर आक्रांत कर रही हों। वियोग में चित्त की जो अशांति और विक्षोभ होता है, उसका अत्यंत सजीव मानवीकरण यहाँ किया गया है।
+                    </p>
+
+                    <!-- Stanza 3 -->
+                    <div class="book-definition">
+                        <div class="def-term">छंद 3 : घनीभूत पीड़ा का वर्षण (प्रसिद्धतम छंद)</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            जो घनीभूत पीड़ा थी<br>
+                            मस्तक में स्मृति-सी छाई,<br>
+                            दुर्दिन में आँसू बनकर<br>
+                            वह आज बरसने आई!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> जिस प्रकार आकाश में वाष्प सघन होकर बादलों का रूप ले लेती है और वर्षा काल (दुर्दिन) में जल बनकर बरस पड़ती है, ठीक उसी प्रकार प्रिय के बिछोह की जो पीड़ा मेरे मस्तिष्क में पुरानी स्मृतियों के रूप में घनीभूत होकर जमी हुई थी, वह आज विपत्ति के दिनों में आँखों से आँसू बनकर छलक उठी है। रूपक और उपमा का यह अद्भुत समन्वय है।
+                    </p>
+
+                    <!-- Stanza 4 -->
+                    <div class="book-definition">
+                        <div class="def-term">छंद 4 : चपला की चमकार</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            मेरे क्रंदन में क्या है?<br>
+                            क्यों सोती हुई व्यथा को?<br>
+                            यह चपला की चमकारें<br>
+                            चौंकाती हैं निमिषा को?
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> मेरे इस अश्रुपूर्ण रुदन में भला क्या छिपा है? मेरे अंतःकरण में जो पुरानी पीड़ा सोई हुई थी, उसे अतीत की सुखद स्मृतियाँ बिजली (चपला) की चमक की भांति बार-बार कौंधकर पलक झपकते ही चौंका देती हैं और मेरे घावों को पुनः हरा कर देती हैं।
+                    </p>
+
+                    <!-- Stanza 5 -->
+                    <div class="book-definition">
+                        <div class="def-term">छंद 5 : शीतल ज्वाला</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            शीतल ज्वाला लागी थी,<br>
+                            ईंधन दृग-जल था जिसका,<br>
+                            मति का वह दीपक बुझता,<br>
+                            आँसू भर-भर कर गिरता!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> विरह की यह आग बड़ी विचित्र है — यह 'शीतल ज्वाला' है (विरोधाभास अलंकार), जिसमें बाहर से तो आँखों से ठंडा अश्रुजल गिरता है किंतु भीतर मन धू-धू कर जलता है। बुद्धि का दीपक मंद पड़ रहा है और नेत्रों से निरंतर अश्रुधारा बह रही है।
+                    </p>
+                </section>
+            </article>
+
+            <!-- CHAPTER 5: BACHCHAN - MADHUSHALA -->
+            <article class="book-chapter" id="ch5">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 5</span>
+                    <h1>हरिवंशराय बच्चन – मधुशाला (प्रारंभ के 05 छंद)</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कवि एवं काव्य परिचय:</strong> हिंदी साहित्य में <strong>'हालावाद'</strong> के प्रवर्तक डॉ. हरिवंशराय बच्चन (1907-2003 ई.) द्वारा रचित <strong>'मधुशाला' (1935 ई.)</strong> सार्वकालिक लोकप्रिय अमर कृति है। इसमें फारसी कवि उमर खय्याम की रुबाइयों का प्रभाव है। मधुशाला में प्रयुक्त मदिरा, प्याला, साकी और मदिरालय स्थूल शराब नहीं, बल्कि जीवन के गूढ़ दार्शनिक प्रतीक हैं: मदिरा = जीवन रस/आनंद, प्याला = मानव शरीर, साकी = गुरु/प्रकृति/प्रेरणा, तथा मधुशाला = समूचा संसार।
+                </div>
+
+                <section id="sec5-1">
+                    <h2>5.1 'मधुशाला' के प्रारंभिक 5 छंद : मूल पाठ एवं सप्रसंग व्याख्या</h2>
+
+                    <!-- Chhand 1 -->
+                    <div class="book-definition" style="border-left-color: #d97706; background: #fffdf5;">
+                        <div class="def-term" style="color: #b45309;">छंद 1 : राह पकड़ तू एक चला चल</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            मदिरालय जाने को घर से चलता है पीनेवाला,<br>
+                            'किस पथ से जाऊँ?' असमंजस में है वह भोलाभाला,<br>
+                            अलग-अलग पथ बतलाते सब पर मैं यह बतलाता हूँ,<br>
+                            'राह पकड़ तू एक चला चल, पा जाएगा मधुशाला!'
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> जीवन में सत्य और आनंद की खोज में निकला मनुष्य भ्रमित है। संसार के विभिन्न मत, धर्म और संप्रदाय उसे अलग-अलग मार्ग बतलाकर असमंजस में डाल देते हैं। कवि सहज जीवन-दर्शन देते हैं कि तू किसी भी एक मार्ग का निष्ठापूर्वक और अडिग होकर अनुसरण कर, यदि तेरे संकल्प में दृढ़ता है तो तू अवश्य ही जीवन के चरम आनंद (मधुशाला) को प्राप्त कर लेगा।
+                    </p>
+
+                    <!-- Chhand 2 -->
+                    <div class="book-definition" style="border-left-color: #d97706; background: #fffdf5;">
+                        <div class="def-term" style="color: #b45309;">छंद 2 : प्यालों की पंक्ति</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            एक सजीव मदिरा का प्याला, एक सजीव पिनेवाला,<br>
+                            एक सजीव सुरा की बोतल, एक सजीव है साकीवाला,<br>
+                            मदिरालय के इस प्रांगण में जीवन का हर रूप नया,<br>
+                            सुख-दुख के दो घूंट पिए जा, यही जगत की मधुशाला!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> कवि कहते हैं कि इस संसार रूपी मदिरालय में प्रत्येक प्राणी जीवन-रस का प्यासा है। यहाँ हर क्षण जीवन का नया रंग दिखाई देता है। मनुष्य को चाहिए कि वह जीवन में आने वाले सुख और दुख को समान भाव से स्वीकार करे और इस जीवन-यात्रा का आनंद ले।
+                    </p>
+
+                    <!-- Chhand 3 -->
+                    <div class="book-definition" style="border-left-color: #d97706; background: #fffdf5;">
+                        <div class="def-term" style="color: #b45309;">छंद 3 : लाल सुरा की धार</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            लाल सुरा की धार लपट-सी, कह न इसे देना ज्वाला,<br>
+                            फेनिल मदिरा है, मत इसको कह देना उर का छाला,<br>
+                            दर्द नशा बन उमड़ रहा है, पी ले इसको मतवाला,<br>
+                            खट्टी-मीठी यादें लेकर सजती अपनी मधुशाला!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> जीवन में जो वेदना और संघर्ष हैं, कवि उन्हें भी अमृत रूपी मदिरा के समान पीने का आह्वान करते हैं। जो व्यक्ति अपने आंसुओं और पीड़ा को भी जीवन का संगीत बना लेता है, वही सच्चा जीवन-पारखी है।
+                    </p>
+
+                    <!-- Chhand 4 -->
+                    <div class="book-definition" style="border-left-color: #d97706; background: #fffdf5;">
+                        <div class="def-term" style="color: #b45309;">छंद 4 : सामाजिक समरसता (अमर संदेश)</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            धर्मग्रंथ सब एक सिखाते, मदिरालय का द्वार खुला,<br>
+                            जाति-पाँति के भेद मिटाकर सब पर अमृत-धार ढला,<br>
+                            मंदिर, मस्जिद बैर कराते, मेल कराती मधुशाला!<br>
+                            सबका प्याला एक यहाँ पर, सबका साकी एक भला!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> यह 'मधुशाला' का सबसे क्रांतिकारी और मानवीय छंद है। बच्चन जी धार्मिक कट्टरता और सांप्रदायिक वैमनस्य पर तीखा प्रहार करते हुए कहते हैं कि मंदिर और मस्जिद के नाम पर लोग आपस में लड़ते और बैर पालते हैं, किंतु मदिरालय (मानवता का खुला प्रांगण) सभी जातियों, धर्मों और वर्गों के भेद को मिटाकर प्रेम और भ्रातृभाव का संदेश देता है।
+                    </p>
+
+                    <!-- Chhand 5 -->
+                    <div class="book-definition" style="border-left-color: #d97706; background: #fffdf5;">
+                        <div class="def-term" style="color: #b45309;">छंद 5 : तृष्णा की शांति</div>
+                        <p style="font-size:1.05rem; line-height:1.8; font-weight:600;">
+                            हाथों में आने से पहले नाज़ दिखाएगा प्याला,<br>
+                            अधरों पर आने से पहले अदा दिखाएगी हाला,<br>
+                            बहुतेरे आएंगे साकी बनकर दिल बहलाने को,<br>
+                            पर तृष्णा शांत करेगी बस तेरी ही मधुशाला!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>व्याख्या:</strong> लक्ष्य प्राप्ति से पूर्व जीवन में अनेक बाधाएं और प्रलोभन आते हैं। सांसारिक तृष्णाएं इतनी आसानी से शांत नहीं होतीं। जब तक व्यक्ति आत्म-ज्ञान और आत्म-संतोष को प्राप्त नहीं कर लेता, तब तक उसकी आंतरिक पिपासा शांत नहीं हो सकती।
+                    </p>
+                </section>
+            </article>
+
+            <!-- CHAPTER 6: DINKAR -->
+            <article class="book-chapter" id="ch6">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 6</span>
+                    <h1>रामधारी सिंह दिनकर – मेरे नगपति मेरे विशाल</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कवि एवं काव्य परिचय:</strong> राष्ट्रकवि रामधारी सिंह दिनकर (1908-1974 ई.) राष्ट्रीय चेतना, ओज और पौरुष के अप्रतिम कवि हैं। प्रस्तुत कविता <strong>'मेरे नगपति! मेरे विशाल!'</strong> उनके प्रसिद्ध काव्य-संग्रह <em>'रेणुका'</em> से ली गई है। इसमें कवि ने भारत के मुकुटमणि हिमालय को अजर-अमर, सांस्कृतिक गौरव और स्वाभिमान के प्रतीक के रूप में चित्रित करते हुए पराधीन भारत के सोए हुए पौरुष को जगाने का ओजस्वी आह्वान किया है।
+                </div>
+
+                <section id="sec6-1">
+                    <h2>6.1 कविता का मूल पाठ एवं विस्तृत व्याख्या</h2>
+                    <div class="book-definition" style="border-left-color: #b91c1c; background: #fff5f5;">
+                        <div class="def-term" style="color: #991b1b;">मूल पाठ : मेरे नगपति मेरे विशाल</div>
+                        <p style="font-size:1.05rem; line-height:1.9; font-weight:600; color:#1f2937;">
+                            मेरे नगपति! मेरे विशाल!<br>
+                            साक्षात् रूप अमरता का,<br>
+                            जग के कुंडल! हे तुंग भाल!<br>
+                            मेरे नगपति! मेरे विशाल!<br><br>
+                            युग-युग अजेय, निर्बंध, मुक्त,<br>
+                            युग-युग गर्वोन्नत, नित महान्,<br>
+                            निस्सीम व्योम में तान रहा<br>
+                            युग से किस व्रत का कठिन ध्यान?<br><br>
+                            कैसी अखंड यह चिर समाधि?<br>
+                            यतिवर! कैसा यह अमर ध्यान?<br>
+                            तू महाशून्य में खोज रहा<br>
+                            किस जटिल समस्या का निदान?<br>
+                            उलझ गया है भारत का भाग्य,<br>
+                            उठ, मेरे नगपति! मेरे विशाल!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>शब्दार्थ:</strong> नगपति = पर्वतों का राजा (हिमालय); तुंग भाल = ऊंचा मस्तक; निर्बंध = बंधनरहित; व्योम = आकाश; यतिवर = मुनिश्रेष्ठ/तपस्वी।<br>
+                        <strong>सप्रसंग व्याख्या:</strong><br>
+                        कवि दिनकर हिमालय को संबोधित करते हुए कहते हैं कि हे मेरे पर्वतों के अधिपति! हे मेरे विराट हिमालय! तुम साक्षात् अमरता के प्रतीक हो। तुम संसार के उन्नत मस्तक और पृथ्वी के कुंडलों के समान शोभायमान हो। तुम युगों-युगों से अजेय रहे हो, तुम्हें कोई पराजित नहीं कर सका। तुम सदैव गर्व से सिर उठाए अनंत आकाश में मौन खड़े हो।<br>
+                        कवि एक जागरूक राष्ट्रकवि के रूप में प्रश्न करते हैं कि हे तपस्वीराज! तुम्हारी यह अखंड समाधि कब टूटेगी? आज जब तुम्हारी गोद में बसा समूचा भारत पराधीनता, संकट और दारिद्र्य से कराह रहा है, तब तुम महाशून्य में किस समस्या का समाधान खोज रहे हो? हे भारत के प्रहरी! अपनी इस समाधि को तोड़ो, जागो और भारतवासियों में स्वतंत्रता और शौर्य का संचार करो!
+                    </p>
+                </section>
+            </article>
+
+            <!-- CHAPTER 7: NIRALA -->
+            <article class="book-chapter" id="ch7">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 7</span>
+                    <h1>सूर्यकांत त्रिपाठी 'निराला' – बाँधो न नाव इस ठाँव बंधु</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कवि एवं काव्य परिचय:</strong> महाप्राण सूर्यकांत त्रिपाठी 'निराला' (1896-1961 ई.) हिंदी के सर्वाधिक क्रांतिकारी, बहुआयामी और संवेदनशील कवि हैं। प्रस्तुत गीत <strong>'बाँधो न नाव इस ठाँव, बंधु!'</strong> उनके काव्य-संग्रह <em>'गीतिका'</em> और <em>'अर्चना'</em> के कालजयी गीतों में से है। यह निश्छल प्रेम, स्मृति की टीस और वैयक्तिक वियोग का अत्यंत कोमलकांत एवं संगीतात्मक गीत है।
+                </div>
+
+                <section id="sec7-1">
+                    <h2>7.1 कविता का मूल पाठ एवं सप्रसंग व्याख्या</h2>
+                    <div class="book-definition" style="border-left-color: #047857; background: #f0fdf4;">
+                        <div class="def-term" style="color: #065f46;">मूल पाठ : बाँधो न नाव इस ठाँव बंधु</div>
+                        <p style="font-size:1.05rem; line-height:1.9; font-weight:600; color:#1f2937;">
+                            बाँधो न नाव इस ठाँव, बंधु!<br>
+                            पूछेगा सारा गाँव, बंधु!<br><br>
+                            यह घाट वही जिस पर हँसकर,<br>
+                            वह कभी नहाती थी धँसकर,<br>
+                            जल-क्रीड़ा करती थी आकर,<br>
+                            पा जाती थी पाँव, बंधु!<br>
+                            बाँधो न नाव इस ठाँव, बंधु!<br><br>
+                            वह रूप-राशि अब कहाँ रही,<br>
+                            केवल स्मृतियों की नदी बही,<br>
+                            आँखों ने कितनी व्यथा सही,<br>
+                            धूप में मिली न छाँव, बंधु!<br>
+                            पूछेगा सारा गाँव, बंधु!
+                        </p>
+                    </div>
+                    <p>
+                        <strong>शब्दार्थ:</strong> ठाँव = स्थान / किनारा; घाट = नदी तट; रूप-राशि = अनुपम सौंदर्य।<br>
+                        <strong>सप्रसंग व्याख्या:</strong><br>
+                        कवि नाविक (अथवा अपने ही मन रूपी बंधु) से आग्रह करते हैं कि हे बंधु! इस नदी-तट पर अपनी नाव मत बाँधो, क्योंकि यदि तुम यहाँ नाव बाँधोगे तो सारा गाँव हमारे उस गोपनीय अतीत और विरह के संबंध में प्रश्न पूछेगा। यह वही घाट है जहाँ कभी मेरी प्रिया हंसते हुए स्नान करने आती थी और जल से क्रीड़ा करती थी। आज वह भौतिक रूप से यहाँ उपस्थित नहीं है, केवल उसकी मार्मिक स्मृतियाँ शेष रह गई हैं। यहाँ रुकने से विरह के पुराने घाव पुनः ताजे हो उठेंगे।
+                    </p>
+                </section>
+            </article>
+
+            <!-- CHAPTER 8: NAGARJUN -->
+            <article class="book-chapter" id="ch8">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 8</span>
+                    <h1>नागार्जुन – बहुत दिनों तक चूल्हा रोया</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कवि एवं काव्य परिचय:</strong> प्रगतिवादी काव्यधारा के जनकवि वैद्यनाथ मिश्र 'नागार्जुन' (1911-1998 ई.), जिन्हें साहित्य जगत में आदर से 'बाबा' कहा जाता है, शोषित और उपेक्षित जनता के सजग पैरोकार थे। प्रस्तुत कविता <strong>'अकाल और उसके बाद'</strong> (जिसकी प्रथम पंक्ति है — <em>'बहुत दिनों तक चूल्हा रोया'</em>) हिंदी साहित्य की सबसे छोटी किंतु सबसे मारक और यथार्थवादी कविताओं में गिनी जाती है। इसमें अकाल की दारुण पीड़ा और अकाल के बाद घर में अन्न आने के उल्लास का अद्भुत द्वंद्वात्मक चित्रण है।
+                </div>
+
+                <section id="sec8-1">
+                    <h2>8.1 कविता का मूल पाठ एवं सप्रसंग व्याख्या</h2>
+                    <div class="book-definition" style="border-left-color: #4338ca; background: #eef2ff;">
+                        <div class="def-term" style="color: #3730a3;">मूल पाठ : अकाल और उसके बाद</div>
+                        <p style="font-size:1.05rem; line-height:1.9; font-weight:600; color:#1f2937;">
+                            बहुत दिनों तक चूल्हा रोया, चक्की रही उदास।<br>
+                            बहुत दिनों तक कानी कुतिया सोई उनके पास।<br><br>
+                            बहुत दिनों तक लगी भीत पर छिपकलियों की गश्त।<br>
+                            बहुत दिनों तक चूहों की भी हालत रही शिकस्त।<br><br>
+                            दाने आए घर के अंदर बहुत दिनों के बाद।<br>
+                            धुआँ उठा आँगन से ऊपर बहुत दिनों के बाद।<br><br>
+                            चमक उठी घर भर की आँखें बहुत दिनों के बाद।<br>
+                            कौए ने खुजलाई पाँखें बहुत दिनों के बाद।
+                        </p>
+                    </div>
+                    <p>
+                        <strong>सप्रसंग व्याख्या:</strong><br>
+                        यह कविता दो विरोधी चित्रों में विभक्त है:<br>
+                        <strong>प्रथम चार पंक्तियाँ (अकाल का संत्रास):</strong> जब घर में अन्न का एक दाना नहीं था, तब चूल्हा बुझा पड़ा था मानो वह अपनी बेबसी पर रो रहा हो, और अनाज पीसने वाली पत्थर की चक्की उदास पड़ी थी। भूख से बेहाल कानी कुतिया भी उम्मीद छोड़ उसी ठंडे चूल्हे के पास सोई रही। दीवारों पर केवल छिपकलियों की गश्त थी और घर के चूहों की हालत भी भूख से पस्त (शिकस्त) हो चुकी थी। यह भूख का भयानक और मूक सन्नाटा है।<br>
+                        <strong>अंतिम चार पंक्तियाँ (अन्न आगमन का उल्लास):</strong> लंबे अकाल के बाद जब घर में अनाज के दाने पहुँचे, तो बुझे चूल्हे में आग जली और आँगन से धुआँ उठता दिखाई दिया। परिवार के सभी सदस्यों की आँखों में जीवन की चमक लौट आई और घर की मुंडेर पर बैठे कौए ने भी भोजन मिलने की आशा में अपनी पाँखें (पंख) खुजलाईं। केवल आठ पंक्तियों में नागार्जुन ने जीवन के सबसे आदिम संघर्ष — भूख और रोटी — का अमर दस्तावेज प्रस्तुत कर दिया है।
+                    </p>
+                </section>
+            </article>
+
+            <!-- ==========================================================================
+                 UNIT 3: GADYA PATHYANSH (गद्य पाठ्यांश)
+                 ========================================================================== -->
+            <div class="unit-divider" id="unit3">
+                <div class="unit-divider-badge">इकाई – 3</div>
+                <h2>गद्य पाठ्यांश (कहानी एवं निबंध)</h2>
+                <p>खंड (क) प्रेमचंद एवं गंगा प्रसाद विमल की कहानियां • खंड (ख) शुक्ल, द्विवेदी, परसाई एवं प्रताप नारायण मिश्र के निबंध</p>
+            </div>
+
+            <figure class="educational-infographic" style="margin: 24px 0; text-align: center;">
+                <img src="./assets/images/illustrations/gadya-stories-and-essays.svg" alt="इकाई-3: गद्य पाठ्यांश (कहानियां एवं निबंध) का विषयगत व वैचारिक ढांचा" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <figcaption style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary, #666); font-weight: 500;">चित्र 4.1: इकाई-3 की 2 कालजयी कहानियों एवं 4 युगप्रवर्तक निबंधों का वैचारिक व संरचनात्मक ढांचा</figcaption>
+            </figure>
+
+            <!-- KAHANI 1: PREMCHAND - MANTRA -->
+            <article class="book-chapter" id="ch9">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 9 (कहानी 1)</span>
+                    <h1>मुंशी प्रेमचंद – मंत्र</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कथाकार एवं कहानी परिचय:</strong> उपन्यास सम्राट मुंशी प्रेमचंद (1880-1936 ई.) यथार्थवादी हिंदी कथा-साहित्य के शिखर पुरुष हैं। उनकी प्रसिद्ध कहानी <strong>'मंत्र'</strong> मानवीय संवेदना बनाम वर्ग-अहंकार के नैतिक द्वंद्व की कालजयी रचना है। कहानी में दो सर्वथा विपरीत जीवन-मूल्यों का आमना-सामना होता है: एक ओर पाश्चात्य सभ्यता में रंगे, समय के पाबंद किंतु संवेदनहीन डॉ. चड्ढा हैं, और दूसरी ओर ग्रामीण, दरिद्र किंतु निःस्वार्थ कर्तव्यनिष्ठ बूढ़ा भगत।
+                </div>
+
+                <section id="sec9-1">
+                    <h2>9.1 कहानी की संपूर्ण कथावस्तु एवं प्रमुख प्रसंग</h2>
+                    <p>
+                        <strong>घटना-1: डॉ. चड्ढा की संवेदनहीनता:</strong> बूढ़ा भगत अपने इकलौते बीमार पुत्र को कंधे पर लादकर मीलों दूर शहर में डॉ. चड्ढा के दवाखाने लाता है। बालक मृत्यु शय्या पर है और भगत गिड़गिड़ाकर डॉक्टर के पैर पकड़ लेता है। किंतु डॉ. चड्ढा गोल्फ खेलने जाने की जल्दी में हैं। वे अपनी जेब से घड़ी निकालकर रूखेपन से कहते हैं — <em>"कल सुबह आना, इस समय मैं मरीजों को नहीं देखता।"</em> भगत रोता-बिलखता लौट जाता है और उसका इकलौता सहारा वह पुत्र उसी रात दम तोड़ देता है।<br><br>
+                        <strong>घटना-2: कालचक्र का प्रत्यावर्तन:</strong> वर्षों बीत जाते हैं। डॉ. चड्ढा के इकलौते पुत्र कैलाश की बीसवीं वर्षगांठ का भव्य उत्सव है। कैलाश को सांप पालने का शौक है। मित्रों के सामने शेखी बघारते हुए वह एक विषैले काले नाग को छेड़ देता है और नाग उसकी उंगली में डस लेता है। शहर के बड़े-बड़े डॉक्टर और झाड़-फूंक वाले जवाब दे देते हैं। कैलाश मृत्यु के कगार पर पहुँच जाता है और घर में कोहराम मच जाता है।<br><br>
+                        <strong>घटना-3: बूढ़े भगत की अंतरात्मा की पुकार:</strong> आधी रात को यह समाचार बूढ़े भगत की झोपड़ी तक पहुँचता है। भगत की पत्नी कहती है कि <em>"अच्छा हुआ, वही डॉक्टर था जिसने हमारे बच्चे को बिना देखे भगा दिया था, अब उसे भी पुत्र-शोक का पता चलेगा!"</em> भगत भी पहले न जाने का विचार करता है, किंतु उसकी उदात्त मानवीय अंतरात्मा उसे चैन से सोने नहीं देती। वह चुपचाप अपनी लाठी और जड़ी-बूटी उठाकर डॉक्टर के बंगले की ओर दौड़ पड़ता है।<br><br>
+                        <strong>चरमोत्कर्ष एवं नैतिक विजय:</strong> भगत अपनी निःस्वार्थ मंत्र-विद्या और जड़ी-बूटी से विष को उतार देता है। जब कैलाश की आँखें खुल जाती हैं और घर में उल्लास छा जाता है, तब भगत बिना एक पैसा लिए चुपचाप अंधेरे में गायब हो जाता है। जब डॉ. चड्ढा को पता चलता है कि यह वही बूढ़ा था जिसके बेटे को उन्होंने देखने से मना किया था, तो उनका अहंकार चूर-चूर हो जाता है। वे पश्चाताप के आंसुओं में डूबकर कहते हैं — <em>"मैं उस बूढ़े को खोजूंगा और उसके चरणों में गिरकर अपने पाप की क्षमा मांगूंगा!"</em>
+                    </p>
+                </section>
+            </article>
+
+            <!-- KAHANI 2: GANGA PRASAD VIMAL - SIDDHARTHA KA LAUTNA -->
+            <article class="book-chapter" id="ch10">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 10 (कहानी 2)</span>
+                    <h1>गंगा प्रसाद विमल – सिद्धार्थ का लौटना</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>कथाकार एवं कहानी संदर्भ:</strong> डॉ. गंगा प्रसाद विमल (1939-2019 ई.) समकालीन हिंदी कहानी के 'अकहानी' (Anti-Story) आंदोलन के प्रणेता, प्रसिद्ध उपन्यासकार और आलोचक हैं। प्रस्तुत कहानी <strong>'सिद्धार्थ का लौटना'</strong> भारतीय इतिहास और पौराणिक संदर्भ (गौतम बुद्ध/सिद्धार्थ के गृह-त्याग) का आधुनिक महानगरीय अस्तित्ववादी संदर्भों में एक अद्भुत पुनर्पाठ (Re-reading) है।
+                </div>
+
+                <section id="sec10-1">
+                    <h2>10.1 कहानी का कथ्य, विश्लेषण एवं आधुनिक संवेदना</h2>
+                    <p>
+                        <strong>मिथकीय पृष्ठभूमि बनाम आधुनिक यथार्थ:</strong> प्राचीन काल में राजकुमार सिद्धार्थ सत्य और निर्वाण की खोज में अपनी सोई हुई पत्नी यशोधरा और पुत्र राहुल को आधी रात में छोड़कर जंगल चले गए थे (महाभिनिष्क्रमण)। किंतु डॉ. गंगा प्रसाद विमल की कहानी का आधुनिक 'सिद्धार्थ' संसार से भागने के बाद पुनः अपने घर और समाज की ओर लौटता है।<br><br>
+                        <strong>प्रमुख विचार बिंदु:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>पलायन बनाम दायित्व:</strong> कहानी यह प्रश्न उठाती है कि क्या परिवार और सांसारिक कर्तव्यों को छोड़कर वन में चले जाना ही मुक्ति है? आधुनिक युग में सच्चा संन्यास समाज से भागना नहीं, बल्कि विषमताओं के बीच रहकर सत्य और उत्तरदायित्व का निर्वहन करना है।</li>
+                        <li><strong>महानगरीय अकेलापन एवं संत्रास:</strong> कहानी में आधुनिक मनुष्य के आंतरिक खालीपन, अजनबियत (Alienation) और पहचान के संकट का गहरा मनोवैज्ञानिक विश्लेषण किया गया है।</li>
+                        <li><strong>लौटने की सार्थकता:</strong> सिद्धार्थ का लौटना किसी पराजय का सूचक नहीं है, बल्कि जीवन के वास्तविक यथार्थ और संबंधों की सार्थकता को स्वीकार करने की परिपक्व चेतना है।</li>
+                    </ul>
+                </section>
+            </article>
+
+            <!-- NIBANDH 1: RAMCHANDRA SHUKLA -->
+            <article class="book-chapter" id="ch11">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 11 (निबंध 1)</span>
+                    <h1>आचार्य रामचंद्र शुक्ल – श्रद्धा और भक्ति</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>निबंधकार एवं निबंध परिचय:</strong> हिंदी आलोचना के युगपुरुष आचार्य रामचंद्र शुक्ल (1884-1941 ई.) द्वारा रचित निबंध <strong>'श्रद्धा और भक्ति'</strong> उनके प्रसिद्ध निबंध-संग्रह <em>'चिंतामणि' (भाग-1)</em> में संकलित है। यह भाव या मनोविकार संबंधी उत्कृष्ट मनोवैज्ञानिक एवं दार्शनिक निबंध है, जिसमें शुक्ल जी ने श्रद्धा और भक्ति के सूक्ष्म अंतर, उनके सामाजिक महत्व और मानवीय अंतःकरण पर उनके प्रभाव का वैज्ञानिक विश्लेषण किया है।
+                </div>
+
+                <section id="sec11-1">
+                    <h2>11.1 निबंध के प्रमुख सैद्धांतिक सूत्र एवं विश्लेषण</h2>
+                    <div class="book-definition">
+                        <div class="def-term">शुक्ल जी का मूल सूत्र : श्रद्धा और प्रेम का योग</div>
+                        <p>"श्रद्धा और प्रेम के योग का नाम भक्ति है।"<br>जब किसी व्यक्ति के प्रति हमारे मन में उसके असाधारण गुणों के कारण 'श्रद्धा' उत्पन्न होती है, और साथ ही उसके सान्निध्य की लालसा से 'प्रेम' जुड़ जाता है, तो वह मनोविकार 'भक्ति' का रूप ले लेता है।</p>
+                    </div>
+
+                    <div class="book-table-wrapper">
+                        <table class="book-table">
+                            <thead>
+                                <tr>
+                                    <th>तुलना का बिंदु</th>
+                                    <th>श्रद्धा (Reverence)</th>
+                                    <th>प्रेम (Love)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. आधार</strong></td>
+                                    <td>गुण-प्रधान; किसी के शील, प्रतिभा अथवा साधना को देखकर श्रद्धा जगती है।</td>
+                                    <td>रूप या सान्निध्य प्रधान; यह बिना किसी कारण के भी अनायास हो सकता है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. सामाजिक क्षेत्र</strong></td>
+                                    <td>सामाजिक और व्यापक; श्रद्धा का विस्तार पूरे समाज में होता है।</td>
+                                    <td>व्यक्तिगत और एकांतिक; प्रेम दो व्यक्तियों के बीच सीमित रहता है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. स्वार्थ या कामना</strong></td>
+                                    <td>श्रद्धा में अपने लिए कुछ पाने की कामना नहीं होती; केवल आदर का भाव होता है।</td>
+                                    <td>प्रेम में प्रिय के सान्निध्य और एकाधिकार की चाह बनी रहती है।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </article>
+
+            <!-- NIBANDH 2: MAHAVIR PRASAD DWIVEDI -->
+            <article class="book-chapter" id="ch12">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 12 (निबंध 2)</span>
+                    <h1>महावीर प्रसाद द्विवेदी – कवियों में उर्मिला विषयक उदासीनता</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>निबंध की ऐतिहासिक पृष्ठभूमि:</strong> आचार्य महावीर प्रसाद द्विवेदी ने यह ऐतिहासिक निबंध जुलाई 1908 ई. में 'सरस्वती' पत्रिका में 'भुजंगभूषण भट्टाचार्य' के छद्म नाम से प्रकाशित किया था। इस निबंध ने समूचे हिंदी जगत को झकझोर कर रख दिया और इसी निबंध की प्रेरणा से राष्ट्रकवि मैथिलीशरण गुप्त ने प्रसिद्ध महाकाव्य <strong>'साकेत' (विशेषतः नवम सर्ग)</strong> की रचना कर उर्मिला के विरह और त्याग को अमर बनाया।
+                </div>
+
+                <section id="sec12-1">
+                    <h2>12.1 निबंध का केंद्रीय कथ्य एवं साहित्यिक महत्व</h2>
+                    <p>
+                        <strong>प्राचीन कवियों पर आक्षेप:</strong> द्विवेदी जी ने महर्षि वाल्मीकि, कालिदास और भवभूति जैसे महाकवियों पर यह गंभीर साहित्यिक आक्षेप लगाया कि उन्होंने रामायण कथा में लक्ष्मण की धर्मपत्नी <strong>'उर्मिला'</strong> के महान त्याग की सर्वथा उपेक्षा की।<br>
+                        <strong>तुलनात्मक विश्लेषण:</strong>
+                    </p>
+                    <ul>
+                        <li>सीता राम के साथ वन गईं, अतः उनके सुख-दुख में पति का सान्निध्य था और सारा संसार उनकी पूजा करता है।</li>
+                        <li>लक्ष्मण अपने भ्रातृ-प्रेम के कारण वन गए, अतः वे सेवा के आदर्श बने।</li>
+                        <li>किंतु उर्मिला ने अपने पति लक्ष्मण को बिना किसी बाधा के वन जाने दिया और स्वयं 14 वर्षों तक राजमहल में मौन विरह की भयानक ज्वाला सही। उसका त्याग सीता से किसी भी भांति कम नहीं था, किंतु प्राचीन कवियों ने उसे केवल एक उपेक्षिता पात्रा बनाकर छोड़ दिया।</li>
+                    </ul>
+                </section>
+            </article>
+
+            <!-- NIBANDH 3: HARISHANKAR PARSAI -->
+            <article class="book-chapter" id="ch13">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 13 (निबंध 3)</span>
+                    <h1>हरिशंकर परसाई – सदाचार का ताबीज</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>व्यंग्यकार एवं निबंध परिचय:</strong> हिंदी साहित्य में व्यंग्य को एक स्वतंत्र, धारदार और विचारोत्तेजक साहित्यिक विधा के रूप में प्रतिष्ठित करने वाले शिखर लेखक हरिशंकर परसाई (1924-1995 ई.) हैं। उनका व्यंग्य निबंध <strong>'सदाचार का ताबीज'</strong> स्वतंत्र भारत की प्रशासनिक व्यवस्था, राजनीतिक ढकोसलों और भ्रष्टाचार उन्मूलन के खोखले सरकारी दावों पर किया गया सर्वाधिक तीक्ष्ण कटाक्ष है।
+                </div>
+
+                <section id="sec13-1">
+                    <h2>13.1 कथावस्तु एवं व्यंग्य का मर्म</h2>
+                    <p>
+                        <strong>राजा और भ्रष्टाचार की खोज:</strong> एक राज्य में हल्ला मचा कि भ्रष्टाचार बहुत बढ़ गया है। राजा ने दरबारियों से पूछा — <em>"भ्रष्टाचार कहाँ है? मुझे दिखाओ।"</em> दरबारियों ने कहा कि महाराज, वह बहुत बारीक होता है, आँखों से नहीं दिखता, केवल अनुभव होता है। राजा ने पांच प्रतिष्ठित विशेषज्ञों (दरबारियों) को भ्रष्टाचार ढूंढने का काम सौंपा। विशेषज्ञों ने जांच के बाद बताया कि भ्रष्टाचार सर्वत्र व्याप्त है — ठेके में, घूस में और यहाँ तक कि महाराज के सिंहासन के रंग में भी!<br><br>
+                        <strong>ताबीज का आविष्कार:</strong> विशेषज्ञों ने राजा को सलाह दी कि भ्रष्टाचार मिटाने के लिए पूरी प्रशासनिक व्यवस्था को बदलने के बजाय एक साधु बाबा द्वारा सिद्ध किया गया <strong>'सदाचार का ताबीज'</strong> प्रत्येक कर्मचारी की भुजा पर बांध दिया जाए। उस ताबीज से सदाचार के पवित्र स्वर निकलते हैं — <em>"ईमानदारी से काम करो, घूस मत लो!"</em> राजा बहुत प्रसन्न हुआ और लाखों रुपए खर्च कर ताबीज बनवाए गए और सभी कर्मचारियों की भुजाओं पर बांध दिए गए।<br><br>
+                        <strong>चरम व्यंग्य (31 तारीख की सच्चाई):</strong> राजा स्वयं वेश बदलकर एक दफ्तर में जांच करने पहुँचा। 2 तारीख को राजा ने एक चपरासी को पाँच रुपए का नोट देना चाहा, तो ताबीज से आवाज आई — <em>"छी-छी, घूस लेना पाप है!"</em> राजा अत्यंत प्रसन्न हुआ। किंतु उसी महीने की <strong>31 तारीख</strong> को जब कर्मचारी की जेब खाली हो चुकी थी, राजा ने पुनः उसे पाँच का नोट दिया। इस बार कर्मचारी ने तुरंत जेब में रख लिया। राजा ने ताबीज पर कान लगाया तो ताबीज से स्वर आ रहा था — <em>"अरे, ले ले भाई, आज 31 तारीख है!"</em><br><br>
+                        <strong>मर्म:</strong> परसाई जी यह सिद्ध करते हैं कि भ्रष्टाचार किसी ताबीज या नैतिक उपदेशों से नहीं रुक सकता; जब तक व्यवस्था की आर्थिक-प्रशासनिक विसंगतियों को दूर नहीं किया जाएगा, तब तक सुधार के सारे प्रयास ढकोसला मात्र रहेंगे।
+                    </p>
+                </section>
+            </article>
+
+            <!-- NIBANDH 4: PRATAP NARAYAN MISHRA -->
+            <article class="book-chapter" id="ch14">
+                <div class="chapter-header">
+                    <span class="chapter-num">अध्याय 14 (निबंध 4)</span>
+                    <h1>प्रताप नारायण मिश्र – मनोयोग</h1>
+                </div>
+
+                <div class="chapter-bhumika">
+                    <strong>निबंधकार एवं निबंध परिचय:</strong> भारतेंदु मंडल के मूर्धन्य निबंधकार और 'ब्राह्मण' पत्र के यशस्वी संपादक पं. प्रताप नारायण मिश्र (1856-1894 ई.) अपनी अनूठी, विनोदप्रिय, मुहावरेदार और सजीव भाषा-शैली के लिए विख्यात हैं। उनका निबंध <strong>'मनोयोग'</strong> मन की एकाग्रता, आत्म-संयम और मानसिक संकल्प के महत्व पर आधारित अत्यंत विचारोत्तेजक एवं व्यावहारिक ललित निबंध है।
+                </div>
+
+                <section id="sec14-1">
+                    <h2>14.1 निबंध का सार एवं प्रमुख विचार</h2>
+                    <p>
+                        <strong>मनोयोग का अर्थ:</strong> 'मनोयोग' शब्द 'मन' और 'योग' के मेल से बना है, जिसका अर्थ है — किसी कार्य या विषय में अपने मन को पूरी तरह एकाग्र करना, चित्त की वृत्तियों को बाँधना।<br><br>
+                        <strong>मुख्य वैचारिक बिंदु:</strong>
+                    </p>
+                    <ol class="book-list">
+                        <li><strong>मन की चंचलता:</strong> मन वायु से भी तेज और पारे के समान चंचल है। जब तक मनुष्य अपने मन को वश में नहीं करता, तब तक उसके विचार भटकते रहते हैं।</li>
+                        <li><strong>सफलता का एकमात्र रहस्य:</strong> मिश्र जी स्पष्ट करते हैं कि संसार में चाहे कोई विद्यार्थी हो, व्यापारी हो, सैनिक हो या तपस्वी — जब तक वह अपने कार्य में पूर्ण 'मनोयोग' (एकाग्रता) नहीं लगाता, तब तक उसे सिद्धि प्राप्त नहीं हो सकती। बेमन से किया गया काम कभी फलदायी नहीं होता।</li>
+                        <li><strong>भाषा एवं शैली का वैशिष्ट्य:</strong> पं. प्रताप नारायण मिश्र ने गंभीर दार्शनिक विषय को भी लोक-कहावतों, मुहावरों और चुटीले व्यंग्य के साथ प्रस्तुत किया है, जिससे पाठक सहजता से विषय के मर्म को आत्मसात कर लेता है।</li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- SUBJECT SUMMARY & QUESTION BANK -->
+            <div class="chapter-exercises" id="hindi-summary">
+                <h3>📚 हिंदी (भाषा आधारित पाठ्यक्रम – 1) : समग्र सार एवं परीक्षा उपयोगी प्रश्नोत्तरी</h3>
+                <p>
+                    इस पाठ्यक्रम में हमने हिंदी भाषा की व्युत्पत्ति, प्रकृति, खड़ी बोली के ऐतिहासिक विकास, अमीर खुसरो से लेकर नागार्जुन तक के 6 मूर्धन्य कवियों, तथा प्रेमचंद, विमल, शुक्ल, द्विवेदी, परसाई एवं मिश्र के कालजयी गद्य का सांगोपांग अध्ययन किया।
+                </p>
+
+                <h4>🔑 महत्वपूर्ण बहुविकल्पीय प्रश्न (MCQs for Examination)</h4>
+                <div class="book-note">
+                    <ol style="margin:0; padding-left:1.2rem; font-size:0.92rem; line-height:1.7;">
+                        <li><strong>'भाषा' शब्द किस संस्कृत धातु से बना है?</strong> — (उत्तर: 'भाष्' धातु, जिसका अर्थ है बोलना)।</li>
+                        <li><strong>संविधान के किस अनुच्छेद के तहत हिंदी संघ की राजभाषा है?</strong> — (उत्तर: अनुच्छेद 343(1), देवनागरी लिपि)।</li>
+                        <li><strong>खड़ी बोली को 'कौरवी' नाम किस भाषाविद् ने दिया?</strong> — (उत्तर: राहुल सांकृत्यायन)।</li>
+                        <li><strong>'रानी केतकी की कहानी' के लेखक कौन हैं?</strong> — (उत्तर: मुंशी इंशा अल्ला खाँ)।</li>
+                        <li><strong>'सरस्वती' पत्रिका के यशस्वी संपादक जिन्होंने खड़ी बोली को मानकीकृत किया?</strong> — (उत्तर: आचार्य महावीर प्रसाद द्विवेदी, 1903 ई.)।</li>
+                        <li><strong>अमीर खुसरो की मुकरी "रात समय वह मेरे आवे... भोर भये वह घर उठि जावे" का उत्तर क्या है?</strong> — (उत्तर: तारा)।</li>
+                        <li><strong>जयशंकर प्रसाद कृत 'आँसू' किस प्रकार का काव्य है?</strong> — (उत्तर: उत्कृष्ट स्मृति-काव्य एवं विरह-काव्य)।</li>
+                        <li><strong>"मंदिर, मस्जिद बैर कराते, मेल कराती मधुशाला" किसकी पंक्ति है?</strong> — (उत्तर: डॉ. हरिवंशराय बच्चन)।</li>
+                        <li><strong>'बहुत दिनों तक चूल्हा रोया, चक्की रही उदास' कविता के रचयिता कौन हैं?</strong> — (उत्तर: जनकवि नागार्जुन)।</li>
+                        <li><strong>'मंत्र' कहानी में बूढ़े भगत के सामने कौन सा डॉक्टर अपने गोल्फ प्रेम के कारण बच्चे को देखने से मना करता है?</strong> — (उत्तर: डॉ. चड्ढा)।</li>
+                        <li><strong>'कवियों में उर्मिला विषयक उदासीनता' निबंध किस पत्रिका में छपा था?</strong> — (उत्तर: 'सरस्वती', 1908 ई.)।</li>
+                        <li><strong>'सदाचार का ताबीज' किस विधा की रचना है?</strong> — (उत्तर: व्यंग्य निबंध, लेखक: हरिशंकर परसाई)।</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Subject Footer Navigation -->
+            <footer class="site-footer book-footer">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>पुस्तकालय विषय सूची</h4>
+                        <ul>
+                            <li><a href="./geo-theory.html"><i class="fa-solid fa-earth-americas"></i> आर्थिक भूगोल (Theory-V)</a></li>
+                            <li><a href="./geo-practical.html"><i class="fa-solid fa-map-location-dot"></i> भूगोल प्रायोगिक (Practical-V)</a></li>
+                            <li><a href="./eco-elective-1-policy.html"><i class="fa-solid fa-chart-line"></i> अर्थशास्त्र ऐच्छिक-1 (विकास एवं नीति)</a></li>
+                            <li><a href="./eco-skill-course.html"><i class="fa-solid fa-briefcase"></i> फील्ड आधारित पाठ्यक्रम (उद्योग)</a></li>
+                            <li><a href="./hindi-bhasha-1.html"><i class="fa-solid fa-feather-pointed"></i> हिंदी (भाषा आधारित पाठ्यक्रम-1)</a></li>
+                            <li><a href="./vac-ctmv.html"><i class="fa-solid fa-shield-halved"></i> VAC — संस्कृति एवं नैतिक मूल्य</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>विश्वविद्यालय विवरण</h4>
+                        <p class="text-xs text-subtle">
+                            हेमवती नंदन बहुगुणा गढ़वाल विश्वविद्यालय (HNBGU)<br>
+                            बी.ए. तृतीय वर्ष – पंचम सेमेस्टर<br>
+                            विषय: हिंदी (भाषा आधारित पाठ्यक्रम – 1)<br>
+                            पेपर कोड: 755131 • क्रेडिट: 02 • परीक्षा: 25-11-2026
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 बी.ए. 5वां सेमेस्टर डिजिटल पाठ्यपुस्तक पुस्तकालय • 100% फ्रंटएंड ओपन एजुकेशन सिस्टम</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Official Syllabus Modal Lightbox -->
+    <div id="syllabus-modal-overlay" class="syllabus-modal-overlay">
+        <div class="syllabus-modal-card">
+            <div class="syllabus-modal-header">
+                <div class="syllabus-modal-title">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>आधिकारिक पाठ्यक्रम (Syllabus)</span>
+                </div>
+                <select id="syllabus-subject-select" onchange="switchSyllabusSubject(this.value)" class="syllabus-select-dropdown">
+                    <option value="hindi-bhasha-1" selected>हिंदी — भाषा आधारित पाठ्यक्रम-1</option>
+                    <option value="eco-elective-1">अर्थशास्त्र ऐच्छिक 1 — विकास एवं नीति</option>
+                    <option value="eco-skill">अर्थशास्त्र कौशल पाठ्यक्रम</option>
+                    <option value="geo-theory">भूगोल सिद्धांत (थ्योरी)</option>
+                    <option value="geo-practical">भूगोल प्रायोगिक (प्रैक्टिकल)</option>
+                    <option value="vac-ctmv">VAC — CTMV</option>
+                </select>
+                <div class="syllabus-modal-toolbar">
+                    <button class="nav-btn" onclick="zoomSyllabus(1.15)" title="बड़ा करें"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                    <button class="nav-btn" onclick="zoomSyllabus(0.85)" title="छोटा करें"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                    <button class="nav-btn" onclick="resetSyllabusZoom()" title="सामान्य आकार"><i class="fa-solid fa-rotate-left"></i></button>
+                    <button class="modal-close-btn" onclick="closeSyllabusModal()">&times;</button>
+                </div>
+            </div>
+            <div class="syllabus-modal-body">
+                <div class="syllabus-image-container" id="syllabus-image-wrapper">
+                    <!-- Image rendered dynamically by JS -->
+                </div>
+            </div>
+            <div class="syllabus-modal-footer">
+                <span class="text-xs text-subtle" style="color:#94a3b8;">आधिकारिक पाठ्यक्रम दस्तावेज़ • विश्वविद्यालय प्रमाणित</span>
+                <button class="nav-btn" onclick="closeSyllabusModal()" style="background:#b91c1c; border:none; color:#fff;">बंद करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div id="search-modal-overlay" class="search-modal-overlay">
+        <div class="search-modal-card">
+            <div class="search-input-header">
+                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-subtle);"></i>
+                <input type="text" id="global-search-input" placeholder="खड़ी बोली, अमीर खुसरो, प्रसाद आँसू, मधुशाला, प्रेमचंद मंत्र या परसाई खोजें..." autocomplete="off">
+                <button onclick="closeSearchModal()" class="text-subtle" style="background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--text-subtle);">&times;</button>
+            </div>
+            <ul id="global-search-results" class="search-results-list">
+                <li style="padding:1.5rem; text-align:center; color:var(--text-subtle); font-size:0.9rem;">खोजने के लिए कम से कम 2 अक्षर टाइप करें...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Central JS File -->
+    <script src="./assets/js/script.js"></script>
+    <!-- Smart Multilingual Audio Reader Engine -->
+    <script src="./assets/js/audio-reader.js"></script>
+</body>
+</html>
